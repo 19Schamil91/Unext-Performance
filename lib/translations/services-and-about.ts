@@ -92,7 +92,7 @@ export const servicesAndAboutTranslations = {
       storyParagraphs: [
         "UNEXT GmbH wurde 2024 in Berlin gegründet, mit einer klaren Mission: professionelle Unfallgutachten und Soforthilfe für Menschen, die gerade einen stressigen Moment durchleben. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger und kompetenter Partner etabliert.",
         "Doch wir haben erkannt, dass unsere Kunden mehr brauchen. Wer nach einem Unfall ein Gutachten benötigt, braucht oft auch ein Ersatzfahrzeug. Wer sein Auto zur Reparatur bringt, wünscht sich einen Ansprechpartner für alles. Und wer sein Fahrzeug liebt, möchte es in besten Händen wissen.",
-        "Deshalb haben wir unser Angebot erweitert: Autovermietung, Werkstatt & Service, Aufbereitung & Pflege, Kfz-Zulassung und Pannenhilfe & Abschleppen sind heute feste Bestandteile von UNEXT. Sechs starke Bereiche, ein kompetenter Partner - das ist unsere Vision, die wir jeden Tag leben.",
+        "Deshalb haben wir unser Angebot erweitert: Autovermietung, Werkstatt\u00A0&\u00A0Service, Aufbereitung\u00A0&\u00A0Pflege, Kfz-Zulassung und Pannenhilfe\u00A0&\u00A0Abschleppen sind heute feste Bestandteile von UNEXT. Sechs starke Bereiche, ein kompetenter Partner - das ist unsere Vision, die wir jeden Tag leben.",
       ],
       valuesTitle: "Unsere Werte",
       valuesDescription: "Diese Prinzipien leiten uns bei allem, was wir tun.",
