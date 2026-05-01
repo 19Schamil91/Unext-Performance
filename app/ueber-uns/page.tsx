@@ -46,7 +46,7 @@ export default async function UeberUnsPage() {
               className="object-contain object-top"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/12 to-background/92" />
+            <div className="absolute inset-0 hidden bg-gradient-to-b from-background/0 via-background/12 to-background/92 md:block" />
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-8 md:flex md:h-full md:items-end md:pt-0 lg:px-8 lg:pb-12">
