@@ -321,7 +321,7 @@ export function ContactPageClient() {
               <div className="min-h-full">
                 <div className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-card shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
                   <iframe
-                    title="UNEXT GMBH Standortkarte"
+                    title="UNEXT GmbH Standortkarte"
                     src="https://www.google.com/maps?q=L%C3%BCbarser%20Str.%2025%2C%2013435%20Berlin&output=embed"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"

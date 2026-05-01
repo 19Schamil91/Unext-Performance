@@ -172,7 +172,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(
     locale,
-    `${t.title} | UNFALLX | UNEXT GMBH Berlin`,
+    `${t.title} | UNFALLX | UNEXT GmbH Berlin`,
     t.description,
     "/leistungen/unfallgutachten"
   )

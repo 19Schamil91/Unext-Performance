@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).servicesPage
 
-  return buildPageMetadata(locale, `${t.title} | UNEXT GMBH Berlin`, t.description, "/leistungen")
+  return buildPageMetadata(locale, `${t.title} | UNEXT GmbH Berlin`, t.description, "/leistungen")
 }
 
 const serviceMeta = [
@@ -108,12 +108,12 @@ export default async function LeistungenPage() {
         ]
       : locale === "en"
         ? [
-            "UNEXT GMBH offers a comprehensive range of vehicle-related services.",
+            "UNEXT GmbH offers a comprehensive range of vehicle-related services.",
             "Six strong business areas under one roof - professional, reliable and always there for you.",
           ]
         : locale === "ru"
           ? [
-              "UNEXT GMBH предлагает полный спектр услуг вокруг автомобиля.",
+              "UNEXT GmbH предлагает полный спектр услуг вокруг автомобиля.",
               "Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
             ]
       : null

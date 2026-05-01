@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(
     locale,
-    `${t.title} | UNEXT GMBH Berlin`,
+    `${t.title} | UNEXT GmbH Berlin`,
     "Impressum der Unext GmbH gem\u00e4\u00df \u00a7 5 DDG.",
     "/impressum"
   )

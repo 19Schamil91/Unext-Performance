@@ -90,7 +90,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center">
           <Image
             src="/images/unext-logo.webp"
-            alt="UNEXT GMBH Logo"
+            alt="UNEXT GmbH Logo"
             width={140}
             height={40}
             className="h-7 w-auto drop-shadow-[0_1px_0_rgba(255,255,255,0.06)] sm:h-8"
@@ -218,7 +218,7 @@ export function SiteHeader() {
                   <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                     <Image
                       src="/images/unext-logo.webp"
-                      alt="UNEXT GMBH Logo"
+                      alt="UNEXT GmbH Logo"
                       width={120}
                       height={35}
                       className="h-7 w-auto drop-shadow-[0_1px_0_rgba(255,255,255,0.06)]"

@@ -1,6 +1,6 @@
 /*
   Diese Datei ist die Ueber-uns-Seite.
-  Sie zeigt Informationen zur UNEXT GMBH, ihre Werte und die Marke UNFALLX.
+  Sie zeigt Informationen zur UNEXT GmbH, ihre Werte und die Marke UNFALLX.
   Der Nutzer kann mehr ueber das Unternehmen lesen und zur passenden Leistung wechseln.
 */
 
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).aboutPage
 
-  return buildPageMetadata(locale, `${t.title} | UNEXT GMBH Berlin`, t.description, "/ueber-uns")
+  return buildPageMetadata(locale, `${t.title} | UNEXT GmbH Berlin`, t.description, "/ueber-uns")
 }
 
 const icons = [Award, Users, Target, Heart]
@@ -34,28 +34,29 @@ export default async function UeberUnsPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="relative overflow-hidden py-20 lg:py-28">
-          <div className="absolute inset-0">
+        <section className="overflow-hidden bg-background md:relative md:aspect-[5022/1795]">
+          <div className="relative aspect-[5022/1795] bg-background md:absolute md:inset-0">
+            {/* Dieses breite Teamfoto bleibt voll sichtbar, damit die Personen links und rechts nicht abgeschnitten werden. */}
             <Image
-              src="/images/hero-car.webp"
-              alt="UNEXT team member"
+              src="/images/about-hero-team-cropped.jpg"
+              alt="Team von UNEXT GmbH"
               fill
               sizes="100vw"
-              quality={80}
-              className="object-cover object-[62%_center] md:object-[72%_center]"
+              quality={86}
+              className="object-contain object-top"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/12 to-background/92" />
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-8 md:flex md:h-full md:items-end md:pt-0 lg:px-8 lg:pb-12">
             <div className="max-w-5xl">
-              <h1 className="text-display-fluid text-foreground lg:whitespace-nowrap">
+              <h1 className={`text-display-fluid text-foreground ${locale === "de" ? "whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 max-w-none text-[clamp(1rem,0.98rem+0.18vw,1.15rem)] leading-[1.72] text-muted-foreground/92">
+              <p className="mt-6 measure-intro text-body-fluid text-muted-foreground/92">
                 {t.description.split("\n").map((line, index) => (
-                  <span key={`${line}-${index}`} className="block lg:whitespace-nowrap">
+                  <span key={`${line}-${index}`} className="block">
                     {line}
                   </span>
                 ))}

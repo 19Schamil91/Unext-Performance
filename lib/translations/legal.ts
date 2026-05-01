@@ -1,4 +1,4 @@
-﻿import type { Locale } from "@/lib/i18n"
+import type { Locale } from "@/lib/i18n"
 
 export const legalTranslations = {
   de: {
@@ -41,7 +41,7 @@ export const legalTranslations = {
       title: "Datenschutzerklärung",
       sections: [
         { title: "1. Datenschutz auf einen Blick", subtitle: "Allgemeine Hinweise", content: "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können." },
-        { title: "2. Verantwortliche Stelle", content: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:\n\nUNEXT GMBH\nLübarser Str. 25\n13435 Berlin\n\nTelefon: 030 23613927\nE-Mail: info@unext.de" },
+        { title: "2. Verantwortliche Stelle", content: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:\n\nUNEXT GmbH\nLübarser Str. 25\n13435 Berlin\n\nTelefon: 030 23613927\nE-Mail: info@unext.de" },
         { title: "3. Datenerfassung auf dieser Website", subtitle: "Kontaktformular", content: "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter." },
         { subtitle: "Cookies", content: "Unsere Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen." },
         { title: "4. Ihre Rechte", content: "Sie haben jederzeit das Recht:", list: ["Auskunft über Ihre bei uns gespeicherten Daten zu erhalten", "Berichtigung unrichtiger Daten zu verlangen", "Löschung Ihrer Daten zu verlangen", "Einschränkung der Verarbeitung zu verlangen", "Datenübertragbarkeit zu verlangen", "Widerspruch gegen die Verarbeitung einzulegen"] },
@@ -53,7 +53,7 @@ export const legalTranslations = {
     terms: {
       title: "Allgemeine Geschäftsbedingungen (AGB)",
       sections: [
-        { title: "§ 1 Geltungsbereich", content: "Diese Allgemeinen Geschäftsbedingungen gelten für alle Geschäftsbeziehungen zwischen der UNEXT GMBH (nachfolgend 'Anbieter') und dem Kunden. Maßgeblich ist die zum Zeitpunkt des Vertragsschlusses gültige Fassung." },
+        { title: "§ 1 Geltungsbereich", content: "Diese Allgemeinen Geschäftsbedingungen gelten für alle Geschäftsbeziehungen zwischen der UNEXT GmbH (nachfolgend 'Anbieter') und dem Kunden. Maßgeblich ist die zum Zeitpunkt des Vertragsschlusses gültige Fassung." },
         { title: "§ 2 Vertragsschluss", content: "[Platzhalter für Regelungen zum Vertragsschluss, z.B. bei Anfragen für Gutachten, Mietwagen, Werkstattleistungen oder Detailing]" },
         { title: "§ 3 Leistungen", subsections: [
           { title: "3.1 Unfallgutachten", content: "[Platzhalter für spezifische Regelungen zu Unfallgutachten und dem UNFALLX-Service]" },
@@ -109,7 +109,7 @@ export const legalTranslations = {
       title: "Privacy policy",
       sections: [
         { title: "1. Privacy at a glance", subtitle: "General information", content: "The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally." },
-        { title: "2. Controller", content: "The controller responsible for data processing on this website is:\n\nUNEXT GMBH\nLübarser Str. 25\n13435 Berlin\n\nPhone: 030 23613927\nEmail: info@unext.de" },
+        { title: "2. Controller", content: "The controller responsible for data processing on this website is:\n\nUNEXT GmbH\nLübarser Str. 25\n13435 Berlin\n\nPhone: 030 23613927\nEmail: info@unext.de" },
         { title: "3. Data collection on this website", subtitle: "Contact form", content: "If you send us inquiries via the contact form, the information you provide in the form, including the contact details you enter there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent." },
         { subtitle: "Cookies", content: "Some of our web pages use so-called cookies. Cookies do not harm your computer and do not contain viruses. Cookies help make our website more user-friendly, effective and secure." },
         { title: "4. Your rights", content: "You have the right at any time to:", list: ["receive information about the data we store about you", "request the correction of inaccurate data", "request the deletion of your data", "request restriction of processing", "request data portability", "object to processing"] },
@@ -121,7 +121,7 @@ export const legalTranslations = {
     terms: {
       title: "Terms and conditions",
       sections: [
-        { title: "§ 1 Scope", content: "These terms and conditions apply to all business relationships between UNEXT GMBH (hereinafter referred to as the 'provider') and the customer. The version valid at the time of contract conclusion shall apply." },
+        { title: "§ 1 Scope", content: "These terms and conditions apply to all business relationships between UNEXT GmbH (hereinafter referred to as the 'provider') and the customer. The version valid at the time of contract conclusion shall apply." },
         { title: "§ 2 Conclusion of contract", content: "[Placeholder for rules on contract conclusion, e.g. for report requests, rental cars, workshop services or detailing]" },
         { title: "§ 3 Services", subsections: [
           { title: "3.1 Accident reports", content: "[Placeholder for specific rules relating to accident reports and the UNFALLX service]" },
@@ -177,7 +177,7 @@ export const legalTranslations = {
       title: "Политика конфиденциальности",
       sections: [
         { title: "1. Кратко о защите данных", subtitle: "Общая информация", content: "Следующая информация дает простой обзор того, что происходит с вашими персональными данными при посещении этого сайта. Персональные данные - это любые данные, по которым можно установить вашу личность." },
-        { title: "2. Ответственное лицо", content: "Ответственным за обработку данных на этом сайте является:\n\nUNEXT GMBH\nLübarser Str. 25\n13435 Berlin\n\nТелефон: 030 23613927\nE-mail: info@unext.de" },
+        { title: "2. Ответственное лицо", content: "Ответственным за обработку данных на этом сайте является:\n\nUNEXT GmbH\nLübarser Str. 25\n13435 Berlin\n\nТелефон: 030 23613927\nE-mail: info@unext.de" },
         { title: "3. Сбор данных на этом сайте", subtitle: "Контактная форма", content: "Если вы отправляете нам запрос через контактную форму, ваши данные из формы, включая указанные контактные данные, сохраняются у нас для обработки запроса и возможных последующих вопросов. Мы не передаем эти данные без вашего согласия." },
         { subtitle: "Cookies", content: "Некоторые страницы нашего сайта используют так называемые cookies. Cookies не наносят вред вашему компьютеру и не содержат вирусов. Они помогают сделать наш сайт более удобным, эффективным и безопасным." },
         { title: "4. Ваши права", content: "Вы имеете право в любое время:", list: ["получить информацию о хранящихся у нас данных", "потребовать исправления неверных данных", "потребовать удаления ваших данных", "потребовать ограничения обработки", "потребовать перенос данных", "возразить против обработки"] },
@@ -189,7 +189,7 @@ export const legalTranslations = {
     terms: {
       title: "Общие условия (AGB)",
       sections: [
-        { title: "§ 1 Сфера действия", content: "Эти общие условия применяются ко всем деловым отношениям между UNEXT GMBH (далее - 'поставщик') и клиентом. Применяется версия, действующая на момент заключения договора." },
+        { title: "§ 1 Сфера действия", content: "Эти общие условия применяются ко всем деловым отношениям между UNEXT GmbH (далее - 'поставщик') и клиентом. Применяется версия, действующая на момент заключения договора." },
         { title: "§ 2 Заключение договора", content: "[Заглушка для правил заключения договора, например по запросам на экспертизу, аренду авто, услуги мастерской или детейлинг]" },
         { title: "§ 3 Услуги", subsections: [
           { title: "3.1 Экспертиза ДТП", content: "[Заглушка для специальных правил по автоэкспертизе и сервису UNFALLX]" },

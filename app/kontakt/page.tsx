@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).contactPage
 
-  return buildPageMetadata(locale, `${t.title} | UNEXT GMBH Berlin`, t.description, "/kontakt")
+  return buildPageMetadata(locale, `${t.title} | UNEXT GmbH Berlin`, t.description, "/kontakt")
 }
 
 export default function KontaktPage() {

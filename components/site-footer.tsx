@@ -57,7 +57,7 @@ export function SiteFooter() {
             <Link href="/" className="inline-flex">
               <Image
                 src="/images/unext-logo.webp"
-                alt="UNEXT GMBH Logo"
+                alt="UNEXT GmbH Logo"
                 width={140}
                 height={40}
                 className="h-10 w-auto"
@@ -143,7 +143,7 @@ export function SiteFooter() {
         <div className="border-t border-border pt-5">
           <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} UNEXT GMBH. {t.footer.copyright}
+              © {new Date().getFullYear()} UNEXT GmbH. {t.footer.copyright}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-muted-foreground sm:justify-end">
               <span>{t.footer.bottomLocation}</span>

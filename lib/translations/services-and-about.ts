@@ -84,13 +84,13 @@ export const servicesAndAboutTranslations = {
       ],
     },
     aboutPage: {
-      title: "Über UNEXT GMBH",
+      title: "Über UNEXT GmbH",
       description:
         "Vom spezialisierten Unfallgutachter zum vollständigen Automotive-Partner. Lernen Sie das Team hinter UNEXT kennen und erfahren Sie, was uns antreibt.",
       storyEyebrow: "Unsere Geschichte",
       storyTitle: "Von der Vision zur Realität",
       storyParagraphs: [
-        "UNEXT GMBH wurde 2024 in Berlin gegründet, mit einer klaren Mission: professionelle Unfallgutachten und Soforthilfe für Menschen, die gerade einen stressigen Moment durchleben. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger und kompetenter Partner etabliert.",
+        "UNEXT GmbH wurde 2024 in Berlin gegründet, mit einer klaren Mission: professionelle Unfallgutachten und Soforthilfe für Menschen, die gerade einen stressigen Moment durchleben. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger und kompetenter Partner etabliert.",
         "Doch wir haben erkannt, dass unsere Kunden mehr brauchen. Wer nach einem Unfall ein Gutachten benötigt, braucht oft auch ein Ersatzfahrzeug. Wer sein Auto zur Reparatur bringt, wünscht sich einen Ansprechpartner für alles. Und wer sein Fahrzeug liebt, möchte es in besten Händen wissen.",
         "Deshalb haben wir unser Angebot erweitert: Autovermietung, Werkstatt & Service, Aufbereitung & Pflege, Kfz-Zulassung und Pannenhilfe & Abschleppen sind heute feste Bestandteile von UNEXT. Sechs starke Bereiche, ein kompetenter Partner - das ist unsere Vision, die wir jeden Tag leben.",
       ],
@@ -128,7 +128,7 @@ export const servicesAndAboutTranslations = {
         {
           year: "2024",
           title: "Gründung",
-          description: "UNEXT GMBH wird in Berlin gegründet mit Fokus auf Unfallgutachten (UNFALLX).",
+          description: "UNEXT GmbH wird in Berlin gegründet mit Fokus auf Unfallgutachten (UNFALLX).",
         },
         { year: "2026", title: "Autovermietung", description: "Erweiterung des Angebots um professionelle Mietfahrzeuge." },
         { year: "2026", title: "Werkstatt & Detailing", description: "Eröffnung des Werkstattbereichs und Start des Premium-Detailing-Service." },
@@ -146,7 +146,7 @@ export const servicesAndAboutTranslations = {
     servicesPage: {
       title: "Our services",
       description:
-        "UNEXT GMBH offers a comprehensive range of vehicle-related services. Six strong business areas under one roof - professional, reliable and always there for you.",
+        "UNEXT GmbH offers a comprehensive range of vehicle-related services. Six strong business areas under one roof - professional, reliable and always there for you.",
       directCall: "Call directly:",
       onRequestContact: "Phone on request · @unext.performance",
       items: [
@@ -205,13 +205,13 @@ export const servicesAndAboutTranslations = {
       ],
     },
     aboutPage: {
-      title: "About UNEXT GMBH",
+      title: "About UNEXT GmbH",
       description:
         "From a specialized accident expert to a full automotive partner. Get to know the team behind UNEXT and learn what drives us.",
       storyEyebrow: "Our story",
       storyTitle: "From vision to reality",
       storyParagraphs: [
-        "UNEXT GMBH was founded in Berlin in 2024 with a clear mission: professional accident reports and immediate assistance for people going through a stressful moment. Under the UNFALLX brand, we quickly established ourselves as a reliable and competent partner.",
+        "UNEXT GmbH was founded in Berlin in 2024 with a clear mission: professional accident reports and immediate assistance for people going through a stressful moment. Under the UNFALLX brand, we quickly established ourselves as a reliable and competent partner.",
         "But we realized our customers need more. Anyone needing an accident report often also needs a replacement vehicle. Anyone bringing a car in for repairs wants one point of contact for everything. And anyone who loves their vehicle wants it in the best hands.",
         "That is why we expanded our services: car rental, professional workshop service, premium detailing, vehicle registration and towing are now integral parts of UNEXT. Six strong business areas, one competent partner - that is the vision we live every day.",
       ],
@@ -230,7 +230,7 @@ export const servicesAndAboutTranslations = {
         { value: "100%", label: "Commitment" },
       ],
       milestones: [
-        { year: "2024", title: "Founded", description: "UNEXT GMBH is founded in Berlin with a focus on accident reports (UNFALLX)." },
+        { year: "2024", title: "Founded", description: "UNEXT GmbH is founded in Berlin with a focus on accident reports (UNFALLX)." },
         { year: "2026", title: "Car Rental", description: "Expansion of the portfolio with professional rental vehicles." },
         { year: "2026", title: "Workshop & Detailing", description: "Opening of the workshop area and launch of the premium detailing service." },
         { year: "Today", title: "Full Service", description: "Six strong business areas under one roof - your automotive partner in Berlin." },
@@ -247,7 +247,7 @@ export const servicesAndAboutTranslations = {
     servicesPage: {
       title: "Наши услуги",
       description:
-        "UNEXT GMBH предлагает полный спектр услуг вокруг автомобиля. Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
+        "UNEXT GmbH предлагает полный спектр услуг вокруг автомобиля. Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
       directCall: "Позвонить напрямую:",
       onRequestContact: "Телефон по запросу · @unext.performance",
       items: [
@@ -306,13 +306,13 @@ export const servicesAndAboutTranslations = {
       ],
     },
     aboutPage: {
-      title: "О UNEXT GMBH",
+      title: "О UNEXT GmbH",
       description:
         "От специализированного эксперта по ДТП до полноценного автомобильного партнера. Познакомьтесь с командой UNEXT и узнайте, что нас вдохновляет.",
       storyEyebrow: "Наша история",
       storyTitle: "От идеи к реальности",
       storyParagraphs: [
-        "UNEXT GMBH была основана в Берлине в 2024 году с четкой миссией: профессиональная экспертиза ДТП и срочная помощь людям в стрессовой ситуации. Под брендом UNFALLX мы быстро стали надежным и компетентным партнером.",
+        "UNEXT GmbH была основана в Берлине в 2024 году с четкой миссией: профессиональная экспертиза ДТП и срочная помощь людям в стрессовой ситуации. Под брендом UNFALLX мы быстро стали надежным и компетентным партнером.",
         "Но мы поняли, что клиентам нужно больше. Тем, кому нужна экспертиза после ДТП, часто нужен и подменный автомобиль. Тем, кто отдает машину в ремонт, нужен единый контакт по всем вопросам. А те, кто любят свой автомобиль, хотят доверить его лучшим рукам.",
         "Поэтому мы расширили спектр услуг: прокат авто, профессиональная мастерская, премиальный детейлинг, регистрация автомобилей и эвакуатор теперь являются частью UNEXT. Шесть сильных направлений, один компетентный партнер - именно так выглядит наша ежедневная работа.",
       ],
@@ -350,7 +350,7 @@ export const servicesAndAboutTranslations = {
         {
           year: "2024",
           title: "Основание",
-          description: "UNEXT GMBH основана в Берлине с фокусом на экспертизе ДТП (UNFALLX).",
+          description: "UNEXT GmbH основана в Берлине с фокусом на экспертизе ДТП (UNFALLX).",
         },
         { year: "2026", title: "Прокат авто", description: "Расширение портфолио за счет профессиональных арендных автомобилей." },
         { year: "2026", title: "Мастерская и детейлинг", description: "Открытие мастерской и запуск премиального детейлинга." },
