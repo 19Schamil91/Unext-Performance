@@ -99,7 +99,7 @@ export async function ServicesSection() {
           />
         </div>
 
-        <div className="grid gap-7 md:grid-cols-2">
+        <div className="grid gap-7 md:grid-cols-2 motion-safe:[&:has(>div:focus-within)>div:not(:focus-within)]:scale-[0.98] motion-safe:[&:has(>div:hover)>div:not(:hover)]:scale-[0.98] [&:has(>div:focus-within)>div:not(:focus-within)]:opacity-50 [&:has(>div:hover)>div:not(:hover)]:opacity-50 [&:has(>div:focus-within)>div:not(:focus-within)]:blur-[2px] [&:has(>div:hover)>div:not(:hover)]:blur-[2px]">
           {t.items.map((service, index) => {
             const meta = serviceMeta[index]
             const contactText = meta.contactText ?? ""
@@ -108,7 +108,7 @@ export async function ServicesSection() {
               <Card
                 key={service.title}
                 id={homeServiceAnchors[index]}
-                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
+                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
               >
                 <CardContent className="p-4 sm:p-5 lg:p-6">
                   <div className="flex h-full flex-col">
