@@ -360,7 +360,8 @@ export async function HeroSection() {
     title: service.title,
     anchor: homeServiceAnchors[index] ?? homeServiceAnchors[0],
   }))
-  const heroImageSrc = "/images/home-hero-team-new.webp.png"
+  // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
+  const heroImageSrc = "/images/home-hero-new.webp"
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
   const heroTitle = `${t.title1} ${t.title2} ${t.title3}`
 
@@ -371,15 +372,15 @@ export async function HeroSection() {
         <div className="relative aspect-video overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),transparent_58%),linear-gradient(180deg,rgba(26,26,31,0.02),rgba(26,26,31,0.16))]">
           <Image
             src={heroImageSrc}
-            alt="UNEXT team"
+            alt=""
             fill
-            sizes="100vw"
-            quality={92}
-            className="object-cover object-center"
+            sizes="(max-width: 767px) 100vw, 0vw"
+            quality={88}
+            className="object-cover object-[58%_50%]"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,15,0.14),rgba(7,10,15,0.34))]" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/42 via-black/12 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,15,0.04),rgba(7,10,15,0.18))]" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/28 via-black/8 to-transparent" />
         </div>
 
         <div className="px-5 pb-14 pt-7">
@@ -405,17 +406,17 @@ export async function HeroSection() {
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
-            alt="UNEXT team"
+            alt=""
             fill
-            sizes="100vw"
-            quality={92}
-            className="object-cover object-[center_18%] lg:object-[center_16%]"
+            sizes="(min-width: 768px) 100vw, 0vw"
+            quality={88}
+            className="object-cover object-[56%_50%] lg:object-[55%_50%]"
             priority
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_18%,rgba(255,255,255,0.14),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(11,14,20,0.08))]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.42)_0%,rgba(8,10,14,0.22)_24%,rgba(8,10,14,0.08)_52%,rgba(8,10,14,0.04)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/6 via-transparent to-black/14" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/24 via-black/6 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_24%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(11,14,20,0.06))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.3)_0%,rgba(8,10,14,0.16)_24%,rgba(8,10,14,0.06)_52%,rgba(8,10,14,0.02)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/4 via-transparent to-black/16" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/32 via-black/8 to-transparent" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-24 lg:px-8 lg:pb-24">
