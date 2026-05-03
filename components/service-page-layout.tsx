@@ -75,7 +75,6 @@ export async function ServicePageLayout({
   badge,
   formFields,
   balancedTypography = false,
-  singleLineHeadings = false,
   titleLines,
   descriptionLines,
   serviceTitleLineBreaks,
@@ -234,13 +233,7 @@ export async function ServicePageLayout({
             )}
 
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.14em]">{subtitle}</p>
-            <h1
-              className={
-                balancedTypography
-                  ? `mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.03] font-semibold tracking-[-0.02em] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] sm:max-w-[20ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.96] sm:tracking-[-0.03em] lg:max-w-none ${singleLineHeadings ? "lg:whitespace-nowrap" : "lg:text-balance"}`
-                  : "mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.05] font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] sm:max-w-[18ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.98] sm:tracking-[-0.04em] lg:max-w-[20ch]"
-              }
-            >
+            <h1 className="mt-3 measure-display text-display-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)]">
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (
@@ -337,7 +330,7 @@ export async function ServicePageLayout({
                 <h3
                   className={
                     balancedTypography
-                      ? `max-w-[24ch] text-card-heading-fluid text-foreground ${singleLineHeadings ? "lg:max-w-none lg:whitespace-nowrap" : "text-balance"}`
+                      ? "max-w-[24ch] text-card-heading-fluid text-foreground text-balance"
                       : "max-w-[24ch] text-card-heading-fluid text-foreground"
                   }
                 >
@@ -367,7 +360,7 @@ export async function ServicePageLayout({
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16">
             <div>
-              <h2 className="max-w-none whitespace-nowrap text-[1.72rem] leading-[1.04] font-[650] tracking-[-0.024em] text-foreground sm:text-heading-fluid">
+              <h2 className="measure-heading text-heading-fluid font-semibold text-foreground">
                 {t.whyTitle}
               </h2>
               <ReadableText
@@ -389,7 +382,7 @@ export async function ServicePageLayout({
                       <h3
                         className={
                           balancedTypography
-                            ? `max-w-[24ch] text-card-heading-fluid text-foreground ${singleLineHeadings ? "lg:max-w-none lg:whitespace-nowrap" : "text-balance"}`
+                            ? "max-w-[24ch] text-card-heading-fluid text-foreground text-balance"
                             : "max-w-[24ch] text-card-heading-fluid text-foreground"
                         }
                       >
@@ -471,7 +464,7 @@ export async function ServicePageLayout({
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="max-w-[22rem] text-[clamp(1.85rem,1.5rem+1.15vw,2.65rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
+              <h2 className="measure-heading text-heading-fluid font-semibold text-primary-foreground">
                 {t.questionsTitle}
               </h2>
               <ReadableText

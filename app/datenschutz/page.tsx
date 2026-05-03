@@ -1,3 +1,8 @@
+/*
+  Diese Datei ist die Datenschutzseite.
+  Sie zeigt die Hinweise zur Verarbeitung von Besucherdaten, Kontaktanfragen und Cookies.
+  Nutzer koennen nachlesen, welche Rechte sie haben und wie sie UNEXT dazu erreichen.
+*/
 import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 import { buildPageMetadata } from "@/lib/metadata"
@@ -21,7 +26,7 @@ export default async function DatenschutzPage() {
   const t = getTranslations(locale).legal.privacy
 
   return (
-    <LegalPageLayout title={t.title}>
+    <LegalPageLayout title={t.title} showPlaceholderAlert={false}>
       <section className="space-y-8 text-muted-foreground">
         {t.sections.map((section) => (
           <div key={("title" in section ? section.title : section.subtitle) ?? "section"}>

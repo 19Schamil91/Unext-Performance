@@ -6,7 +6,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wrench } from "lucide-react"
-import { ReadableText } from "@/components/readable-text"
 import { CtaSection } from "@/components/sections/cta-section"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -100,30 +99,6 @@ const serviceMeta = [
 export default async function LeistungenPage() {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).servicesPage
-  const fixedIntroLines =
-    locale === "de"
-      ? [
-          "Diese 6 Hauptleistungen bilden",
-          "den Kern von UNEXT.",
-          "Sie sehen sofort, wobei wir Sie direkt unterstützen können",
-          "- klar, schnell und ohne Umwege.",
-        ]
-      : locale === "en"
-        ? [
-            "UNEXT GmbH offers a comprehensive range",
-            "of vehicle-related services.",
-            "Six strong business areas under one roof",
-            "- professional, reliable and always there for you.",
-          ]
-        : locale === "ru"
-          ? [
-              "UNEXT GmbH предлагает полный спектр услуг",
-              "вокруг автомобиля.",
-              "Шесть сильных направлений под одной крышей",
-              "- профессионально, надежно и всегда рядом.",
-            ]
-      : null
-
   const renderServiceTitle = (title: string, balanced: boolean) => {
     const lines = balanced ? serviceTitleLineBreaks[locale]?.[title] : null
 
@@ -230,25 +205,12 @@ export default async function LeistungenPage() {
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-5xl text-center">
-              <h1 className="mx-auto max-w-[24rem] text-[clamp(2rem,1.74rem+1.2vw,2.45rem)] leading-[1.05] font-semibold text-foreground sm:max-w-[15ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.98] sm:tracking-[-0.04em] lg:max-w-none lg:whitespace-nowrap">
+              <h1 className="mx-auto measure-display text-display-fluid font-semibold text-foreground">
                 {t.title}
               </h1>
-              {fixedIntroLines ? (
-                <p className="mx-auto mt-5 max-w-[36rem] text-[1rem] leading-[1.7] text-muted-foreground sm:mt-6 sm:max-w-none sm:text-[clamp(1rem,0.98rem+0.24vw,1.12rem)] sm:leading-[1.78]">
-                  {fixedIntroLines.map((line, index) => (
-                    <span key={line} className="block lg:whitespace-nowrap">
-                      {line}
-                      {index < fixedIntroLines.length - 1 ? " " : null}
-                    </span>
-                  ))}
-                </p>
-              ) : (
-                <ReadableText
-                  text={t.description}
-                  targetLineLength={76}
-                  className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground"
-                />
-              )}
+              <p className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground">
+                {t.description}
+              </p>
             </div>
           </div>
         </section>
