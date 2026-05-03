@@ -99,7 +99,7 @@ export async function ServicesSection() {
           />
         </div>
 
-        <div className="grid gap-7 md:grid-cols-2 motion-safe:[&:has(>div:focus-within)>div:not(:focus-within)]:scale-[0.98] motion-safe:[&:has(>div:hover)>div:not(:hover)]:scale-[0.98] [&:has(>div:focus-within)>div:not(:focus-within)]:opacity-50 [&:has(>div:hover)>div:not(:hover)]:opacity-50 [&:has(>div:focus-within)>div:not(:focus-within)]:blur-[2px] [&:has(>div:hover)>div:not(:hover)]:blur-[2px]">
+        <div className="grid gap-7 md:grid-cols-2">
           {t.items.map((service, index) => {
             const meta = serviceMeta[index]
             const contactText = meta.contactText ?? ""
