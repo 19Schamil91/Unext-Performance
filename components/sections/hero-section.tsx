@@ -7,12 +7,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, DoorOpen, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import type { Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
 import { getCurrentLocale } from "@/lib/server-locale"
 import { getTranslations } from "@/lib/translations"
 
 type HeroContentProps = {
   tone: "surface" | "overlay"
+  locale: Locale
   badge?: string
   title1: string
   title2: string
@@ -125,6 +127,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
 
 function HeroContent({
   tone,
+  locale,
   badge,
   title1,
   title2,
@@ -144,13 +147,14 @@ function HeroContent({
   const addressPrimary = addressParts[0] ?? address
   const addressSecondary = addressParts.slice(1).join(", ")
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+  const headingOffsetClass = locale === "ru" ? "-translate-x-3 xl:-translate-x-5" : "translate-x-8 xl:translate-x-10"
 
   return (
     <div className={`min-w-0 ${className ?? ""}`}>
       <div
         className={
           isOverlay
-            ? "relative max-w-[50rem] -translate-y-4 px-2 py-2 md:ml-[clamp(13rem,31vw,33rem)]"
+            ? "relative max-w-[50rem] -translate-y-10 px-2 py-2 md:ml-[clamp(8rem,24vw,27rem)]"
             : ""
         }
       >
@@ -171,15 +175,15 @@ function HeroContent({
           className={
             isOverlay
               ? combinePrimaryTitle
-                ? "relative z-10 inline-flex max-w-[44rem] flex-col text-left text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]"
-                : "relative z-10 max-w-[44rem] text-left text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]"
+                ? `relative z-10 inline-flex max-w-[68rem] ${headingOffsetClass} flex-col text-center text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]`
+                : "relative z-10 max-w-[44rem] text-center text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]"
               : "max-w-none text-[clamp(2rem,1.78rem+1vw,2.35rem)] leading-[1.04] font-semibold tracking-[-0.02em] text-foreground"
           }
         >
           {isOverlay && combinePrimaryTitle ? (
-            <span className="block text-[clamp(2.1rem,3.12vw,3.55rem)] leading-[0.96] font-semibold tracking-[-0.04em]">
-              <span className="block text-white">{title1}</span>
-              <span className="mt-1 block text-primary">{title2}</span>
+            <span className="block text-[clamp(2rem,2.72vw,3.18rem)] leading-[0.98] font-semibold tracking-[-0.04em] xl:whitespace-nowrap">
+              <span className="text-white">{title1}</span>{" "}
+              <span className="text-primary">{title2}</span>
             </span>
           ) : (
             <>
@@ -207,7 +211,7 @@ function HeroContent({
             className={
               isOverlay
                 ? combinePrimaryTitle
-                  ? "mt-2.5 block text-left text-[clamp(1rem,1.02vw,1.18rem)] leading-none font-semibold tracking-[0.08em] text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.52)]"
+                  ? "mt-2.5 block text-center text-[clamp(1rem,1.02vw,1.18rem)] leading-none font-semibold tracking-[0.08em] text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.52)]"
                   : "mt-2 block text-[clamp(1.18rem,1.3vw,1.72rem)] leading-[1.05] font-light tracking-[-0.022em] text-white/68 drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)] lg:whitespace-nowrap"
                 : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
             }
@@ -219,7 +223,7 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-4 max-w-[49rem] text-left text-[clamp(0.98rem,0.94rem+0.16vw,1.1rem)] font-semibold leading-[1.5] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.82)]"
+              ? "relative z-10 mt-4 max-w-[49rem] -translate-x-10 text-center text-[clamp(0.98rem,0.94rem+0.16vw,1.1rem)] font-semibold leading-[1.5] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.82)] xl:-translate-x-14"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -395,6 +399,7 @@ export async function HeroSection() {
             title1={t.title1}
             title2={t.title2}
             title3={t.title3}
+            locale={locale}
             description={t.description}
             services={mainServices}
             callNow={t.callNow}
@@ -430,6 +435,7 @@ export async function HeroSection() {
             title1={t.title1}
             title2={t.title2}
             title3={t.title3}
+            locale={locale}
             combinePrimaryTitle
             description={t.description}
             services={mainServices}
