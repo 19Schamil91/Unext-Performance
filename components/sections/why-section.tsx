@@ -9,6 +9,34 @@ import { getTranslations } from "@/lib/translations"
 
 const icons = [Award, Clock, Euro, ShieldCheck, Users, MapPin]
 
+// Diese Zeilen bestimmen nur auf kleinen Bildschirmen, wo die Vorteiltexte lesbar umbrechen.
+const mobileBenefitDescriptionLines: Record<string, readonly string[]> = {
+  "Ein Ansprechpartner": [
+    "Sie müssen nicht mehrere Betriebe koordinieren,",
+    "wenn mehrere Schritte zusammenhängen.",
+  ],
+  "Schnell erreichbar": [
+    "Telefon und WhatsApp sind der schnellste Weg",
+    "zu einer ersten Einschätzung.",
+  ],
+  "Auch für Fahrdienste": [
+    "Pragmatische Lösungen für Uber-, Bolt-, Taxi-",
+    "und andere gewerblich genutzte Fahrzeuge.",
+  ],
+  "Klare Abstimmung": [
+    "Sie erfahren direkt, was möglich ist,",
+    "was benötigt wird und wie es weitergeht.",
+  ],
+  "Leistungen kombinierbar": [
+    "Abschleppen, Werkstatt, Mietwagen oder Zulassung",
+    "können sinnvoll miteinander verbunden werden.",
+  ],
+  "Standort Berlin": [
+    "Kurze Wege und ein fester Ansprechpartner",
+    "für Ihr Anliegen rund ums Fahrzeug.",
+  ],
+}
+
 export async function WhySection() {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).home.why
@@ -26,6 +54,7 @@ export async function WhySection() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {t.benefits.map((benefit, index) => {
             const Icon = icons[index]
+            const mobileDescriptionLines = locale === "de" ? mobileBenefitDescriptionLines[benefit.title] : undefined
 
             return (
               <div
@@ -36,8 +65,15 @@ export async function WhySection() {
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{benefit.title}</h3>
-                <p className="mt-2 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78 [text-wrap:balance]">
-                  {benefit.description}
+                <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                  {mobileDescriptionLines ? (
+                    <>
+                      <span className="whitespace-pre-line sm:hidden">{mobileDescriptionLines.join("\n")}</span>
+                      <span className="hidden sm:inline">{benefit.description}</span>
+                    </>
+                  ) : (
+                    benefit.description
+                  )}
                 </p>
               </div>
             )

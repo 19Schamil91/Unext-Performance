@@ -399,22 +399,21 @@ export async function HeroSection() {
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">
       <h1 className="sr-only">{heroTitle}</h1>
-      <div className="relative min-h-[calc(100svh-4.5rem)] overflow-hidden md:hidden">
-        <div className="absolute inset-0 bg-black">
+      <div className="relative overflow-hidden bg-black md:hidden">
+        <div className="relative h-[48svh] min-h-[22rem] overflow-hidden">
           <Image
             src={heroImageSrc}
             alt=""
             fill
             sizes="(max-width: 767px) 100vw, 0vw"
             quality={88}
-            className="object-cover object-[62%_50%]"
+            className="object-cover object-[58%_50%]"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,7,11,0.82)_0%,rgba(7,9,13,0.68)_42%,rgba(7,9,13,0.22)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.34)_0%,rgba(5,7,11,0.08)_36%,rgba(5,7,11,0.66)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.06)_0%,rgba(5,7,11,0.08)_52%,rgba(5,7,11,0.86)_100%)]" />
         </div>
 
-        <div className="relative flex min-h-[calc(100svh-4.5rem)] items-end px-5 pb-10 pt-24">
+        <div className="relative -mt-16 px-5 pb-10 pt-0">
           <HeroContent
             tone="overlay"
             title1={t.title1}
