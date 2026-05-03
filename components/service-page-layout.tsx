@@ -8,6 +8,7 @@ import Link from "next/link"
 import { ArrowLeft, CheckCircle, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { SelectedServiceTracker } from "@/components/selected-service-tracker"
+import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
 import { ServiceInquiryForm, type ServiceInquiryFields } from "@/components/service-inquiry-form"
 import {
@@ -17,6 +18,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { getCurrentLocale } from "@/lib/server-locale"
+import { buildBreadcrumbSchema, buildServiceSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
 type ServicePageLayoutProps = {
@@ -114,6 +116,10 @@ export async function ServicePageLayout({
 
   const resolvedHeroActions = heroActions ?? defaultHeroActions
   const resolvedBottomActions = bottomActions ?? defaultBottomActions
+  const servicePath =
+    serviceName === "abschleppdienst"
+      ? "/leistungen/abschleppdienst-pannenhilfe"
+      : `/leistungen/${serviceName}`
 
   const renderLines = (text: string, lines?: readonly string[]) => {
     if (!lines || lines.length === 0) {
@@ -199,6 +205,20 @@ export async function ServicePageLayout({
 
   return (
     <main>
+      <StructuredData
+        data={[
+          buildServiceSchema({
+            name: title,
+            description,
+            path: servicePath,
+          }),
+          buildBreadcrumbSchema([
+            { name: "Startseite", path: "/" },
+            { name: "Leistungen", path: "/leistungen" },
+            { name: title, path: servicePath },
+          ]),
+        ]}
+      />
       <SelectedServiceTracker serviceName={serviceName} serviceTitle={title} />
 
       <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-28">
@@ -256,6 +276,21 @@ export async function ServicePageLayout({
               />
             )}
 
+            {resolvedHeroActions.length > 0 && (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {resolvedHeroActions.map((action, index) => (
+                  <div key={`${action.href}-${action.label}`} className="contents">
+                    {renderAction(
+                      action,
+                      index === 0 ? "default" : "outline",
+                      "w-full gap-2 sm:w-auto sm:min-w-[12rem]"
+                    )}
+                  </div>
+                )
+                )}
+              </div>
+            )}
+
             <ul className="mt-8 grid min-w-0 gap-3 sm:grid-cols-2">
               {benefits.map((benefit) => (
                 <li
@@ -287,21 +322,6 @@ export async function ServicePageLayout({
                 </li>
               ))}
             </ul>
-
-            {resolvedHeroActions.length > 0 && (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {resolvedHeroActions.map((action, index) => (
-                  <div key={`${action.href}-${action.label}`} className="contents">
-                    {renderAction(
-                      action,
-                      index === 0 ? "default" : "outline",
-                      "w-full gap-2 sm:w-auto sm:min-w-[12rem]"
-                    )}
-                  </div>
-                )
-                )}
-              </div>
-            )}
 
             {contactNote && (
               <ReadableText

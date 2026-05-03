@@ -23,7 +23,7 @@ export const contactTranslations = {
     whatsapp: "WhatsApp",
     form: {
       title: "Schreiben Sie uns",
-      description: "Füllen Sie das Formular aus und wir melden uns bei Ihnen.",
+      description: "Füllen Sie das Formular aus und wir melden uns bei Ihnen. Falls das Formular technisch nicht zustellen kann, rufen Sie uns bitte direkt an oder schreiben Sie uns per WhatsApp.",
       successTitle: "Nachricht gesendet!",
       successText: "Vielen Dank für Ihre Nachricht. Wir melden uns schnellstmöglich bei Ihnen.",
       newMessage: "Neue Nachricht",
@@ -81,7 +81,7 @@ export const contactTranslations = {
     whatsapp: "WhatsApp",
     form: {
       title: "Write to us",
-      description: "Fill out the form and we will get back to you.",
+      description: "Fill out the form and we will get back to you. If the form cannot be delivered for technical reasons, please call us directly or contact us via WhatsApp.",
       successTitle: "Message sent!",
       successText: "Thank you for your message. We will get back to you shortly.",
       newMessage: "New message",
@@ -139,7 +139,7 @@ export const contactTranslations = {
     whatsapp: "WhatsApp",
     form: {
       title: "Напишите нам",
-      description: "Заполните форму, и мы свяжемся с вами.",
+      description: "Заполните форму, и мы свяжемся с вами. Если форма не может быть доставлена по техническим причинам, пожалуйста, позвоните нам напрямую или напишите в WhatsApp.",
       successTitle: "Сообщение отправлено!",
       successText: "Спасибо за ваше сообщение. Мы свяжемся с вами в ближайшее время.",
       newMessage: "Новое сообщение",

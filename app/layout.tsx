@@ -1,8 +1,15 @@
+/*
+  Diese Datei ist das Grundgeruest der Website.
+  Sie setzt Sprache, Theme, globale Metadaten und strukturierte Firmendaten.
+  Nutzer sehen darin alle Seiteninhalte mit einheitlichem Layout und gespeicherter Sprachwahl.
+*/
 import type { Metadata, Viewport } from "next"
 import { LocaleProvider } from "@/components/locale-provider"
+import { StructuredData } from "@/components/StructuredData"
 import { ThemeProvider } from "@/components/theme-provider"
 import { buildSiteMetadata } from "@/lib/metadata"
 import { getCurrentLocale } from "@/lib/server-locale"
+import { buildLocalBusinessSchema } from "@/lib/structuredData"
 import "./globals.css"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,6 +33,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
+        <StructuredData data={buildLocalBusinessSchema()} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LocaleProvider initialLocale={locale}>{children}</LocaleProvider>
         </ThemeProvider>

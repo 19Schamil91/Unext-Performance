@@ -9,12 +9,14 @@ import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wre
 import { CtaSection } from "@/components/sections/cta-section"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
+import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ServiceSelectionLink } from "@/components/service-selection-link"
 import type { Locale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getCurrentLocale } from "@/lib/server-locale"
+import { buildBreadcrumbSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceMeta = {
@@ -202,6 +204,12 @@ export default async function LeistungenPage() {
     <>
       <SiteHeader />
       <main>
+        <StructuredData
+          data={buildBreadcrumbSchema([
+            { name: "Startseite", path: "/" },
+            { name: "Leistungen", path: "/leistungen" },
+          ])}
+        />
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-5xl text-center">

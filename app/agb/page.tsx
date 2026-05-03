@@ -1,3 +1,8 @@
+/*
+  Diese Datei ist die AGB-Seite.
+  Sie zeigt Hinweise zu den Bedingungen fuer Anfragen und individuelle Vereinbarungen.
+  Nutzer koennen nachlesen, dass konkrete Leistungen persoenlich abgestimmt werden.
+*/
 import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalPageLayout } from "@/components/legal-page-layout"
@@ -22,7 +27,7 @@ export default async function AGBPage() {
   const t = getTranslations(locale).legal.terms
 
   return (
-    <LegalPageLayout title={t.title}>
+    <LegalPageLayout title={t.title} showPlaceholderAlert={false}>
       <section className="space-y-8 text-muted-foreground">
         {t.sections.map((section) => (
           <div key={section.title}>
