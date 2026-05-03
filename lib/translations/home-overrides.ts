@@ -2,7 +2,7 @@ export const homeTranslationOverrides = {
   de: {
     hero: {
       description:
-        "Unfallgutachten, Autovermietung, Werkstatt & Service, Kfz-Zulassung,\nPannenhilfe & Abschleppen und Aufbereitung & Pflege. Alles unter einem Dach.\nProfessionell, schnell und zuverlässig seit 2024.",
+        "Unfallgutachten, Autovermietung, Werkstatt & Service, Kfz-Zulassung,\nPannenhilfe & Abschleppen und Aufbereitung & Pflege.\nAlles unter einem Dach. Professionell, schnell und zuverlässig seit 2024.",
       directServicesLabel: "Direkt zu den Hauptleistungen",
     },
   },
@@ -13,7 +13,7 @@ export const homeTranslationOverrides = {
       title2: "from one source",
       title3: "in Berlin",
       description:
-        "Accident assistance & reports, car rental, vehicle workshop, vehicle registration,\ntowing & roadside assistance and vehicle detailing. All under one roof.\nProfessional, fast and reliable since 2024.",
+        "Accident assistance & reports, car rental, vehicle workshop, vehicle registration,\ntowing & roadside assistance and vehicle detailing.\nAll under one roof. Professional, fast and reliable since 2024.",
       directServicesLabel: "Directly to the main services",
       scrollLabel: "Learn more",
     },

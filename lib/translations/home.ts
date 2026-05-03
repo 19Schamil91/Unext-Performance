@@ -27,7 +27,7 @@ export const homeTranslations = {
           title: "Unfallhilfe & Gutachten",
           subtitle: "UNFALLX",
           description:
-            "Nach einem Unfall organisieren wir schnelle Unterstützung, ein unabhängiges Gutachten und die nächsten sinnvollen Schritte.",
+            "Nach einem Unfall organisieren wir schnelle Unterstützung,\nein unabhängiges Gutachten und die nächsten sinnvollen Schritte.",
           features: [
             "Schnelle Ersteinschätzung",
             "Unabhängiges Gutachten",
@@ -39,7 +39,7 @@ export const homeTranslations = {
           title: "Autovermietung",
           subtitle: "Ersatzfahrzeuge",
           description:
-            "Mietwagen und Ersatzfahrzeuge für Privatkunden, Unternehmen und Fahrdienste. Schnell verfügbar und unkompliziert organisiert.",
+            "Mietwagen und Ersatzfahrzeuge für Privatkunden, Unternehmen\nund Fahrdienste. Schnell verfügbar und unkompliziert organisiert.",
           features: [
             "Kurzfristig verfügbar",
             "Flexible Laufzeiten",
@@ -51,7 +51,7 @@ export const homeTranslations = {
           title: "Werkstatt & Service",
           subtitle: "Wartung & Reparatur",
           description:
-            "Von Inspektion bis Reparatur: Wir kümmern uns zuverlässig um die Technik Ihres Fahrzeugs und halten Sie mobil.",
+            "Von Inspektion bis Reparatur: Wir kümmern uns zuverlässig\num die Technik Ihres Fahrzeugs und halten Sie mobil.",
           features: [
             "Inspektion & Ölservice",
             "Reifenservice",
@@ -63,7 +63,7 @@ export const homeTranslations = {
           title: "Aufbereitung & Pflege",
           subtitle: "Detailing",
           description:
-            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge, Werterhalt und einen sauberen Gesamteindruck.",
+            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge,\nWerterhalt und einen sauberen Gesamteindruck.",
           features: [
             "Innen- & Außenreinigung",
             "Lackaufbereitung & Politur",
@@ -75,7 +75,7 @@ export const homeTranslations = {
           title: "Kfz-Zulassung",
           subtitle: "Anmeldung & Kennzeichen",
           description:
-            "Wir übernehmen Anmeldung, Abmeldung und alle wichtigen Formalitäten rund um Ihr Fahrzeug schnell und unkompliziert.",
+            "Wir übernehmen Anmeldung, Abmeldung und alle wichtigen\nFormalitäten rund um Ihr Fahrzeug schnell und unkompliziert.",
           features: [
             "Kfz-Zulassung",
             "Kurzzeit- & Exportkennzeichen",
@@ -87,7 +87,7 @@ export const homeTranslations = {
           title: "Pannenhilfe & Abschleppen",
           subtitle: "Soforthilfe vor Ort",
           description:
-            "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe, sicheren Transport und auf Wunsch die komplette weitere Abwicklung.",
+            "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe,\nsicheren Transport und auf Wunsch die komplette weitere Abwicklung.",
           features: [
             "Schnelle Hilfe bei Panne oder Unfall",
             "Abschleppdienst direkt vor Ort",

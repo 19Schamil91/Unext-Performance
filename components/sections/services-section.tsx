@@ -139,7 +139,7 @@ export async function ServicesSection() {
                         </div>
                       </div>
 
-                      <p className="mt-3 max-w-[62ch] text-body-compact text-foreground/82">
+                      <p className="mt-3 max-w-[62ch] whitespace-pre-line text-body-compact text-foreground/82">
                         {service.description}
                       </p>
 

@@ -48,7 +48,7 @@ export async function ProcessSection() {
                   </div>
 
                   <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{item.title}</h3>
-                  <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                  <p className="mt-2 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78 [text-wrap:balance]">
                     {item.description}
                   </p>
 

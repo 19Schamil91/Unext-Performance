@@ -103,18 +103,24 @@ export default async function LeistungenPage() {
   const fixedIntroLines =
     locale === "de"
       ? [
-          "Diese 6 Hauptleistungen bilden den Kern von UNEXT.",
-          "Sie sehen sofort, wobei wir Sie direkt unterstützen können - klar, schnell und ohne Umwege.",
+          "Diese 6 Hauptleistungen bilden",
+          "den Kern von UNEXT.",
+          "Sie sehen sofort, wobei wir Sie direkt unterstützen können",
+          "- klar, schnell und ohne Umwege.",
         ]
       : locale === "en"
         ? [
-            "UNEXT GmbH offers a comprehensive range of vehicle-related services.",
-            "Six strong business areas under one roof - professional, reliable and always there for you.",
+            "UNEXT GmbH offers a comprehensive range",
+            "of vehicle-related services.",
+            "Six strong business areas under one roof",
+            "- professional, reliable and always there for you.",
           ]
         : locale === "ru"
           ? [
-              "UNEXT GmbH предлагает полный спектр услуг вокруг автомобиля.",
-              "Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
+              "UNEXT GmbH предлагает полный спектр услуг",
+              "вокруг автомобиля.",
+              "Шесть сильных направлений под одной крышей",
+              "- профессионально, надежно и всегда рядом.",
             ]
       : null
 
@@ -230,7 +236,7 @@ export default async function LeistungenPage() {
               {fixedIntroLines ? (
                 <p className="mx-auto mt-5 max-w-[36rem] text-[1rem] leading-[1.7] text-muted-foreground sm:mt-6 sm:max-w-none sm:text-[clamp(1rem,0.98rem+0.24vw,1.12rem)] sm:leading-[1.78]">
                   {fixedIntroLines.map((line, index) => (
-                    <span key={line} className="inline sm:block lg:whitespace-nowrap">
+                    <span key={line} className="block lg:whitespace-nowrap">
                       {line}
                       {index < fixedIntroLines.length - 1 ? " " : null}
                     </span>

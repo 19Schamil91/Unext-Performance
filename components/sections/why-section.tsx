@@ -36,7 +36,7 @@ export async function WhySection() {
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{benefit.title}</h3>
-                <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                <p className="mt-2 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78 [text-wrap:balance]">
                   {benefit.description}
                 </p>
               </div>

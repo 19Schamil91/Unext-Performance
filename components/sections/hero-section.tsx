@@ -106,7 +106,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
       <>
         {combinedLines
           .map((line, index, lines) => (
-            <span key={`${line}-${index}`} className={`inline sm:block ${lineClassName ?? ""}`.trim()}>
+            <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
               {renderProtectedLine(line)}
               {index < lines.length - 1 ? " " : null}
             </span>
@@ -139,7 +139,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   return (
     <>
       {lines.map((line, index) => (
-        <span key={`${line}-${index}`} className={`inline sm:block ${lineClassName ?? ""}`.trim()}>
+        <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
           {renderProtectedLine(line)}
           {index < lines.length - 1 ? " " : null}
         </span>
@@ -434,7 +434,7 @@ export async function HeroSection() {
         </div>
       </div>
 
-      <div className="relative hidden h-[calc(100svh-5rem)] min-h-[42rem] max-h-[56rem] items-start overflow-hidden md:flex">
+      <div className="relative hidden h-[calc(88svh-5rem)] min-h-[39rem] max-h-[50rem] items-start overflow-hidden md:flex">
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
@@ -449,7 +449,7 @@ export async function HeroSection() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]" />
         </div>
 
-        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-14 pt-[clamp(8.5rem,16vh,12rem)]">
+        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-12 pt-[clamp(7rem,13vh,10rem)]">
           <HeroContent
             tone="overlay"
             title1={t.title1}
