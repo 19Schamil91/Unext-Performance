@@ -202,7 +202,7 @@ export async function ServicePageLayout({
     <main>
       <SelectedServiceTracker serviceName={serviceName} serviceTitle={title} />
 
-      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-28">
         <div className="absolute inset-0">
           <Image
             src={image}
@@ -213,13 +213,14 @@ export async function ServicePageLayout({
             className={imageClassName ?? "object-cover"}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/84 to-background/72 md:bg-gradient-to-r md:from-background md:via-background/90 md:to-background/60" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,7,12,0.72),rgba(4,7,12,0.62)_46%,rgba(4,7,12,0.78))] md:bg-[linear-gradient(90deg,rgba(4,7,12,0.82)_0%,rgba(4,7,12,0.68)_42%,rgba(4,7,12,0.34)_72%,rgba(4,7,12,0.18)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_24%,rgba(255,255,255,0.14),transparent_30%)]" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <Link
             href="/#leistungen"
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 text-sm text-foreground/72 backdrop-blur-sm transition-colors hover:text-foreground"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/14 bg-black/28 px-3 py-1.5 text-sm text-white/78 backdrop-blur-sm transition-colors hover:border-primary/35 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
             {t.backToServices}
@@ -236,14 +237,14 @@ export async function ServicePageLayout({
             <h1
               className={
                 balancedTypography
-                  ? `mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.03] font-semibold tracking-[-0.02em] text-foreground sm:max-w-[20ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.96] sm:tracking-[-0.03em] lg:max-w-none ${singleLineHeadings ? "lg:whitespace-nowrap" : "lg:text-balance"}`
-                  : "mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.05] font-semibold text-foreground sm:max-w-[18ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.98] sm:tracking-[-0.04em] lg:max-w-[20ch]"
+                  ? `mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.03] font-semibold tracking-[-0.02em] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] sm:max-w-[20ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.96] sm:tracking-[-0.03em] lg:max-w-none ${singleLineHeadings ? "lg:whitespace-nowrap" : "lg:text-balance"}`
+                  : "mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.05] font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] sm:max-w-[18ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.98] sm:tracking-[-0.04em] lg:max-w-[20ch]"
               }
             >
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (
-              <p className="mt-5 max-w-[62ch] text-body-fluid leading-[1.62] text-foreground/84 text-pretty sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] lg:max-w-[72ch]">
+              <p className="mt-5 max-w-[62ch] text-body-fluid leading-[1.62] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] lg:max-w-[72ch]">
                 {descriptionLines.map((line, index) => (
                   <span
                     key={`${description}-${line}-${index}`}
@@ -258,7 +259,7 @@ export async function ServicePageLayout({
               <ReadableText
                 text={description}
                 targetLineLength={balancedTypography ? 74 : 82}
-                className="mt-5 max-w-[74ch] text-body-fluid text-foreground/84 sm:mt-6"
+                className="mt-5 max-w-[74ch] text-body-fluid text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6"
               />
             )}
 
@@ -268,8 +269,8 @@ export async function ServicePageLayout({
                   key={benefit}
                   className={
                     benefitsSingleLine
-                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-background/72 px-3 py-2.5 text-[0.8125rem] leading-snug text-foreground shadow-[0_12px_26px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
-                      : "flex items-start gap-3 rounded-2xl border border-border/60 bg-background/72 px-4 py-3 text-body-compact text-foreground shadow-[0_12px_26px_rgba(15,23,42,0.06)] backdrop-blur-sm"
+                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-3 py-2.5 text-[0.8125rem] leading-snug text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
+                      : "flex items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-4 py-3 text-body-compact text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm"
                   }
                 >
                   <CheckCircle
@@ -313,7 +314,7 @@ export async function ServicePageLayout({
               <ReadableText
                 text={contactNote}
                 targetLineLength={74}
-                className="mt-4 max-w-[72ch] text-sm leading-7 text-muted-foreground"
+                className="mt-4 max-w-[72ch] text-sm leading-7 text-white/72"
               />
             )}
           </div>
@@ -463,9 +464,9 @@ export async function ServicePageLayout({
         </section>
       )}
 
-      <section className="relative overflow-hidden border-y border-border/70 bg-card py-16 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(115,18,28,0.42),rgba(115,18,28,0.18)_42%,transparent_78%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/12" />
+      <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(82,8,16,0.82),rgba(32,8,12,0.72)_42%,rgba(9,11,14,0.96)_78%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
 
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">

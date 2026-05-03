@@ -34,8 +34,8 @@ export default async function UeberUnsPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="overflow-hidden bg-background md:relative md:aspect-[5022/1795]">
-          <div className="relative aspect-[5022/1795] bg-background md:absolute md:inset-0">
+        <section className="relative overflow-hidden bg-black md:aspect-[5022/1795]">
+          <div className="relative aspect-[4/3] bg-black md:absolute md:inset-0 md:aspect-auto">
             {/* Dieses breite Teamfoto bleibt voll sichtbar, damit die Personen links und rechts nicht abgeschnitten werden. */}
             <Image
               src="/images/about-hero-team-cropped.jpg"
@@ -43,18 +43,18 @@ export default async function UeberUnsPage() {
               fill
               sizes="100vw"
               quality={86}
-              className="object-contain object-top"
+              className="object-cover object-[50%_26%] md:object-contain md:object-top"
               priority
             />
-            <div className="absolute inset-0 hidden bg-gradient-to-b from-background/0 via-background/12 to-background/92 md:block" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/24 to-black/78 md:via-black/18 md:to-black/58" />
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-8 md:flex md:h-full md:items-end md:pt-0 lg:px-8 lg:pb-12">
+          <div className="absolute inset-0 mx-auto flex max-w-7xl items-end px-4 pb-8 md:pb-10 lg:px-8 lg:pb-12">
             <div className="max-w-5xl">
-              <h1 className={`text-display-fluid text-foreground ${locale === "de" ? "whitespace-nowrap" : ""}`}>
+              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 measure-intro text-body-fluid text-muted-foreground/92">
+              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)]">
                 {t.description.split("\n").map((line, index) => (
                   <span key={`${line}-${index}`} className="block">
                     {line}
@@ -163,16 +163,18 @@ export default async function UeberUnsPage() {
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-12">
               <div className="lg:order-2 lg:pl-6">
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm lg:max-w-[20rem] xl:max-w-[22rem]">
-                  {/* Dieses Foto zeigt den Mitarbeiter im Buero ohne Beschnitt oder Verzerrung. */}
-                  <Image
-                    src="/images/about-office.webp"
-                    alt="UNEXT Mitarbeiter im Büro"
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    quality={82}
-                    className="object-cover object-center"
-                  />
+                <div className="relative mx-auto aspect-[4/5] w-full max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card p-2 shadow-sm lg:max-w-[20rem] xl:max-w-[22rem]">
+                  <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
+                    {/* Dieses Foto zeigt den Mitarbeiter im Buero mit etwas Abstand zum Kartenrand. */}
+                    <Image
+                      src="/images/about-office.webp"
+                      alt="UNEXT Mitarbeiter im Büro"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      quality={82}
+                      className="object-cover object-center"
+                    />
+                  </div>
                 </div>
               </div>
 
