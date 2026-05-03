@@ -86,7 +86,7 @@ export async function ServicesSection() {
   const t = getTranslations(locale).home.services
 
   return (
-    <section id="leistungen" className="bg-background py-22 lg:py-30">
+    <section id="leistungen" className="bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-12 max-w-5xl text-center sm:mb-16">
           <h2 className="mx-auto max-w-[24rem] text-[clamp(1.85rem,1.58rem+1.1vw,2.2rem)] leading-[1.08] font-semibold text-foreground sm:max-w-[15ch] sm:text-[clamp(1.9rem,1.35rem+1.45vw,3.15rem)] sm:leading-[1.04] sm:tracking-[-0.03em] sm:font-[650] lg:max-w-none">
