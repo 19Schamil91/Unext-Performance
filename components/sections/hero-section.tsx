@@ -150,7 +150,7 @@ function HeroContent({
       <div
         className={
           isOverlay
-            ? "relative max-w-[43rem] px-2 py-2"
+            ? "relative max-w-[50rem] -translate-y-4 px-2 py-2 md:ml-[clamp(13rem,31vw,33rem)]"
             : ""
         }
       >
@@ -171,13 +171,13 @@ function HeroContent({
           className={
             isOverlay
               ? combinePrimaryTitle
-                ? "relative z-10 inline-flex max-w-[43rem] flex-col text-left text-white drop-shadow-[0_10px_34px_rgba(0,0,0,0.46)]"
-                : "relative z-10 max-w-[43rem] text-left text-white drop-shadow-[0_10px_34px_rgba(0,0,0,0.46)]"
+                ? "relative z-10 inline-flex max-w-[44rem] flex-col text-left text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]"
+                : "relative z-10 max-w-[44rem] text-left text-white drop-shadow-[0_12px_38px_rgba(0,0,0,0.58)]"
               : "max-w-none text-[clamp(2rem,1.78rem+1vw,2.35rem)] leading-[1.04] font-semibold tracking-[-0.02em] text-foreground"
           }
         >
           {isOverlay && combinePrimaryTitle ? (
-            <span className="block text-[clamp(2.25rem,3.45vw,3.85rem)] leading-[0.98] font-semibold tracking-[-0.04em]">
+            <span className="block text-[clamp(2.1rem,3.12vw,3.55rem)] leading-[0.96] font-semibold tracking-[-0.04em]">
               <span className="block text-white">{title1}</span>
               <span className="mt-1 block text-primary">{title2}</span>
             </span>
@@ -186,7 +186,7 @@ function HeroContent({
               <span
                 className={
                   isOverlay
-                    ? "block text-[clamp(2.5rem,4.05vw,4.15rem)] leading-[0.99] font-semibold tracking-[-0.036em] lg:whitespace-nowrap"
+                    ? "block text-[clamp(2.25rem,3.35vw,3.55rem)] leading-[0.99] font-semibold tracking-[-0.036em] lg:whitespace-nowrap"
                     : "block"
                 }
               >
@@ -195,7 +195,7 @@ function HeroContent({
               <span
                 className={
                   isOverlay
-                    ? "mt-0.5 block text-[clamp(2.5rem,4.05vw,4.15rem)] leading-[0.99] font-semibold tracking-[-0.036em] text-primary lg:whitespace-nowrap"
+                    ? "mt-0.5 block text-[clamp(2.25rem,3.35vw,3.55rem)] leading-[0.99] font-semibold tracking-[-0.036em] text-primary lg:whitespace-nowrap"
                     : "block text-primary"
                 }
               >
@@ -207,8 +207,8 @@ function HeroContent({
             className={
               isOverlay
                 ? combinePrimaryTitle
-                  ? "mt-4 block text-left text-[clamp(1.02rem,1.12vw,1.26rem)] leading-none font-medium tracking-[0.08em] text-white/88 drop-shadow-[0_8px_22px_rgba(0,0,0,0.42)]"
-                  : "mt-2 block text-[clamp(1.28rem,1.55vw,2rem)] leading-[1.05] font-light tracking-[-0.022em] text-white/68 drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)] lg:whitespace-nowrap"
+                  ? "mt-2.5 block text-left text-[clamp(1rem,1.02vw,1.18rem)] leading-none font-semibold tracking-[0.08em] text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.52)]"
+                  : "mt-2 block text-[clamp(1.18rem,1.3vw,1.72rem)] leading-[1.05] font-light tracking-[-0.022em] text-white/68 drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)] lg:whitespace-nowrap"
                 : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
             }
           >
@@ -219,7 +219,7 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-6 max-w-[43rem] text-left text-[clamp(1rem,0.97rem+0.14vw,1.1rem)] leading-[1.72] text-white/92 drop-shadow-[0_8px_24px_rgba(0,0,0,0.48)]"
+              ? "relative z-10 mt-4 max-w-[49rem] text-left text-[clamp(0.98rem,0.94rem+0.16vw,1.1rem)] font-semibold leading-[1.5] text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.82)]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -265,7 +265,7 @@ function HeroContent({
         </>
       ) : null}
 
-      <div className={isOverlay ? "mt-7 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
+      <div className={isOverlay ? "mt-12 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <Button asChild size="lg" className="w-full gap-2 sm:w-auto">
             <a href="tel:+493023613927">
@@ -333,7 +333,7 @@ function HeroContent({
       {isOverlay ? (
         <nav
           aria-label={directServicesLabel}
-          className="mt-5 w-full max-w-[82rem]"
+          className="mt-6 w-full max-w-[78rem]"
         >
           <p className="mb-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/62">
             {directServicesLabel}
@@ -374,7 +374,7 @@ export async function HeroSection() {
     <section className="overflow-x-clip overflow-y-hidden bg-background">
       <h1 className="sr-only">{heroTitle}</h1>
       <div className="md:hidden">
-        <div className="relative aspect-video overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),transparent_58%),linear-gradient(180deg,rgba(26,26,31,0.02),rgba(26,26,31,0.16))]">
+        <div className="relative aspect-[16/7.6] overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),transparent_58%),linear-gradient(180deg,rgba(26,26,31,0.02),rgba(26,26,31,0.16))]">
           <Image
             src={heroImageSrc}
             alt=""
@@ -407,7 +407,7 @@ export async function HeroSection() {
         </div>
       </div>
 
-      <div className="relative hidden h-[calc(100svh-4.25rem)] min-h-[38rem] max-h-[52rem] items-center overflow-hidden md:flex">
+      <div className="relative hidden h-[calc(100svh-13rem)] min-h-[38rem] max-h-[47rem] items-center overflow-hidden md:flex">
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
@@ -415,16 +415,16 @@ export async function HeroSection() {
             fill
             sizes="(min-width: 768px) 100vw, 0vw"
             quality={88}
-            className="object-cover object-[56%_50%] lg:object-[55%_50%]"
+            className="object-cover object-[58%_18%] lg:object-[57%_16%]"
             priority
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_24%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(11,14,20,0.06))]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.3)_0%,rgba(8,10,14,0.16)_24%,rgba(8,10,14,0.06)_52%,rgba(8,10,14,0.02)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_57%_38%,rgba(0,0,0,0.42),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(11,14,20,0.07))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.28)_0%,rgba(8,10,14,0.18)_24%,rgba(8,10,14,0.38)_46%,rgba(8,10,14,0.18)_70%,rgba(8,10,14,0.03)_100%)]" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/4 via-transparent to-black/16" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/32 via-black/8 to-transparent" />
         </div>
 
-        <div className="relative flex w-full px-[clamp(2rem,6vw,7rem)] pb-0 pt-14">
+        <div className="relative flex w-full px-[clamp(2rem,5vw,6rem)] pb-0 pt-9">
           <HeroContent
             tone="overlay"
             title1={t.title1}
@@ -438,7 +438,7 @@ export async function HeroSection() {
             whatsapp={t.whatsapp}
             address={t.address}
             directServicesLabel={t.directServicesLabel}
-            className="w-full max-w-[82rem] -translate-y-4 xl:-translate-y-6"
+            className="w-full max-w-[78rem] -translate-y-5 xl:-translate-y-6"
           />
         </div>
       </div>

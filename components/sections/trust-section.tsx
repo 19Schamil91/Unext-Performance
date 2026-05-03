@@ -14,10 +14,10 @@ export async function TrustSection() {
   const t = getTranslations(locale).home.trust
 
   return (
-    <section className="border-y border-border bg-card py-10 sm:py-12">
+    <section className="border-y border-border bg-card py-7 sm:py-8">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col items-center">
-          <p className="mb-6 max-w-xs text-center text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mb-8 sm:max-w-none sm:text-sm sm:tracking-wider">
+          <p className="mb-5 max-w-xs text-center text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mb-6 sm:max-w-none sm:text-sm sm:tracking-wider">
             {t.title}
           </p>
 
