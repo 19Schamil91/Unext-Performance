@@ -1,33 +1,53 @@
 /*
-  Diese Datei ist die AGB-Seite.
-  Sie zeigt Hinweise zu den Bedingungen fuer Anfragen und individuelle Vereinbarungen.
+  Diese Datei ist die englische und russische AGB-Seite.
+  Sie zeigt Bedingungen fuer Anfragen und individuelle Vereinbarungen in der Sprache aus der URL.
   Nutzer koennen nachlesen, dass konkrete Leistungen persoenlich abgestimmt werden.
 */
 import type { Metadata } from "next"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { LegalPageLayout } from "@/components/legal-page-layout"
-import { getLocalizedPath, type Locale } from "@/lib/i18n"
+import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
-const locale: Locale = "de"
+type LocalizedTermsPageProps = {
+  params: Promise<{ locale: string }>
+}
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({
+  params,
+}: LocalizedTermsPageProps): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
   const t = getTranslations(locale).legal.terms
 
   return buildPageMetadata(
     locale,
     `${t.title} | UNEXT GmbH Berlin`,
     `${t.title} - UNEXT GmbH Berlin.`,
-    "/agb"
+    getLocalizedPath(locale, "/agb")
   )
 }
 
-export default function AGBPage() {
-  const t = getTranslations(locale).legal.terms
+export default async function LocalizedTermsPage({
+  params,
+}: LocalizedTermsPageProps) {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
+  const currentLocale: UrlLocale = locale
+  const t = getTranslations(currentLocale).legal.terms
 
   return (
-    <LegalPageLayout locale={locale} title={t.title} showPlaceholderAlert={false}>
+    <LegalPageLayout locale={currentLocale} title={t.title} showPlaceholderAlert={false}>
       <section className="space-y-8 text-muted-foreground">
         {t.sections.map((section) => (
           <div key={section.title}>
@@ -38,7 +58,7 @@ export default function AGBPage() {
                 {"linkLabel" in section && section.linkLabel ? (
                   <>
                     {" "}
-                    <Link href={getLocalizedPath(locale, "/datenschutz")} className="text-primary hover:underline">
+                    <Link href={getLocalizedPath(currentLocale, "/datenschutz")} className="text-primary hover:underline">
                       {section.linkLabel}
                     </Link>
                     .

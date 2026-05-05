@@ -1,22 +1,28 @@
+/*
+  Diese Datei ist das Layout fuer rechtliche Seiten.
+  Sie zeigt Kopfbereich, Seitentitel, optionale Hinweise, Seiteninhalt und Fussbereich.
+  Nutzer koennen rechtliche Informationen lesen und ueber Header oder Footer weiter navigieren.
+*/
 import { AlertTriangle } from "lucide-react"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-interface LegalPageLayoutProps {
+type LegalPageLayoutProps = {
+  locale: Locale
   title: string
   children: React.ReactNode
   showPlaceholderAlert?: boolean
 }
 
-export async function LegalPageLayout({
+export function LegalPageLayout({
+  locale,
   title,
   children,
   showPlaceholderAlert = true,
 }: LegalPageLayoutProps) {
-  const locale = await getCurrentLocale()
   const t = getTranslations(locale).legal
 
   return (

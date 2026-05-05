@@ -23,6 +23,8 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
+const localizedLegalPaths = ["/agb", "/datenschutz", "/impressum"] as const
+
 export function SiteHeader() {
   // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -52,8 +54,11 @@ export function SiteHeader() {
   // Diese Funktion schliesst Menues beim Sprachwechsel, damit die Seite ruhig bleibt.
   const handleLocaleChange = (nextLocale: Locale) => {
     const currentPath = removeLocalePrefix(pathname)
-    // Im Proof-Scope existiert nur die Startseite in allen Sprachen; andere Seiten wechseln bewusst zur Sprach-Startseite.
-    const nextPath = getLocalizedPath(nextLocale, currentPath === "/" ? currentPath : "/")
+    // Migrierte Legal-Seiten wechseln pfadtreu; noch nicht migrierte Seiten gehen bewusst zur Sprach-Startseite.
+    const isLocalizedLegalPath = localizedLegalPaths.includes(
+      currentPath as (typeof localizedLegalPaths)[number]
+    )
+    const nextPath = getLocalizedPath(nextLocale, currentPath === "/" || isLocalizedLegalPath ? currentPath : "/")
     setLocale(nextLocale)
     setLanguageMenuOpen(false)
     setServicesMenuOpen(false)
@@ -140,7 +145,7 @@ export function SiteHeader() {
             ) : (
               <Link
                 key={item.name}
-                href={item.href}
+                href={item.href === "/" ? homeHref : item.href}
                 className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
               >
                 {item.name}
@@ -273,7 +278,7 @@ export function SiteHeader() {
                     {pageNavigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href}
+                        href={item.href === "/" ? homeHref : item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-base font-semibold leading-6 text-foreground transition-colors hover:bg-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       >

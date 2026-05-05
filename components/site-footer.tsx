@@ -133,7 +133,7 @@ export function SiteFooter() {
             <ul className="mt-3 flex flex-col gap-2.5">
               {t.footer.legalLinks.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className={linkClassName}>
+                  <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
                     {item.name}
                   </Link>
                 </li>

@@ -1,32 +1,52 @@
 /*
-  Diese Datei ist die Datenschutzseite.
-  Sie zeigt die Hinweise zur Verarbeitung von Besucherdaten, Kontaktanfragen und Cookies.
+  Diese Datei ist die englische und russische Datenschutzseite.
+  Sie zeigt Hinweise zur Verarbeitung von Besucherdaten, Kontaktanfragen und Cookies in der Sprache aus der URL.
   Nutzer koennen nachlesen, welche Rechte sie haben und wie sie UNEXT dazu erreichen.
 */
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import { LegalPageLayout } from "@/components/legal-page-layout"
-import type { Locale } from "@/lib/i18n"
+import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
-const locale: Locale = "de"
+type LocalizedPrivacyPageProps = {
+  params: Promise<{ locale: string }>
+}
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({
+  params,
+}: LocalizedPrivacyPageProps): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
   const t = getTranslations(locale).legal.privacy
 
   return buildPageMetadata(
     locale,
     `${t.title} | UNEXT GmbH Berlin`,
     `${t.title} - UNEXT GmbH Berlin.`,
-    "/datenschutz"
+    getLocalizedPath(locale, "/datenschutz")
   )
 }
 
-export default function DatenschutzPage() {
-  const t = getTranslations(locale).legal.privacy
+export default async function LocalizedPrivacyPage({
+  params,
+}: LocalizedPrivacyPageProps) {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
+  const currentLocale: UrlLocale = locale
+  const t = getTranslations(currentLocale).legal.privacy
 
   return (
-    <LegalPageLayout locale={locale} title={t.title} showPlaceholderAlert={false}>
+    <LegalPageLayout locale={currentLocale} title={t.title} showPlaceholderAlert={false}>
       <section className="space-y-8 text-muted-foreground">
         {t.sections.map((section) => (
           <div key={("title" in section ? section.title : section.subtitle) ?? "section"}>

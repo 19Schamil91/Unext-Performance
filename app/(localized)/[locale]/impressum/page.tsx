@@ -1,32 +1,54 @@
 /*
-  Diese Datei ist die Impressumsseite.
-  Sie zeigt die gesetzlichen Firmenangaben, Vertretung, Kontakt und Registerdaten.
+  Diese Datei ist die englische und russische Impressumsseite.
+  Sie zeigt Firmenangaben, Vertretung, Kontakt und Registerdaten in der Sprache aus der URL.
   Nutzer koennen die Anbieterkennzeichnung lesen und direkt Telefon oder E-Mail nutzen.
 */
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import { LegalPageLayout } from "@/components/legal-page-layout"
-import type { Locale } from "@/lib/i18n"
+import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
-const locale: Locale = "de"
+type LocalizedLegalNoticePageProps = {
+  params: Promise<{ locale: string }>
+}
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({
+  params,
+}: LocalizedLegalNoticePageProps): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
   const t = getTranslations(locale).legal.impressum
 
   return buildPageMetadata(
     locale,
     `${t.title} | UNEXT GmbH Berlin`,
-    "Impressum der Unext GmbH gem\u00e4\u00df \u00a7 5 DDG.",
-    "/impressum"
+    `${t.title} - UNEXT GmbH Berlin.`,
+    getLocalizedPath(locale, "/impressum")
   )
 }
 
-export default function ImpressumPage() {
-  const t = getTranslations(locale).legal.impressum
+export default async function LocalizedLegalNoticePage({
+  params,
+}: LocalizedLegalNoticePageProps) {
+  const { locale } = await params
+
+  if (!isUrlLocale(locale)) {
+    notFound()
+  }
+
+  const currentLocale: UrlLocale = locale
+  const t = getTranslations(currentLocale).legal.impressum
+  const phoneLabel = currentLocale === "ru" ? "Телефон:" : "Phone:"
+  const emailLabel = currentLocale === "ru" ? "E-mail:" : "Email:"
 
   return (
-    <LegalPageLayout locale={locale} title={t.title} showPlaceholderAlert={false}>
+    <LegalPageLayout locale={currentLocale} title={t.title} showPlaceholderAlert={false}>
       <section className="space-y-8 text-muted-foreground">
         <div>
           <h2 className="mb-4 text-title-fluid font-semibold text-foreground">{t.sections.companyDetails}</h2>
@@ -49,12 +71,12 @@ export default function ImpressumPage() {
         <div>
           <h2 className="mb-4 text-title-fluid font-semibold text-foreground">{t.sections.contact}</h2>
           <p className="measure-intro">
-            Telefon:{" "}
+            {phoneLabel}{" "}
             <a href="tel:+493023613927" className="text-primary hover:underline">
               030 23613927
             </a>
             <br />
-            E-Mail:{" "}
+            {emailLabel}{" "}
             <a href="mailto:info@unext.de" className="text-primary hover:underline">
               info@unext.de
             </a>
