@@ -23,7 +23,7 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
-const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt", "/ueber-uns"] as const
+const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt", "/ueber-uns", "/leistungen"] as const
 
 export function SiteHeader() {
   // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
@@ -39,6 +39,7 @@ export function SiteHeader() {
   const homeHref = getLocalizedPath(locale, "/")
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const aboutHref = getLocalizedPath(locale, "/ueber-uns")
+  const servicesHref = getLocalizedPath(locale, "/leistungen")
   const navigation = t.header.navigation as readonly NavigationItem[]
   const desktopNavigation = navigation
   const pageNavigation = navigation.filter((item) => !item.children)
@@ -134,6 +135,13 @@ export function SiteHeader() {
 
                 {servicesMenuOpen ? (
                   <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-border/70 bg-popover/98 p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.2)]">
+                    <Link
+                      href={servicesHref}
+                      className="block w-full rounded-lg px-3 py-2 text-sm font-semibold leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                      onClick={() => setServicesMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
@@ -316,6 +324,14 @@ export function SiteHeader() {
                       {t.header.servicesTitle}
                     </p>
                     <div className="rounded-[1.35rem] border border-border/60 bg-background/50 p-2">
+                      <Link
+                        href={servicesHref}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-semibold leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      >
+                        <span className="min-w-0 [text-wrap:balance]">{serviceNavigation.name}</span>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                      </Link>
                       {serviceNavigation.children.map((child) => (
                         <Link
                           key={child.name}

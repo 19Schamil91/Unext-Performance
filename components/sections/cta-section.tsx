@@ -7,7 +7,7 @@ import Link from "next/link"
 import { ArrowRight, Clock, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
-import type { Locale } from "@/lib/i18n"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type Props = {
@@ -17,6 +17,7 @@ type Props = {
 export function CtaSection({ locale }: Props) {
   // Dieser Bereich zeigt pro Sprache eine fest kontrollierte Zeilenaufteilung.
   const t = getTranslations(locale).home.cta
+  const contactHref = getLocalizedPath(locale, "/kontakt")
   const fixedDescriptionLines =
     locale === "de"
       ? [
@@ -99,7 +100,7 @@ export function CtaSection({ locale }: Props) {
               variant="outline"
               className="w-full gap-2 border-white/35 bg-transparent text-white hover:bg-white/12 hover:text-white sm:w-auto"
             >
-              <Link href="/kontakt">
+              <Link href={contactHref}>
                 {t.inquiry}
                 <ArrowRight className="h-5 w-5" />
               </Link>
