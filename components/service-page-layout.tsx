@@ -17,11 +17,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { getCurrentLocale } from "@/lib/server-locale"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { buildBreadcrumbSchema, buildServiceSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
-type ServicePageLayoutProps = {
+export type ServicePageLayoutProps = {
+  locale: Locale
   title: string
   subtitle: string
   description: string
@@ -59,6 +60,7 @@ type ServiceAction = {
 }
 
 export async function ServicePageLayout({
+  locale,
   title,
   subtitle,
   description,
@@ -85,9 +87,11 @@ export async function ServicePageLayout({
   whyChooseDescriptionLines,
   benefitsSingleLine = false,
 }: ServicePageLayoutProps) {
-  const locale = await getCurrentLocale()
-  const t = getTranslations(locale).serviceDetail.layout
+  const translations = getTranslations(locale)
+  const t = translations.serviceDetail.layout
   const inquiryId = `${serviceName}-anfrage`
+  const contactHref = getLocalizedPath(locale, "/kontakt")
+  const servicesHref = getLocalizedPath(locale, "/leistungen")
 
   const defaultHeroActions = phone
     ? [
@@ -110,9 +114,9 @@ export async function ServicePageLayout({
           icon: "message" as const,
           external: true,
         },
-        { label: t.contactCta, href: "/kontakt" },
+        { label: t.contactCta, href: contactHref },
       ]
-    : [{ label: t.contactCta, href: "/kontakt" }]
+    : [{ label: t.contactCta, href: contactHref }]
 
   const resolvedHeroActions = heroActions ?? defaultHeroActions
   const resolvedBottomActions = bottomActions ?? defaultBottomActions
@@ -120,6 +124,7 @@ export async function ServicePageLayout({
     serviceName === "abschleppdienst"
       ? "/leistungen/abschleppdienst-pannenhilfe"
       : `/leistungen/${serviceName}`
+  const localizedServicePath = getLocalizedPath(locale, servicePath)
 
   const renderLines = (text: string, lines?: readonly string[]) => {
     if (!lines || lines.length === 0) {
@@ -210,12 +215,12 @@ export async function ServicePageLayout({
           buildServiceSchema({
             name: title,
             description,
-            path: servicePath,
+            path: localizedServicePath,
           }),
           buildBreadcrumbSchema([
-            { name: "Startseite", path: "/" },
-            { name: "Leistungen", path: "/leistungen" },
-            { name: title, path: servicePath },
+            { name: translations.header.navigation[0].name, path: getLocalizedPath(locale, "/") },
+            { name: translations.servicesPage.title, path: servicesHref },
+            { name: title, path: localizedServicePath },
           ]),
         ]}
       />
@@ -238,7 +243,7 @@ export async function ServicePageLayout({
 
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <Link
-            href="/#leistungen"
+            href={servicesHref}
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/14 bg-black/28 px-3 py-1.5 text-sm text-white/78 backdrop-blur-sm transition-colors hover:border-primary/35 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />

@@ -23,7 +23,17 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
-const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt", "/ueber-uns", "/leistungen"] as const
+const localizedPagePaths = [
+  "/agb",
+  "/datenschutz",
+  "/impressum",
+  "/kontakt",
+  "/ueber-uns",
+  "/leistungen",
+  "/leistungen/unfallgutachten",
+  "/leistungen/abschleppdienst-pannenhilfe",
+  "/leistungen/autoservice",
+] as const
 
 export function SiteHeader() {
   // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
@@ -38,7 +48,6 @@ export function SiteHeader() {
   const t = getTranslations(locale)
   const homeHref = getLocalizedPath(locale, "/")
   const contactHref = getLocalizedPath(locale, "/kontakt")
-  const aboutHref = getLocalizedPath(locale, "/ueber-uns")
   const servicesHref = getLocalizedPath(locale, "/leistungen")
   const navigation = t.header.navigation as readonly NavigationItem[]
   const desktopNavigation = navigation
@@ -53,6 +62,19 @@ export function SiteHeader() {
       dark: "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u0435\u043c\u043d\u0443\u044e \u0442\u0435\u043c\u0443",
     },
   } as const
+
+  // Diese Funktion haelt Navigationslinks in der aktuellen Sprache, wenn die Zielseite bereits migriert ist.
+  const getNavigationHref = (href: string) => {
+    const isLocalizedPagePath = localizedPagePaths.includes(
+      href as (typeof localizedPagePaths)[number]
+    )
+
+    if (href === "/" || isLocalizedPagePath) {
+      return getLocalizedPath(locale, href)
+    }
+
+    return href
+  }
 
   // Diese Funktion schliesst Menues beim Sprachwechsel, damit die Seite ruhig bleibt.
   const handleLocaleChange = (nextLocale: Locale) => {
@@ -145,7 +167,7 @@ export function SiteHeader() {
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
-                        href={child.href}
+                        href={getNavigationHref(child.href)}
                         className="block w-full rounded-lg px-3 py-2 text-sm leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                         onClick={() => setServicesMenuOpen(false)}
                       >
@@ -158,15 +180,7 @@ export function SiteHeader() {
             ) : (
               <Link
                 key={item.name}
-                href={
-                  item.href === "/"
-                    ? homeHref
-                    : item.href === "/kontakt"
-                      ? contactHref
-                      : item.href === "/ueber-uns"
-                        ? aboutHref
-                        : item.href
-                }
+                href={getNavigationHref(item.href)}
                 className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
               >
                 {item.name}
@@ -299,15 +313,7 @@ export function SiteHeader() {
                     {pageNavigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={
-                          item.href === "/"
-                            ? homeHref
-                            : item.href === "/kontakt"
-                              ? contactHref
-                              : item.href === "/ueber-uns"
-                                ? aboutHref
-                                : item.href
-                        }
+                        href={getNavigationHref(item.href)}
                         onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-base font-semibold leading-6 text-foreground transition-colors hover:bg-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       >
@@ -335,7 +341,7 @@ export function SiteHeader() {
                       {serviceNavigation.children.map((child) => (
                         <Link
                           key={child.name}
-                          href={child.href}
+                          href={getNavigationHref(child.href)}
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-medium leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >

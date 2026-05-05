@@ -6,7 +6,7 @@
 import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { ServicePageLayout } from "@/components/service-page-layout"
+import { LegacyServicePageLayout } from "@/components/LegacyServicePageLayout"
 import type { Locale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getCurrentLocale } from "@/lib/server-locale"
@@ -208,7 +208,7 @@ export default async function DetailingPage() {
   const locale = await getCurrentLocale()
   const t = getTranslations(locale).serviceDetail.pages.detailing
   const afterLayout = (
-    <ServicePageLayout
+    <LegacyServicePageLayout
       title={t.title}
       subtitle={t.subtitle}
       description={t.description}

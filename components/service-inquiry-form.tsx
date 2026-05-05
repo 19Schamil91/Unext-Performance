@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendServiceInquiry } from "@/lib/contactActions"
 import { initialContactActionState } from "@/lib/contactForm"
+import { getLocalizedPath } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceInquiryFormProps = {
@@ -42,6 +43,7 @@ export function ServiceInquiryForm({
   const pathname = usePathname()
   const { locale } = useLocale()
   const t = getTranslations(locale).serviceDetail.form
+  const privacyHref = getLocalizedPath(locale, "/datenschutz")
 
   // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
   const getFieldError = (field: string) => formState.fieldErrors[field]
@@ -189,7 +191,7 @@ export function ServiceInquiryForm({
 
             <p className="mx-auto max-w-[42ch] text-center text-xs leading-6 text-muted-foreground">
               {t.privacyPrefix}{" "}
-              <Link href="/datenschutz" className="underline hover:text-foreground">
+              <Link href={privacyHref} className="underline hover:text-foreground">
                 {t.privacyLink}
               </Link>{" "}
               {t.privacySuffix}

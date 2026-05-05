@@ -92,6 +92,12 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
+const localizedServiceDetailPaths = [
+  "/leistungen/unfallgutachten",
+  "/leistungen/autoservice",
+  "/leistungen/abschleppdienst-pannenhilfe",
+] as const
+
 export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps) {
   const t = getTranslations(locale).servicesPage
   const homeTranslations = getTranslations(locale).home
@@ -117,6 +123,11 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
       {t.items.map((service, index) => {
         const meta = serviceMeta[index]
         const contactText = meta.contactText ?? ""
+        const detailHref = localizedServiceDetailPaths.includes(
+          meta.href as (typeof localizedServiceDetailPaths)[number]
+        )
+          ? getLocalizedPath(locale, meta.href)
+          : meta.href
 
         return (
           <Card
@@ -169,7 +180,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
                 <div className="mt-auto flex flex-col gap-3 border-t border-border/50 pt-5 sm:flex-row sm:items-center sm:justify-between">
                   <Button asChild className="gap-2">
                     <ServiceSelectionLink
-                      href={meta.href}
+                      href={detailHref}
                       serviceName={meta.href.split("/").at(-1) ?? service.title}
                       serviceTitle={service.title}
                     >
