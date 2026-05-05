@@ -21,7 +21,6 @@ import {
   Truck,
   Wrench,
 } from "lucide-react"
-import { SiteHeader } from "@/components/site-header"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -63,10 +62,11 @@ function splitAtSentenceBoundary(text: string) {
 
 type ContactPageClientProps = {
   locale: Locale
+  header: ReactNode
   footer: ReactNode
 }
 
-export function ContactPageClient({ locale, footer }: ContactPageClientProps) {
+export function ContactPageClient({ locale, header, footer }: ContactPageClientProps) {
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden des Formulars.
   const [formState, formAction] = useActionState(sendContactMessage, initialContactActionState)
   const t = getTranslations(locale).contactPage
@@ -81,7 +81,7 @@ export function ContactPageClient({ locale, footer }: ContactPageClientProps) {
 
   return (
     <>
-      <SiteHeader />
+      {header}
       <main>
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">

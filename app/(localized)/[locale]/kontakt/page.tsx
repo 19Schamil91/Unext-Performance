@@ -7,6 +7,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { ContactPageClient } from "@/components/contact-page-client"
 import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
 import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
@@ -45,5 +46,11 @@ export default async function LocalizedContactPage({
 
   const currentLocale: UrlLocale = locale
 
-  return <ContactPageClient locale={currentLocale} footer={<SiteFooter locale={currentLocale} />} />
+  return (
+    <ContactPageClient
+      locale={currentLocale}
+      header={<SiteHeader locale={currentLocale} />}
+      footer={<SiteFooter locale={currentLocale} />}
+    />
+  )
 }

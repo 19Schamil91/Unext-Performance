@@ -230,7 +230,7 @@ export function RentalServiceDetailContent({ locale }: RentalServiceDetailConten
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       {afterLayout}
       <SiteFooter locale={locale} />
     </>

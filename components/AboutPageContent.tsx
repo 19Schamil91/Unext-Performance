@@ -25,7 +25,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main>
         <section className="relative overflow-hidden bg-black md:aspect-[5022/1795]">
           <div className="relative aspect-[4/3] bg-black md:absolute md:inset-0 md:aspect-auto">

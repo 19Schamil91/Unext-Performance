@@ -27,7 +27,7 @@ export function LegalPageLayout({
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <h1 className="mb-8 measure-heading text-heading-fluid text-foreground">

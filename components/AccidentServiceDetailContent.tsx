@@ -210,7 +210,7 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       {afterLayout}
       <SiteFooter locale={locale} />
     </>

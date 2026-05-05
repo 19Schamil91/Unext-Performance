@@ -196,7 +196,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main>
         <StructuredData
             data={buildBreadcrumbSchema([

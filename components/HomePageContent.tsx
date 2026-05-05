@@ -21,7 +21,7 @@ type Props = {
 export function HomePageContent({ locale }: Props) {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main>
         <HeroSection locale={locale} />
         <ServicesSection locale={locale} />

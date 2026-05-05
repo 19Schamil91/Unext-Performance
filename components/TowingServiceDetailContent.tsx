@@ -192,7 +192,7 @@ export function TowingServiceDetailContent({ locale }: TowingServiceDetailConten
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <ServicePageLayout
         locale={locale}
         title={t.title}

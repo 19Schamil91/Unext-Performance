@@ -241,7 +241,7 @@ export function RegistrationServiceDetailContent({ locale }: RegistrationService
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       {afterLayout}
       <SiteFooter locale={locale} />
     </>

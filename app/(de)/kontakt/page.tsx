@@ -6,6 +6,7 @@
 import type { Metadata } from "next"
 import { ContactPageClient } from "@/components/contact-page-client"
 import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
 import type { Locale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
@@ -19,5 +20,11 @@ export function generateMetadata(): Metadata {
 }
 
 export default function KontaktPage() {
-  return <ContactPageClient locale={locale} footer={<SiteFooter locale={locale} />} />
+  return (
+    <ContactPageClient
+      locale={locale}
+      header={<SiteHeader locale={locale} />}
+      footer={<SiteFooter locale={locale} />}
+    />
+  )
 }
