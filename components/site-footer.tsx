@@ -121,7 +121,7 @@ export function SiteFooter() {
               {t.footer.companyLinks.map((item) => (
                 <li key={item.name}>
                   <Link
-                    href={item.href === "/kontakt" ? getLocalizedPath(locale, item.href) : item.href}
+                    href={getLocalizedPath(locale, item.href)}
                     className={linkClassName}
                   >
                     {item.name}

@@ -23,7 +23,7 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
-const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt"] as const
+const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt", "/ueber-uns"] as const
 
 export function SiteHeader() {
   // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
@@ -38,6 +38,7 @@ export function SiteHeader() {
   const t = getTranslations(locale)
   const homeHref = getLocalizedPath(locale, "/")
   const contactHref = getLocalizedPath(locale, "/kontakt")
+  const aboutHref = getLocalizedPath(locale, "/ueber-uns")
   const navigation = t.header.navigation as readonly NavigationItem[]
   const desktopNavigation = navigation
   const pageNavigation = navigation.filter((item) => !item.children)
@@ -149,7 +150,15 @@ export function SiteHeader() {
             ) : (
               <Link
                 key={item.name}
-                href={item.href === "/" ? homeHref : item.href === "/kontakt" ? contactHref : item.href}
+                href={
+                  item.href === "/"
+                    ? homeHref
+                    : item.href === "/kontakt"
+                      ? contactHref
+                      : item.href === "/ueber-uns"
+                        ? aboutHref
+                        : item.href
+                }
                 className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
               >
                 {item.name}
@@ -282,7 +291,15 @@ export function SiteHeader() {
                     {pageNavigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href === "/" ? homeHref : item.href === "/kontakt" ? contactHref : item.href}
+                        href={
+                          item.href === "/"
+                            ? homeHref
+                            : item.href === "/kontakt"
+                              ? contactHref
+                              : item.href === "/ueber-uns"
+                                ? aboutHref
+                                : item.href
+                        }
                         onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-base font-semibold leading-6 text-foreground transition-colors hover:bg-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       >
