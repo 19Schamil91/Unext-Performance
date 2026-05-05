@@ -7,12 +7,15 @@ import Link from "next/link"
 import { ArrowRight, Clock, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-export async function CtaSection() {
+type Props = {
+  locale: Locale
+}
+
+export function CtaSection({ locale }: Props) {
   // Dieser Bereich zeigt pro Sprache eine fest kontrollierte Zeilenaufteilung.
-  const locale = await getCurrentLocale()
   const t = getTranslations(locale).home.cta
   const fixedDescriptionLines =
     locale === "de"

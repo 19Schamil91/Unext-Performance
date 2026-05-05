@@ -9,7 +9,6 @@ import { ArrowRight, DoorOpen, MapPin, MessageCircle, Phone } from "lucide-react
 import { Button } from "@/components/ui/button"
 import type { Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
-import { getCurrentLocale } from "@/lib/server-locale"
 import { getTranslations } from "@/lib/translations"
 
 type HeroContentProps = {
@@ -382,9 +381,12 @@ function HeroContent({
   )
 }
 
-export async function HeroSection() {
-  // Diese Inhalte werden serverseitig nach aktueller Sprache geladen.
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function HeroSection({ locale }: Props) {
+  // Diese Inhalte werden serverseitig nach der Sprache der aktuellen URL geladen.
   const home = getTranslations(locale).home
   const t = home.hero
   const mainServices = home.services.items.map((service, index) => ({

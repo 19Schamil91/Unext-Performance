@@ -1,6 +1,6 @@
 /*
-  Diese Datei ist die Startseite der Website.
-  Sie zeigt die wichtigsten Bereiche von UNEXT: Einstieg, Leistungen, Ablauf, Vorteile, Unternehmen, Express-Service und Kontakt.
+  Diese Datei zeigt den gemeinsamen Inhalt der Startseite.
+  Sie setzt Kopfbereich, Startseitenbereiche und Footer in der uebergebenen Sprache zusammen.
   Besucher koennen Leistungen entdecken und direkt Kontakt aufnehmen.
 */
 import { SiteHeader } from "@/components/site-header"
@@ -12,19 +12,24 @@ import { WhySection } from "@/components/sections/why-section"
 import { AboutSection } from "@/components/sections/about-section"
 import { ProcessSection } from "@/components/sections/process-section"
 import { CtaSection } from "@/components/sections/cta-section"
+import type { Locale } from "@/lib/i18n"
 
-export default function HomePage() {
+type Props = {
+  locale: Locale
+}
+
+export function HomePageContent({ locale }: Props) {
   return (
     <>
       <SiteHeader />
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <ProcessSection />
-        <WhySection />
-        <AboutSection />
-        <ExpressCourierSection />
-        <CtaSection />
+        <HeroSection locale={locale} />
+        <ServicesSection locale={locale} />
+        <ProcessSection locale={locale} />
+        <WhySection locale={locale} />
+        <AboutSection locale={locale} />
+        <ExpressCourierSection locale={locale} />
+        <CtaSection locale={locale} />
       </main>
       <SiteFooter />
     </>

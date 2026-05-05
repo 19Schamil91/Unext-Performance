@@ -189,9 +189,9 @@ export function ServiceInquiryForm({
 
             <p className="mx-auto max-w-[42ch] text-center text-xs leading-6 text-muted-foreground">
               {t.privacyPrefix}{" "}
-              <a href="/datenschutz" className="underline hover:text-foreground">
+              <Link href="/datenschutz" className="underline hover:text-foreground">
                 {t.privacyLink}
-              </a>{" "}
+              </Link>{" "}
               {t.privacySuffix}
             </p>
           </FieldGroup>

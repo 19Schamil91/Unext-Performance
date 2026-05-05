@@ -214,7 +214,7 @@ export default async function UeberUnsPage() {
           </div>
         </section>
 
-        <CtaSection />
+        <CtaSection locale={locale} />
       </main>
       <SiteFooter />
     </>

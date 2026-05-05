@@ -31,19 +31,14 @@ export function LocaleProvider({ initialLocale, children }: LocaleProviderProps)
   const [locale, setLocaleState] = useState(initialLocale)
   const [isPending, setIsPending] = useState(false)
 
-  // Diese Funktion speichert die neue Sprache und laedt die Seite kurz danach neu.
+  // Diese Funktion aktualisiert die sichtbare Sprache, bis die Navigation die passende URL geladen hat.
   const setLocale = (nextLocale: Locale) => {
     if (nextLocale === locale) {
       return
     }
 
-    document.cookie = `locale=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`
     setLocaleState(nextLocale)
     setIsPending(true)
-
-    window.setTimeout(() => {
-      window.location.reload()
-    }, 80)
   }
 
   return (

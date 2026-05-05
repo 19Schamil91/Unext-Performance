@@ -4,11 +4,14 @@
   Besucher koennen schnell erkennen, fuer wen UNEXT arbeitet und welchen Umfang der Service hat.
 */
 import { CheckCircle2 } from "lucide-react"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-export async function TrustSection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function TrustSection({ locale }: Props) {
   const t = getTranslations(locale).home.trust
 
   return (

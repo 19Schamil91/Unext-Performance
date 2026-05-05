@@ -227,7 +227,7 @@ export default async function LeistungenPage() {
           <div className="mx-auto max-w-7xl px-4 lg:px-8">{renderServiceCards()}</div>
         </section>
 
-        <CtaSection />
+        <CtaSection locale={locale} />
       </main>
       <SiteFooter />
     </>

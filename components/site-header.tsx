@@ -8,12 +8,13 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, ChevronRight, Globe, Menu, MessageCircle, Phone } from "lucide-react"
 import { useLocale } from "@/components/locale-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { locales, type Locale } from "@/lib/i18n"
+import { getLocalizedPath, locales, removeLocalePrefix, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type NavigationItem = {
@@ -30,7 +31,10 @@ export function SiteHeader() {
   const languageMenuRef = useRef<HTMLDivElement | null>(null)
   const servicesMenuRef = useRef<HTMLDivElement | null>(null)
   const { locale, setLocale, isPending } = useLocale()
+  const pathname = usePathname()
+  const router = useRouter()
   const t = getTranslations(locale)
+  const homeHref = getLocalizedPath(locale, "/")
   const navigation = t.header.navigation as readonly NavigationItem[]
   const desktopNavigation = navigation
   const pageNavigation = navigation.filter((item) => !item.children)
@@ -47,10 +51,14 @@ export function SiteHeader() {
 
   // Diese Funktion schliesst Menues beim Sprachwechsel, damit die Seite ruhig bleibt.
   const handleLocaleChange = (nextLocale: Locale) => {
+    const currentPath = removeLocalePrefix(pathname)
+    // Im Proof-Scope existiert nur die Startseite in allen Sprachen; andere Seiten wechseln bewusst zur Sprach-Startseite.
+    const nextPath = getLocalizedPath(nextLocale, currentPath === "/" ? currentPath : "/")
     setLocale(nextLocale)
     setLanguageMenuOpen(false)
     setServicesMenuOpen(false)
     setMobileMenuOpen(false)
+    router.push(nextPath)
   }
 
   // Dieser Ablauf schliesst offene Menues bei Klick ausserhalb oder Escape.
@@ -87,7 +95,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/55 bg-background/95 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8 lg:py-3.5">
-        <Link href="/" className="flex items-center">
+        <Link href={homeHref} className="flex items-center">
           <Image
             src="/images/unext-logo.webp"
             alt="UNEXT GmbH Logo"
@@ -215,7 +223,7 @@ export function SiteHeader() {
             >
               <div className="flex min-h-full flex-col gap-5 pt-2">
                 <div className="rounded-[1.35rem] border border-border/60 bg-background/70 p-4 shadow-sm">
-                  <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
+                  <Link href={homeHref} onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                     <Image
                       src="/images/unext-logo.webp"
                       alt="UNEXT GmbH Logo"

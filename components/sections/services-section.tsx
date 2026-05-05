@@ -9,8 +9,8 @@ import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ServiceSelectionLink } from "@/components/service-selection-link"
+import type { Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
-import { getCurrentLocale } from "@/lib/server-locale"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceMeta = {
@@ -108,9 +108,12 @@ const mobileServiceDescriptionLines: Record<string, readonly string[]> = {
   ],
 }
 
-export async function ServicesSection() {
+type Props = {
+  locale: Locale
+}
+
+export function ServicesSection({ locale }: Props) {
   // Diese Daten bestimmen pro Leistung Bild, Icon und direkte Kontaktaktion.
-  const locale = await getCurrentLocale()
   const t = getTranslations(locale).home.services
 
   return (

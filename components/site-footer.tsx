@@ -9,6 +9,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
 import { useLocale } from "@/components/locale-provider"
+import { getLocalizedPath } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const serviceLinks = [
@@ -27,6 +28,7 @@ export function SiteFooter() {
   // Diese Texte werden pro Sprache fuer alle Footer-Bereiche geladen.
   const { locale } = useLocale()
   const t = getTranslations(locale)
+  const homeHref = getLocalizedPath(locale, "/")
   // Diese Links bleiben im Footer bewusst kurz; detaillierte Oeffnungszeiten stehen auf der Kontaktseite.
   const footerContactLinks = [
     {
@@ -54,7 +56,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-7 border-b border-border/70 pb-7 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
-            <Link href="/" className="inline-flex">
+            <Link href={homeHref} className="inline-flex">
               <Image
                 src="/images/unext-logo.webp"
                 alt="UNEXT GmbH Logo"

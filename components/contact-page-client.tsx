@@ -235,9 +235,9 @@ export function ContactPageClient() {
 
                         <p className="text-center text-xs text-muted-foreground">
                           {t.form.privacyPrefix}{" "}
-                          <a href="/datenschutz" className="underline hover:text-foreground">
+                          <Link href="/datenschutz" className="underline hover:text-foreground">
                             {t.form.privacyLink}
-                          </a>{" "}
+                          </Link>{" "}
                           {t.form.privacySuffix}
                         </p>
                       </FieldGroup>
