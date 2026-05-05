@@ -31,8 +31,11 @@ const localizedPagePaths = [
   "/ueber-uns",
   "/leistungen",
   "/leistungen/unfallgutachten",
+  "/leistungen/autovermietung",
   "/leistungen/abschleppdienst-pannenhilfe",
   "/leistungen/autoservice",
+  "/leistungen/detailing",
+  "/leistungen/zulassungsservice",
 ] as const
 
 export function SiteHeader() {

@@ -92,12 +92,6 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
-const localizedServiceDetailPaths = [
-  "/leistungen/unfallgutachten",
-  "/leistungen/autoservice",
-  "/leistungen/abschleppdienst-pannenhilfe",
-] as const
-
 export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps) {
   const t = getTranslations(locale).servicesPage
   const homeTranslations = getTranslations(locale).home
@@ -123,11 +117,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
       {t.items.map((service, index) => {
         const meta = serviceMeta[index]
         const contactText = meta.contactText ?? ""
-        const detailHref = localizedServiceDetailPaths.includes(
-          meta.href as (typeof localizedServiceDetailPaths)[number]
-        )
-          ? getLocalizedPath(locale, meta.href)
-          : meta.href
+        const detailHref = getLocalizedPath(locale, meta.href)
 
         return (
           <Card
