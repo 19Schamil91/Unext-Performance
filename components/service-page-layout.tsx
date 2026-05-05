@@ -433,6 +433,7 @@ export async function ServicePageLayout({
 
             <div>
               <ServiceInquiryForm
+                locale={locale}
                 serviceName={serviceName}
                 serviceTitle={formTitle}
                 fields={formFields}

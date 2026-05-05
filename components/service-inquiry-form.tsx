@@ -10,7 +10,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { CheckCircle } from "lucide-react"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
-import { useLocale } from "@/components/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
@@ -18,10 +17,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendServiceInquiry } from "@/lib/contactActions"
 import { initialContactActionState } from "@/lib/contactForm"
-import { getLocalizedPath } from "@/lib/i18n"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceInquiryFormProps = {
+  locale: Locale
   serviceName: string
   serviceTitle: string
   fields?: ServiceInquiryFields
@@ -34,6 +34,7 @@ export type ServiceInquiryFields = {
 }
 
 export function ServiceInquiryForm({
+  locale,
   serviceName,
   serviceTitle,
   fields = { vehicle: true, date: true, subject: false },
@@ -41,7 +42,6 @@ export function ServiceInquiryForm({
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden der Anfrage.
   const [formState, formAction] = useActionState(sendServiceInquiry, initialContactActionState)
   const pathname = usePathname()
-  const { locale } = useLocale()
   const t = getTranslations(locale).serviceDetail.form
   const privacyHref = getLocalizedPath(locale, "/datenschutz")
 

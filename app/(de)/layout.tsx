@@ -4,7 +4,6 @@
   Nutzer sehen darin alle deutschen Seiteninhalte mit einheitlichem Layout.
 */
 import type { Metadata, Viewport } from "next"
-import { LocaleProvider } from "@/components/locale-provider"
 import { StructuredData } from "@/components/StructuredData"
 import { ThemeProvider } from "@/components/theme-provider"
 import { buildSiteMetadata } from "@/lib/metadata"
@@ -31,7 +30,7 @@ export default function GermanRootLayout({
       <body className="font-sans antialiased">
         <StructuredData data={buildLocalBusinessSchema()} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <LocaleProvider initialLocale="de">{children}</LocaleProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
