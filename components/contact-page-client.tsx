@@ -24,7 +24,6 @@ import {
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
-import { useLocale } from "@/components/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
@@ -32,6 +31,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendContactMessage } from "@/lib/contactActions"
 import { initialContactActionState } from "@/lib/contactForm"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const serviceMeta = [
@@ -62,14 +62,19 @@ function splitAtSentenceBoundary(text: string) {
   }
 }
 
-export function ContactPageClient() {
+type ContactPageClientProps = {
+  locale: Locale
+}
+
+export function ContactPageClient({ locale }: ContactPageClientProps) {
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden des Formulars.
   const [formState, formAction] = useActionState(sendContactMessage, initialContactActionState)
-  const { locale } = useLocale()
   const t = getTranslations(locale).contactPage
   const descriptionParts = splitAtSentenceBoundary(t.description)
   const primaryPhone = "030 23613927"
   const whatsappPhone = "0176 64365185"
+  const contactHref = getLocalizedPath(locale, "/kontakt")
+  const privacyHref = getLocalizedPath(locale, "/datenschutz")
 
   // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
   const getFieldError = (field: string) => formState.fieldErrors[field]
@@ -145,7 +150,7 @@ export function ContactPageClient() {
                     <h3 className="text-xl font-semibold text-foreground">{t.form.successTitle}</h3>
                     <p className="mt-2 text-muted-foreground">{formState.message || t.form.successText}</p>
                     <Button asChild className="mt-6" variant="outline">
-                      <Link href="/kontakt">{t.form.newMessage}</Link>
+                      <Link href={contactHref}>{t.form.newMessage}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -235,7 +240,7 @@ export function ContactPageClient() {
 
                         <p className="text-center text-xs text-muted-foreground">
                           {t.form.privacyPrefix}{" "}
-                          <Link href="/datenschutz" className="underline hover:text-foreground">
+                          <Link href={privacyHref} className="underline hover:text-foreground">
                             {t.form.privacyLink}
                           </Link>{" "}
                           {t.form.privacySuffix}

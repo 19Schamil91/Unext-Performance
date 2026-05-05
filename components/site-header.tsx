@@ -23,7 +23,7 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
-const localizedLegalPaths = ["/agb", "/datenschutz", "/impressum"] as const
+const localizedPagePaths = ["/agb", "/datenschutz", "/impressum", "/kontakt"] as const
 
 export function SiteHeader() {
   // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
@@ -37,6 +37,7 @@ export function SiteHeader() {
   const router = useRouter()
   const t = getTranslations(locale)
   const homeHref = getLocalizedPath(locale, "/")
+  const contactHref = getLocalizedPath(locale, "/kontakt")
   const navigation = t.header.navigation as readonly NavigationItem[]
   const desktopNavigation = navigation
   const pageNavigation = navigation.filter((item) => !item.children)
@@ -54,11 +55,14 @@ export function SiteHeader() {
   // Diese Funktion schliesst Menues beim Sprachwechsel, damit die Seite ruhig bleibt.
   const handleLocaleChange = (nextLocale: Locale) => {
     const currentPath = removeLocalePrefix(pathname)
-    // Migrierte Legal-Seiten wechseln pfadtreu; noch nicht migrierte Seiten gehen bewusst zur Sprach-Startseite.
-    const isLocalizedLegalPath = localizedLegalPaths.includes(
-      currentPath as (typeof localizedLegalPaths)[number]
+    // Migrierte Seiten wechseln pfadtreu; noch nicht migrierte Seiten gehen bewusst zur Sprach-Startseite.
+    const isLocalizedPagePath = localizedPagePaths.includes(
+      currentPath as (typeof localizedPagePaths)[number]
     )
-    const nextPath = getLocalizedPath(nextLocale, currentPath === "/" || isLocalizedLegalPath ? currentPath : "/")
+    const nextPath = getLocalizedPath(
+      nextLocale,
+      currentPath === "/" || isLocalizedPagePath ? currentPath : "/"
+    )
     setLocale(nextLocale)
     setLanguageMenuOpen(false)
     setServicesMenuOpen(false)
@@ -145,7 +149,7 @@ export function SiteHeader() {
             ) : (
               <Link
                 key={item.name}
-                href={item.href === "/" ? homeHref : item.href}
+                href={item.href === "/" ? homeHref : item.href === "/kontakt" ? contactHref : item.href}
                 className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
               >
                 {item.name}
@@ -208,7 +212,7 @@ export function SiteHeader() {
           </Button>
 
           <Button asChild className="hidden sm:flex">
-            <Link href="/kontakt">{t.header.inquiry}</Link>
+            <Link href={contactHref}>{t.header.inquiry}</Link>
           </Button>
 
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -263,7 +267,7 @@ export function SiteHeader() {
                       </a>
                     </Button>
                     <Button asChild variant="outline" className="w-full">
-                      <Link href="/kontakt" onClick={() => setMobileMenuOpen(false)}>
+                      <Link href={contactHref} onClick={() => setMobileMenuOpen(false)}>
                         {t.header.inquiry}
                       </Link>
                     </Button>
@@ -278,7 +282,7 @@ export function SiteHeader() {
                     {pageNavigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href === "/" ? homeHref : item.href}
+                        href={item.href === "/" ? homeHref : item.href === "/kontakt" ? contactHref : item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-base font-semibold leading-6 text-foreground transition-colors hover:bg-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       >
