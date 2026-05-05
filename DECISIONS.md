@@ -104,6 +104,20 @@ Test-Vergleich nach Cloud-Umstellung mit identischen Inputs:
 
 ---
 
+## 6. Strukturierte Daten zentral erzeugen
+
+**Entscheidung:** Strukturierte Daten werden über `lib/structuredData.ts` erzeugt und mit `components/StructuredData.tsx` ausgegeben.
+
+**Kontext:** Local SEO brauchte siteweite Business-Daten sowie Service- und Breadcrumb-Schema ohne neue Dependency.
+
+**Begründung:** Zentrale Builder halten JSON-LD konsistent und vermeiden doppelte Inline-Schema-Objekte in einzelnen Seiten.
+
+**Konsequenz:** Neue SEO-Schema-Daten werden künftig in `lib/structuredData.ts` erweitert und seitenweise über `StructuredData` gerendert.
+
+**Status:** Aktiv.
+
+---
+
 ## Hinweise zur Pflege dieses Dokuments
 
 - Eine neue Entscheidung wird als **neuer Eintrag unten** angefügt, alte Einträge bleiben unverändert (historische Wahrheit).
