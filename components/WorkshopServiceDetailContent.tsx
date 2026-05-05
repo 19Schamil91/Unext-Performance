@@ -218,7 +218,7 @@ export function WorkshopServiceDetailContent({ locale }: WorkshopServiceDetailCo
     <>
       <SiteHeader />
       {afterLayout}
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

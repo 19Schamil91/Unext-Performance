@@ -31,7 +31,7 @@ export function HomePageContent({ locale }: Props) {
         <ExpressCourierSection locale={locale} />
         <CtaSection locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

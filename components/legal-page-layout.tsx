@@ -47,7 +47,7 @@ export function LegalPageLayout({
           <div className="max-w-none text-body-compact">{children}</div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

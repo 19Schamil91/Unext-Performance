@@ -232,7 +232,7 @@ export function RentalServiceDetailContent({ locale }: RentalServiceDetailConten
     <>
       <SiteHeader />
       {afterLayout}
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

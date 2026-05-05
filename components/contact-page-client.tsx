@@ -5,7 +5,7 @@
 */
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, type ReactNode } from "react"
 import Link from "next/link"
 import {
   Car,
@@ -21,7 +21,6 @@ import {
   Truck,
   Wrench,
 } from "lucide-react"
-import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
 import { Button } from "@/components/ui/button"
@@ -64,9 +63,10 @@ function splitAtSentenceBoundary(text: string) {
 
 type ContactPageClientProps = {
   locale: Locale
+  footer: ReactNode
 }
 
-export function ContactPageClient({ locale }: ContactPageClientProps) {
+export function ContactPageClient({ locale, footer }: ContactPageClientProps) {
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden des Formulars.
   const [formState, formAction] = useActionState(sendContactMessage, initialContactActionState)
   const t = getTranslations(locale).contactPage
@@ -375,7 +375,7 @@ export function ContactPageClient({ locale }: ContactPageClientProps) {
           </div>
         </section>
       </main>
-      <SiteFooter />
+      {footer}
     </>
   )
 }

@@ -216,7 +216,7 @@ export function TowingServiceDetailContent({ locale }: TowingServiceDetailConten
         serviceDescriptionLines={towingServiceDescriptionLines[locale]}
         whyChooseDescriptionLines={towingWhyDescriptionLines[locale]}
       />
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

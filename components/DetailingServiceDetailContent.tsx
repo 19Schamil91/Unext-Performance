@@ -238,7 +238,7 @@ export function DetailingServiceDetailContent({ locale }: DetailingServiceDetail
     <>
       <SiteHeader />
       {afterLayout}
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

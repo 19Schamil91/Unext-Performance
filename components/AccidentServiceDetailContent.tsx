@@ -212,7 +212,7 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
     <>
       <SiteHeader />
       {afterLayout}
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

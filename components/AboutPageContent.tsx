@@ -209,7 +209,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
 
         <CtaSection locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

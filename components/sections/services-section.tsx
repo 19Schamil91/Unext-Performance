@@ -4,12 +4,12 @@
   Besucher koennen eine Leistung ansehen, Details oeffnen oder direkt anrufen.
 */
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wrench } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ServiceSelectionLink } from "@/components/service-selection-link"
-import type { Locale } from "@/lib/i18n"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
 import { getTranslations } from "@/lib/translations"
 
@@ -196,14 +196,10 @@ export function ServicesSection({ locale }: Props) {
 
                       <div className="mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 sm:flex-row sm:items-center sm:justify-between">
                         <Button asChild size="sm" className="w-full gap-2 sm:w-auto">
-                          <ServiceSelectionLink
-                            href={meta.href}
-                            serviceName={meta.href.split("/").at(-1) ?? service.title}
-                            serviceTitle={service.title}
-                          >
+                          <Link href={getLocalizedPath(locale, meta.href)}>
                             {t.learnMore}
                             <ArrowRight className="h-4 w-4" />
-                          </ServiceSelectionLink>
+                          </Link>
                         </Button>
                         {meta.contactHref ? (
                           <>

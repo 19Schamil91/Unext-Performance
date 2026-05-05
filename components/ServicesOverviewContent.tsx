@@ -4,9 +4,9 @@
   Besucher koennen eine Leistung auswaehlen, Details oeffnen oder direkt anrufen.
 */
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wrench } from "lucide-react"
 import { CtaSection } from "@/components/sections/cta-section"
-import { ServiceSelectionLink } from "@/components/service-selection-link"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { StructuredData } from "@/components/StructuredData"
@@ -169,14 +169,10 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
 
                 <div className="mt-auto flex flex-col gap-3 border-t border-border/50 pt-5 sm:flex-row sm:items-center sm:justify-between">
                   <Button asChild className="gap-2">
-                    <ServiceSelectionLink
-                      href={detailHref}
-                      serviceName={meta.href.split("/").at(-1) ?? service.title}
-                      serviceTitle={service.title}
-                    >
+                    <Link href={detailHref}>
                       {homeTranslations.services.learnMore}
                       <ArrowRight className="h-4 w-4" />
-                    </ServiceSelectionLink>
+                    </Link>
                   </Button>
                   <Button
                     asChild
@@ -227,7 +223,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
 
         <CtaSection locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   )
 }

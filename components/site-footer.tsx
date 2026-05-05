@@ -3,13 +3,10 @@
   Sie zeigt Logo, Standort, zentrale Kontaktwege, Social Links und die wichtigsten Seitenlinks.
   Nutzer koennen von hier schnell anrufen, mailen, Social Media oeffnen oder zu wichtigen Seiten springen.
 */
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
-import { useLocale } from "@/components/locale-provider"
-import { getLocalizedPath } from "@/lib/i18n"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const serviceLinks = [
@@ -24,9 +21,12 @@ const serviceLinks = [
 const linkClassName =
   "text-sm text-foreground/72 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 
-export function SiteFooter() {
+type SiteFooterProps = {
+  locale: Locale
+}
+
+export function SiteFooter({ locale }: SiteFooterProps) {
   // Diese Texte werden pro Sprache fuer alle Footer-Bereiche geladen.
-  const { locale } = useLocale()
   const t = getTranslations(locale)
   const homeHref = getLocalizedPath(locale, "/")
   // Diese Links bleiben im Footer bewusst kurz; detaillierte Oeffnungszeiten stehen auf der Kontaktseite.
@@ -107,7 +107,7 @@ export function SiteFooter() {
             <ul className="mt-3 flex flex-col gap-2.5">
               {serviceLinks.map((item, index) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={linkClassName}>
+                  <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
                     {t.header.navigation[2].children[index].name}
                   </Link>
                 </li>
