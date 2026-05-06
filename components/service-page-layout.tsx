@@ -224,25 +224,25 @@ export async function ServicePageLayout({
         ]}
       />
 
-      <section className="relative overflow-hidden bg-black py-16 sm:py-20 lg:py-28">
-        <div className="absolute inset-0">
+      <section className="overflow-hidden bg-black md:relative md:py-20 lg:py-28">
+        <div className="relative h-[14.5rem] overflow-hidden bg-black min-[430px]:h-[15.5rem] md:absolute md:inset-0 md:h-auto">
           <Image
             src={image}
             alt={title}
             fill
             sizes="100vw"
             quality={78}
-            className={imageClassName ?? "object-cover"}
+            className={`scale-110 md:scale-100 ${imageClassName ?? "object-cover"}`}
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,7,12,0.72),rgba(4,7,12,0.62)_46%,rgba(4,7,12,0.78))] md:bg-[linear-gradient(90deg,rgba(4,7,12,0.82)_0%,rgba(4,7,12,0.68)_42%,rgba(4,7,12,0.34)_72%,rgba(4,7,12,0.18)_100%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_24%,rgba(255,255,255,0.14),transparent_30%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,7,12,0)_0%,rgba(4,7,12,0.08)_56%,rgba(4,7,12,0.42)_100%)] md:bg-[linear-gradient(90deg,rgba(4,7,12,0.82)_0%,rgba(4,7,12,0.68)_42%,rgba(4,7,12,0.34)_72%,rgba(4,7,12,0.18)_100%)]" />
+          <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_76%_24%,rgba(255,255,255,0.14),transparent_30%)] md:block" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 pb-9 pt-5 md:pb-0 md:pt-0 lg:px-8">
           <Link
             href={servicesHref}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/14 bg-black/28 px-3 py-1.5 text-sm text-white/78 backdrop-blur-sm transition-colors hover:border-primary/35 hover:text-white"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/6 px-3 py-1.5 text-sm text-white/78 transition-colors hover:border-primary/35 hover:text-white md:mb-8 md:bg-black/28 md:backdrop-blur-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             {t.backToServices}
@@ -250,17 +250,17 @@ export async function ServicePageLayout({
 
           <div className="max-w-4xl xl:max-w-[68rem]">
             {badge && (
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/12 px-4 py-1.5">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/12 px-4 py-1.5 md:mb-5">
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary sm:text-sm sm:tracking-[0.12em]">{badge}</span>
               </div>
             )}
 
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.14em]">{subtitle}</p>
-            <h1 className="mt-3 measure-display text-display-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)]">
+            <h1 className="mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid">
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (
-              <p className="mt-5 max-w-[62ch] text-body-fluid leading-[1.62] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] lg:max-w-[72ch]">
+              <p className="mt-3 max-w-[37ch] text-body-compact leading-[1.55] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] md:text-body-fluid lg:max-w-[72ch]">
                 {descriptionLines.map((line, index) => (
                   <span
                     key={`${description}-${line}-${index}`}
@@ -275,12 +275,12 @@ export async function ServicePageLayout({
               <ReadableText
                 text={description}
                 targetLineLength={balancedTypography ? 74 : 82}
-                className="mt-5 max-w-[74ch] text-body-fluid text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6"
+                className="mt-3 max-w-[37ch] text-body-compact leading-[1.55] text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 md:max-w-[74ch] md:text-body-fluid"
               />
             )}
 
             {resolvedHeroActions.length > 0 && (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8">
                 {resolvedHeroActions.map((action, index) => (
                   <div key={`${action.href}-${action.label}`} className="contents">
                     {renderAction(
@@ -294,7 +294,7 @@ export async function ServicePageLayout({
               </div>
             )}
 
-            <ul className="mt-8 grid min-w-0 gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid min-w-0 gap-3 sm:grid-cols-2 md:mt-8">
               {benefits.map((benefit) => (
                 <li
                   key={benefit}

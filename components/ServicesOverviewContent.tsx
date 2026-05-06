@@ -112,6 +112,19 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
     ))
   }
 
+  const renderPageTitle = () => {
+    if (locale !== "de") {
+      return t.title
+    }
+
+    return (
+      <>
+        <span className="max-md:block max-md:whitespace-nowrap md:inline">6 Hauptleistungen</span>
+        <span className="max-md:block md:inline"> rund ums Fahrzeug</span>
+      </>
+    )
+  }
+
   const renderServiceCards = () => (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {t.items.map((service, index) => {
@@ -208,7 +221,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-5xl text-center">
               <h1 className="mx-auto measure-display text-display-fluid font-semibold text-foreground">
-                {t.title}
+                {renderPageTitle()}
               </h1>
               <p className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground">
                 {t.description}
