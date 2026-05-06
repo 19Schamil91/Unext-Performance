@@ -31,7 +31,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
           <div className="relative aspect-[4/3] bg-black md:absolute md:inset-0 md:aspect-auto">
             {/* Dieses breite Teamfoto bleibt voll sichtbar, damit die Personen links und rechts nicht abgeschnitten werden. */}
             <Image
-              src="/images/about-hero-team-cropped.jpg"
+              src="/images/about-hero-team-cropped.webp"
               alt="Team von UNEXT GmbH"
               fill
               sizes="100vw"
