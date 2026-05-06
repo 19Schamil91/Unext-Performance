@@ -27,8 +27,8 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
     <>
       <SiteHeader locale={locale} />
       <main>
-        <section className="relative overflow-hidden bg-black md:aspect-[5022/1795]">
-          <div className="relative aspect-[4/3] bg-black md:absolute md:inset-0 md:aspect-auto">
+        <section className="overflow-hidden bg-black md:relative md:aspect-[5022/1795]">
+          <div className="relative h-[16rem] bg-black min-[430px]:h-[17rem] md:absolute md:inset-0 md:h-auto md:aspect-auto">
             {/* Dieses breite Teamfoto bleibt voll sichtbar, damit die Personen links und rechts nicht abgeschnitten werden. */}
             <Image
               src="/images/about-hero-team-cropped.webp"
@@ -36,18 +36,18 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
               fill
               sizes="100vw"
               quality={86}
-              className="object-cover object-[50%_26%] md:object-contain md:object-top"
+              className="scale-110 object-cover object-[50%_34%] md:scale-100 md:object-contain md:object-top"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/24 to-black/78 md:via-black/18 md:to-black/58" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/8 to-black/34 md:via-black/18 md:to-black/58" />
           </div>
 
-          <div className="absolute inset-0 mx-auto flex max-w-7xl items-end px-4 pb-8 md:pb-10 lg:px-8 lg:pb-12">
-            <div className="max-w-5xl">
-              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
+          <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
+            <div className="max-w-5xl max-md:max-w-[34rem]">
+              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] max-md:text-[clamp(2rem,8vw,2.45rem)] max-md:leading-[1.02] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)]">
+              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:mt-4 max-md:max-w-[36ch] max-md:text-[0.98rem] max-md:leading-[1.55]">
                 {t.description.split("\n").map((line, index) => (
                   <span key={`${line}-${index}`} className="block">
                     {line}

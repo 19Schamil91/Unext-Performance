@@ -172,9 +172,9 @@ function HeroContent({
   // Russisch braucht wegen der laengeren Woerter eine eigene Hero-Groesse; die vorhandene Display-Klasse ist dort zu hoch.
   const overlayTitleClass =
     locale === "ru"
-      ? "text-[clamp(2.35rem,4.15vw,4.55rem)] leading-[0.95] tracking-[-0.03em]"
-      : "text-display-fluid"
-  const overlayWrapperClass = locale === "ru" ? "-translate-y-6 md:-translate-y-8" : ""
+      ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
+      : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
+  const overlayWrapperClass = locale === "ru" ? "md:-translate-y-8" : ""
 
   return (
     <div className={`relative min-w-0 ${className ?? ""}`}>
@@ -238,8 +238,8 @@ function HeroContent({
             className={
               isOverlay
                 ? combinePrimaryTitle
-                  ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)]"
-                  : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)]"
+                  ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                  : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
                 : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
             }
           >
@@ -250,11 +250,11 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-6 measure-intro text-body-fluid font-medium text-white/92 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)]"
+              ? "relative z-10 mt-6 measure-intro text-body-fluid font-medium text-white/92 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-4 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
-          {renderHeroDescription(description)}
+          {renderHeroDescription(description, isOverlay ? "max-md:inline" : undefined)}
         </p>
       </div>
 
@@ -296,7 +296,7 @@ function HeroContent({
         </>
       ) : null}
 
-      <div className={isOverlay ? "mt-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
+      <div className={isOverlay ? "mt-8 flex flex-col gap-5 max-md:mt-5 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
           <Button asChild size="lg" className="w-full gap-2 px-5 sm:w-auto">
             <a href="tel:+493023613927">
@@ -401,21 +401,21 @@ export function HeroSection({ locale }: Props) {
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">
       <h1 className="sr-only">{heroTitle}</h1>
-      <div className="relative overflow-hidden bg-black md:hidden">
-        <div className="relative h-[48svh] min-h-[22rem] overflow-hidden">
+      <div className="bg-black md:hidden">
+        <div className="relative h-[17.5rem] overflow-hidden bg-black min-[430px]:h-[19.25rem]">
           <Image
             src={heroImageSrc}
             alt=""
             fill
             sizes="(max-width: 767px) 100vw, 0vw"
             quality={88}
-            className="object-cover object-[58%_50%]"
+            className="scale-125 object-cover object-[58%_64%]"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.06)_0%,rgba(5,7,11,0.08)_52%,rgba(5,7,11,0.86)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_54%,rgba(5,7,11,0.42)_100%)]" />
         </div>
 
-        <div className="relative -mt-16 px-5 pb-10 pt-0">
+        <div className="px-5 pb-7 pt-6">
           <HeroContent
             tone="overlay"
             title1={t.title1}
@@ -430,7 +430,7 @@ export function HeroSection({ locale }: Props) {
             whatsapp={t.whatsapp}
             address={t.address}
             directServicesLabel={t.directServicesLabel}
-            className="mx-auto w-full max-w-[29rem]"
+            className="mx-auto w-full max-w-[26.5rem]"
           />
         </div>
       </div>
