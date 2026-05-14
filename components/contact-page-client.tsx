@@ -324,26 +324,25 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
             </h2>
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-12">
               <div className="min-h-full">
-                <div className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-card shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
-                  <iframe
-                    title="UNEXT GmbH Standortkarte"
-                    src="https://www.google.com/maps?q=L%C3%BCbarser%20Str.%2025%2C%2013435%20Berlin&output=embed"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="min-h-[22rem] flex-1 border-0"
-                  />
-                  <div className="flex flex-col items-center border-t border-border/60 bg-background p-5 text-center sm:flex-row sm:justify-between sm:text-left">
-                    <div>
-                      <p className="font-semibold text-foreground">Lübarser Str. 25</p>
-                      <p className="text-muted-foreground">13435 Berlin</p>
+                <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-border/60 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
+                  <div className="space-y-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <MapPin className="h-7 w-7" aria-hidden="true" />
                     </div>
-                    <Button asChild className="mt-4 sm:mt-0" variant="outline">
+                    <div>
+                      <p className="text-title-fluid font-semibold text-foreground">Lübarser Str. 25</p>
+                      <p className="mt-2 text-body-compact text-muted-foreground">13435 Berlin</p>
+                    </div>
+                    <p className="measure-card-copy text-body-compact text-muted-foreground">{t.locationDescription}</p>
+                  </div>
+                  <div className="mt-8">
+                    <Button asChild variant="outline">
                       <a
                         href="https://maps.google.com/?q=Lübarser+Str.+25,+13435+Berlin"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" aria-hidden="true" />
                         {t.openMaps}
                       </a>
                     </Button>

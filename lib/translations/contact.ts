@@ -44,6 +44,8 @@ export const contactTranslations = {
       privacySuffix: "zu.",
     },
     locationTitle: "Unser Standort",
+    locationDescription:
+      "UNEXT GmbH befindet sich in Berlin-Reinickendorf. Den genauen Standort können Sie über Google Maps extern öffnen.",
     openMaps: "In Google Maps öffnen",
     openingHoursTitle: "Öffnungszeiten",
     openingHours: {
@@ -102,6 +104,8 @@ export const contactTranslations = {
       privacySuffix: ".",
     },
     locationTitle: "Our location",
+    locationDescription:
+      "UNEXT GmbH is located in Berlin-Reinickendorf. You can open the exact location externally in Google Maps.",
     openMaps: "Open in Google Maps",
     openingHoursTitle: "Opening hours",
     openingHours: {
@@ -160,6 +164,8 @@ export const contactTranslations = {
       privacySuffix: ".",
     },
     locationTitle: "Наш адрес",
+    locationDescription:
+      "UNEXT GmbH находится в Берлине-Райниккендорфе. Точный адрес можно открыть во внешнем сервисе Google Maps.",
     openMaps: "Открыть в Google Maps",
     openingHoursTitle: "Часы работы",
     openingHours: {
