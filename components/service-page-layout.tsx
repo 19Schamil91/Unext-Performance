@@ -119,6 +119,11 @@ export async function ServicePageLayout({
 
   const resolvedHeroActions = heroActions ?? defaultHeroActions
   const resolvedBottomActions = bottomActions ?? defaultBottomActions
+  // Lange russische Hero-Titel bekommen mobil mehr Zeilenbreite, ohne die Desktop-Groesse zu veraendern.
+  const heroTitleClassName =
+    locale === "ru"
+      ? "mt-2 measure-heading text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:measure-display md:text-display-fluid"
+      : "mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid"
   const servicePath =
     serviceName === "abschleppdienst"
       ? "/leistungen/abschleppdienst-pannenhilfe"
@@ -256,7 +261,7 @@ export async function ServicePageLayout({
             )}
 
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.14em]">{subtitle}</p>
-            <h1 className="mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid">
+            <h1 className={heroTitleClassName}>
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (

@@ -175,6 +175,11 @@ function HeroContent({
       ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
       : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
   const overlayWrapperClass = locale === "ru" ? "md:-translate-y-8" : ""
+  // Die deutsche Startseitenzeile bleibt auf Handybreite als Sinnabschnitt zusammen.
+  const primaryTitleSecondLineClass =
+    locale === "de"
+      ? "block whitespace-nowrap text-primary md:whitespace-normal"
+      : "block max-w-[11ch] text-primary sm:max-w-none"
 
   return (
     <div className={`relative min-w-0 ${className ?? ""}`}>
@@ -210,7 +215,7 @@ function HeroContent({
           {isOverlay && combinePrimaryTitle ? (
             <span className={`block font-semibold ${overlayTitleClass}`}>
               <span className="block text-white">{title1}</span>
-              <span className="block max-w-[11ch] text-primary sm:max-w-none">{title2}</span>
+              <span className={primaryTitleSecondLineClass}>{title2}</span>
             </span>
           ) : (
             <>

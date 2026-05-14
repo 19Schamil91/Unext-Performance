@@ -18,7 +18,7 @@ type AccidentServiceDetailContentProps = {
 const accidentTitleLines = {
   de: ["Unfallhilfe & Gutachten"],
   en: ["Accident Reports", "& Immediate Assistance"],
-  ru: ["Экспертиза ДТП", "и срочная помощь"],
+  ru: ["Экспертиза", "ДТП и срочная", "помощь"],
 } satisfies Record<Locale, readonly string[]>
 
 const accidentDescriptionLines = {

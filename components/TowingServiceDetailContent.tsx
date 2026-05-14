@@ -18,7 +18,7 @@ type TowingServiceDetailContentProps = {
 const towingTitleLines = {
   de: ["Pannenhilfe & Abschleppen"],
   en: ["Towing & Roadside Help"],
-  ru: ["Эвакуатор и помощь на дороге"],
+  ru: ["Эвакуатор", "и помощь на дороге"],
 } satisfies Record<Locale, readonly string[]>
 
 const towingDescriptionLines = {

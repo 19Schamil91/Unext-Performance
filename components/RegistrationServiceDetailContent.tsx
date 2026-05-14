@@ -20,7 +20,7 @@ const NB = "\u00A0"
 const registrationTitleLines = {
   de: ["Kfz-Zulassung"],
   en: ["Vehicle Registration Service"],
-  ru: ["Сервис регистрации авто"],
+  ru: ["Регистрация авто"],
 } satisfies Record<Locale, readonly string[]>
 
 // Diese Zeilen halten nur den grossen Einleitungstext im Hero optisch ruhiger.
