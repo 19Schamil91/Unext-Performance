@@ -119,11 +119,13 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
 
     return (
       <>
-        <span className="max-md:block max-md:whitespace-nowrap md:inline">6 Hauptleistungen</span>
-        <span className="max-md:block md:inline"> rund ums Fahrzeug</span>
+        <span className="block whitespace-nowrap">6 Hauptleistungen</span>
+        <span className="block">rund ums Fahrzeug</span>
       </>
     )
   }
+
+  const pageTitleMeasureClass = locale === "de" ? "measure-heading" : "measure-display"
 
   const renderServiceCards = () => (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -220,7 +222,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-5xl text-center">
-              <h1 className="mx-auto measure-display text-display-fluid font-semibold text-foreground">
+              <h1 className={`mx-auto ${pageTitleMeasureClass} text-display-fluid font-semibold text-foreground`}>
                 {renderPageTitle()}
               </h1>
               <p className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground">
