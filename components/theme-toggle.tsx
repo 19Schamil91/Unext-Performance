@@ -1,5 +1,10 @@
 "use client"
 
+/*
+  Diese Datei zeigt den Schalter fuer das helle und dunkle Erscheinungsbild.
+  Sie zeigt je nach aktivem Modus ein Sonnen- oder Mond-Symbol.
+  Nutzer koennen damit das Website-Theme umschalten.
+*/
 import { useSyncExternalStore } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
