@@ -65,7 +65,6 @@ export function CtaSection({ locale }: Props) {
             ) : (
               <ReadableText
                 text={t.description}
-                targetLineLength={56}
                 className="mt-4 max-w-[62ch] text-body-fluid text-primary-foreground/86"
               />
             )}

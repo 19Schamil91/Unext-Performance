@@ -274,7 +274,6 @@ export async function ServicePageLayout({
             ) : (
               <ReadableText
                 text={description}
-                targetLineLength={balancedTypography ? 74 : 82}
                 className="mt-3 max-w-[37ch] text-body-compact leading-[1.55] text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 md:max-w-[74ch] md:text-body-fluid"
               />
             )}
@@ -329,7 +328,6 @@ export async function ServicePageLayout({
             {contactNote && (
               <ReadableText
                 text={contactNote}
-                targetLineLength={74}
                 className="mt-4 max-w-[72ch] text-sm leading-7 text-white/72"
               />
             )}
@@ -368,8 +366,6 @@ export async function ServicePageLayout({
                 ) : (
                   <ReadableText
                     text={service.description}
-                    targetLineLength={balancedTypography ? 34 : 38}
-                    lineGapClassName=""
                     className="mt-3 max-w-full text-body-compact leading-[1.5] text-foreground/78"
                   />
                 )}
@@ -388,7 +384,6 @@ export async function ServicePageLayout({
               </h2>
               <ReadableText
                 text={t.whyDescription}
-                targetLineLength={68}
                 className="mt-4 max-w-[60ch] text-body-compact text-foreground/80"
               />
 
@@ -420,8 +415,6 @@ export async function ServicePageLayout({
                       ) : (
                         <ReadableText
                           text={item.description}
-                          targetLineLength={balancedTypography ? 36 : 40}
-                          lineGapClassName=""
                           className="mt-2 max-w-full text-body-compact leading-[1.5] text-foreground/78"
                         />
                       )}
@@ -469,8 +462,6 @@ export async function ServicePageLayout({
                   <AccordionContent className="text-foreground/78">
                     <ReadableText
                       text={faq.answer}
-                      targetLineLength={72}
-                      lineGapClassName=""
                       className="max-w-[64ch] pb-1 text-body-compact leading-[1.5] text-foreground/78"
                     />
                   </AccordionContent>
@@ -493,7 +484,6 @@ export async function ServicePageLayout({
               </h2>
               <ReadableText
                 text={t.questionsDescription}
-                targetLineLength={76}
                 className="mt-4 max-w-[64ch] text-body-fluid text-primary-foreground/86"
               />
             </div>
@@ -515,7 +505,6 @@ export async function ServicePageLayout({
           {contactNote && (
             <ReadableText
               text={contactNote}
-              targetLineLength={74}
               className="mx-auto mt-4 max-w-[62ch] text-sm leading-7 text-primary-foreground/80"
             />
           )}
