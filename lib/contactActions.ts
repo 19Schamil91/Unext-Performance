@@ -16,7 +16,7 @@ const actionMessages: Record<Locale, { invalid: string; config: string; failed: 
     invalid: "Bitte pruefen Sie die markierten Felder.",
     config: "Der Mailversand ist noch nicht eingerichtet. Bitte rufen Sie uns direkt an oder schreiben Sie uns per WhatsApp.",
     failed: "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
-    sent: "Ihre Anfrage wurde erfolgreich uebermittelt.",
+    sent: "Ihre Anfrage wurde erfolgreich übermittelt.",
   },
   en: {
     invalid: "Please check the highlighted fields.",
