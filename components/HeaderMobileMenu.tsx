@@ -104,6 +104,26 @@ export function HeaderMobileMenu({
             </Link>
           </div>
 
+          <div className="rounded-[1.35rem] border border-border/60 bg-background/50 p-3">
+            <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              {labels.languageTitle}
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {languages.map((lang) => (
+                <Button
+                  key={lang.code}
+                  variant={locale === lang.code ? "secondary" : "ghost"}
+                  size="sm"
+                  className="h-11 rounded-full px-3"
+                  disabled={isPending}
+                  onClick={() => handleLocaleChange(lang.code)}
+                >
+                  {lang.code.toUpperCase()}
+                </Button>
+              ))}
+            </div>
+          </div>
+
           <div>
             <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
               {labels.quickContact}
@@ -183,25 +203,6 @@ export function HeaderMobileMenu({
             </div>
           ) : null}
 
-          <div className="border-t border-border pt-4">
-            <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-              {labels.languageTitle}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {languages.map((lang) => (
-                <Button
-                  key={lang.code}
-                  variant={locale === lang.code ? "secondary" : "ghost"}
-                  size="sm"
-                  className="min-w-14 rounded-full px-3"
-                  disabled={isPending}
-                  onClick={() => handleLocaleChange(lang.code)}
-                >
-                  {lang.code.toUpperCase()}
-                </Button>
-              ))}
-            </div>
-          </div>
         </div>
       </SheetContent>
     </Sheet>

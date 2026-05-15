@@ -12,22 +12,22 @@ export const aboutTranslationOverrides = {
       {
         year: "2026",
         title: "Autovermietung",
-        description: "Erweiterung des Angebots um\nprofessionelle Mietfahrzeuge.",
+        description: "Professionelle Mietfahrzeuge\nerweitern das Angebot.",
       },
       {
         year: "2026",
         title: "Werkstatt & Detailing",
-        description: "Eröffnung des Werkstattbereichs und Start\ndes Premium-Detailing-Services.",
+        description: "Werkstattbereich eröffnet,\nPremium-Detailing gestartet.",
       },
       {
         year: "2026",
         title: "Pannenhilfe & Abschleppen",
-        description: "Abschleppdienst und Pannenhilfe ergänzen\ndas Angebot als weiterer Servicebereich.",
+        description: "Abschleppdienst und Pannenhilfe\nerweitern das Serviceangebot.",
       },
       {
         year: "2026",
         title: "Kfz-Zulassung",
-        description: "Die Kfz-Zulassung ergänzt\ndas Angebot als neuester Servicebereich.",
+        description: "Kfz-Zulassung ergänzt das Angebot\nals neuer Servicebereich.",
       },
       {
         year: "Heute",
