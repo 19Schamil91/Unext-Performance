@@ -44,9 +44,7 @@ export type ServicePageLayoutProps = {
   titleLines?: readonly string[]
   descriptionLines?: readonly string[]
   serviceTitleLineBreaks?: Readonly<Record<string, readonly string[]>>
-  serviceDescriptionLines?: Readonly<Record<string, readonly string[]>>
   whyChooseTitleLineBreaks?: Readonly<Record<string, readonly string[]>>
-  whyChooseDescriptionLines?: Readonly<Record<string, readonly string[]>>
   /** Hero-Benefit-Liste: jeder Punkt eine Zeile (kein Textumbruch im Label). */
   benefitsSingleLine?: boolean
 }
@@ -81,9 +79,7 @@ export async function ServicePageLayout({
   titleLines,
   descriptionLines,
   serviceTitleLineBreaks,
-  serviceDescriptionLines,
   whyChooseTitleLineBreaks,
-  whyChooseDescriptionLines,
   benefitsSingleLine = false,
 }: ServicePageLayoutProps) {
   const translations = getTranslations(locale)
@@ -141,21 +137,6 @@ export async function ServicePageLayout({
       </span>
     ))
   }
-
-  const renderParagraphLines = (
-    text: string,
-    lines: readonly string[],
-    className: string,
-    lineSpacingClass = ""
-  ) => (
-    <p className={`${className} text-pretty`}>
-      {lines.map((line, index) => (
-        <span key={`${text}-${line}-${index}`} className={`block ${index > 0 ? lineSpacingClass : ""}`}>
-          {line}
-        </span>
-      ))}
-    </p>
-  )
 
   const renderAction = (
     action: ServiceAction,
@@ -362,18 +343,10 @@ export async function ServicePageLayout({
                 >
                   {renderLines(service.title, serviceTitleLineBreaks?.[service.title])}
                 </h3>
-                {serviceDescriptionLines?.[service.title] ? (
-                  renderParagraphLines(
-                    service.description,
-                    serviceDescriptionLines[service.title],
-                    "mt-3 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                  )
-                ) : (
-                  <ReadableText
-                    text={service.description}
-                    className="mt-3 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                  />
-                )}
+                <ReadableText
+                  text={service.description}
+                  className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78"
+                />
               </div>
             ))}
           </div>
@@ -411,18 +384,10 @@ export async function ServicePageLayout({
                       >
                         {renderLines(item.title, whyChooseTitleLineBreaks?.[item.title])}
                       </h3>
-                      {whyChooseDescriptionLines?.[item.title] ? (
-                        renderParagraphLines(
-                          item.description,
-                          whyChooseDescriptionLines[item.title],
-                          "mt-2 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                        )
-                      ) : (
-                        <ReadableText
-                          text={item.description}
-                          className="mt-2 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                        />
-                      )}
+                      <ReadableText
+                        text={item.description}
+                        className="mt-2 measure-card-copy-wide text-body-compact text-foreground/78"
+                      />
                     </div>
                   </div>
                 ))}

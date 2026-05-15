@@ -80,34 +80,6 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
-// Diese Zeilen bestimmen nur auf kleinen Bildschirmen, wo die Kurztexte lesbar umbrechen.
-const mobileServiceDescriptionLines: Record<string, readonly string[]> = {
-  "Unfallhilfe & Gutachten": [
-    "Nach einem Unfall organisieren wir schnelle Unterstützung,",
-    "ein unabhängiges Gutachten und die nächsten sinnvollen Schritte.",
-  ],
-  Autovermietung: [
-    "Mietwagen und Ersatzfahrzeuge für Privatkunden, Unternehmen",
-    "und Fahrdienste. Schnell verfügbar und unkompliziert organisiert.",
-  ],
-  "Werkstatt & Service": [
-    "Von Inspektion bis Reparatur: Wir kümmern uns zuverlässig",
-    "um die Technik Ihres Fahrzeugs und halten Sie mobil.",
-  ],
-  "Aufbereitung & Pflege": [
-    "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge,",
-    "Werterhalt und einen sauberen Gesamteindruck.",
-  ],
-  "Kfz-Zulassung": [
-    "Wir übernehmen Anmeldung, Abmeldung und alle wichtigen Formalitäten",
-    "rund um Ihr Fahrzeug schnell und unkompliziert.",
-  ],
-  "Pannenhilfe & Abschleppen": [
-    "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe,",
-    "sicheren Transport und auf Wunsch die komplette weitere Abwicklung.",
-  ],
-}
-
 type Props = {
   locale: Locale
 }
@@ -133,7 +105,6 @@ export function ServicesSection({ locale }: Props) {
           {t.items.map((service, index) => {
             const meta = serviceMeta[index]
             const contactText = meta.contactText ?? ""
-            const mobileDescriptionLines = locale === "de" ? mobileServiceDescriptionLines[service.title] : undefined
 
             return (
               <Card
@@ -170,15 +141,8 @@ export function ServicesSection({ locale }: Props) {
                         </div>
                       </div>
 
-                      <p className="mt-3 max-w-[62ch] text-body-compact text-foreground/82">
-                        {mobileDescriptionLines ? (
-                          <>
-                            <span className="whitespace-pre-line sm:hidden">{mobileDescriptionLines.join("\n")}</span>
-                            <span className="hidden sm:inline">{service.description}</span>
-                          </>
-                        ) : (
-                          service.description
-                        )}
+                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/82">
+                        {service.description}
                       </p>
 
                       <ul className="mt-4 grid gap-y-2">

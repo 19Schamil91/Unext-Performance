@@ -27,7 +27,7 @@ export const homeTranslations = {
           title: "Unfallhilfe & Gutachten",
           subtitle: "UNFALLX",
           description:
-            "Nach einem Unfall organisieren wir schnelle Unterstützung, ein unabhängiges Gutachten und die nächsten sinnvollen Schritte.",
+            "Nach einem Unfall sichern wir schnelle Hilfe, Gutachten und klare nächste Schritte.",
           features: [
             "Schnelle Ersteinschätzung",
             "Unabhängiges Gutachten",
@@ -39,7 +39,7 @@ export const homeTranslations = {
           title: "Autovermietung",
           subtitle: "Ersatzfahrzeuge",
           description:
-            "Mietwagen und Ersatzfahrzeuge für Privatkunden, Unternehmen und Fahrdienste. Schnell verfügbar und unkompliziert organisiert.",
+            "Mietwagen und Ersatzfahrzeuge für privat, gewerblich und Fahrdienste. Schnell verfügbar.",
           features: [
             "Kurzfristig verfügbar",
             "Flexible Laufzeiten",
@@ -127,7 +127,7 @@ export const homeTranslations = {
         },
         {
           title: "Schnell erreichbar",
-          description: "Telefon und WhatsApp sind der schnellste Weg zu einer ersten Einschätzung.",
+          description: "Telefon und WhatsApp bringen Sie am schnellsten zur ersten Einschätzung.",
         },
         {
           title: "Auch für Fahrdienste",
@@ -192,7 +192,7 @@ export const homeTranslations = {
         {
           step: "04",
           title: "Termin oder Soforthilfe",
-          description: "Sie bekommen die passende Unterstützung ohne unnötige Umwege oder mehrfaches Weiterleiten.",
+          description: "Sie bekommen passende Hilfe ohne Umwege und ohne mehrfaches Weiterleiten.",
         },
       ],
     },

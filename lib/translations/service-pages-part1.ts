@@ -12,7 +12,7 @@ export const servicePagesPart1 = {
       services: [
         { title: "Unfallgutachten", description: "Professionelle und unabhängige Schadensbewertung nach Verkehrsunfällen für Versicherungen und Gerichte." },
         { title: "Soforthilfe nach Unfall", description: "Schnelle Unterstützung direkt nach dem Unfall - wir kümmern uns um alles Notwendige." },
-        { title: "Schadensabwicklung", description: "Komplette Unterstützung bei der Kommunikation mit Versicherungen und allen beteiligten Parteien." },
+        { title: "Schadensabwicklung", description: "Unterstützung bei der Kommunikation mit Versicherungen und Beteiligten." },
         { title: "Wertgutachten", description: "Fahrzeugbewertung für Kauf, Verkauf oder Versicherungszwecke durch unsere Experten." },
         { title: "Schadensdokumentation", description: "Umfassende fotografische und schriftliche Dokumentation aller Schäden." },
         { title: "Rechtsberatung (Vermittlung)", description: "Vermittlung zu kompetenten Partnern für rechtliche Unterstützung bei Schadensfällen." },

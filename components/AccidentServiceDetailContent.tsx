@@ -48,125 +48,10 @@ const accidentServiceTitleLineBreaks = {
   ru: {},
 } satisfies Record<Locale, Record<string, readonly string[]>>
 
-const accidentServiceDescriptionLines = {
-  de: {
-    "Unfallgutachten": [
-      "Professionelle und unabhängige",
-      "Schadensbewertung nach Verkehrsunfällen",
-      "für Versicherungen und Gerichte.",
-    ],
-    "Soforthilfe nach Unfall": [
-      "Schnelle Unterstützung direkt nach dem Unfall",
-      "– wir kümmern uns um alles Notwendige.",
-    ],
-    "Schadensabwicklung": [
-      "Komplette Unterstützung bei der",
-      "Kommunikation mit Versicherungen",
-      "und allen beteiligten Parteien.",
-    ],
-    "Wertgutachten": [
-      "Fahrzeugbewertung für Kauf,",
-      "Verkauf oder Versicherungszwecke",
-      "durch unsere Experten.",
-    ],
-  },
-  en: {
-    "Immediate accident help": [
-      "Fast support right after the accident",
-      "- we take care of everything necessary.",
-    ],
-    "Claims handling": [
-      "Complete support in communication",
-      "with insurers and all parties involved.",
-    ],
-    "Legal referral": [
-      "Referral to competent partners",
-      "for legal support in damage cases.",
-    ],
-  },
-  ru: {
-    "Экспертиза ДТП": [
-      "Профессиональная и независимая",
-      "оценка повреждений после ДТП",
-      "для страховых компаний и суда.",
-    ],
-    "Срочная помощь после ДТП": [
-      "Быстрая поддержка сразу после аварии",
-      "- мы берем на себя все необходимое.",
-    ],
-    "Урегулирование ущерба": [
-      "Полная поддержка в коммуникации",
-      "со страховыми компаниями",
-      "и всеми участниками процесса.",
-    ],
-    "Оценка стоимости": [
-      "Оценка автомобиля для покупки,",
-      "продажи или страховых целей",
-      "от наших специалистов.",
-    ],
-    "Направление к юристам": [
-      "Связь с компетентными партнерами",
-      "для юридической поддержки",
-      "по делам о возмещении ущерба.",
-    ],
-  },
-} satisfies Record<Locale, Record<string, readonly string[]>>
-
 const accidentWhyTitleLineBreaks = {
   de: {},
   en: {},
   ru: {},
-} satisfies Record<Locale, Record<string, readonly string[]>>
-
-const accidentWhyDescriptionLines = {
-  de: {
-    "Zertifizierte Gutachter": [
-      "Unsere Gutachter sind geprüft und zertifiziert",
-      "- für rechtssichere Gutachten.",
-    ],
-    "Unabhängigkeit": [
-      "Wir arbeiten unabhängig von Versicherungen",
-      "- Ihre Interessen stehen an erster Stelle.",
-    ],
-    "Komplettservice": [
-      "Von der ersten Beratung bis zur finalen Abwicklung",
-      "- alles aus einer Hand.",
-    ],
-  },
-  en: {
-    "Certified experts": [
-      "Our experts are tested and certified",
-      "- for legally reliable reports.",
-    ],
-    "Independence": [
-      "We work independently from insurance companies",
-      "- your interests come first.",
-    ],
-    "Full service": [
-      "From the initial consultation to the final settlement",
-      "- everything from one source.",
-    ],
-  },
-  ru: {
-    "Сертифицированные\u00A0эксперты": [
-      "Наши специалисты прошли проверку",
-      "и сертификацию",
-      "- для юридически надежных заключений.",
-    ],
-    "Быстрая запись": [
-      "Мы знаем, что время важно.",
-      "Краткосрочные записи у нас стандарт.",
-    ],
-    "Независимость": [
-      "Мы работаем независимо от страховых компаний",
-      "- ваши интересы на первом месте.",
-    ],
-    "Полный сервис": [
-      "От первой консультации",
-      "до окончательного урегулирования",
-      "- все из одних рук.",
-    ],
-  },
 } satisfies Record<Locale, Record<string, readonly string[]>>
 
 export function getAccidentServiceMetadata(locale: Locale): Metadata {
@@ -202,9 +87,7 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
       titleLines={accidentTitleLines[locale]}
       descriptionLines={accidentDescriptionLines[locale]}
       serviceTitleLineBreaks={accidentServiceTitleLineBreaks[locale]}
-      serviceDescriptionLines={accidentServiceDescriptionLines[locale]}
       whyChooseTitleLineBreaks={accidentWhyTitleLineBreaks[locale]}
-      whyChooseDescriptionLines={accidentWhyDescriptionLines[locale]}
     />
   )
 

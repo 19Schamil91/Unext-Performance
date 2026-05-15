@@ -166,7 +166,7 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
                   </div>
                 </div>
 
-                <p className="mt-4 max-w-[42ch] text-[0.98rem] leading-[1.62] text-foreground/78 text-pretty">
+                <p className="mt-4 measure-card-copy-wide text-body-compact text-foreground/78">
                   {service.description}
                 </p>
 

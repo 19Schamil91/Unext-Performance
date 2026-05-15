@@ -10,26 +10,6 @@ import { getTranslations } from "@/lib/translations"
 
 const icons = [Phone, MessageSquare, Clock, CheckCircle]
 
-// Diese Zeilen bestimmen nur auf kleinen Bildschirmen, wo die Prozessbeschreibungen lesbar umbrechen.
-const mobileStepDescriptionLines: Record<string, readonly string[]> = {
-  "01": [
-    "Telefon und WhatsApp sind der schnellste Weg",
-    "zu einer ersten Einschätzung.",
-  ],
-  "02": [
-    "Zum Beispiel Unfall, Werkstatt, Mietwagen,",
-    "Zulassung oder Pannenhilfe.",
-  ],
-  "03": [
-    "Wir sagen Ihnen direkt, was möglich ist",
-    "und welche Unterlagen oder Infos wir brauchen.",
-  ],
-  "04": [
-    "Sie bekommen die passende Unterstützung",
-    "ohne unnötige Umwege oder mehrfaches Weiterleiten.",
-  ],
-}
-
 type Props = {
   locale: Locale
 }
@@ -54,7 +34,6 @@ export function ProcessSection({ locale }: Props) {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {t.steps.map((item, index) => {
               const Icon = icons[index]
-              const mobileDescriptionLines = locale === "de" ? mobileStepDescriptionLines[item.step] : undefined
 
               return (
                 <div
@@ -72,14 +51,7 @@ export function ProcessSection({ locale }: Props) {
 
                   <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{item.title}</h3>
                   <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
-                    {mobileDescriptionLines ? (
-                      <>
-                        <span className="whitespace-pre-line sm:hidden">{mobileDescriptionLines.join("\n")}</span>
-                        <span className="hidden sm:inline">{item.description}</span>
-                      </>
-                    ) : (
-                      item.description
-                    )}
+                    {item.description}
                   </p>
 
                   {index < t.steps.length - 1 && (

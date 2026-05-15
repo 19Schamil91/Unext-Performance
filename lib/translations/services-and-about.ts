@@ -13,7 +13,7 @@ export const servicesAndAboutTranslations = {
           title: "Unfallhilfe & Gutachten",
           subtitle: "UNFALLX",
           description:
-            "Nach einem Unfall erhalten Sie schnelle Unterstützung, ein unabhängiges Gutachten und eine klare Orientierung für\u00A0die\u00A0nächsten Schritte.",
+            "Nach einem Unfall erhalten Sie schnelle Hilfe, ein unabhängiges Gutachten und klare Orientierung.",
           features: [
             "Schnelle Ersteinschätzung",
             "Unterstützung bei der Schadensabwicklung",
@@ -25,7 +25,7 @@ export const servicesAndAboutTranslations = {
           title: "Autovermietung",
           subtitle: "Ersatzfahrzeuge",
           description:
-            "Brauchen Sie schnell ein Ersatzfahrzeug? Ob nach einem Unfall oder während Ihr Auto in der Werkstatt ist - wir haben immer geprüfte Fahrzeuge für Sie verfügbar.",
+            "Ersatzfahrzeuge nach Unfall oder Werkstattaufenthalt. Geprüft, schnell verfügbar und unkompliziert.",
           features: [
             "Ersatzfahrzeuge direkt verfügbar",
             "Flexible Laufzeiten",
