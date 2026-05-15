@@ -5,13 +5,16 @@
 */
 import { CheckCircle, Clock, MessageSquare, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const icons = [Phone, MessageSquare, Clock, CheckCircle]
 
-export async function ProcessSection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function ProcessSection({ locale }: Props) {
   const t = getTranslations(locale).home.process
 
   return (
@@ -23,7 +26,6 @@ export async function ProcessSection() {
           </h2>
           <ReadableText
             text={t.description}
-            targetLineLength={72}
             className="mx-auto mt-3 max-w-[34rem] text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-[66ch]"
           />
         </div>

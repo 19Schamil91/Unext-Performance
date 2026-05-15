@@ -112,7 +112,7 @@ export const servicePagesPart2 = {
         { title: "Pannenhilfe", description: "Schnelle Unterstützung, wenn Ihr Fahrzeug liegen bleibt oder nach einer Panne nicht mehr sicher fahrbereit ist." },
         { title: "Abschleppdienst vor Ort", description: "Organisation und Durchführung des Abschleppens direkt am Einsatzort." },
         { title: "Fahrzeugtransport", description: "Sicherer Transport zur eigenen Werkstatt oder zu einer Adresse Ihrer Wahl." },
-        { title: "Unfallbedingte Soforthilfe", description: "Strukturierte Unterstützung nach einem Unfall, damit Ihr Fahrzeug schnell gesichert und weiter betreut wird." },
+        { title: "Unfallbedingte Soforthilfe", description: "Hilfe nach dem Unfall, damit Ihr Fahrzeug schnell gesichert und weiter betreut wird." },
         { title: "Weiterführende Abwicklung", description: "Auf Wunsch koordinieren wir nach dem Abschleppen weitere Schritte wie Gutachten oder Werkstattabstimmung." },
       ],
       whyChoose: [

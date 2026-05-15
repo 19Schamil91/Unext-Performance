@@ -9,9 +9,9 @@ const openGraphLocales: Record<Locale, string> = {
 
 const homeMeta: Record<Locale, { title: string; description: string; keywords: string[] }> = {
   de: {
-    title: "UNEXT GMBH | Ihr starker Partner rund ums Fahrzeug in Berlin",
+    title: "UNEXT GmbH | Ihr starker Partner rund ums Fahrzeug in Berlin",
     description:
-      "UNEXT GMBH Berlin - Unfallgutachten, Autovermietung, Autoservice & Werkstatt, Kfz-Zulassungsservice, Abschleppdienst, Premium Detailing und Expresslieferung. Zertifiziert, schnell und zuverlässig.",
+      "UNEXT GmbH Berlin - Unfallgutachten, Autovermietung, Autoservice & Werkstatt, Kfz-Zulassungsservice, Abschleppdienst, Premium Detailing und Expresslieferung. Zertifiziert, schnell und zuverlässig.",
     keywords: [
       "Unfallgutachten Berlin",
       "Kfz-Gutachter Berlin",
@@ -27,9 +27,9 @@ const homeMeta: Record<Locale, { title: string; description: string; keywords: s
     ],
   },
   en: {
-    title: "UNEXT GMBH | Your trusted automotive partner in Berlin",
+    title: "UNEXT GmbH | Your trusted automotive partner in Berlin",
     description:
-      "UNEXT GMBH Berlin - accident reports, car rental, workshop service, vehicle registration, towing, premium detailing and express delivery. Certified, fast and reliable.",
+      "UNEXT GmbH Berlin - accident reports, car rental, workshop service, vehicle registration, towing, premium detailing and express delivery. Certified, fast and reliable.",
     keywords: [
       "accident reports Berlin",
       "car appraiser Berlin",
@@ -45,9 +45,9 @@ const homeMeta: Record<Locale, { title: string; description: string; keywords: s
     ],
   },
   ru: {
-    title: "UNEXT GMBH | Ваш надежный автомобильный партнер в Берлине",
+    title: "UNEXT GmbH | Ваш надежный автомобильный партнер в Берлине",
     description:
-      "UNEXT GMBH Berlin - экспертиза ДТП, прокат авто, сервис и мастерская, регистрация автомобиля, эвакуатор и премиальный детейлинг. Быстро, надежно и профессионально.",
+      "UNEXT GmbH Berlin - экспертиза ДТП, прокат авто, сервис и мастерская, регистрация автомобиля, эвакуатор и премиальный детейлинг. Быстро, надежно и профессионально.",
     keywords: [
       "экспертиза ДТП Берлин",
       "автоэксперт Берлин",
@@ -69,15 +69,15 @@ export function buildSiteMetadata(locale: Locale): Metadata {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: "UNEXT GMBH" }],
-    creator: "UNEXT GMBH",
-    publisher: "UNEXT GMBH",
+    authors: [{ name: "UNEXT GmbH" }],
+    creator: "UNEXT GmbH",
+    publisher: "UNEXT GmbH",
     robots: "index, follow",
     openGraph: {
       type: "website",
       locale: openGraphLocales[locale],
       url: "https://unext.de",
-      siteName: "UNEXT GMBH",
+      siteName: "UNEXT GmbH",
       title: meta.title,
       description: meta.description,
     },
@@ -97,7 +97,7 @@ export function buildPageMetadata(
       type: "website",
       locale: openGraphLocales[locale],
       url: `https://unext.de${path}`,
-      siteName: "UNEXT GMBH",
+      siteName: "UNEXT GmbH",
       title,
       description,
     },

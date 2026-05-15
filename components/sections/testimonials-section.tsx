@@ -1,10 +1,18 @@
+/*
+  Diese Datei zeigt Kundenstimmen auf der Startseite.
+  Sie zeigt Bewertungen mit Name, Rolle und passender Leistung.
+  Besucher koennen dadurch Vertrauen in die Arbeit von UNEXT aufbauen.
+*/
 import { Quote, Star } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-export async function TestimonialsSection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function TestimonialsSection({ locale }: Props) {
   const t = getTranslations(locale).home.testimonials
 
   return (

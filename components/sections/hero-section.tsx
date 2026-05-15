@@ -1,18 +1,19 @@
 /*
   Diese Datei definiert den Hero-Bereich der Startseite.
-  Sie zeigt den zentralen Einstieg mit Hauptbotschaft, Leistungslinks und schnellen Kontaktaktionen.
-  Nutzer koennen von hier direkt anrufen, per WhatsApp schreiben oder zu Leistungen springen.
+  Sie zeigt den zentralen Einstieg mit grosser Hauptbotschaft, lesbarem Bildbereich und schnellen Kontaktaktionen.
+  Nutzer koennen von hier direkt anrufen, per WhatsApp schreiben oder die Leistungen weiter unten anspringen.
 */
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, DoorOpen, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import type { Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
-import { getCurrentLocale } from "@/lib/server-locale"
 import { getTranslations } from "@/lib/translations"
 
 type HeroContentProps = {
   tone: "surface" | "overlay"
+  locale: Locale
   badge?: string
   title1: string
   title2: string
@@ -33,6 +34,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   const protectedTerm = "Kfz-Werkstatt"
   const desktopBreakMarkers = ["Autovermietung,", "Berlin."]
   const protectedTerms = [protectedTerm, "Taxi-Fahrer"]
+  const combinedEndingMarkers = ["Alles unter einem Dach.", "All under one roof."]
 
   const renderProtectedLine = (line: string) => {
     const segments: Array<string | { protected: string }> = []
@@ -74,14 +76,36 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   }
 
   if (description.includes("\n")) {
+    // Diese Zeilenlogik haelt den abschliessenden Vertrauenssatz optisch als Einheit zusammen.
+    const sourceLines = description
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+    const combinedLines =
+      sourceLines.length === 3
+        ? combinedEndingMarkers.reduce<string[] | null>((currentLines, marker) => {
+            if (currentLines) {
+              return currentLines
+            }
+
+            const markerIndex = sourceLines[1]?.indexOf(marker) ?? -1
+
+            if (markerIndex === -1) {
+              return null
+            }
+
+            const beforeMarker = sourceLines[1].slice(0, markerIndex).trim()
+            const endingLine = `${sourceLines[1].slice(markerIndex).trim()} ${sourceLines[2]}`
+
+            return [sourceLines[0], beforeMarker, endingLine].filter(Boolean)
+          }, null) ?? sourceLines
+        : sourceLines
+
     return (
       <>
-        {description
-          .split("\n")
-          .map((line) => line.trim())
-          .filter(Boolean)
+        {combinedLines
           .map((line, index, lines) => (
-            <span key={`${line}-${index}`} className={`inline sm:block ${lineClassName ?? ""}`.trim()}>
+            <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
               {renderProtectedLine(line)}
               {index < lines.length - 1 ? " " : null}
             </span>
@@ -114,7 +138,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   return (
     <>
       {lines.map((line, index) => (
-        <span key={`${line}-${index}`} className={`inline sm:block ${lineClassName ?? ""}`.trim()}>
+        <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
           {renderProtectedLine(line)}
           {index < lines.length - 1 ? " " : null}
         </span>
@@ -125,6 +149,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
 
 function HeroContent({
   tone,
+  locale,
   badge,
   title1,
   title2,
@@ -144,13 +169,24 @@ function HeroContent({
   const addressPrimary = addressParts[0] ?? address
   const addressSecondary = addressParts.slice(1).join(", ")
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+  // Russisch braucht wegen der laengeren Woerter eine eigene Hero-Groesse; die vorhandene Display-Klasse ist dort zu hoch.
+  const overlayTitleClass =
+    locale === "ru"
+      ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
+      : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
+  const overlayWrapperClass = locale === "ru" ? "md:-translate-y-8" : ""
+  // Die deutsche Startseitenzeile bleibt auf Handybreite als Sinnabschnitt zusammen.
+  const primaryTitleSecondLineClass =
+    locale === "de"
+      ? "block whitespace-nowrap text-primary md:whitespace-normal"
+      : "block max-w-[11ch] text-primary sm:max-w-none"
 
   return (
-    <div className={`min-w-0 ${className ?? ""}`}>
+    <div className={`relative min-w-0 ${className ?? ""}`}>
       <div
         className={
           isOverlay
-            ? "relative max-w-[62rem] px-2 py-2"
+            ? `relative max-w-[45rem] px-0 py-0 ${overlayWrapperClass}`.trim()
             : ""
         }
       >
@@ -171,22 +207,22 @@ function HeroContent({
           className={
             isOverlay
               ? combinePrimaryTitle
-                ? "relative z-10 inline-flex max-w-none flex-col items-center text-center text-white drop-shadow-[0_10px_34px_rgba(0,0,0,0.42)]"
-                : "relative z-10 max-w-none text-center text-white drop-shadow-[0_10px_34px_rgba(0,0,0,0.42)]"
+                ? "relative z-10 inline-flex max-w-[45rem] flex-col text-left text-white drop-shadow-[0_16px_42px_rgba(0,0,0,0.72)]"
+                : "relative z-10 max-w-[45rem] text-left text-white drop-shadow-[0_16px_42px_rgba(0,0,0,0.72)]"
               : "max-w-none text-[clamp(2rem,1.78rem+1vw,2.35rem)] leading-[1.04] font-semibold tracking-[-0.02em] text-foreground"
           }
         >
           {isOverlay && combinePrimaryTitle ? (
-            <span className="block bg-gradient-to-r from-white via-white to-white/82 bg-clip-text text-[clamp(2.15rem,3.3vw,3.9rem)] leading-[0.94] font-semibold tracking-[-0.04em] text-transparent lg:whitespace-nowrap">
-              <span>{title1} </span>
-              <span className="text-primary">{title2}</span>
+            <span className={`block font-semibold ${overlayTitleClass}`}>
+              <span className="block text-white">{title1}</span>
+              <span className={primaryTitleSecondLineClass}>{title2}</span>
             </span>
           ) : (
             <>
               <span
                 className={
                   isOverlay
-                    ? "block text-[clamp(2.5rem,4.05vw,4.15rem)] leading-[0.99] font-semibold tracking-[-0.036em] lg:whitespace-nowrap"
+                    ? `block font-semibold ${overlayTitleClass}`
                     : "block"
                 }
               >
@@ -195,7 +231,7 @@ function HeroContent({
               <span
                 className={
                   isOverlay
-                    ? "mt-0.5 block text-[clamp(2.5rem,4.05vw,4.15rem)] leading-[0.99] font-semibold tracking-[-0.036em] text-primary lg:whitespace-nowrap"
+                    ? `block font-semibold text-primary ${overlayTitleClass}`
                     : "block text-primary"
                 }
               >
@@ -207,8 +243,8 @@ function HeroContent({
             className={
               isOverlay
                 ? combinePrimaryTitle
-                  ? "mt-4 block text-center text-[clamp(1.08rem,1.22vw,1.38rem)] leading-none font-medium tracking-[0.08em] text-white/88 drop-shadow-[0_8px_22px_rgba(0,0,0,0.42)]"
-                  : "mt-2 block text-[clamp(1.28rem,1.55vw,2rem)] leading-[1.05] font-light tracking-[-0.022em] text-white/68 drop-shadow-[0_2px_8px_rgba(0,0,0,0.14)] lg:whitespace-nowrap"
+                  ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                  : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
                 : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
             }
           >
@@ -219,176 +255,179 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mx-auto mt-20 translate-y-10 max-w-[78ch] text-center text-[clamp(1rem,0.97rem+0.14vw,1.12rem)] leading-[1.8] text-white/94 drop-shadow-[0_8px_24px_rgba(0,0,0,0.44)] sm:mt-20"
+              ? "relative z-10 mt-6 measure-intro text-body-fluid font-medium text-white/92 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-4 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
-          {renderHeroDescription(description, isOverlay ? "lg:whitespace-nowrap" : undefined)}
+          {renderHeroDescription(description, isOverlay ? "max-md:inline" : undefined)}
         </p>
       </div>
 
-      <div className="mt-9 sm:mt-10">
-        <p
-          className={
-            isOverlay
-              ? "text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-white/70 sm:text-[0.76rem]"
-              : "text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-foreground/68 sm:text-[0.72rem]"
-          }
-        >
-          {directServicesLabel}
-        </p>
-      </div>
+      {!isOverlay ? (
+        <>
+          <div className="mt-9 sm:mt-10">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-foreground/68 sm:text-[0.72rem]">
+              {directServicesLabel}
+            </p>
+          </div>
 
-      <div className="mt-5 grid grid-cols-1 gap-2 sm:hidden">
-        {services.map((service) => (
-          <Link
-            key={service.anchor}
-            href={`#${service.anchor}`}
-            className={
-              isOverlay
-                ? "group flex min-h-[4.5rem] min-w-0 items-center justify-between gap-3 rounded-[1.1rem] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.06))] px-3 py-3 text-[0.83rem] leading-5 text-white/88 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-sm transition-all hover:border-primary/55 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.08))] hover:text-white"
-                : "group flex min-h-14 min-w-0 items-center justify-between gap-3 rounded-[1.1rem] border border-border/70 bg-card px-4 py-3 text-[0.92rem] leading-5 text-foreground shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition-all hover:border-primary/45 hover:bg-accent"
-            }
-          >
-            <span className="min-w-0">{service.title}</span>
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/12 text-primary transition-transform group-hover:translate-x-0.5">
-              <DoorOpen className="h-4 w-4" />
-            </span>
-          </Link>
-        ))}
-      </div>
+          <div className="mt-5 grid grid-cols-1 gap-2 sm:hidden">
+            {services.map((service) => (
+              <Link
+                key={service.anchor}
+                href={`#${service.anchor}`}
+                className="group flex min-h-14 min-w-0 items-center justify-between gap-3 rounded-[1.1rem] border border-border/70 bg-card px-4 py-3 text-[0.92rem] leading-5 text-foreground shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition-all hover:border-primary/45 hover:bg-accent"
+              >
+                <span className="min-w-0">{service.title}</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/12 text-primary transition-transform group-hover:translate-x-0.5">
+                  <DoorOpen className="h-4 w-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
 
-      <div className="mt-6 hidden max-w-[54rem] grid-cols-2 gap-2.5 sm:grid lg:grid-cols-3">
-        {services.map((service) => (
-          <Link
-            key={service.anchor}
-            href={`#${service.anchor}`}
-            className={
-              isOverlay
-                ? "group relative flex min-h-[3.65rem] min-w-0 items-center justify-between gap-3 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[linear-gradient(180deg,rgba(11,14,19,0.88),rgba(11,14,19,0.64))] px-4 py-3.5 text-[0.94rem] text-white/84 shadow-[0_16px_38px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[linear-gradient(90deg,rgba(255,255,255,0.05),rgba(255,255,255,0.32),transparent)] before:content-[''] hover:-translate-y-0.5 hover:border-white/18 hover:text-white"
-                : "group inline-flex min-w-0 items-center gap-2 rounded-full border border-border/70 bg-card px-4 py-2 text-sm text-foreground shadow-[0_10px_22px_rgba(15,23,42,0.08)] transition-all hover:border-primary/45 hover:bg-accent"
-            }
-          >
-            <span className={isOverlay ? "min-w-0 font-medium [text-wrap:balance]" : "min-w-0 [text-wrap:balance]"}>
-              {service.title}
-            </span>
-            {isOverlay ? (
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.045] text-primary/92 transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/10">
-                <DoorOpen className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </span>
-            ) : (
-              <DoorOpen className="h-3.5 w-3.5 shrink-0 text-primary/92 transition-transform duration-300 group-hover:translate-x-0.5" />
-            )}
-          </Link>
-        ))}
-      </div>
+          <div className="mt-6 hidden max-w-[54rem] grid-cols-2 gap-2.5 sm:grid lg:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.anchor}
+                href={`#${service.anchor}`}
+                className="group inline-flex min-w-0 items-center gap-2 rounded-full border border-border/70 bg-card px-4 py-2 text-sm text-foreground shadow-[0_10px_22px_rgba(15,23,42,0.08)] transition-all hover:border-primary/45 hover:bg-accent"
+              >
+                <span className="min-w-0 [text-wrap:balance]">{service.title}</span>
+                <DoorOpen className="h-3.5 w-3.5 shrink-0 text-primary/92 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
+        </>
+      ) : null}
 
-      <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <Button asChild size="lg" className="w-full gap-2 sm:w-auto">
+      <div className={isOverlay ? "mt-8 flex flex-col gap-5 max-md:mt-5 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
+          <Button asChild size="lg" className="w-full gap-2 px-5 sm:w-auto">
             <a href="tel:+493023613927">
               <Phone className="h-5 w-5" />
               {callNow}
             </a>
           </Button>
-          <Button asChild size="lg" variant="secondary" className="w-full gap-2 sm:w-auto">
+          <Button
+            asChild
+            size="lg"
+            variant={isOverlay ? "outline" : "secondary"}
+            className={
+              isOverlay
+                ? "w-full gap-2 border-white/24 bg-black/28 px-5 text-white shadow-[0_12px_28px_rgba(0,0,0,0.28)] backdrop-blur-md hover:border-white/42 hover:bg-white/10 hover:text-white sm:w-auto"
+                : "w-full gap-2 sm:w-auto"
+            }
+          >
             <a href="https://wa.me/4917664365185" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5" />
               {whatsapp}
             </a>
           </Button>
-          <Button asChild size="lg" variant="outline" className="hidden w-full gap-2 sm:inline-flex sm:w-auto">
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className={isOverlay ? "hidden" : "hidden w-full gap-2 sm:inline-flex sm:w-auto"}
+          >
             <Link href="/kontakt">
               {inquiry}
               <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>
         </div>
-        <a
-          href={mapsHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={
-            isOverlay
-              ? "group inline-flex w-full max-w-full items-start gap-3 text-left text-white/86 transition-all duration-300 hover:text-white sm:ml-6 sm:w-auto sm:justify-end"
-              : "group inline-flex max-w-full items-center gap-3 rounded-[1.1rem] border border-border/70 bg-card px-4 py-3 text-left text-foreground shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-accent"
-          }
-        >
-          <span
-            className={
-              isOverlay
-                ? "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/28 bg-primary/10 text-primary"
-                : "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/8 text-primary"
-            }
+        {!isOverlay ? (
+          <a
+            href={mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex max-w-full items-center gap-3 rounded-[1.1rem] border border-border/70 bg-card px-4 py-3 text-left text-foreground shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-accent"
           >
-            <MapPin className="h-5 w-5" />
-          </span>
-          <span className="min-w-0">
-            <span
-              className={
-                isOverlay
-                  ? "block truncate text-[1rem] font-semibold leading-tight text-white"
-                  : "block truncate text-[0.95rem] font-semibold leading-tight text-foreground"
-              }
-            >
-              {addressPrimary}
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/8 text-primary">
+              <MapPin className="h-5 w-5" />
             </span>
-            {addressSecondary ? (
-              <span
-                className={
-                  isOverlay
-                    ? "mt-1 block truncate text-[0.74rem] font-medium uppercase tracking-[0.22em] text-white/70"
-                    : "mt-1 block truncate text-[0.76rem] font-medium uppercase tracking-[0.14em] text-foreground/68"
-                }
-              >
-                {addressSecondary}
+            <span className="min-w-0">
+              <span className="block truncate text-[0.95rem] font-semibold leading-tight text-foreground">
+                {addressPrimary}
               </span>
-            ) : null}
-          </span>
-        </a>
+              {addressSecondary ? (
+                <span className="mt-1 block truncate text-[0.76rem] font-medium uppercase tracking-[0.14em] text-foreground/68">
+                  {addressSecondary}
+                </span>
+              ) : null}
+            </span>
+          </a>
+        ) : null}
       </div>
+
+      {isOverlay ? (
+        <nav
+          aria-label={directServicesLabel}
+          className="hidden"
+        >
+          <p className="mb-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/62">
+            {directServicesLabel}
+          </p>
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.anchor}
+                href={`#${service.anchor}`}
+                className="group flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-full border border-white/14 bg-black/24 px-4 py-2.5 text-center text-[0.76rem] font-semibold leading-4 text-white/84 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/45 hover:bg-primary/14 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <span className="min-w-0 [text-wrap:balance]">{service.title}</span>
+                <DoorOpen className="h-3.5 w-3.5 shrink-0 text-primary/90 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
+        </nav>
+      ) : null}
     </div>
   )
 }
 
-export async function HeroSection() {
-  // Diese Inhalte werden serverseitig nach aktueller Sprache geladen.
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function HeroSection({ locale }: Props) {
+  // Diese Inhalte werden serverseitig nach der Sprache der aktuellen URL geladen.
   const home = getTranslations(locale).home
   const t = home.hero
   const mainServices = home.services.items.map((service, index) => ({
     title: service.title,
     anchor: homeServiceAnchors[index] ?? homeServiceAnchors[0],
   }))
-  const heroImageSrc = "/images/home-hero-team-new.webp.png"
+  // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
+  const heroImageSrc = "/images/home-hero-new.webp"
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
   const heroTitle = `${t.title1} ${t.title2} ${t.title3}`
 
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">
       <h1 className="sr-only">{heroTitle}</h1>
-      <div className="md:hidden">
-        <div className="relative aspect-video overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.16),transparent_58%),linear-gradient(180deg,rgba(26,26,31,0.02),rgba(26,26,31,0.16))]">
+      <div className="bg-black md:hidden">
+        <div className="relative h-[17.5rem] overflow-hidden bg-black min-[430px]:h-[19.25rem]">
           <Image
             src={heroImageSrc}
-            alt="UNEXT team"
+            alt=""
             fill
-            sizes="100vw"
-            quality={92}
-            className="object-cover object-center"
+            sizes="(max-width: 767px) 100vw, 0vw"
+            quality={88}
+            className="scale-125 object-cover object-[58%_64%]"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,15,0.14),rgba(7,10,15,0.34))]" />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/42 via-black/12 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_54%,rgba(5,7,11,0.42)_100%)]" />
         </div>
 
-        <div className="px-5 pb-14 pt-7">
+        <div className="px-5 pb-7 pt-6">
           <HeroContent
-            tone="surface"
-            badge={t.badge}
+            tone="overlay"
             title1={t.title1}
             title2={t.title2}
             title3={t.title3}
+            combinePrimaryTitle
+            locale={locale}
             description={t.description}
             services={mainServices}
             callNow={t.callNow}
@@ -396,34 +435,33 @@ export async function HeroSection() {
             whatsapp={t.whatsapp}
             address={t.address}
             directServicesLabel={t.directServicesLabel}
-            className="mx-auto max-w-[26rem] sm:max-w-2xl"
+            className="mx-auto w-full max-w-[26.5rem]"
           />
         </div>
       </div>
 
-      <div className="relative hidden h-[90svh] min-h-[46rem] max-h-[58rem] items-end overflow-hidden md:flex">
+      <div className="relative hidden h-[calc(88svh-5rem)] min-h-[39rem] max-h-[50rem] items-start overflow-hidden md:flex">
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
-            alt="UNEXT team"
+            alt=""
             fill
-            sizes="100vw"
-            quality={92}
-            className="object-cover object-[center_18%] lg:object-[center_16%]"
+            sizes="(min-width: 768px) 100vw, 0vw"
+            quality={88}
+            className="object-cover object-[58%_18%] lg:object-[57%_16%]"
             priority
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_18%,rgba(255,255,255,0.14),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(11,14,20,0.08))]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.42)_0%,rgba(8,10,14,0.22)_24%,rgba(8,10,14,0.08)_52%,rgba(8,10,14,0.04)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/6 via-transparent to-black/14" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/24 via-black/6 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_63%_42%,rgba(255,255,255,0.14),transparent_32%),linear-gradient(90deg,rgba(4,6,10,0.68)_0%,rgba(7,9,13,0.52)_30%,rgba(7,9,13,0.18)_58%,rgba(7,9,13,0.02)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-24 lg:px-8 lg:pb-24">
+        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-12 pt-[clamp(7rem,13vh,10rem)]">
           <HeroContent
             tone="overlay"
             title1={t.title1}
             title2={t.title2}
             title3={t.title3}
+            locale={locale}
             combinePrimaryTitle
             description={t.description}
             services={mainServices}
@@ -432,7 +470,7 @@ export async function HeroSection() {
             whatsapp={t.whatsapp}
             address={t.address}
             directServicesLabel={t.directServicesLabel}
-            className="max-w-[62rem]"
+            className="h-full w-full max-w-none"
           />
         </div>
       </div>

@@ -3,12 +3,10 @@
   Sie zeigt Logo, Standort, zentrale Kontaktwege, Social Links und die wichtigsten Seitenlinks.
   Nutzer koennen von hier schnell anrufen, mailen, Social Media oeffnen oder zu wichtigen Seiten springen.
 */
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
-import { useLocale } from "@/components/locale-provider"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const serviceLinks = [
@@ -23,10 +21,23 @@ const serviceLinks = [
 const linkClassName =
   "text-sm text-foreground/72 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 
-export function SiteFooter() {
+const compactFooterDescriptions = {
+  de: "UNEXT GmbH in Berlin.",
+  en: "UNEXT GmbH in Berlin.",
+  ru: "UNEXT GmbH в Берлине.",
+} as const satisfies Record<Locale, string>
+
+type SiteFooterProps = {
+  locale: Locale
+  compactSummary?: boolean
+}
+
+export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) {
   // Diese Texte werden pro Sprache fuer alle Footer-Bereiche geladen.
-  const { locale } = useLocale()
   const t = getTranslations(locale)
+  const homeHref = getLocalizedPath(locale, "/")
+  // Kontaktseiten zeigen die wichtigsten Kontaktwege bereits direkt darueber; der Footer bleibt dort bewusst kuerzer.
+  const footerDescription = compactSummary ? compactFooterDescriptions[locale] : t.footer.description
   // Diese Links bleiben im Footer bewusst kurz; detaillierte Oeffnungszeiten stehen auf der Kontaktseite.
   const footerContactLinks = [
     {
@@ -54,16 +65,16 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-7 border-b border-border/70 pb-7 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
-            <Link href="/" className="inline-flex">
+            <Link href={homeHref} className="inline-flex">
               <Image
                 src="/images/unext-logo.webp"
-                alt="UNEXT GMBH Logo"
+                alt="UNEXT GmbH Logo"
                 width={140}
                 height={40}
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="mt-3 max-w-[52ch] text-sm leading-6 text-foreground/76">{t.footer.description}</p>
+            <p className="mt-3 max-w-[52ch] text-sm leading-6 text-foreground/76">{footerDescription}</p>
           </div>
 
           <div className="flex flex-col gap-3 lg:items-end">
@@ -105,7 +116,7 @@ export function SiteFooter() {
             <ul className="mt-3 flex flex-col gap-2.5">
               {serviceLinks.map((item, index) => (
                 <li key={item.href}>
-                  <Link href={item.href} className={linkClassName}>
+                  <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
                     {t.header.navigation[2].children[index].name}
                   </Link>
                 </li>
@@ -118,7 +129,10 @@ export function SiteFooter() {
             <ul className="mt-3 flex flex-col gap-2.5">
               {t.footer.companyLinks.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className={linkClassName}>
+                  <Link
+                    href={getLocalizedPath(locale, item.href)}
+                    className={linkClassName}
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -131,7 +145,7 @@ export function SiteFooter() {
             <ul className="mt-3 flex flex-col gap-2.5">
               {t.footer.legalLinks.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className={linkClassName}>
+                  <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
                     {item.name}
                   </Link>
                 </li>
@@ -143,7 +157,7 @@ export function SiteFooter() {
         <div className="border-t border-border pt-5">
           <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} UNEXT GMBH. {t.footer.copyright}
+              © {new Date().getFullYear()} UNEXT GmbH. {t.footer.copyright}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-muted-foreground sm:justify-end">
               <span>{t.footer.bottomLocation}</span>

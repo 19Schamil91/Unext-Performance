@@ -4,13 +4,16 @@
   Besucher koennen vergleichen, warum UNEXT fuer ihre Anfrage passt.
 */
 import { Award, Clock, Euro, MapPin, ShieldCheck, Users } from "lucide-react"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const icons = [Award, Clock, Euro, ShieldCheck, Users, MapPin]
 
-export async function WhySection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function WhySection({ locale }: Props) {
   const t = getTranslations(locale).home.why
 
   return (

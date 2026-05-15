@@ -7,11 +7,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-export async function AboutSection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
 
   return (

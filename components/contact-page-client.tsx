@@ -5,7 +5,7 @@
 */
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, type ReactNode } from "react"
 import Link from "next/link"
 import {
   Car,
@@ -21,10 +21,7 @@ import {
   Truck,
   Wrench,
 } from "lucide-react"
-import { SiteFooter } from "@/components/site-footer"
-import { SiteHeader } from "@/components/site-header"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
-import { useLocale } from "@/components/locale-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
@@ -32,6 +29,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendContactMessage } from "@/lib/contactActions"
 import { initialContactActionState } from "@/lib/contactForm"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const serviceMeta = [
@@ -62,21 +60,28 @@ function splitAtSentenceBoundary(text: string) {
   }
 }
 
-export function ContactPageClient() {
+type ContactPageClientProps = {
+  locale: Locale
+  header: ReactNode
+  footer: ReactNode
+}
+
+export function ContactPageClient({ locale, header, footer }: ContactPageClientProps) {
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden des Formulars.
   const [formState, formAction] = useActionState(sendContactMessage, initialContactActionState)
-  const { locale } = useLocale()
   const t = getTranslations(locale).contactPage
   const descriptionParts = splitAtSentenceBoundary(t.description)
   const primaryPhone = "030 23613927"
   const whatsappPhone = "0176 64365185"
+  const contactHref = getLocalizedPath(locale, "/kontakt")
+  const privacyHref = getLocalizedPath(locale, "/datenschutz")
 
   // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
   const getFieldError = (field: string) => formState.fieldErrors[field]
 
   return (
     <>
-      <SiteHeader />
+      {header}
       <main>
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -145,7 +150,7 @@ export function ContactPageClient() {
                     <h3 className="text-xl font-semibold text-foreground">{t.form.successTitle}</h3>
                     <p className="mt-2 text-muted-foreground">{formState.message || t.form.successText}</p>
                     <Button asChild className="mt-6" variant="outline">
-                      <Link href="/kontakt">{t.form.newMessage}</Link>
+                      <Link href={contactHref}>{t.form.newMessage}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -235,9 +240,9 @@ export function ContactPageClient() {
 
                         <p className="text-center text-xs text-muted-foreground">
                           {t.form.privacyPrefix}{" "}
-                          <a href="/datenschutz" className="underline hover:text-foreground">
+                          <Link href={privacyHref} className="underline hover:text-foreground">
                             {t.form.privacyLink}
-                          </a>{" "}
+                          </Link>{" "}
                           {t.form.privacySuffix}
                         </p>
                       </FieldGroup>
@@ -319,26 +324,25 @@ export function ContactPageClient() {
             </h2>
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-12">
               <div className="min-h-full">
-                <div className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/60 bg-card shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
-                  <iframe
-                    title="UNEXT GMBH Standortkarte"
-                    src="https://www.google.com/maps?q=L%C3%BCbarser%20Str.%2025%2C%2013435%20Berlin&output=embed"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="min-h-[22rem] flex-1 border-0"
-                  />
-                  <div className="flex flex-col items-center border-t border-border/60 bg-background p-5 text-center sm:flex-row sm:justify-between sm:text-left">
-                    <div>
-                      <p className="font-semibold text-foreground">Lübarser Str. 25</p>
-                      <p className="text-muted-foreground">13435 Berlin</p>
+                <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-border/60 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
+                  <div className="space-y-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <MapPin className="h-7 w-7" aria-hidden="true" />
                     </div>
-                    <Button asChild className="mt-4 sm:mt-0" variant="outline">
+                    <div>
+                      <p className="text-title-fluid font-semibold text-foreground">Lübarser Str. 25</p>
+                      <p className="mt-2 text-body-compact text-muted-foreground">13435 Berlin</p>
+                    </div>
+                    <p className="measure-card-copy text-body-compact text-muted-foreground">{t.locationDescription}</p>
+                  </div>
+                  <div className="mt-8">
+                    <Button asChild variant="outline">
                       <a
                         href="https://maps.google.com/?q=Lübarser+Str.+25,+13435+Berlin"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" aria-hidden="true" />
                         {t.openMaps}
                       </a>
                     </Button>
@@ -370,7 +374,7 @@ export function ContactPageClient() {
           </div>
         </section>
       </main>
-      <SiteFooter />
+      {footer}
     </>
   )
 }

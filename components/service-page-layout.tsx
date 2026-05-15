@@ -7,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
-import { SelectedServiceTracker } from "@/components/selected-service-tracker"
+import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
 import { ServiceInquiryForm, type ServiceInquiryFields } from "@/components/service-inquiry-form"
 import {
@@ -16,10 +16,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { getCurrentLocale } from "@/lib/server-locale"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
+import { buildBreadcrumbSchema, buildServiceSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
-type ServicePageLayoutProps = {
+export type ServicePageLayoutProps = {
+  locale: Locale
   title: string
   subtitle: string
   description: string
@@ -42,9 +44,7 @@ type ServicePageLayoutProps = {
   titleLines?: readonly string[]
   descriptionLines?: readonly string[]
   serviceTitleLineBreaks?: Readonly<Record<string, readonly string[]>>
-  serviceDescriptionLines?: Readonly<Record<string, readonly string[]>>
   whyChooseTitleLineBreaks?: Readonly<Record<string, readonly string[]>>
-  whyChooseDescriptionLines?: Readonly<Record<string, readonly string[]>>
   /** Hero-Benefit-Liste: jeder Punkt eine Zeile (kein Textumbruch im Label). */
   benefitsSingleLine?: boolean
 }
@@ -57,6 +57,7 @@ type ServiceAction = {
 }
 
 export async function ServicePageLayout({
+  locale,
   title,
   subtitle,
   description,
@@ -75,18 +76,17 @@ export async function ServicePageLayout({
   badge,
   formFields,
   balancedTypography = false,
-  singleLineHeadings = false,
   titleLines,
   descriptionLines,
   serviceTitleLineBreaks,
-  serviceDescriptionLines,
   whyChooseTitleLineBreaks,
-  whyChooseDescriptionLines,
   benefitsSingleLine = false,
 }: ServicePageLayoutProps) {
-  const locale = await getCurrentLocale()
-  const t = getTranslations(locale).serviceDetail.layout
+  const translations = getTranslations(locale)
+  const t = translations.serviceDetail.layout
   const inquiryId = `${serviceName}-anfrage`
+  const contactHref = getLocalizedPath(locale, "/kontakt")
+  const servicesHref = getLocalizedPath(locale, "/leistungen")
 
   const defaultHeroActions = phone
     ? [
@@ -109,12 +109,22 @@ export async function ServicePageLayout({
           icon: "message" as const,
           external: true,
         },
-        { label: t.contactCta, href: "/kontakt" },
+        { label: t.contactCta, href: contactHref },
       ]
-    : [{ label: t.contactCta, href: "/kontakt" }]
+    : [{ label: t.contactCta, href: contactHref }]
 
   const resolvedHeroActions = heroActions ?? defaultHeroActions
   const resolvedBottomActions = bottomActions ?? defaultBottomActions
+  // Lange deutsche und russische Hero-Titel bekommen mobil mehr Zeilenbreite, ohne die Desktop-Groesse zu veraendern.
+  const heroTitleClassName =
+    locale === "ru" || locale === "de"
+      ? "mt-2 measure-heading text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:measure-display md:text-display-fluid"
+      : "mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid"
+  const servicePath =
+    serviceName === "abschleppdienst"
+      ? "/leistungen/abschleppdienst-pannenhilfe"
+      : `/leistungen/${serviceName}`
+  const localizedServicePath = getLocalizedPath(locale, servicePath)
 
   const renderLines = (text: string, lines?: readonly string[]) => {
     if (!lines || lines.length === 0) {
@@ -127,21 +137,6 @@ export async function ServicePageLayout({
       </span>
     ))
   }
-
-  const renderParagraphLines = (
-    text: string,
-    lines: readonly string[],
-    className: string,
-    lineSpacingClass = ""
-  ) => (
-    <p className={`${className} text-pretty`}>
-      {lines.map((line, index) => (
-        <span key={`${text}-${line}-${index}`} className={`block ${index > 0 ? lineSpacingClass : ""}`}>
-          {line}
-        </span>
-      ))}
-    </p>
-  )
 
   const renderAction = (
     action: ServiceAction,
@@ -200,26 +195,40 @@ export async function ServicePageLayout({
 
   return (
     <main>
-      <SelectedServiceTracker serviceName={serviceName} serviceTitle={title} />
+      <StructuredData
+        data={[
+          buildServiceSchema({
+            name: title,
+            description,
+            path: localizedServicePath,
+          }),
+          buildBreadcrumbSchema([
+            { name: translations.header.navigation[0].name, path: getLocalizedPath(locale, "/") },
+            { name: translations.servicesPage.title, path: servicesHref },
+            { name: title, path: localizedServicePath },
+          ]),
+        ]}
+      />
 
-      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
-        <div className="absolute inset-0">
+      <section className="overflow-hidden bg-black md:relative md:py-20 lg:py-28">
+        <div className="relative h-[14.5rem] overflow-hidden bg-black min-[430px]:h-[15.5rem] md:absolute md:inset-0 md:h-auto">
           <Image
             src={image}
             alt={title}
             fill
             sizes="100vw"
             quality={78}
-            className={imageClassName ?? "object-cover"}
+            className={`scale-110 md:scale-100 ${imageClassName ?? "object-cover"}`}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/84 to-background/72 md:bg-gradient-to-r md:from-background md:via-background/90 md:to-background/60" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,7,12,0)_0%,rgba(4,7,12,0.08)_56%,rgba(4,7,12,0.42)_100%)] md:bg-[linear-gradient(90deg,rgba(4,7,12,0.82)_0%,rgba(4,7,12,0.68)_42%,rgba(4,7,12,0.34)_72%,rgba(4,7,12,0.18)_100%)]" />
+          <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_76%_24%,rgba(255,255,255,0.14),transparent_30%)] md:block" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 pb-9 pt-5 md:pb-0 md:pt-0 lg:px-8">
           <Link
-            href="/#leistungen"
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/70 px-3 py-1.5 text-sm text-foreground/72 backdrop-blur-sm transition-colors hover:text-foreground"
+            href={servicesHref}
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/6 px-3 py-1.5 text-sm text-white/78 transition-colors hover:border-primary/35 hover:text-white md:mb-8 md:bg-black/28 md:backdrop-blur-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             {t.backToServices}
@@ -227,27 +236,21 @@ export async function ServicePageLayout({
 
           <div className="max-w-4xl xl:max-w-[68rem]">
             {badge && (
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/12 px-4 py-1.5">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/12 px-4 py-1.5 md:mb-5">
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary sm:text-sm sm:tracking-[0.12em]">{badge}</span>
               </div>
             )}
 
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.14em]">{subtitle}</p>
-            <h1
-              className={
-                balancedTypography
-                  ? `mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.03] font-semibold tracking-[-0.02em] text-foreground sm:max-w-[20ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.96] sm:tracking-[-0.03em] lg:max-w-none ${singleLineHeadings ? "lg:whitespace-nowrap" : "lg:text-balance"}`
-                  : "mt-3 max-w-[22rem] text-[clamp(2rem,1.72rem+1.2vw,2.45rem)] leading-[1.05] font-semibold text-foreground sm:max-w-[18ch] sm:text-[clamp(2.35rem,1.65rem+2.7vw,4.9rem)] sm:leading-[0.98] sm:tracking-[-0.04em] lg:max-w-[20ch]"
-              }
-            >
+            <h1 className={heroTitleClassName}>
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (
-              <p className="mt-5 max-w-[62ch] text-body-fluid leading-[1.62] text-foreground/84 text-pretty sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] lg:max-w-[72ch]">
+              <p className="mt-3 max-w-none text-body-compact leading-[1.55] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] md:text-body-fluid lg:max-w-[72ch]">
                 {descriptionLines.map((line, index) => (
                   <span
                     key={`${description}-${line}-${index}`}
-                    className="inline sm:block"
+                    className="inline"
                   >
                     {line}
                     {index < descriptionLines.length - 1 ? " " : null}
@@ -257,19 +260,33 @@ export async function ServicePageLayout({
             ) : (
               <ReadableText
                 text={description}
-                targetLineLength={balancedTypography ? 74 : 82}
-                className="mt-5 max-w-[74ch] text-body-fluid text-foreground/84 sm:mt-6"
+                className="mt-3 max-w-none text-body-compact leading-[1.55] text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 md:max-w-[74ch] md:text-body-fluid"
               />
             )}
 
-            <ul className="mt-8 grid min-w-0 gap-3 sm:grid-cols-2">
+            {resolvedHeroActions.length > 0 && (
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8">
+                {resolvedHeroActions.map((action, index) => (
+                  <div key={`${action.href}-${action.label}`} className="contents">
+                    {renderAction(
+                      action,
+                      index === 0 ? "default" : "outline",
+                      "w-full gap-2 sm:w-auto sm:min-w-[12rem]"
+                    )}
+                  </div>
+                )
+                )}
+              </div>
+            )}
+
+            <ul className="mt-5 grid min-w-0 gap-3 sm:grid-cols-2 md:mt-8">
               {benefits.map((benefit) => (
                 <li
                   key={benefit}
                   className={
                     benefitsSingleLine
-                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-background/72 px-3 py-2.5 text-[0.8125rem] leading-snug text-foreground shadow-[0_12px_26px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
-                      : "flex items-start gap-3 rounded-2xl border border-border/60 bg-background/72 px-4 py-3 text-body-compact text-foreground shadow-[0_12px_26px_rgba(15,23,42,0.06)] backdrop-blur-sm"
+                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-3 py-2.5 text-[0.8125rem] leading-snug text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
+                      : "flex items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-4 py-3 text-body-compact text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm"
                   }
                 >
                   <CheckCircle
@@ -294,26 +311,10 @@ export async function ServicePageLayout({
               ))}
             </ul>
 
-            {resolvedHeroActions.length > 0 && (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {resolvedHeroActions.map((action, index) => (
-                  <div key={`${action.href}-${action.label}`} className="contents">
-                    {renderAction(
-                      action,
-                      index === 0 ? "default" : "outline",
-                      "w-full gap-2 sm:w-auto sm:min-w-[12rem]"
-                    )}
-                  </div>
-                )
-                )}
-              </div>
-            )}
-
             {contactNote && (
               <ReadableText
                 text={contactNote}
-                targetLineLength={74}
-                className="mt-4 max-w-[72ch] text-sm leading-7 text-muted-foreground"
+                className="mt-4 max-w-[72ch] text-sm leading-7 text-white/72"
               />
             )}
           </div>
@@ -336,26 +337,16 @@ export async function ServicePageLayout({
                 <h3
                   className={
                     balancedTypography
-                      ? `max-w-[24ch] text-card-heading-fluid text-foreground ${singleLineHeadings ? "lg:max-w-none lg:whitespace-nowrap" : "text-balance"}`
+                      ? "max-w-[24ch] text-card-heading-fluid text-foreground text-balance"
                       : "max-w-[24ch] text-card-heading-fluid text-foreground"
                   }
                 >
                   {renderLines(service.title, serviceTitleLineBreaks?.[service.title])}
                 </h3>
-                {serviceDescriptionLines?.[service.title] ? (
-                  renderParagraphLines(
-                    service.description,
-                    serviceDescriptionLines[service.title],
-                    "mt-3 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                  )
-                ) : (
-                  <ReadableText
-                    text={service.description}
-                    targetLineLength={balancedTypography ? 34 : 38}
-                    lineGapClassName=""
-                    className="mt-3 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                  />
-                )}
+                <ReadableText
+                  text={service.description}
+                  className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78 lg:max-w-[48ch]"
+                />
               </div>
             ))}
           </div>
@@ -366,12 +357,11 @@ export async function ServicePageLayout({
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16">
             <div>
-              <h2 className="max-w-none whitespace-nowrap text-[1.72rem] leading-[1.04] font-[650] tracking-[-0.024em] text-foreground sm:text-heading-fluid">
+              <h2 className="measure-heading text-heading-fluid font-semibold text-foreground">
                 {t.whyTitle}
               </h2>
               <ReadableText
                 text={t.whyDescription}
-                targetLineLength={68}
                 className="mt-4 max-w-[60ch] text-body-compact text-foreground/80"
               />
 
@@ -388,26 +378,16 @@ export async function ServicePageLayout({
                       <h3
                         className={
                           balancedTypography
-                            ? `max-w-[24ch] text-card-heading-fluid text-foreground ${singleLineHeadings ? "lg:max-w-none lg:whitespace-nowrap" : "text-balance"}`
+                            ? "max-w-[24ch] text-card-heading-fluid text-foreground text-balance"
                             : "max-w-[24ch] text-card-heading-fluid text-foreground"
                         }
                       >
                         {renderLines(item.title, whyChooseTitleLineBreaks?.[item.title])}
                       </h3>
-                      {whyChooseDescriptionLines?.[item.title] ? (
-                        renderParagraphLines(
-                          item.description,
-                          whyChooseDescriptionLines[item.title],
-                          "mt-2 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                        )
-                      ) : (
-                        <ReadableText
-                          text={item.description}
-                          targetLineLength={balancedTypography ? 36 : 40}
-                          lineGapClassName=""
-                          className="mt-2 max-w-full text-body-compact leading-[1.5] text-foreground/78"
-                        />
-                      )}
+                      <ReadableText
+                        text={item.description}
+                        className="mt-2 measure-card-copy-wide text-body-compact text-foreground/78 lg:max-w-[48ch]"
+                      />
                     </div>
                   </div>
                 ))}
@@ -416,6 +396,7 @@ export async function ServicePageLayout({
 
             <div>
               <ServiceInquiryForm
+                locale={locale}
                 serviceName={serviceName}
                 serviceTitle={formTitle}
                 fields={formFields}
@@ -451,8 +432,6 @@ export async function ServicePageLayout({
                   <AccordionContent className="text-foreground/78">
                     <ReadableText
                       text={faq.answer}
-                      targetLineLength={72}
-                      lineGapClassName=""
                       className="max-w-[64ch] pb-1 text-body-compact leading-[1.5] text-foreground/78"
                     />
                   </AccordionContent>
@@ -463,19 +442,18 @@ export async function ServicePageLayout({
         </section>
       )}
 
-      <section className="relative overflow-hidden border-y border-border/70 bg-card py-16 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(115,18,28,0.42),rgba(115,18,28,0.18)_42%,transparent_78%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/12" />
+      <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(82,8,16,0.82),rgba(32,8,12,0.72)_42%,rgba(9,11,14,0.96)_78%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
 
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="max-w-[22rem] text-[clamp(1.85rem,1.5rem+1.15vw,2.65rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
+              <h2 className="measure-heading text-heading-fluid font-semibold text-primary-foreground">
                 {t.questionsTitle}
               </h2>
               <ReadableText
                 text={t.questionsDescription}
-                targetLineLength={76}
                 className="mt-4 max-w-[64ch] text-body-fluid text-primary-foreground/86"
               />
             </div>
@@ -497,7 +475,6 @@ export async function ServicePageLayout({
           {contactNote && (
             <ReadableText
               text={contactNote}
-              targetLineLength={74}
               className="mx-auto mt-4 max-w-[62ch] text-sm leading-7 text-primary-foreground/80"
             />
           )}

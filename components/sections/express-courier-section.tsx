@@ -7,7 +7,7 @@ import Image from "next/image"
 import { ArrowRight, Clock3, Package, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { getCurrentLocale } from "@/lib/server-locale"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 const contactHref = "tel:+493023613927"
@@ -16,8 +16,11 @@ const imageSrc = "/images/service-express-courier.webp"
 const imageWidth = 1536
 const imageHeight = 1024
 
-export async function ExpressCourierSection() {
-  const locale = await getCurrentLocale()
+type Props = {
+  locale: Locale
+}
+
+export function ExpressCourierSection({ locale }: Props) {
   const t = getTranslations(locale).home.expressCourier
 
   return (

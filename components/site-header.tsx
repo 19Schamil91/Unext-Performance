@@ -1,20 +1,22 @@
 /*
-  Diese Datei definiert den Kopfbereich der Website mit Navigation und Schnellaktionen.
-  Sie zeigt Menues fuer Seiten, Leistungen, Sprache und Theme auf Desktop und Mobil.
-  Nutzer koennen von hier direkt navigieren, Kontakt aufnehmen und die Sprache wechseln.
+  Diese Datei definiert den Kopfbereich der Website als serverseitige Huelle.
+  Sie zeigt Logo, Navigation, Kontaktaktionen und kleine interaktive Menues.
+  Nutzer koennen navigieren, anrufen, die Sprache wechseln und das mobile Menue oeffnen.
 */
-"use client"
-
-import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronDown, ChevronRight, Globe, Menu, MessageCircle, Phone } from "lucide-react"
-import { useLocale } from "@/components/locale-provider"
+import { Phone } from "lucide-react"
+import { HeaderLanguageSwitcher } from "@/components/HeaderLanguageSwitcher"
+import { HeaderMobileMenu } from "@/components/HeaderMobileMenu"
+import { HeaderServicesMenu } from "@/components/HeaderServicesMenu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { locales, type Locale } from "@/lib/i18n"
+import { getLocalizedPath, locales, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
+
+type SiteHeaderProps = {
+  locale: Locale
+}
 
 type NavigationItem = {
   name: string
@@ -22,75 +24,76 @@ type NavigationItem = {
   children?: readonly { name: string; href: string }[]
 }
 
-export function SiteHeader() {
-  // Diese Werte steuern, welche Menues im Kopfbereich gerade sichtbar sind.
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
-  const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
-  const languageMenuRef = useRef<HTMLDivElement | null>(null)
-  const servicesMenuRef = useRef<HTMLDivElement | null>(null)
-  const { locale, setLocale, isPending } = useLocale()
+const localizedPagePaths = [
+  "/agb",
+  "/datenschutz",
+  "/impressum",
+  "/kontakt",
+  "/ueber-uns",
+  "/leistungen",
+  "/leistungen/unfallgutachten",
+  "/leistungen/autovermietung",
+  "/leistungen/abschleppdienst-pannenhilfe",
+  "/leistungen/autoservice",
+  "/leistungen/detailing",
+  "/leistungen/zulassungsservice",
+] as const
+
+const themeLabels = {
+  de: { light: "Hellmodus aktivieren", dark: "Darkmodus aktivieren" },
+  en: { light: "Switch to light mode", dark: "Switch to dark mode" },
+  ru: {
+    light: "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0441\u0432\u0435\u0442\u043b\u0443\u044e \u0442\u0435\u043c\u0443",
+    dark: "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u0435\u043c\u043d\u0443\u044e \u0442\u0435\u043c\u0443",
+  },
+} as const
+
+export function SiteHeader({ locale }: SiteHeaderProps) {
+  // Diese Texte und Links werden serverseitig pro Sprache vorbereitet.
   const t = getTranslations(locale)
+  const homeHref = getLocalizedPath(locale, "/")
+  const contactHref = getLocalizedPath(locale, "/kontakt")
+  const servicesHref = getLocalizedPath(locale, "/leistungen")
   const navigation = t.header.navigation as readonly NavigationItem[]
-  const desktopNavigation = navigation
   const pageNavigation = navigation.filter((item) => !item.children)
   const serviceNavigation = navigation.find((item) => item.children)
   const languages = locales.map((code) => ({ code, name: t.languages[code] }))
-  const themeLabels = {
-    de: { light: "Hellmodus aktivieren", dark: "Darkmodus aktivieren" },
-    en: { light: "Switch to light mode", dark: "Switch to dark mode" },
-    ru: {
-      light: "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0441\u0432\u0435\u0442\u043b\u0443\u044e \u0442\u0435\u043c\u0443",
-      dark: "\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u0435\u043c\u043d\u0443\u044e \u0442\u0435\u043c\u0443",
-    },
-  } as const
 
-  // Diese Funktion schliesst Menues beim Sprachwechsel, damit die Seite ruhig bleibt.
-  const handleLocaleChange = (nextLocale: Locale) => {
-    setLocale(nextLocale)
-    setLanguageMenuOpen(false)
-    setServicesMenuOpen(false)
-    setMobileMenuOpen(false)
+  // Diese Funktion haelt Navigationslinks in der aktuellen Sprache, wenn die Zielseite bereits migriert ist.
+  const getNavigationHref = (href: string) => {
+    const isLocalizedPagePath = localizedPagePaths.includes(
+      href as (typeof localizedPagePaths)[number]
+    )
+
+    if (href === "/" || isLocalizedPagePath) {
+      return getLocalizedPath(locale, href)
+    }
+
+    return href
   }
 
-  // Dieser Ablauf schliesst offene Menues bei Klick ausserhalb oder Escape.
-  useEffect(() => {
-    if (!languageMenuOpen && !servicesMenuOpen) {
-      return
-    }
-
-    const handlePointerDown = (event: MouseEvent) => {
-      if (!languageMenuRef.current?.contains(event.target as Node)) {
-        setLanguageMenuOpen(false)
+  const resolvedPageNavigation = pageNavigation.map((item) => ({
+    name: item.name,
+    href: getNavigationHref(item.href),
+  }))
+  const resolvedServiceNavigation = serviceNavigation
+    ? {
+        name: serviceNavigation.name,
+        href: servicesHref,
+        children: serviceNavigation.children?.map((child) => ({
+          name: child.name,
+          href: getNavigationHref(child.href),
+        })) ?? [],
       }
-      if (!servicesMenuRef.current?.contains(event.target as Node)) {
-        setServicesMenuOpen(false)
-      }
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setLanguageMenuOpen(false)
-        setServicesMenuOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handlePointerDown)
-    document.addEventListener("keydown", handleEscape)
-
-    return () => {
-      document.removeEventListener("mousedown", handlePointerDown)
-      document.removeEventListener("keydown", handleEscape)
-    }
-  }, [languageMenuOpen, servicesMenuOpen])
+    : null
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/55 bg-background/95 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8 lg:py-3.5">
-        <Link href="/" className="flex items-center">
+        <Link href={homeHref} className="flex items-center">
           <Image
             src="/images/unext-logo.webp"
-            alt="UNEXT GMBH Logo"
+            alt="UNEXT GmbH Logo"
             width={140}
             height={40}
             className="h-7 w-auto drop-shadow-[0_1px_0_rgba(255,255,255,0.06)] sm:h-8"
@@ -99,40 +102,18 @@ export function SiteHeader() {
         </Link>
 
         <div className="hidden lg:flex lg:items-center lg:gap-x-8">
-          {desktopNavigation.map((item) =>
-            item.children ? (
-              <div key={item.name} ref={servicesMenuRef} className="relative">
-                <button
-                  type="button"
-                  className="flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
-                  aria-expanded={servicesMenuOpen}
-                  onClick={() => setServicesMenuOpen((open) => !open)}
-                >
-                  {item.name}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${servicesMenuOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-
-                {servicesMenuOpen ? (
-                  <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-border/70 bg-popover/98 p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.2)]">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        href={child.href}
-                        className="block w-full rounded-lg px-3 py-2 text-sm leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                        onClick={() => setServicesMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
+          {navigation.map((item) =>
+            item.children && resolvedServiceNavigation ? (
+              <HeaderServicesMenu
+                key={item.name}
+                name={resolvedServiceNavigation.name}
+                href={resolvedServiceNavigation.href}
+                childrenItems={resolvedServiceNavigation.children}
+              />
             ) : (
               <Link
                 key={item.name}
-                href={item.href}
+                href={getNavigationHref(item.href)}
                 className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
               >
                 {item.name}
@@ -142,38 +123,11 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <div ref={languageMenuRef} className="relative hidden sm:block">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="gap-2 rounded-full border border-border/75 bg-card/90 px-3 shadow-sm"
-              aria-expanded={languageMenuOpen}
-              disabled={isPending}
-              onClick={() => setLanguageMenuOpen((open) => !open)}
-            >
-              <Globe className="h-4 w-4" />
-              <span className="uppercase">{locale}</span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${languageMenuOpen ? "rotate-180" : ""}`}
-              />
-            </Button>
-
-            {languageMenuOpen ? (
-              <div className="absolute right-0 top-full z-50 mt-2 min-w-[11rem] rounded-2xl border border-border/70 bg-popover/98 p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.2)]">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    type="button"
-                    className="flex w-full items-center rounded-lg px-3 py-2 text-left text-sm leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
-                    disabled={isPending}
-                    onClick={() => handleLocaleChange(lang.code)}
-                  >
-                    {lang.name}
-                  </button>
-                ))}
-              </div>
-            ) : null}
-          </div>
+          <HeaderLanguageSwitcher
+            locale={locale}
+            languages={languages}
+            localizedPagePaths={localizedPagePaths}
+          />
 
           <ThemeToggle
             lightLabel={themeLabels[locale].light}
@@ -182,7 +136,7 @@ export function SiteHeader() {
           />
 
           <Button asChild variant="ghost" size="icon" className="h-10 w-10 sm:hidden">
-            <a href="tel:+493023613927" aria-label="Jetzt anrufen">
+            <a href="tel:+493023613927" aria-label={t.header.callNow}>
               <Phone className="h-4 w-4" />
             </a>
           </Button>
@@ -195,130 +149,28 @@ export function SiteHeader() {
           </Button>
 
           <Button asChild className="hidden sm:flex">
-            <Link href="/kontakt">{t.header.inquiry}</Link>
+            <Link href={contactHref}>{t.header.inquiry}</Link>
           </Button>
 
-          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-              className="h-10 w-10 rounded-full border border-border/80 bg-card text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent lg:hidden"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">{t.header.openMenu}</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-[88vw] max-w-[20rem] overflow-y-auto border-l border-border/70 bg-card/98 px-3.5 pb-5 pt-4 shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur"
-            >
-              <div className="flex min-h-full flex-col gap-5 pt-2">
-                <div className="rounded-[1.35rem] border border-border/60 bg-background/70 p-4 shadow-sm">
-                  <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
-                    <Image
-                      src="/images/unext-logo.webp"
-                      alt="UNEXT GMBH Logo"
-                      width={120}
-                      height={35}
-                      className="h-7 w-auto drop-shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-                    />
-                  </Link>
-                </div>
-
-                <div>
-                  <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                    {t.header.quickContact}
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <Button asChild className="w-full">
-                      <a href="tel:+493023613927" onClick={() => setMobileMenuOpen(false)} className="gap-2">
-                        <Phone className="h-4 w-4" />
-                        {t.header.callNow}
-                      </a>
-                    </Button>
-                    <Button asChild variant="ghost" className="w-full">
-                      <a
-                        href="https://wa.me/4917664365185"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="gap-2"
-                      >
-                        <MessageCircle className="h-4 w-4" />
-                        WhatsApp
-                      </a>
-                    </Button>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link href="/kontakt" onClick={() => setMobileMenuOpen(false)}>
-                        {t.header.inquiry}
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                    {t.header.navigationTitle}
-                  </p>
-                  <nav className="rounded-[1.35rem] border border-border/60 bg-background/50 p-2">
-                    {pageNavigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-base font-semibold leading-6 text-foreground transition-colors hover:bg-accent/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                      >
-                        <span className="min-w-0 [text-wrap:balance]">{item.name}</span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-
-                {serviceNavigation?.children ? (
-                  <div>
-                    <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                      {t.header.servicesTitle}
-                    </p>
-                    <div className="rounded-[1.35rem] border border-border/60 bg-background/50 p-2">
-                      {serviceNavigation.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          href={child.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-medium leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                        >
-                          <span className="min-w-0 [text-wrap:balance]">{child.name}</span>
-                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-
-                <div className="border-t border-border pt-4">
-                  <p className="mb-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                    {t.header.languageTitle}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {languages.map((lang) => (
-                      <Button
-                        key={lang.code}
-                        variant={locale === lang.code ? "secondary" : "ghost"}
-                        size="sm"
-                        className="min-w-14 rounded-full px-3"
-                        disabled={isPending}
-                        onClick={() => handleLocaleChange(lang.code)}
-                      >
-                        {lang.code.toUpperCase()}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <HeaderMobileMenu
+            locale={locale}
+            homeHref={homeHref}
+            contactHref={contactHref}
+            servicesHref={servicesHref}
+            pageNavigation={resolvedPageNavigation}
+            serviceNavigation={resolvedServiceNavigation}
+            languages={languages}
+            localizedPagePaths={localizedPagePaths}
+            labels={{
+              openMenu: t.header.openMenu,
+              quickContact: t.header.quickContact,
+              callNow: t.header.callNow,
+              inquiry: t.header.inquiry,
+              navigationTitle: t.header.navigationTitle,
+              servicesTitle: t.header.servicesTitle,
+              languageTitle: t.header.languageTitle,
+            }}
+          />
         </div>
       </nav>
     </header>

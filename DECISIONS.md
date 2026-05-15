@@ -104,6 +104,34 @@ Test-Vergleich nach Cloud-Umstellung mit identischen Inputs:
 
 ---
 
+## 6. Strukturierte Daten zentral erzeugen
+
+**Entscheidung:** Strukturierte Daten werden über `lib/structuredData.ts` erzeugt und mit `components/StructuredData.tsx` ausgegeben.
+
+**Kontext:** Local SEO brauchte siteweite Business-Daten sowie Service- und Breadcrumb-Schema ohne neue Dependency.
+
+**Begründung:** Zentrale Builder halten JSON-LD konsistent und vermeiden doppelte Inline-Schema-Objekte in einzelnen Seiten.
+
+**Konsequenz:** Neue SEO-Schema-Daten werden künftig in `lib/structuredData.ts` erweitert und seitenweise über `StructuredData` gerendert.
+
+**Status:** Aktiv.
+
+---
+
+## 7. URL-basierte Locale-Architektur
+
+**Entscheidung:** `/` bleibt die deutsche Default-Version. `/en` und `/ru` werden als statisch erzeugte Proof-Routen aufgebaut. Die Server-Locale wird künftig über Route/URL bestimmt statt über Cookies im Renderpfad.
+
+**Kontext:** Der cookie-basierte Locale-Zugriff machte Seiten im Next.js-Build dynamisch. Für Performance und Prerendering soll die Locale schrittweise aus der URL ableitbar werden, ohne die bestehenden deutschen URLs sofort vollständig zu migrieren.
+
+**Begründung:** Route Groups mit separaten Root-Layouts ermöglichen serverseitig korrektes `<html lang>` für Deutsch, Englisch und Russisch. Der Proof-Scope hält die Migration klein: Startseiten werden zuerst statisch geprüft, restliche Routen folgen später blockweise.
+
+**Konsequenz:** Neue lokalisierte Routen werden unter `/en/...` und `/ru/...` aufgebaut. Cookie-basierte Server-Locale wird schrittweise aus dem Renderpfad entfernt. Bestehende deutsche Routen bleiben vorerst unter `/` beziehungsweise ihren bisherigen Pfaden und werden später gezielt migriert.
+
+**Status:** Aktiv / schrittweise Migration.
+
+---
+
 ## Hinweise zur Pflege dieses Dokuments
 
 - Eine neue Entscheidung wird als **neuer Eintrag unten** angefügt, alte Einträge bleiben unverändert (historische Wahrheit).

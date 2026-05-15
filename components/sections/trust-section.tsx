@@ -1,41 +1,35 @@
 /*
   Diese Datei zeigt den Vertrauensbereich der Startseite.
-  Sie zeigt kurze Nachweise und Vorteile als kompakte Badge-Leiste.
-  Besucher koennen die wichtigsten Qualitaetssignale schnell erfassen.
+  Sie zeigt kurze Zielgruppen- und Vertrauenshinweise als ruhige Zeile.
+  Besucher koennen schnell erkennen, fuer wen UNEXT arbeitet und welchen Umfang der Service hat.
 */
-import { Award, BadgeCheck, FileCheck, Shield } from "lucide-react"
-import { getCurrentLocale } from "@/lib/server-locale"
+import { CheckCircle2 } from "lucide-react"
+import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-const icons = [Award, Shield, BadgeCheck, FileCheck]
+type Props = {
+  locale: Locale
+}
 
-export async function TrustSection() {
-  const locale = await getCurrentLocale()
+export function TrustSection({ locale }: Props) {
   const t = getTranslations(locale).home.trust
 
   return (
-    <section className="border-y border-border bg-card py-10 sm:py-12">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="flex flex-col items-center">
-          <p className="mb-6 max-w-xs text-center text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:mb-8 sm:max-w-none sm:text-sm sm:tracking-wider">
+    <section className="border-y border-border/80 bg-background py-5 sm:py-6">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
+          <p className="max-w-[34ch] text-body-compact font-semibold text-foreground/82">
             {t.title}
           </p>
 
-          <div className="grid w-full gap-3 sm:gap-4 md:flex md:flex-wrap md:items-center md:justify-center md:gap-6 lg:gap-16">
-            {t.badges.map((badge, index) => {
-              const Icon = icons[index]
-
-              return (
-                <div
-                  key={badge}
-                  className="flex items-center gap-3 rounded-[1.15rem] border border-border/70 bg-background/65 px-4 py-3 text-foreground/76 md:rounded-none md:border-none md:bg-transparent md:px-0 md:py-0"
-                >
-                  <Icon className="h-7 w-7 shrink-0 text-primary sm:h-8 sm:w-8" />
-                  <span className="measure-card-copy text-sm font-medium leading-5 [text-wrap:balance]">{badge}</span>
-                </div>
-              )
-            })}
-          </div>
+          <ul className="grid gap-2 text-sm font-medium text-foreground/72 sm:grid-cols-2 md:flex md:flex-wrap md:items-center md:justify-end md:gap-x-5 md:gap-y-2">
+            {t.badges.map((badge) => (
+              <li key={badge} className="flex min-w-0 items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-primary/86" />
+                <span className="min-w-0 [text-wrap:balance]">{badge}</span>
+              </li>
+            ))}
+          </ul>
 
           {t.note ? <p className="mt-8 text-center text-xs text-muted-foreground">{t.note}</p> : null}
         </div>

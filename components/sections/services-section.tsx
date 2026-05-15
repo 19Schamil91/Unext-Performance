@@ -4,13 +4,13 @@
   Besucher koennen eine Leistung ansehen, Details oeffnen oder direkt anrufen.
 */
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wrench } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ServiceSelectionLink } from "@/components/service-selection-link"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { homeServiceAnchors } from "@/lib/service-anchors"
-import { getCurrentLocale } from "@/lib/server-locale"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceMeta = {
@@ -80,13 +80,37 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
-export async function ServicesSection() {
+const protectedDesktopPhrases = ["sicheren Transport"] as const
+
+type Props = {
+  locale: Locale
+}
+
+// Diese Funktion haelt auf Desktop einzelne zusammengehoerige Begriffe in Kartenbeschreibungen zusammen.
+function renderDesktopProtectedDescription(description: string) {
+  const phrase = protectedDesktopPhrases.find((item) => description.includes(item))
+
+  if (!phrase) {
+    return description
+  }
+
+  const phraseIndex = description.indexOf(phrase)
+
+  return (
+    <>
+      {description.slice(0, phraseIndex)}
+      <span className="lg:whitespace-nowrap">{phrase}</span>
+      {description.slice(phraseIndex + phrase.length)}
+    </>
+  )
+}
+
+export function ServicesSection({ locale }: Props) {
   // Diese Daten bestimmen pro Leistung Bild, Icon und direkte Kontaktaktion.
-  const locale = await getCurrentLocale()
   const t = getTranslations(locale).home.services
 
   return (
-    <section id="leistungen" className="bg-background py-22 lg:py-30">
+    <section id="leistungen" className="bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-12 max-w-5xl text-center sm:mb-16">
           <h2 className="mx-auto max-w-[24rem] text-[clamp(1.85rem,1.58rem+1.1vw,2.2rem)] leading-[1.08] font-semibold text-foreground sm:max-w-[15ch] sm:text-[clamp(1.9rem,1.35rem+1.45vw,3.15rem)] sm:leading-[1.04] sm:tracking-[-0.03em] sm:font-[650] lg:max-w-none">
@@ -94,7 +118,6 @@ export async function ServicesSection() {
           </h2>
           <ReadableText
             text={t.description}
-            targetLineLength={180}
             className="mx-auto mt-3 max-w-[34rem] text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none"
           />
         </div>
@@ -108,7 +131,7 @@ export async function ServicesSection() {
               <Card
                 key={service.title}
                 id={homeServiceAnchors[index]}
-                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
+                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
               >
                 <CardContent className="p-4 sm:p-5 lg:p-6">
                   <div className="flex h-full flex-col">
@@ -139,8 +162,8 @@ export async function ServicesSection() {
                         </div>
                       </div>
 
-                      <p className="mt-3 max-w-[62ch] text-body-compact text-foreground/82">
-                        {service.description}
+                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/82 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                        {renderDesktopProtectedDescription(service.description)}
                       </p>
 
                       <ul className="mt-4 grid gap-y-2">
@@ -157,14 +180,10 @@ export async function ServicesSection() {
 
                       <div className="mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 sm:flex-row sm:items-center sm:justify-between">
                         <Button asChild size="sm" className="w-full gap-2 sm:w-auto">
-                          <ServiceSelectionLink
-                            href={meta.href}
-                            serviceName={meta.href.split("/").at(-1) ?? service.title}
-                            serviceTitle={service.title}
-                          >
+                          <Link href={getLocalizedPath(locale, meta.href)}>
                             {t.learnMore}
                             <ArrowRight className="h-4 w-4" />
-                          </ServiceSelectionLink>
+                          </Link>
                         </Button>
                         {meta.contactHref ? (
                           <>

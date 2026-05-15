@@ -7,13 +7,17 @@ import Link from "next/link"
 import { ArrowRight, Clock, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
-import { getCurrentLocale } from "@/lib/server-locale"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-export async function CtaSection() {
+type Props = {
+  locale: Locale
+}
+
+export function CtaSection({ locale }: Props) {
   // Dieser Bereich zeigt pro Sprache eine fest kontrollierte Zeilenaufteilung.
-  const locale = await getCurrentLocale()
   const t = getTranslations(locale).home.cta
+  const contactHref = getLocalizedPath(locale, "/kontakt")
   const fixedDescriptionLines =
     locale === "de"
       ? [
@@ -35,9 +39,9 @@ export async function CtaSection() {
           : null
 
   return (
-    <section className="relative overflow-hidden border-y border-border/70 bg-card py-16 lg:py-20">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(115,18,28,0.42),rgba(115,18,28,0.18)_42%,transparent_78%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/12" />
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(82,8,16,0.82),rgba(32,8,12,0.72)_42%,rgba(9,11,14,0.96)_78%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -61,7 +65,6 @@ export async function CtaSection() {
             ) : (
               <ReadableText
                 text={t.description}
-                targetLineLength={56}
                 className="mt-4 max-w-[62ch] text-body-fluid text-primary-foreground/86"
               />
             )}
@@ -96,7 +99,7 @@ export async function CtaSection() {
               variant="outline"
               className="w-full gap-2 border-white/35 bg-transparent text-white hover:bg-white/12 hover:text-white sm:w-auto"
             >
-              <Link href="/kontakt">
+              <Link href={contactHref}>
                 {t.inquiry}
                 <ArrowRight className="h-5 w-5" />
               </Link>

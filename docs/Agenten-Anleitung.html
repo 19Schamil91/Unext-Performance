@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UNEXT Agenten-Anleitung</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+
+      :root {
+        color-scheme: light;
+        --ink: #17202a;
+        --muted: #5d6673;
+        --line: #d8dee8;
+        --soft: #f4f6f8;
+        --brand: #b01826;
+        --brand-dark: #75121b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #ffffff;
+        font-family:
+          Arial,
+          "Helvetica Neue",
+          sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.48;
+      }
+
+      main {
+        max-width: 178mm;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.15;
+        page-break-after: avoid;
+      }
+
+      h1 {
+        font-size: 28pt;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-top: 18pt;
+        padding-top: 10pt;
+        border-top: 1px solid var(--line);
+        font-size: 17pt;
+      }
+
+      h3 {
+        margin-top: 13pt;
+        font-size: 12.5pt;
+      }
+
+      p {
+        margin: 6pt 0 0;
+      }
+
+      ul,
+      ol {
+        margin: 6pt 0 0 18pt;
+        padding: 0;
+      }
+
+      li {
+        margin: 2.5pt 0;
+      }
+
+      code {
+        padding: 1pt 3pt;
+        border: 1px solid var(--line);
+        border-radius: 3pt;
+        background: var(--soft);
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 9.3pt;
+      }
+
+      table {
+        width: 100%;
+        margin-top: 8pt;
+        border-collapse: collapse;
+        page-break-inside: avoid;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 5pt 6pt;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        background: var(--soft);
+      }
+
+      .cover {
+        padding: 16mm 0 10mm;
+        border-bottom: 3pt solid var(--brand);
+      }
+
+      .eyebrow {
+        margin: 0 0 7pt;
+        color: var(--brand-dark);
+        font-size: 9.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .lead {
+        max-width: 145mm;
+        margin-top: 9pt;
+        color: var(--muted);
+        font-size: 12.5pt;
+      }
+
+      .note {
+        margin-top: 9pt;
+        padding: 7pt 9pt;
+        border-left: 3pt solid var(--brand);
+        background: #fbf1f2;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      .workflow {
+        margin-top: 8pt;
+        padding: 8pt 10pt;
+        border: 1px solid var(--line);
+        border-radius: 6pt;
+        background: #fcfdff;
+        page-break-inside: avoid;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 9.5pt;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="cover">
+        <p class="eyebrow">UNEXT GMBH · Projektführung</p>
+        <h1>Agenten-Anleitung für die Website-Prüfung</h1>
+        <p class="lead">
+          Diese Anleitung erklärt, welche lokalen Agenten und Skills im Projekt vorhanden sind,
+          wofür sie zuständig sind und in welcher Reihenfolge sie eingesetzt werden sollten.
+          Ziel ist ein kontrollierter Workflow bis zu einem professionellen Launch.
+        </p>
+        <p class="note">
+          Grundregel: Spezialagenten prüfen read-only und berichten. Code-Änderungen werden erst
+          nach ausdrücklicher Freigabe durch den Hauptagenten vorbereitet.
+        </p>
+      </section>
+
+      <h2>1. Arbeitsprinzip</h2>
+      <p>Arbeite in drei Stufen:</p>
+      <ol>
+        <li><strong>Vor dem Bauen:</strong> prüfen, was im Projekt bereits existiert.</li>
+        <li><strong>Nach Änderungen:</strong> Regeln, Accessibility und technische Checks ausführen.</li>
+        <li><strong>Vor Launch:</strong> visuelle, inhaltliche, SEO-, Performance- und Gesamtprüfung machen.</li>
+      </ol>
+      <p>
+        Nicht jeder Agent muss bei jeder Aufgabe laufen. Nutze gezielt den Agenten, der zum Risiko
+        der aktuellen Änderung passt.
+      </p>
+
+      <h2>2. Bestehende Pflichtagenten</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Zuständig für</th>
+            <th>Wann einsetzen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>codebase_explorer</code></td>
+            <td>Findet vorhandene Komponenten, Utilities und Types.</td>
+            <td>Vor neuen Komponenten, größeren Refactorings oder wenn unklar ist, ob es schon etwas Passendes gibt.</td>
+          </tr>
+          <tr>
+            <td><code>quality_reviewer</code></td>
+            <td>Prüft AGENTS.md-Regeln: Kommentare, Verbote, Naming und Definition of Done.</td>
+            <td>Nach jedem schreibenden Task und vor jeder Fertigmeldung.</td>
+          </tr>
+          <tr>
+            <td><code>a11y_checker</code></td>
+            <td>Prüft Accessibility: Semantik, Überschriften, Formulare, Tastatur, Bilder, Fokus.</td>
+            <td>Bei jeder Änderung an UI, Formularen oder interaktiven Elementen.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Neue Audit-Agenten</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Zuständig für</th>
+            <th>Typischer Einsatz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>typography_checker</code></td>
+            <td>Schriftgrößen, Fluid-Type-Klassen, Lesebreiten, Zeilenumbrüche, Button-Wrapping.</td>
+            <td>Nach Text-, Layout- oder Hero/Card-Änderungen.</td>
+          </tr>
+          <tr>
+            <td><code>mobile_visual_checker</code></td>
+            <td>Mobile Screenshots, Overflow, CTA-Erreichbarkeit, Header/Nav, Touch-Ziele.</td>
+            <td>Nach größeren UI-Änderungen und vor Launch.</td>
+          </tr>
+          <tr>
+            <td><code>desktop_visual_checker</code></td>
+            <td>Desktop-Screenshots, Weißraum, Bildbeschnitt, visuelle Hierarchie, Premium-Eindruck.</td>
+            <td>Nach Layoutänderungen und am Ende einer Designrunde.</td>
+          </tr>
+          <tr>
+            <td><code>conversion_reviewer</code></td>
+            <td>Telefon, WhatsApp, Kontaktformular, CTA-Struktur, Weg zur Anfrage.</td>
+            <td>Bei Leistungsseiten, Kontaktbereichen und zwingend vor Launch.</td>
+          </tr>
+          <tr>
+            <td><code>local_seo_reviewer</code></td>
+            <td>Berlin-Bezug, Titles, Descriptions, Leistungsseiten, interne Verlinkung, strukturierte Daten.</td>
+            <td>Nach Inhaltsänderungen und vor Launch.</td>
+          </tr>
+          <tr>
+            <td><code>legal_trust_reviewer</code></td>
+            <td>Impressum, Datenschutz, Firmenangaben, Kontaktklarheit, Trust-Risiken.</td>
+            <td>Vor Launch und bei Footer/Kontakt/Datenschutz-Änderungen.</td>
+          </tr>
+          <tr>
+            <td><code>performance_budget_reviewer</code></td>
+            <td>Bilder, Fonts, JS/CSS-Größe, Client Components, Build-Ausgaben, Core-Web-Vitals-Risiken.</td>
+            <td>Nach dem Build, nach neuen Bildern/Animationen und vor Launch.</td>
+          </tr>
+          <tr>
+            <td><code>content_consistency_reviewer</code></td>
+            <td>Tonalität, gleiche Leistungsnamen, widersprüchliche Aussagen, Platzhalter, Mehrsprachigkeitsrisiken.</td>
+            <td>Nach Textänderungen und vor Launch.</td>
+          </tr>
+          <tr>
+            <td><code>premium_reviewer</code></td>
+            <td>Hochwertiger Gesamteindruck, Vertrauen, Bildsprache, Professionalität.</td>
+            <td>Am Ende einer Design-/Content-Runde.</td>
+          </tr>
+          <tr>
+            <td><code>launch_reviewer</code></td>
+            <td>Finale Zusammenführung aller Findings mit P0/P1/P2/P3-Prioritäten.</td>
+            <td>Ganz am Ende, nachdem Spezialprüfungen gelaufen sind.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="page-break">4. Skills</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Zuständig für</th>
+            <th>Wann einsetzen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>next-router-check</code></td>
+            <td>Prüft App-Router-Routen auf <code>loading.tsx</code>, <code>error.tsx</code> und <code>not-found.tsx</code>.</td>
+            <td>Wenn neue oder geänderte Routen unter <code>/app</code> betroffen sind.</td>
+          </tr>
+          <tr>
+            <td><code>site-launch-audit</code></td>
+            <td>Koordiniert die komplette Launch-Prüfung mit Spezialagenten, Screenshots und Abschlussreview.</td>
+            <td>Wenn die ganze Website strukturiert vor Launch geprüft werden soll.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. Empfohlene Reihenfolgen</h2>
+
+      <div class="workflow">
+        <h3>Neue Komponente bauen</h3>
+        <ol>
+          <li><code>codebase_explorer</code></li>
+          <li>Umsetzung durch den Hauptagenten</li>
+          <li><code>a11y_checker</code>, wenn UI betroffen ist</li>
+          <li><code>quality_reviewer</code></li>
+          <li><code>npm run lint</code>, <code>npx tsc --noEmit</code>, <code>npm run build</code></li>
+        </ol>
+      </div>
+
+      <div class="workflow">
+        <h3>Texte ändern</h3>
+        <ol>
+          <li><code>content_consistency_reviewer</code></li>
+          <li><code>typography_checker</code></li>
+          <li><code>conversion_reviewer</code>, wenn CTAs oder Kontaktwege betroffen sind</li>
+          <li><code>quality_reviewer</code></li>
+        </ol>
+      </div>
+
+      <div class="workflow">
+        <h3>Layout oder Design ändern</h3>
+        <ol>
+          <li><code>codebase_explorer</code>, wenn neue Komponenten möglich sind</li>
+          <li>Umsetzung durch den Hauptagenten</li>
+          <li><code>typography_checker</code></li>
+          <li><code>mobile_visual_checker</code></li>
+          <li><code>desktop_visual_checker</code></li>
+          <li><code>a11y_checker</code></li>
+          <li><code>quality_reviewer</code></li>
+        </ol>
+      </div>
+
+      <div class="workflow">
+        <h3>Route oder neue Seite ändern</h3>
+        <ol>
+          <li><code>codebase_explorer</code></li>
+          <li>Umsetzung durch den Hauptagenten</li>
+          <li><code>next-router-check</code></li>
+          <li><code>a11y_checker</code></li>
+          <li><code>quality_reviewer</code></li>
+          <li><code>local_seo_reviewer</code></li>
+          <li>Technische Checks ausführen</li>
+        </ol>
+      </div>
+
+      <div class="workflow">
+        <h3>Komplette Launch-Prüfung</h3>
+        <ol>
+          <li><code>npm run lint</code></li>
+          <li><code>npx tsc --noEmit</code></li>
+          <li><code>npm run build</code></li>
+          <li><code>typography_checker</code></li>
+          <li><code>mobile_visual_checker</code></li>
+          <li><code>desktop_visual_checker</code></li>
+          <li><code>conversion_reviewer</code></li>
+          <li><code>local_seo_reviewer</code></li>
+          <li><code>legal_trust_reviewer</code></li>
+          <li><code>performance_budget_reviewer</code></li>
+          <li><code>content_consistency_reviewer</code></li>
+          <li><code>premium_reviewer</code></li>
+          <li><code>a11y_checker</code></li>
+          <li><code>quality_reviewer</code></li>
+          <li><code>launch_reviewer</code></li>
+        </ol>
+      </div>
+
+      <h2 class="page-break">6. Beispiel-Prompts</h2>
+      <h3>Kompletter Launch-Audit</h3>
+      <p>
+        <code>Nutze site-launch-audit und führe einen kompletten Launch-Audit durch. Prüfe zuerst Build, Lint und TypeScript, dann Mobile, Desktop, Typografie, Conversion, SEO, Legal/Trust, Performance, Content, Premium und fasse alles mit launch_reviewer in P0/P1/P2/P3 zusammen.</code>
+      </p>
+
+      <h3>Nur Mobile prüfen</h3>
+      <p>
+        <code>Starte mobile_visual_checker für /, /leistungen und /kontakt mit 390x844 und 430x932. Berichte nur konkrete mobile Blocker und Reibungspunkte.</code>
+      </p>
+
+      <h3>Nur Desktop/Premium prüfen</h3>
+      <p>
+        <code>Starte desktop_visual_checker und premium_reviewer für alle Hauptseiten. Prüfe Zeilenumbrüche, Weißraum, Bildbeschnitt, visuelle Hierarchie und hochwertigen Gesamteindruck.</code>
+      </p>
+
+      <h3>Nach Findings gezielt umsetzen</h3>
+      <p>
+        <code>Setze bitte nur die P1-Findings aus dem launch_reviewer um. Vorher kurz sagen, welche Dateien du ändern wirst. Keine P2/P3-Punkte anfassen.</code>
+      </p>
+
+      <h2>7. Prioritäten</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Priorität</th>
+            <th>Bedeutung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>P0</code></td>
+            <td>Launch unmöglich. Muss sofort gelöst werden.</td>
+          </tr>
+          <tr>
+            <td><code>P1</code></td>
+            <td>Vor Launch beheben. Starkes Risiko für Nutzer, SEO, Vertrauen oder Funktion.</td>
+          </tr>
+          <tr>
+            <td><code>P2</code></td>
+            <td>Sollte vor Launch verbessert werden, blockiert aber nicht zwingend.</td>
+          </tr>
+          <tr>
+            <td><code>P3</code></td>
+            <td>Nach Launch möglich.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>8. Wichtig für kontrolliertes Arbeiten</h2>
+      <ul>
+        <li>Spezialagenten ändern keine Dateien.</li>
+        <li>Der Hauptagent setzt erst nach deiner Freigabe um.</li>
+        <li>Bei neuen Komponenten zuerst <code>codebase_explorer</code> nutzen.</li>
+        <li>Bei UI immer <code>a11y_checker</code> nachziehen.</li>
+        <li>Nach schreibenden Tasks immer <code>quality_reviewer</code> und die technischen Checks ausführen.</li>
+        <li>Vor Launch nicht einzelne Meinungen sammeln, sondern mit <code>launch_reviewer</code> priorisiert zusammenführen.</li>
+      </ul>
+
+      <p class="small">
+        Stand: erstellt für das Projekt Unext-Perfomance. Diese Anleitung beschreibt die lokalen Agenten und Skills,
+        die im Repository unter <code>.codex/agents</code> und <code>.agents/skills</code> liegen.
+      </p>
+    </main>
+  </body>
+</html>

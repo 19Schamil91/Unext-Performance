@@ -1,33 +1,33 @@
 export const aboutTranslationOverrides = {
   de: {
-    title: "Über UNEXT GMBH",
+    title: "Über UNEXT GmbH",
     description:
       "Vom spezialisierten Unfallgutachter zum vollständigen Automotive-Partner.\nLernen Sie das Team hinter UNEXT kennen und erfahren Sie, was uns antreibt.",
     milestones: [
       {
         year: "2024",
         title: "Gründung",
-        description: "UNEXT GMBH wird in Berlin gegründet\nmit Fokus auf Unfallgutachten (UNFALLX).",
+        description: "UNEXT GmbH wird in Berlin gegründet\nmit Fokus auf Unfallgutachten (UNFALLX).",
       },
       {
         year: "2026",
         title: "Autovermietung",
-        description: "Erweiterung des Angebots um\nprofessionelle Mietfahrzeuge.",
+        description: "Professionelle Mietfahrzeuge\nerweitern das Angebot.",
       },
       {
         year: "2026",
         title: "Werkstatt & Detailing",
-        description: "Eröffnung des Werkstattbereichs und Start\ndes Premium-Detailing-Services.",
+        description: "Werkstattbereich eröffnet,\nPremium-Detailing gestartet.",
       },
       {
         year: "2026",
         title: "Pannenhilfe & Abschleppen",
-        description: "Abschleppdienst und Pannenhilfe ergänzen\ndas Angebot als weiterer Servicebereich.",
+        description: "Abschleppdienst und Pannenhilfe\nerweitern das Serviceangebot.",
       },
       {
         year: "2026",
         title: "Kfz-Zulassung",
-        description: "Die Kfz-Zulassung ergänzt\ndas Angebot als neuester Servicebereich.",
+        description: "Kfz-Zulassung ergänzt das Angebot\nals neuer Servicebereich.",
       },
       {
         year: "Heute",
@@ -37,14 +37,14 @@ export const aboutTranslationOverrides = {
     ],
   },
   en: {
-    title: "About UNEXT GMBH",
+    title: "About UNEXT GmbH",
     description:
       "From a specialized accident expert to a full automotive partner.\nGet to know the team behind UNEXT and learn what drives us.",
     milestones: [
       {
         year: "2024",
         title: "Foundation",
-        description: "UNEXT GMBH is founded in Berlin\nwith a focus on accident reports (UNFALLX).",
+        description: "UNEXT GmbH is founded in Berlin\nwith a focus on accident reports (UNFALLX).",
       },
       {
         year: "2026",
@@ -74,14 +74,14 @@ export const aboutTranslationOverrides = {
     ],
   },
   ru: {
-    title: "О компании UNEXT GMBH",
+    title: "О компании UNEXT GmbH",
     description:
       "От специализированного эксперта по ДТП до полноценного автомобильного партнера.\nПознакомьтесь с командой UNEXT и узнайте, что нас вдохновляет.",
     milestones: [
       {
         year: "2024",
         title: "Основание",
-        description: "UNEXT GMBH основана в Берлине\nс фокусом на экспертизе ДТП (UNFALLX).",
+        description: "UNEXT GmbH основана в Берлине\nс фокусом на экспертизе ДТП (UNFALLX).",
       },
       {
         year: "2026",

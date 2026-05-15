@@ -1,0 +1,265 @@
+/*
+  Diese Datei zeigt die Leistungsuebersicht.
+  Sie zeigt alle sechs Hauptleistungen mit Bildern, Vorteilen, Detail-Links und Telefonaktionen.
+  Besucher koennen eine Leistung auswaehlen, Details oeffnen oder direkt anrufen.
+*/
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wrench } from "lucide-react"
+import { CtaSection } from "@/components/sections/cta-section"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+import { StructuredData } from "@/components/StructuredData"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { getLocalizedPath, type Locale } from "@/lib/i18n"
+import { buildBreadcrumbSchema } from "@/lib/structuredData"
+import { getTranslations } from "@/lib/translations"
+
+type ServicesOverviewContentProps = {
+  locale: Locale
+}
+
+type ServiceMeta = {
+  icon: typeof FileCheck
+  image: string
+  imageClassName: string
+  href: string
+  contactText?: string
+  contactHref: string
+}
+
+const serviceTitleLineBreaks: Partial<Record<Locale, Record<string, string[]>>> = {
+  en: {
+    "Accident Reports & Immediate Assistance": ["Accident Reports", "& Immediate Assistance"],
+    "Towing & Roadside Help": ["Towing & Roadside", "Help"],
+  },
+  ru: {
+    "Экспертиза ДТП и срочная помощь": ["Экспертиза ДТП", "и срочная помощь"],
+    "Сервис регистрации авто": ["Сервис регистрации", "авто"],
+    "Эвакуатор и помощь на дороге": ["Эвакуатор", "и помощь на дороге"],
+  },
+}
+
+const serviceMeta = [
+  {
+    icon: FileCheck,
+    image: "/images/home-service-accident.webp",
+    imageClassName: "object-cover object-[center_top]",
+    href: "/leistungen/unfallgutachten",
+    contactText: "0176 64365185",
+    contactHref: "tel:+4917664365185",
+  },
+  {
+    icon: Car,
+    image: "/images/home-service-rental.webp",
+    imageClassName: "object-cover object-[42%_top]",
+    href: "/leistungen/autovermietung",
+    contactText: "0174 4292900",
+    contactHref: "tel:+491744292900",
+  },
+  {
+    icon: Wrench,
+    image: "/images/home-service-workshop.webp",
+    imageClassName: "object-cover object-[58%_top]",
+    href: "/leistungen/autoservice",
+    contactText: "0177 7883206",
+    contactHref: "tel:+491777883206",
+  },
+  {
+    icon: Sparkles,
+    image: "/images/home-service-detailing.webp",
+    imageClassName: "object-cover object-[42%_top]",
+    href: "/leistungen/detailing",
+    contactText: "0177 6691006",
+    contactHref: "tel:+491776691006",
+  },
+  {
+    icon: ClipboardCheck,
+    image: "/images/home-service-registration.webp",
+    imageClassName: "object-cover object-[42%_center]",
+    href: "/leistungen/zulassungsservice",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+  },
+  {
+    icon: Truck,
+    image: "/images/service-towing.webp",
+    imageClassName: "object-cover object-[44%_center]",
+    href: "/leistungen/abschleppdienst-pannenhilfe",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+  },
+] satisfies readonly ServiceMeta[]
+
+const protectedDesktopPhrases = ["sicheren Transport"] as const
+
+export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps) {
+  const t = getTranslations(locale).servicesPage
+  const homeTranslations = getTranslations(locale).home
+  const headerTranslations = getTranslations(locale).header
+  const servicesHref = getLocalizedPath(locale, "/leistungen")
+
+  const renderServiceTitle = (title: string, balanced: boolean) => {
+    const lines = balanced ? serviceTitleLineBreaks[locale]?.[title] : null
+
+    if (!lines) {
+      return <span className={balanced ? "text-balance" : undefined}>{title}</span>
+    }
+
+    return lines.map((line) => (
+      <span key={`${title}-${line}`} className="block">
+        {line}
+      </span>
+    ))
+  }
+
+  const renderPageTitle = () => {
+    if (locale !== "de") {
+      return t.title
+    }
+
+    return (
+      <>
+        <span className="block whitespace-nowrap">6 Hauptleistungen</span>
+        <span className="block">rund ums Fahrzeug</span>
+      </>
+    )
+  }
+
+  const pageTitleMeasureClass = locale === "de" ? "measure-heading" : "measure-display"
+
+  // Diese Funktion haelt auf Desktop einzelne zusammengehoerige Begriffe in Kartenbeschreibungen zusammen.
+  const renderDesktopProtectedDescription = (description: string) => {
+    const phrase = protectedDesktopPhrases.find((item) => description.includes(item))
+
+    if (!phrase) {
+      return description
+    }
+
+    const phraseIndex = description.indexOf(phrase)
+
+    return (
+      <>
+        {description.slice(0, phraseIndex)}
+        <span className="lg:whitespace-nowrap">{phrase}</span>
+        {description.slice(phraseIndex + phrase.length)}
+      </>
+    )
+  }
+
+  const renderServiceCards = () => (
+    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {t.items.map((service, index) => {
+        const meta = serviceMeta[index]
+        const contactText = meta.contactText ?? ""
+        const detailHref = getLocalizedPath(locale, meta.href)
+
+        return (
+          <Card
+            key={service.title}
+            className="overflow-hidden rounded-[1.45rem] border border-border/55 bg-card shadow-[0_14px_32px_rgba(15,23,42,0.07)] transition-colors hover:border-primary/30"
+          >
+            <CardContent className="flex h-full flex-col p-4 sm:p-5">
+              <div className="relative aspect-[16/8.5] overflow-hidden rounded-[1.15rem] border border-border/50 bg-background shadow-sm">
+                <Image
+                  src={meta.image}
+                  alt={service.title}
+                  fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 768px) 45vw, 100vw"
+                  quality={72}
+                  className={meta.imageClassName}
+                />
+              </div>
+
+              <div className="flex min-w-0 flex-1 flex-col pt-5">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <meta.icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                      {service.subtitle}
+                    </p>
+                    <h2 className="mt-1 text-card-heading-fluid text-foreground">
+                      {renderServiceTitle(service.title, true)}
+                    </h2>
+                  </div>
+                </div>
+
+                <p className="mt-4 measure-card-copy-wide text-body-compact text-foreground/78 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                  {renderDesktopProtectedDescription(service.description)}
+                </p>
+
+                <ul className="mt-5 grid gap-y-2.5">
+                  {service.features.slice(0, 3).map((feature) => (
+                    <li
+                      key={feature}
+                      className="grid grid-cols-[0.45rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/45 bg-background/55 px-3 py-2.5 text-sm leading-6 text-foreground/82"
+                    >
+                      <span className="mt-[0.6rem] h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto flex flex-col gap-3 border-t border-border/50 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <Button asChild className="gap-2">
+                    <Link href={detailHref}>
+                      {homeTranslations.services.learnMore}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="group w-full gap-2 border-primary/40 bg-primary/10 font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:!border-primary/55 hover:!bg-primary/12 hover:!text-foreground sm:ml-auto sm:w-auto"
+                  >
+                    <a href={meta.contactHref}>
+                      <Phone className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110" />
+                      <span className="transition-colors duration-300 group-hover:text-primary">{contactText}</span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })}
+    </div>
+  )
+
+  return (
+    <>
+      <SiteHeader locale={locale} />
+      <main>
+        <StructuredData
+            data={buildBreadcrumbSchema([
+              { name: headerTranslations.navigation[0].name, path: getLocalizedPath(locale, "/") },
+              { name: t.title, path: servicesHref },
+            ])}
+          />
+        <section className="bg-card py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="mx-auto max-w-5xl text-center">
+              <h1 className={`mx-auto ${pageTitleMeasureClass} text-display-fluid font-semibold text-foreground`}>
+                {renderPageTitle()}
+              </h1>
+              <p className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground">
+                {t.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">{renderServiceCards()}</div>
+        </section>
+
+        <CtaSection locale={locale} />
+      </main>
+      <SiteFooter locale={locale} />
+    </>
+  )
+}
