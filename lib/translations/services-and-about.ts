@@ -61,7 +61,7 @@ export const servicesAndAboutTranslations = {
           title: "Kfz-Zulassung",
           subtitle: "Anmeldung & Kennzeichen",
           description:
-            "Wir übernehmen den gesamten Ablauf für Sie - von\u00A0der\u00A0Abmeldung\u00A0bis\u00A0zur\u00A0fertigen\u00A0Zulassung. Kein Termin, kein Behördengang, kein Aufwand für Sie.",
+            "Wir übernehmen Anmeldung, Abmeldung und Kennzeichenservice. Ohne Termin, Behördengang oder Aufwand für Sie.",
           features: [
             "Kfz-Zulassung",
             "Kurzzeit- & Exportkennzeichen",
@@ -283,7 +283,7 @@ export const servicesAndAboutTranslations = {
           title: "Сервис регистрации авто",
           subtitle: "Оформление и номера",
           description:
-            "Мы берем на себя весь процесс - от снятия с учета до готовой регистрации. Без записи, без посещения ведомств и без лишних хлопот для вас.",
+            "Мы берём на себя регистрацию, снятие с учёта и номера. Без записи и лишних визитов.",
           features: [
             "Регистрация авто",
             "Временные и экспортные номера",

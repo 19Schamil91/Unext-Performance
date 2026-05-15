@@ -7,7 +7,7 @@ export const serviceDetailTranslations = {
       servicesTitle: "Unsere Leistungen",
       whyTitle: "Warum UNEXT wählen?",
       whyDescription: "Vertrauen Sie auf unsere Erfahrung und Expertise.",
-      faqTitle: "Häufig gestellte Fragen",
+      faqTitle: "FAQ",
       questionsTitle: "Haben Sie Fragen?",
       questionsDescription: "Kontaktieren Sie uns jetzt - wir beraten Sie gerne.",
       contactCta: "Kontakt aufnehmen",

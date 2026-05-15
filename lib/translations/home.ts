@@ -113,7 +113,7 @@ export const homeTranslations = {
       contactLabel: "Telefon:",
       highlightTitle: "Schnell, direkt und zuverlässig",
       highlightDescription:
-        "Ob Dokumente, Pakete oder Fahrzeugteile - wir übernehmen zeitkritische Transporte innerhalb Berlins sauber und ohne unnötige Umwege.",
+        "Zeitkritische Transporte in Berlin: Dokumente, Pakete oder Fahrzeugteile direkt und zuverlässig.",
       contactBoxLabel: "Direkter Kontakt",
     },
     why: {
@@ -506,7 +506,7 @@ export const homeTranslations = {
           title: "Экспертиза ДТП",
           subtitle: "UNFALLX",
           description:
-            "Быстрая помощь сразу после аварии. Независимые автоэкспертизы от сертифицированных специалистов и поддержка при урегулировании ущерба.",
+            "Быстрая помощь после ДТП, независимая экспертиза и поддержка по ущербу.",
           features: [
             "Быстрая запись",
             "Независимые заключения",
@@ -542,7 +542,7 @@ export const homeTranslations = {
           title: "Детейлинг",
           subtitle: "Премиальный уход",
           description:
-            "Премиальная подготовка автомобиля для требовательных клиентов. Полировка, восстановление лакокрасочного покрытия и тщательная чистка салона и кузова.",
+            "Премиальный детейлинг: полировка, уход за салоном и чистый внешний вид.",
           features: [
             "Полировка и коррекция лака",
             "Чистка салона и кузова",
