@@ -23,9 +23,9 @@ const rentalTitleLines = {
 
 const rentalDescriptionLines = {
   de: [
-    "Ob nach einem Unfall, während der Werkstattzeit oder für besondere Anlässe",
-    "- wir haben das passende Fahrzeug für Sie.",
-    "Schnell verfügbar, fair im Preis und immer in Top-Zustand.",
+    "Ob Unfall, Werkstatt oder besonderer Anlass:",
+    "Wir stellen schnell das passende Fahrzeug bereit.",
+    "Fair, gepflegt und unkompliziert verfügbar.",
   ],
   en: [
     "Whether after an accident, during workshop time or for special occasions",

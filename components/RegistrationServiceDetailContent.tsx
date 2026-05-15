@@ -15,8 +15,6 @@ type RegistrationServiceDetailContentProps = {
   locale: Locale
 }
 
-const NB = "\u00A0"
-
 const registrationTitleLines = {
   de: ["Kfz-Zulassung"],
   en: ["Vehicle Registration Service"],
@@ -26,10 +24,9 @@ const registrationTitleLines = {
 // Diese Zeilen halten nur den grossen Einleitungstext im Hero optisch ruhiger.
 const registrationDescriptionLines = {
   de: [
-    "Wir übernehmen die Anmeldung, Abmeldung und weitere Formalitäten",
-    "rund um Ihr Fahrzeug schnell, zuverlässig und unkompliziert.",
-    "So sparen Sie Zeit, vermeiden unnötige Wartezeiten",
-    `und müssen sich nicht selbst um${NB}Behördengänge kümmern.`,
+    "Wir übernehmen Anmeldung, Abmeldung und Formalitäten",
+    "rund um Ihr Fahrzeug schnell und zuverlässig.",
+    "Sie sparen Zeit und vermeiden Behördengänge.",
   ],
   en: [
     "We handle registration, deregistration and other formalities",

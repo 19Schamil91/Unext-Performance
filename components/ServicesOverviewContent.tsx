@@ -92,6 +92,8 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
+const protectedDesktopPhrases = ["sicheren Transport"] as const
+
 export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps) {
   const t = getTranslations(locale).servicesPage
   const homeTranslations = getTranslations(locale).home
@@ -126,6 +128,25 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
   }
 
   const pageTitleMeasureClass = locale === "de" ? "measure-heading" : "measure-display"
+
+  // Diese Funktion haelt auf Desktop einzelne zusammengehoerige Begriffe in Kartenbeschreibungen zusammen.
+  const renderDesktopProtectedDescription = (description: string) => {
+    const phrase = protectedDesktopPhrases.find((item) => description.includes(item))
+
+    if (!phrase) {
+      return description
+    }
+
+    const phraseIndex = description.indexOf(phrase)
+
+    return (
+      <>
+        {description.slice(0, phraseIndex)}
+        <span className="lg:whitespace-nowrap">{phrase}</span>
+        {description.slice(phraseIndex + phrase.length)}
+      </>
+    )
+  }
 
   const renderServiceCards = () => (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -166,8 +187,8 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
                   </div>
                 </div>
 
-                <p className="mt-4 measure-card-copy-wide text-body-compact text-foreground/78">
-                  {service.description}
+                <p className="mt-4 measure-card-copy-wide text-body-compact text-foreground/78 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                  {renderDesktopProtectedDescription(service.description)}
                 </p>
 
                 <ul className="mt-5 grid gap-y-2.5">

@@ -23,11 +23,9 @@ const towingTitleLines = {
 
 const towingDescriptionLines = {
   de: [
-    "Wenn Ihr Fahrzeug nach einer Panne oder einem Unfall",
-    "nicht mehr fahrbereit ist,",
-    "sorgen wir schnell und zuverlässig für eine sichere Lösung.",
+    "Bei Panne oder Unfall organisieren wir schnell Hilfe.",
     "Vom Abschleppen bis zu den nächsten Schritten",
-    "erhalten Sie Unterstützung aus einer Hand.",
+    "bekommen Sie Unterstützung aus einer Hand.",
   ],
   en: [
     "If your vehicle is no longer roadworthy",

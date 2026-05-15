@@ -100,22 +100,22 @@ export const servicesAndAboutTranslations = {
         {
           title: "Qualität",
           description:
-            "Wir setzen auf höchste Standards bei allen unseren Dienstleistungen. Qualität ist kein Zufall, sondern das Ergebnis von Engagement und Expertise.",
+            "Hohe Standards, klare Prozesse und sorgfältige Arbeit sichern jedes Ergebnis.",
         },
         {
           title: "Kundenorientierung",
           description:
-            "Sie stehen bei uns im Mittelpunkt. Wir hören zu, verstehen Ihre Bedürfnisse und finden die beste Lösung für Ihre Situation.",
+            "Wir hören zu und finden ohne Umwege eine passende Lösung.",
         },
         {
           title: "Zuverlässigkeit",
           description:
-            "Was wir zusagen, halten wir. Pünktlichkeit, Ehrlichkeit und Verlässlichkeit sind die Grundpfeiler unserer Arbeit.",
+            "Wir halten Zusagen und arbeiten pünktlich, ehrlich und verlässlich.",
         },
         {
           title: "Leidenschaft",
           description:
-            "Wir lieben Autos und das, was wir tun. Diese Begeisterung spüren Sie in jedem Detail unserer Arbeit.",
+            "Wir lieben Autos und saubere Arbeit. Das zeigt sich in jedem Detail.",
         },
       ],
       stats: [
@@ -322,22 +322,22 @@ export const servicesAndAboutTranslations = {
         {
           title: "Качество",
           description:
-            "Мы придерживаемся самых высоких стандартов во всех наших услугах. Качество - это не случайность, а результат вовлеченности и экспертизы.",
+            "Мы работаем по высоким стандартам. Качество рождается из опыта, внимания и четких процессов.",
         },
         {
           title: "Ориентация на клиента",
           description:
-            "Вы в центре нашего внимания. Мы слушаем, понимаем ваши потребности и находим лучшее решение для вашей ситуации.",
+            "Мы слушаем, понимаем вашу ситуацию и находим подходящее решение без лишних шагов.",
         },
         {
           title: "Надежность",
           description:
-            "Мы выполняем то, что обещаем. Пунктуальность, честность и надежность - основа нашей работы.",
+            "Мы выполняем обещанное. Пунктуальность, честность и надежность лежат в основе нашей работы.",
         },
         {
           title: "Страсть",
           description:
-            "Мы любим автомобили и свое дело. Эта вовлеченность ощущается в каждой детали нашей работы.",
+            "Мы любим автомобили и аккуратную работу. Это внимание видно в каждой детали.",
         },
       ],
       stats: [

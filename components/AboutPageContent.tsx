@@ -28,15 +28,15 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
       <SiteHeader locale={locale} />
       <main>
         <section className="overflow-hidden bg-black md:relative md:aspect-[5022/1795]">
-          <div className="relative h-[16rem] bg-black min-[430px]:h-[17rem] md:absolute md:inset-0 md:h-auto md:aspect-auto">
-            {/* Dieses breite Teamfoto bleibt voll sichtbar, damit die Personen links und rechts nicht abgeschnitten werden. */}
+          <div className="relative aspect-[5022/1795] bg-black md:absolute md:inset-0 md:h-auto md:aspect-auto">
+            {/* Dieses breite Teamfoto bleibt mobil voll sichtbar, damit die Personen nicht unruhig angeschnitten werden. */}
             <Image
               src="/images/about-hero-team-cropped.webp"
               alt="Team von UNEXT GmbH"
               fill
               sizes="100vw"
               quality={86}
-              className="scale-110 object-cover object-[50%_34%] md:scale-100 md:object-contain md:object-top"
+              className="object-contain object-top md:object-contain md:object-top"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/8 to-black/34 md:via-black/18 md:to-black/58" />
@@ -134,14 +134,14 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 return (
                   <Card
                     key={value.title}
-                    className="border-border/50 bg-background text-center transition-all hover:border-primary/30"
+                    className="border-border/50 bg-background text-left transition-all hover:border-primary/30 sm:text-center"
                   >
                     <CardContent className="p-6">
-                      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary sm:mx-auto">
                         <Icon className="h-7 w-7" />
                       </div>
-                      <h3 className="measure-card-copy text-title-fluid font-semibold text-foreground">{value.title}</h3>
-                      <p className="mt-2 measure-card-copy text-body-compact text-muted-foreground">
+                      <h3 className="text-title-fluid font-semibold text-foreground sm:measure-card-copy">{value.title}</h3>
+                      <p className="mt-2 max-w-none text-body-compact text-muted-foreground sm:mx-auto sm:measure-card-copy-wide">
                         {value.description}
                       </p>
                     </CardContent>

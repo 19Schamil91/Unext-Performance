@@ -21,14 +21,23 @@ const serviceLinks = [
 const linkClassName =
   "text-sm text-foreground/72 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 
+const compactFooterDescriptions = {
+  de: "UNEXT GmbH in Berlin.",
+  en: "UNEXT GmbH in Berlin.",
+  ru: "UNEXT GmbH в Берлине.",
+} as const satisfies Record<Locale, string>
+
 type SiteFooterProps = {
   locale: Locale
+  compactSummary?: boolean
 }
 
-export function SiteFooter({ locale }: SiteFooterProps) {
+export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) {
   // Diese Texte werden pro Sprache fuer alle Footer-Bereiche geladen.
   const t = getTranslations(locale)
   const homeHref = getLocalizedPath(locale, "/")
+  // Kontaktseiten zeigen die wichtigsten Kontaktwege bereits direkt darueber; der Footer bleibt dort bewusst kuerzer.
+  const footerDescription = compactSummary ? compactFooterDescriptions[locale] : t.footer.description
   // Diese Links bleiben im Footer bewusst kurz; detaillierte Oeffnungszeiten stehen auf der Kontaktseite.
   const footerContactLinks = [
     {
@@ -65,7 +74,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="mt-3 max-w-[52ch] text-sm leading-6 text-foreground/76">{t.footer.description}</p>
+            <p className="mt-3 max-w-[52ch] text-sm leading-6 text-foreground/76">{footerDescription}</p>
           </div>
 
           <div className="flex flex-col gap-3 lg:items-end">

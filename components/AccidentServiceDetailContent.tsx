@@ -23,10 +23,10 @@ const accidentTitleLines = {
 
 const accidentDescriptionLines = {
   de: [
-    "Ein Unfall ist immer stressig. Wir nehmen Ihnen die Last ab:",
-    "Unsere zertifizierten Gutachter erstellen unabhängige Kfz-Gutachten",
-    "und unterstützen Sie kompetent bei der gesamten Schadensabwicklung",
-    "- schnell, professionell und fair.",
+    "Nach einem Unfall nehmen wir Ihnen die Last ab.",
+    "Zertifizierte Gutachter erstellen unabhängige Kfz-Gutachten",
+    "und unterstützen Sie bei der Schadensabwicklung.",
+    "Schnell, professionell und fair.",
   ],
   en: [
     "An accident is always stressful. We take the burden off your shoulders:",

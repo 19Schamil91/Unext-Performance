@@ -23,9 +23,9 @@ const workshopTitleLines = {
 
 const workshopDescriptionLines = {
   de: [
-    "Unser erfahrenes Werkstatt-Team kümmert sich professionell um Ihr Fahrzeug.",
-    "Von der routinemäßigen Wartung bis zur Reparatur",
-    "- wir bieten zuverlässigen Service mit Qualitätsgarantie.",
+    "Unser Werkstatt-Team kümmert sich professionell um Ihr Fahrzeug.",
+    "Von Wartung bis Reparatur bieten wir zuverlässigen Service",
+    "mit Qualitätsgarantie.",
   ],
   en: [
     "Our experienced workshop team takes professional care of your vehicle.",

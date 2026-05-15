@@ -115,9 +115,9 @@ export async function ServicePageLayout({
 
   const resolvedHeroActions = heroActions ?? defaultHeroActions
   const resolvedBottomActions = bottomActions ?? defaultBottomActions
-  // Lange russische Hero-Titel bekommen mobil mehr Zeilenbreite, ohne die Desktop-Groesse zu veraendern.
+  // Lange deutsche und russische Hero-Titel bekommen mobil mehr Zeilenbreite, ohne die Desktop-Groesse zu veraendern.
   const heroTitleClassName =
-    locale === "ru"
+    locale === "ru" || locale === "de"
       ? "mt-2 measure-heading text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:measure-display md:text-display-fluid"
       : "mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid"
   const servicePath =
@@ -246,11 +246,11 @@ export async function ServicePageLayout({
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (
-              <p className="mt-3 max-w-[37ch] text-body-compact leading-[1.55] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] md:text-body-fluid lg:max-w-[72ch]">
+              <p className="mt-3 max-w-none text-body-compact leading-[1.55] text-white/88 text-pretty drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 sm:max-w-[68ch] sm:leading-[1.58] md:text-body-fluid lg:max-w-[72ch]">
                 {descriptionLines.map((line, index) => (
                   <span
                     key={`${description}-${line}-${index}`}
-                    className="inline sm:block"
+                    className="inline"
                   >
                     {line}
                     {index < descriptionLines.length - 1 ? " " : null}
@@ -260,7 +260,7 @@ export async function ServicePageLayout({
             ) : (
               <ReadableText
                 text={description}
-                className="mt-3 max-w-[37ch] text-body-compact leading-[1.55] text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 md:max-w-[74ch] md:text-body-fluid"
+                className="mt-3 max-w-none text-body-compact leading-[1.55] text-white/88 drop-shadow-[0_8px_24px_rgba(0,0,0,0.34)] sm:mt-6 md:max-w-[74ch] md:text-body-fluid"
               />
             )}
 
@@ -345,7 +345,7 @@ export async function ServicePageLayout({
                 </h3>
                 <ReadableText
                   text={service.description}
-                  className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78"
+                  className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78 lg:max-w-[48ch]"
                 />
               </div>
             ))}
@@ -386,7 +386,7 @@ export async function ServicePageLayout({
                       </h3>
                       <ReadableText
                         text={item.description}
-                        className="mt-2 measure-card-copy-wide text-body-compact text-foreground/78"
+                        className="mt-2 measure-card-copy-wide text-body-compact text-foreground/78 lg:max-w-[48ch]"
                       />
                     </div>
                   </div>

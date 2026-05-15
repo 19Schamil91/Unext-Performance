@@ -26,10 +26,9 @@ const detailingTitleLines = {
 
 const detailingDescriptionLines = {
   de: [
-    "Ihr Fahrzeug verdient das Beste.",
-    "Unsere Detailing-Experten bringen Ihr Auto wieder auf Hochglanz",
-    `- mit professionellen${NB}Methoden und Premium-Produkten`,
-    "für ein Ergebnis, das begeistert.",
+    "Unsere Detailing-Experten bringen Ihr Fahrzeug wieder auf Hochglanz.",
+    `Mit professionellen${NB}Methoden und Premium-Produkten`,
+    "entsteht ein Ergebnis, das überzeugt.",
   ],
   en: [
     "Your vehicle deserves the best.",

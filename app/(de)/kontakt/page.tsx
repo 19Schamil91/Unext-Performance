@@ -24,7 +24,7 @@ export default function KontaktPage() {
     <ContactPageClient
       locale={locale}
       header={<SiteHeader locale={locale} />}
-      footer={<SiteFooter locale={locale} />}
+      footer={<SiteFooter locale={locale} compactSummary />}
     />
   )
 }

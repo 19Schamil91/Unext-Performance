@@ -50,7 +50,7 @@ export default async function LocalizedContactPage({
     <ContactPageClient
       locale={currentLocale}
       header={<SiteHeader locale={currentLocale} />}
-      footer={<SiteFooter locale={currentLocale} />}
+      footer={<SiteFooter locale={currentLocale} compactSummary />}
     />
   )
 }

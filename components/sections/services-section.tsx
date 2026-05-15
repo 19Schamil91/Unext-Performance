@@ -80,8 +80,29 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
+const protectedDesktopPhrases = ["sicheren Transport"] as const
+
 type Props = {
   locale: Locale
+}
+
+// Diese Funktion haelt auf Desktop einzelne zusammengehoerige Begriffe in Kartenbeschreibungen zusammen.
+function renderDesktopProtectedDescription(description: string) {
+  const phrase = protectedDesktopPhrases.find((item) => description.includes(item))
+
+  if (!phrase) {
+    return description
+  }
+
+  const phraseIndex = description.indexOf(phrase)
+
+  return (
+    <>
+      {description.slice(0, phraseIndex)}
+      <span className="lg:whitespace-nowrap">{phrase}</span>
+      {description.slice(phraseIndex + phrase.length)}
+    </>
+  )
 }
 
 export function ServicesSection({ locale }: Props) {
@@ -141,8 +162,8 @@ export function ServicesSection({ locale }: Props) {
                         </div>
                       </div>
 
-                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/82">
-                        {service.description}
+                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/82 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                        {renderDesktopProtectedDescription(service.description)}
                       </p>
 
                       <ul className="mt-4 grid gap-y-2">
