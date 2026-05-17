@@ -13,7 +13,7 @@ import { normalizeLocale } from "@/lib/i18n"
 
 const actionMessages: Record<Locale, { invalid: string; config: string; failed: string; sent: string }> = {
   de: {
-    invalid: "Bitte pruefen Sie die markierten Felder.",
+    invalid: "Bitte prüfen Sie die markierten Felder.",
     config: "Der Mailversand ist noch nicht eingerichtet. Bitte rufen Sie uns direkt an oder schreiben Sie uns per WhatsApp.",
     failed: "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
     sent: "Ihre Anfrage wurde erfolgreich übermittelt.",
@@ -32,10 +32,10 @@ const actionMessages: Record<Locale, { invalid: string; config: string; failed: 
   },
 }
 
-async function sendEmail(input: { replyTo: string; subject: string; text: string }) {
+async function sendEmail(input: { replyTo: string; subject: string; text: string; html: string }) {
   const apiKey = process.env.RESEND_API_KEY
   const to = process.env.CONTACT_TO_EMAIL ?? "info@unext.de"
-  const from = process.env.CONTACT_FROM_EMAIL ?? "UNEXT Website <noreply@unext.de>"
+  const from = process.env.CONTACT_FROM_EMAIL ?? "UNEXT Website <info@unext.de>"
 
   if (!apiKey) {
     return { ok: false, reason: "config" as const }
@@ -52,6 +52,7 @@ async function sendEmail(input: { replyTo: string; subject: string; text: string
       to,
       reply_to: input.replyTo,
       subject: input.subject,
+      html: input.html,
       text: input.text,
     }),
   })
@@ -83,6 +84,7 @@ export async function sendContactMessage(
   const sendResult = await sendEmail({
     replyTo: result.data.email,
     subject: email.subject,
+    html: email.html,
     text: email.text,
   })
 
@@ -121,6 +123,7 @@ export async function sendServiceInquiry(
   const sendResult = await sendEmail({
     replyTo: result.data.email,
     subject: email.subject,
+    html: email.html,
     text: email.text,
   })
 

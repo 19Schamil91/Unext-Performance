@@ -98,11 +98,78 @@ export function buildFieldErrors(error: z.ZodError) {
   return fieldErrors
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+}
+
+function renderEmailParagraph(label: string, value: string) {
+  return `
+    <tr>
+      <td style="padding: 10px 0; color: #6b7280; font-size: 13px; width: 130px; vertical-align: top;">${escapeHtml(label)}</td>
+      <td style="padding: 10px 0; color: #111827; font-size: 15px; font-weight: 600; vertical-align: top;">${escapeHtml(value)}</td>
+    </tr>
+  `
+}
+
+function renderMessageBlock(value: string) {
+  return `
+    <div style="margin-top: 24px;">
+      <div style="color: #6b7280; font-size: 13px; margin-bottom: 8px;">Nachricht</div>
+      <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; color: #111827; font-size: 15px; line-height: 1.65; padding: 18px 20px;">
+        ${escapeHtml(value).replaceAll("\n", "<br />")}
+      </div>
+    </div>
+  `
+}
+
+function renderEmailHtml(input: { eyebrow: string; title: string; rows: string[]; message: string }) {
+  return `
+    <!doctype html>
+    <html>
+      <body style="margin: 0; padding: 0; background: #f3f4f6; font-family: Arial, Helvetica, sans-serif;">
+        <div style="display: none; max-height: 0; overflow: hidden; opacity: 0;">
+          ${escapeHtml(input.title)}
+        </div>
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: #f3f4f6; padding: 32px 16px;">
+          <tr>
+            <td align="center">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; max-width: 640px; overflow: hidden;">
+                <tr>
+                  <td style="background: #050505; padding: 26px 30px;">
+                    <div style="color: #ef4444; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;">${escapeHtml(input.eyebrow)}</div>
+                    <h1 style="color: #ffffff; font-size: 24px; line-height: 1.25; margin: 10px 0 0;">${escapeHtml(input.title)}</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 28px 30px 32px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                      ${input.rows.join("")}
+                    </table>
+                    ${renderMessageBlock(input.message)}
+                    <p style="border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px; line-height: 1.6; margin: 26px 0 0; padding-top: 16px;">
+                      Antworten auf diese E-Mail gehen an die im Formular angegebene Kundenadresse.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
+  `
+}
+
 export function buildContactEmail(values: ContactFormValues) {
   return {
     subject: `Kontaktformular: ${values.subject}`,
     text: [
-      "Neue Nachricht ueber das Kontaktformular.",
+      "Neue Nachricht über das Kontaktformular.",
       "",
       `Name: ${values.name}`,
       `Telefon: ${values.phone || "Nicht angegeben"}`,
@@ -112,6 +179,17 @@ export function buildContactEmail(values: ContactFormValues) {
       "Nachricht:",
       values.message,
     ].join("\n"),
+    html: renderEmailHtml({
+      eyebrow: "Kontaktformular",
+      title: "Neue Nachricht über das Kontaktformular",
+      rows: [
+        renderEmailParagraph("Name", values.name),
+        renderEmailParagraph("Telefon", values.phone || "Nicht angegeben"),
+        renderEmailParagraph("E-Mail", values.email),
+        renderEmailParagraph("Betreff", values.subject),
+      ],
+      message: values.message,
+    }),
   }
 }
 
@@ -119,7 +197,7 @@ export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
   return {
     subject: `Service-Anfrage: ${values.service}`,
     text: [
-      "Neue Anfrage ueber eine Leistungsseite.",
+      "Neue Anfrage über eine Leistungsseite.",
       "",
       `Leistung: ${values.service}`,
       `Name: ${values.name}`,
@@ -132,5 +210,19 @@ export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
       "Nachricht:",
       values.message || "Nicht angegeben",
     ].join("\n"),
+    html: renderEmailHtml({
+      eyebrow: "Service-Anfrage",
+      title: `Neue Anfrage: ${values.service}`,
+      rows: [
+        renderEmailParagraph("Leistung", values.service),
+        renderEmailParagraph("Name", values.name),
+        renderEmailParagraph("Telefon", values.phone),
+        renderEmailParagraph("E-Mail", values.email),
+        renderEmailParagraph("Fahrzeug", values.vehicle || "Nicht angegeben"),
+        renderEmailParagraph("Betreff", values.subject || "Nicht angegeben"),
+        renderEmailParagraph("Wunschtermin", values.date || "Nicht angegeben"),
+      ],
+      message: values.message || "Nicht angegeben",
+    }),
   }
 }
