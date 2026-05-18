@@ -128,7 +128,7 @@ export function ServicesSection({ locale }: Props) {
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 max-w-[34rem] text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none"
+            className="mx-auto mt-3 max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none"
           />
         </div>
 

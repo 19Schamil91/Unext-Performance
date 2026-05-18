@@ -214,7 +214,11 @@ function HeroContent({
         >
           {isOverlay && combinePrimaryTitle ? (
             <span className={`block font-semibold ${overlayTitleClass}`}>
-              <span className="block text-white">{title1}</span>
+              {title1.split("\n").map((line) => (
+                <span key={line} className="block text-white">
+                  {line}
+                </span>
+              ))}
               <span className={primaryTitleSecondLineClass}>{title2}</span>
             </span>
           ) : (
@@ -239,23 +243,25 @@ function HeroContent({
               </span>
             </>
           )}
-          <span
-            className={
-              isOverlay
-                ? combinePrimaryTitle
-                  ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
-                  : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
-                : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
-            }
-          >
-            {title3}
-          </span>
+          {title3 ? (
+            <span
+              className={
+                isOverlay
+                  ? combinePrimaryTitle
+                    ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                    : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                  : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
+              }
+            >
+              {title3}
+            </span>
+          ) : null}
         </div>
 
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-6 measure-intro text-body-fluid font-medium text-white/92 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-4 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
+              ? "relative z-10 mt-8 measure-intro text-body-compact font-medium text-white/86 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -401,7 +407,7 @@ export function HeroSection({ locale }: Props) {
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc = "/images/home-hero-new.webp"
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
-  const heroTitle = `${t.title1} ${t.title2} ${t.title3}`
+  const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
 
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">

@@ -97,7 +97,7 @@ export function ExpressCourierSection({ locale }: Props) {
                       <h3 className="mt-5 measure-card-copy text-card-heading-fluid text-foreground">
                         {t.highlightTitle}
                       </h3>
-                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78">
+                      <p className="mt-3 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78">
                         {t.highlightDescription}
                       </p>
                       <div className="mt-6 rounded-xl border border-border/50 bg-card/80 px-4 py-3">

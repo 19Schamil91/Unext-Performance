@@ -26,7 +26,7 @@ export function ProcessSection({ locale }: Props) {
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 max-w-[34rem] text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-[66ch]"
+            className="mx-auto mt-3 max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-[66ch]"
           />
         </div>
 
@@ -50,7 +50,7 @@ export function ProcessSection({ locale }: Props) {
                   </div>
 
                   <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{item.title}</h3>
-                  <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                  <p className="mt-2 measure-card-copy whitespace-pre-line text-body-compact text-foreground/78">
                     {item.description}
                   </p>
 

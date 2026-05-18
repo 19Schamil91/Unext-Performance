@@ -21,14 +21,17 @@ export function CtaSection({ locale }: Props) {
   const fixedDescriptionLines =
     locale === "de"
       ? [
-          "Rufen Sie uns an oder schreiben Sie uns per WhatsApp. Wir sagen Ihnen direkt,",
-          "wie wir Ihnen bei Unfall, Werkstatt, Mietwagen, Zulassung oder Pannenhilfe weiterhelfen.",
+          "Rufen Sie uns an, schreiben Sie per WhatsApp",
+          "oder senden Sie direkt eine Anfrage.",
+          "Wir melden uns schnell zurück und sagen Ihnen klar,",
+          "welcher nächste Schritt sinnvoll ist.",
         ]
       : locale === "en"
         ? [
-            "Call us or write to us on WhatsApp. We will tell you directly",
-            "how we can help with accidents, workshop service, rental cars,",
-            "registration or roadside assistance.",
+            "Call us, message us on WhatsApp",
+            "or send an inquiry directly.",
+            "We will get back to you quickly and explain clearly",
+            "which next step makes sense.",
           ]
         : locale === "ru"
           ? [
@@ -37,6 +40,15 @@ export function CtaSection({ locale }: Props) {
               "регистрацией или помощью на дороге.",
             ]
           : null
+  const visibleDescriptionLines =
+    locale === "ru"
+      ? [
+          "Позвоните нам, напишите в WhatsApp",
+          "или отправьте заявку напрямую.",
+          "Мы быстро свяжемся с вами и понятно объясним,",
+          "какой следующий шаг имеет смысл.",
+        ]
+      : fixedDescriptionLines
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
@@ -53,12 +65,12 @@ export function CtaSection({ locale }: Props) {
             <h2 className="max-w-[22rem] text-[clamp(1.85rem,1.5rem+1.15vw,2.65rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
               {t.title}
             </h2>
-            {fixedDescriptionLines ? (
+            {visibleDescriptionLines ? (
               <p className="mt-4 max-w-[36rem] text-body-fluid text-primary-foreground/86 sm:max-w-[46ch] lg:max-w-none">
-                {fixedDescriptionLines.map((line, index) => (
+                {visibleDescriptionLines.map((line, index) => (
                   <span key={line} className="inline sm:block lg:whitespace-nowrap">
                     {line}
-                    {index < fixedDescriptionLines.length - 1 ? " " : null}
+                    {index < visibleDescriptionLines.length - 1 ? " " : null}
                   </span>
                 ))}
               </p>
