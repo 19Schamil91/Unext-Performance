@@ -27,31 +27,31 @@ export const homeTranslations = {
           title: "Unfallhilfe & Gutachten",
           subtitle: "UNFALLX",
           description:
-            "Nach einem Unfall sichern wir schnelle Hilfe, Gutachten und klare nächste Schritte.",
+            "Nach einem Unfall erhalten Sie schnelle Unterstützung,\nein unabhängiges Gutachten und klare Handlungsempfehlungen.",
           features: [
             "Schnelle Ersteinschätzung",
-            "Unabhängiges Gutachten",
-            "Unterstützung bei der Schadensabwicklung",
-            "Auf Wunsch weitere Schritte über UNEXT",
+            "Unabhängiges Kfz-Gutachten",
+            "Unterstützung bei der Schadenabwicklung",
+            "Weitere Schritte auf Wunsch über UNEXT",
           ],
         },
         {
           title: "Autovermietung",
           subtitle: "Ersatzfahrzeuge",
           description:
-            "Mietwagen und Ersatzfahrzeuge für privat, gewerblich und Fahrdienste. Schnell verfügbar.",
+            "Flexible Miet- und Ersatzfahrzeuge für Privatkunden,\nGewerbe und Fahrdienste — kurzfristig verfügbar.",
           features: [
-            "Kurzfristig verfügbar",
+            "Kurzfristige Verfügbarkeit",
             "Flexible Laufzeiten",
-            "Schnelle Übergabe",
-            "Saubere, gepflegte Fahrzeuge",
+            "Schnelle Fahrzeugübergabe",
+            "Gepflegte, einsatzbereite Fahrzeuge",
           ],
         },
         {
           title: "Werkstatt & Service",
           subtitle: "Wartung & Reparatur",
           description:
-            "Von Inspektion bis Reparatur: Wir kümmern uns zuverlässig um die Technik Ihres Fahrzeugs und halten Sie mobil.",
+            "Von Inspektion bis Reparatur kümmern wir uns zuverlässig,\num die Technik Ihres Fahrzeugs und halten Sie mobil.",
           features: [
             "Inspektion & Ölservice",
             "Reifenservice",
@@ -63,7 +63,7 @@ export const homeTranslations = {
           title: "Aufbereitung & Pflege",
           subtitle: "Detailing",
           description:
-            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge, Werterhalt und einen sauberen Gesamteindruck.",
+            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge,\nWerterhalt und einen sauberen Gesamteindruck.",
           features: [
             "Innen- & Außenreinigung",
             "Lackaufbereitung & Politur",
@@ -75,7 +75,7 @@ export const homeTranslations = {
           title: "Kfz-Zulassung",
           subtitle: "Anmeldung & Kennzeichen",
           description:
-            "Wir übernehmen Anmeldung, Abmeldung und alle wichtigen Formalitäten rund um Ihr Fahrzeug schnell und unkompliziert.",
+            "Wir übernehmen Anmeldung, Abmeldung und wichtige Formalitäten,\nrund um Ihr Fahrzeug schnell und unkompliziert.",
           features: [
             "Kfz-Zulassung",
             "Kurzzeit- & Exportkennzeichen",
@@ -87,7 +87,7 @@ export const homeTranslations = {
           title: "Pannenhilfe & Abschleppen",
           subtitle: "Soforthilfe vor Ort",
           description:
-            "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe, sicheren Transport und auf Wunsch die komplette weitere Abwicklung.",
+            "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe,\nsicheren Transport und auf Wunsch die weitere Abwicklung.",
           features: [
             "Schnelle Hilfe bei Panne oder Unfall",
             "Abschleppdienst direkt vor Ort",
@@ -101,7 +101,7 @@ export const homeTranslations = {
       eyebrow: "Zusatzservice",
       title: "Expresslieferung & Kurierdienst",
       description:
-        "Dieser Bereich ergänzt unsere 6 Hauptleistungen. Wir übernehmen zeitkritische Fahrten und Zustellungen innerhalb Berlins schnell und direkt.",
+        "Dieser Zusatzservice ergänzt unser Automotive-Angebot.\nWir übernehmen zeitkritische Fahrten und Zustellungen in Berlin\nschnell, direkt und zuverlässig.",
       features: [
         "Schnelle Lieferung innerhalb Berlins",
         "Flexible Abholung und Zustellung",
@@ -151,9 +151,9 @@ export const homeTranslations = {
       eyebrow: "Über UNEXT GmbH",
       title: "Vom Unfallgutachter zum vollständigen Automotive-Partner",
       paragraph1:
-        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024 mit dem Fokus auf professionelle Unfallgutachten und Soforthilfe gestartet ist. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger Partner für Unfallopfer etabliert.",
+        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024\nmit dem Fokus auf professionelle Unfallgutachten\nund Soforthilfe gestartet ist.\nUnter der Marke UNFALLX haben wir uns schnell\nals zuverlässiger Partner für Unfallopfer etabliert.",
       paragraph2:
-        "Heute sind wir mehr als das: Als umfassender Automotive-Dienstleister bieten wir Autovermietung, Werkstatt & Service, Aufbereitung & Pflege, Kfz-Zulassung und Pannenhilfe & Abschleppen an - alles unter einem Dach. Unser Ziel ist es, Ihnen bei allen Fahrzeugfragen kompetent zur Seite zu stehen.",
+        "Heute sind wir mehr als das:\nAls umfassender Automotive-Dienstleister bieten wir\nAutovermietung, Werkstatt & Service,\nAufbereitung & Pflege, Pannenhilfe & Abschleppen\nund Kfz-Zulassung an - alles unter einem Dach.\nUnser Ziel ist es, Ihnen bei allen Fahrzeugfragen\nkompetent zur Seite zu stehen.",
       highlights: [
         "Gegründet 2024 in Berlin",
         "Ursprünglich spezialisiert auf Unfallgutachten",
@@ -338,7 +338,7 @@ export const homeTranslations = {
       eyebrow: "Additional service",
       title: "Express Delivery & Courier Service",
       description:
-        "When things need to move fast, we are there for you reliably. Direct pickup and fast delivery - without detours.",
+        "This additional service complements our automotive offering.\nWe handle time-sensitive trips and deliveries across Berlin\nquickly, directly and reliably.",
       features: [
         "Fast delivery within Berlin",
         "Flexible pickup and delivery",
@@ -388,9 +388,9 @@ export const homeTranslations = {
       eyebrow: "About UNEXT GmbH",
       title: "From accident reporting to a full automotive partner",
       paragraph1:
-        "UNEXT GmbH is a Berlin-based company that started in 2024 with a focus on professional accident reports and immediate assistance. Under the UNFALLX brand, we quickly established ourselves as a reliable partner for accident victims.",
+        "UNEXT GmbH is a Berlin-based company that began in 2024 with professional accident reporting and immediate support. Under the UNFALLX brand,\nwe quickly became a reliable partner for accident victims.",
       paragraph2:
-        "Today we are more than that. As a full automotive service provider, we offer car rental, workshop service, premium detailing, vehicle registration and towing - all under one roof. Our goal is to support you competently in every vehicle-related matter.",
+        "Today, we offer more than that: car rental, workshop service, premium detailing, vehicle registration and towing.\nAll under one roof, with competent support for every vehicle-related matter.",
       highlights: [
         "Founded in Berlin in 2024",
         "Originally specialized in accident reports",
@@ -580,7 +580,7 @@ export const homeTranslations = {
       eyebrow: "Дополнительный сервис",
       title: "Экспресс-доставка и курьерская служба",
       description:
-        "Если нужно быстро, мы надежно поможем. Прямой забор и быстрая доставка - без лишних маршрутов.",
+        "Эта дополнительная услуга дополняет наше автомобильное предложение.\nМы выполняем срочные поездки и доставки по Берлину\nбыстро, напрямую и надежно.",
       features: [
         "Быстрая доставка по Берлину",
         "Гибкий забор и доставка",
@@ -630,9 +630,9 @@ export const homeTranslations = {
       eyebrow: "О UNEXT GmbH",
       title: "От экспертизы ДТП до полноценного автомобильного партнера",
       paragraph1:
-        "UNEXT GmbH - берлинская компания, которая начала работу в 2024 году с фокусом на профессиональную экспертизу ДТП и срочную помощь. Под брендом UNFALLX мы быстро стали надежным партнером для пострадавших в авариях.",
+        "UNEXT GmbH - берлинская компания, которая начала работу в 2024 году с профессиональной экспертизы ДТП и срочной помощи.\nПод брендом UNFALLX мы быстро стали надежным партнером для пострадавших в авариях.",
       paragraph2:
-        "Сегодня мы предлагаем больше: прокат авто, мастерскую, премиальный детейлинг, регистрацию автомобилей и эвакуатор - все под одной крышей. Наша цель - компетентно помочь вам по любому вопросу, связанному с автомобилем.",
+        "Сегодня мы предлагаем больше: прокат авто, мастерскую, премиальный детейлинг, регистрацию автомобилей и эвакуатор.\nВсе под одной крышей, с компетентной поддержкой по любым вопросам, связанным с автомобилем.",
       highlights: [
         "Основана в Берлине в 2024 году",
         "Изначально специализация на экспертизе ДТП",

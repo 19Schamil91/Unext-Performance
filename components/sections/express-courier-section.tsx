@@ -49,7 +49,7 @@ export function ExpressCourierSection({ locale }: Props) {
                   </div>
                 </div>
 
-                <p className="mt-5 measure-intro-tight text-body-fluid text-foreground/82">
+                <p className="mt-5 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">
                   {t.description}
                 </p>
 

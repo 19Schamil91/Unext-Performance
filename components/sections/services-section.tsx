@@ -87,7 +87,7 @@ type Props = {
 }
 
 // Diese Funktion haelt auf Desktop einzelne zusammengehoerige Begriffe in Kartenbeschreibungen zusammen.
-function renderDesktopProtectedDescription(description: string) {
+function renderDesktopProtectedDescriptionLine(description: string) {
   const phrase = protectedDesktopPhrases.find((item) => description.includes(item))
 
   if (!phrase) {
@@ -103,6 +103,16 @@ function renderDesktopProtectedDescription(description: string) {
       {description.slice(phraseIndex + phrase.length)}
     </>
   )
+}
+
+// Diese Funktion zeigt bewusst gesetzte Zeilenumbrueche in Kartenbeschreibungen als sichtbare neue Zeilen.
+function renderServiceDescription(description: string) {
+  return description.split("\n").map((line, index, lines) => (
+    <span key={`${line}-${index}`}>
+      {renderDesktopProtectedDescriptionLine(line)}
+      {index < lines.length - 1 ? <br /> : null}
+    </span>
+  ))
 }
 
 export function ServicesSection({ locale }: Props) {
@@ -153,27 +163,28 @@ export function ServicesSection({ locale }: Props) {
                           <meta.icon className="h-6 w-6" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                          <p className="text-[0.63rem] font-medium uppercase tracking-[0.22em] text-primary/90">
                             {service.subtitle}
                           </p>
                           <h3 className="mt-1 text-card-heading-fluid text-foreground lg:whitespace-nowrap">
                             {service.title}
                           </h3>
+                          <span aria-hidden="true" className="mt-2 block h-px w-12 rounded-full bg-primary/70" />
                         </div>
                       </div>
 
-                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/82 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
-                        {renderDesktopProtectedDescription(service.description)}
+                      <p className="mt-3 measure-card-copy-wide text-body-compact leading-7 text-foreground/74 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                        {renderServiceDescription(service.description)}
                       </p>
 
                       <ul className="mt-4 grid gap-y-2">
                         {service.features.map((feature) => (
                           <li
                             key={feature}
-                            className="grid grid-cols-[0.45rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/55 bg-background/70 px-3 py-2 text-body-compact text-foreground/78"
+                            className="grid grid-cols-[0.35rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/40 bg-background/58 px-3.5 py-2.5 text-body-compact text-foreground/76"
                           >
-                            <span className="mt-[0.58rem] h-1.5 w-1.5 rounded-full bg-primary" />
-                            <span>{feature}</span>
+                            <span className="mt-[0.64rem] h-[0.3125rem] w-[0.3125rem] rounded-full bg-primary/90" />
+                            <span className="leading-6">{feature}</span>
                           </li>
                         ))}
                       </ul>
