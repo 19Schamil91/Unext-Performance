@@ -23,7 +23,7 @@ export function WhySection({ locale }: Props) {
           <h2 className="mx-auto text-heading-fluid font-semibold text-foreground lg:whitespace-nowrap">
             {t.title}
           </h2>
-          <p className="mx-auto mt-4 text-body-fluid text-foreground/82 lg:whitespace-nowrap">{t.description}</p>
+          <p className="mx-auto mt-4 whitespace-pre-line text-body-fluid text-foreground/82 lg:whitespace-nowrap">{t.description}</p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

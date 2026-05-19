@@ -5,7 +5,6 @@
 */
 import Link from "next/link"
 import { ArrowRight, Clock, MessageCircle, Phone } from "lucide-react"
-import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
@@ -15,40 +14,21 @@ type Props = {
 }
 
 export function CtaSection({ locale }: Props) {
-  // Dieser Bereich zeigt pro Sprache eine fest kontrollierte Zeilenaufteilung.
+  // Dieser Bereich zeigt pro Sprache eine kurze Frage und ein klares Versprechen vor den Kontaktbuttons.
   const t = getTranslations(locale).home.cta
   const contactHref = getLocalizedPath(locale, "/kontakt")
-  const fixedDescriptionLines =
+  const titleLines =
     locale === "de"
-      ? [
-          "Rufen Sie uns an, schreiben Sie per WhatsApp",
-          "oder senden Sie direkt eine Anfrage.",
-          "Wir melden uns schnell zurück und sagen Ihnen klar,",
-          "welcher nächste Schritt sinnvoll ist.",
-        ]
+      ? ["Brauchen Sie Hilfe", "rund ums Fahrzeug?"]
       : locale === "en"
-        ? [
-            "Call us, message us on WhatsApp",
-            "or send an inquiry directly.",
-            "We will get back to you quickly and explain clearly",
-            "which next step makes sense.",
-          ]
-        : locale === "ru"
-          ? [
-              "Позвоните нам или напишите в WhatsApp. Мы сразу скажем,",
-              "как можем помочь с ДТП, автосервисом, арендой автомобиля,",
-              "регистрацией или помощью на дороге.",
-            ]
-          : null
+        ? ["Need help with", "your vehicle?"]
+        : ["Нужна помощь", "с автомобилем?"]
   const visibleDescriptionLines =
-    locale === "ru"
-      ? [
-          "Позвоните нам, напишите в WhatsApp",
-          "или отправьте заявку напрямую.",
-          "Мы быстро свяжемся с вами и понятно объясним,",
-          "какой следующий шаг имеет смысл.",
-        ]
-      : fixedDescriptionLines
+    locale === "de"
+      ? ["Wir sagen Ihnen schnell, was möglich ist."]
+      : locale === "en"
+        ? ["We quickly tell you what is possible."]
+        : ["Мы быстро скажем, чем можем помочь."]
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
@@ -62,24 +42,20 @@ export function CtaSection({ locale }: Props) {
               <Clock className="h-5 w-5" />
               <span className="text-sm font-semibold uppercase tracking-wider">{t.badge}</span>
             </div>
-            <h2 className="max-w-[22rem] text-[clamp(1.85rem,1.5rem+1.15vw,2.65rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
-              {t.title}
+            <h2 className="max-w-[18rem] text-[clamp(2rem,1.55rem+1.5vw,2.75rem)] leading-[1.06] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
+              {titleLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h2>
-            {visibleDescriptionLines ? (
-              <p className="mt-4 max-w-[36rem] text-body-fluid text-primary-foreground/86 sm:max-w-[46ch] lg:max-w-none">
-                {visibleDescriptionLines.map((line, index) => (
-                  <span key={line} className="inline sm:block lg:whitespace-nowrap">
-                    {line}
-                    {index < visibleDescriptionLines.length - 1 ? " " : null}
-                  </span>
-                ))}
-              </p>
-            ) : (
-              <ReadableText
-                text={t.description}
-                className="mt-4 max-w-[62ch] text-body-fluid text-primary-foreground/86"
-              />
-            )}
+            <p className="mt-5 max-w-[22rem] text-[1.08rem] leading-[1.55] text-primary-foreground/86 sm:max-w-[46ch] lg:max-w-none">
+              {visibleDescriptionLines.map((line) => (
+                <span key={line} className="block lg:whitespace-nowrap">
+                  {line}
+                </span>
+              ))}
+            </p>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">

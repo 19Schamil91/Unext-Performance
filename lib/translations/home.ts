@@ -119,7 +119,7 @@ export const homeTranslations = {
     why: {
       title: "Warum Kunden UNEXT wählen",
       description:
-        "Ein Kontakt, klare Abläufe und schnelle Hilfe rund ums Fahrzeug.",
+        "Ein Kontakt, klare Abläufe\nund schnelle Hilfe rund ums Fahrzeug.",
       benefits: [
         {
           title: "Ein Ansprechpartner",

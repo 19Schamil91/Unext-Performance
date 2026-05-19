@@ -179,6 +179,8 @@ function HeroContent({
   const primaryTitleSecondLineClass =
     locale === "de"
       ? "block whitespace-nowrap text-primary md:whitespace-normal"
+      : locale === "ru"
+        ? "block whitespace-nowrap text-primary md:whitespace-normal"
       : "block max-w-[11ch] text-primary sm:max-w-none"
 
   return (
@@ -265,7 +267,7 @@ function HeroContent({
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
-          {renderHeroDescription(description, isOverlay ? "max-md:inline" : undefined)}
+          {renderHeroDescription(description)}
         </p>
       </div>
 
@@ -406,6 +408,13 @@ export function HeroSection({ locale }: Props) {
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc = "/images/home-hero-new.webp"
+  // Diese kurzen Varianten halten die mobile Hero-Ueberschrift in Englisch und Russisch sauber in Sinnzeilen.
+  const mobileHeroTitles = {
+    de: { title1: t.title1, title2: t.title2, title3: t.title3 },
+    en: { title1: "Vehicle reports\nand car services", title2: "in one place", title3: "" },
+    ru: { title1: "Автоэкспертиза\nи автоуслуги", title2: "в одном месте", title3: "" },
+  } as const satisfies Record<Locale, { title1: string; title2: string; title3: string }>
+  const mobileHeroTitle = mobileHeroTitles[locale]
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
   const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
 
@@ -429,9 +438,9 @@ export function HeroSection({ locale }: Props) {
         <div className="px-5 pb-7 pt-6">
           <HeroContent
             tone="overlay"
-            title1={t.title1}
-            title2={t.title2}
-            title3={t.title3}
+            title1={mobileHeroTitle.title1}
+            title2={mobileHeroTitle.title2}
+            title3={mobileHeroTitle.title3}
             combinePrimaryTitle
             locale={locale}
             description={t.description}

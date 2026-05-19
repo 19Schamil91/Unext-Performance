@@ -29,7 +29,7 @@ export const homeTranslationOverrides = {
     why: {
       title: "Why customers choose UNEXT",
       description:
-        "One contact, clear processes and fast help for your vehicle.",
+        "One contact, clear processes\nand fast help for your vehicle.",
       benefits: [
         {
           title: "One point of contact",
@@ -124,7 +124,7 @@ export const homeTranslationOverrides = {
     why: {
       title: "Почему клиенты выбирают UNEXT",
       description:
-        "Один контакт, понятные процессы и быстрая помощь по автомобилю.",
+        "Один контакт, понятные процессы\nи быстрая помощь с автомобилем.",
       benefits: [
         {
           title: "Один контакт",

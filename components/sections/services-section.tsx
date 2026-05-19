@@ -82,6 +82,39 @@ const serviceMeta = [
 
 const protectedDesktopPhrases = ["sicheren Transport"] as const
 
+const mobileServiceDescriptions = {
+  de: [
+    "Nach einem Unfall erhalten Sie schnelle Hilfe,\nein unabhängiges Gutachten\nund klare nächste Schritte.",
+    "Miet- und Ersatzfahrzeuge\nfür Privatkunden, Gewerbe\nund Fahrdienste kurzfristig verfügbar.",
+    "Von Inspektion bis Reparatur\nkümmern wir uns um Technik,\nSicherheit und Einsatzbereitschaft.",
+    "Innen- und Außenaufbereitung\nfür gepflegte Fahrzeuge,\nWerterhalt und starken Gesamteindruck.",
+    "Zulassung, Abmeldung\nund Kennzeichenservice,\ndamit Ihr Fahrzeug korrekt\nauf die Straße kommt.",
+    "Wenn Ihr Fahrzeug nicht weiterfährt,\norganisieren wir schnelle Hilfe,\nsicheren Transport und nächste Schritte.",
+  ],
+  en: [
+    "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
+    "Rental and replacement vehicles\nfor private customers, businesses\nand ride-hailing drivers.",
+    "From inspections to repairs,\nwe take care of technology,\nsafety and reliable readiness.",
+    "Interior and exterior detailing\nfor well-kept vehicles,\nvalue retention and a premium finish.",
+    "Registration, deregistration\nand plate services,\nso your vehicle gets on the road correctly.",
+    "If your vehicle can no longer continue,\nwe organize fast help,\nsafe transport and the next steps.",
+  ],
+  ru: [
+    "После ДТП вы получаете\nбыструю поддержку,\nнезависимую экспертизу\nи понятные следующие шаги.",
+    "Аренда и подменные автомобили\nдля частных клиентов, бизнеса\nи водителей такси.",
+    "От инспекции до ремонта\nмы заботимся о технике,\nбезопасности и готовности авто.",
+    "Подготовка салона и кузова\nдля аккуратного вида\nи сохранения стоимости.",
+    "Оформляем регистрацию\nи номера, чтобы автомобиль\nбыстро вышел на дорогу.",
+    "Если автомобиль не едет дальше,\nорганизуем помощь и безопасную\nэвакуацию, а также следующие шаги.",
+  ],
+} as const satisfies Record<Locale, readonly string[]>
+
+const mobileServicesIntro = {
+  de: "UNEXT verbindet Unfallhilfe, Mietwagen,\nWerkstatt und Aufbereitung\nmit Zulassung und Pannenhilfe in Berlin.",
+  en: "UNEXT combines accident assistance, rental cars,\nworkshop service and detailing\nwith registration and roadside help in Berlin.",
+  ru: "UNEXT объединяет помощь при ДТП,\nаренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге в Берлине.",
+} as const satisfies Record<Locale, string>
+
 type Props = {
   locale: Locale
 }
@@ -115,6 +148,15 @@ function renderServiceDescription(description: string) {
   ))
 }
 
+function renderMobileServiceDescription(description: string) {
+  return description.split("\n").map((line, index, lines) => (
+    <span key={`${line}-${index}`}>
+      {line}
+      {index < lines.length - 1 ? <br /> : null}
+    </span>
+  ))
+}
+
 export function ServicesSection({ locale }: Props) {
   // Diese Daten bestimmen pro Leistung Bild, Icon und direkte Kontaktaktion.
   const t = getTranslations(locale).home.services
@@ -128,7 +170,11 @@ export function ServicesSection({ locale }: Props) {
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none"
+            className="mx-auto mt-3 hidden max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none md:block"
+          />
+          <ReadableText
+            text={mobileServicesIntro[locale]}
+            className="mx-auto mt-3 max-w-[24rem] whitespace-pre-line text-[1rem] leading-[1.55] text-foreground/82 md:hidden"
           />
         </div>
 
@@ -175,8 +221,11 @@ export function ServicesSection({ locale }: Props) {
                         </div>
                       </div>
 
-                      <p className="mt-3 measure-card-copy-wide text-body-compact leading-7 text-foreground/74 lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                      <p className="mt-3 measure-card-copy-wide hidden text-body-compact leading-7 text-foreground/74 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
                         {renderServiceDescription(service.description)}
+                      </p>
+                      <p className="mt-3 text-[0.98rem] leading-[1.58] text-foreground/76 md:hidden">
+                        {renderMobileServiceDescription(mobileServiceDescriptions[locale][index] ?? service.description)}
                       </p>
 
                       <ul className="mt-4 grid gap-y-2">

@@ -16,6 +16,15 @@ type Props = {
 
 export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
+  // Diese mobile englische Fassung setzt Sinnzeilen, ohne die Desktop-Fassung oder andere Sprachen zu veraendern.
+  const mobileEnglishParagraph1 =
+    "UNEXT GmbH is a Berlin-based company,\nfounded in 2024 with a focus on\nprofessional accident reports and\nimmediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers."
+  const mobileEnglishParagraph2 =
+    "Today, we offer more:\ncar rental, workshop service and detailing,\nvehicle registration, roadside assistance\nand towing - all in one place.\n\nOur goal is to support you\nwith vehicle-related questions\nclearly, directly and competently."
+  const mobileRussianParagraph1 =
+    "UNEXT GmbH - берлинская компания,\nоснованная в 2024 году с фокусом\nна автоэкспертизу после ДТП\nи срочную помощь.\n\nПод брендом UNFALLX мы быстро стали\nнадежным партнером для клиентов."
+  const mobileRussianParagraph2 =
+    "Сегодня мы предлагаем больше:\nаренду авто, сервис и детейлинг,\nрегистрацию, помощь на дороге\nи эвакуацию - все в одном месте.\n\nНаша цель - помогать вам\nв автомобильных вопросах\nпонятно, напрямую и компетентно."
 
   return (
     <section className="bg-background py-20 lg:py-28">
@@ -61,8 +70,23 @@ export function AboutSection({ locale }: Props) {
             <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
               {t.title}
             </h2>
-            <p className="mt-6 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph1}</p>
-            <p className="mt-4 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph2}</p>
+            {locale === "en" || locale === "ru" ? (
+              <>
+                <p className="mt-6 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">{t.paragraph1}</p>
+                <p className="mt-4 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">{t.paragraph2}</p>
+                <p className="mt-6 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:hidden">
+                  {locale === "en" ? mobileEnglishParagraph1 : mobileRussianParagraph1}
+                </p>
+                <p className="mt-4 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:hidden">
+                  {locale === "en" ? mobileEnglishParagraph2 : mobileRussianParagraph2}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="mt-6 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph1}</p>
+                <p className="mt-4 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph2}</p>
+              </>
+            )}
 
             <ul className="mt-8 space-y-3">
               {t.highlights.map((item) => (
