@@ -20,7 +20,7 @@ export function AboutSection({ locale }: Props) {
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative lg:pr-6">
             <div className="relative aspect-[16/11] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm">
               <Image
@@ -29,13 +29,13 @@ export function AboutSection({ locale }: Props) {
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 quality={76}
-                className="object-cover object-[64%_center]"
+                className="object-cover object-[62%_42%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/16 via-transparent to-transparent dark:from-background/28" />
             </div>
 
-            <div className="absolute -bottom-6 left-4 right-4 sm:left-8 sm:right-auto">
-              <div className="flex flex-wrap justify-center gap-4 rounded-xl border border-border bg-card p-4 shadow-lg sm:flex-nowrap">
+            <div className="absolute -bottom-5 left-4 right-4 sm:left-8 sm:right-auto">
+              <div className="flex flex-wrap justify-center gap-3 rounded-xl border border-border/80 bg-card/95 p-3.5 shadow-lg backdrop-blur sm:flex-nowrap">
                 <div className="min-w-[84px] px-2 text-center">
                   <p className="text-2xl font-bold text-primary">2024</p>
                   <p className="text-xs font-medium text-foreground/72">{t.stats.founded}</p>

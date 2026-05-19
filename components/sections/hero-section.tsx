@@ -174,7 +174,7 @@ function HeroContent({
     locale === "ru"
       ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
       : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
-  const overlayWrapperClass = locale === "ru" ? "md:-translate-y-8" : ""
+  const overlayWrapperClass = ""
   // Die deutsche Startseitenzeile bleibt auf Handybreite als Sinnabschnitt zusammen.
   const primaryTitleSecondLineClass =
     locale === "de"
@@ -261,7 +261,7 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-8 measure-intro text-body-compact font-medium text-white/86 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
+              ? "relative z-10 mt-8 measure-intro text-body-fluid font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:max-w-[35ch] max-md:text-[0.93rem] max-md:font-normal max-md:leading-[1.5]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -307,7 +307,7 @@ function HeroContent({
         </>
       ) : null}
 
-      <div className={isOverlay ? "mt-8 flex flex-col gap-5 max-md:mt-5 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
+      <div className={isOverlay ? "mt-6 flex flex-col gap-5 max-md:mt-4 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
           <Button asChild size="lg" className="w-full gap-2 px-5 sm:w-auto">
             <a href="tel:+493023613927">

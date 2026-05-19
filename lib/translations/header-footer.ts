@@ -37,7 +37,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "Kompletter Fahrzeug-Service in Berlin: Unfallhilfe & Gutachten, Autovermietung, Werkstatt & Service, Aufbereitung & Pflege, Kfz-Zulassung und Pannenhilfe & Abschleppen aus einer Hand.",
+        "Fahrzeugservice in Berlin: Kfz-Gutachten, Mietwagen, Werkstatt, Pflege, Zulassung und Pannenhilfe aus einer Hand.",
       address: "Lübarser Str. 25, 13435 Berlin",
       columns: {
         services: "Leistungen",
@@ -98,7 +98,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "Your strong automotive partner in Berlin. Accident reports, car rental, workshop service, vehicle registration, towing, premium detailing and express delivery from one source.",
+        "Vehicle services in Berlin: reports, rental cars, workshop service, detailing, registration and towing from one source.",
       address: "Lübarser Str. 25, 13435 Berlin",
       columns: {
         services: "Services",
@@ -159,7 +159,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "Ваш надежный автомобильный партнер в Берлине. Экспертиза ДТП, прокат авто, сервис, регистрация, эвакуатор и премиальный детейлинг под одной крышей.",
+        "Автоуслуги в Берлине: экспертиза, аренда, сервис, детейлинг, регистрация и эвакуатор из одних рук.",
       address: "Lübarser Str. 25, 13435 Berlin",
       columns: {
         services: "Услуги",

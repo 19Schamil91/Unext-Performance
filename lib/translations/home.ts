@@ -151,7 +151,7 @@ export const homeTranslations = {
       eyebrow: "Über UNEXT GmbH",
       title: "Vom Unfallgutachter zum vollständigen Automotive-Partner",
       paragraph1:
-        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024\nmit dem Fokus auf professionelle Unfallgutachten\nund Soforthilfe gestartet ist.\n\nUnter der Marke UNFALLX haben wir uns schnell\nals zuverlässiger Partner für Unfallopfer etabliert.",
+        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024\nmit dem Fokus auf professionelle Unfallgutachten\nund Soforthilfe gestartet ist.\n\nUnter der Marke UNFALLX haben wir uns schnell\nals zuverlässiger Partner für Kunden etabliert.",
       paragraph2:
         "Heute sind wir breiter aufgestellt:\nAutovermietung, Werkstatt & Service,\nAufbereitung & Pflege, Pannenhilfe & Abschleppen\nsowie Kfz-Zulassung - alles unter einem Dach.\n\nUnser Ziel ist es, Ihnen bei allen Fahrzeugfragen\nkompetent und direkt zur Seite zu stehen.",
       highlights: [
@@ -393,9 +393,9 @@ export const homeTranslations = {
       eyebrow: "About UNEXT GmbH",
       title: "From accident reporting to a full automotive partner",
       paragraph1:
-        "UNEXT GmbH is a Berlin-based company that started in 2024\nwith a focus on professional accident reports\nand immediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for accident victims.",
+        "UNEXT GmbH is a Berlin-based company founded in 2024\nwith professional accident reports and immediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers.",
       paragraph2:
-        "Today, we offer a broader range of services:\ncar rental, workshop service,\ndetailing, roadside assistance and towing,\nas well as vehicle registration - all in one place.\n\nOur goal is to support you with vehicle-related questions\nclearly, directly and competently.",
+        "Today, we offer more:\ncar rental, workshop service and detailing,\nplus vehicle registration and roadside assistance with towing.\nAll in one place.\n\nOur goal is to support you in vehicle-related questions\nclearly, directly and competently.",
       highlights: [
         "Founded in Berlin in 2024",
         "Originally specialized in accident reports",
@@ -547,7 +547,7 @@ export const homeTranslations = {
           title: "Детейлинг и уход",
           subtitle: "Детейлинг",
           description:
-            "Профессиональная внутренняя и внешняя подготовка автомобиля\nдля аккуратного вида, сохранения стоимости и сильного впечатления.",
+            "Профессиональная подготовка салона и кузова\nдля аккуратного вида и сохранения стоимости.",
           features: [
             "Внутренняя и внешняя чистка",
             "Полировка и подготовка лака",
@@ -635,9 +635,9 @@ export const homeTranslations = {
       eyebrow: "О UNEXT GmbH",
       title: "От экспертизы ДТП до полноценного автомобильного партнера",
       paragraph1:
-        "UNEXT GmbH - берлинская компания, которая начала работу в 2024 году\nс фокусом на профессиональную экспертизу ДТП\nи срочную помощь.\n\nПод брендом UNFALLX мы быстро стали\nнадежным партнером для пострадавших в авариях.",
+        "UNEXT GmbH - берлинская компания, основанная в 2024 году\nс фокусом на автоэкспертизу после ДТП и срочную помощь.\n\nПод брендом UNFALLX мы быстро стали\nнадежным партнером для клиентов.",
       paragraph2:
-        "Сегодня мы предлагаем больше:\nаренду автомобилей, автосервис,\nдетейлинг, помощь на дороге и эвакуацию,\nа также регистрацию автомобилей - все в одном месте.\n\nНаша цель - помогать вам в вопросах, связанных с автомобилем,\nпонятно, напрямую и компетентно.",
+        "Сегодня мы предлагаем больше:\nаренду авто, сервис и детейлинг,\nрегистрацию, помощь на дороге и эвакуацию.\nВсе в одном месте.\n\nНаша цель - помогать по автомобильным вопросам\nпонятно, напрямую и компетентно.",
       highlights: [
         "Основана в Берлине в 2024 году",
         "Изначально специализация на экспертизе ДТП",

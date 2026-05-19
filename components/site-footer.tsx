@@ -19,7 +19,7 @@ const serviceLinks = [
 ] as const
 
 const linkClassName =
-  "text-sm text-foreground/72 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+  "text-sm leading-5 text-foreground/72 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 
 const compactFooterDescriptions = {
   de: "UNEXT GmbH in Berlin.",
@@ -62,30 +62,30 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
 
   return (
     <footer className="border-t border-border/70 bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8 lg:py-10">
-        <div className="flex flex-col gap-7 border-b border-border/70 pb-7 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-xl">
+      <div className="mx-auto max-w-7xl px-4 py-5 lg:px-8 lg:py-7">
+        <div className="flex flex-col gap-4 border-b border-border/70 pb-4 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-lg">
             <Link href={homeHref} className="inline-flex">
               <Image
                 src="/images/unext-logo.webp"
                 alt="UNEXT GmbH Logo"
                 width={140}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 w-auto"
               />
             </Link>
-            <p className="mt-3 max-w-[52ch] text-sm leading-6 text-foreground/76">{footerDescription}</p>
+            <p className="mt-2 max-w-[46ch] text-sm leading-5 text-foreground/74">{footerDescription}</p>
           </div>
 
-          <div className="flex flex-col gap-3 lg:items-end">
-            <div className="flex flex-wrap gap-2">
+          <div className="flex flex-col gap-2.5 lg:items-end">
+            <div className="flex flex-wrap gap-1.5">
               {footerContactLinks.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   target={item.isExternal ? "_blank" : undefined}
                   rel={item.isExternal ? "noopener noreferrer" : undefined}
-                  className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border/65 bg-background/70 px-3 text-sm text-foreground/78 transition-colors hover:border-primary/35 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="inline-flex min-h-9 items-center gap-2 rounded-full border border-border/60 bg-background/65 px-3 text-sm text-foreground/78 transition-colors hover:border-primary/35 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   <item.icon className="h-4 w-4 shrink-0 text-primary" />
                   <span>{item.label}</span>
@@ -93,14 +93,14 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 lg:justify-end">
+            <div className="flex flex-wrap gap-1.5 lg:justify-end">
               {t.footer.socialLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border/65 bg-background/45 px-3 text-sm text-foreground/72 transition-colors hover:border-primary/35 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="inline-flex min-h-9 items-center gap-2 rounded-full border border-border/60 bg-background/40 px-3 text-sm text-foreground/72 transition-colors hover:border-primary/35 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   <Instagram className="h-4 w-4" />
                   <span>{item.name}</span>
@@ -110,10 +110,10 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
           </div>
         </div>
 
-        <nav className="grid grid-cols-1 gap-7 py-7 sm:grid-cols-3" aria-label="Footer">
+        <nav className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-3" aria-label="Footer">
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t.footer.columns.services}</h3>
-            <ul className="mt-3 flex flex-col gap-2.5">
+            <ul className="mt-2.5 flex flex-col gap-1.5">
               {serviceLinks.map((item, index) => (
                 <li key={item.href}>
                   <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
@@ -126,7 +126,7 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
 
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t.footer.columns.company}</h3>
-            <ul className="mt-3 flex flex-col gap-2.5">
+            <ul className="mt-2.5 flex flex-col gap-1.5">
               {t.footer.companyLinks.map((item) => (
                 <li key={item.name}>
                   <Link
@@ -142,7 +142,7 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
 
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t.footer.columns.legal}</h3>
-            <ul className="mt-3 flex flex-col gap-2.5">
+            <ul className="mt-2.5 flex flex-col gap-1.5">
               {t.footer.legalLinks.map((item) => (
                 <li key={item.name}>
                   <Link href={getLocalizedPath(locale, item.href)} className={linkClassName}>
@@ -154,7 +154,7 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
           </div>
         </nav>
 
-        <div className="border-t border-border pt-5">
+        <div className="border-t border-border pt-3.5">
           <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} UNEXT GmbH. {t.footer.copyright}

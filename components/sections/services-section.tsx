@@ -166,10 +166,12 @@ export function ServicesSection({ locale }: Props) {
                           <p className="text-[0.63rem] font-medium uppercase tracking-[0.22em] text-primary/90">
                             {service.subtitle}
                           </p>
-                          <h3 className="mt-1 text-card-heading-fluid text-foreground lg:whitespace-nowrap">
-                            {service.title}
-                          </h3>
-                          <span aria-hidden="true" className="mt-2 block h-px w-12 rounded-full bg-primary/70" />
+                          <div className="inline-block max-w-full">
+                            <h3 className="mt-1 text-card-heading-fluid text-foreground lg:whitespace-nowrap">
+                              {service.title}
+                            </h3>
+                            <span aria-hidden="true" className="mt-2 block h-px w-full rounded-full bg-primary/70" />
+                          </div>
                         </div>
                       </div>
 
