@@ -8,6 +8,7 @@ import Link from "next/link"
 import { Phone } from "lucide-react"
 import { HeaderLanguageSwitcher } from "@/components/HeaderLanguageSwitcher"
 import { HeaderMobileMenu } from "@/components/HeaderMobileMenu"
+import { HeaderPageLink } from "@/components/HeaderPageLink"
 import { HeaderServicesMenu } from "@/components/HeaderServicesMenu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
@@ -111,13 +112,11 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 childrenItems={resolvedServiceNavigation.children}
               />
             ) : (
-              <Link
+              <HeaderPageLink
                 key={item.name}
+                name={item.name}
                 href={getNavigationHref(item.href)}
-                className="rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
-              >
-                {item.name}
-              </Link>
+              />
             )
           )}
         </div>

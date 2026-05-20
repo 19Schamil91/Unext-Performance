@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, CheckCircle, MessageCircle, Phone } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
+import { CtaSection } from "@/components/sections/cta-section"
 import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
 import { ServiceInquiryForm, type ServiceInquiryFields } from "@/components/service-inquiry-form"
@@ -442,44 +443,7 @@ export async function ServicePageLayout({
         </section>
       )}
 
-      <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(82,8,16,0.82),rgba(32,8,12,0.72)_42%,rgba(9,11,14,0.96)_78%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
-
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <h2 className="measure-heading text-heading-fluid font-semibold text-primary-foreground">
-                {t.questionsTitle}
-              </h2>
-              <ReadableText
-                text={t.questionsDescription}
-                className="mt-4 max-w-[64ch] text-body-fluid text-primary-foreground/86"
-              />
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-              {resolvedBottomActions.map((action, index) => (
-                <div key={`${action.href}-${action.label}`} className="contents">
-                  {renderAction(
-                    action,
-                    index === 0 ? "secondary" : "outline",
-                    index === 0
-                      ? "w-full gap-2 bg-white font-semibold text-primary shadow-[0_16px_34px_rgba(15,23,42,0.28)] hover:!bg-white/92 hover:!text-primary sm:w-auto sm:min-w-[12rem]"
-                      : "w-full gap-2 border-white/35 bg-transparent text-white hover:bg-white/12 hover:text-white sm:w-auto sm:min-w-[12rem]"
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          {contactNote && (
-            <ReadableText
-              text={contactNote}
-              className="mx-auto mt-4 max-w-[62ch] text-sm leading-7 text-primary-foreground/80"
-            />
-          )}
-        </div>
-      </section>
+      <CtaSection locale={locale} actions={resolvedBottomActions} note={contactNote} />
     </main>
   )
 }

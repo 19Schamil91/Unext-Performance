@@ -20,6 +20,7 @@ type HeroContentProps = {
   title3: string
   combinePrimaryTitle?: boolean
   description: string
+  mobileDescription?: string
   services: readonly { title: string; anchor: string }[]
   callNow: string
   inquiry: string
@@ -156,6 +157,7 @@ function HeroContent({
   title3,
   combinePrimaryTitle = false,
   description,
+  mobileDescription,
   services,
   callNow,
   inquiry,
@@ -174,11 +176,13 @@ function HeroContent({
     locale === "ru"
       ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
       : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
-  const overlayWrapperClass = locale === "ru" ? "md:-translate-y-8" : ""
+  const overlayWrapperClass = ""
   // Die deutsche Startseitenzeile bleibt auf Handybreite als Sinnabschnitt zusammen.
   const primaryTitleSecondLineClass =
     locale === "de"
       ? "block whitespace-nowrap text-primary md:whitespace-normal"
+      : locale === "ru"
+        ? "block whitespace-nowrap text-primary md:whitespace-normal"
       : "block max-w-[11ch] text-primary sm:max-w-none"
 
   return (
@@ -214,7 +218,11 @@ function HeroContent({
         >
           {isOverlay && combinePrimaryTitle ? (
             <span className={`block font-semibold ${overlayTitleClass}`}>
-              <span className="block text-white">{title1}</span>
+              {title1.split("\n").map((line) => (
+                <span key={line} className="block text-white">
+                  {line}
+                </span>
+              ))}
               <span className={primaryTitleSecondLineClass}>{title2}</span>
             </span>
           ) : (
@@ -239,27 +247,36 @@ function HeroContent({
               </span>
             </>
           )}
-          <span
-            className={
-              isOverlay
-                ? combinePrimaryTitle
-                  ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
-                  : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
-                : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
-            }
-          >
-            {title3}
-          </span>
+          {title3 ? (
+            <span
+              className={
+                isOverlay
+                  ? combinePrimaryTitle
+                    ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                    : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                  : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
+              }
+            >
+              {title3}
+            </span>
+          ) : null}
         </div>
 
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-6 measure-intro text-body-fluid font-medium text-white/92 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-4 max-md:max-w-[35ch] max-md:text-[0.91rem] max-md:font-normal max-md:leading-[1.5]"
+              ? "relative z-10 mt-8 measure-intro text-body-fluid font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:max-w-[35ch] max-md:text-[0.93rem] max-md:font-normal max-md:leading-[1.5]"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
-          {renderHeroDescription(description, isOverlay ? "max-md:inline" : undefined)}
+          <span className={mobileDescription ? "hidden md:contents" : undefined}>
+            {renderHeroDescription(description)}
+          </span>
+          {mobileDescription ? (
+            <span className="contents md:hidden">
+              {renderHeroDescription(mobileDescription)}
+            </span>
+          ) : null}
         </p>
       </div>
 
@@ -301,7 +318,7 @@ function HeroContent({
         </>
       ) : null}
 
-      <div className={isOverlay ? "mt-8 flex flex-col gap-5 max-md:mt-5 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
+      <div className={isOverlay ? "mt-6 flex flex-col gap-5 max-md:mt-4 max-md:gap-3 sm:flex-row sm:items-start sm:justify-start" : "mt-9 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"}>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
           <Button asChild size="lg" className="w-full gap-2 px-5 sm:w-auto">
             <a href="tel:+493023613927">
@@ -400,8 +417,22 @@ export function HeroSection({ locale }: Props) {
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc = "/images/home-hero-new.webp"
+  // Diese kurzen Varianten halten die mobile Hero-Ueberschrift in Englisch und Russisch sauber in Sinnzeilen.
+  const mobileHeroTitles = {
+    de: { title1: t.title1, title2: t.title2, title3: t.title3 },
+    en: { title1: "Vehicle reports\nand car services", title2: "in one place", title3: "" },
+    ru: { title1: "Автоэкспертиза\nи автоуслуги", title2: "в одном месте", title3: "" },
+  } as const satisfies Record<Locale, { title1: string; title2: string; title3: string }>
+  const mobileHeroTitle = mobileHeroTitles[locale]
+  const mobileHeroDescriptions = {
+    de: t.description,
+    en: t.description,
+    ru:
+      "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно\nи напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано.\nПрофессионально выполнено.",
+  } as const satisfies Record<Locale, string>
+  const mobileHeroDescription = mobileHeroDescriptions[locale]
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
-  const heroTitle = `${t.title1} ${t.title2} ${t.title3}`
+  const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
 
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">
@@ -423,12 +454,13 @@ export function HeroSection({ locale }: Props) {
         <div className="px-5 pb-7 pt-6">
           <HeroContent
             tone="overlay"
-            title1={t.title1}
-            title2={t.title2}
-            title3={t.title3}
+            title1={mobileHeroTitle.title1}
+            title2={mobileHeroTitle.title2}
+            title3={mobileHeroTitle.title3}
             combinePrimaryTitle
             locale={locale}
             description={t.description}
+            mobileDescription={mobileHeroDescription}
             services={mainServices}
             callNow={t.callNow}
             inquiry={t.inquiry}

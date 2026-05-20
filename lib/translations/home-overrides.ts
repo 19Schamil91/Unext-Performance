@@ -1,83 +1,86 @@
 export const homeTranslationOverrides = {
   de: {
     hero: {
+      title1: "Kfz-Gutachten\nund Fahrzeugservice",
+      title2: "aus einer Hand",
+      title3: "",
       description:
-        "Unfallgutachten, Mietwagen, Werkstatt, Zulassung, Pannenhilfe und Pflege.\nAlles aus einer Hand in Berlin.\nProfessionell, schnell und zuverlässig.",
+        "Von Unfallgutachten bis Zulassung:\nUNEXT begleitet Sie klar und direkt in Berlin.\n\nSchnell erreichbar. Gut abgestimmt. Professionell umgesetzt.",
       directServicesLabel: "Direkt zu den Hauptleistungen",
     },
   },
   en: {
     hero: {
       badge: "Fast help in Berlin",
-      title1: "Complete vehicle service",
+      title1: "Vehicle reports\nand automotive service",
       title2: "in one place",
-      title3: "in Berlin",
+      title3: "",
       description:
-        "Accident help, reports, rental cars, workshop, registration and towing.\nAll in one place in Berlin.\nProfessional, fast and reliable.",
+        "From accident reports to registration:\nUNEXT guides you clearly and directly in Berlin.\n\nEasy to reach. Well coordinated. Professionally handled.",
       directServicesLabel: "Directly to the main services",
       scrollLabel: "Learn more",
     },
     services: {
-      title: "6 core vehicle services",
+      title: "Everything for your vehicle in one place",
       description:
-        "These six areas form the core of UNEXT. Choose the service you need support with right now.",
-      viewAll: "View all 6 core services",
+        "UNEXT combines accident assistance, rental cars, workshop service and detailing\nwith registration and roadside help directly in Berlin.",
+      viewAll: "View all services",
     },
     why: {
       title: "Why customers choose UNEXT",
       description:
-        "Clear processes, direct availability and several vehicle services in one place.",
+        "One contact, clear processes\nand fast help for your vehicle.",
       benefits: [
         {
           title: "One point of contact",
-          description: "You do not need to coordinate several businesses when multiple steps belong together.",
+          description: "You do not need to coordinate several businesses when steps belong together.",
         },
         {
           title: "Quickly reachable",
-          description: "Phone and WhatsApp are the fastest way to get an initial assessment.",
+          description: "Phone and WhatsApp quickly lead\nto an initial assessment.",
         },
         {
           title: "Also for ride-hailing",
-          description: "Practical solutions for Uber, Bolt, taxi and other commercially used vehicles.",
+          description: "Practical solutions for Uber, Bolt, taxi and commercial vehicles.",
         },
         {
           title: "Clear coordination",
-          description: "You will know directly what is possible, what is needed and what comes next.",
+          description: "You know directly what is possible, what is needed and what comes next.",
         },
         {
           title: "Services can be combined",
-          description: "Towing, workshop, rental car or registration can be efficiently connected.",
+          description: "Towing, workshop, rental cars and registration can be connected efficiently.",
         },
         {
           title: "Berlin location",
-          description: "Short distances and one fixed contact person for everything related to your vehicle.",
+          description: "Short distances and one fixed contact\nfor your request in Berlin.",
         },
       ],
     },
     process: {
-      title: "How to get the right solution quickly",
+      title: "Fast access to the right help",
       description:
-        "One call or one message is enough. We briefly clarify your request and tell you the next sensible step.",
+        "One call or message is enough.\nWe briefly clarify your request\nand tell you directly what makes sense next.",
       steps: [
         {
           step: "01",
           title: "Call or write",
-          description: "Phone and WhatsApp are the fastest way to get an initial assessment.",
+          description: "Phone and WhatsApp are\nthe fastest way to an assessment.",
         },
         {
           step: "02",
           title: "Briefly describe your issue",
-          description: "For example accident, workshop, rental car, registration or roadside assistance.",
+          description: "For example accident, workshop,\nrental car, registration or breakdown.",
         },
         {
           step: "03",
           title: "Receive feedback",
-          description: "We tell you directly what is possible and which documents or details we need.",
+          description: "We tell you what is possible\nand which details we need.",
         },
         {
           step: "04",
           title: "Appointment or immediate help",
-          description: "You get the right support without unnecessary detours or repeated referrals.",
+          description: "You get the right support\nwithout detours.",
         },
       ],
     },
@@ -101,78 +104,78 @@ export const homeTranslationOverrides = {
   ru: {
     hero: {
       badge: "Быстрая помощь в Берлине",
-      title1: "Полный сервис для автомобиля",
-      title2: "из одних рук",
-      title3: "в Берлине",
+      title1: "Автоэкспертиза\nи услуги для автомобиля",
+      title2: "в одном месте",
+      title3: "",
       description:
-        "Помощь при ДТП, экспертиза, аренда, сервис, регистрация и эвакуатор.\nВсё в одном месте в Берлине.\nПрофессионально, быстро и надёжно.",
+        "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно и напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано. Профессионально выполнено.",
       directServicesLabel: "К основным услугам",
       callNow: "Позвонить сейчас",
       inquiry: "Отправить заявку",
       scrollLabel: "Подробнее",
     },
     services: {
-      title: "6 основных услуг для автомобиля",
+      title: "Все для автомобиля в одном месте",
       description:
-        "Эти шесть направлений составляют основу UNEXT. Сразу выберите услугу, по которой вам нужна помощь сейчас.",
+        "UNEXT объединяет помощь при ДТП, аренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге прямо в Берлине.",
       onRequestContact: "Телефон по запросу · @unext.performance",
-      viewAll: "Посмотреть все 6 основных услуг",
+      viewAll: "Посмотреть все услуги",
     },
     why: {
       title: "Почему клиенты выбирают UNEXT",
       description:
-        "Понятные процессы, быстрая связь и несколько автомобильных услуг в одном месте.",
+        "Один контакт, понятные процессы\nи быстрая помощь с автомобилем.",
       benefits: [
         {
           title: "Один контакт",
-          description: "Вам не нужно координировать несколько компаний, если несколько шагов связаны между собой.",
+          description: "Не нужно координировать\nнесколько компаний.",
         },
         {
           title: "Быстро на связи",
-          description: "Телефон и WhatsApp — самый быстрый способ получить первую оценку ситуации.",
+          description: "Телефон и WhatsApp быстро ведут\nк первой оценке ситуации.",
         },
         {
-          title: "Также для сервисов такси",
-          description: "Практичные решения для Uber, Bolt, такси и других автомобилей, используемых в бизнесе.",
+          title: "Также для такси",
+          description: "Решения для Uber, Bolt, такси\nи коммерческих авто.",
         },
         {
           title: "Понятное согласование",
-          description: "Вы сразу узнаете, что возможно, что нужно и как будет проходить следующий шаг.",
+          description: "Вы сразу узнаете, что возможно\nи как будет дальше.",
         },
         {
           title: "Услуги можно сочетать",
-          description: "Эвакуатор, автосервис, аренду автомобиля или регистрацию можно удобно объединить.",
+          description: "Эвакуатор, сервис, аренду\nи регистрацию можно объединить.",
         },
         {
           title: "Локация в Берлине",
-          description: "Короткие расстояния и один постоянный контакт по всем вопросам, связанным с автомобилем.",
+          description: "Короткие расстояния и один контакт\nдля вашего запроса в Берлине.",
         },
       ],
     },
     process: {
-      title: "Как быстро получить подходящее решение",
+      title: "Быстро к нужной помощи",
       description:
-        "Одного звонка или сообщения достаточно. Мы коротко уточним ваш запрос и скажем следующий разумный шаг.",
+        "Достаточно одного звонка или сообщения.\nМы кратко уточним ваш запрос\nи сразу скажем, какой следующий шаг имеет смысл.",
       steps: [
         {
           step: "01",
           title: "Позвонить или написать",
-          description: "Телефон и WhatsApp — самый быстрый способ получить первую оценку ситуации.",
+          description: "Телефон и WhatsApp —\nсамый быстрый путь к оценке.",
         },
         {
           step: "02",
           title: "Кратко описать запрос",
-          description: "Например, ДТП, автосервис, аренда, регистрация или помощь на дороге.",
+          description: "Например: ДТП, сервис,\nаренда, регистрация или поломка.",
         },
         {
           step: "03",
           title: "Получить обратную связь",
-          description: "Мы сразу скажем, что возможно и какие документы или данные нам нужны.",
+          description: "Мы скажем, что возможно\nи какие данные нужны.",
         },
         {
           step: "04",
           title: "Запись или срочная помощь",
-          description: "Вы получите нужную поддержку без лишних обходных путей и переадресаций.",
+          description: "Вы получите нужную поддержку\nбез лишних шагов.",
         },
       ],
     },

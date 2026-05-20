@@ -20,8 +20,40 @@ type AboutPageContentProps = {
 
 const icons = [Award, Users, Target, Heart]
 
+// Diese kurzen Fassungen halten den Hero-Text auf schmalen Displays ruhig und gut lesbar.
+const mobileHeroDescriptions: Partial<Record<Locale, string>> = {
+  de: "Vom Unfallgutachter zum\nAutomotive-Partner in Berlin.\nErfahrung, Service und klare Abläufe.",
+  en: "From accident reports to\nautomotive services in Berlin.\nExperience, service and clear processes.",
+  ru: "От экспертизы ДТП\nк автоуслугам в Берлине.\nОпыт, сервис и понятные процессы.",
+}
+
+// Diese Fassung bricht einzelne Story-Abschnitte nur mobil ruhiger um.
+const mobileStoryParagraphs: Partial<Record<Locale, string[]>> = {
+  de: [
+    "UNEXT GmbH wurde 2024 in Berlin gegründet.\nDer Ursprung liegt in professionellen Unfallgutachten\nund schneller Hilfe unter der Marke UNFALLX.",
+    "Heute verbindet UNEXT mehrere\nFahrzeugleistungen an einem Standort:\nAutovermietung, Werkstatt & Service,\nAufbereitung & Pflege, Pannenhilfe & Abschleppen\nsowie Kfz-Zulassung.",
+  ],
+}
+
+// Diese Beschreibungen halten die Timeline auf dem Handy in ruhigen Zeilen.
+const mobileMilestoneDescriptions: Partial<Record<Locale, Partial<Record<number, string>>>> = {
+  de: {
+    5: "Fahrzeugservice an einem Ort.\nIhr Automotive-Partner in Berlin.",
+  },
+  en: {
+    5: "Vehicle services in one place.\nYour automotive partner in Berlin.",
+  },
+  ru: {
+    4: "Помогаем с регистрацией\nи закрываем важный этап.",
+    5: "Автоуслуги в одном месте.\nВаш партнер в Берлине.",
+  },
+}
+
 export function AboutPageContent({ locale }: AboutPageContentProps) {
   const t = getTranslations(locale).aboutPage
+  const mobileHeroDescription = mobileHeroDescriptions[locale] ?? t.description
+  const mobileStoryParagraphList = mobileStoryParagraphs[locale] ?? t.storyParagraphs
+  const mobileMilestoneDescriptionList = mobileMilestoneDescriptions[locale] ?? {}
 
   return (
     <>
@@ -43,12 +75,19 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
           </div>
 
           <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
-            <div className="max-w-5xl max-md:max-w-[34rem]">
+            <div className="max-w-5xl max-md:mx-auto max-md:max-w-[34rem] max-md:text-center">
               <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] max-md:text-[clamp(2rem,8vw,2.45rem)] max-md:leading-[1.02] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:mt-4 max-md:max-w-[36ch] max-md:text-[0.98rem] max-md:leading-[1.55]">
+              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:hidden">
                 {t.description.split("\n").map((line, index) => (
+                  <span key={`${line}-${index}`} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <p className="mx-auto mt-4 hidden max-w-[36ch] text-[0.98rem] leading-[1.55] text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:block">
+                {mobileHeroDescription.split("\n").map((line, index) => (
                   <span key={`${line}-${index}`} className="block">
                     {line}
                   </span>
@@ -81,33 +120,51 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
                   {t.storyTitle}
                 </h2>
-                <div className="mt-6 measure-intro-tight space-y-4 text-body-fluid text-muted-foreground">
+                <div className="mt-6 hidden measure-intro-tight space-y-4 text-body-fluid text-muted-foreground md:block">
                   {t.storyParagraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <p key={paragraph}>
+                      {paragraph.split("\n").map((line, index) => (
+                        <span key={`${line}-${index}`} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </p>
+                  ))}
+                </div>
+                <div className="mt-6 space-y-4 text-body-fluid text-muted-foreground md:hidden">
+                  {mobileStoryParagraphList.map((paragraph) => (
+                    <p key={paragraph}>
+                      {paragraph.split("\n").map((line, index) => (
+                        <span key={`${line}-${index}`} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </p>
                   ))}
                 </div>
               </div>
 
-              <div className="border-l-2 border-primary/30 pl-8 lg:pl-10">
-                <div className="space-y-8">
+              <div className="border-l border-primary/24 pb-6 pl-10 lg:border-l-2 lg:border-primary/30 lg:pb-0 lg:pl-10">
+                <div className="space-y-11 lg:space-y-8">
                   {t.milestones.map((milestone, index) => (
                     <div key={`${milestone.year}-${milestone.title}`} className="relative">
-                      <div className="absolute -left-[41px] flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                      <div className="absolute -left-[54px] flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground lg:-left-[41px] lg:h-6 lg:w-6">
                         {index + 1}
                       </div>
                       <div>
-                        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                        <span className="block text-xs font-semibold uppercase tracking-wider text-primary">
                           {milestone.year}
                         </span>
-                        <h3 className="max-w-none text-title-fluid font-semibold text-foreground lg:whitespace-nowrap">
+                        <h3 className="mt-1 max-w-none text-title-fluid font-semibold leading-[1.14] text-foreground [text-wrap:balance] lg:mt-0 lg:leading-normal lg:whitespace-nowrap">
                           {milestone.title}
                         </h3>
-                        <p className="mt-1 max-w-[42ch] text-[0.98rem] leading-[1.62] text-muted-foreground">
+                        <p className="mt-2 max-w-[32ch] text-[0.98rem] leading-[1.66] text-muted-foreground lg:mt-1 lg:max-w-[42ch] lg:leading-[1.62]">
                           {milestone.description.split("\n").map((line, index) => (
                             <span key={`${line}-${index}`} className="block">
                               {line}
                             </span>
                           ))}
+                          {mobileMilestoneDescriptionList[index] ? null : null}
                         </p>
                       </div>
                     </div>
@@ -142,7 +199,11 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                       </div>
                       <h3 className="text-title-fluid font-semibold text-foreground sm:measure-card-copy">{value.title}</h3>
                       <p className="mt-2 max-w-none text-body-compact text-muted-foreground sm:mx-auto sm:measure-card-copy-wide">
-                        {value.description}
+                        {value.description.split("\n").map((line, index) => (
+                          <span key={`${line}-${index}`} className="block">
+                            {line}
+                          </span>
+                        ))}
                       </p>
                     </CardContent>
                   </Card>
@@ -155,7 +216,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
         <section className="bg-background py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-12">
-              <div className="lg:order-2 lg:pl-6">
+              <div className="order-2 lg:order-2 lg:pl-6">
                 <div className="relative mx-auto aspect-[4/5] w-full max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card p-2 shadow-sm lg:max-w-[20rem] xl:max-w-[22rem]">
                   <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
                     {/* Dieses Foto zeigt den Mitarbeiter im Buero mit etwas Abstand zum Kartenrand. */}
@@ -171,7 +232,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 </div>
               </div>
 
-              <div className="lg:order-1">
+              <div className="order-1 lg:order-1">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5">
                   <span className="text-sm font-semibold text-primary">{t.subBrandBadge}</span>
                 </div>

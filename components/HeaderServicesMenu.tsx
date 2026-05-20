@@ -7,7 +7,9 @@
 */
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { ChevronDown } from "lucide-react"
+import { removeLocalePrefix } from "@/lib/i18n"
 
 type HeaderServicesMenuProps = {
   name: string
@@ -19,6 +21,10 @@ export function HeaderServicesMenu({ name, href, childrenItems }: HeaderServices
   // Dieser Wert steuert, ob das Leistungsmenue sichtbar ist.
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
   const servicesMenuRef = useRef<HTMLDivElement | null>(null)
+  // Dieser Wert markiert den Leistungsbereich im Header, wenn der Nutzer dort ist.
+  const pathname = usePathname()
+  const currentPath = removeLocalePrefix(pathname)
+  const isActive = currentPath === "/leistungen" || currentPath.startsWith("/leistungen/")
 
   // Dieser Ablauf schliesst das Leistungsmenue bei Klick ausserhalb oder Escape.
   useEffect(() => {
@@ -51,8 +57,13 @@ export function HeaderServicesMenu({ name, href, childrenItems }: HeaderServices
     <div ref={servicesMenuRef} className="relative">
       <button
         type="button"
-        className="flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/45 hover:text-foreground"
+        className={
+          isActive
+            ? "relative flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-semibold text-foreground transition-colors after:absolute after:inset-x-2 after:-bottom-1 after:h-px after:rounded-full after:bg-primary/80 hover:bg-accent/45"
+            : "flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-foreground/72 transition-colors hover:bg-accent/45 hover:text-foreground"
+        }
         aria-expanded={servicesMenuOpen}
+        aria-current={isActive ? "page" : undefined}
         onClick={() => setServicesMenuOpen((open) => !open)}
       >
         {name}

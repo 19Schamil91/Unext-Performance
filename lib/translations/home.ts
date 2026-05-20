@@ -4,11 +4,11 @@ export const homeTranslations = {
   de: {
     hero: {
       badge: "Schnelle Hilfe in Berlin",
-      title1: "Ihr starker Partner",
-      title2: "rund ums Fahrzeug",
-      title3: "in Berlin",
+      title1: "Kfz-Gutachten\nund Fahrzeugservice",
+      title2: "aus einer Hand",
+      title3: "",
       description:
-        "Unfallgutachten, Autovermietung, Werkstatt & Service, Kfz-Zulassung,\nPannenhilfe & Abschleppen und Aufbereitung & Pflege - alles unter einem Dach.\nProfessionell, schnell und zuverlässig seit 2024.",
+        "Von Unfallgutachten bis Zulassung:\nUNEXT begleitet Sie klar und direkt in Berlin.\n\nSchnell erreichbar. Gut abgestimmt. Professionell umgesetzt.",
       callNow: "Jetzt anrufen",
       inquiry: "Anfrage senden",
       whatsapp: "WhatsApp",
@@ -16,9 +16,9 @@ export const homeTranslations = {
       scrollLabel: "Mehr erfahren",
     },
     services: {
-      title: "6 Hauptleistungen rund ums Fahrzeug",
+      title: "Alles fürs Fahrzeug aus einer Hand",
       description:
-        "Diese sechs Bereiche bilden den Kern von UNEXT. Wählen Sie direkt die Leistung, bei der Sie jetzt Unterstützung brauchen.",
+        "UNEXT verbindet Unfallhilfe, Mietwagen, Werkstatt und Aufbereitung\nmit Zulassung und Pannenhilfe direkt in Berlin.",
       onRequestContact: "Telefon auf Anfrage · @unext.performance",
       learnMore: "Mehr erfahren",
       viewAll: "Alle 6 Hauptleistungen ansehen",
@@ -27,31 +27,31 @@ export const homeTranslations = {
           title: "Unfallhilfe & Gutachten",
           subtitle: "UNFALLX",
           description:
-            "Nach einem Unfall sichern wir schnelle Hilfe, Gutachten und klare nächste Schritte.",
+            "Nach einem Unfall erhalten Sie schnelle Unterstützung,\nein unabhängiges Gutachten und klare nächste Schritte.",
           features: [
             "Schnelle Ersteinschätzung",
-            "Unabhängiges Gutachten",
-            "Unterstützung bei der Schadensabwicklung",
-            "Auf Wunsch weitere Schritte über UNEXT",
+            "Unabhängiges Kfz-Gutachten",
+            "Unterstützung bei der Schadenabwicklung",
+            "Weitere Schritte auf Wunsch über UNEXT",
           ],
         },
         {
           title: "Autovermietung",
           subtitle: "Ersatzfahrzeuge",
           description:
-            "Mietwagen und Ersatzfahrzeuge für privat, gewerblich und Fahrdienste. Schnell verfügbar.",
+            "Flexible Miet- und Ersatzfahrzeuge für Privatkunden,\nGewerbe und Fahrdienste — kurzfristig verfügbar.",
           features: [
-            "Kurzfristig verfügbar",
+            "Kurzfristige Verfügbarkeit",
             "Flexible Laufzeiten",
-            "Schnelle Übergabe",
-            "Saubere, gepflegte Fahrzeuge",
+            "Schnelle Fahrzeugübergabe",
+            "Gepflegte, einsatzbereite Fahrzeuge",
           ],
         },
         {
           title: "Werkstatt & Service",
           subtitle: "Wartung & Reparatur",
           description:
-            "Von Inspektion bis Reparatur: Wir kümmern uns zuverlässig um die Technik Ihres Fahrzeugs und halten Sie mobil.",
+            "Von Inspektion bis Reparatur kümmern wir uns zuverlässig\num Technik, Sicherheit und Einsatzbereitschaft Ihres Fahrzeugs.",
           features: [
             "Inspektion & Ölservice",
             "Reifenservice",
@@ -63,7 +63,7 @@ export const homeTranslations = {
           title: "Aufbereitung & Pflege",
           subtitle: "Detailing",
           description:
-            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge, Werterhalt und einen sauberen Gesamteindruck.",
+            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge,\nWerterhalt und einen hochwertigen Gesamteindruck.",
           features: [
             "Innen- & Außenreinigung",
             "Lackaufbereitung & Politur",
@@ -75,9 +75,9 @@ export const homeTranslations = {
           title: "Kfz-Zulassung",
           subtitle: "Anmeldung & Kennzeichen",
           description:
-            "Wir übernehmen Anmeldung, Abmeldung und alle wichtigen Formalitäten rund um Ihr Fahrzeug schnell und unkompliziert.",
+            "Wir übernehmen Zulassung, Abmeldung und Kennzeichenservice,\ndamit Ihr Fahrzeug schnell und korrekt auf die Straße kommt.",
           features: [
-            "Kfz-Zulassung",
+            "Anmeldung & Abmeldung",
             "Kurzzeit- & Exportkennzeichen",
             "eVB- und Wunschkennzeichen-Service",
             "Hol- & Bringservice auf Anfrage",
@@ -87,12 +87,12 @@ export const homeTranslations = {
           title: "Pannenhilfe & Abschleppen",
           subtitle: "Soforthilfe vor Ort",
           description:
-            "Wenn Ihr Fahrzeug liegen bleibt, organisieren wir schnelle Hilfe, sicheren Transport und auf Wunsch die komplette weitere Abwicklung.",
+            "Wenn Ihr Fahrzeug nicht mehr weiterfährt, organisieren wir schnelle Hilfe,\nsicheren Transport und die nächsten Schritte.",
           features: [
-            "Schnelle Hilfe bei Panne oder Unfall",
+            "Hilfe bei Panne oder Unfall",
             "Abschleppdienst direkt vor Ort",
             "Transport zur Werkstatt oder Wunschadresse",
-            "Weitere Schritte aus einer Hand",
+            "Weitere Abwicklung auf Wunsch über UNEXT",
           ],
         },
       ],
@@ -101,49 +101,49 @@ export const homeTranslations = {
       eyebrow: "Zusatzservice",
       title: "Expresslieferung & Kurierdienst",
       description:
-        "Dieser Bereich ergänzt unsere 6 Hauptleistungen. Wir übernehmen zeitkritische Fahrten und Zustellungen innerhalb Berlins schnell und direkt.",
+        "Dieser Zusatzservice ergänzt unser Automotive-Angebot.\nWir übernehmen zeitkritische Fahrten und Zustellungen in Berlin\nschnell, direkt und zuverlässig.",
       features: [
-        "Schnelle Lieferung innerhalb Berlins",
-        "Flexible Abholung und Zustellung",
-        "Transport von Dokumenten, Paketen oder Fahrzeugteilen",
-        "Express-Service für zeitkritische Aufträge",
-        "Individuelle Lösungen für Privat- und Geschäftskunden",
+        "Lieferungen in Berlin",
+        "Abholung und Zustellung",
+        "Dokumente, Pakete, Kfz-Teile",
+        "Express-Service für Eilaufträge",
+        "Lösungen für Privat & Gewerbe",
       ],
       cta: "Jetzt kontaktieren",
       contactLabel: "Telefon:",
-      highlightTitle: "Schnell, direkt und zuverlässig",
+      highlightTitle: "Schnell ans Ziel",
       highlightDescription:
-        "Zeitkritische Transporte in Berlin: Dokumente, Pakete oder Fahrzeugteile direkt und zuverlässig.",
+        "Zeitkritische Fahrten in Berlin:\nDokumente, Pakete und Kfz-Teile.\nDirekt und zuverlässig.",
       contactBoxLabel: "Direkter Kontakt",
     },
     why: {
       title: "Warum Kunden UNEXT wählen",
       description:
-        "Klare Abläufe, direkte Erreichbarkeit und mehrere Fahrzeugleistungen an einem Ort.",
+        "Ein Kontakt, klare Abläufe\nund schnelle Hilfe rund ums Fahrzeug.",
       benefits: [
         {
           title: "Ein Ansprechpartner",
-          description: "Sie müssen nicht mehrere Betriebe koordinieren, wenn mehrere Schritte zusammenhängen.",
+          description: "Sie müssen nicht mehrere Betriebe\nparallel koordinieren.",
         },
         {
           title: "Schnell erreichbar",
-          description: "Telefon und WhatsApp bringen Sie am schnellsten zur ersten Einschätzung.",
+          description: "Telefon und WhatsApp führen schnell\nzur ersten Einschätzung.",
         },
         {
           title: "Auch für Fahrdienste",
-          description: "Pragmatische Lösungen für Uber-, Bolt-, Taxi- und andere gewerblich genutzte Fahrzeuge.",
+          description: "Praktische Lösungen für Uber, Bolt, Taxi\nund gewerblich genutzte Fahrzeuge.",
         },
         {
           title: "Klare Abstimmung",
-          description: "Sie erfahren direkt, was möglich ist, was benötigt wird und wie es weitergeht.",
+          description: "Sie wissen direkt, was möglich ist\nund wie es weitergeht.",
         },
         {
           title: "Leistungen kombinierbar",
-          description: "Abschleppen, Werkstatt, Mietwagen oder Zulassung können sinnvoll miteinander verbunden werden.",
+          description: "Werkstatt, Mietwagen, Zulassung\nund Abschleppen sinnvoll verbunden.",
         },
         {
           title: "Standort Berlin",
-          description: "Kurze Wege und ein fester Ansprechpartner für Ihr Anliegen rund ums Fahrzeug.",
+          description: "Kurze Wege und ein fester Kontakt\nfür Ihr Anliegen in Berlin.",
         },
       ],
     },
@@ -151,9 +151,9 @@ export const homeTranslations = {
       eyebrow: "Über UNEXT GmbH",
       title: "Vom Unfallgutachter zum vollständigen Automotive-Partner",
       paragraph1:
-        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024 mit dem Fokus auf professionelle Unfallgutachten und Soforthilfe gestartet ist. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger Partner für Unfallopfer etabliert.",
+        "UNEXT GmbH ist ein Berliner Unternehmen, das 2024\nmit dem Fokus auf professionelle Unfallgutachten\nund Soforthilfe gestartet ist.\n\nUnter der Marke UNFALLX haben wir uns schnell\nals zuverlässiger Partner für Kunden etabliert.",
       paragraph2:
-        "Heute sind wir mehr als das: Als umfassender Automotive-Dienstleister bieten wir Autovermietung, Werkstatt & Service, Aufbereitung & Pflege, Kfz-Zulassung und Pannenhilfe & Abschleppen an - alles unter einem Dach. Unser Ziel ist es, Ihnen bei allen Fahrzeugfragen kompetent zur Seite zu stehen.",
+        "Heute sind wir breiter aufgestellt:\nAutovermietung, Werkstatt & Service,\nAufbereitung & Pflege, Pannenhilfe & Abschleppen\nsowie Kfz-Zulassung - alles unter einem Dach.\n\nUnser Ziel ist es, Ihnen bei allen Fahrzeugfragen\nkompetent und direkt zur Seite zu stehen.",
       highlights: [
         "Gegründet 2024 in Berlin",
         "Ursprünglich spezialisiert auf Unfallgutachten",
@@ -169,30 +169,30 @@ export const homeTranslations = {
       },
     },
     process: {
-      title: "So kommen Sie schnell zur passenden Lösung",
+      title: "Schnell zur passenden Hilfe",
       description:
-        "Ein Anruf oder eine Nachricht genügt. Wir klären Ihr Anliegen kurz und sagen Ihnen den nächsten sinnvollen Schritt.",
+        "Ein Anruf oder eine Nachricht reicht.\nWir klären Ihr Anliegen kurz\nund sagen Ihnen direkt, was als Nächstes sinnvoll ist.",
       steps: [
         {
           step: "01",
           title: "Anrufen oder schreiben",
           description:
-            "Telefon und WhatsApp sind der schnellste Weg zu einer ersten Einschätzung.",
+            "Telefon und WhatsApp sind\nder schnellste Weg zur Einschätzung.",
         },
         {
           step: "02",
           title: "Anliegen kurz schildern",
-          description: "Zum Beispiel Unfall, Werkstatt, Mietwagen, Zulassung oder Pannenhilfe.",
+          description: "Zum Beispiel Unfall, Werkstatt,\nMietwagen, Zulassung oder Panne.",
         },
         {
           step: "03",
           title: "Rückmeldung erhalten",
-          description: "Wir sagen Ihnen direkt, was möglich ist und welche Unterlagen oder Infos wir brauchen.",
+          description: "Wir sagen direkt, was möglich ist\nund welche Infos wir brauchen.",
         },
         {
           step: "04",
           title: "Termin oder Soforthilfe",
-          description: "Sie bekommen passende Hilfe ohne Umwege und ohne mehrfaches Weiterleiten.",
+          description: "Sie erhalten passende Hilfe\nohne Umwege.",
         },
       ],
     },
@@ -238,7 +238,7 @@ export const homeTranslations = {
       badge: "Telefonisch am schnellsten",
       title: "Sie brauchen Hilfe rund ums Fahrzeug?",
       description:
-        "Rufen Sie uns an oder schreiben Sie uns per WhatsApp. Wir sagen Ihnen direkt, wie wir Ihnen bei Unfall, Werkstatt, Mietwagen, Zulassung oder Pannenhilfe weiterhelfen.",
+        "Rufen Sie uns an, schreiben Sie per WhatsApp oder senden Sie direkt eine Anfrage. Wir melden uns schnell zurück und sagen Ihnen klar, welcher nächste Schritt sinnvoll ist.",
       inquiry: "Anfrage senden",
       whatsapp: "WhatsApp",
     },
@@ -246,11 +246,11 @@ export const homeTranslations = {
   en: {
     hero: {
       badge: "Certified service",
-      title1: "Your trusted partner",
-      title2: "for everything automotive",
-      title3: "in Berlin",
+      title1: "Vehicle reports\nand automotive service",
+      title2: "in one place",
+      title3: "",
       description:
-        "Accident reports, car rental, workshop service, vehicle registration, towing, premium detailing and express delivery - professional, fast and reliable for you.",
+        "From accident reports to registration:\nUNEXT guides you clearly and directly in Berlin.\n\nEasy to reach. Well coordinated. Professionally handled.",
       callNow: "Call now",
       inquiry: "Send inquiry",
       whatsapp: "WhatsApp",
@@ -258,78 +258,83 @@ export const homeTranslations = {
       scrollLabel: "Learn more",
     },
     services: {
-      title: "Our services",
+      title: "Everything for your vehicle in one place",
       description:
-        "Six strong business areas - one competent partner. Discover our full range of automotive services.",
+        "UNEXT combines accident assistance, rental cars, workshop service and detailing\nwith registration and roadside help directly in Berlin.",
       onRequestContact: "Phone on request · @unext.performance",
       learnMore: "Learn more",
       viewAll: "View all services",
       items: [
         {
-          title: "Accident Reports",
+          title: "Accident assistance & reports",
           subtitle: "UNFALLX",
           description:
-            "Immediate support after accidents. Independent vehicle reports from certified experts and professional assistance with claim handling.",
-          features: ["Fast appointments", "Independent reports", "Certified experts", "Claim handling"],
+            "After an accident, you receive fast support,\nan independent vehicle report and clear next steps.",
+          features: [
+            "Fast initial assessment",
+            "Independent vehicle report",
+            "Support with claim handling",
+            "Further steps through UNEXT on request",
+          ],
         },
         {
-          title: "Car Rental",
+          title: "Car rental",
           subtitle: "Replacement vehicles",
           description:
-            "Replacement vehicles available right away. Flexible rental terms and fast, straightforward processing for private and business customers.",
+            "Flexible rental and replacement vehicles for private customers,\nbusinesses and ride-hailing drivers — available at short notice.",
           features: [
-            "Immediately available",
-            "Flexible rental terms",
-            "Fast processing",
-            "Inspected vehicles",
+            "Short-notice availability",
+            "Flexible rental periods",
+            "Fast vehicle handover",
+            "Clean, ready-to-use vehicles",
           ],
         },
         {
           title: "Workshop & Service",
           subtitle: "Repairs & maintenance",
           description:
-            "Professional workshop service with certified specialists. From oil changes to full inspections - everything from one source.",
+            "From inspections to repairs, we take care of your vehicle's\ntechnology, safety and reliable readiness for use.",
           features: [
-            "Oil change & inspection",
+            "Inspection & oil service",
             "Tire service",
-            "Dashcam installation",
-            "General repairs",
+            "Diagnostics & repair",
+            "Also for ride-hailing vehicles",
           ],
         },
         {
-          title: "Detailing",
+          title: "Vehicle detailing & care",
           subtitle: "Premium care",
           description:
-            "Premium vehicle care for demanding customers. Paint correction, polishing and professional interior and exterior cleaning.",
+            "Professional interior and exterior detailing for well-kept vehicles,\nvalue retention and a high-quality overall impression.",
           features: [
-            "Paint correction & polish",
             "Interior & exterior cleaning",
+            "Paint correction & polish",
+            "Individual packages",
             "Value retention",
-            "Professionally certified",
           ],
         },
         {
-          title: "Vehicle Registration Service",
+          title: "Vehicle registration",
           subtitle: "Registration & license plates",
           description:
-            "We handle registration, deregistration and all key formalities around your vehicle quickly and without complications.",
+            "We handle registration, deregistration and plate services,\nso your vehicle gets on the road quickly and correctly.",
           features: [
-            "Vehicle registration",
+            "Registration & deregistration",
             "Temporary & export plates",
-            "eVB and custom plate service",
-            "Pickup service on request",
+            "eVB and preferred plate support",
+            "Pickup and delivery on request",
           ],
         },
         {
-          title: "Towing & Roadside Help",
+          title: "Roadside assistance & towing",
           subtitle: "Immediate help on site",
           description:
-            "If your vehicle breaks down, we organize fast help, safe transport and, if requested, complete follow-up handling.",
+            "If your vehicle can no longer continue, we organize fast help,\nsafe transport and the next steps.",
           features: [
-            "Fast help after breakdown or accident",
-            "On-site towing service",
+            "Help after a breakdown or accident",
+            "Towing service directly on site",
             "Transport to the workshop or preferred address",
-            "Next steps from one source",
+            "Further handling through UNEXT on request",
           ],
         },
       ],
@@ -338,19 +343,19 @@ export const homeTranslations = {
       eyebrow: "Additional service",
       title: "Express Delivery & Courier Service",
       description:
-        "When things need to move fast, we are there for you reliably. Direct pickup and fast delivery - without detours.",
+        "This additional service complements our automotive offering.\nWe handle time-sensitive trips and deliveries across Berlin\nquickly, directly and reliably.",
       features: [
-        "Fast delivery within Berlin",
-        "Flexible pickup and delivery",
-        "Transport of documents, parcels or vehicle parts",
-        "Express service for time-critical jobs",
-        "Individual solutions for private and business customers",
+        "Deliveries across Berlin",
+        "Pickup and delivery",
+        "Documents, parcels, car parts",
+        "Express service for urgent jobs",
+        "Private & business solutions",
       ],
       cta: "Contact now",
       contactLabel: "Phone:",
-      highlightTitle: "Fast, direct and reliable",
+      highlightTitle: "Delivered fast",
       highlightDescription:
-        "Whether documents, parcels or vehicle parts - we handle time-critical transports within Berlin cleanly and without unnecessary detours.",
+        "Time-sensitive trips in Berlin:\ndocuments, parcels and car parts.\nDirect and reliable.",
       contactBoxLabel: "Direct contact",
     },
     why: {
@@ -388,9 +393,9 @@ export const homeTranslations = {
       eyebrow: "About UNEXT GmbH",
       title: "From accident reporting to a full automotive partner",
       paragraph1:
-        "UNEXT GmbH is a Berlin-based company that started in 2024 with a focus on professional accident reports and immediate assistance. Under the UNFALLX brand, we quickly established ourselves as a reliable partner for accident victims.",
+        "UNEXT GmbH is a Berlin-based company founded in 2024\nwith professional accident reports and immediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers.",
       paragraph2:
-        "Today we are more than that. As a full automotive service provider, we offer car rental, workshop service, premium detailing, vehicle registration and towing - all under one roof. Our goal is to support you competently in every vehicle-related matter.",
+        "Today, we offer more:\ncar rental, workshop service and detailing,\nplus vehicle registration and roadside assistance with towing.\nAll in one place.\n\nOur goal is to support you in vehicle-related questions\nclearly, directly and competently.",
       highlights: [
         "Founded in Berlin in 2024",
         "Originally specialized in accident reports",
@@ -406,9 +411,9 @@ export const homeTranslations = {
       },
     },
     process: {
-      title: "How it works",
+      title: "Fast access to the right help",
       description:
-        "Get your solution in four simple steps - fast, straightforward and professional.",
+        "One call or message is enough.\nWe briefly clarify your request\nand tell you directly what makes sense next.",
       steps: [
         {
           step: "01",
@@ -475,7 +480,7 @@ export const homeTranslations = {
       badge: "Short-notice appointments available",
       title: "Call now or write to us directly - we are here for you immediately.",
       description:
-        "Whether accident, rental car, workshop appointment or detailing - contact us and we will take care of your request.",
+        "Call us, message us on WhatsApp or send an inquiry directly. We will get back to you quickly and explain clearly which next step makes sense.",
       inquiry: "Send inquiry",
       whatsapp: "WhatsApp",
     },
@@ -483,11 +488,11 @@ export const homeTranslations = {
   ru: {
     hero: {
       badge: "Сертифицированный сервис",
-      title1: "Ваш надежный партнер",
-      title2: "по всем вопросам автомобиля",
-      title3: "в Берлине",
+      title1: "Автоэкспертиза\nи услуги для автомобиля",
+      title2: "в одном месте",
+      title3: "",
       description:
-        "Экспертиза ДТП, прокат авто, мастерская, регистрация автомобиля, эвакуатор и премиальный детейлинг - все под одной крышей. Профессионально, быстро и надежно с 2024 года.",
+        "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно и напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано. Профессионально выполнено.",
       callNow: "Позвонить",
       inquiry: "Отправить запрос",
       whatsapp: "WhatsApp",
@@ -495,83 +500,83 @@ export const homeTranslations = {
       scrollLabel: "Узнать больше",
     },
     services: {
-      title: "Наши услуги",
+      title: "Все для автомобиля в одном месте",
       description:
-        "Шесть сильных направлений - один надежный партнер. Откройте для себя полный спектр услуг для вашего автомобиля.",
+        "UNEXT объединяет помощь при ДТП, аренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге прямо в Берлине.",
       onRequestContact: "Телефон по запросу · @unext.performance",
       learnMore: "Подробнее",
       viewAll: "Посмотреть все услуги",
       items: [
         {
-          title: "Экспертиза ДТП",
+          title: "Помощь при ДТП и экспертиза",
           subtitle: "UNFALLX",
           description:
-            "Быстрая помощь после ДТП, независимая экспертиза и поддержка по ущербу.",
+            "После ДТП вы получаете быструю поддержку,\nнезависимую экспертизу автомобиля и понятные следующие шаги.",
           features: [
-            "Быстрая запись",
-            "Независимые заключения",
-            "Сертифицированные эксперты",
-            "Сопровождение по ущербу",
+            "Быстрая первичная оценка",
+            "Независимая автоэкспертиза",
+            "Помощь в урегулировании ущерба",
+            "Следующие шаги через UNEXT по запросу",
           ],
         },
         {
           title: "Прокат авто",
           subtitle: "Подменные автомобили",
           description:
-            "Подменные автомобили доступны сразу. Гибкие сроки аренды и быстрое оформление для частных и корпоративных клиентов.",
+            "Гибкая аренда и подменные автомобили для частных клиентов,\nбизнеса и водителей такси — доступны в короткие сроки.",
           features: [
-            "Доступно сразу",
+            "Доступность в короткие сроки",
             "Гибкие сроки аренды",
-            "Быстрое оформление",
-            "Проверенные автомобили",
+            "Быстрая передача автомобиля",
+            "Чистые автомобили, готовые к работе",
           ],
         },
         {
-          title: "Сервис и мастерская",
+          title: "Сервис и ремонт",
           subtitle: "Ремонт и обслуживание",
           description:
-            "Профессиональный сервис с сертифицированными специалистами. От замены масла до полной инспекции - все из одних рук.",
+            "От инспекции до ремонта мы заботимся\nо технике, безопасности и готовности автомобиля к работе.",
           features: [
-            "Замена масла и инспекция",
+            "Инспекция и замена масла",
             "Шиномонтаж",
-            "Установка dashcam",
-            "Общий ремонт",
+            "Диагностика и ремонт",
+            "Также для автомобилей такси и сервисов",
           ],
         },
         {
-          title: "Детейлинг",
-          subtitle: "Премиальный уход",
+          title: "Детейлинг и уход",
+          subtitle: "Детейлинг",
           description:
-            "Премиальный детейлинг: полировка, уход за салоном и чистый внешний вид.",
+            "Профессиональная подготовка салона и кузова\nдля аккуратного вида и сохранения стоимости.",
           features: [
-            "Полировка и коррекция лака",
-            "Чистка салона и кузова",
+            "Внутренняя и внешняя чистка",
+            "Полировка и подготовка лака",
+            "Индивидуальные пакеты",
             "Сохранение стоимости",
-            "Профессиональный подход",
           ],
         },
         {
-          title: "Сервис регистрации авто",
+          title: "Регистрация автомобиля",
           subtitle: "Регистрация и номера",
           description:
-            "Мы берем на себя регистрацию, снятие с учета и все важные формальности по автомобилю быстро и без лишних сложностей.",
+            "Мы оформляем регистрацию и номера,\nчтобы автомобиль быстро вышел на дорогу.",
           features: [
-            "Регистрация авто",
+            "Регистрация и снятие с учета",
             "Временные и экспортные номера",
-            "eVB и подбор номера",
-            "Сервис забора документов по запросу",
+            "Поддержка с eVB и желаемыми номерами",
+            "Забор и доставка по запросу",
           ],
         },
         {
-          title: "Эвакуатор и помощь на дороге",
+          title: "Помощь на дороге и эвакуация",
           subtitle: "Срочная помощь на месте",
           description:
-            "Если автомобиль не может продолжать движение, мы организуем быструю помощь, безопасную перевозку и при необходимости дальнейшее сопровождение.",
+            "Если автомобиль не едет дальше,\nмы организуем помощь и безопасную эвакуацию.",
           features: [
-            "Быстрая помощь при поломке или ДТП",
-            "Эвакуатор на место",
-            "Доставка в сервис или по нужному адресу",
-            "Следующие шаги из одних рук",
+            "Помощь при поломке или ДТП",
+            "Эвакуатор прямо на месте",
+            "Транспортировка в сервис или по нужному адресу",
+            "Дальнейшее оформление через UNEXT по запросу",
           ],
         },
       ],
@@ -580,19 +585,19 @@ export const homeTranslations = {
       eyebrow: "Дополнительный сервис",
       title: "Экспресс-доставка и курьерская служба",
       description:
-        "Если нужно быстро, мы надежно поможем. Прямой забор и быстрая доставка - без лишних маршрутов.",
+        "Дополнительный сервис для вашего авто.\nСрочные поездки и доставки по Берлину:\nбыстро, напрямую и надежно.",
       features: [
-        "Быстрая доставка по Берлину",
-        "Гибкий забор и доставка",
-        "Перевозка документов, посылок или автозапчастей",
-        "Экспресс-сервис для срочных заказов",
-        "Индивидуальные решения для частных и корпоративных клиентов",
+        "Доставка по Берлину",
+        "Забор и доставка",
+        "Документы, посылки, запчасти",
+        "Экспресс для срочных заказов",
+        "Решения для частных и бизнеса",
       ],
       cta: "Связаться сейчас",
       contactLabel: "Телефон:",
-      highlightTitle: "Быстро, напрямую и надежно",
+      highlightTitle: "Быстро до цели",
       highlightDescription:
-        "Документы, посылки или автозапчасти - мы берем на себя срочные перевозки по Берлину аккуратно и без лишних задержек.",
+        "Срочные поездки по Берлину:\nдокументы, посылки и запчасти.\nПрямо и надежно.",
       contactBoxLabel: "Прямой контакт",
     },
     why: {
@@ -630,9 +635,9 @@ export const homeTranslations = {
       eyebrow: "О UNEXT GmbH",
       title: "От экспертизы ДТП до полноценного автомобильного партнера",
       paragraph1:
-        "UNEXT GmbH - берлинская компания, которая начала работу в 2024 году с фокусом на профессиональную экспертизу ДТП и срочную помощь. Под брендом UNFALLX мы быстро стали надежным партнером для пострадавших в авариях.",
+        "UNEXT GmbH - берлинская компания, основанная в 2024 году\nс фокусом на автоэкспертизу после ДТП и срочную помощь.\n\nПод брендом UNFALLX мы быстро стали\nнадежным партнером для клиентов.",
       paragraph2:
-        "Сегодня мы предлагаем больше: прокат авто, мастерскую, премиальный детейлинг, регистрацию автомобилей и эвакуатор - все под одной крышей. Наша цель - компетентно помочь вам по любому вопросу, связанному с автомобилем.",
+        "Сегодня мы предлагаем больше:\nаренду авто, сервис и детейлинг,\nрегистрацию, помощь на дороге и эвакуацию.\nВсе в одном месте.\n\nНаша цель - помогать по автомобильным вопросам\nпонятно, напрямую и компетентно.",
       highlights: [
         "Основана в Берлине в 2024 году",
         "Изначально специализация на экспертизе ДТП",
@@ -648,9 +653,9 @@ export const homeTranslations = {
       },
     },
     process: {
-      title: "Как это работает",
+      title: "Быстро к нужной помощи",
       description:
-        "Решение в четыре простых шага - быстро, понятно и профессионально.",
+        "Достаточно одного звонка или сообщения.\nМы кратко уточним ваш запрос\nи сразу скажем, какой следующий шаг имеет смысл.",
       steps: [
         {
           step: "01",
@@ -717,7 +722,7 @@ export const homeTranslations = {
       badge: "Возможны срочные записи",
       title: "Позвоните нам или напишите прямо сейчас - мы готовы помочь сразу.",
       description:
-        "Будь то ДТП, аренда авто, запись в мастерскую или детейлинг - свяжитесь с нами, и мы займемся вашим вопросом.",
+        "Позвоните нам, напишите в WhatsApp или отправьте заявку напрямую. Мы быстро свяжемся с вами и понятно объясним, какой следующий шаг имеет смысл.",
       inquiry: "Отправить запрос",
       whatsapp: "WhatsApp",
     },

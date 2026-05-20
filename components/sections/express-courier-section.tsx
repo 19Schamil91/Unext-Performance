@@ -22,6 +22,19 @@ type Props = {
 
 export function ExpressCourierSection({ locale }: Props) {
   const t = getTranslations(locale).home.expressCourier
+  // Diese mobilen Texte vermeiden in Englisch und Russisch unruhige Titelumbrueche.
+  const mobileTitle =
+    locale === "en"
+      ? "Express courier\nservice in Berlin"
+      : locale === "ru"
+        ? "Экспресс-доставка\nпо Берлину"
+        : t.title
+  const mobileDescription =
+    locale === "en"
+      ? "Additional support for automotive tasks:\nurgent trips and deliveries in Berlin,\nhandled quickly, directly and reliably."
+      : locale === "ru"
+        ? "Дополнительная услуга для авто-задач:\nсрочные поездки и доставки по Берлину,\nбыстро, напрямую и надежно."
+        : "Ergänzend zu unseren Fahrzeugleistungen\nübernehmen wir zeitkritische Fahrten\nund Zustellungen in Berlin.\n\nSchnell, direkt und zuverlässig."
 
   return (
     <section className="bg-card py-16 lg:py-20">
@@ -43,14 +56,20 @@ export function ExpressCourierSection({ locale }: Props) {
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {t.eyebrow}
                     </p>
-                    <h2 className="mt-1 max-w-[13ch] text-heading-fluid font-semibold text-foreground sm:max-w-[15ch] lg:max-w-none lg:text-[clamp(2.7rem,3.9vw,4.2rem)] lg:leading-[1.02] lg:whitespace-nowrap">
+                    <h2 className="mt-1 hidden max-w-[13ch] text-heading-fluid font-semibold text-foreground sm:max-w-[15ch] md:block lg:max-w-none lg:text-[clamp(2.7rem,3.9vw,4.2rem)] lg:leading-[1.02] lg:whitespace-nowrap">
                       {t.title}
+                    </h2>
+                    <h2 className="mt-1 whitespace-pre-line text-[clamp(1.85rem,8vw,2.22rem)] font-semibold leading-[1.04] text-foreground md:hidden">
+                      {mobileTitle}
                     </h2>
                   </div>
                 </div>
 
-                <p className="mt-5 measure-intro-tight text-body-fluid text-foreground/82">
+                <p className="mt-5 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">
                   {t.description}
+                </p>
+                <p className="mt-5 whitespace-pre-line text-[1.02rem] leading-[1.62] text-foreground/82 md:hidden">
+                  {mobileDescription}
                 </p>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -97,7 +116,7 @@ export function ExpressCourierSection({ locale }: Props) {
                       <h3 className="mt-5 measure-card-copy text-card-heading-fluid text-foreground">
                         {t.highlightTitle}
                       </h3>
-                      <p className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78">
+                      <p className="mt-3 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78">
                         {t.highlightDescription}
                       </p>
                       <div className="mt-6 rounded-xl border border-border/50 bg-card/80 px-4 py-3">

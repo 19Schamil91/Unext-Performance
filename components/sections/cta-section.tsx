@@ -1,42 +1,85 @@
 /*
-  Diese Datei definiert den abschliessenden Kontaktbereich auf der Startseite.
-  Sie hebt die schnelle Kontaktaufnahme visuell hervor und bietet mehrere direkte Aktionen.
+  Diese Datei definiert den gemeinsamen abschliessenden Kontaktbereich.
+  Sie zeigt eine kurze Frage, einen Beratungshinweis und direkte Kontaktaktionen.
   Nutzer koennen direkt anrufen, WhatsApp oeffnen oder zur Kontaktseite wechseln.
 */
 import Link from "next/link"
-import { ArrowRight, Clock, MessageCircle, Phone } from "lucide-react"
-import { ReadableText } from "@/components/readable-text"
+import { MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-type Props = {
-  locale: Locale
+export type CtaAction = {
+  label: string
+  href: string
+  icon?: "phone" | "message"
+  external?: boolean
 }
 
-export function CtaSection({ locale }: Props) {
-  // Dieser Bereich zeigt pro Sprache eine fest kontrollierte Zeilenaufteilung.
-  const t = getTranslations(locale).home.cta
+type Props = {
+  locale: Locale
+  actions?: readonly CtaAction[]
+  note?: string
+}
+
+export function CtaSection({ locale, actions, note }: Props) {
+  // Dieser Bereich nutzt auf allen Seiten denselben Abschluss und laesst nur die Kontaktziele austauschbar.
+  const t = getTranslations(locale).serviceDetail.layout
   const contactHref = getLocalizedPath(locale, "/kontakt")
-  const fixedDescriptionLines =
-    locale === "de"
-      ? [
-          "Rufen Sie uns an oder schreiben Sie uns per WhatsApp. Wir sagen Ihnen direkt,",
-          "wie wir Ihnen bei Unfall, Werkstatt, Mietwagen, Zulassung oder Pannenhilfe weiterhelfen.",
-        ]
-      : locale === "en"
-        ? [
-            "Call us or write to us on WhatsApp. We will tell you directly",
-            "how we can help with accidents, workshop service, rental cars,",
-            "registration or roadside assistance.",
-          ]
-        : locale === "ru"
-          ? [
-              "Позвоните нам или напишите в WhatsApp. Мы сразу скажем,",
-              "как можем помочь с ДТП, автосервисом, арендой автомобиля,",
-              "регистрацией или помощью на дороге.",
-            ]
-          : null
+
+  const defaultActions = [
+    { label: "030 23613927", href: "tel:+493023613927", icon: "phone" as const },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/4917664365185",
+      icon: "message" as const,
+      external: true,
+    },
+    { label: t.contactCta, href: contactHref },
+  ] satisfies readonly CtaAction[]
+
+  const resolvedActions = actions ?? defaultActions
+
+  const renderAction = (action: CtaAction, index: number) => {
+    const icon =
+      action.icon === "phone" ? (
+        <Phone className="h-5 w-5" />
+      ) : action.icon === "message" ? (
+        <MessageCircle className="h-5 w-5" />
+      ) : null
+
+    const content = (
+      <>
+        {icon}
+        <span className="button-text-wrap">{action.label}</span>
+      </>
+    )
+
+    const className =
+      index === 0
+        ? "w-full gap-2 bg-white font-semibold text-primary shadow-[0_16px_34px_rgba(15,23,42,0.28)] hover:bg-white/92 hover:text-primary"
+        : "w-full gap-2 border-white/15 bg-black/10 font-semibold text-white hover:bg-white/12 hover:text-white"
+
+    return (
+      <Button
+        key={`${action.href}-${action.label}`}
+        asChild
+        size="lg"
+        variant={index === 0 ? "secondary" : "outline"}
+        className={className}
+      >
+        {action.external ? (
+          <a href={action.href} target="_blank" rel="noopener noreferrer">
+            {content}
+          </a>
+        ) : action.href.startsWith("/") ? (
+          <Link href={action.href}>{content}</Link>
+        ) : (
+          <a href={action.href}>{content}</a>
+        )}
+      </Button>
+    )
+  }
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#10090b] py-16 lg:py-20">
@@ -45,67 +88,24 @@ export function CtaSection({ locale }: Props) {
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-4xl xl:max-w-none">
-            <div className="mb-4 flex items-center gap-2 text-primary-foreground/80">
-              <Clock className="h-5 w-5" />
-              <span className="text-sm font-semibold uppercase tracking-wider">{t.badge}</span>
-            </div>
-            <h2 className="max-w-[22rem] text-[clamp(1.85rem,1.5rem+1.15vw,2.65rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-primary-foreground sm:max-w-[18ch] lg:max-w-none lg:whitespace-nowrap">
-              {t.title}
+          <div>
+            <h2 className="measure-heading text-heading-fluid font-semibold text-primary-foreground">
+              {t.questionsTitle}
             </h2>
-            {fixedDescriptionLines ? (
-              <p className="mt-4 max-w-[36rem] text-body-fluid text-primary-foreground/86 sm:max-w-[46ch] lg:max-w-none">
-                {fixedDescriptionLines.map((line, index) => (
-                  <span key={line} className="inline sm:block lg:whitespace-nowrap">
-                    {line}
-                    {index < fixedDescriptionLines.length - 1 ? " " : null}
-                  </span>
-                ))}
-              </p>
-            ) : (
-              <ReadableText
-                text={t.description}
-                className="mt-4 max-w-[62ch] text-body-fluid text-primary-foreground/86"
-              />
-            )}
+            <p className="mt-4 measure-intro text-body-fluid text-primary-foreground/86">
+              {t.questionsDescription}
+            </p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="w-full gap-2 bg-white font-semibold text-primary shadow-[0_16px_34px_rgba(15,23,42,0.28)] hover:bg-white/92 sm:w-auto"
-            >
-              <a href="tel:+493023613927">
-                <Phone className="h-5 w-5" />
-                030 23613927
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full gap-2 border-white/35 bg-transparent text-white hover:bg-white/12 hover:text-white sm:w-auto"
-            >
-              <a href="https://wa.me/4917664365185" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                {t.whatsapp}
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full gap-2 border-white/35 bg-transparent text-white hover:bg-white/12 hover:text-white sm:w-auto"
-            >
-              <Link href={contactHref}>
-                {t.inquiry}
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
+          <div className="flex w-full max-w-[28rem] flex-col gap-3 lg:shrink-0">
+            {resolvedActions.map((action, index) => renderAction(action, index))}
           </div>
         </div>
+        {note && (
+          <p className="mx-auto mt-4 max-w-[62ch] text-sm leading-7 text-primary-foreground/80">
+            {note}
+          </p>
+        )}
       </div>
     </section>
   )
