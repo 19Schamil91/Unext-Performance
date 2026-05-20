@@ -20,6 +20,7 @@ type HeroContentProps = {
   title3: string
   combinePrimaryTitle?: boolean
   description: string
+  mobileDescription?: string
   services: readonly { title: string; anchor: string }[]
   callNow: string
   inquiry: string
@@ -156,6 +157,7 @@ function HeroContent({
   title3,
   combinePrimaryTitle = false,
   description,
+  mobileDescription,
   services,
   callNow,
   inquiry,
@@ -267,7 +269,14 @@ function HeroContent({
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
-          {renderHeroDescription(description)}
+          <span className={mobileDescription ? "hidden md:contents" : undefined}>
+            {renderHeroDescription(description)}
+          </span>
+          {mobileDescription ? (
+            <span className="contents md:hidden">
+              {renderHeroDescription(mobileDescription)}
+            </span>
+          ) : null}
         </p>
       </div>
 
@@ -415,6 +424,13 @@ export function HeroSection({ locale }: Props) {
     ru: { title1: "Автоэкспертиза\nи автоуслуги", title2: "в одном месте", title3: "" },
   } as const satisfies Record<Locale, { title1: string; title2: string; title3: string }>
   const mobileHeroTitle = mobileHeroTitles[locale]
+  const mobileHeroDescriptions = {
+    de: t.description,
+    en: t.description,
+    ru:
+      "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно\nи напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано.\nПрофессионально выполнено.",
+  } as const satisfies Record<Locale, string>
+  const mobileHeroDescription = mobileHeroDescriptions[locale]
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
   const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
 
@@ -444,6 +460,7 @@ export function HeroSection({ locale }: Props) {
             combinePrimaryTitle
             locale={locale}
             description={t.description}
+            mobileDescription={mobileHeroDescription}
             services={mainServices}
             callNow={t.callNow}
             inquiry={t.inquiry}
