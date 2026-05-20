@@ -2,7 +2,7 @@ export const aboutTranslationOverrides = {
   de: {
     title: "Über UNEXT GmbH",
     description:
-      "Vom spezialisierten Unfallgutachter zum vollständigen Automotive-Partner.\nLernen Sie das Team hinter UNEXT kennen und erfahren Sie, was uns antreibt.",
+      "Vom Unfallgutachter zum Automotive-Partner in Berlin.\nUNEXT verbindet Erfahrung, Service und klare Abläufe.",
     milestones: [
       {
         year: "2024",
@@ -39,7 +39,7 @@ export const aboutTranslationOverrides = {
   en: {
     title: "About UNEXT GmbH",
     description:
-      "From a specialized accident expert to a full automotive partner.\nGet to know the team behind UNEXT and learn what drives us.",
+      "From accident reports to automotive services in Berlin.\nUNEXT combines experience, service and clear processes.",
     milestones: [
       {
         year: "2024",
@@ -76,7 +76,7 @@ export const aboutTranslationOverrides = {
   ru: {
     title: "О компании UNEXT GmbH",
     description:
-      "От специализированного эксперта по ДТП до полноценного автомобильного партнера.\nПознакомьтесь с командой UNEXT и узнайте, что нас вдохновляет.",
+      "От экспертизы ДТП к автоуслугам в Берлине.\nОпыт, сервис и понятные процессы.",
     milestones: [
       {
         year: "2024",

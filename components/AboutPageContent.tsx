@@ -20,8 +20,16 @@ type AboutPageContentProps = {
 
 const icons = [Award, Users, Target, Heart]
 
+// Diese kurzen Fassungen halten den Hero-Text auf schmalen Displays ruhig und gut lesbar.
+const mobileHeroDescriptions: Partial<Record<Locale, string>> = {
+  de: "Vom Unfallgutachter zum\nAutomotive-Partner in Berlin.\nErfahrung, Service und klare Abläufe.",
+  en: "From accident reports to\nautomotive services in Berlin.\nExperience, service and clear processes.",
+  ru: "От экспертизы ДТП\nк автоуслугам в Берлине.\nОпыт, сервис и понятные процессы.",
+}
+
 export function AboutPageContent({ locale }: AboutPageContentProps) {
   const t = getTranslations(locale).aboutPage
+  const mobileHeroDescription = mobileHeroDescriptions[locale] ?? t.description
 
   return (
     <>
@@ -43,12 +51,19 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
           </div>
 
           <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
-            <div className="max-w-5xl max-md:max-w-[34rem]">
+            <div className="max-w-5xl max-md:mx-auto max-md:max-w-[34rem] max-md:text-center">
               <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] max-md:text-[clamp(2rem,8vw,2.45rem)] max-md:leading-[1.02] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:mt-4 max-md:max-w-[36ch] max-md:text-[0.98rem] max-md:leading-[1.55]">
+              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:hidden">
                 {t.description.split("\n").map((line, index) => (
+                  <span key={`${line}-${index}`} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <p className="mx-auto mt-4 hidden max-w-[36ch] text-[0.98rem] leading-[1.55] text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:block">
+                {mobileHeroDescription.split("\n").map((line, index) => (
                   <span key={`${line}-${index}`} className="block">
                     {line}
                   </span>
