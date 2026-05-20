@@ -216,7 +216,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
         <section className="bg-background py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-12">
-              <div className="lg:order-2 lg:pl-6">
+              <div className="order-2 lg:order-2 lg:pl-6">
                 <div className="relative mx-auto aspect-[4/5] w-full max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card p-2 shadow-sm lg:max-w-[20rem] xl:max-w-[22rem]">
                   <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
                     {/* Dieses Foto zeigt den Mitarbeiter im Buero mit etwas Abstand zum Kartenrand. */}
@@ -232,7 +232,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 </div>
               </div>
 
-              <div className="lg:order-1">
+              <div className="order-1 lg:order-1">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5">
                   <span className="text-sm font-semibold text-primary">{t.subBrandBadge}</span>
                 </div>

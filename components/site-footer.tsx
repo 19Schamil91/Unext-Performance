@@ -38,6 +38,22 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
   const homeHref = getLocalizedPath(locale, "/")
   // Kontaktseiten zeigen die wichtigsten Kontaktwege bereits direkt darueber; der Footer bleibt dort bewusst kuerzer.
   const footerDescription = compactSummary ? compactFooterDescriptions[locale] : t.footer.description
+  // Diese Stelle teilt nur den deutschen Standard-Footer mobil ruhiger auf, ohne den Textinhalt zu aendern.
+  const footerDescriptionBreakText = "Mietwagen,"
+  const footerDescriptionBreakIndex = footerDescription.indexOf(footerDescriptionBreakText)
+  const shouldBreakGermanFooterDescription =
+    locale === "de" && !compactSummary && footerDescriptionBreakIndex >= 0
+  const firstFooterDescriptionLine = shouldBreakGermanFooterDescription
+    ? footerDescription.slice(
+        0,
+        footerDescriptionBreakIndex + footerDescriptionBreakText.length,
+      )
+    : footerDescription
+  const secondFooterDescriptionLine = shouldBreakGermanFooterDescription
+    ? footerDescription
+        .slice(footerDescriptionBreakIndex + footerDescriptionBreakText.length)
+        .trimStart()
+    : ""
   // Diese Links bleiben im Footer bewusst kurz; detaillierte Oeffnungszeiten stehen auf der Kontaktseite.
   const footerContactLinks = [
     {
@@ -74,7 +90,16 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
                 className="h-8 w-auto"
               />
             </Link>
-            <p className="mt-2 max-w-[46ch] text-sm leading-5 text-foreground/74">{footerDescription}</p>
+            <p className="mt-2 max-w-none text-sm leading-5 text-foreground/74 sm:max-w-[62ch] lg:text-base lg:leading-7">
+              {shouldBreakGermanFooterDescription ? (
+                <>
+                  <span className="block">{firstFooterDescriptionLine}</span>
+                  <span className="block">{secondFooterDescriptionLine}</span>
+                </>
+              ) : (
+                footerDescription
+              )}
+            </p>
           </div>
 
           <div className="flex flex-col gap-2.5 lg:items-end">

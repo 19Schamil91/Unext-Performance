@@ -100,22 +100,22 @@ export const servicesAndAboutTranslations = {
         {
           title: "Qualität",
           description:
-            "Hohe Standards, klare Prozesse\nund sorgfältige Arbeit sichern jedes Ergebnis.",
+            "Hohe Standards,\nklare Prozesse und Sorgfalt\nsichern jedes Ergebnis.",
         },
         {
           title: "Kundenorientierung",
           description:
-            "Wir hören zu und finden\nohne Umwege eine passende Lösung.",
+            "Wir hören zu,\nfinden ohne Umwege\neine passende Lösung.",
         },
         {
           title: "Zuverlässigkeit",
           description:
-            "Wir halten Zusagen und arbeiten\npünktlich, ehrlich und verlässlich.",
+            "Wir halten Zusagen,\narbeiten pünktlich,\nehrlich und verlässlich.",
         },
         {
           title: "Leidenschaft",
           description:
-            "Wir lieben Autos und saubere Arbeit.\nDas zeigt sich in jedem Detail.",
+            "Wir lieben Autos\nund saubere Arbeit.\nDas zeigt sich in jedem Detail.",
         },
       ],
       stats: [
@@ -218,10 +218,10 @@ export const servicesAndAboutTranslations = {
       valuesTitle: "Our values",
       valuesDescription: "These principles guide everything we do.",
       values: [
-        { title: "Quality", description: "High standards, clear processes\nand careful work shape every result." },
-        { title: "Customer focus", description: "We listen first and find\nthe right solution without detours." },
-        { title: "Reliability", description: "We keep our promises and work\non time, honestly and dependably." },
-        { title: "Passion", description: "We love cars and clean work.\nIt shows in every detail." },
+        { title: "Quality", description: "High standards,\nclear processes and care\nshape every result." },
+        { title: "Customer focus", description: "We listen first,\nfind the right solution\nwithout detours." },
+        { title: "Reliability", description: "We keep our promises\nand work on time,\nhonestly and dependably." },
+        { title: "Passion", description: "We love cars\nand clean work.\nIt shows in every detail." },
       ],
       stats: [
         { value: "2024", label: "Founded" },
@@ -322,22 +322,22 @@ export const servicesAndAboutTranslations = {
         {
           title: "Качество",
           description:
-            "Высокие стандарты и четкие процессы\nобеспечивают стабильный результат.",
+            "Высокие стандарты,\nчеткие процессы\nдают стабильный результат.",
         },
         {
           title: "Ориентация на клиента",
           description:
-            "Мы слушаем и находим\nподходящее решение без лишних шагов.",
+            "Мы слушаем,\nнаходим решение\nбез лишних шагов.",
         },
         {
           title: "Надежность",
           description:
-            "Мы держим слово и работаем\nпунктуально, честно и надежно.",
+            "Мы держим слово\nи работаем честно,\nпунктуально и надежно.",
         },
         {
           title: "Увлеченность",
           description:
-            "Мы любим авто и аккуратную работу.\nЭто видно в каждой детали.",
+            "Мы любим авто\nи аккуратную работу.\nЭто видно в каждой детали.",
         },
       ],
       stats: [

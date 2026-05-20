@@ -37,7 +37,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "Fahrzeugservice in Berlin: Kfz-Gutachten, Mietwagen, Werkstatt, Pflege, Zulassung und Pannenhilfe aus einer Hand.",
+        "Fahrzeugservice in Berlin: Gutachten, Mietwagen, Werkstatt, Pflege, Zulassung und Pannenhilfe aus einer Hand.",
       address: "Lübarser Str. 25, 13435 Berlin",
       columns: {
         services: "Leistungen",
@@ -98,7 +98,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "Vehicle services in Berlin: reports, rental cars, workshop service, detailing, registration and towing from one source.",
+        "Vehicle services in Berlin: reports, rental cars, workshop, care, registration and roadside help from one source.",
       address: "Lübarser Str. 25, 13435 Berlin",
       columns: {
         services: "Services",
