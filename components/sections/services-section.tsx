@@ -143,18 +143,13 @@ function renderServiceDescription(description: string) {
   return description.split("\n").map((line, index, lines) => (
     <span key={`${line}-${index}`}>
       {renderDesktopProtectedDescriptionLine(line)}
-      {index < lines.length - 1 ? <br /> : null}
+      {index < lines.length - 1 ? " " : null}
     </span>
   ))
 }
 
 function renderMobileServiceDescription(description: string) {
-  return description.split("\n").map((line, index, lines) => (
-    <span key={`${line}-${index}`}>
-      {line}
-      {index < lines.length - 1 ? <br /> : null}
-    </span>
-  ))
+  return description.split("\n").map((line) => line.trim()).filter(Boolean).join(" ")
 }
 
 export function ServicesSection({ locale }: Props) {
@@ -165,16 +160,16 @@ export function ServicesSection({ locale }: Props) {
     <section id="leistungen" className="bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-12 max-w-5xl text-center sm:mb-16">
-          <h2 className="mx-auto max-w-[24rem] text-[clamp(1.85rem,1.58rem+1.1vw,2.2rem)] leading-[1.08] font-semibold text-foreground sm:max-w-[15ch] sm:text-[clamp(1.9rem,1.35rem+1.45vw,3.15rem)] sm:leading-[1.04] sm:tracking-[-0.03em] sm:font-[650] lg:max-w-none">
+          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none">
             {t.title}
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 hidden max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-none md:block"
+            className="mx-auto mt-3 hidden measure-intro text-body-fluid text-foreground/82 sm:mt-4 md:block"
           />
           <ReadableText
             text={mobileServicesIntro[locale]}
-            className="mx-auto mt-3 max-w-[24rem] whitespace-pre-line text-[1rem] leading-[1.55] text-foreground/82 md:hidden"
+            className="mx-auto mt-3 measure-intro-tight text-body-compact text-foreground/82 md:hidden"
           />
         </div>
 
@@ -224,7 +219,7 @@ export function ServicesSection({ locale }: Props) {
                       <p className="mt-3 measure-card-copy-wide hidden text-body-compact leading-7 text-foreground/74 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
                         {renderServiceDescription(service.description)}
                       </p>
-                      <p className="mt-3 text-[0.98rem] leading-[1.58] text-foreground/76 md:hidden">
+                      <p className="mt-3 text-body-compact text-foreground/76 md:hidden">
                         {renderMobileServiceDescription(mobileServiceDescriptions[locale][index] ?? service.description)}
                       </p>
 

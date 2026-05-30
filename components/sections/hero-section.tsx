@@ -104,13 +104,12 @@ function renderHeroDescription(description: string, lineClassName?: string) {
 
     return (
       <>
-        {combinedLines
-          .map((line, index, lines) => (
-            <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
-              {renderProtectedLine(line)}
-              {index < lines.length - 1 ? " " : null}
-            </span>
-          ))}
+        {combinedLines.map((line, index, lines) => (
+          <span key={`${line}-${index}`} className={lineClassName}>
+            {renderProtectedLine(line)}
+            {index < lines.length - 1 ? " " : null}
+          </span>
+        ))}
       </>
     )
   }
@@ -139,7 +138,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   return (
     <>
       {lines.map((line, index) => (
-        <span key={`${line}-${index}`} className={`block ${lineClassName ?? ""}`.trim()}>
+        <span key={`${line}-${index}`} className={lineClassName}>
           {renderProtectedLine(line)}
           {index < lines.length - 1 ? " " : null}
         </span>
@@ -175,15 +174,11 @@ function HeroContent({
   const overlayTitleClass =
     locale === "ru"
       ? "text-[clamp(1.86rem,7vw,2.24rem)] leading-[1] tracking-[-0.015em] md:text-[clamp(2.35rem,4.15vw,4.55rem)] md:leading-[0.95] md:tracking-[-0.03em]"
-      : "text-display-fluid max-md:text-[clamp(1.95rem,7.8vw,2.4rem)] max-md:leading-[1]"
+      : "text-display-fluid"
   const overlayWrapperClass = ""
-  // Die deutsche Startseitenzeile bleibt auf Handybreite als Sinnabschnitt zusammen.
+  // Die farbige zweite Titelzeile darf mobil frei umbrechen, damit auch schmale Geraete sauber bleiben.
   const primaryTitleSecondLineClass =
-    locale === "de"
-      ? "block whitespace-nowrap text-primary md:whitespace-normal"
-      : locale === "ru"
-        ? "block whitespace-nowrap text-primary md:whitespace-normal"
-      : "block max-w-[11ch] text-primary sm:max-w-none"
+    locale === "en" ? "block max-w-[11ch] text-primary sm:max-w-none" : "block text-primary"
 
   return (
     <div className={`relative min-w-0 ${className ?? ""}`}>
@@ -252,8 +247,8 @@ function HeroContent({
               className={
                 isOverlay
                   ? combinePrimaryTitle
-                    ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
-                    : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2 max-md:text-[clamp(1.02rem,4.5vw,1.22rem)] max-md:leading-[1.05]"
+                    ? "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2"
+                    : "mt-3 block text-title-fluid font-semibold text-white drop-shadow-[0_8px_22px_rgba(0,0,0,0.6)] max-md:mt-2"
                   : "mt-1.5 block max-w-none text-[clamp(1rem,0.9rem+0.45vw,1.22rem)] leading-[1.25] font-normal tracking-normal text-foreground/78 sm:mt-2 sm:max-w-[18ch] sm:text-[clamp(1.05rem,0.84rem+1vw,2.35rem)] sm:leading-[1.12]"
               }
             >
@@ -265,7 +260,7 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-8 measure-intro text-body-fluid font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:max-w-[35ch] max-md:text-[0.93rem] max-md:font-normal max-md:leading-[1.5]"
+              ? "relative z-10 mt-8 measure-intro-tight text-body-compact font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:font-normal"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -417,11 +412,11 @@ export function HeroSection({ locale }: Props) {
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc = "/images/home-hero-new.webp"
-  // Diese kurzen Varianten halten die mobile Hero-Ueberschrift in Englisch und Russisch sauber in Sinnzeilen.
+  // Diese Varianten halten den mobilen Hero kurz, ohne harte Zeilen fuer einzelne Geraete zu erzwingen.
   const mobileHeroTitles = {
     de: { title1: t.title1, title2: t.title2, title3: t.title3 },
-    en: { title1: "Vehicle reports\nand car services", title2: "in one place", title3: "" },
-    ru: { title1: "Автоэкспертиза\nи автоуслуги", title2: "в одном месте", title3: "" },
+    en: { title1: "Vehicle reports and car services", title2: "in one place", title3: "" },
+    ru: { title1: "Автоэкспертиза и автоуслуги", title2: "в одном месте", title3: "" },
   } as const satisfies Record<Locale, { title1: string; title2: string; title3: string }>
   const mobileHeroTitle = mobileHeroTitles[locale]
   const mobileHeroDescriptions = {

@@ -20,10 +20,10 @@ export function WhySection({ locale }: Props) {
     <section className="bg-card py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-16 max-w-5xl text-center">
-          <h2 className="mx-auto text-heading-fluid font-semibold text-foreground lg:whitespace-nowrap">
+          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground">
             {t.title}
           </h2>
-          <p className="mx-auto mt-4 whitespace-pre-line text-body-fluid text-foreground/82 lg:whitespace-nowrap">{t.description}</p>
+          <p className="mx-auto mt-4 measure-intro text-body-fluid text-foreground/82">{t.description}</p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -39,7 +39,7 @@ export function WhySection({ locale }: Props) {
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{benefit.title}</h3>
-                <p className="mt-2 measure-card-copy whitespace-pre-line text-body-compact text-foreground/78">
+                <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
                   {benefit.description}
                 </p>
               </div>

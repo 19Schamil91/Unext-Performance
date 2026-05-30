@@ -6,6 +6,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, CheckCircle } from "lucide-react"
+import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
@@ -72,19 +73,33 @@ export function AboutSection({ locale }: Props) {
             </h2>
             {locale === "en" || locale === "ru" ? (
               <>
-                <p className="mt-6 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">{t.paragraph1}</p>
-                <p className="mt-4 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">{t.paragraph2}</p>
-                <p className="mt-6 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:hidden">
-                  {locale === "en" ? mobileEnglishParagraph1 : mobileRussianParagraph1}
-                </p>
-                <p className="mt-4 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:hidden">
-                  {locale === "en" ? mobileEnglishParagraph2 : mobileRussianParagraph2}
-                </p>
+                <ReadableText
+                  text={t.paragraph1}
+                  className="mt-6 hidden measure-intro-tight text-body-fluid text-foreground/82 md:block"
+                />
+                <ReadableText
+                  text={t.paragraph2}
+                  className="mt-4 hidden measure-intro-tight text-body-fluid text-foreground/82 md:block"
+                />
+                <ReadableText
+                  text={locale === "en" ? mobileEnglishParagraph1 : mobileRussianParagraph1}
+                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/82 md:hidden"
+                />
+                <ReadableText
+                  text={locale === "en" ? mobileEnglishParagraph2 : mobileRussianParagraph2}
+                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/82 md:hidden"
+                />
               </>
             ) : (
               <>
-                <p className="mt-6 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph1}</p>
-                <p className="mt-4 measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82">{t.paragraph2}</p>
+                <ReadableText
+                  text={t.paragraph1}
+                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/82"
+                />
+                <ReadableText
+                  text={t.paragraph2}
+                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/82"
+                />
               </>
             )}
 
