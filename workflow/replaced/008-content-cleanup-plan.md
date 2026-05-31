@@ -1,5 +1,7 @@
 # Aufgabe 008: Content-Cleanup planen
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und wird nicht mehr aktiv verwendet. Sie wurde durch `019-plan-old-scope-content-cleanup.md` ersetzt.
+
 ## Ziel
 
 Planen, welche alten Inhalte spaeter entfernt oder ersetzt werden sollen.

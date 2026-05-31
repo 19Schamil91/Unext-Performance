@@ -1,5 +1,7 @@
 # Aufgabe 011: SEO ueberarbeiten
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und darf in ihrer alten Ausrichtung auf Autovermietung und Fahrzeugservice nicht weiterverwendet werden. Sie wurde durch `021-plan-seo-kfz-gutachten.md` ersetzt.
+
 ## Ziel
 
 SEO spaeter auf die bestaetigte neue Ausrichtung der Website anpassen.

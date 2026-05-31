@@ -1,5 +1,7 @@
 # Aufgabe 007: Rework-Plan erstellen
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und wird nicht mehr aktiv verwendet. Sie wurde durch `018-create-kfz-rework-plan.md` ersetzt.
+
 ## Ziel
 
 Einen konkreten Umsetzungsplan fuer den Website-Umbau auf Basis der finalen Specs erstellen.

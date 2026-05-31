@@ -22,4 +22,4 @@ Die fachlichen Projektinformationen sollen kuenftig in `specs/` liegen. `AGENTS.
 
 ## Status
 
-Todo
+Abgeschlossen und freigegeben im Rahmen von Aufgabe 016.

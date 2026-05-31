@@ -1,5 +1,7 @@
 # Aufgabe 013: Supabase spaeter implementieren
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf digitale Schadenaufnahme und Upload fuer KFZ-Gutachten ueberholt und wird nicht mehr aktiv verwendet. Sie wurde durch `025-implement-after-approved-specs.md` ersetzt.
+
 ## Ziel
 
 Supabase erst nach freigegebener Planung und ausdruecklicher Freigabe implementieren.

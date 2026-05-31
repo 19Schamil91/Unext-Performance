@@ -1,5 +1,7 @@
 # Aufgabe 005: Fragen vor finalen Specs beantworten
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und wird nicht mehr aktiv verwendet. Sie wurde durch `016-answer-kfz-questions.md` ersetzt.
+
 ## Ziel
 
 Die offenen Fragen aus `specs/01-questions.md` gemeinsam klaeren.

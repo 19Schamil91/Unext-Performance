@@ -1,5 +1,7 @@
 # Aufgabe 006: Finale Specs erstellen
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und wird nicht mehr aktiv verwendet. Sie wurde durch `017-create-kfz-final-specs.md` ersetzt.
+
 ## Ziel
 
 Aus den beantworteten Fragen die finalen Specs in `specs/` erstellen.

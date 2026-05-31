@@ -1,5 +1,7 @@
 # Aufgabe 009: Homepage ueberarbeiten
 
+> Statushinweis: Diese Aufgabe ist fachlich durch den Kurswechsel auf eine reine KFZ-Gutachten-Webseite ueberholt und darf in ihrer alten Ausrichtung auf Autovermietung und Fahrzeugservice nicht weiterverwendet werden. Sie wurde durch `020-plan-homepage-kfz-gutachten-rework.md` ersetzt.
+
 ## Ziel
 
 Die Homepage spaeter auf Autovermietung in Berlin und Service rund ums Fahrzeug ausrichten.

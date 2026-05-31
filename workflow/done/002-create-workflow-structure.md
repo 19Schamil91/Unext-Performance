@@ -22,4 +22,4 @@ Geplante Aufgaben sollen sichtbar in `workflow/todo/` liegen. Abgeschlossene Auf
 
 ## Status
 
-Todo
+Abgeschlossen und freigegeben im Rahmen von Aufgabe 016.

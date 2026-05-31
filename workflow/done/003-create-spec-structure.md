@@ -23,4 +23,4 @@ Die Specs werden die Grundlage fuer alle spaeteren Website-Aenderungen. Noch sol
 
 ## Status
 
-Todo
+Abgeschlossen und freigegeben im Rahmen von Aufgabe 016.

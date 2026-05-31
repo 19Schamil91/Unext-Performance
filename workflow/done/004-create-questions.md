@@ -1,3 +1,5 @@
+> Hinweis: Diese Aufgabe wurde urspruenglich mit alter fachlicher Ausrichtung erstellt. Der damalige Kontext enthielt noch Mietwagen/Service. Der Fragenkatalog wurde spaeter durch Aufgabe 014 auf die reine KFZ-Gutachten-Webseite mit digitaler Schadenaufnahme und geplanter KI-Voranalyse neu ausgerichtet.
+
 # Aufgabe 004: Fragenkatalog erstellen
 
 ## Ziel
@@ -22,4 +24,4 @@ Die finalen Specs duerfen erst geschrieben werden, wenn zentrale Business-, Miet
 
 ## Status
 
-Todo
+Abgeschlossen und freigegeben im Rahmen von Aufgabe 016.
