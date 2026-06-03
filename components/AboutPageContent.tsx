@@ -6,6 +6,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Award, CheckCircle, Heart, Target, Users } from "lucide-react"
+import { ReadableText } from "@/components/readable-text"
 import { CtaSection } from "@/components/sections/cta-section"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -20,40 +21,12 @@ type AboutPageContentProps = {
 
 const icons = [Award, Users, Target, Heart]
 
-// Diese kurzen Fassungen halten den Hero-Text auf schmalen Displays ruhig und gut lesbar.
-const mobileHeroDescriptions: Partial<Record<Locale, string>> = {
-  de: "Vom Unfallgutachter zum\nAutomotive-Partner in Berlin.\nErfahrung, Service und klare Abläufe.",
-  en: "From accident reports to\nautomotive services in Berlin.\nExperience, service and clear processes.",
-  ru: "От экспертизы ДТП\nк автоуслугам в Берлине.\nОпыт, сервис и понятные процессы.",
-}
-
-// Diese Fassung bricht einzelne Story-Abschnitte nur mobil ruhiger um.
-const mobileStoryParagraphs: Partial<Record<Locale, string[]>> = {
-  de: [
-    "UNEXT GmbH wurde 2024 in Berlin gegründet.\nDer Ursprung liegt in professionellen Unfallgutachten\nund schneller Hilfe unter der Marke UNFALLX.",
-    "Heute verbindet UNEXT mehrere\nFahrzeugleistungen an einem Standort:\nAutovermietung, Werkstatt & Service,\nAufbereitung & Pflege, Pannenhilfe & Abschleppen\nsowie Kfz-Zulassung.",
-  ],
-}
-
-// Diese Beschreibungen halten die Timeline auf dem Handy in ruhigen Zeilen.
-const mobileMilestoneDescriptions: Partial<Record<Locale, Partial<Record<number, string>>>> = {
-  de: {
-    5: "Fahrzeugservice an einem Ort.\nIhr Automotive-Partner in Berlin.",
-  },
-  en: {
-    5: "Vehicle services in one place.\nYour automotive partner in Berlin.",
-  },
-  ru: {
-    4: "Помогаем с регистрацией\nи закрываем важный этап.",
-    5: "Автоуслуги в одном месте.\nВаш партнер в Берлине.",
-  },
+function normalizeText(text: string) {
+  return text.split("\n").map((line) => line.trim()).filter(Boolean).join(" ")
 }
 
 export function AboutPageContent({ locale }: AboutPageContentProps) {
   const t = getTranslations(locale).aboutPage
-  const mobileHeroDescription = mobileHeroDescriptions[locale] ?? t.description
-  const mobileStoryParagraphList = mobileStoryParagraphs[locale] ?? t.storyParagraphs
-  const mobileMilestoneDescriptionList = mobileMilestoneDescriptions[locale] ?? {}
 
   return (
     <>
@@ -76,23 +49,13 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
 
           <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
             <div className="max-w-5xl max-md:mx-auto max-md:max-w-[34rem] max-md:text-center">
-              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] max-md:text-[clamp(2rem,8vw,2.45rem)] max-md:leading-[1.02] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
+              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
                 {t.title}
               </h1>
-              <p className="mt-6 measure-intro text-body-fluid text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:hidden">
-                {t.description.split("\n").map((line, index) => (
-                  <span key={`${line}-${index}`} className="block">
-                    {line}
-                  </span>
-                ))}
-              </p>
-              <p className="mx-auto mt-4 hidden max-w-[36ch] text-[0.98rem] leading-[1.55] text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] max-md:block">
-                {mobileHeroDescription.split("\n").map((line, index) => (
-                  <span key={`${line}-${index}`} className="block">
-                    {line}
-                  </span>
-                ))}
-              </p>
+              <ReadableText
+                text={normalizeText(t.description)}
+                className="mx-auto mt-4 measure-intro-tight text-body-compact text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] md:mx-0 md:mt-6 md:measure-intro md:text-body-fluid"
+              />
             </div>
           </div>
         </section>
@@ -120,26 +83,13 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
                   {t.storyTitle}
                 </h2>
-                <div className="mt-6 hidden measure-intro-tight space-y-4 text-body-fluid text-muted-foreground md:block">
+                <div className="mt-6 measure-intro-tight space-y-4 text-body-fluid text-muted-foreground">
                   {t.storyParagraphs.map((paragraph) => (
-                    <p key={paragraph}>
-                      {paragraph.split("\n").map((line, index) => (
-                        <span key={`${line}-${index}`} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-6 space-y-4 text-body-fluid text-muted-foreground md:hidden">
-                  {mobileStoryParagraphList.map((paragraph) => (
-                    <p key={paragraph}>
-                      {paragraph.split("\n").map((line, index) => (
-                        <span key={`${line}-${index}`} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </p>
+                    <ReadableText
+                      key={paragraph}
+                      text={normalizeText(paragraph)}
+                      className="text-body-fluid text-muted-foreground"
+                    />
                   ))}
                 </div>
               </div>
@@ -158,14 +108,10 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                         <h3 className="mt-1 max-w-none text-title-fluid font-semibold leading-[1.14] text-foreground [text-wrap:balance] lg:mt-0 lg:leading-normal lg:whitespace-nowrap">
                           {milestone.title}
                         </h3>
-                        <p className="mt-2 max-w-[32ch] text-[0.98rem] leading-[1.66] text-muted-foreground lg:mt-1 lg:max-w-[42ch] lg:leading-[1.62]">
-                          {milestone.description.split("\n").map((line, index) => (
-                            <span key={`${line}-${index}`} className="block">
-                              {line}
-                            </span>
-                          ))}
-                          {mobileMilestoneDescriptionList[index] ? null : null}
-                        </p>
+                        <ReadableText
+                          text={normalizeText(milestone.description)}
+                          className="mt-2 measure-card-copy-wide text-body-compact text-muted-foreground lg:mt-1"
+                        />
                       </div>
                     </div>
                   ))}
@@ -181,7 +127,10 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
               <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground">
                 {t.valuesTitle}
               </h2>
-              <p className="mx-auto mt-4 measure-intro text-body-fluid text-muted-foreground">{t.valuesDescription}</p>
+              <ReadableText
+                text={normalizeText(t.valuesDescription)}
+                className="mx-auto mt-4 measure-intro text-body-fluid text-muted-foreground"
+              />
             </div>
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -198,13 +147,10 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                         <Icon className="h-7 w-7" />
                       </div>
                       <h3 className="text-title-fluid font-semibold text-foreground sm:measure-card-copy">{value.title}</h3>
-                      <p className="mt-2 max-w-none text-body-compact text-muted-foreground sm:mx-auto sm:measure-card-copy-wide">
-                        {value.description.split("\n").map((line, index) => (
-                          <span key={`${line}-${index}`} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </p>
+                      <ReadableText
+                        text={normalizeText(value.description)}
+                        className="mt-2 max-w-none text-body-compact text-muted-foreground sm:mx-auto sm:measure-card-copy-wide"
+                      />
                     </CardContent>
                   </Card>
                 )
@@ -239,14 +185,10 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 <h2 className="measure-heading text-heading-fluid font-semibold text-foreground">
                   {t.subBrandTitle}
                 </h2>
-                <p className="mt-6 max-w-[64ch] text-body-compact leading-[1.72] text-muted-foreground">
-                  {t.subBrandDescription.split("\n").map((line, index, lines) => (
-                    <span key={`${line}-${index}`} className="inline lg:block">
-                      {line}
-                      {index < lines.length - 1 ? " " : null}
-                    </span>
-                  ))}
-                </p>
+                <ReadableText
+                  text={normalizeText(t.subBrandDescription)}
+                  className="mt-6 measure-intro-tight text-body-compact leading-[1.72] text-muted-foreground"
+                />
                 <ul className="mt-6 space-y-3">
                   {t.subBrandHighlights.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-foreground">

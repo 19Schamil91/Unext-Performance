@@ -5,6 +5,7 @@
 */
 import Image from "next/image"
 import { ArrowRight, Clock3, Package, Truck } from "lucide-react"
+import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Locale } from "@/lib/i18n"
@@ -56,21 +57,23 @@ export function ExpressCourierSection({ locale }: Props) {
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {t.eyebrow}
                     </p>
-                    <h2 className="mt-1 hidden max-w-[13ch] text-heading-fluid font-semibold text-foreground sm:max-w-[15ch] md:block lg:max-w-none lg:text-[clamp(2.7rem,3.9vw,4.2rem)] lg:leading-[1.02] lg:whitespace-nowrap">
+                    <h2 className="mt-1 hidden measure-heading text-heading-fluid font-semibold text-foreground md:block lg:max-w-none">
                       {t.title}
                     </h2>
-                    <h2 className="mt-1 whitespace-pre-line text-[clamp(1.85rem,8vw,2.22rem)] font-semibold leading-[1.04] text-foreground md:hidden">
+                    <h2 className="mt-1 measure-heading text-heading-fluid font-semibold text-foreground md:hidden">
                       {mobileTitle}
                     </h2>
                   </div>
                 </div>
 
-                <p className="mt-5 hidden measure-intro-tight whitespace-pre-line text-body-fluid text-foreground/82 md:block">
-                  {t.description}
-                </p>
-                <p className="mt-5 whitespace-pre-line text-[1.02rem] leading-[1.62] text-foreground/82 md:hidden">
-                  {mobileDescription}
-                </p>
+                <ReadableText
+                  text={t.description}
+                  className="mt-5 hidden measure-intro-tight text-body-fluid text-foreground/82 md:block"
+                />
+                <ReadableText
+                  text={mobileDescription}
+                  className="mt-5 measure-intro-tight text-body-fluid text-foreground/82 md:hidden"
+                />
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {t.features.map((feature) => (
@@ -116,9 +119,10 @@ export function ExpressCourierSection({ locale }: Props) {
                       <h3 className="mt-5 measure-card-copy text-card-heading-fluid text-foreground">
                         {t.highlightTitle}
                       </h3>
-                      <p className="mt-3 measure-card-copy-wide whitespace-pre-line text-body-compact text-foreground/78">
-                        {t.highlightDescription}
-                      </p>
+                      <ReadableText
+                        text={t.highlightDescription}
+                        className="mt-3 measure-card-copy-wide text-body-compact text-foreground/78"
+                      />
                       <div className="mt-6 rounded-xl border border-border/50 bg-card/80 px-4 py-3">
                         <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                           {t.contactBoxLabel}

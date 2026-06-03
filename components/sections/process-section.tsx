@@ -21,12 +21,12 @@ export function ProcessSection({ locale }: Props) {
     <section className="bg-card py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-10 max-w-5xl text-center sm:mb-16">
-          <h2 className="mx-auto max-w-[24rem] text-[clamp(1.85rem,1.58rem+1.1vw,2.2rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-foreground sm:max-w-[16ch] sm:text-[clamp(1.9rem,1.35rem+1.45vw,3.15rem)] sm:leading-[1.04] sm:tracking-[-0.03em] sm:font-[650] lg:max-w-none lg:whitespace-nowrap">
+          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none">
             {t.title}
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 max-w-[34rem] whitespace-pre-line text-body-fluid text-foreground/82 sm:mt-4 sm:max-w-[66ch]"
+            className="mx-auto mt-3 measure-intro text-body-fluid text-foreground/82 sm:mt-4"
           />
         </div>
 
@@ -50,7 +50,7 @@ export function ProcessSection({ locale }: Props) {
                   </div>
 
                   <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{item.title}</h3>
-                  <p className="mt-2 measure-card-copy whitespace-pre-line text-body-compact text-foreground/78">
+                  <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
                     {item.description}
                   </p>
 
