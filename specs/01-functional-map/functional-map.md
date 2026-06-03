@@ -1,139 +1,257 @@
 # Functional Map
 
-Status: Finaler Entwurf, wartet auf Freigabe.
+Status: Freigegeben als Basis fuer die naechsten Planungsaufgaben.
 
-Grundlage: `specs/07-open-questions/open-questions.md`, `specs/00-global-spec/global-spec.md`, Aufgabe 017.
+Grundlage: `specs/07-open-questions/open-questions.md`, `specs/00-global-spec/global-spec.md`, bestehende Feature Specs und bestehende Technical Specs.
 
 ## Ziel
 
-Diese Functional Map beschreibt die fachlichen Nutzerwege und Funktionsbereiche der UNEXT-Webseite. Sie beschreibt keine technische Umsetzung und ersetzt keinen Work Plan.
+Diese Functional Map beschreibt die fachlichen Nutzerwege und Funktionsbereiche der neuen UNEXT-Webseite. Sie ist die Bruecke zwischen Global Spec und spaeterem Rework-Plan.
 
-## Grundrichtung
+Sie beschreibt keine technische Umsetzung und ersetzt keinen Work Plan.
 
-UNEXT wird als reine KFZ-Gutachten-Webseite fuer Berlin geplant. Nutzer sollen schnell verstehen, welche Gutachtenleistungen angeboten werden, wie sie UNEXT kontaktieren koennen und wie die digitale Schadenaufnahme spaeter erweitert wird.
+## 1. Funktionsuebersicht
 
-## Hauptnutzerwege
+### Version 1 / erste veroeffentlichbare Website
+
+Version 1 umfasst:
+
+- Information zu KFZ-Gutachten in Berlin
+- Gutachtenarten erklaeren
+- Vertrauen / Sachverstaendigenkompetenz
+- Kontaktwege Telefon, WhatsApp und E-Mail
+- Anfrageprozess / Formular als geplanten oder launchabhaengigen strukturierten Anfrageweg
+- digitale Schadenaufnahme als Kontakt- und Anfrageprozess
+- FAQ
+- Impressum
+- Datenschutz
+- Mobile-First-CTAs
+- geplante KI-Unterstuetzung nur korrekt als geplant, in Vorbereitung oder kuenftig integriert kommunizieren, falls KI noch nicht live ist
+
+### Zielversion / Roadmap
+
+Die Zielversion umfasst:
+
+- Foto-Upload
+- Supabase-Speicherung
+- interne Gutachterpruefung
+- KI-gestuetzte Voranalyse
+- spaetere Admin-/Portal-Funktionen
+- spaetere Kundenportal-/Web-App-Planung
+
+Upload, Supabase und KI sind feste Roadmap-Bestandteile, aber nicht automatisch Teil des ersten Launches.
+
+## 2. Hauptnutzerwege
 
 ### Kunde sucht KFZ-Gutachten in Berlin
 
-- Nutzer findet klare Positionierung `KFZ-Gutachten in Berlin`.
-- Nutzer versteht die Gutachtenarten: Unfallgutachten, Schadengutachten, Wertgutachten / Fahrzeugbewertung und Beweissicherung.
-- Nutzer sieht Standort, Kontaktwege und Vertrauenselemente.
+Ziel:
+Der Nutzer versteht sofort, dass UNEXT KFZ-Gutachten in Berlin anbietet.
+
+Funktionen:
+
+- Hero / klare Hauptaussage `KFZ-Gutachten in Berlin`
+- Gutachtenarten
+- Kontaktmoeglichkeiten
+- Vertrauen / Qualifikation
+- FAQ
 
 ### Kunde hatte Unfall und braucht schnelle Kontaktaufnahme
 
-- Nutzer sieht Telefon- und WhatsApp-CTA schnell, besonders mobil.
-- Nutzer kann ohne lange Erklaerung Kontakt aufnehmen.
-- Keine 24/7- oder Sofortdienst-Garantie, solange nicht bestaetigt.
+Ziel:
+Der Nutzer kann schnell anrufen oder WhatsApp nutzen.
+
+Funktionen:
+
+- Telefon-CTA
+- WhatsApp-CTA
+- keine 24/7- oder Sofortdienst-Versprechen
+- Vor-Ort-Dokumentation nur nach Verfuegbarkeit
 
 ### Kunde moechte Schaden melden
 
-- Nutzer kann einen Schaden ueber Telefon, WhatsApp oder spaeter Formular melden.
-- In der ersten Webseitenversion wird die digitale Schadenaufnahme als vorbereiteter Anfrageprozess beschrieben.
-- Spaeter kann die Schadenmeldung durch Upload, Supabase-Speicherung und interne Pruefung erweitert werden.
+Ziel:
+Der Nutzer kann eine erste Schadenmeldung starten.
 
-### Kunde moechte telefonisch Kontakt aufnehmen
+Funktionen:
 
-- Telefon ist primaerer Kontaktweg.
-- Telefonnummer ist in Kontaktbereich, CTA-Bereichen und mobil schnell erreichbar.
-- Telefon dient Rueckfragen, Terminabstimmung und dringenden Faellen.
+- Telefon
+- WhatsApp
+- E-Mail als ergaenzender Kontaktweg
+- strukturierte Anfrage / Formular als geplante oder launchabhaengige Funktion
+- kurze Schadenbeschreibung
+- digitale Schadenaufnahme zunaechst als Kontakt-/Anfrageprozess, spaeter erweitert um Foto-Upload, Supabase und KI-Voranalyse
 
-### Kunde moechte per WhatsApp Kontakt aufnehmen
+### Kunde nutzt die Webseite am Smartphone
 
-- WhatsApp ist primaerer mobiler Kontaktweg.
-- WhatsApp kann fuer schnelle Erstnachrichten und gegebenenfalls erste Bilduebermittlung genutzt werden, solange Upload/Supabase noch nicht umgesetzt ist.
-- Datenschutz- und Einwilligungshinweise sind vor intensiver Bild- oder Dokumentverarbeitung separat zu klaeren.
+Ziel:
+Mobile Nutzer sollen schnell und ohne lange Wege handeln koennen.
 
-### Kunde moechte strukturierte Anfrage stellen
+Funktionen:
 
-- Die Webseite soll einen strukturierten Anfrageweg planen.
-- Erste Anfragefelder: Name, Telefonnummer, bevorzugter Kontaktweg und kurze Schadenbeschreibung.
-- Weitere Felder fuer Fahrzeugdaten, Versicherungsdaten und Schadennummer bleiben optional oder werden spaeter im Upload-Flow konkretisiert.
+- Telefon direkt erreichbar
+- WhatsApp direkt erreichbar
+- Gutachten anfragen / Schaden melden
+- kurze Textabschnitte
+- mobile FAQ
+- spaeter Foto-Upload per Kamera oder Galerie
+- mobile Zeilenumbrueche und CTA-Reihenfolge pruefen
 
 ### Kunde moechte spaeter Bilder hochladen
 
-- Foto-Upload ist Teil der Zielversion.
-- Upload darf erst nach eigener Upload-/Supabase-Spec, Datenschutzklaerung und Freigabe umgesetzt werden.
-- Upload muss Mobile First fuer Kamera und Galerie geplant werden.
+Ziel:
+Der Nutzer kann in der Zielversion Schadenbilder digital einreichen.
 
-### Gutachter moechte spaeter Anfrage intern pruefen
+Funktionen:
 
-- Interne Pruefung durch Gutachter ist Teil der Zielversion.
-- Der Gutachter soll spaeter Anfrage, Fahrzeugdaten, Schadenbeschreibung, Bilder, interne Notizen und KI-Voranalyse einsehen koennen.
-- Die finale Bewertung erfolgt immer durch einen Gutachter.
+- Foto-Upload
+- Hinweise zu Bildperspektiven
+- Hinweise zu Bildqualitaet
+- Upload vom Handy
+- Datenschutz-/Einwilligungshinweise
+- Supabase Storage
+- keine Upload-Funktion als live darstellen, solange technisch nicht umgesetzt
 
-### KI soll spaeter intern Voranalyse unterstuetzen
+### Mehrsprachiger Nutzer
 
-- KI-Voranalyse ist fester Roadmap-Bestandteil.
-- KI unterstuetzt spaeter Bildanalyse, Strukturierung, Bildqualitaet und interne Zusammenfassung.
-- KI ist kein finaler Entscheider, erstellt kein Gutachten und liefert keine verbindliche Schadenhoehe.
+Ziel:
+Der Nutzer kann Inhalte grundsaetzlich auf Deutsch, Russisch oder Englisch verstehen.
 
-## Version 1 / erste veroeffentlichbare Website
+Funktionen:
 
-Zur ersten veroeffentlichbaren Version gehoeren:
+- Deutsch ist fachlich fuehrend
+- Russisch und Englisch basieren auf freigegebenen deutschen Inhalten
+- keine Sprache darf mehr versprechen als Deutsch
+- KI-/Rechts-/Datenschutzformulierungen je Sprache vorsichtig pruefen
+- mobile Textlaengen je Sprache beruecksichtigen
 
-- Informationen zu KFZ-Gutachten
-- Erklaerung der Gutachtenarten
-- Kontakt ueber Telefon
-- Kontakt ueber WhatsApp
-- Kontakt ueber E-Mail
-- strukturierter Anfrageprozess / Formular als Planung
-- digitale Schadenaufnahme als vorbereiteter Prozess
-- Mobile-First-Kontaktwege
-- FAQ-Grundlage
-- Standort Berlin, Adresse und Oeffnungszeiten
-- sachliche Vertrauenselemente
+### Gutachter / interner Bearbeiter
 
-Falls technisch noch nicht umgesetzt, gehoeren nicht aktiv zur ersten Version:
+Ziel:
+Interne Bearbeitung soll spaeter strukturierte Anfragen, Bilder und KI-Voranalysen pruefen koennen.
 
-- aktiver Datei-Upload
-- Supabase-Speicherung
-- KI-Auswertung
-- kundensichtbare KI-Ergebnisse
-- Adminbereich
-- Kundenportal
+Funktionen:
 
-## Zielversion / Roadmap
+- Anfrage pruefen
+- Bilder ansehen
+- interne Notizen
+- KI-Voranalyse intern sehen
+- finale Bewertung durch Gutachter
+- keine automatische finale Entscheidung durch KI
 
-Geplante Zielversion:
+### KI als unterstuetzender Prozess
 
-- Foto-Upload fuer Schadenbilder
+Ziel:
+KI unterstuetzt spaeter intern die Voranalyse, ersetzt aber nicht den Gutachter.
+
+Funktionen:
+
+- sichtbare Schadenbereiche beschreiben
+- Bildqualitaet bewerten
+- fehlende Perspektiven erkennen
+- Zusammenfassung vorbereiten
+- keine finale Schadenhoehe
+- kein vollstaendiges Gutachten
+- keine kundensichtbaren KI-Ergebnisse ohne gesonderte Freigabe
+
+## 3. Version 1 / erste veroeffentlichbare Website
+
+Version 1 umfasst mindestens:
+
+- Startseite / Hauptseite fuer KFZ-Gutachten Berlin
+- Gutachtenarten
+- Ablauf der Anfrage
+- digitale Schadenaufnahme als Kontakt-/Anfrageprozess
+- Telefon
+- WhatsApp
+- E-Mail
+- Standort
+- Oeffnungszeiten
+- FAQ
+- Impressum
+- Datenschutz
+- Mobile-First-CTAs
+- korrekte Kommunikation geplanter KI-Unterstuetzung, falls KI erwaehnt wird
+
+Wichtig:
+
+- Formular ist als strukturierter Anfrageweg geplant.
+- Ob Formular direkt zum Launch live ist, bleibt launchabhaengig.
+- Digitale Schadenaufnahme bedeutet in Version 1 noch nicht automatisch Datei-Upload. Foto-Upload, Supabase-Speicherung und KI-Voranalyse gehoeren erst dann zur aktiven Funktion, wenn sie technisch umgesetzt und freigegeben sind.
+- Upload, Supabase und KI duerfen nicht als live dargestellt werden, solange sie technisch nicht umgesetzt sind.
+- Kundensichtbare KI-Ergebnisse gehoeren nicht zu Version 1, solange sie nicht gesondert fachlich, technisch und rechtlich freigegeben sind.
+
+## 4. Zielversion / Roadmap
+
+Zur Zielversion / Roadmap gehoeren:
+
+- Foto-Upload
 - Supabase-Speicherung von Anfragen und Bildern
 - interne Gutachterpruefung
-- KI-gestuetzte Voranalyse als interne Unterstuetzung
-- Speicherung der KI-Voranalyse
-- spaetere Admin-Funktionen
-- spaetere Kundenportal- oder Web-App-Funktionen
+- KI-gestuetzte Voranalyse
+- Speicherung von KI-Ergebnissen
+- spaeter optional Adminbereich
+- spaeter optional Kundenportal / Web-App
 
-Diese Funktionen sind feste Roadmap-Bestandteile, aber erst nach eigener Spec, Datenschutzklaerung, technischer Planung und ausdruecklicher Freigabe umzusetzen.
+Technische Umsetzung erst nach:
 
-## Nicht-Scope
+- Detail-Spec
+- Datenschutzklaerung
+- technischem Umsetzungsplan
+- Workflow-Aufgabe
+- ausdruecklicher Freigabe
 
-Nicht als aktive Leistungen planen, bewerben oder in Nutzerwege aufnehmen:
+## 5. Supabase als Roadmap-Funktionsbereich
 
-- Autovermietung
-- Mietwagen
-- Ersatzwagen
-- Fahrzeugservice
-- Autoservice
-- Werkstatt
-- Service rund ums Fahrzeug
-- Dashcam
-- Dashcam-Einbau
-- Reifenservice
-- Reifenwechsel
-- Zulassung
-- Zulassungsservice
-- Abschleppdienst
-- Pannenhilfe
-- Fahrzeugaufbereitung
-- Detailing
+Supabase soll spaeter ermoeglichen:
 
-Alte Inhalte aus diesen Bereichen duerfen nur ueber einen freigegebenen Cleanup-Plan entfernt, ersetzt oder archiviert werden.
+- Schadenanfragen speichern
+- Kontakt- und Fahrzeugdaten speichern
+- Schadenbilder speichern
+- interne Notizen ermoeglichen
+- Bearbeitungsstatus verwalten
+- KI-Voranalyse-Ergebnisse speichern
+- spaetere Admin-/Portal-Funktionen unterstuetzen
 
-## Offene Entscheidungen
+Keine Supabase-Integration in dieser Aufgabe.
 
-- Ob das konkrete Einzugsgebiet ueber Berlin hinaus genannt wird.
-- Ob zum ersten Launch ein Formular live ist oder nur Telefon/WhatsApp/E-Mail priorisiert werden.
-- Ob Deutsch, Russisch und Englisch direkt live gehen oder Deutsch zuerst.
-- Ob Upload, Supabase und KI beim ersten Launch live sind oder spaeter aktiviert werden.
+## 6. Nicht-Scope
+
+Diese Nutzerwege und Funktionen gehoeren nicht zur neuen Functional Map:
+
+- Auto mieten
+- Mietwagen buchen
+- Ersatzwagen anfragen
+- Fahrzeugservice buchen
+- Werkstatttermin vereinbaren
+- Reifenservice / Reifenwechsel anfragen
+- Dashcam-Einbau anfragen
+- Zulassungsservice anfragen
+- Abschleppdienst / Pannenhilfe anfragen
+- Fahrzeugaufbereitung / Detailing buchen
+
+Diese alten Bereiche duerfen nur noch als zu entfernende Altinhalte im Cleanup-Kontext auftauchen.
+
+## 7. Offene Entscheidungen
+
+Offen bleiben:
+
+- konkretes Einzugsgebiet ueber Berlin hinaus
+- ob Formular direkt zum Launch live ist
+- ob Upload/Supabase/KI beim ersten Launch live sind oder spaeter aktiviert werden
+- Launch-Sprachen: Deutsch zuerst oder Deutsch/Russisch/Englisch direkt
+- konkrete Rueckmeldefrist/Bearbeitungszeit
+- Nutzung von Google-Bewertungen
+- weitere Gutachtenarten
+- spaetere Admin-/Portal-Funktionen
+
+Offene Entscheidungen duerfen nicht als bestaetigte Leistungen oder Funktionen kommuniziert werden.
+
+## 8. Abhaengigkeiten zu anderen Specs
+
+- Global Spec ist die oberste Leitplanke: `specs/00-global-spec/global-spec.md`
+- Feature Specs enthalten Detailregeln: `specs/02-feature-specs/`
+- Technical Specs enthalten technische Planung fuer Supabase, Datenmodell und KI: `specs/03-technical-specs/`
+- Visual Rules enthalten Mobile-First- und UI-Regeln: `specs/04-visual-rules/visual-rules.md`
+- User Stories beschreiben konkrete Nutzerperspektiven: `specs/05-user-stories/user-stories.md`
+- Work Plans steuern spaetere konkrete Umsetzung: `specs/06-work-plans/`
