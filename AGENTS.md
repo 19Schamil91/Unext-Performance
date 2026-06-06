@@ -20,7 +20,15 @@ Das bedeutet:
 4. Danach prüfen und zusammenfassen.
 5. Erst nach ausdrücklicher Freigabe abschließen.
 
-## Branch-Regel
+## Git-, Branch- und PR-Arbeitsweise
+
+Jedes Arbeitspaket bekommt einen eigenen Branch.
+
+Ein Branch darf mehrere zusammengehörige Commits enthalten.
+
+Nicht für jeden einzelnen Commit einen neuen Branch erstellen.
+
+Nicht mehrere unabhängige Themen unnötig auf einem Branch sammeln.
 
 Größere Umbauten, Reworks oder technische Integrationen müssen auf einem eigenen Feature-Branch stattfinden.
 
@@ -30,15 +38,13 @@ Wenn kein passender Branch aktiv ist, zuerst nachfragen oder einen neuen Branch 
 
 Keine größeren Umbauten direkt auf dem Hauptbranch durchführen.
 
-## Git- und PR-Arbeitsweise
+Vor jeder Dateiänderung, jedem Commit und jedem Push muss der aktuelle Arbeitsstand berücksichtigt werden.
 
-Jedes Arbeitspaket bekommt einen eigenen Branch.
+Wenn der Working Tree bereits Änderungen enthält, die nicht zur aktuellen Aufgabe gehören, darf der Agent diese nicht überschreiben, nicht formatieren und nicht mitcommitten.
 
-Ein Branch darf mehrere zusammengehörige Commits enthalten.
+Unerwartete oder fremde Änderungen müssen vor dem Commit klar benannt werden.
 
-Nicht für jeden einzelnen Commit einen neuen Branch erstellen.
-
-Nicht mehrere unabhängige Themen unnötig auf einem Branch sammeln.
+Bei Unsicherheit muss vor Commit, Formatierung oder Löschen nachgefragt werden.
 
 Vor Push oder PR muss der Working Tree sauber sein.
 
@@ -49,9 +55,13 @@ Vor Commit und Push passende Checks ausführen, je nach Änderung:
 
 Wenn das Arbeitspaket abgeschlossen beziehungsweise PR-bereit ist:
 
-1. aktuellen Branch zu `origin` pushen
+1. passenden Branch zu `origin` pushen
 2. PR gegen `main` erstellen oder PR-Text vorbereiten
-3. nicht automatisch mergen, außer der Nutzer fordert es ausdrücklich
+3. nach erfolgreichem Push die Branch-Handoff-Regel beachten
+4. nicht automatisch mergen, außer der Nutzer fordert es ausdrücklich
+5. nach Merge lokal auf `main` wechseln
+6. `git pull origin main`
+7. neuen Branch für das nächste Arbeitspaket erstellen
 
 ## PR-Beschreibungs-Regel
 
@@ -70,12 +80,6 @@ Verpflichtend:
 - Risiken und Hinweise konkret nennen
 - offene Punkte nur nennen, wenn es wirklich welche gibt; sonst `None` oder `Keine offenen Punkte` schreiben
 - PR-Beschreibung kurz, professionell und reviewfähig halten
-
-Nach Merge:
-
-1. lokal auf `main` wechseln
-2. `git pull origin main`
-3. neuen Branch für das nächste Arbeitspaket erstellen
 
 ## Branch-Handoff-Regel nach Push
 
@@ -102,16 +106,6 @@ Diese Regel ist verpflichtend und gilt vor jeder neuen Dateiänderung, jedem Com
 Unerwartete Dateiänderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, müssen vor Commit geprüft und dürfen nicht unbeachtet mitcommitted werden.
 
 Codex soll den Nutzer aktiv darauf hinweisen, wann ein neuer Branch sinnvoll ist.
-
-Vor Änderungen muss der Agent den aktuellen Arbeitsstand berücksichtigen.
-
-Wenn der Working Tree bereits Änderungen enthält, die nicht zur aktuellen Aufgabe gehören, darf der Agent diese nicht überschreiben, nicht formatieren und nicht mitcommitten.
-
-Unerwartete oder fremde Änderungen müssen vor dem Commit klar benannt werden.
-
-Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe gehören.
-
-Bei Unsicherheit muss vor Commit, Formatierung oder Löschen nachgefragt werden.
 
 ## Arbeitsregeln
 
