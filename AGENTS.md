@@ -1,8 +1,8 @@
 # AGENTS.md
 
-Dieses Dokument ist fuer den Agenten verbindlich.
+Dieses Dokument ist für den Agenten verbindlich.
 Es beschreibt nur die Arbeitsweise im Projekt, nicht die fachlichen Inhalte der Webseite.
-Fachliche Anforderungen gehoeren in `specs/`.
+Fachliche Anforderungen gehören in `specs/`.
 
 ## Grundprinzip
 
@@ -16,7 +16,7 @@ Das bedeutet:
 
 1. Anforderungen zuerst in Specs dokumentieren.
 2. Danach die Umsetzung planen.
-3. Erst dann Code oder Inhalte aendern.
+3. Erst dann Code oder Inhalte ändern.
 4. Danach pruefen und zusammenfassen.
 5. Erst nach ausdruecklicher Freigabe abschliessen.
 
@@ -24,7 +24,7 @@ Das bedeutet:
 
 Groessere Umbauten, Reworks oder technische Integrationen muessen auf einem eigenen Feature-Branch stattfinden.
 
-Vor solchen Aenderungen pruefen, ob bereits ein passender Branch aktiv ist.
+Vor solchen Änderungen pruefen, ob bereits ein passender Branch aktiv ist.
 
 Wenn kein passender Branch aktiv ist, zuerst nachfragen oder einen neuen Branch vorschlagen.
 
@@ -36,13 +36,13 @@ Jedes Arbeitspaket bekommt einen eigenen Branch.
 
 Ein Branch darf mehrere zusammengehoerige Commits enthalten.
 
-Nicht fuer jeden einzelnen Commit einen neuen Branch erstellen.
+Nicht für jeden einzelnen Commit einen neuen Branch erstellen.
 
 Nicht mehrere unabhaengige Themen unnoetig auf einem Branch sammeln.
 
 Vor Push oder PR muss der Working Tree sauber sein.
 
-Vor Commit und Push passende Checks ausfuehren, je nach Aenderung:
+Vor Commit und Push passende Checks ausfuehren, je nach Änderung:
 
 - Specs/Markdown: `git diff --check -- <betroffene Dateien>`
 - Code/UI: zusaetzlich `npm run lint`, `npx tsc --noEmit` und `npm run build` gemaess Projektregeln
@@ -57,34 +57,56 @@ Nach Merge:
 
 1. lokal auf `main` wechseln
 2. `git pull origin main`
-3. neuen Branch fuer das naechste Arbeitspaket erstellen
+3. neuen Branch für das nächste Arbeitspaket erstellen
 
-Unerwartete Dateiaenderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, muessen vor Commit geprueft und duerfen nicht unbeachtet mitcommitted werden.
+## Branch-Handoff-Regel nach Push
+
+Nach einem erfolgreichen Push darf der Agent nicht direkt mit einer neuen Aufgabe weiterarbeiten.
+
+Vor jeder weiteren Dateiänderung, jedem Commit und jedem Push muss der Agent den Nutzer fragen, ob der PR bereits gemerged wurde.
+
+Wenn der Nutzer bestätigt, dass der PR gemerged wurde, ist diese Reihenfolge verpflichtend:
+
+1. `git status`
+2. auf `main` wechseln
+3. `git pull origin main`
+4. neuen Branch für die nächste Aufgabe erstellen
+5. erst danach weitere Änderungen machen
+
+Wenn der PR noch nicht gemerged wurde:
+
+- auf demselben Branch nur Änderungen machen, die genau zu diesem PR gehören
+- keine neue Aufgabe auf diesem Branch beginnen
+- keine themenfremden Dateien ändern, committen oder pushen
+
+Diese Regel ist verpflichtend und gilt vor jeder neuen Dateiänderung, jedem Commit und jedem Push.
+
+Unerwartete Dateiänderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, muessen vor Commit geprueft und duerfen nicht unbeachtet mitcommitted werden.
 
 Codex soll den Nutzer aktiv darauf hinweisen, wann ein neuer Branch sinnvoll ist.
 
-Vor Aenderungen muss der Agent den aktuellen Arbeitsstand beruecksichtigen.
+Vor Änderungen muss der Agent den aktuellen Arbeitsstand beruecksichtigen.
 
-Wenn der Working Tree bereits Aenderungen enthaelt, die nicht zur aktuellen Aufgabe gehoeren, darf der Agent diese nicht ueberschreiben, nicht formatieren und nicht mitcommitten.
+Wenn der Working Tree bereits Änderungen enthaelt, die nicht zur aktuellen Aufgabe gehören, darf der Agent diese nicht ueberschreiben, nicht formatieren und nicht mitcommitten.
 
-Unerwartete oder fremde Aenderungen muessen vor dem Commit klar benannt werden.
+Unerwartete oder fremde Änderungen muessen vor dem Commit klar benannt werden.
 
-Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe gehoeren.
+Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe gehören.
 
 Bei Unsicherheit muss vor Commit, Formatierung oder Loeschen nachgefragt werden.
 
 ## Arbeitsregeln
 
 - Arbeite immer nach Specs.
-- Keine groesseren Code-Aenderungen ohne vorherige Spec.
+- Keine groesseren Code-Änderungen ohne vorherige Spec.
 - Keine spontanen Verbesserungen ausserhalb der aktuellen Aufgabe.
 - Bestehende Komponenten, Utilities und Muster zuerst pruefen und wiederverwenden, bevor neue erstellt werden.
 - Wenn etwas unklar ist, stelle eine gezielte Rueckfrage.
 - Wenn Informationen fehlen, nichts erfinden.
-- Wenn eine Leistung nicht bestaetigt ist, nicht bewerben.
-- UNEXT nicht als KFZ-Meisterwerkstatt, Meisterbetrieb oder Vollservice-Werkstatt darstellen, solange das nicht ausdruecklich bestaetigt ist.
-- Wenn eine Aenderung riskant ist, vorher nachfragen.
-- Nach jeder Aufgabe kurz zusammenfassen, was geaendert wurde.
+- Wenn eine Leistung nicht bestätigt ist, nicht bewerben.
+- UNEXT nicht als KFZ-Meisterwerkstatt, Meisterbetrieb oder Vollservice-Werkstatt darstellen, solange das nicht ausdruecklich bestätigt ist.
+- Wenn eine Änderung riskant ist, vorher nachfragen.
+- Nach jeder Aufgabe kurz zusammenfassen, was geändert wurde.
 - Eine Aufgabe darf erst nach ausdruecklicher Freigabe abgeschlossen werden.
 
 ## Scope-Regel
@@ -95,7 +117,7 @@ Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, nicht 
 
 Stattdessen den Punkt kurz beschreiben und fragen, ob daraus eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
 
-Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies bestaetigt oder ausdruecklich beauftragt.
+Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies bestätigt oder ausdruecklich beauftragt.
 
 Keine neuen Tasks ohne Freigabe.
 
@@ -103,17 +125,17 @@ Keine Aufgaben vermischen.
 
 ## Qualitaetsregel
 
-- Nach Code-Aenderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausfuehren.
-- Wenn ein Check nicht ausgefuehrt werden kann oder fehlschlaegt, den Grund klar nennen.
+- Nach Code-Änderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausfuehren.
+- Wenn ein Check nicht ausgeführt werden kann oder fehlschlaegt, den Grund klar nennen.
 - Groessere Komponenten und komplexe Logik bekommen sinnvolle Kommentare, die Zweck und Verhalten erklaeren.
 
 ## Mobile-First-Regel
 
-- Neue und geaenderte UI muss zuerst fuer mobile Nutzung funktionieren.
+- Neue und geänderte UI muss zuerst für mobile Nutzung funktionieren.
 - Layouts, Zeilenumbrueche, CTA-Buttons und Kontaktwege muessen auf kleinen Bildschirmen geprueft werden.
 - Texte duerfen auf Mobile nicht unkontrolliert umbrechen oder wichtige Aussagen zerreissen.
-- Buttons fuer Telefon, WhatsApp und Anfrage muessen auf Mobile schnell erreichbar sein.
-- Responsive Verhalten muss bei jeder UI-Aenderung mitgedacht werden, nicht erst nachtraeglich.
+- Buttons für Telefon, WhatsApp und Anfrage muessen auf Mobile schnell erreichbar sein.
+- Responsive Verhalten muss bei jeder UI-Änderung mitgedacht werden, nicht erst nachtraeglich.
 
 ## Reviewer-Regel
 
@@ -187,17 +209,17 @@ Commits duerfen nur zu klar zugeordneten Aufgaben erfolgen.
 Vor einem Commit muss klar sein:
 
 - welche Task bearbeitet wurde
-- welche Dateien geaendert wurden
-- welche Checks ausgefuehrt wurden
+- welche Dateien geändert wurden
+- welche Checks ausgeführt wurden
 - ob die Aufgabe abgeschlossen oder noch offen ist
 
-Keine Sammel-Commits mit unzusammenhaengenden Aenderungen.
+Keine Sammel-Commits mit unzusammenhaengenden Änderungen.
 
-Keine Commits mit halb fertigen, ungeprueften Aenderungen, ausser der User fordert ausdruecklich einen Zwischenstand-Commit an.
+Keine Commits mit halb fertigen, ungeprueften Änderungen, ausser der User fordert ausdruecklich einen Zwischenstand-Commit an.
 
-Vor Commits muss geprueft werden, ob der Working Tree nur Aenderungen enthaelt, die zur aktuellen Aufgabe gehoeren.
+Vor Commits muss geprueft werden, ob der Working Tree nur Änderungen enthaelt, die zur aktuellen Aufgabe gehören.
 
-Unerwartete oder fremde Aenderungen duerfen nicht unbeachtet mitcommitted werden.
+Unerwartete oder fremde Änderungen duerfen nicht unbeachtet mitcommitted werden.
 
 Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehoert, muss vor dem Commit nachgefragt werden.
 
@@ -210,9 +232,9 @@ Commit-Nachrichten sollen nach Moeglichkeit die Task-Nummer enthalten, zum Beisp
 Bevor eine Aufgabe nach `workflow/done/` verschoben wird, muss der Agent zusammenfassen:
 
 - Aufgabe
-- geaenderte Dateien
-- wichtigste Aenderungen
-- ausgefuehrte Checks
+- geänderte Dateien
+- wichtigste Änderungen
+- ausgeführte Checks
 - offene Punkte
 - ob Reviewer genutzt wurden oder warum nicht
 
@@ -236,17 +258,17 @@ Specs liegen in:
 specs/
 ```
 
-Die Specs sind die Grundlage fuer alle weiteren Aenderungen.
+Die Specs sind die Grundlage für alle weiteren Änderungen.
 
-Wenn eine Aenderung nicht in den Specs steht, wird sie nicht umgesetzt.
+Wenn eine Änderung nicht in den Specs steht, wird sie nicht umgesetzt.
 
 Wenn eine Spec fehlt oder unklar ist, muss zuerst eine offene Frage dokumentiert werden.
 
-Specs gelten nicht automatisch als freigegeben, nur weil sie erstellt oder geaendert wurden.
+Specs gelten nicht automatisch als freigegeben, nur weil sie erstellt oder geändert wurden.
 
 Nach dem Erstellen oder Aendern wichtiger Specs muss der Agent die Inhalte kurz zusammenfassen und auf Freigabe warten.
 
-Erst nach ausdruecklicher Freigabe duerfen aus diesen Specs konkrete Code-Aenderungen oder Umsetzungsplaene abgeleitet werden.
+Erst nach ausdruecklicher Freigabe duerfen aus diesen Specs konkrete Code-Änderungen oder Umsetzungsplaene abgeleitet werden.
 
 ## Cleanup-Regel
 
@@ -254,7 +276,7 @@ Beim spaeteren Umbau der Webseite soll nicht nur neuer Inhalt eingebaut werden.
 
 Nicht mehr benoetigter Code soll sauber entfernt werden.
 
-Dazu gehoeren spaeter:
+Dazu gehören spaeter:
 
 - alte Leistungsinhalte
 - alte Komponenten, die nicht mehr verwendet werden
@@ -272,7 +294,7 @@ Kein Code, Inhalt, Asset oder Import darf blind geloescht werden.
 
 ## Supabase-Regel
 
-Supabase ist als geplante Erweiterung fuer dieses Projekt vorgesehen und soll spaeter eingesetzt werden.
+Supabase ist als geplante Erweiterung für dieses Projekt vorgesehen und soll spaeter eingesetzt werden.
 
 Supabase darf jedoch nicht spontan oder nebenbei integriert werden.
 
@@ -299,15 +321,15 @@ Die Umsetzung muss dann ueber `workflow/todo/` geplant, separat umgesetzt, gepru
 
 ## Risikoregeln
 
-Vor folgenden Aenderungen muss immer gefragt werden:
+Vor folgenden Änderungen muss immer gefragt werden:
 
 - neue Dependencies installieren
 - bestehende Dependencies entfernen
 - Routen loeschen oder umbenennen
-- Build-Konfiguration aendern
+- Build-Konfiguration ändern
 - zentrale Komponenten loeschen
-- Environment-Variablen hinzufuegen oder aendern
+- Environment-Variablen hinzufuegen oder ändern
 - Supabase einbauen
 - Datenbankstruktur anlegen
 - Authentifizierung einfuehren
-- globale Styles stark veraendern
+- globale Styles stark verändern
