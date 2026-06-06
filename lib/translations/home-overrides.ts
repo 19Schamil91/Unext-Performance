@@ -3,7 +3,7 @@ export const homeTranslationOverrides = {
     hero: {
       title1: "Kfz-Gutachten\nund Fahrzeugservice",
       title2: "aus einer Hand",
-      title3: "",
+      title3: "in Berlin",
       description:
         "Von Unfallgutachten bis Zulassung:\nUNEXT begleitet Sie klar und direkt in Berlin.\n\nSchnell erreichbar. Gut abgestimmt. Professionell umgesetzt.",
       directServicesLabel: "Direkt zu den Hauptleistungen",
@@ -14,7 +14,7 @@ export const homeTranslationOverrides = {
       badge: "Fast help in Berlin",
       title1: "Vehicle reports\nand automotive service",
       title2: "in one place",
-      title3: "",
+      title3: "in Berlin",
       description:
         "From accident reports to registration:\nUNEXT guides you clearly and directly in Berlin.\n\nEasy to reach. Well coordinated. Professionally handled.",
       directServicesLabel: "Directly to the main services",
@@ -106,7 +106,7 @@ export const homeTranslationOverrides = {
       badge: "Быстрая помощь в Берлине",
       title1: "Автоэкспертиза\nи услуги для автомобиля",
       title2: "в одном месте",
-      title3: "",
+      title3: "в Берлине",
       description:
         "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно и напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано. Профессионально выполнено.",
       directServicesLabel: "К основным услугам",
