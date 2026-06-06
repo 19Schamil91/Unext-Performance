@@ -40,28 +40,49 @@ Erlaubte Statuswerte sind:
 
 Kleine Rueckfragen, Spec-Pruefungen oder reine Abstimmungen muessen nicht automatisch eine eigene Task-Datei bekommen.
 
-Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies bestaetigt oder ausdruecklich beauftragt.
+Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies bestätigt oder ausdruecklich beauftragt.
 
-Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, wird daraus nicht automatisch eine neue Aufgabe. Stattdessen soll der Punkt kurz genannt und gefragt werden, ob dafuer eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
+Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, wird daraus nicht automatisch eine neue Aufgabe. Stattdessen soll der Punkt kurz genannt und gefragt werden, ob dafür eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
 
-## Bestehende Aenderungen
+## Bestehende Änderungen
 
-Vor Commits muss geprueft werden, ob der Working Tree nur Aenderungen enthaelt, die zur aktuellen Aufgabe gehoeren.
+Vor Commits muss geprueft werden, ob der Working Tree nur Änderungen enthaelt, die zur aktuellen Aufgabe gehören.
 
-Unerwartete oder fremde Aenderungen duerfen nicht unbeachtet mitcommitted werden.
+Unerwartete oder fremde Änderungen duerfen nicht unbeachtet mitcommitted werden.
 
 Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehoert, muss vor dem Commit nachgefragt werden.
 
 ## Standardablauf pro Arbeitspaket
 
 1. Neues Arbeitspaket auf eigenem Branch starten.
-2. Aenderungen durchfuehren.
+2. Änderungen durchfuehren.
 3. Pruefen und passende Checks ausfuehren.
 4. Einen oder mehrere sinnvolle Commits erstellen.
 5. Wenn das Arbeitspaket PR-bereit ist: Branch pushen.
 6. PR gegen `main` erstellen.
 7. PR pruefen lassen und nur nach ausdruecklicher Freigabe mergen.
 8. Lokal `main` aktualisieren.
-9. Neuen Branch fuer das naechste Arbeitspaket erstellen.
+9. Neuen Branch für das nächste Arbeitspaket erstellen.
 
-Kein automatischer Merge ohne ausdruecklichen Auftrag.
+Kein automatischer Merge ohne ausdrücklichen Auftrag.
+
+## Branch-Handoff nach Push
+
+Nach einem erfolgreichen Push darf nicht direkt mit einer neuen Aufgabe weitergearbeitet werden.
+
+Vor jeder weiteren Dateiänderung, jedem Commit und jedem Push muss zuerst gefragt werden, ob der PR bereits gemerged wurde.
+
+Wenn der PR gemerged wurde:
+
+1. `git status`
+2. auf `main` wechseln
+3. `git pull origin main`
+4. neuen Branch für die nächste Aufgabe erstellen
+5. erst danach Änderungen machen
+
+Wenn der PR noch nicht gemerged wurde:
+
+- auf demselben Branch nur Änderungen machen, die genau zu diesem PR gehören
+- keine neue Aufgabe auf diesem Branch beginnen
+
+Diese Regel ist verpflichtend für jede neue Aufgabe nach einem Push.
