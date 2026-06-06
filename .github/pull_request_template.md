@@ -2,6 +2,12 @@
 
 -
 
+## Aufgabe / Spec
+
+- Aufgabe:
+- Spec / Grundlage:
+- Status:
+
 ## Geänderte Bereiche
 
 - [ ] Specs
@@ -9,22 +15,24 @@
 - [ ] Code
 - [ ] UI
 - [ ] Tests / Checks
+- [ ] GitHub / PR-Texte
 
 ## Checks
 
-- [ ] `git diff --check`
-- [ ] Lint
-- [ ] Typecheck
-- [ ] Build
-- [ ] Nicht erforderlich, weil nur Dokumentation oder Specs geändert wurden
+- [ ] `git diff --check` ausgeführt
+- [ ] Lint ausgeführt
+- [ ] Typecheck ausgeführt
+- [ ] Build ausgeführt
+- [ ] Nicht erforderlich, weil:
 
-## Wichtige Hinweise
+## Risiken / Hinweise
 
 - [ ] Keine Supabase-Integration
 - [ ] Keine KI-Integration
 - [ ] Keine UI-Änderungen
 - [ ] Keine unerwarteten Dateien mitcommitted
+- Hinweise:
 
-## Offene Punkte
+## Offene Punkte / Reviewbedarf
 
 -
