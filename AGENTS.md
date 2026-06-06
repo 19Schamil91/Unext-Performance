@@ -56,18 +56,33 @@ Vor Commit und Push passende Checks ausführen, je nach Änderung:
 Wenn das Arbeitspaket abgeschlossen beziehungsweise PR-bereit ist:
 
 1. passenden Branch zu `origin` pushen
-2. PR gegen `main` erstellen oder PR-Text vorbereiten
-3. nach erfolgreichem Push die Branch-Handoff-Regel beachten
-4. nicht automatisch mergen, außer der Nutzer fordert es ausdrücklich
-5. nach Merge lokal auf `main` wechseln
-6. `git pull origin main`
-7. neuen Branch für das nächste Arbeitspaket erstellen
+2. vor dem PR-Erstellen prüfen:
+   - `git status`
+   - `git diff --stat main...HEAD`
+   - `git diff main...HEAD`
+   - ausgeführte Checks mit Ergebnis
+3. PR-Titel und PR-Beschreibung konkret anhand des tatsächlichen Diffs erstellen
+4. PR direkt per GitHub CLI erstellen:
+   `gh pr create --base main --head <aktueller-branch> --title "<konkreter PR-Titel>" --body-file <pr-body-datei>`
+5. keinen reinen GitHub-Compare-Link als Ersatz ausgeben
+6. `gh pr create --web` nicht verwenden
+7. wenn `gh pr create` fehlschlägt: Fehler nennen und vollständigen kopierfertigen PR-Titel und PR-Body ausgeben
+8. nicht automatisch mergen, außer der Nutzer fordert es ausdrücklich
+9. nach erfolgreichem Push und PR-Erstellung die Branch-Handoff-Regel beachten
 
 ## PR-Beschreibungs-Regel
 
 Beim Erstellen eines Pull Requests muss der Agent die PR-Beschreibung konkret anhand des tatsächlichen Diffs ausfüllen.
 
-Der rohe Inhalt aus `.github/pull_request_template.md` darf nicht unverändert stehen bleiben.
+Der PR-Body muss vor dem Erstellen in einer temporären Markdown-Datei oder per Heredoc vorbereitet werden.
+
+Der rohe Inhalt aus `.github/pull_request_template.md` darf niemals unverändert verwendet werden.
+
+Der PR-Titel darf nicht nur der normalisierte Branchname sein.
+
+Die Template-Struktur darf genutzt werden, aber alle Hinweise und Platzhalter müssen durch konkrete Inhalte ersetzt werden.
+
+Ein GitHub-Compare-Link ist nur erlaubt, wenn `gh pr create` nachweislich fehlschlägt.
 
 Verpflichtend:
 
