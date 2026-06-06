@@ -1,8 +1,8 @@
 # AGENTS.md
 
-Dieses Dokument ist f�r den Agenten verbindlich.
+Dieses Dokument ist für den Agenten verbindlich.
 Es beschreibt nur die Arbeitsweise im Projekt, nicht die fachlichen Inhalte der Webseite.
-Fachliche Anforderungen geh�ren in `specs/`.
+Fachliche Anforderungen gehören in `specs/`.
 
 ## Grundprinzip
 
@@ -16,145 +16,163 @@ Das bedeutet:
 
 1. Anforderungen zuerst in Specs dokumentieren.
 2. Danach die Umsetzung planen.
-3. Erst dann Code oder Inhalte �ndern.
-4. Danach pruefen und zusammenfassen.
-5. Erst nach ausdruecklicher Freigabe abschliessen.
+3. Erst dann Code oder Inhalte ändern.
+4. Danach prüfen und zusammenfassen.
+5. Erst nach ausdrücklicher Freigabe abschließen.
 
 ## Branch-Regel
 
-Groessere Umbauten, Reworks oder technische Integrationen muessen auf einem eigenen Feature-Branch stattfinden.
+Größere Umbauten, Reworks oder technische Integrationen müssen auf einem eigenen Feature-Branch stattfinden.
 
-Vor solchen �nderungen pruefen, ob bereits ein passender Branch aktiv ist.
+Vor solchen Änderungen prüfen, ob bereits ein passender Branch aktiv ist.
 
 Wenn kein passender Branch aktiv ist, zuerst nachfragen oder einen neuen Branch vorschlagen.
 
-Keine groesseren Umbauten direkt auf dem Hauptbranch durchfuehren.
+Keine größeren Umbauten direkt auf dem Hauptbranch durchführen.
 
 ## Git- und PR-Arbeitsweise
 
 Jedes Arbeitspaket bekommt einen eigenen Branch.
 
-Ein Branch darf mehrere zusammengehoerige Commits enthalten.
+Ein Branch darf mehrere zusammengehörige Commits enthalten.
 
-Nicht f�r jeden einzelnen Commit einen neuen Branch erstellen.
+Nicht für jeden einzelnen Commit einen neuen Branch erstellen.
 
-Nicht mehrere unabhaengige Themen unnoetig auf einem Branch sammeln.
+Nicht mehrere unabhängige Themen unnötig auf einem Branch sammeln.
 
 Vor Push oder PR muss der Working Tree sauber sein.
 
-Vor Commit und Push passende Checks ausfuehren, je nach �nderung:
+Vor Commit und Push passende Checks ausführen, je nach Änderung:
 
 - Specs/Markdown: `git diff --check -- <betroffene Dateien>`
-- Code/UI: zusaetzlich `npm run lint`, `npx tsc --noEmit` und `npm run build` gemaess Projektregeln
+- Code/UI: zusätzlich `npm run lint`, `npx tsc --noEmit` und `npm run build` gemäß Projektregeln
 
 Wenn das Arbeitspaket abgeschlossen beziehungsweise PR-bereit ist:
 
 1. aktuellen Branch zu `origin` pushen
 2. PR gegen `main` erstellen oder PR-Text vorbereiten
-3. nicht automatisch mergen, ausser der Nutzer fordert es ausdruecklich
+3. nicht automatisch mergen, außer der Nutzer fordert es ausdrücklich
+
+## PR-Beschreibungs-Regel
+
+Beim Erstellen eines Pull Requests muss der Agent die PR-Beschreibung konkret anhand des tatsächlichen Diffs ausfüllen.
+
+Der rohe Inhalt aus `.github/pull_request_template.md` darf nicht unverändert stehen bleiben.
+
+Verpflichtend:
+
+- Template-Hinweise ersetzen, nicht stehen lassen
+- keine leeren Platzhalter wie `-`, `Aufgabe:` oder `Status:` ohne Inhalt stehen lassen
+- keine Checkboxen oder Auswahlpunkte aus dem Template unverändert übernehmen
+- Zusammenfassung kurz und konkret schreiben
+- geänderte Dateien und Bereiche konkret nennen
+- Checks mit Ergebnis nennen oder begründen, warum sie nicht erforderlich waren
+- Risiken und Hinweise konkret nennen
+- offene Punkte nur nennen, wenn es wirklich welche gibt; sonst `None` oder `Keine offenen Punkte` schreiben
+- PR-Beschreibung kurz, professionell und reviewfähig halten
 
 Nach Merge:
 
 1. lokal auf `main` wechseln
 2. `git pull origin main`
-3. neuen Branch f�r das n�chste Arbeitspaket erstellen
+3. neuen Branch für das nächste Arbeitspaket erstellen
 
 ## Branch-Handoff-Regel nach Push
 
 Nach einem erfolgreichen Push darf der Agent nicht direkt mit einer neuen Aufgabe weiterarbeiten.
 
-Vor jeder weiteren Datei�nderung, jedem Commit und jedem Push muss der Agent den Nutzer fragen, ob der PR bereits gemerged wurde.
+Vor jeder weiteren Dateiänderung, jedem Commit und jedem Push muss der Agent den Nutzer fragen, ob der PR bereits gemerged wurde.
 
-Wenn der Nutzer best�tigt, dass der PR gemerged wurde, ist diese Reihenfolge verpflichtend:
+Wenn der Nutzer bestätigt, dass der PR gemerged wurde, ist diese Reihenfolge verpflichtend:
 
 1. `git status`
 2. auf `main` wechseln
 3. `git pull origin main`
-4. neuen Branch f�r die n�chste Aufgabe erstellen
-5. erst danach weitere �nderungen machen
+4. neuen Branch für die nächste Aufgabe erstellen
+5. erst danach weitere Änderungen machen
 
 Wenn der PR noch nicht gemerged wurde:
 
-- auf demselben Branch nur �nderungen machen, die genau zu diesem PR geh�ren
+- auf demselben Branch nur Änderungen machen, die genau zu diesem PR gehören
 - keine neue Aufgabe auf diesem Branch beginnen
-- keine themenfremden Dateien �ndern, committen oder pushen
+- keine themenfremden Dateien ändern, committen oder pushen
 
-Diese Regel ist verpflichtend und gilt vor jeder neuen Datei�nderung, jedem Commit und jedem Push.
+Diese Regel ist verpflichtend und gilt vor jeder neuen Dateiänderung, jedem Commit und jedem Push.
 
-Unerwartete Datei�nderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, muessen vor Commit geprueft und duerfen nicht unbeachtet mitcommitted werden.
+Unerwartete Dateiänderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, müssen vor Commit geprüft und dürfen nicht unbeachtet mitcommitted werden.
 
 Codex soll den Nutzer aktiv darauf hinweisen, wann ein neuer Branch sinnvoll ist.
 
-Vor �nderungen muss der Agent den aktuellen Arbeitsstand beruecksichtigen.
+Vor Änderungen muss der Agent den aktuellen Arbeitsstand berücksichtigen.
 
-Wenn der Working Tree bereits �nderungen enthaelt, die nicht zur aktuellen Aufgabe geh�ren, darf der Agent diese nicht ueberschreiben, nicht formatieren und nicht mitcommitten.
+Wenn der Working Tree bereits Änderungen enthält, die nicht zur aktuellen Aufgabe gehören, darf der Agent diese nicht überschreiben, nicht formatieren und nicht mitcommitten.
 
-Unerwartete oder fremde �nderungen muessen vor dem Commit klar benannt werden.
+Unerwartete oder fremde Änderungen müssen vor dem Commit klar benannt werden.
 
-Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe geh�ren.
+Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe gehören.
 
-Bei Unsicherheit muss vor Commit, Formatierung oder Loeschen nachgefragt werden.
+Bei Unsicherheit muss vor Commit, Formatierung oder Löschen nachgefragt werden.
 
 ## Arbeitsregeln
 
 - Arbeite immer nach Specs.
-- Keine groesseren Code-�nderungen ohne vorherige Spec.
-- Keine spontanen Verbesserungen ausserhalb der aktuellen Aufgabe.
-- Bestehende Komponenten, Utilities und Muster zuerst pruefen und wiederverwenden, bevor neue erstellt werden.
-- Wenn etwas unklar ist, stelle eine gezielte Rueckfrage.
+- Keine größeren Code-Änderungen ohne vorherige Spec.
+- Keine spontanen Verbesserungen außerhalb der aktuellen Aufgabe.
+- Bestehende Komponenten, Utilities und Muster zuerst prüfen und wiederverwenden, bevor neue erstellt werden.
+- Wenn etwas unklar ist, stelle eine gezielte Rückfrage.
 - Wenn Informationen fehlen, nichts erfinden.
-- Wenn eine Leistung nicht best�tigt ist, nicht bewerben.
-- UNEXT nicht als KFZ-Meisterwerkstatt, Meisterbetrieb oder Vollservice-Werkstatt darstellen, solange das nicht ausdruecklich best�tigt ist.
-- Wenn eine �nderung riskant ist, vorher nachfragen.
-- Nach jeder Aufgabe kurz zusammenfassen, was ge�ndert wurde.
-- Eine Aufgabe darf erst nach ausdruecklicher Freigabe abgeschlossen werden.
+- Wenn eine Leistung nicht bestätigt ist, nicht bewerben.
+- UNEXT nicht als KFZ-Meisterwerkstatt, Meisterbetrieb oder Vollservice-Werkstatt darstellen, solange das nicht ausdrücklich bestätigt ist.
+- Wenn eine Änderung riskant ist, vorher nachfragen.
+- Nach jeder Aufgabe kurz zusammenfassen, was geändert wurde.
+- Eine Aufgabe darf erst nach ausdrücklicher Freigabe abgeschlossen werden.
 
 ## Scope-Regel
 
 Pro Aufgabe nur das bearbeiten, was in der jeweiligen Task-Datei oder Spec beschrieben ist.
 
-Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, nicht nebenbei loesen.
+Wenn während der Arbeit ein neues Problem oder eine neue Idee auffällt, nicht nebenbei lösen.
 
 Stattdessen den Punkt kurz beschreiben und fragen, ob daraus eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
 
-Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies best�tigt oder ausdruecklich beauftragt.
+Neue Task-Dateien dürfen nur erstellt werden, wenn der Nutzer dies bestätigt oder ausdrücklich beauftragt.
 
 Keine neuen Tasks ohne Freigabe.
 
 Keine Aufgaben vermischen.
 
-## Qualitaetsregel
+## Qualitätsregel
 
-- Nach Code-�nderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausfuehren.
-- Wenn ein Check nicht ausgef�hrt werden kann oder fehlschlaegt, den Grund klar nennen.
-- Groessere Komponenten und komplexe Logik bekommen sinnvolle Kommentare, die Zweck und Verhalten erklaeren.
+- Nach Code-Änderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausführen.
+- Wenn ein Check nicht ausgeführt werden kann oder fehlschlägt, den Grund klar nennen.
+- Größere Komponenten und komplexe Logik bekommen sinnvolle Kommentare, die Zweck und Verhalten erklären.
 
 ## Mobile-First-Regel
 
-- Neue und ge�nderte UI muss zuerst f�r mobile Nutzung funktionieren.
-- Layouts, Zeilenumbrueche, CTA-Buttons und Kontaktwege muessen auf kleinen Bildschirmen geprueft werden.
-- Texte duerfen auf Mobile nicht unkontrolliert umbrechen oder wichtige Aussagen zerreissen.
-- Buttons f�r Telefon, WhatsApp und Anfrage muessen auf Mobile schnell erreichbar sein.
-- Responsive Verhalten muss bei jeder UI-�nderung mitgedacht werden, nicht erst nachtraeglich.
+- Neue und geänderte UI muss zuerst für mobile Nutzung funktionieren.
+- Layouts, Zeilenumbrüche, CTA-Buttons und Kontaktwege müssen auf kleinen Bildschirmen geprüft werden.
+- Texte dürfen auf Mobile nicht unkontrolliert umbrechen oder wichtige Aussagen zerreißen.
+- Buttons für Telefon, WhatsApp und Anfrage müssen auf Mobile schnell erreichbar sein.
+- Responsive Verhalten muss bei jeder UI-Änderung mitgedacht werden, nicht erst nachträglich.
 
 ## Reviewer-Regel
 
-Vor dem Abschluss groesserer UI-, Content-, SEO-, Performance- oder Launch-Aufgaben muessen passende vorhandene Reviewer oder Checker genutzt oder bewusst als nicht erforderlich begruendet werden.
+Vor dem Abschluss größerer UI-, Content-, SEO-, Performance- oder Launch-Aufgaben müssen passende vorhandene Reviewer oder Checker genutzt oder bewusst als nicht erforderlich begründet werden.
 
 Beispiele:
 
 - Mobile UI: `mobile_visual_checker`
 - Desktop UI: `desktop_visual_checker`
-- Typografie und Zeilenumbrueche: `typography_checker`
+- Typografie und Zeilenumbrüche: `typography_checker`
 - Accessibility: `a11y_checker`
 - SEO: `local_seo_reviewer`
 - Performance: `performance_budget_reviewer`
 - Launch: `launch_reviewer`
-- allgemeine Codequalitaet: `quality_reviewer`
+- allgemeine Codequalität: `quality_reviewer`
 
 Reviewer ersetzen nicht die Freigabe durch den User.
 
-Technische Checks und Reviewer koennen eine Aufgabe pruefen, ersetzen aber niemals die ausdrueckliche Freigabe durch den Nutzer.
+Technische Checks und Reviewer können eine Aufgabe prüfen, ersetzen aber niemals die ausdrückliche Freigabe durch den Nutzer.
 
 ## Workflow-Regel
 
@@ -168,9 +186,9 @@ workflow/
 
 In `workflow/todo/` liegen alle geplanten Aufgaben.
 
-In `workflow/done/` liegen nur Aufgaben, die umgesetzt, geprueft und ausdruecklich freigegeben wurden.
+In `workflow/done/` liegen nur Aufgaben, die umgesetzt, geprüft und ausdrücklich freigegeben wurden.
 
-Jede groessere Aufgabe braucht eine eigene Task-Datei in `workflow/todo/`.
+Jede größere Aufgabe braucht eine eigene Task-Datei in `workflow/todo/`.
 
 Eine Task-Datei soll mindestens enthalten:
 
@@ -190,13 +208,13 @@ Erlaubte Statuswerte sind:
 - `wartet auf Freigabe`
 - `abgeschlossen`
 
-Statuswerte duerfen nicht frei erfunden werden.
+Statuswerte dürfen nicht frei erfunden werden.
 
-Eine Aufgabe gilt erst als `abgeschlossen`, wenn sie umgesetzt, geprueft, zusammengefasst und vom Nutzer ausdruecklich freigegeben wurde.
+Eine Aufgabe gilt erst als `abgeschlossen`, wenn sie umgesetzt, geprüft, zusammengefasst und vom Nutzer ausdrücklich freigegeben wurde.
 
-Aufgaben duerfen nicht uebersprungen oder zusammengelegt werden, wenn dadurch wichtige Pruefschritte verloren gehen.
+Aufgaben dürfen nicht übersprungen oder zusammengelegt werden, wenn dadurch wichtige Prüfschritte verloren gehen.
 
-Eine Aufgabe darf nicht eigenstaendig nach `done/` verschoben werden.
+Eine Aufgabe darf nicht eigenständig nach `done/` verschoben werden.
 
 Eine Aufgabe darf auch nach erfolgreichen Checks nicht automatisch nach `workflow/done/` verschoben werden.
 
@@ -204,26 +222,26 @@ Vor dem Verschieben nach `done/` gilt die Done-Regel.
 
 ## Commit-Regel
 
-Commits duerfen nur zu klar zugeordneten Aufgaben erfolgen.
+Commits dürfen nur zu klar zugeordneten Aufgaben erfolgen.
 
 Vor einem Commit muss klar sein:
 
 - welche Task bearbeitet wurde
-- welche Dateien ge�ndert wurden
-- welche Checks ausgef�hrt wurden
+- welche Dateien geändert wurden
+- welche Checks ausgeführt wurden
 - ob die Aufgabe abgeschlossen oder noch offen ist
 
-Keine Sammel-Commits mit unzusammenhaengenden �nderungen.
+Keine Sammel-Commits mit unzusammenhängenden Änderungen.
 
-Keine Commits mit halb fertigen, ungeprueften �nderungen, ausser der User fordert ausdruecklich einen Zwischenstand-Commit an.
+Keine Commits mit halb fertigen, ungeprüften Änderungen, außer der User fordert ausdrücklich einen Zwischenstand-Commit an.
 
-Vor Commits muss geprueft werden, ob der Working Tree nur �nderungen enthaelt, die zur aktuellen Aufgabe geh�ren.
+Vor Commits muss geprüft werden, ob der Working Tree nur Änderungen enthält, die zur aktuellen Aufgabe gehören.
 
-Unerwartete oder fremde �nderungen duerfen nicht unbeachtet mitcommitted werden.
+Unerwartete oder fremde Änderungen dürfen nicht unbeachtet mitcommitted werden.
 
-Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehoert, muss vor dem Commit nachgefragt werden.
+Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehört, muss vor dem Commit nachgefragt werden.
 
-Commit-Nachrichten sollen nach Moeglichkeit die Task-Nummer enthalten, zum Beispiel:
+Commit-Nachrichten sollen nach Möglichkeit die Task-Nummer enthalten, zum Beispiel:
 
 `task-009: rework homepage hero`
 
@@ -232,9 +250,9 @@ Commit-Nachrichten sollen nach Moeglichkeit die Task-Nummer enthalten, zum Beisp
 Bevor eine Aufgabe nach `workflow/done/` verschoben wird, muss der Agent zusammenfassen:
 
 - Aufgabe
-- ge�nderte Dateien
-- wichtigste �nderungen
-- ausgef�hrte Checks
+- geänderte Dateien
+- wichtigste Änderungen
+- ausgeführte Checks
 - offene Punkte
 - ob Reviewer genutzt wurden oder warum nicht
 
@@ -244,9 +262,9 @@ Erst danach darf gefragt werden:
 Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
 ```
 
-Erst nach Bestaetigung darf die Aufgabe nach `workflow/done/` verschoben werden.
+Erst nach Bestätigung darf die Aufgabe nach `workflow/done/` verschoben werden.
 
-Ohne ausdrueckliche Bestaetigung bleibt die Aufgabe in `workflow/todo/`.
+Ohne ausdrückliche Bestätigung bleibt die Aufgabe in `workflow/todo/`.
 
 ## Spec-Regel
 
@@ -258,25 +276,25 @@ Specs liegen in:
 specs/
 ```
 
-Die Specs sind die Grundlage f�r alle weiteren �nderungen.
+Die Specs sind die Grundlage für alle weiteren Änderungen.
 
-Wenn eine �nderung nicht in den Specs steht, wird sie nicht umgesetzt.
+Wenn eine Änderung nicht in den Specs steht, wird sie nicht umgesetzt.
 
 Wenn eine Spec fehlt oder unklar ist, muss zuerst eine offene Frage dokumentiert werden.
 
-Specs gelten nicht automatisch als freigegeben, nur weil sie erstellt oder ge�ndert wurden.
+Specs gelten nicht automatisch als freigegeben, nur weil sie erstellt oder geändert wurden.
 
-Nach dem Erstellen oder Aendern wichtiger Specs muss der Agent die Inhalte kurz zusammenfassen und auf Freigabe warten.
+Nach dem Erstellen oder Ändern wichtiger Specs muss der Agent die Inhalte kurz zusammenfassen und auf Freigabe warten.
 
-Erst nach ausdruecklicher Freigabe duerfen aus diesen Specs konkrete Code-�nderungen oder Umsetzungsplaene abgeleitet werden.
+Erst nach ausdrücklicher Freigabe dürfen aus diesen Specs konkrete Code-Änderungen oder Umsetzungspläne abgeleitet werden.
 
 ## Cleanup-Regel
 
-Beim spaeteren Umbau der Webseite soll nicht nur neuer Inhalt eingebaut werden.
+Beim späteren Umbau der Webseite soll nicht nur neuer Inhalt eingebaut werden.
 
-Nicht mehr benoetigter Code soll sauber entfernt werden.
+Nicht mehr benötigter Code soll sauber entfernt werden.
 
-Dazu geh�ren spaeter:
+Dazu gehören später:
 
 - alte Leistungsinhalte
 - alte Komponenten, die nicht mehr verwendet werden
@@ -288,19 +306,19 @@ Dazu geh�ren spaeter:
 - ungenutzte Assets
 - toter oder auskommentierter Code
 
-Vor dem Loeschen muss geprueft werden, ob der Code wirklich nicht mehr verwendet wird.
+Vor dem Löschen muss geprüft werden, ob der Code wirklich nicht mehr verwendet wird.
 
-Kein Code, Inhalt, Asset oder Import darf blind geloescht werden.
+Kein Code, Inhalt, Asset oder Import darf blind gelöscht werden.
 
 ## Supabase-Regel
 
-Supabase ist als geplante Erweiterung f�r dieses Projekt vorgesehen und soll spaeter eingesetzt werden.
+Supabase ist als geplante Erweiterung für dieses Projekt vorgesehen und soll später eingesetzt werden.
 
 Supabase darf jedoch nicht spontan oder nebenbei integriert werden.
 
-Vor der technischen Umsetzung muessen zuerst eigene Supabase-Specs erstellt und freigegeben werden.
+Vor der technischen Umsetzung müssen zuerst eigene Supabase-Specs erstellt und freigegeben werden.
 
-Diese Specs muessen mindestens klaeren:
+Diese Specs müssen mindestens klären:
 
 - Supabase-Ziel
 - Datenmodell
@@ -311,25 +329,25 @@ Diese Specs muessen mindestens klaeren:
 - Datenschutzfragen
 - Implementierungsplan
 - betroffene Dateien und Komponenten
-- Risiken und Rollback-Moeglichkeiten
+- Risiken und Rollback-Möglichkeiten
 
 Solange diese Specs nicht erstellt und freigegeben sind, darf Supabase nur geplant werden.
 
 Sobald die Supabase-Specs freigegeben sind, darf Supabase als eigene Aufgabe umgesetzt werden.
 
-Die Umsetzung muss dann ueber `workflow/todo/` geplant, separat umgesetzt, geprueft und erst nach Freigabe abgeschlossen werden.
+Die Umsetzung muss dann über `workflow/todo/` geplant, separat umgesetzt, geprüft und erst nach Freigabe abgeschlossen werden.
 
 ## Risikoregeln
 
-Vor folgenden �nderungen muss immer gefragt werden:
+Vor folgenden Änderungen muss immer gefragt werden:
 
 - neue Dependencies installieren
 - bestehende Dependencies entfernen
-- Routen loeschen oder umbenennen
-- Build-Konfiguration �ndern
-- zentrale Komponenten loeschen
-- Environment-Variablen hinzufuegen oder �ndern
+- Routen löschen oder umbenennen
+- Build-Konfiguration ändern
+- zentrale Komponenten löschen
+- Environment-Variablen hinzufügen oder ändern
 - Supabase einbauen
 - Datenbankstruktur anlegen
-- Authentifizierung einfuehren
-- globale Styles stark ver�ndern
+- Authentifizierung einführen
+- globale Styles stark verändern
