@@ -59,12 +59,15 @@ Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehört, muss vor dem Commi
 3. Prüfen und passende Checks ausführen.
 4. Einen oder mehrere sinnvolle Commits erstellen.
 5. Wenn das Arbeitspaket PR-bereit ist: Branch pushen.
-6. PR gegen `main` erstellen.
+6. PR bevorzugt direkt per GitHub CLI erstellen:
+   `gh pr create --base main --head <aktueller-branch> --title "<konkreter PR-Titel>" --body-file <pr-body-datei>`
 7. PR prüfen lassen und nur nach ausdrücklicher Freigabe mergen.
 8. Lokal `main` aktualisieren.
 9. Neuen Branch für das nächste Arbeitspaket erstellen.
 
 Kein automatischer Merge ohne ausdrücklichen Auftrag.
+
+Ein bloßer GitHub-Compare-Link reicht nicht als PR-Erstellung. `gh pr create --web` soll nicht verwendet werden.
 
 ## PR-Beschreibung
 
