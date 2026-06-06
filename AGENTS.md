@@ -30,6 +30,49 @@ Wenn kein passender Branch aktiv ist, zuerst nachfragen oder einen neuen Branch 
 
 Keine groesseren Umbauten direkt auf dem Hauptbranch durchfuehren.
 
+## Git- und PR-Arbeitsweise
+
+Jedes Arbeitspaket bekommt einen eigenen Branch.
+
+Ein Branch darf mehrere zusammengehoerige Commits enthalten.
+
+Nicht fuer jeden einzelnen Commit einen neuen Branch erstellen.
+
+Nicht mehrere unabhaengige Themen unnoetig auf einem Branch sammeln.
+
+Vor Push oder PR muss der Working Tree sauber sein.
+
+Vor Commit und Push passende Checks ausfuehren, je nach Aenderung:
+
+- Specs/Markdown: `git diff --check -- <betroffene Dateien>`
+- Code/UI: zusaetzlich `npm run lint`, `npx tsc --noEmit` und `npm run build` gemaess Projektregeln
+
+Wenn das Arbeitspaket abgeschlossen beziehungsweise PR-bereit ist:
+
+1. aktuellen Branch zu `origin` pushen
+2. PR gegen `main` erstellen oder PR-Text vorbereiten
+3. nicht automatisch mergen, ausser der Nutzer fordert es ausdruecklich
+
+Nach Merge:
+
+1. lokal auf `main` wechseln
+2. `git pull origin main`
+3. neuen Branch fuer das naechste Arbeitspaket erstellen
+
+Unerwartete Dateiaenderungen, zum Beispiel generierte Dateien wie `next-env.d.ts`, muessen vor Commit geprueft und duerfen nicht unbeachtet mitcommitted werden.
+
+Codex soll den Nutzer aktiv darauf hinweisen, wann ein neuer Branch sinnvoll ist.
+
+Vor Aenderungen muss der Agent den aktuellen Arbeitsstand beruecksichtigen.
+
+Wenn der Working Tree bereits Aenderungen enthaelt, die nicht zur aktuellen Aufgabe gehoeren, darf der Agent diese nicht ueberschreiben, nicht formatieren und nicht mitcommitten.
+
+Unerwartete oder fremde Aenderungen muessen vor dem Commit klar benannt werden.
+
+Der Agent darf nur Dateien committen, die eindeutig zur aktuellen Aufgabe gehoeren.
+
+Bei Unsicherheit muss vor Commit, Formatierung oder Loeschen nachgefragt werden.
+
 ## Arbeitsregeln
 
 - Arbeite immer nach Specs.
@@ -50,7 +93,11 @@ Pro Aufgabe nur das bearbeiten, was in der jeweiligen Task-Datei oder Spec besch
 
 Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, nicht nebenbei loesen.
 
-Stattdessen eine neue Task in `workflow/todo/` vorschlagen oder Rueckfrage stellen.
+Stattdessen den Punkt kurz beschreiben und fragen, ob daraus eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
+
+Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies bestaetigt oder ausdruecklich beauftragt.
+
+Keine neuen Tasks ohne Freigabe.
 
 Keine Aufgaben vermischen.
 
@@ -85,6 +132,8 @@ Beispiele:
 
 Reviewer ersetzen nicht die Freigabe durch den User.
 
+Technische Checks und Reviewer koennen eine Aufgabe pruefen, ersetzen aber niemals die ausdrueckliche Freigabe durch den Nutzer.
+
 ## Workflow-Regel
 
 Im Projekt wird ein einfacher Workflow-Ordner genutzt:
@@ -109,17 +158,27 @@ Eine Task-Datei soll mindestens enthalten:
 - Akzeptanzkriterien
 - Status
 
+Task-Dateien sollen einen klaren Status enthalten.
+
+Erlaubte Statuswerte sind:
+
+- `offen`
+- `in Arbeit`
+- `wartet auf Review`
+- `wartet auf Freigabe`
+- `abgeschlossen`
+
+Statuswerte duerfen nicht frei erfunden werden.
+
+Eine Aufgabe gilt erst als `abgeschlossen`, wenn sie umgesetzt, geprueft, zusammengefasst und vom Nutzer ausdruecklich freigegeben wurde.
+
 Aufgaben duerfen nicht uebersprungen oder zusammengelegt werden, wenn dadurch wichtige Pruefschritte verloren gehen.
 
 Eine Aufgabe darf nicht eigenstaendig nach `done/` verschoben werden.
 
-Vor dem Verschieben nach `done/` muss gefragt werden:
+Eine Aufgabe darf auch nach erfolgreichen Checks nicht automatisch nach `workflow/done/` verschoben werden.
 
-```text
-Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
-```
-
-Erst nach Bestaetigung darf die Aufgabe nach `workflow/done/` verschoben werden.
+Vor dem Verschieben nach `done/` gilt die Done-Regel.
 
 ## Commit-Regel
 
@@ -135,6 +194,12 @@ Vor einem Commit muss klar sein:
 Keine Sammel-Commits mit unzusammenhaengenden Aenderungen.
 
 Keine Commits mit halb fertigen, ungeprueften Aenderungen, ausser der User fordert ausdruecklich einen Zwischenstand-Commit an.
+
+Vor Commits muss geprueft werden, ob der Working Tree nur Aenderungen enthaelt, die zur aktuellen Aufgabe gehoeren.
+
+Unerwartete oder fremde Aenderungen duerfen nicht unbeachtet mitcommitted werden.
+
+Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehoert, muss vor dem Commit nachgefragt werden.
 
 Commit-Nachrichten sollen nach Moeglichkeit die Task-Nummer enthalten, zum Beispiel:
 
@@ -153,7 +218,13 @@ Bevor eine Aufgabe nach `workflow/done/` verschoben wird, muss der Agent zusamme
 
 Erst danach darf gefragt werden:
 
-`Soll diese Aufgabe abgeschlossen und nach done verschoben werden?`
+```text
+Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
+```
+
+Erst nach Bestaetigung darf die Aufgabe nach `workflow/done/` verschoben werden.
+
+Ohne ausdrueckliche Bestaetigung bleibt die Aufgabe in `workflow/todo/`.
 
 ## Spec-Regel
 
