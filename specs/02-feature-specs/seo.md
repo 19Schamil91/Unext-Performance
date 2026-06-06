@@ -1,14 +1,46 @@
 # SEO
 
-Status: Finaler Entwurf, wartet auf Freigabe.
+Status: Freigegeben als Basis fuer die naechsten Planungsaufgaben.
 
-Grundlage: `specs/07-open-questions/open-questions.md`, Abschnitt 9.
+Grundlage: `specs/07-open-questions/open-questions.md`, Abschnitt 9, `specs/00-global-spec/global-spec.md`, `specs/01-functional-map/functional-map.md`, `specs/02-feature-specs/kfz-gutachten.md`, `specs/02-feature-specs/digitale-schadenaufnahme.md`, `specs/02-feature-specs/ki-voranalyse.md` und `specs/02-feature-specs/contact-flow.md`.
 
-## Ziel
+## 1. Kurzueberblick / Executive Summary
 
 SEO wird vollstaendig auf KFZ-Gutachten in Berlin ausgerichtet.
 
-## Hauptkeyword
+Hauptkeyword ist `KFZ-Gutachten Berlin`.
+
+Alte Leistungsbereiche wie Autovermietung, Mietwagen, Ersatzwagen, Fahrzeugservice, Werkstatt und aehnliche Service-Ziele sind keine SEO-Ziele mehr.
+
+Version 1 fokussiert auf eine starke Hauptseite.
+
+Spaetere Landingpages sind nur nach Pruefung und Freigabe moeglich.
+
+Upload, Supabase und KI duerfen nicht als live dargestellt werden, solange sie nicht umgesetzt, datenschutzseitig geprueft und freigegeben sind.
+
+## 2. Version 1 und Zielversion
+
+### Version 1 / erste veroeffentlichbare Website
+
+Version 1 umfasst:
+
+- starke Hauptseite fuer KFZ-Gutachten Berlin
+- Gutachtenarten als Abschnitte
+- Kontaktwege Telefon, WhatsApp und E-Mail
+- Formular nur, wenn es zum Launch umgesetzt und freigegeben ist
+- FAQ, Standort, Oeffnungszeiten und Mobile-First-CTAs
+- keine Upload-/Supabase-/KI-Funktion als live SEO-Versprechen
+
+### Zielversion / Roadmap
+
+Die Zielversion umfasst:
+
+- moegliche spaetere Landingpages fuer Gutachtenarten
+- moegliche spaetere digitale Schadenaufnahme / Upload-Seite
+- moegliche spaetere KI-Kommunikation erst nach technischer Umsetzung, Datenschutzpruefung und Freigabe
+- strukturierte Daten erweitern, wenn sichtbare Inhalte vorhanden sind
+
+## 3. Hauptkeyword
 
 Primaeres Hauptkeyword:
 
@@ -20,7 +52,11 @@ Weitere Schreibweisen beruecksichtigen, ohne doppelte Inhalte zu erzeugen:
 - KFZ Gutachten Berlin
 - Kfz Gutachten Berlin
 
-## Nebenkeywords
+Keine Keyword-Dopplung mit kuenstlich getrennten Seiten erzeugen.
+
+Hauptkeyword natuerlich verwenden und nicht ueberladen.
+
+## 4. Nebenkeywords
 
 Bestaetigte Nebenkeywords:
 
@@ -33,11 +69,19 @@ Bestaetigte Nebenkeywords:
 - digitale Schadenaufnahme Berlin
 - Kfz-Gutachten nach Unfall Berlin
 
+Nebenkeywords sind unterstuetzend und nicht automatisch eigene Seiten.
+
 `Kfz-Sachverstaendigengutachten` darf ergaenzend verwendet werden, aber nicht als eigene doppelte SEO-Hauptleistung.
 
-## Alte SEO-Fokusse
+`digitale Schadenaufnahme Berlin` darf nur verwendet werden, wenn im sichtbaren Inhalt klar wird, dass Version 1 damit strukturierte Kontaktaufnahme beziehungsweise Anfragevorbereitung meint und kein Website-Upload live ist.
 
-Spaeter entfernen oder ersetzen:
+Upload, Supabase-Speicherung und KI-Voranalyse duerfen im SEO-Kontext nicht als aktive oder live verfuegbare Funktionen dargestellt werden, solange sie nicht technisch umgesetzt, datenschutzseitig geprueft und ausdruecklich freigegeben sind.
+
+Keine Nebenkeywords verwenden, die unbestaetigte Leistungen oder geschuetzte Qualifikationen suggerieren.
+
+## 5. Alte SEO-Fokusse / Nicht-Scope
+
+Im Cleanup entfernen oder ersetzen:
 
 - Autovermietung Berlin
 - Mietwagen Berlin
@@ -45,6 +89,7 @@ Spaeter entfernen oder ersetzen:
 - Fahrzeugservice Berlin
 - Autoservice Berlin
 - Werkstatt Berlin
+- Service rund ums Fahrzeug
 - Reifenservice Berlin
 - Reifenwechsel Berlin
 - Dashcam-Einbau Berlin
@@ -54,13 +99,17 @@ Spaeter entfernen oder ersetzen:
 - Fahrzeugaufbereitung Berlin
 - Detailing Berlin
 
-Diese Begriffe duerfen nicht mehr SEO-Ziele der neuen Hauptseite sein.
+Diese Begriffe duerfen nicht mehr als SEO-Ziele, Meta-Titel, Meta-Descriptions, H1/H2, FAQ-Ziele, strukturierte Daten oder interne Linkziele fuer aktive Leistungen verwendet werden.
 
-## Seitenstrategie
+Sie duerfen nur im Cleanup-Kontext als zu entfernende Altinhalte vorkommen.
+
+## 6. Seitenstrategie
 
 Fuer die erste Version: eine starke Hauptseite.
 
-Keine sofortige Umsetzung eigener Landingpages. Spaeter pruefbare Landingpages:
+Keine sofortige Umsetzung eigener Landingpages.
+
+Spaeter pruefbare Landingpages:
 
 - `/unfallgutachten-berlin`
 - `/schadengutachten-berlin`
@@ -70,16 +119,29 @@ Keine sofortige Umsetzung eigener Landingpages. Spaeter pruefbare Landingpages:
 
 Erste Version: Unfallgutachten, Schadengutachten, Wertgutachten / Fahrzeugbewertung und Beweissicherung als Abschnitte auf der Hauptseite.
 
-## Lokaler Fokus
+Spaetere Landingpages erst nach Content-/SEO-Plan, Routing-Plan und Freigabe.
 
-- Berlin ist bestaetigt.
+Landingpages duerfen keine Inhalte duplizieren.
+
+Landingpages duerfen nur bestaetigte Gutachtenarten behandeln.
+
+## 7. Lokaler Fokus
+
+- Berlin ist bestaetigter und gesicherter Fokus.
 - Adresse darf in Kontaktbereich, Footer und strukturierten Daten verwendet werden.
 - Offen: Berlin-Reinickendorf, Berlin-Nord, Berlin und Umgebung oder konkrete Bezirke aktiv nennen.
 - Bis zur Klaerung allgemein mit Berlin arbeiten.
+- Bezirke oder Berlin + Umgebung nur nennen, wenn freigegeben.
+- Keine lokalen Keyword-Seiten fuer Bezirke ohne gesonderte Entscheidung.
+- Adresse, Oeffnungszeiten und Kontaktdaten aus Global Spec uebernehmen.
 
-## Meta
+## 8. Meta-Texte
 
 Empfohlener Haupt-Meta-Title:
+
+> KFZ-Gutachten Berlin | UNEXT
+
+Der Standard-Meta-Titel fuer Version 1 bleibt:
 
 > KFZ-Gutachten Berlin | UNEXT
 
@@ -89,23 +151,35 @@ Alternativen:
 - Unfallgutachten & Schadengutachten Berlin | UNEXT
 - KFZ-Sachverstaendiger Berlin | UNEXT
 
-Meta-Description-Richtung:
+Meta-Titel mit `Unfallgutachten`, `Schadengutachten`, `Wertgutachten` oder `Fahrzeugbewertung` duerfen nur verwendet werden, wenn die Seite inhaltlich weiterhin klar unter dem Hauptthema `KFZ-Gutachten Berlin` bleibt.
 
-> UNEXT erstellt KFZ-Gutachten in Berlin fuer Unfallschaeden, Schadendokumentation und Fahrzeugbewertung. Mit digital unterstuetzter Schadenaufnahme und persoenlicher Rueckmeldung.
+Alternative Meta-Titel duerfen die Hauptleistung nicht verwaessern und keine nicht freigegebenen Leistungen suggerieren.
+
+Standard-Richtung fuer Version 1:
+
+> UNEXT bietet KFZ-Gutachten in Berlin fuer Unfallschaeden, Schadendokumentation und Fahrzeugbewertung. Mit strukturierter Anfragevorbereitung und persoenlicher Rueckmeldung.
 
 Alternative:
 
-> KFZ-Gutachten in Berlin: UNEXT unterstuetzt bei Unfallgutachten, Schadengutachten, Wertgutachten und digitaler Schadenaufnahme. Jetzt telefonisch oder per WhatsApp anfragen.
+> KFZ-Gutachten in Berlin: UNEXT unterstuetzt bei Unfallgutachten, Schadengutachten, Wertgutachten und Fahrzeugbewertung. Jetzt telefonisch oder per WhatsApp anfragen.
 
-Meta-Descriptions muessen launchabhaengig formuliert werden. Wenn Upload, Supabase oder KI noch nicht live sind, duerfen sie nicht als aktiv verfuegbar erscheinen. Dann sind Formulierungen wie `digital vorbereiteter Anfrageprozess` oder `geplante digitale Schadenaufnahme` sicherer.
+Meta-Texte muessen launchabhaengig formuliert werden.
 
-## KI in SEO
+Upload, Supabase und KI duerfen nicht als live erscheinen, solange sie nicht umgesetzt und freigegeben sind.
+
+Formular darf nur erwaehnt werden, wenn es zum Launch umgesetzt und freigegeben ist.
+
+Keine 24/7-, Sofortdienst-, Schadenhoehen- oder Reparaturkostenversprechen.
+
+## 9. KI in SEO
 
 Solange KI nicht technisch umgesetzt ist, nur vorsichtig formulieren:
 
 - digitale Schadenaufnahme mit geplanter KI-Unterstuetzung
 - geplante KI-Voranalyse
 - kuenftig integrierte KI-Voranalyse
+
+Keine Formulierung als live KI-Funktion vor Freigabe.
 
 Nicht verwenden:
 
@@ -114,10 +188,11 @@ Nicht verwenden:
 - KI erstellt Gutachten
 - vollautomatische Schadenbewertung
 - verbindliche KI-Schadenanalyse
+- finale oder verbindliche Schadenbewertung durch KI
 
-Nach technischer Umsetzung und Freigabe kann `KI-gestuetzte Voranalyse von Fahrzeugschaeden` aktiv verwendet werden.
+Aktive Formulierung `KI-gestuetzte Voranalyse von Fahrzeugschaeden` erst nach technischer Umsetzung, Datenschutzpruefung und Freigabe verwenden.
 
-## Strukturierte Daten
+## 10. Strukturierte Daten
 
 Spaeter pruefen und planen:
 
@@ -129,14 +204,77 @@ Spaeter pruefen und planen:
 - FAQPage, falls FAQ sichtbar ist
 - BreadcrumbList, falls mehrere Seiten/Routen entstehen
 
-Strukturierte Daten muessen sichtbaren Seiteninhalten entsprechen. Keine strukturierten Daten fuer alte Nicht-Scope-Leistungen.
+Der konkrete Schema.org-Typ muss spaeter anhand der sichtbaren Inhalte, bestaetigten Leistungen und Firmendaten geprueft werden.
 
-## Mobile SEO
+Strukturierte Daten muessen sichtbaren Seiteninhalten entsprechen.
+
+Strukturierte Daten duerfen nur Informationen enthalten, die auch sichtbar auf der Website vorhanden und fachlich freigegeben sind.
+
+Firmendaten, Adresse, Telefon, E-Mail und Oeffnungszeiten aus Global Spec uebernehmen.
+
+Keine Bewertungen/Reviews ohne ausdrueckliche Freigabe.
+
+Keine alten Nicht-Scope-Leistungen in strukturierten Daten.
+
+Keine Upload-/Supabase-/KI-Funktionen in strukturierten Daten, solange sie nicht live sind.
+
+## 11. Mehrsprachige SEO
+
+Deutsch ist fachlich fuehrend.
+
+Russisch und Englisch basieren auf freigegebenen deutschen Inhalten.
+
+Uebersetzte Meta-Texte duerfen nicht mehr versprechen als Deutsch.
+
+Sensible Begriffe zu Gutachten, KI, Datenschutz und Kontakt muessen sprachlich geprueft werden.
+
+Keyword-Strategie pro Sprache spaeter separat pruefen.
+
+Offen: alle drei Sprachen direkt zum Launch oder Deutsch zuerst.
+
+## 12. Mobile SEO
 
 - klare H1
 - kurze Abschnitte
 - verstaendliche Zwischenueberschriften
 - schnelle Kontakt-CTAs
 - Telefon und WhatsApp mobil sichtbar
+- Formular nur, wenn freigegeben
 - keine langen Textbloecke
 - FAQ mobil gut lesbar
+- mehrsprachige Textlaengen beachten
+
+## 13. FAQ-SEO
+
+FAQ-Fragen duerfen nur bestaetigte Inhalte behandeln, zum Beispiel Ablauf, benoetigte Unterlagen, Kontaktwege, Gutachtenarten, Standort, Oeffnungszeiten und allgemeine Hinweise zur Anfrage.
+
+FAQ-Fragen duerfen keine nicht freigegebenen Leistungen, Upload-Funktionen, KI-Ergebnisse, 24/7-Service, Sofortdienst, garantierten Vor-Ort-Service, konkrete Rueckmeldefristen, finale Schadenhoehen oder Reparaturkosten versprechen.
+
+FAQ-Inhalte muessen mit Global Spec, Functional Map und den freigegebenen Feature Specs uebereinstimmen.
+
+## 14. Grenzen / Nicht-Scope
+
+SEO darf nicht versprechen:
+
+- 24/7-Notdienst
+- garantierter Sofortdienst
+- garantierter Vor-Ort-Service
+- finale Schadenhoehe
+- Reparaturkostenschaetzung
+- KI-Gutachten
+- vollautomatisches Gutachten
+- Upload, Supabase oder KI als live, solange nicht freigegeben
+- Mietwagen-/Ersatzwagen-/Werkstatt-/Fahrzeugservice-/Autovermietungs-Leistungen als aktive Leistungen
+
+## 15. Offene Entscheidungen
+
+Offen bleiben:
+
+- konkrete Bezirke / Einzugsgebiet
+- spaetere Landingpages
+- finale Meta-Titel und Meta-Descriptions
+- strukturierte Daten-Typen
+- Google-Bewertungen / Reviews
+- Launch-Sprachen
+- ob Formular, Upload, Supabase oder KI zum Launch live sind
+- mehrsprachige Keyword-Strategie
