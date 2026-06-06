@@ -10,7 +10,7 @@ Alle geplanten Aufgaben liegen in `workflow/todo/`.
 
 Abgeschlossene Aufgaben liegen in `workflow/done/`.
 
-Eine Aufgabe darf erst nach ausdruecklicher Freigabe nach `done/` verschoben werden.
+Eine Aufgabe darf erst nach ausdrücklicher Freigabe nach `done/` verschoben werden.
 
 Vor dem Abschluss immer fragen:
 
@@ -20,7 +20,7 @@ Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
 
 ## Task-Dateien
 
-Groessere Aufgaben werden als eigene Task-Dateien in `workflow/todo/` dokumentiert.
+Größere Aufgaben werden als eigene Task-Dateien in `workflow/todo/` dokumentiert.
 
 Eine Task-Datei sollte mindestens enthalten:
 
@@ -38,51 +38,66 @@ Erlaubte Statuswerte sind:
 - `wartet auf Freigabe`
 - `abgeschlossen`
 
-Kleine Rueckfragen, Spec-Pruefungen oder reine Abstimmungen muessen nicht automatisch eine eigene Task-Datei bekommen.
+Kleine Rückfragen, Spec-Prüfungen oder reine Abstimmungen müssen nicht automatisch eine eigene Task-Datei bekommen.
 
-Neue Task-Dateien duerfen nur erstellt werden, wenn der Nutzer dies best�tigt oder ausdruecklich beauftragt.
+Neue Task-Dateien dürfen nur erstellt werden, wenn der Nutzer dies bestätigt oder ausdrücklich beauftragt.
 
-Wenn waehrend der Arbeit ein neues Problem oder eine neue Idee auffaellt, wird daraus nicht automatisch eine neue Aufgabe. Stattdessen soll der Punkt kurz genannt und gefragt werden, ob daf�r eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
+Wenn während der Arbeit ein neues Problem oder eine neue Idee auffällt, wird daraus nicht automatisch eine neue Aufgabe. Stattdessen soll der Punkt kurz genannt und gefragt werden, ob dafür eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
 
-## Bestehende �nderungen
+## Bestehende Änderungen
 
-Vor Commits muss geprueft werden, ob der Working Tree nur �nderungen enthaelt, die zur aktuellen Aufgabe geh�ren.
+Vor Commits muss geprüft werden, ob der Working Tree nur Änderungen enthält, die zur aktuellen Aufgabe gehören.
 
-Unerwartete oder fremde �nderungen duerfen nicht unbeachtet mitcommitted werden.
+Unerwartete oder fremde Änderungen dürfen nicht unbeachtet mitcommitted werden.
 
-Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehoert, muss vor dem Commit nachgefragt werden.
+Wenn unklar ist, ob eine Datei zur aktuellen Aufgabe gehört, muss vor dem Commit nachgefragt werden.
 
 ## Standardablauf pro Arbeitspaket
 
 1. Neues Arbeitspaket auf eigenem Branch starten.
-2. �nderungen durchfuehren.
-3. Pruefen und passende Checks ausfuehren.
+2. Änderungen durchführen.
+3. Prüfen und passende Checks ausführen.
 4. Einen oder mehrere sinnvolle Commits erstellen.
 5. Wenn das Arbeitspaket PR-bereit ist: Branch pushen.
 6. PR gegen `main` erstellen.
-7. PR pruefen lassen und nur nach ausdruecklicher Freigabe mergen.
+7. PR prüfen lassen und nur nach ausdrücklicher Freigabe mergen.
 8. Lokal `main` aktualisieren.
-9. Neuen Branch f�r das n�chste Arbeitspaket erstellen.
+9. Neuen Branch für das nächste Arbeitspaket erstellen.
 
-Kein automatischer Merge ohne ausdr�cklichen Auftrag.
+Kein automatischer Merge ohne ausdrücklichen Auftrag.
+
+## PR-Beschreibung
+
+Beim Erstellen eines Pull Requests muss die Beschreibung konkret anhand des tatsächlichen Diffs ausgefüllt werden.
+
+Das PR-Template dient nur als Struktur. Hinweise, Platzhalter, Checkboxen oder Auswahlpunkte dürfen nicht unverändert stehen bleiben.
+
+Die PR-Beschreibung muss kurz und reviewfähig enthalten:
+
+- konkrete Zusammenfassung des Arbeitspakets
+- zugehörige Aufgabe oder Spec
+- konkret geänderte Dateien und Bereiche
+- ausgeführte Checks mit Ergebnis oder nachvollziehbare Begründung, warum Checks nicht erforderlich waren
+- konkrete Risiken oder Hinweise
+- offene Punkte nur, wenn es wirklich welche gibt; sonst `None` oder `Keine offenen Punkte`
 
 ## Branch-Handoff nach Push
 
 Nach einem erfolgreichen Push darf nicht direkt mit einer neuen Aufgabe weitergearbeitet werden.
 
-Vor jeder weiteren Datei�nderung, jedem Commit und jedem Push muss zuerst gefragt werden, ob der PR bereits gemerged wurde.
+Vor jeder weiteren Dateiänderung, jedem Commit und jedem Push muss zuerst gefragt werden, ob der PR bereits gemerged wurde.
 
 Wenn der PR gemerged wurde:
 
 1. `git status`
 2. auf `main` wechseln
 3. `git pull origin main`
-4. neuen Branch f�r die n�chste Aufgabe erstellen
-5. erst danach �nderungen machen
+4. neuen Branch für die nächste Aufgabe erstellen
+5. erst danach Änderungen machen
 
 Wenn der PR noch nicht gemerged wurde:
 
-- auf demselben Branch nur �nderungen machen, die genau zu diesem PR geh�ren
+- auf demselben Branch nur Änderungen machen, die genau zu diesem PR gehören
 - keine neue Aufgabe auf diesem Branch beginnen
 
-Diese Regel ist verpflichtend f�r jede neue Aufgabe nach einem Push.
+Diese Regel ist verpflichtend für jede neue Aufgabe nach einem Push.
