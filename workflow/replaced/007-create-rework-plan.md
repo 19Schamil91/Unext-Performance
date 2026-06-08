@@ -24,4 +24,4 @@ Der Umbau soll kontrolliert erfolgen und keine spontanen Aenderungen ausserhalb 
 
 ## Status
 
-Todo
+Status: ersetzt

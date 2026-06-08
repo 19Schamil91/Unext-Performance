@@ -24,4 +24,4 @@ Supabase darf nicht spontan installiert oder integriert werden. Vorher muessen Z
 
 ## Status
 
-Todo
+Status: ersetzt

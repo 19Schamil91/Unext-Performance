@@ -24,4 +24,4 @@ Der Cleanup betrifft spaeter alte Komponenten, Datenarrays, Imports, Icons, FAQ-
 
 ## Status
 
-Todo
+Status: ersetzt

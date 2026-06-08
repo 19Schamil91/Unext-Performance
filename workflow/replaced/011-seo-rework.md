@@ -24,4 +24,4 @@ Der erwartete Fokus liegt auf Autovermietung Berlin und gegebenenfalls Service r
 
 ## Status
 
-Todo
+Status: ersetzt

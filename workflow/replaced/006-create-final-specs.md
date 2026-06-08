@@ -24,4 +24,4 @@ Die Specs sollen festlegen, was die Website spaeter kommuniziert, welche Funktio
 
 ## Status
 
-Todo
+Status: ersetzt

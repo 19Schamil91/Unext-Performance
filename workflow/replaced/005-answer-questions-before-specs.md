@@ -24,4 +24,4 @@ Ohne bestaetigte Antworten duerfen keine finalen fachlichen Specs geschrieben un
 
 ## Status
 
-Todo
+Status: ersetzt
