@@ -1,10 +1,114 @@
 # Offene Fragen
 
-Status: Neu ausgerichtet auf Aufgabe 014.
+Status: Freigegeben als Entscheidungsnachweis und Statusuebersicht fuer verbleibende Launch- und Roadmap-Punkte.
 
-Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue Webseite geschrieben oder bestehende Inhalte fachlich umgebaut werden. Die Webseite soll kuenftig ausschliesslich auf KFZ-Gutachten, digitale Schadenaufnahme und spaetere KI-gestuetzte Voranalyse ausgerichtet werden.
+Diese Datei dokumentiert die urspruenglichen offenen Fragen, bisher beantwortete Entscheidungen und verbleibende offene Punkte fuer die neue reine KFZ-Gutachten-Webseite.
 
-## Festgelegter Rahmen aus Aufgabe 014
+Viele Fragen wurden inzwischen durch freigegebene Specs beantwortet.
+
+Nicht beantwortete Punkte bleiben als Launch-Entscheidungen, Roadmap-Entscheidungen oder spaetere Pruefaufgaben dokumentiert.
+
+Diese Datei ist nicht die primaere Umsetzungsgrundlage fuer Code, UI, Routing, Upload, Supabase, KI, Admin, Portal oder Launch.
+
+Fuer konkrete Umsetzung muessen immer die jeweils freigegebenen Specs, Work Plans und Task-Dateien herangezogen werden.
+
+Diese Datei ist keine Code-, UI-, Upload-, Supabase-, KI-, Admin- oder Portal-Umsetzung.
+
+## 1. Kurzueberblick / Status
+
+Diese Datei dient als Entscheidungsnachweis und Statusuebersicht fuer die urspruenglichen offenen Fragen aus Aufgabe 014.
+
+Die inzwischen freigegebenen Specs sind die fuehrende Grundlage fuer weitere Planungsaufgaben:
+
+- `specs/00-global-spec/global-spec.md`
+- `specs/01-functional-map/functional-map.md`
+- `specs/02-feature-specs/`
+- `specs/03-technical-specs/`
+- `specs/04-visual-rules/visual-rules.md`
+- `specs/05-user-stories/user-stories.md`
+- `specs/06-work-plans/launch-readiness.md`
+
+Bei Abweichungen zwischen dieser Datei und einer spaeter freigegebenen Detail-Spec gilt die freigegebene Detail-Spec als fuehrend.
+
+Fuer konkrete Umsetzung gelten die jeweils freigegebenen Feature-, Technical-, Visual-, User-Story-, Work-Plan- und Task-Specs.
+
+Wenn eine Aussage in dieser Datei durch eine neuere freigegebene Spec ersetzt, praezisiert oder ueberholt wurde, muss diese Datei entsprechend aktualisiert oder der Punkt als historisch beantwortet markiert werden.
+
+Beantwortete Punkte bleiben erhalten, um fachliche Herleitung, Projektentscheidungen und Freigabegrundlagen nachvollziehbar zu machen.
+
+Offene Punkte duerfen nicht als bestaetigte Live-Funktionen verstanden werden.
+
+Wenn eine Aussage in dieser Datei nicht mehr zum aktuellen Spec-Stand passt, darf sie nicht stillschweigend als gueltig weiterverwendet werden.
+
+Stattdessen muss sie aktualisiert, als durch eine freigegebene Spec ersetzt markiert, in den historischen Kontext verschoben oder als offene Rueckfrage dokumentiert werden.
+
+Bei Unsicherheit gilt: nicht umsetzen, sondern anhand der freigegebenen Detail-Specs pruefen oder Rueckfrage stellen.
+
+## 2. Entscheidungsstand
+
+Beantwortete Grundlagen:
+
+- Firmendaten, Marke, Adresse, Registerdaten, Telefon, WhatsApp, E-Mail und Oeffnungszeiten sind beantwortet und in freigegebenen Specs beruecksichtigt.
+- Hauptpositionierung `KFZ-Gutachten Berlin`, Gutachtenarten, Kontaktwege, Sachverstaendigenkompetenz, digitale Schadenaufnahme als Anfragevorbereitung und KI als spaetere unterstuetzende Voranalyse sind beantwortet und in freigegebenen Specs beruecksichtigt.
+- Nicht-Scope-Leistungen wie Autovermietung, Mietwagen, Werkstatt, Reifenservice, Abschleppdienst, Pannenhilfe, Fahrzeugaufbereitung und Detailing sind als nicht aktive Leistungen eingeordnet.
+
+Noch offene Launch-Entscheidungen:
+
+- finale Launch-Sprachen
+- Formular zum Launch ja/nein
+- konkrete rechtliche Seiten und Datenschutz-/Einwilligungstexte vor Launch
+- Nutzung konkreter Google-Bewertungen / Reviews, falls eingebunden
+- finale Kontaktweg- und Pflichtseitenpruefung
+- Entfernung oder Ausblendung alter sichtbarer Nicht-Scope-Leistungen
+- finale Launch-Freigabe
+
+Noch offene Roadmap-Entscheidungen:
+
+- Upload, Supabase und KI, falls nicht zum Launch live
+- Adminbereich
+- Kundenportal
+- Landingpages
+- mehrsprachige vollstaendige Ausbaustufe, falls nicht zum Launch live
+- kundensichtbare KI-Ergebnisse, falls spaeter gewuenscht
+
+Spaetere Datenschutz-/Rechts-/Security-Pruefungen:
+
+- konkrete Datenschutz- und Einwilligungstexte
+- Speicherfristen
+- Supabase RLS, Zugriff, Backup, Restore und Migration
+- Upload-, Supabase- und KI-Verarbeitung mit echten Kundendaten
+- rechtliche Pruefung von Reviews, Trust-Elementen und KI-Hinweisen
+
+Spaeterer Content-/Code-Cleanup:
+
+- alte Inhalte, alte Routen, alte Navigation, alte Footer-Links, alte SEO-Daten, alte strukturierte Daten, alte Komponenten, alte Datenarrays, alte Uebersetzungen, alte Icons und alte Assets muessen kontrolliert geprueft und nur nach Cleanup-Plan entfernt oder ersetzt werden.
+
+Die verbleibenden offenen Punkte muessen nach jeder neuen Freigabe, Launch-Entscheidung oder Roadmap-Entscheidung aktualisiert werden.
+
+Wenn ein offener Punkt entschieden wurde, soll er nicht einfach geloescht werden, sondern als beantwortet, verschoben oder durch eine konkrete Spec abgedeckt markiert werden.
+
+Offene Punkte muessen weiterhin klar als `launch-blockierend`, `nicht launch-blockierend / spaeter` oder `Roadmap / spaetere Specs oder Workflows` eingeordnet bleiben.
+
+Punkte duerfen nicht als bestaetigte Live-Funktionen verstanden werden, solange sie nicht durch freigegebene Specs, technische Planung, Workflow-Aufgabe und ausdrueckliche Freigabe abgesichert sind.
+
+## 3. Grenzen / Nicht-Scope dieser Datei
+
+Diese Datei ist keine:
+
+- Code-Umsetzung
+- UI-Umsetzung
+- finale Content-Ausarbeitung
+- Upload-Implementierung
+- Supabase-Integration
+- KI-Integration
+- Admin-/Portal-Implementierung
+- finale Rechtsberatung
+- finale Datenschutzpruefung
+- Launch-Freigabe
+
+## 4. Festgelegter Rahmen aus Aufgabe 014
+
+Status: Beantwortet / in freigegebenen Specs beruecksichtigt.
 
 - Rechtlicher Firmenname: Unext GmbH
 - Marke auf der Webseite: UNEXT
@@ -15,7 +119,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
 - Die finale Bewertung erfolgt immer durch einen Gutachter.
 - Autovermietung, Fahrzeugservice, Werkstatt- und weitere alte Servicebereiche gehoeren nicht mehr zum fachlichen Scope dieser Webseite.
 
-## 1. Business & Firmendaten
+## 5. Business & Firmendaten
+
+Status: Beantwortet / in freigegebenen Specs beruecksichtigt.
 
 - Sind Firmenname, Branding, Adresse und Registerdaten aus Aufgabe 014 final fuer Webseite, Impressum, Datenschutz und strukturierte Daten freigegeben?
   - Antwort: Ja. Firmenname, Branding, Adresse und Registerdaten aus Aufgabe 014 sind als aktuelle Grundlage freigegeben.
@@ -38,7 +144,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Antwort: UNEXT erstellt KFZ-Gutachten in Berlin - nachvollziehbar, digital unterstuetzt und mit anerkannter Sachverstaendigenkompetenz.
   - Alternative, falls "anerkannte Sachverstaendigenkompetenz" spaeter nicht gewuenscht ist: UNEXT ist Ihr Ansprechpartner fuer KFZ-Gutachten, Schadendokumentation und digitale Schadenaufnahme in Berlin.
 
-## 2. KFZ-Gutachten
+## 6. KFZ-Gutachten
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Einzelne Launch- oder Roadmap-Entscheidungen bleiben offen, wenn sie ausdruecklich als offen markiert sind.
 
 - Welche konkreten Leistungen sind fuer KFZ-Gutachten bestaetigt?
   - Antwort: Bestaetigte Hauptleistung ist KFZ-Gutachten.
@@ -65,7 +173,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Offen: Konkrete Bearbeitungszeit oder Rueckmeldefrist ist noch nicht bestaetigt und soll bis dahin nicht kommuniziert werden.
   - Neutrale Formulierung bis zur Bestaetigung: "Wir melden uns zeitnah zur weiteren Abstimmung."
 
-## 3. Gutachtenarten
+## 7. Gutachtenarten
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Weitere nicht bestaetigte Gutachtenarten bleiben ausgeschlossen.
 
 - Welche Gutachtenarten duerfen ausdruecklich genannt werden?
   - Antwort: Ausdruecklich genannt werden duerfen Unfallgutachten, Schadengutachten, Wertgutachten, Fahrzeugbewertung, Beweissicherung und Kfz-Sachverstaendigengutachten als fachliche Beschreibung des KFZ-Gutachtens.
@@ -86,7 +196,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Antwort: Fuer Versicherungs- oder Rechtsanwaltskommunikation relevant sind insbesondere Unfallgutachten, Schadengutachten, Beweissicherung und Fahrzeugbewertung / Wertgutachten, falls relevant.
   - Die finale Bewertung erfolgt immer durch einen Gutachter.
 
-## 4. Sachverstaendigenqualifikation / Vertrauen
+## 8. Sachverstaendigenqualifikation / Vertrauen
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Reviews, Sterne, Trust-Siegel und konkrete Nachweise bleiben ohne ausdrueckliche Freigabe offen beziehungsweise ausgeschlossen.
 
 - Welche genaue Sachverstaendigenqualifikation darf oeffentlich genannt werden?
   - Antwort: Die Webseite darf sachlich kommunizieren, dass der Betreiber ueber eine anerkannte Sachverstaendigenqualifikation fuer Schaeden an Kraftfahrzeugen und Wertermittlung verfuegt.
@@ -113,7 +225,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Antwort: Ausgeschlossen sind oeffentlich bestellter Sachverstaendiger, vereidigter Sachverstaendiger, Gerichtsgutachter, amtlich bestellter Gutachter, Meisterwerkstatt, Vollservice-Werkstatt, Kfz-Meisterbetrieb, amtlich anerkannt und staatlich geprueft.
   - Die Webseite darf nicht den Eindruck erwecken, dass UNEXT eine Werkstatt, Meisterwerkstatt oder ein Vollservice-Reparaturbetrieb ist.
 
-## 5. Digitale Schadenaufnahme
+## 9. Digitale Schadenaufnahme
+
+Status: Teilweise beantwortet / als Version-1-Anfragevorbereitung und Roadmap-Funktion in freigegebenen Specs beruecksichtigt. Upload bleibt ohne Umsetzung, Datenschutzpruefung und Freigabe nicht live.
 
 - Welche Daten soll die digitale Schadenaufnahme erfassen?
   - Antwort: Die digitale Schadenaufnahme soll als zentraler zukuenftiger Prozess der Webseite geplant werden.
@@ -134,13 +248,13 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Antwort: Ja. Eine Schadenbeschreibung als Freitext soll vorgesehen werden.
 - Soll der Upload direkt zum Launch verfuegbar sein oder nur als geplanter Prozess beschrieben werden?
   - Antwort: In der ersten Webseitenversion soll die digitale Schadenaufnahme mindestens als klarer Anfrageprozess beschrieben werden.
-  - Bis der Upload technisch umgesetzt ist, soll die digitale Schadenaufnahme zunaechst als Kontakt- und Anfrageprozess ueber Telefon, WhatsApp und Formular geplant werden.
+  - Bis der Upload technisch umgesetzt ist, soll die digitale Schadenaufnahme zunaechst als Kontakt- und Anfrageprozess ueber Telefon, WhatsApp und gegebenenfalls ein freigegebenes Formular geplant werden.
   - WhatsApp kann in der ersten Phase als praktischer Weg fuer schnelle Kontaktaufnahme und gegebenenfalls Bilduebermittlung kommuniziert werden, sofern rechtlich und datenschutzseitig sauber formuliert.
   - Offen: Echte Upload-Umsetzung erst nach separater Supabase-, Storage-, Datenschutz-, Einwilligungs- und Upload-Flow-Spec.
 - Welche Hinweise zur Bildqualitaet und Vollstaendigkeit sollen Kunden erhalten?
   - Antwort: Kunden sollen spaeter verstaendliche Hinweise erhalten: gute Beleuchtung, nicht verwackelt, Schadenbereich vollstaendig sichtbar, Fotos aus mehreren Perspektiven, keine unnoetigen personenbezogenen Daten im Bild und bei Unsicherheit lieber mehrere Bilder hochladen.
 - Soll die digitale Schadenaufnahme zunaechst nur als Kontakt-/Anfrageformular ohne Datei-Upload geplant werden?
-  - Antwort: Ja. Bis zur technischen Umsetzung des Uploads wird die digitale Schadenaufnahme zunaechst als Kontakt- und Anfrageprozess ueber Telefon, WhatsApp und Formular geplant.
+  - Antwort: Ja. Bis zur technischen Umsetzung des Uploads wird die digitale Schadenaufnahme zunaechst als Kontakt- und Anfrageprozess ueber Telefon, WhatsApp und ein freigegebenes Formular geplant, falls dieses umgesetzt und freigegeben ist.
   - Der spaetere Upload vom Handy muss Mobile First geplant werden: Kamera/Fotogalerie auf dem Handy beruecksichtigen, einfache Bedienung, kurze Formularschritte, klare Hinweise zu benoetigten Bildern und keine langen Textbloecke auf kleinen Bildschirmen.
   - Prioritaet fuer den ersten spaeteren Upload-Scope: Foto-Upload, Schadenbeschreibung als Freitext, Kontaktdaten und Fahrzeugdaten.
   - Sprachaufnahmen sind als spaetere optionale Erweiterung denkbar, aber nicht Teil des ersten Upload-Scopes.
@@ -149,7 +263,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Die digitale Schadenaufnahme dient der Vorbereitung und Strukturierung. Sie ersetzt kein vollstaendiges Gutachten und keine finale Bewertung.
   - Die spaetere KI-Voranalyse kann auf den hochgeladenen Bildern und den eingegebenen Schadeninformationen aufbauen. Sie ist Teil der Roadmap, darf aber erst nach eigener Spec, Datenschutzklaerung und ausdruecklicher Freigabe technisch umgesetzt und aktiv kommuniziert werden.
 
-## 6. KI-gestuetzte Voranalyse
+## 10. KI-gestuetzte Voranalyse
+
+Status: Teilweise beantwortet / als Roadmap-Funktion in freigegebenen Specs beruecksichtigt. KI bleibt intern, unterstuetzend und unverbindlich, solange keine gesonderte Umsetzung und Freigabe erfolgt.
 
 - Ist die KI-Unterstuetzung zum Launch bereits technisch umgesetzt oder nur geplant?
   - Antwort: Die KI-gestuetzte Voranalyse ist fester Bestandteil der Projekt-Roadmap.
@@ -182,7 +298,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Die KI-Voranalyse muss mit Supabase, Upload, Datenschutz, Einwilligung und interner Gutachterpruefung zusammengedacht werden.
   - Offen: Datenschutz, Einwilligung, Speicherort, Speicherfristen und Zugriff auf KI-Ergebnisse muessen vor Umsetzung gesondert geklaert werden.
 
-## 7. Supabase / Upload / Datenmodell
+## 11. Supabase / Upload / Datenmodell
+
+Status: Teilweise beantwortet / als Roadmap-Grundlage in freigegebenen Specs beruecksichtigt. Konkrete Umsetzung, Datenschutz, RLS, Security, Speicherfristen und Freigabe bleiben spaetere Pruefaufgaben.
 
 - Soll Supabase weiterhin die geplante Datenplattform fuer Anfragen und Uploads sein?
   - Antwort: Ja. Supabase bleibt die geplante Datenplattform fuer spaetere Schadenanfragen, Uploads, interne Pruefung und KI-Voranalyse.
@@ -224,7 +342,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Anbieter sollen nicht ueberall hart im Projekt verdrahtet werden.
   - KI-Ergebnisse sollen spaeter strukturiert gespeichert werden, zum Beispiel erkannte Schadenbereiche, Bildqualitaets-Hinweise, fehlende Perspektiven, interne Zusammenfassung, Zeitpunkt der Analyse, verwendeter Anbieter / Modell falls technisch sinnvoll sowie Hinweis, dass es sich nicht um eine finale Bewertung handelt.
 
-## 8. Kontaktflow
+## 12. Kontaktflow
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Formular darf nicht als live vorausgesetzt werden, solange es nicht umgesetzt, geprueft und freigegeben ist.
 
 - Welcher Kontaktweg soll primaer sein: Telefon, WhatsApp, Formular oder E-Mail?
   - Antwort: Primaere Kontaktwege sollen Telefon und WhatsApp sein.
@@ -259,7 +379,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Oeffnungszeiten sollen im Kontaktbereich sichtbar sein: Montag bis Freitag: 09:00 - 18:00 Uhr; Samstag: 10:00 - 16:00 Uhr; Sonntag: Geschlossen; ausserhalb der Oeffnungszeiten nach Vereinbarung.
   - Mobile First ist fuer den Kontaktflow Pflicht: Telefon-Button mobil direkt erreichbar, WhatsApp-Button mobil direkt erreichbar, Formular kurz und einfach halten, keine langen Textbloecke, grosse klickbare Buttons, klare Reihenfolge: Anrufen, WhatsApp, Anfrage, und spaetere Upload-Strecke fuer Handy-Kamera und Galerie optimieren.
 
-## 9. SEO
+## 13. SEO
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landingpages, konkrete Einzugsgebiete und technische SEO-Details bleiben teilweise offen.
 
 - Welche Hauptkeywords sollen priorisiert werden?
   - Antwort: Die SEO-Ausrichtung der Webseite soll vollstaendig auf KFZ-Gutachten in Berlin ausgerichtet werden.
@@ -306,7 +428,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Die Hauptseite soll klar beantworten: Was bietet UNEXT an? Fuer wen ist das KFZ-Gutachten? In welchen Faellen sollte man UNEXT kontaktieren? Wie laeuft die Anfrage ab? Welche Unterlagen oder Bilder sind hilfreich? Wie funktioniert die digitale Schadenaufnahme? Welche Rolle spielt die geplante KI-Voranalyse? Warum ist die finale Bewertung durch einen Gutachter wichtig? Wie erreicht man UNEXT schnell?
   - Mobile SEO / Mobile First: Die SEO-Struktur muss auch mobil funktionieren mit klarer H1, kurzen Abschnitten, verstaendlichen Zwischenueberschriften, schnellen Kontakt-CTAs, mobil sichtbarem Telefon und WhatsApp, keinen langen Textbloecken und mobil gut lesbarer FAQ.
 
-## 10. Rechtliche und inhaltliche Grenzen der KI-Kommunikation
+## 14. Rechtliche und inhaltliche Grenzen der KI-Kommunikation
+
+Status: Beantwortet / in freigegebenen Specs beruecksichtigt. Finale rechtliche und datenschutzseitige Pruefung bleibt vor Umsetzung erforderlich.
 
 - Welche rechtlichen Hinweise sind fuer KI-gestuetzte Voranalyse notwendig?
   - Antwort: Die KI-gestuetzte Voranalyse ist als fester geplanter Ausbauschritt des Projekts vorgesehen, darf aber nicht als Ersatz fuer ein KFZ-Gutachten kommuniziert werden.
@@ -338,7 +462,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Die KI-Kommunikation soll Vertrauen aufbauen, aber keine uebertriebenen Leistungsversprechen machen.
   - Die KI soll als moderne Unterstuetzung des Gutachtenprozesses beschrieben werden, nicht als Ersatz fuer fachliche Sachverstaendigenarbeit.
 
-## 11. Mehrsprachigkeit
+## 15. Mehrsprachigkeit
+
+Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale Launch-Sprachen und vollstaendige mehrsprachige Umsetzung bleiben Launch- beziehungsweise Roadmap-Entscheidungen.
 
 - Soll die Webseite weiterhin mehrsprachig bleiben?
   - Antwort: Die Webseite soll grundsaetzlich dreisprachig geplant werden: Deutsch, Russisch und Englisch.
@@ -366,7 +492,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Wenn Mehrsprachigkeit aktiv bleibt, muessen SEO, Meta-Texte, FAQ, Kontaktflow, Datenschutz-/Einwilligungshinweise und KI-Disclaimer pro Sprache konsistent gepflegt werden.
   - Mobile First gilt auch fuer alle Sprachversionen: Texte muessen mobil gut lesbar bleiben, Uebersetzungen duerfen Buttons und Layouts nicht sprengen, CTA-Texte muessen kurz und verstaendlich bleiben, und russische sowie englische Texte muessen auf Mobile separat geprueft werden, weil Textlaengen abweichen koennen.
 
-## 12. Launch / Nachweise / Dokumentation
+## 16. Launch / Nachweise / Dokumentation
+
+Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` beruecksichtigt. Finale Launch-Freigabe, Launch-Sprachen und Live-Umfang bleiben offen.
 
 - Welche fachlichen Inhalte muessen vor Launch final freigegeben werden?
   - Antwort: Die Zielversion der Webseite umfasst reine KFZ-Gutachten-Webseite, digitale Schadenaufnahme, spaeteren Foto-Upload, Supabase-Speicherung von Anfragen und Bildern, spaetere KI-gestuetzte Voranalyse von Fahrzeugschaeden, interne Pruefung durch einen Gutachter und spaeter optional Adminbereich / Kundenportal / Web-App.
@@ -403,7 +531,9 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Nicht benoetigter Code soll spaeter kontrolliert entfernt werden, aber erst nach Verwendungspruefung und Cleanup-Plan.
   - Vor Launch soll dokumentiert werden, welche Specs freigegeben wurden, welche Inhalte entfernt wurden, welche alten Bereiche nicht mehr sichtbar sind, welche Checks erfolgreich waren, welche Reviewer genutzt wurden, welche offenen Punkte bewusst auf spaetere Phasen verschoben wurden und ob Upload, Supabase und KI live sind oder als geplante Ausbaustufe kommuniziert werden.
 
-## 13. Nicht-Scope / zu entfernende alte Inhalte
+## 17. Nicht-Scope / zu entfernende alte Inhalte
+
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkreter Content-/Code-Cleanup bleibt eine spaetere eigene Aufgabe mit Cleanup-Plan.
 
 - Welche vorhandenen Inhalte zu Autovermietung muessen spaeter entfernt, archiviert oder ersetzt werden?
   - Antwort: Die neue Webseite ist eine reine KFZ-Gutachten-Webseite.
@@ -436,3 +566,51 @@ Diese Fragen muessen beantwortet werden, bevor die finalen Specs fuer die neue W
   - Wenn alte Dateien technisch noch im Code vorhanden sind, aber nicht mehr sichtbar genutzt werden, muessen sie im spaeteren Code-Cleanup geprueft und kontrolliert entfernt werden.
   - Vor dem Loeschen von Code, Routen, Komponenten, Datenarrays, Uebersetzungen oder Assets muss geprueft werden, ob sie wirklich nicht mehr verwendet werden. Nicht blind loeschen.
   - Cleanup-Prinzip: 1. Fundstellen erfassen. 2. Nutzung pruefen. 3. Ersatz oder Entfernung planen. 4. Freigabe einholen. 5. Entfernen oder ersetzen. 6. Lint, Typecheck und Build ausfuehren. 7. Ergebnis pruefen.
+
+## Verbleibende offene Punkte
+
+### Launch-blockierend zu klaeren, falls fuer ersten Launch relevant
+
+- finale Launch-Sprachen
+- Formular zum Launch ja/nein
+- konkrete Datenschutz-/Einwilligungstexte, falls Formular, Upload oder KI live gehen
+- rechtliche Seiten vor Launch
+- konkrete Google-Bewertungen / Reviews, falls eingebunden
+- Kontaktwege und rechtliche Pflichtseiten final pruefen
+- alte sichtbare Nicht-Scope-Leistungen entfernen oder ausblenden
+- finale Launch-Freigabe
+
+### Nicht launch-blockierend / spaeter
+
+- konkretes Einzugsgebiet ueber Berlin hinaus
+- spaetere Landingpages
+- Upload, Supabase und KI, falls nicht zum Launch live
+- Adminbereich
+- Kundenportal
+- konkrete Speicherfristen
+- RLS, Security, Backup, Restore und Migration fuer Supabase
+- kundensichtbare KI-Ergebnisse
+- mehrsprachige Ausbaustufe, falls nicht zum Launch live
+- Content-/Code-Cleanup nach Rework
+
+### Roadmap / spaetere Specs oder Workflows
+
+- Upload-Umsetzung
+- Supabase-Umsetzung
+- KI-Umsetzung
+- Admin-/Portal-Spec
+- Cleanup-Plan
+- Landingpage-/SEO-Ausbau
+- mehrsprachige vollstaendige Umsetzung
+
+### Verbindliche Grenzen fuer verbleibende Punkte
+
+- Upload, Supabase und KI nicht als live darstellen.
+- Formular nicht als live voraussetzen, solange es nicht umgesetzt, geprueft und freigegeben ist.
+- KI bleibt intern, unterstuetzend und unverbindlich.
+- Finale Bewertung erfolgt immer durch Gutachter.
+- Keine alten Leistungen als aktive Leistungen darstellen.
+- Keine Reviews, Sterne oder Trust-Siegel ohne Freigabe.
+- Keine konkrete Rueckmeldefrist ohne Bestaetigung.
+- Keine 24/7- oder Sofortdienst-Garantie.
+- Keine finale Schadenhoehe oder Reparaturkosten versprechen.
