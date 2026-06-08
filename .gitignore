@@ -23,6 +23,13 @@ node_modules/
 .next-dev.err
 tsconfig.tsbuildinfo
 
+# Local audit/tool artifacts
+/.codex-*.png
+/.mobile-*.png
+/.codex-screenshots/
+/.codex-ru-storage.json
+/screenshots/
+
 # Claude Code Chat-Historie (lokal, nicht ins Repo)
 .claude/
 # Codex runtime state (nicht ins Repo)
