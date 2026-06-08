@@ -25,4 +25,4 @@ Die Webseite wird als reine KFZ-Gutachten-Webseite mit digitaler Schadenaufnahme
 
 ## Status
 
-Todo
+Status: abgeschlossen

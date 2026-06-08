@@ -24,4 +24,4 @@ Alte Leistungen wie Unfallhilfe, Gutachten, Zulassungsservice, Abschleppdienst, 
 
 ## Status
 
-Todo
+Status: ersetzt

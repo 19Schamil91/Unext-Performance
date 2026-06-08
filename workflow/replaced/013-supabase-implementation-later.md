@@ -24,4 +24,4 @@ Die Integration kann Fahrzeuge, Mietanfragen, Admin-Logik oder Benachrichtigunge
 
 ## Status
 
-Todo
+Status: ersetzt

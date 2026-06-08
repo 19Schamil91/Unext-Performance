@@ -24,4 +24,4 @@ Die Hero Section soll den Slogan nicht alleinstehend zeigen, sondern Autovermiet
 
 ## Status
 
-Todo
+Status: ersetzt

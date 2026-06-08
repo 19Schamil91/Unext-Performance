@@ -212,4 +212,4 @@ Begruendung: Aus `workflow/todo/` wurden keine Aufgaben nach `workflow/done/` ve
 
 ## Status
 
-Umgesetzt, wartet auf Freigabe.
+Status: abgeschlossen

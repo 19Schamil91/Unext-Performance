@@ -6,11 +6,23 @@ Dieses Projekt arbeitet nach:
 SPEC -> PLAN -> CODE -> REVIEW -> DONE
 ```
 
-Alle geplanten Aufgaben liegen in `workflow/todo/`.
+Geplante Aufgaben liegen in `workflow/todo/`.
+
+Genau die aktuell bearbeitete Aufgabe liegt in `workflow/active/`.
 
 Abgeschlossene Aufgaben liegen in `workflow/done/`.
 
-Eine Aufgabe darf erst nach ausdrücklicher Freigabe nach `done/` verschoben werden.
+Ersetzte oder historische Aufgaben liegen in `workflow/replaced/`.
+
+Eine Aufgabe darf nur nach ausdrücklicher Freigabe von `todo/` nach `active/` verschoben werden.
+
+Wenn eine Aufgabe nach `active/` verschoben wird, muss ihr Status auf `in Arbeit` gesetzt werden.
+
+In `workflow/active/` darf immer höchstens eine aktive Aufgabe liegen, außer der Nutzer erlaubt ausdrücklich eine Ausnahme.
+
+Eine Aufgabe darf erst nach Review und ausdrücklicher Freigabe von `active/` nach `done/` verschoben werden.
+
+`workflow/replaced/` bleibt nur für ersetzte oder historische Aufgaben.
 
 Vor dem Abschluss immer fragen:
 
@@ -20,7 +32,7 @@ Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
 
 ## Task-Dateien
 
-Größere Aufgaben werden als eigene Task-Dateien in `workflow/todo/` dokumentiert.
+Größere Aufgaben werden als eigene Task-Dateien in `workflow/todo/` dokumentiert und erst nach Freigabe nach `workflow/active/` verschoben.
 
 Eine Task-Datei sollte mindestens enthalten:
 

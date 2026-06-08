@@ -25,4 +25,4 @@ Die Specs duerfen erst aus bestaetigten Antworten aus Aufgabe 016 abgeleitet wer
 
 ## Status
 
-Todo
+Status: abgeschlossen
