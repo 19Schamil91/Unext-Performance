@@ -156,6 +156,22 @@ Keine Aufgaben vermischen.
 - Wenn ein Check nicht ausgeführt werden kann oder fehlschlägt, den Grund klar nennen.
 - Größere Komponenten und komplexe Logik bekommen sinnvolle Kommentare, die Zweck und Verhalten erklären.
 
+## Code-Kommentar-Regel
+
+Neue oder stark geänderte fachlich relevante `.tsx`-Dateien sollen am Anfang einen kurzen Kommentar enthalten.
+
+Der Kommentar soll in einfacher Sprache erklären:
+
+- wofür die Datei da ist
+- was der Nutzer auf dem Bildschirm sieht
+- was der Nutzer dort tun kann
+
+Komplexere Logik, Formularverarbeitung, Routing-Entscheidungen, Datenschutz-, Upload- oder KI-Grenzen und fachliche Einschränkungen sollen kurz kommentiert werden.
+
+Keine Kommentare für offensichtliches JSX oder triviale Zeilen schreiben.
+
+Kommentare müssen bei späteren Änderungen aktualisiert werden.
+
 ## Mobile-First-Regel
 
 - Neue und geänderte UI muss zuerst für mobile Nutzung funktionieren.
@@ -190,12 +206,18 @@ Im Projekt wird ein einfacher Workflow-Ordner genutzt:
 ```text
 workflow/
 ├── todo/
-└── done/
+├── active/
+├── done/
+└── replaced/
 ```
 
-In `workflow/todo/` liegen alle geplanten Aufgaben.
+In `workflow/todo/` liegen alle geplanten Aufgaben, die noch nicht aktiv bearbeitet werden.
+
+In `workflow/active/` liegt genau die aktuell bearbeitete Aufgabe.
 
 In `workflow/done/` liegen nur Aufgaben, die umgesetzt, geprüft und ausdrücklich freigegeben wurden.
+
+In `workflow/replaced/` liegen nur ersetzte oder historische Aufgaben.
 
 Jede größere Aufgabe braucht eine eigene Task-Datei in `workflow/todo/`.
 
@@ -223,9 +245,17 @@ Eine Aufgabe gilt erst als `abgeschlossen`, wenn sie umgesetzt, geprüft, zusamm
 
 Aufgaben dürfen nicht übersprungen oder zusammengelegt werden, wenn dadurch wichtige Prüfschritte verloren gehen.
 
+Eine Aufgabe darf nur nach ausdrücklicher Freigabe von `workflow/todo/` nach `workflow/active/` verschoben werden.
+
+Wenn eine Aufgabe nach `workflow/active/` verschoben wird, muss ihr Status auf `in Arbeit` gesetzt werden.
+
+In `workflow/active/` darf immer höchstens eine aktive Aufgabe liegen, außer der Nutzer erlaubt ausdrücklich eine Ausnahme.
+
 Eine Aufgabe darf nicht eigenständig nach `done/` verschoben werden.
 
 Eine Aufgabe darf auch nach erfolgreichen Checks nicht automatisch nach `workflow/done/` verschoben werden.
+
+Eine Aufgabe darf erst nach Review und ausdrücklicher Freigabe von `workflow/active/` nach `workflow/done/` verschoben werden.
 
 Vor dem Verschieben nach `done/` gilt die Done-Regel.
 
@@ -273,7 +303,9 @@ Soll diese Aufgabe abgeschlossen und nach done verschoben werden?
 
 Erst nach Bestätigung darf die Aufgabe nach `workflow/done/` verschoben werden.
 
-Ohne ausdrückliche Bestätigung bleibt die Aufgabe in `workflow/todo/`.
+Ohne ausdrückliche Bestätigung bleibt eine aktive Aufgabe in `workflow/active/`.
+
+Eine noch nicht gestartete Aufgabe bleibt in `workflow/todo/`.
 
 ## Spec-Regel
 
@@ -296,6 +328,24 @@ Specs gelten nicht automatisch als freigegeben, nur weil sie erstellt oder geän
 Nach dem Erstellen oder Ändern wichtiger Specs muss der Agent die Inhalte kurz zusammenfassen und auf Freigabe warten.
 
 Erst nach ausdrücklicher Freigabe dürfen aus diesen Specs konkrete Code-Änderungen oder Umsetzungspläne abgeleitet werden.
+
+## Spec-Hierarchie-Regel
+
+Vor jeder größeren Spec-, Content-, Code- oder UI-Änderung muss geprüft werden, ob die Änderung mit den übergeordneten Specs vereinbar ist.
+
+Die fachliche Reihenfolge ist:
+
+1. `specs/00-global-spec/global-spec.md`
+2. `specs/01-functional-map/functional-map.md`
+3. passende Feature-, Technical-, Visual- oder Work-Plan-Spec
+
+Wenn eine untergeordnete Spec einer übergeordneten Spec widerspricht, darf die Änderung nicht einfach umgesetzt werden.
+
+Der Widerspruch muss benannt werden.
+
+Der Nutzer muss entscheiden, ob zuerst die übergeordnete Spec angepasst oder die untergeordnete Spec korrigiert wird.
+
+Offene Entscheidungen dürfen nicht als bestätigte Anforderungen umgesetzt werden.
 
 ## Cleanup-Regel
 
