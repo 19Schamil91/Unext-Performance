@@ -25,4 +25,4 @@ Alte Komponenten, Imports, Datenarrays, Routen, SEO-Texte, Assets und Uebersetzu
 
 ## Status
 
-Todo
+Status: offen

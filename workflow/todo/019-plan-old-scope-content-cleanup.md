@@ -24,4 +24,4 @@ Diese alten Themen gehoeren nicht mehr zum fachlichen Scope der Webseite. Sie du
 
 ## Status
 
-Todo
+Status: offen

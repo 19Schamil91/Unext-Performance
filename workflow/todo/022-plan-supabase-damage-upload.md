@@ -27,4 +27,4 @@ Supabase darf noch nicht integriert werden. Die Planung muss Anfrageformular, Bi
 
 ## Status
 
-Todo
+Status: offen

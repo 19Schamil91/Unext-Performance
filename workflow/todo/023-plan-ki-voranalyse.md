@@ -32,4 +32,4 @@ Die KI soll spaeter die digitale Schadenaufnahme und interne Voranalyse unterstu
 
 ## Status
 
-Todo
+Status: offen

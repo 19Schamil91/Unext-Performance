@@ -26,4 +26,4 @@ Eine native App ist aktuell nicht geplant. Wahrscheinlicher und sinnvoller ist z
 
 ## Status
 
-Todo
+Status: offen
