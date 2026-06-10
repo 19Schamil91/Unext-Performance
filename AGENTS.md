@@ -229,6 +229,26 @@ Eine Task-Datei soll mindestens enthalten:
 - Akzeptanzkriterien
 - Status
 
+Jede neue Task-Datei in `workflow/todo/` oder `workflow/active/` muss einen Abschnitt `## Akzeptanzkriterien` enthalten.
+
+Die Akzeptanzkriterien beschreiben prüfbar, wann die Aufgabe erfüllt ist.
+
+Vor dem Verschieben einer Aufgabe von `workflow/todo/` nach `workflow/active/` muss geprüft werden, ob Akzeptanzkriterien vorhanden und ausreichend klar sind.
+
+Falls sie fehlen oder zu unklar sind, müssen sie vor oder beim Start der Aufgabe ergänzt werden.
+
+Vor dem Verschieben einer Aufgabe von `workflow/active/` nach `workflow/done/` muss gegen diese Akzeptanzkriterien geprüft werden.
+
+Eine Aufgabe darf nur nach `workflow/done/`, wenn die Kriterien erfüllt sind oder offene Abweichungen ausdrücklich vom Nutzer freigegeben wurden.
+
+Neue Akzeptanzkriterien dürfen den Scope einer Aufgabe nicht heimlich erweitern.
+
+Wenn neue größere Themen entstehen, müssen sie als eigene spätere Task vorgeschlagen werden.
+
+Bestehende Todo-Aufgaben müssen nicht sofort pauschal umgeschrieben werden.
+
+Sie werden spätestens vor oder beim Start geprüft und bei Bedarf ergänzt.
+
 Task-Dateien sollen einen klaren Status enthalten.
 
 Erlaubte Statuswerte sind:
