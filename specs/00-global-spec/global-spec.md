@@ -1,6 +1,6 @@
 # Global Spec
 
-Status: Finaler Entwurf, wartet auf Freigabe.
+Status: Freigegeben als Basis fuer die naechsten Planungsaufgaben.
 
 Grundlage: `specs/07-open-questions/open-questions.md`, bestehende Feature Specs, bestehende Technical Specs, `AGENTS.md`.
 

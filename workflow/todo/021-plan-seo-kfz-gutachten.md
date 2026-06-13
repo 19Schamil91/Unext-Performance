@@ -24,4 +24,4 @@ Alte SEO-Fokusse zu Autovermietung, Fahrzeugservice, Werkstatt, Zulassung, Absch
 
 ## Status
 
-Todo
+Status: offen
