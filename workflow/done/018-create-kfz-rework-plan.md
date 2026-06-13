@@ -299,4 +299,4 @@ Es werden keine neuen Task-Dateien automatisch erstellt.
 
 ## Status
 
-in Arbeit
+abgeschlossen
