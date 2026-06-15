@@ -136,6 +136,22 @@ Codex soll den Nutzer aktiv darauf hinweisen, wann ein neuer Branch sinnvoll ist
 - Nach jeder Aufgabe kurz zusammenfassen, was geändert wurde.
 - Eine Aufgabe darf erst nach ausdrücklicher Freigabe abgeschlossen werden.
 
+## Plausibilitaets- und Lernregel
+
+Wenn ein Nutzer-Prompt unklar, unlogisch, zu frueh, riskant oder ausserhalb der freigegebenen Specs, der aktiven Aufgabe oder des aktuellen Workflow-Schritts wirkt, soll der Agent vor Aenderungen stoppen und kurz darauf hinweisen.
+
+Der Hinweis soll in einfacher, verstaendlicher Sprache erklaeren, warum der Schritt problematisch sein koennte.
+
+Der Agent soll einen besseren naechsten Schritt vorschlagen, wenn ein sinnvoller Vorschlag erkennbar ist und dieser innerhalb der freigegebenen Specs, der aktiven Aufgabe und des aktuellen Workflow-Schritts bleibt.
+
+`Sinnvoll` bedeutet in diesem Projekt immer: spec-basiert, task-basiert und workflow-konform.
+
+Die Entscheidung bleibt immer beim Nutzer.
+
+Nach abgeschlossenen Schritten soll der Agent kurz nennen, welche naechsten Schritte aus seiner Sicht logisch waeren.
+
+Aus dieser Regel entstehen keine neuen Tasks, keine Scope-Erweiterung und keine Umsetzung ohne ausdrueckliche Freigabe.
+
 ## Scope-Regel
 
 Pro Aufgabe nur das bearbeiten, was in der jeweiligen Task-Datei oder Spec beschrieben ist.

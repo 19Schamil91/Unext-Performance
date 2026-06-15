@@ -76,6 +76,20 @@ Neue Task-Dateien dürfen nur erstellt werden, wenn der Nutzer dies bestätigt o
 
 Wenn während der Arbeit ein neues Problem oder eine neue Idee auffällt, wird daraus nicht automatisch eine neue Aufgabe. Stattdessen soll der Punkt kurz genannt und gefragt werden, ob dafür eine neue Task-Datei in `workflow/todo/` erstellt werden soll.
 
+## Plausibilitaetspruefung vor dem naechsten Schritt
+
+Wenn der naechste angeforderte Schritt unklar, unlogisch, zu frueh, riskant oder ausserhalb der aktiven Aufgabe, der freigegebenen Specs oder der Workflow-Reihenfolge wirkt, soll vor Aenderungen gestoppt und kurz darauf hingewiesen werden.
+
+Der Hinweis soll einfach erklaeren, warum der Schritt problematisch sein koennte.
+
+Ein besserer Vorschlag soll genannt werden, wenn er erkennbar sinnvoll ist, zum aktuellen Workflow-Schritt passt und innerhalb der freigegebenen Specs sowie der aktiven Aufgabe bleibt.
+
+Die Entscheidung bleibt beim Nutzer.
+
+Nach abgeschlossenen Schritten soll kurz genannt werden, welche naechsten Schritte logisch waeren.
+
+Keine neuen Tasks, keine Scope-Erweiterung und keine Umsetzung ohne ausdrueckliche Freigabe.
+
 ## Bestehende Änderungen
 
 Vor Commits muss geprüft werden, ob der Working Tree nur Änderungen enthält, die zur aktuellen Aufgabe gehören.
