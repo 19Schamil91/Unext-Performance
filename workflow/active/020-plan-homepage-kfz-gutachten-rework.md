@@ -20,10 +20,13 @@ Die alte Homepage-Ausrichtung auf Autovermietung, Fahrzeugservice und weitere Fa
 
 - Die Homepage-Planung ist vollstaendig auf KFZ-Gutachten ausgerichtet.
 - Autovermietung, Mietwagen, Werkstatt und Fahrzeugservice werden nicht als Leistungen geplant.
+- Alte Homepage-Service-Sektionen aus Aufgabe 019 sind als zu ersetzende oder zu pruefende Bereiche beruecksichtigt.
+- CTAs und Kontaktwege sind auf Telefon, WhatsApp und Anfrage ausgerichtet.
+- Navigation und Leistungsstruktur werden nur als Planung betrachtet.
 - Mobile First ist als Akzeptanzkriterium enthalten.
 - Telefon- und WhatsApp-CTA sind fuer Mobile gut erreichbar geplant.
-- Keine UI- oder Code-Aenderung erfolgt ohne spaetere Freigabe.
+- Keine Code-, UI-, Routing-, Content-, Asset-, Supabase-, Upload- oder KI-Umsetzung erfolgt in Aufgabe 020.
 
 ## Status
 
-Status: offen
+Status: in Arbeit
