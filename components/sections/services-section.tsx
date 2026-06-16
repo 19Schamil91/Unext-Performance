@@ -16,6 +16,7 @@ import { getTranslations } from "@/lib/translations"
 type ServiceMeta = {
   icon: typeof FileCheck
   image: string
+  imageAlt?: string
   imageClassName: string
   href: string
   contactText?: string
@@ -23,7 +24,7 @@ type ServiceMeta = {
   accentColor: string
 }
 
-const serviceMeta = [
+const serviceMeta: readonly ServiceMeta[] = [
   {
     icon: FileCheck,
     image: "/images/home-service-accident-wide.webp",
@@ -78,12 +79,13 @@ const serviceMeta = [
     contactHref: "tel:+493023613927",
     accentColor: "from-orange-500/20 to-transparent",
   },
-] satisfies readonly ServiceMeta[]
+] as const
 
-const reportServiceMeta = [
+const reportServiceMeta: readonly ServiceMeta[] = [
   {
     icon: FileCheck,
-    image: "/images/home-service-accident-wide.webp",
+    image: "/images/services/unfallgutachten-berlin.png",
+    imageAlt: "Unfallschaden an einem Fahrzeug in Berlin",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
     contactText: "030 23613927",
@@ -92,7 +94,8 @@ const reportServiceMeta = [
   },
   {
     icon: ClipboardCheck,
-    image: "/images/home-service-accident-wide.webp",
+    image: "/images/services/schadengutachten-detail.png",
+    imageAlt: "Detailaufnahme eines Fahrzeugschadens",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
     contactText: "030 23613927",
@@ -101,7 +104,8 @@ const reportServiceMeta = [
   },
   {
     icon: FileCheck,
-    image: "/images/home-service-accident-wide.webp",
+    image: "/images/services/wertgutachten-fahrzeugbewertung.png",
+    imageAlt: "Fahrzeugbewertung mit Unterlagen und Kamera",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
     contactText: "030 23613927",
@@ -110,14 +114,15 @@ const reportServiceMeta = [
   },
   {
     icon: ClipboardCheck,
-    image: "/images/home-service-accident-wide.webp",
+    image: "/images/services/beweissicherung-dokumentation.png",
+    imageAlt: "Dokumentation eines Fahrzeugschadens mit Fotos",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
     contactText: "030 23613927",
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/14 to-transparent",
   },
-] satisfies readonly ServiceMeta[]
+] as const
 
 const protectedDesktopPhrases = ["sicheren Transport"] as const
 
@@ -228,7 +233,7 @@ export function ServicesSection({ locale }: Props) {
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[1.45rem] border border-border/55 bg-background shadow-[0_10px_22px_rgba(15,23,42,0.08)]">
                       <Image
                         src={meta.image}
-                        alt={service.title}
+                        alt={meta.imageAlt ?? service.title}
                         fill
                         sizes="(min-width: 1024px) 32vw, (min-width: 768px) 48vw, 100vw"
                         quality={74}
