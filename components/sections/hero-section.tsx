@@ -412,7 +412,12 @@ export function HeroSection({ locale }: Props) {
     anchor: serviceAnchors[index] ?? serviceAnchors[0],
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
-  const heroImageSrc = "/images/home-hero-new.webp"
+  const heroImageSrc =
+    locale === "de" ? "/images/hero-kfz-gutachten-berlin.png" : "/images/home-hero-new.webp"
+  const mobileHeroImageClass =
+    locale === "de"
+      ? "scale-105 object-cover object-[82%_64%]"
+      : "scale-125 object-cover object-[58%_64%]"
   // Diese Varianten halten den mobilen Hero kurz, ohne harte Zeilen fuer einzelne Geraete zu erzwingen.
   const mobileHeroTitles = {
     de: { title1: t.title1, title2: t.title2, title3: t.title3 },
@@ -441,7 +446,7 @@ export function HeroSection({ locale }: Props) {
             fill
             sizes="(max-width: 767px) 100vw, 0vw"
             quality={88}
-            className="scale-125 object-cover object-[58%_64%]"
+            className={mobileHeroImageClass}
             priority
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_54%,rgba(5,7,11,0.42)_100%)]" />
