@@ -71,6 +71,69 @@ Aufgabe 027 darf nicht umfassen:
 - Typecheck, Lint und Build werden nach einer spaeteren Umsetzung ausgefuehrt oder begruendet uebersprungen.
 - Mobile und Desktop werden nach einer spaeteren Umsetzung visuell geprueft oder begruendet uebersprungen.
 
+## Homepage-Datei- und Komponenten-Inventur
+
+### 1. Sehr wahrscheinlich relevante Dateien fuer die erste Homepage-Umsetzung
+
+- `app/(de)/page.tsx` und `app/(localized)/[locale]/page.tsx`: Startseiten-Einstiege, beide rendern `HomePageContent`.
+- `components/HomePageContent.tsx`: zentrale Homepage-Komposition mit Header, Hero, Services, Process, Why, About, ExpressCourier, CTA und Footer.
+- `components/sections/hero-section.tsx`: Hero, H1/SR-Titel, Bild, Telefon-, WhatsApp- und Anfrage-CTA sowie direkte Leistungsanker.
+- `components/sections/services-section.tsx`: aktuelle sechs Leistungskaerten mit alten Nicht-Scope-Leistungen, Bildern, Icons, Links und Direkttelefonen.
+- `components/sections/process-section.tsx`: Ablaufbereich, aktuell breit auf Fahrzeuganliegen ausgerichtet.
+- `components/sections/why-section.tsx`: Vorteilsbereich, aktuell mit breiter Fahrzeugservice-Argumentation.
+- `components/sections/about-section.tsx`: Ueber-uns-Abschnitt, aktuell mit breiter Automotive-Partner-Erzaehlung und Service-Zaehlung.
+- `components/sections/express-courier-section.tsx`: Express-/Kurierbereich der Homepage, gehoert nicht zur neuen Homepage-Zielausrichtung.
+- `components/sections/cta-section.tsx`: abschliessender Kontaktbereich mit Telefon, WhatsApp und Anfrage.
+- `components/site-header.tsx`, `components/HeaderServicesMenu.tsx`, `components/HeaderMobileMenu.tsx` und `components/site-footer.tsx`: beeinflussen die Homepage sichtbar ueber Navigation, Leistungsmenue, mobile Navigation und Footer-Service-Links.
+- `lib/translations/home.ts`, `lib/translations/home-overrides.ts`, `lib/translations/header-footer.ts` und `lib/translations.ts`: zentrale sichtbare Homepage-, Header- und Footer-Texte in Deutsch, Englisch und Russisch.
+- `lib/service-anchors.ts`: Anker fuer die aktuelle sechsgeteilte Leistungsstruktur.
+
+### 2. Komponenten mit moeglicher alter Nicht-Scope-Wirkung
+
+- `hero-section.tsx`: Hauptbotschaft nennt aktuell `Kfz-Gutachten und Fahrzeugservice`, `aus einer Hand` und alte Leistungsanker.
+- `services-section.tsx`: priorisiert Autovermietung, Werkstatt, Detailing, Zulassung und Abschleppdienst/Pannenhilfe als Homepage-Leistungen.
+- `express-courier-section.tsx`: stellt Expresslieferung und Kurierdienst als sichtbaren Homepage-Bereich dar.
+- `about-section.tsx`: beschreibt UNEXT als breiten Automotive-Partner und zeigt eine `6`-Services-Logik.
+- `why-section.tsx` und `process-section.tsx`: enthalten breite Formulierungen zu Werkstatt, Mietwagen, Zulassung, Panne oder allgemeinen Fahrzeugfragen.
+- `site-header.tsx`, `HeaderServicesMenu.tsx`, `HeaderMobileMenu.tsx` und `site-footer.tsx`: zeigen alte Service-Links in Navigation und Footer.
+- `lib/translations/home.ts`, `home-overrides.ts` und `header-footer.ts`: enthalten viele sichtbare alte Leistungsbegriffe und muessen bei der Umsetzung konsistent geprueft werden.
+
+### 3. Dateien, die wahrscheinlich spaeter geaendert werden muessen
+
+- `components/HomePageContent.tsx`, wenn Sektionen entfernt, ersetzt oder neu sortiert werden.
+- `components/sections/hero-section.tsx`, wenn Hero, CTA-Reihenfolge, H1/Screenreader-Titel oder Direktanker auf `KFZ-Gutachten Berlin` ausgerichtet werden.
+- `components/sections/services-section.tsx`, wenn die sechs alten Leistungskarten durch Gutachtenarten oder einen neuen Leistungsfokus ersetzt werden.
+- `components/sections/process-section.tsx`, `why-section.tsx`, `about-section.tsx` und `cta-section.tsx`, wenn Ablauf, Trust, Kompetenz und Kontakt auf KFZ-Gutachten eingegrenzt werden.
+- `components/sections/express-courier-section.tsx` oder `components/HomePageContent.tsx`, wenn der Express-/Kurierbereich aus der Homepage-Prioritaet entfernt oder ersetzt wird.
+- `components/site-header.tsx`, `components/HeaderServicesMenu.tsx`, `components/HeaderMobileMenu.tsx`, `components/site-footer.tsx` und `lib/service-anchors.ts`, wenn sichtbare Homepage-Navigation, Leistungsanker oder Footer-Links angepasst werden.
+- `lib/translations/home.ts`, `lib/translations/home-overrides.ts`, `lib/translations/header-footer.ts` und ggf. `lib/translations.ts`, wenn sichtbare mehrsprachige Homepage-Texte angepasst werden.
+- `components/contact-page-client.tsx`, `lib/translations/contact.ts`, `lib/contactForm.ts` und der bestehende Resend-Flow sind nur pruefbeduerftig, falls der erste Homepage-Schritt Anfragewege oder Kontaktformulierungen sichtbar beruehrt.
+
+### 4. Dateien und Bereiche, die fuer Aufgabe 027 tabu bleiben
+
+- `lib/metadata.ts` und `lib/structuredData.ts`: SEO-, Metadata- und Structured-Data-Umsetzung braucht einen eigenen SEO-Umsetzungstask.
+- Alte Service-Routen unter `app/(de)/leistungen/` und `app/(localized)/[locale]/leistungen/`: keine Routenloeschungen oder Redirects in diesem ersten Homepage-Schritt.
+- Alte Service-Detailkomponenten wie `RentalServiceDetailContent.tsx`, `WorkshopServiceDetailContent.tsx`, `DetailingServiceDetailContent.tsx`, `RegistrationServiceDetailContent.tsx` und `TowingServiceDetailContent.tsx`: keine endgueltige Service-Bereinigung ohne Referenz-, Routing- und SEO-Pruefung.
+- Assets unter `public/` beziehungsweise Bilddateien wie alte Service-Bilder: keine Loeschung ohne eigene Asset- und Referenzpruefung.
+- Supabase-, Upload-, KI-, Admin-, Kundenportal-, Dependency-, Environment- und Config-Bereiche.
+- Specs bleiben in Aufgabe 027 unveraendert, sofern nicht spaeter ein eigener Spec-Aenderungsauftrag freigegeben wird.
+
+### 5. Offene Fragen vor der Code-Umsetzung
+
+- Soll die erste Umsetzung nur Deutsch betreffen oder muessen Englisch und Russisch im selben Schritt sichtbar konsistent mitgezogen werden?
+- Soll `ExpressCourierSection` komplett aus der Homepage-Komposition entfernt oder durch einen neuen KFZ-Gutachten-Bereich ersetzt werden?
+- Welche genaue Gutachtenarten-Struktur soll die alte sechsgeteilte Service-Kartenstruktur ersetzen: Unfallgutachten, Schadengutachten, Wertgutachten/Fahrzeugbewertung, Beweissicherung und digitale Schadenaufnahme als Anfragevorbereitung?
+- Welcher freigegebene Anfrageweg gilt fuer `Gutachten anfragen`, solange kein neuer Upload- oder Supabase-Flow freigegeben ist?
+- Duerfen Header/Footer-Service-Links im ersten Umsetzungsschritt sichtbar reduziert werden, oder braucht das wegen alter URLs einen eigenen Navigations-/Routing-/SEO-Task?
+- Welche bestehenden Bilder duerfen fuer Hero, Gutachtenarten und Trust-Bereich weiterverwendet werden, ohne Werkstatt-, Mietwagen- oder Fahrzeugservice-Wirkung zu erzeugen?
+- Gibt es freigegebene Trust-Aussagen oder Qualifikationsformulierungen, die ueber die Visual-Spec-Leitplanke hinaus verwendet werden duerfen?
+
+### 6. Einschaetzung zur ersten Code-/UI-Umsetzung
+
+- Eine erste Code-/UI-Umsetzung erscheint nach dieser Inventur grundsaetzlich moeglich.
+- Der erste Schritt sollte eng auf Homepage-Komposition, Hero, sichtbare Sektionen, CTAs und Homepage-Texte begrenzt bleiben.
+- Routing, Redirects, SEO-/Metadata-/Structured-Data-Dateien, Supabase, Upload, KI und endgueltiger Cleanup alter Services bleiben ausserhalb dieses ersten Umsetzungsschritts.
+
 ## Status
 
 Status: in Arbeit
