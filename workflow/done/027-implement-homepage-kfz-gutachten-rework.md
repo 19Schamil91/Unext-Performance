@@ -136,4 +136,16 @@ Aufgabe 027 darf nicht umfassen:
 
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen
+
+## Done-Zusammenfassung
+
+- Deutsche Homepage auf `KFZ-Gutachten Berlin` umgestellt.
+- Alte Service-Priorisierung fuer Mietwagen, Werkstatt, Abschleppen, Pannenhilfe, Detailing, Zulassung und Express/Kurier aus der sichtbaren deutschen Homepage-Prioritaet entfernt.
+- Hero, Services, Process, Why, About, CTA und Footer gegen den KFZ-Gutachten-Scope geprueft.
+- Digitale Schadenaufnahme nur als Anfragevorbereitung dargestellt.
+- Neue deutsche Bilder fuer Hero und Gutachtenkarten bewusst eingebunden.
+- Desktop und Mobile visuell geprueft.
+- `npm run lint`, `npx tsc --noEmit`, `npm run build` und `git diff --check` erfolgreich ausgefuehrt.
+- Keine Routen, Metadata, Structured Data, Specs, Upload, Supabase oder KI geaendert.
+- EN/RU nicht umgebaut.
