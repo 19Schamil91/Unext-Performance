@@ -15,6 +15,7 @@ type Props = {
 
 export function WhySection({ locale }: Props) {
   const t = getTranslations(locale).home.why
+  const isGerman = locale === "de"
 
   return (
     <section className="bg-card py-20 lg:py-28">
@@ -39,7 +40,13 @@ export function WhySection({ locale }: Props) {
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{benefit.title}</h3>
-                <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                <p
+                  className={
+                    isGerman
+                      ? "mt-2 measure-card-copy text-[0.99rem] leading-7 text-foreground/82"
+                      : "mt-2 measure-card-copy text-body-compact text-foreground/78"
+                  }
+                >
                   {benefit.description}
                 </p>
               </div>

@@ -6,3 +6,11 @@ export const homeServiceAnchors = [
   "service-zulassung",
   "service-abschleppdienst",
 ] as const
+
+export const homeReportAnchors = [
+  "service-unfallgutachten",
+  "service-schadengutachten",
+  "service-wertgutachten",
+  "service-beweissicherung",
+  "service-digitale-schadenaufnahme",
+] as const

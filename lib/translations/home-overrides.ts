@@ -1,12 +1,160 @@
 export const homeTranslationOverrides = {
   de: {
     hero: {
-      title1: "Kfz-Gutachten\nund Fahrzeugservice",
-      title2: "aus einer Hand",
-      title3: "",
+      badge: "KFZ-Gutachten in Berlin",
+      title1: "KFZ-Gutachten",
+      title2: "Berlin",
+      title3: "nach Unfall oder Schaden",
       description:
-        "Von Unfallgutachten bis Zulassung:\nUNEXT begleitet Sie klar und direkt in Berlin.\n\nSchnell erreichbar. Gut abgestimmt. Professionell umgesetzt.",
-      directServicesLabel: "Direkt zu den Hauptleistungen",
+        "UNEXT unterstützt Sie nach Unfall oder Schaden mit KFZ-Gutachten und Fahrzeugbewertungen in Berlin.\n\nDirekt erreichbar per Telefon, WhatsApp oder Anfrage.",
+      inquiry: "Gutachten anfragen",
+      address: "Lübarser Straße 25, 13435 Berlin",
+      directServicesLabel: "Direkt zu den Gutachtenarten",
+    },
+    services: {
+      title: "Gutachten bei Unfall, Schaden und Fahrzeugbewertung",
+      description:
+        "UNEXT unterstützt Sie bei Unfallgutachten, Schadengutachten, Wertgutachten und Beweissicherung in Berlin.",
+      onRequestContact: "Telefon, WhatsApp oder Kontaktformular",
+      learnMore: "Kontakt aufnehmen",
+      viewAll: "Gutachtenarten ansehen",
+      items: [
+        {
+          title: "Unfallgutachten",
+          subtitle: "Nach Verkehrsunfall",
+          description:
+            "Unabhängige Dokumentation nach einem Unfall mit klarer Einordnung für das weitere Vorgehen.",
+          features: [
+            "Schaden nachvollziehbar erfassen",
+            "Fahrzeug und Unfallfolgen dokumentieren",
+            "Kontaktweg schnell klären",
+            "Weitere Schritte abstimmen",
+          ],
+        },
+        {
+          title: "Schadengutachten",
+          subtitle: "Schaden dokumentieren",
+          description:
+            "Sachliche Schadenaufnahme für sichtbare Fahrzeugschäden, Unterlagen und nächste Schritte.",
+          features: [
+            "Schadenbeschreibung vorbereiten",
+            "Fotos und Informationen einordnen",
+            "Rückmeldung zum weiteren Vorgehen",
+            "Kontakt per Telefon oder WhatsApp",
+          ],
+        },
+        {
+          title: "Wertgutachten / Fahrzeugbewertung",
+          subtitle: "Fahrzeugwert klären",
+          description:
+            "Fahrzeugbewertung für Verkauf, Kauf, interne Entscheidung oder nachvollziehbare Wertermittlung.",
+          features: [
+            "Fahrzeugdaten aufnehmen",
+            "Zustand und Ausstattung berücksichtigen",
+            "Bewertung sachlich vorbereiten",
+            "Direkter Kontakt",
+          ],
+        },
+        {
+          title: "Beweissicherung",
+          subtitle: "Unterlagen sichern",
+          description:
+            "Fotos, Schadenbeschreibung und relevante Unterlagen werden für die weitere Prüfung strukturiert vorbereitet.",
+          features: [
+            "Schadenfotos vorbereiten",
+            "Unterlagen sammeln",
+            "Ablauf nachvollziehbar halten",
+            "Persönliche Prüfung",
+          ],
+        },
+      ],
+    },
+    why: {
+      title: "Warum UNEXT für KFZ-Gutachten?",
+      description:
+        "Klare Kontaktwege, sachliche Schadenaufnahme und Fokus auf Gutachtenfragen in Berlin.",
+      benefits: [
+        {
+          title: "Fokus auf Gutachten",
+          description: "Klare Hilfe bei Gutachtenfragen nach Unfall oder Schaden.",
+        },
+        {
+          title: "Schnell erreichbar",
+          description: "Telefon und WhatsApp führen schnell zum direkten Kontakt.",
+        },
+        {
+          title: "Mobile Anfragewege",
+          description: "Wichtige Schadeninformationen können bequem vorbereitet werden.",
+        },
+        {
+          title: "Sachliche Einordnung",
+          description: "Sie erhalten eine klare Rückmeldung zu sinnvollen nächsten Schritten.",
+        },
+        {
+          title: "Standort Berlin",
+          description: "Fester Kontakt für KFZ-Gutachten und Fahrzeugbewertung in Berlin.",
+        },
+        {
+          title: "Persönliche Prüfung",
+          description: "Die Einschätzung erfolgt nachvollziehbar im direkten Kontakt.",
+        },
+      ],
+    },
+    process: {
+      title: "So läuft die Gutachten-Anfrage ab",
+      description:
+        "Sie nehmen Kontakt auf, schildern Schaden oder Fahrzeugdaten und stimmen die nächsten Schritte direkt mit UNEXT ab.",
+      steps: [
+        {
+          step: "01",
+          title: "Kontakt aufnehmen",
+          description: "Telefon, WhatsApp oder Kontaktformular führen direkt zum ersten Kontakt.",
+        },
+        {
+          step: "02",
+          title: "Schaden schildern",
+          description: "Sie beschreiben Unfall, Schaden, Fahrzeugdaten oder Bewertungsanlass.",
+        },
+        {
+          step: "03",
+          title: "Unterlagen prüfen",
+          description: "Fotos, Fahrzeuginfos und weitere Angaben werden für die Begutachtung abgestimmt.",
+        },
+        {
+          step: "04",
+          title: "Weitere Schritte klären",
+          description: "UNEXT meldet sich zu Gutachten, Termin oder nächstem Vorgehen.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "Über UNEXT GmbH",
+      title: "KFZ‑Gutachten und Fahrzeugbewertung in Berlin",
+      paragraph1:
+        "UNEXT GmbH ist ein Berliner Unternehmen mit Fokus auf KFZ‑Gutachten, Beweissicherung und Fahrzeugbewertung.\n\nNach einem Unfall oder bei Bewertungsfragen geht es um eine klare, nachvollziehbare Aufnahme der relevanten Informationen.",
+      paragraph2:
+        "Schadeninformationen können digital vorbereitet und anschließend persönlich abgestimmt werden.\n\nDie Prüfung erfolgt nachvollziehbar im direkten Kontakt, nicht automatisch.",
+      highlights: [
+        "KFZ‑Gutachten in Berlin",
+        "Unfallgutachten und Schadengutachten",
+        "Wertgutachten und Fahrzeugbewertung",
+        "Digitale Anfragevorbereitung",
+        "Telefon und WhatsApp als schnelle Kontaktwege",
+      ],
+      cta: "Kontakt aufnehmen",
+      stats: {
+        founded: "Gegründet",
+        services: "Fokus",
+        location: "Berlin",
+      },
+    },
+    cta: {
+      badge: "Telefonisch am schnellsten",
+      title: "Sie brauchen ein KFZ-Gutachten?",
+      description:
+        "Rufen Sie an, schreiben Sie per WhatsApp oder senden Sie eine Anfrage.\nUNEXT meldet sich zeitnah zurück.",
+      inquiry: "Gutachten anfragen",
+      whatsapp: "WhatsApp",
     },
   },
   en: {
