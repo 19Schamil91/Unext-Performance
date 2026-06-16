@@ -263,6 +263,13 @@ Ein Launch darf erst empfohlen werden, wenn mindestens diese Punkte geprueft sin
 - Die Post-Launch-Kontrolle ist eingeplant.
 - Der Nutzer hat den Launch ausdruecklich freigegeben.
 
+## Angelegte Folgeaufgaben
+
+- 029 bis 035 wurden als echte Todo-Dateien in `workflow/todo/` angelegt.
+- Sie bleiben geplant in `workflow/todo/`.
+- Keine dieser Aufgaben wurde gestartet.
+- Der naechste konkrete Task nach Abschluss von 028 ist voraussichtlich 029.
+
 ## Akzeptanzkriterien
 
 - Es ist dokumentiert, was fuer Version 1 / ersten Launch noch fehlt.
@@ -274,7 +281,7 @@ Ein Launch darf erst empfohlen werden, wenn mindestens diese Punkte geprueft sin
 - Es ist geprueft, ob ein Launch-Quality-Task noetig ist.
 - Es ist geprueft, ob ein Deployment-/Launch-Gate noetig ist.
 - Es ist festgelegt, ob 026 jetzt schon starten darf oder erst spaeter.
-- Die empfohlenen Folge-Tasks 029 bis 035 sind nur dokumentiert und nicht erstellt.
+- Die empfohlenen Folge-Tasks 029 bis 035 sind als Todo-Dateien angelegt und nicht gestartet.
 - Die empfohlene Reihenfolge bis Launch ist dokumentiert.
 - Das Launch-Gate ist als pruefbare Liste dokumentiert.
 - 022, 023 und 024 werden nur als Roadmap-Themen eingeordnet und nicht gestartet.
