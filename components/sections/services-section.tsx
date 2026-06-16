@@ -10,7 +10,7 @@ import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { homeServiceAnchors } from "@/lib/service-anchors"
+import { homeReportAnchors, homeServiceAnchors } from "@/lib/service-anchors"
 import { getTranslations } from "@/lib/translations"
 
 type ServiceMeta = {
@@ -80,16 +80,63 @@ const serviceMeta = [
   },
 ] satisfies readonly ServiceMeta[]
 
+const reportServiceMeta = [
+  {
+    icon: FileCheck,
+    image: "/images/home-service-accident-wide.webp",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/20 to-transparent",
+  },
+  {
+    icon: ClipboardCheck,
+    image: "/images/home-service-accident-wide.webp",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/18 to-transparent",
+  },
+  {
+    icon: FileCheck,
+    image: "/images/home-service-accident-wide.webp",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/16 to-transparent",
+  },
+  {
+    icon: ClipboardCheck,
+    image: "/images/home-service-accident-wide.webp",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/14 to-transparent",
+  },
+  {
+    icon: FileCheck,
+    image: "/images/home-service-accident-wide.webp",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/12 to-transparent",
+  },
+] satisfies readonly ServiceMeta[]
+
 const protectedDesktopPhrases = ["sicheren Transport"] as const
 
 const mobileServiceDescriptions = {
   de: [
-    "Nach einem Unfall erhalten Sie schnelle Hilfe,\nein unabhängiges Gutachten\nund klare nächste Schritte.",
-    "Miet- und Ersatzfahrzeuge\nfür Privatkunden, Gewerbe\nund Fahrdienste kurzfristig verfügbar.",
-    "Von Inspektion bis Reparatur\nkümmern wir uns um Technik,\nSicherheit und Einsatzbereitschaft.",
-    "Innen- und Außenaufbereitung\nfür gepflegte Fahrzeuge,\nWerterhalt und starken Gesamteindruck.",
-    "Zulassung, Abmeldung\nund Kennzeichenservice,\ndamit Ihr Fahrzeug korrekt\nauf die Straße kommt.",
-    "Wenn Ihr Fahrzeug nicht weiterfährt,\norganisieren wir schnelle Hilfe,\nsicheren Transport und nächste Schritte.",
+    "Unabhängige Dokumentation nach einem Unfall mit klarer Einordnung der nächsten Schritte.",
+    "Schadendokumentation für Karosserie, Technik und sichtbare Unfallfolgen.",
+    "Fahrzeugbewertung und Wertgutachten für Kauf, Verkauf oder interne Entscheidungen.",
+    "Beweissicherung mit Fotos, Unterlagen und nachvollziehbarer Schadendokumentation.",
+    "Schadeninformationen digital vorbereiten und dann per Telefon, WhatsApp oder Anfrage abstimmen.",
   ],
   en: [
     "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
@@ -110,7 +157,7 @@ const mobileServiceDescriptions = {
 } as const satisfies Record<Locale, readonly string[]>
 
 const mobileServicesIntro = {
-  de: "UNEXT verbindet Unfallhilfe, Mietwagen,\nWerkstatt und Aufbereitung\nmit Zulassung und Pannenhilfe in Berlin.",
+  de: "UNEXT fokussiert sich auf KFZ-Gutachten in Berlin:\nUnfallgutachten, Schadengutachten, Fahrzeugbewertung\nund digitale Anfragevorbereitung.",
   en: "UNEXT combines accident assistance, rental cars,\nworkshop service and detailing\nwith registration and roadside help in Berlin.",
   ru: "UNEXT объединяет помощь при ДТП,\nаренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге в Берлине.",
 } as const satisfies Record<Locale, string>
@@ -155,6 +202,8 @@ function renderMobileServiceDescription(description: string) {
 export function ServicesSection({ locale }: Props) {
   // Diese Daten bestimmen pro Leistung Bild, Icon und direkte Kontaktaktion.
   const t = getTranslations(locale).home.services
+  const resolvedServiceMeta = locale === "de" ? reportServiceMeta : serviceMeta
+  const serviceAnchors = locale === "de" ? homeReportAnchors : homeServiceAnchors
 
   return (
     <section id="leistungen" className="bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28">
@@ -175,13 +224,13 @@ export function ServicesSection({ locale }: Props) {
 
         <div className="grid gap-7 md:grid-cols-2">
           {t.items.map((service, index) => {
-            const meta = serviceMeta[index]
+            const meta = resolvedServiceMeta[index] ?? resolvedServiceMeta[0]
             const contactText = meta.contactText ?? ""
 
             return (
               <Card
                 key={service.title}
-                id={homeServiceAnchors[index]}
+                id={serviceAnchors[index]}
                 className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
               >
                 <CardContent className="p-4 sm:p-5 lg:p-6">

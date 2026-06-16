@@ -8,7 +8,7 @@ import Link from "next/link"
 import { ArrowRight, DoorOpen, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Locale } from "@/lib/i18n"
-import { homeServiceAnchors } from "@/lib/service-anchors"
+import { homeReportAnchors, homeServiceAnchors } from "@/lib/service-anchors"
 import { getTranslations } from "@/lib/translations"
 
 type HeroContentProps = {
@@ -32,8 +32,8 @@ type HeroContentProps = {
 
 function renderHeroDescription(description: string, lineClassName?: string) {
   // Diese Begriffe bleiben zusammen, damit sie in allen Sprachen lesbar umbrechen.
-  const protectedTerm = "Kfz-Werkstatt"
-  const desktopBreakMarkers = ["Autovermietung,", "Berlin."]
+  const protectedTerm = "KFZ-Gutachten"
+  const desktopBreakMarkers = ["Berlin."]
   const protectedTerms = [protectedTerm, "Taxi-Fahrer"]
   const combinedEndingMarkers = ["Alles unter einem Dach.", "All under one roof."]
 
@@ -406,9 +406,10 @@ export function HeroSection({ locale }: Props) {
   // Diese Inhalte werden serverseitig nach der Sprache der aktuellen URL geladen.
   const home = getTranslations(locale).home
   const t = home.hero
+  const serviceAnchors = locale === "de" ? homeReportAnchors : homeServiceAnchors
   const mainServices = home.services.items.map((service, index) => ({
     title: service.title,
-    anchor: homeServiceAnchors[index] ?? homeServiceAnchors[0],
+    anchor: serviceAnchors[index] ?? serviceAnchors[0],
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc = "/images/home-hero-new.webp"

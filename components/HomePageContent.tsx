@@ -28,7 +28,7 @@ export function HomePageContent({ locale }: Props) {
         <ProcessSection locale={locale} />
         <WhySection locale={locale} />
         <AboutSection locale={locale} />
-        <ExpressCourierSection locale={locale} />
+        {locale !== "de" ? <ExpressCourierSection locale={locale} /> : null}
         <CtaSection locale={locale} />
       </main>
       <SiteFooter locale={locale} />

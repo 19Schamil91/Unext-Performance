@@ -17,6 +17,7 @@ type Props = {
 
 export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
+  const showStatsPanel = locale !== "de"
   // Diese mobile englische Fassung setzt Sinnzeilen, ohne die Desktop-Fassung oder andere Sprachen zu veraendern.
   const mobileEnglishParagraph1 =
     "UNEXT GmbH is a Berlin-based company,\nfounded in 2024 with a focus on\nprofessional accident reports and\nimmediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers."
@@ -44,24 +45,26 @@ export function AboutSection({ locale }: Props) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/16 via-transparent to-transparent dark:from-background/28" />
             </div>
 
-            <div className="absolute -bottom-5 left-4 right-4 sm:left-8 sm:right-auto">
-              <div className="flex flex-wrap justify-center gap-3 rounded-xl border border-border/80 bg-card/95 p-3.5 shadow-lg backdrop-blur sm:flex-nowrap">
-                <div className="min-w-[84px] px-2 text-center">
-                  <p className="text-2xl font-bold text-primary">2024</p>
-                  <p className="text-xs font-medium text-foreground/72">{t.stats.founded}</p>
-                </div>
-                <div className="hidden w-px bg-border sm:block" />
-                <div className="min-w-[84px] px-2 text-center">
-                  <p className="text-2xl font-bold text-primary">6</p>
-                  <p className="text-xs font-medium text-foreground/72">{t.stats.services}</p>
-                </div>
-                <div className="hidden w-px bg-border sm:block" />
-                <div className="min-w-[84px] px-2 text-center">
-                  <p className="text-2xl font-bold text-primary">1</p>
-                  <p className="text-xs font-medium text-foreground/72">{t.stats.location}</p>
+            {showStatsPanel ? (
+              <div className="absolute -bottom-5 left-4 right-4 sm:left-8 sm:right-auto">
+                <div className="flex flex-wrap justify-center gap-3 rounded-xl border border-border/80 bg-card/95 p-3.5 shadow-lg backdrop-blur sm:flex-nowrap">
+                  <div className="min-w-[84px] px-2 text-center">
+                    <p className="text-2xl font-bold text-primary">2024</p>
+                    <p className="text-xs font-medium text-foreground/72">{t.stats.founded}</p>
+                  </div>
+                  <div className="hidden w-px bg-border sm:block" />
+                  <div className="min-w-[84px] px-2 text-center">
+                    <p className="text-2xl font-bold text-primary">6</p>
+                    <p className="text-xs font-medium text-foreground/72">{t.stats.services}</p>
+                  </div>
+                  <div className="hidden w-px bg-border sm:block" />
+                  <div className="min-w-[84px] px-2 text-center">
+                    <p className="text-2xl font-bold text-primary">1</p>
+                    <p className="text-xs font-medium text-foreground/72">{t.stats.location}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
           </div>
 
           <div className="lg:pl-8">
