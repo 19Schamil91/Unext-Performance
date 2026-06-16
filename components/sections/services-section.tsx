@@ -117,15 +117,6 @@ const reportServiceMeta = [
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/14 to-transparent",
   },
-  {
-    icon: FileCheck,
-    image: "/images/home-service-accident-wide.webp",
-    imageClassName: "object-cover object-center",
-    href: "/kontakt",
-    contactText: "030 23613927",
-    contactHref: "tel:+493023613927",
-    accentColor: "from-red-500/12 to-transparent",
-  },
 ] satisfies readonly ServiceMeta[]
 
 const protectedDesktopPhrases = ["sicheren Transport"] as const
@@ -136,7 +127,6 @@ const mobileServiceDescriptions = {
     "Schadendokumentation für Karosserie, Technik und sichtbare Unfallfolgen.",
     "Fahrzeugbewertung und Wertgutachten für Kauf, Verkauf oder interne Entscheidungen.",
     "Beweissicherung mit Fotos, Unterlagen und nachvollziehbarer Schadendokumentation.",
-    "Schadeninformationen digital vorbereiten und dann per Telefon, WhatsApp oder Anfrage abstimmen.",
   ],
   en: [
     "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
@@ -157,7 +147,7 @@ const mobileServiceDescriptions = {
 } as const satisfies Record<Locale, readonly string[]>
 
 const mobileServicesIntro = {
-  de: "UNEXT fokussiert sich auf KFZ-Gutachten in Berlin:\nUnfallgutachten, Schadengutachten, Fahrzeugbewertung\nund digitale Anfragevorbereitung.",
+  de: "UNEXT fokussiert sich auf KFZ-Gutachten in Berlin:\nUnfallgutachten, Schadengutachten,\nFahrzeugbewertung und Beweissicherung.",
   en: "UNEXT combines accident assistance, rental cars,\nworkshop service and detailing\nwith registration and roadside help in Berlin.",
   ru: "UNEXT объединяет помощь при ДТП,\nаренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге в Берлине.",
 } as const satisfies Record<Locale, string>
@@ -316,6 +306,46 @@ export function ServicesSection({ locale }: Props) {
             )
           })}
         </div>
+
+        {locale === "de" ? (
+          <div
+            id="service-digitale-schadenaufnahme"
+            className="mt-7 scroll-mt-28 rounded-[1.75rem] border border-primary/22 bg-card/88 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6 lg:mt-8 lg:p-8"
+          >
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+              <div>
+                <p className="text-[0.68rem] font-medium uppercase tracking-[0.24em] text-primary/90">
+                  Anfrage vorbereiten
+                </p>
+                <h3 className="mt-2 text-card-heading-fluid text-foreground">
+                  Digitale Schadenaufnahme als Vorbereitung
+                </h3>
+                <p className="mt-3 max-w-3xl text-body-compact leading-7 text-foreground/76">
+                  <span className="block">
+                    Fotos und Fahrzeugdaten können für die Anfrage vorbereitet werden.
+                  </span>
+                  <span className="block">
+                    Danach erfolgt die persönliche Abstimmung per Telefon, WhatsApp oder Kontaktformular.
+                  </span>
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <Button asChild className="gap-2">
+                  <Link href="/kontakt">
+                    Gutachten anfragen
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="gap-2">
+                  <a href="tel:+493023613927">
+                    <Phone className="h-4 w-4" />
+                    030 23613927
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   )

@@ -14,7 +14,7 @@ export const homeTranslationOverrides = {
     services: {
       title: "Gutachtenleistungen für Schaden und Fahrzeugwert",
       description:
-        "Fokus auf KFZ-Gutachten in Berlin: Unfallgutachten, Schadengutachten, Wertgutachten, Beweissicherung und digitale Anfragevorbereitung.",
+        "Fokus auf KFZ-Gutachten in Berlin: Unfallgutachten, Schadengutachten, Wertgutachten und Beweissicherung.",
       onRequestContact: "Telefon, WhatsApp oder Kontaktformular",
       learnMore: "Gutachten anfragen",
       viewAll: "Gutachtenarten ansehen",
@@ -65,18 +65,6 @@ export const homeTranslationOverrides = {
             "Unterlagen sammeln",
             "Ablauf nachvollziehbar halten",
             "Keine automatische Bewertung",
-          ],
-        },
-        {
-          title: "Digitale Schadenaufnahme",
-          subtitle: "Anfrage vorbereiten",
-          description:
-            "Schadeninformationen können für die Anfrage vorbereitet und anschließend persönlich abgestimmt werden.",
-          features: [
-            "Anfrage mobil vorbereiten",
-            "Kontaktweg wählen",
-            "Fotos später abstimmen",
-            "Persönliche Prüfung statt automatischer Bewertung",
           ],
         },
       ],
