@@ -17,7 +17,13 @@ type Props = {
 
 export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
+  const isGerman = locale === "de"
   const showStatsPanel = locale !== "de"
+  const aboutImageSrc = isGerman ? "/images/about-office.webp" : "/images/hero-car.webp"
+  const aboutImageAlt = isGerman ? "UNEXT Büro in Berlin" : "UNEXT team member"
+  const aboutImageClassName = isGerman
+    ? "object-cover object-[48%_48%] brightness-[0.82] contrast-[1.05] saturate-[0.9]"
+    : "object-cover object-[62%_42%]"
   // Diese mobile englische Fassung setzt Sinnzeilen, ohne die Desktop-Fassung oder andere Sprachen zu veraendern.
   const mobileEnglishParagraph1 =
     "UNEXT GmbH is a Berlin-based company,\nfounded in 2024 with a focus on\nprofessional accident reports and\nimmediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers."
@@ -35,14 +41,14 @@ export function AboutSection({ locale }: Props) {
           <div className="relative lg:pr-6">
             <div className="relative aspect-[16/11] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm">
               <Image
-                src="/images/hero-car.webp"
-                alt="UNEXT team member"
+                src={aboutImageSrc}
+                alt={aboutImageAlt}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                quality={76}
-                className="object-cover object-[62%_42%]"
+                quality={75}
+                className={aboutImageClassName}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/16 via-transparent to-transparent dark:from-background/28" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,6,10,0.22)_0%,rgba(7,9,13,0.14)_44%,rgba(7,9,13,0.08)_100%),linear-gradient(180deg,rgba(5,7,11,0.08)_0%,rgba(5,7,11,0.02)_34%,rgba(5,7,11,0.18)_100%)]" />
             </div>
 
             {showStatsPanel ? (
@@ -97,18 +103,18 @@ export function AboutSection({ locale }: Props) {
               <>
                 <ReadableText
                   text={t.paragraph1}
-                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/82"
+                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/86"
                 />
                 <ReadableText
                   text={t.paragraph2}
-                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/82"
+                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/86"
                 />
               </>
             )}
 
             <ul className="mt-8 space-y-3">
               {t.highlights.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-body-compact text-foreground/82">
+                <li key={item} className="flex items-center gap-3 text-body-compact text-foreground/86">
                   <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                   {item}
                 </li>

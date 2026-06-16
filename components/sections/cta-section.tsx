@@ -16,13 +16,23 @@ export type CtaAction = {
   external?: boolean
 }
 
+function renderDescriptionLines(text: string) {
+  return text.split("\n").map((line, index) => (
+    <span key={`${line}-${index}`} className="block">
+      {line}
+    </span>
+  ))
+}
+
 type Props = {
   locale: Locale
   actions?: readonly CtaAction[]
+  title?: string
+  description?: string
   note?: string
 }
 
-export function CtaSection({ locale, actions, note }: Props) {
+export function CtaSection({ locale, actions, title, description, note }: Props) {
   // Dieser Bereich nutzt auf allen Seiten denselben Abschluss und laesst nur die Kontaktziele austauschbar.
   const t = getTranslations(locale).serviceDetail.layout
   const contactHref = getLocalizedPath(locale, "/kontakt")
@@ -89,11 +99,11 @@ export function CtaSection({ locale, actions, note }: Props) {
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="measure-heading text-heading-fluid font-semibold text-primary-foreground">
-              {t.questionsTitle}
+            <h2 className="max-w-[30rem] text-heading-fluid font-semibold text-primary-foreground lg:max-w-none lg:text-[clamp(2rem,2.25vw,2.65rem)] lg:leading-[1.08] lg:whitespace-nowrap">
+              {title ?? t.questionsTitle}
             </h2>
             <p className="mt-4 measure-intro text-body-fluid text-primary-foreground/86">
-              {t.questionsDescription}
+              {renderDescriptionLines(description ?? t.questionsDescription)}
             </p>
           </div>
 

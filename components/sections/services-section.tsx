@@ -197,14 +197,28 @@ function renderMobileServiceDescription(description: string) {
 export function ServicesSection({ locale }: Props) {
   // Diese Daten bestimmen pro Leistung Bild, Icon und direkte Kontaktaktion.
   const t = getTranslations(locale).home.services
+  const isGerman = locale === "de"
   const resolvedServiceMeta = locale === "de" ? reportServiceMeta : serviceMeta
   const serviceAnchors = locale === "de" ? homeReportAnchors : homeServiceAnchors
 
   return (
-    <section id="leistungen" className="bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28">
+    <section
+      id="leistungen"
+      className={
+        isGerman
+          ? "bg-accent/35 pt-16 pb-20 sm:pt-18 sm:pb-22 lg:pt-16 lg:pb-24"
+          : "bg-accent/35 pt-18 pb-20 sm:pt-20 sm:pb-22 lg:pt-24 lg:pb-28"
+      }
+    >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto mb-12 max-w-5xl text-center sm:mb-16">
-          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none">
+        <div className={isGerman ? "mx-auto mb-10 max-w-5xl text-center sm:mb-12" : "mx-auto mb-12 max-w-5xl text-center sm:mb-16"}>
+          <h2
+            className={
+              isGerman
+                ? "mx-auto max-w-[28ch] text-[clamp(1.95rem,1.38rem+1.25vw,2.85rem)] leading-[1.08] font-semibold text-foreground [text-wrap:balance]"
+                : "mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none"
+            }
+          >
             {t.title}
           </h2>
           <ReadableText
@@ -260,7 +274,13 @@ export function ServicesSection({ locale }: Props) {
                         </div>
                       </div>
 
-                      <p className="mt-3 measure-card-copy-wide hidden text-body-compact leading-7 text-foreground/74 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]">
+                      <p
+                        className={
+                          isGerman
+                            ? "mt-3 measure-card-copy-wide hidden text-[1rem] leading-7 text-foreground/78 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]"
+                            : "mt-3 measure-card-copy-wide hidden text-body-compact leading-7 text-foreground/74 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]"
+                        }
+                      >
                         {renderServiceDescription(service.description)}
                       </p>
                       <p className="mt-3 text-body-compact text-foreground/76 md:hidden">
@@ -271,16 +291,29 @@ export function ServicesSection({ locale }: Props) {
                         {service.features.map((feature) => (
                           <li
                             key={feature}
-                            className="grid grid-cols-[0.35rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/40 bg-background/58 px-3.5 py-2.5 text-body-compact text-foreground/76"
+                            className={
+                              isGerman
+                                ? "grid grid-cols-[0.35rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/40 bg-background/58 px-3.5 py-2.5 text-[0.99rem] leading-7 text-foreground/80"
+                                : "grid grid-cols-[0.35rem_minmax(0,1fr)] items-start gap-x-3 rounded-xl border border-border/40 bg-background/58 px-3.5 py-2.5 text-body-compact text-foreground/76"
+                            }
                           >
                             <span className="mt-[0.64rem] h-[0.3125rem] w-[0.3125rem] rounded-full bg-primary/90" />
-                            <span className="leading-6">{feature}</span>
+                            <span className={isGerman ? "leading-7" : "leading-6"}>{feature}</span>
                           </li>
                         ))}
                       </ul>
 
                       <div className="mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 sm:flex-row sm:items-center sm:justify-between">
-                        <Button asChild size="sm" className="w-full gap-2 sm:w-auto">
+                        <Button
+                          asChild
+                          size="sm"
+                          variant={isGerman ? "outline" : "default"}
+                          className={
+                            isGerman
+                              ? "w-full gap-2 border-primary/28 bg-background/60 text-foreground/88 shadow-none hover:border-primary/45 hover:bg-primary/10 sm:w-auto"
+                              : "w-full gap-2 sm:w-auto"
+                          }
+                        >
                           <Link href={getLocalizedPath(locale, meta.href)}>
                             {t.learnMore}
                             <ArrowRight className="h-4 w-4" />
@@ -323,14 +356,14 @@ export function ServicesSection({ locale }: Props) {
                   Anfrage vorbereiten
                 </p>
                 <h3 className="mt-2 text-card-heading-fluid text-foreground">
-                  Digitale Schadenaufnahme als Vorbereitung
+                  Schadenaufnahme für die Anfrage vorbereiten
                 </h3>
                 <p className="mt-3 max-w-3xl text-body-compact leading-7 text-foreground/76">
                   <span className="block">
-                    Fotos und Fahrzeugdaten können für die Anfrage vorbereitet werden.
+                    Fotos, Fahrzeugdaten und eine kurze Schadenbeschreibung können vorab gesammelt werden.
                   </span>
                   <span className="block">
-                    Danach erfolgt die persönliche Abstimmung per Telefon, WhatsApp oder Kontaktformular.
+                    Danach klären wir die nächsten Schritte telefonisch, per WhatsApp oder über das Kontaktformular.
                   </span>
                 </p>
               </div>

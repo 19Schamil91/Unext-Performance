@@ -13,12 +13,15 @@ import { AboutSection } from "@/components/sections/about-section"
 import { ProcessSection } from "@/components/sections/process-section"
 import { CtaSection } from "@/components/sections/cta-section"
 import type { Locale } from "@/lib/i18n"
+import { getTranslations } from "@/lib/translations"
 
 type Props = {
   locale: Locale
 }
 
 export function HomePageContent({ locale }: Props) {
+  const homeCta = locale === "de" ? getTranslations(locale).home.cta : null
+
   return (
     <>
       <SiteHeader locale={locale} />
@@ -29,7 +32,11 @@ export function HomePageContent({ locale }: Props) {
         <WhySection locale={locale} />
         <AboutSection locale={locale} />
         {locale !== "de" ? <ExpressCourierSection locale={locale} /> : null}
-        <CtaSection locale={locale} />
+        <CtaSection
+          locale={locale}
+          title={homeCta?.title}
+          description={homeCta?.description}
+        />
       </main>
       <SiteFooter locale={locale} />
     </>
