@@ -79,6 +79,20 @@ Nichts darf blind ueberschrieben, geloescht oder neu gebaut werden.
 
 Wenn bestehende UI-Muster alte Nicht-Scope-Leistungen wie Autovermietung, Mietwagen, Werkstatt oder Fahrzeugservice staerken, muessen sie im Rework-Plan sauber ersetzt oder zurueckgebaut werden.
 
+## 3a. Globale Design-Leitplanke
+
+Die bestehende visuelle Grundrichtung der Webseite soll grundsaetzlich beibehalten werden.
+
+Der dunkle hochwertige Look sowie Schwarz/Rot als zentrale Designrichtung bleiben die visuelle Basis.
+
+Der fachliche Rework auf KFZ-Gutachten bedeutet nicht automatisch ein neues visuelles Design.
+
+Ein kompletter Redesign-Bruch darf nur nach ausdruecklicher Freigabe geplant oder umgesetzt werden.
+
+Spaetere UI-Umsetzungen sollen Struktur, Texte, CTAs, Sektionen und Bildwelt innerhalb dieser Designrichtung weiterentwickeln.
+
+Abweichungen von dieser Designrichtung muessen vorab begruendet und freigegeben werden.
+
 ## 4. Mobile First
 
 Alle neuen oder geaenderten UI-Bereiche werden zuerst fuer mobile Nutzung geplant und geprueft.
