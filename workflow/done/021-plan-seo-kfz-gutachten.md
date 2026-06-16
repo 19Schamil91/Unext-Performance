@@ -92,4 +92,4 @@ Alte SEO-Fokusse zu Autovermietung, Fahrzeugservice, Werkstatt, Zulassung, Absch
 
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
