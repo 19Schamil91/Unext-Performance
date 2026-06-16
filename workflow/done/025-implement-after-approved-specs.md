@@ -83,4 +83,4 @@ Diese Aufgabe ist kein Freifahrtschein fuer Umsetzung. Sie dokumentiert die Bedi
 
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
