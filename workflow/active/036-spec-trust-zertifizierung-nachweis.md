@@ -243,6 +243,13 @@ Pflicht vor 029:
 - Inhalt dieser Folgeaufgabe: Global Spec, Functional Map, KFZ-Gutachten-Spec, Visual Rules, Launch Readiness und gegebenenfalls SEO-Spec gezielt aktualisieren.
 - Danach kann 029 fortgesetzt werden. Falls 029 die Anerkennung beruecksichtigen soll, sollte 038 vorher abgeschlossen und freigegeben sein.
 
+## Angelegte Folgeaufgabe
+
+- `038-update-specs-trust-zertifizierung-nachweis.md` wurde als Todo-Datei angelegt.
+- 038 bleibt geplant in `workflow/todo/`.
+- 038 wurde nicht gestartet.
+- 029 bleibt pausiert, bis 038 erledigt ist oder entschieden wurde, dass die Anerkennung nicht in SEO/Metadata/Structured Data einfliesst.
+
 ## Status
 
 Status: in Arbeit
