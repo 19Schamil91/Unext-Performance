@@ -1,53 +1,56 @@
-# Aufgabe 038 - Update specs for trust certification proof
+# Aufgabe 038 - Specs fuer Trust- und Zertifizierungsnachweis aktualisieren
 
 ## Ziel
 
-Update the approved project specs so the verified trust and certification proof can be safely used in Version 1.
+Die freigegebenen Projektspecs so aktualisieren, dass der gepruefte Trust- und Zertifizierungsnachweis sicher in Version 1 verwendet werden kann.
 
 ## Kontext
 
-Task 036 documented the verifiable certification statement and recommended that the specs should be updated before task 029 continues with SEO, metadata or structured data work.
+Aufgabe 036 hat die belegbare Zertifikatsaussage dokumentiert und empfohlen, die Specs zu aktualisieren, bevor Aufgabe 029 mit SEO-, Metadata- oder Structured-Data-Arbeit fortgesetzt wird.
 
-The certification proof should be treated carefully:
-- no DESAG logo usage
-- no unsupported membership claims
-- no exaggerated marketing claims
-- only verifiable wording from the certificate
-- visible website text should use proper German umlauts
+Der Zertifizierungsnachweis muss vorsichtig behandelt werden:
 
-The preferred safe website wording is:
+- keine DESAG-Logo-Nutzung
+- keine nicht belegbaren Mitgliedschaftsaussagen
+- keine uebertriebenen Werbeaussagen
+- nur belegbare Formulierungen aus dem Zertifikat
+- sichtbare Website-Texte muessen echte deutsche Umlaute verwenden
+
+Die bevorzugte sichere Website-Formulierung ist:
 
 `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
 
+029 bleibt pausiert, bis diese Aufgabe erledigt ist oder entschieden wurde, dass die Anerkennung nicht in SEO/Metadata/Structured Data einfliesst.
+
 ## Vorgehen
 
-- Read task 036.
-- Review the affected specs named in task 036.
-- Update the relevant specs with the approved trust/certification rules.
-- Document where the trust statement may appear on the homepage.
-- Document how the certificate/proof may be planned for the Über-uns page.
-- Document that no DESAG logo should be used unless usage rights are explicitly cleared.
-- Document that no unsupported active membership claim should be made.
-- Document SEO/metadata/structured-data boundaries for task 029.
-- Do not change website code.
-- Do not add assets.
-- Do not implement the certificate visually.
+- Aufgabe 036 lesen.
+- Die in Aufgabe 036 benannten betroffenen Specs pruefen.
+- Die relevanten Specs mit den freigegebenen Trust-/Zertifizierungsregeln aktualisieren.
+- Dokumentieren, wo der Vertrauenssatz auf der Startseite erscheinen darf.
+- Dokumentieren, wie Zertifikat/Nachweis fuer die Ueber-uns-Seite eingeplant werden darf.
+- Dokumentieren, dass kein DESAG-Logo verwendet wird, solange keine Nutzungsrechte ausdruecklich geklaert sind.
+- Dokumentieren, dass keine nicht belegbare aktive Mitgliedschaft behauptet wird.
+- SEO-/Metadata-/Structured-Data-Grenzen fuer Aufgabe 029 dokumentieren.
+- Keinen Website-Code aendern.
+- Keine Assets hinzufuegen.
+- Das Zertifikat nicht visuell umsetzen.
 
 ## Akzeptanzkriterien
 
-- The affected specs from task 036 are reviewed.
-- The approved trust/certification wording is added to the appropriate specs.
-- Homepage usage is specified as a short trust statement only.
-- Über-uns usage is specified as a proof/certificate section only after legal/privacy review.
-- DESAG logo usage is explicitly excluded unless usage rights are confirmed.
-- Unsupported membership claims are explicitly excluded.
-- SEO/metadata/structured-data boundaries for task 029 are documented.
-- Visible German website wording requirements include proper umlauts.
-- No website code is changed.
-- No assets are added.
-- No SEO, metadata or structured-data files are changed.
-- Task 029 is not started.
-- Task 037 is not started.
+- Die betroffenen Specs aus Aufgabe 036 sind geprueft.
+- Die freigegebene Trust-/Zertifizierungsformulierung ist in den passenden Specs ergaenzt.
+- Die Startseiten-Nutzung ist als kurzer Vertrauenssatz spezifiziert.
+- Die Ueber-uns-Nutzung ist als Nachweis-/Zertifikatsbereich nur nach Rechts-/Datenschutzpruefung spezifiziert.
+- DESAG-Logo-Nutzung ist ausdruecklich ausgeschlossen, solange keine Nutzungsrechte bestaetigt sind.
+- Nicht belegbare Mitgliedschaftsaussagen sind ausdruecklich ausgeschlossen.
+- SEO-/Metadata-/Structured-Data-Grenzen fuer Aufgabe 029 sind dokumentiert.
+- Anforderungen an sichtbare deutsche Website-Texte enthalten echte Umlaute.
+- Kein Website-Code wurde geaendert.
+- Keine Assets wurden hinzugefuegt.
+- Keine SEO-, Metadata- oder Structured-Data-Dateien wurden geaendert.
+- Aufgabe 029 wurde nicht gestartet.
+- Aufgabe 037 wurde nicht gestartet.
 
 ## Status
 
