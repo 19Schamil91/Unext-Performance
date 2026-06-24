@@ -54,4 +54,4 @@ Die bevorzugte sichere Website-Formulierung ist:
 
 ## Status
 
-Status: offen
+Status: in Arbeit
