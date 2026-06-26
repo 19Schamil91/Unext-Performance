@@ -230,6 +230,14 @@ Regeln:
 
 - Keine erfundenen Kundenstimmen, Beispielbewertungen, Fake-Sterne, Dummy-Siegel oder Platzhalter-Reviews.
 - Keine nicht bestaetigten Qualifikationen oder uebertriebenen Erfahrungsaussagen.
+- Der Zertifizierungsnachweis aus Aufgabe 036 darf nur mit sachlicher, belegbarer Formulierung genutzt werden.
+- Sichere sichtbare Website-Formulierung: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Sichtbare deutsche Website-Texte müssen echte deutsche Umlaute verwenden.
+- Kein DESAG-Logo, kein separates Siegel, kein Badge und keine werbliche Zertifikatsdarstellung ohne ausdrücklich geklärte Nutzungsrechte.
+- Urkunde, Zertifikat, Reg.-Nr., Unterschrift, Stempel oder personenbezogene Nachweise dürfen erst nach Veröffentlichungsrechts-, Datenschutz- und Sichtbarkeitsprüfung live gehen.
+- Keine nicht belegbare aktive Mitgliedschaft, keine DESAG-Partnerschaft, keine BSG-Mitgliedschaft und keine öffentliche/amtliche Anerkennung behaupten.
+- Fortbildungen müssen getrennt von Zertifizierung, Anerkennung und Sachverständigenstatus dargestellt werden.
+- Software-Schulungen wie `autoiXpert` dürfen nicht als öffentliches Vertrauensmerkmal erscheinen.
 
 ## 10. Mobile-First-Checks
 
@@ -286,6 +294,8 @@ Vor Launch pruefen:
 - Hreflang nur fuer freigegebene Sprachversionen
 - FAQPage nur bei sichtbarer und freigegebener FAQ
 - keine Review-/Bewertungs-strukturierten Daten ohne Freigabe
+- Trust-/Zertifizierungsaussagen in Metadata, OpenGraph oder Structured Data nur verwenden, wenn sie sichtbar auf der Seite stehen, in den Specs freigegeben und sachlich belegbar sind
+- Aufgabe 029 muss die Trust-/Zertifizierungsgrenzen aus Global Spec, KFZ-Gutachten-Spec und SEO-Spec beachten
 - alte Routen / Redirects / 404 / 410 nach Routing-Plan geprueft
 
 ## 14. Mehrsprachige Launch-Checks
@@ -388,6 +398,8 @@ Vor Launch muss dokumentiert werden:
 - getestete Kontaktwege
 - gepruefte rechtliche Seiten
 - erfolgte Mobile-, SEO-, Accessibility- und Performance-Pruefungen
+- Prüfung der Trust-/Zertifizierungsformulierung, Logo-/Siegel-Grenzen und Zertifikatsveröffentlichung
+- Prüfung, dass Fortbildungen getrennt von Zertifizierung/Anerkennung dargestellt werden und autoiXpert/Software-Schulungen nicht als öffentliches Vertrauensmerkmal erscheinen
 - erfolgreiche Checks
 - genutzte Reviewer
 - bewusst uebersprungene Reviewer mit Begruendung
