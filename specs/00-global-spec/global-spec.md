@@ -184,6 +184,20 @@ Keine Urkunden, Mitgliedsnummern, Ausstellungsdaten, Google-Bewertungen, Kundenn
 
 Die Marke UNEXT steht im Vordergrund. Personennamen nicht prominent auf der Startseite platzieren, solange keine persoenliche Expertenpositionierung freigegeben ist.
 
+Ergänzung zum Zertifizierungsnachweis aus Aufgabe 036:
+
+- Die geprüfte Anerkennung als Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung darf als Trust-Merkmal für Version 1 eingeplant werden.
+- Sichere sichtbare Website-Formulierung: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Sichtbare deutsche Website-Texte zu dieser Qualifikation müssen echte deutsche Umlaute verwenden.
+- Auf der Startseite darf die Anerkennung nur als kurzer, sachlicher Vertrauenssatz erscheinen. Keine Superlative, keine übertriebene Werbung und keine dominante DESAG-Werbung.
+- Auf der Über-uns-Seite ist ein Abschnitt `Qualifikation & Anerkennung` sinnvoll. Ein Zertifikat oder eine Urkunde darf dort nur nach ausdrücklicher Prüfung von Veröffentlichungsrechten, Datenschutz, personenbezogenen Angaben, Reg.-Nr., Unterschrift, Stempel und sonstigen sensiblen Details eingebunden werden.
+- Kein DESAG-Logo, kein separates Siegel, kein Badge und keine Logo-Nutzung ohne ausdrücklich geklärte Nutzungsrechte.
+- Keine Aussage als aktives DESAG-Mitglied, DESAG-Partner oder BSG-Mitglied, solange dies nicht separat aktuell, belastbar und dauerhaft geprüft ist.
+- Keine Ableitung als öffentlich bestellter, vereidigter, amtlich bestellter, amtlich anerkannter oder staatlich geprüfter Sachverständiger.
+- Fortbildungen dürfen nur als eigener sachlicher Bereich `Fortbildungen & Weiterbildung` eingeordnet werden.
+- Fortbildungen dürfen nicht mit Zertifizierung, Anerkennung oder Sachverständigenstatus vermischt werden.
+- Nur belegte Fortbildungen nennen. Keine pauschalen Kompetenzsteigerungen, keine erfundenen Qualitätsversprechen und keine indirekten Superlative ableiten.
+
 ## 9. KI-Kommunikationsgrenzen
 
 - KI ist fester Roadmap-Bestandteil.

@@ -52,6 +52,41 @@ Die bevorzugte sichere Website-Formulierung ist:
 - Aufgabe 029 wurde nicht gestartet.
 - Aufgabe 037 wurde nicht gestartet.
 
+## Umgesetzte Spec-Aktualisierung
+
+Aktualisierte Specs:
+
+- `specs/00-global-spec/global-spec.md`
+- `specs/01-functional-map/functional-map.md`
+- `specs/02-feature-specs/kfz-gutachten.md`
+- `specs/04-visual-rules/visual-rules.md`
+- `specs/06-work-plans/launch-readiness.md`
+- `specs/02-feature-specs/seo.md`
+
+Ergänzte Regeln:
+
+- Die Anerkennung aus Aufgabe 036 ist als Trust-Merkmal für Version 1 eingeordnet.
+- Die sichere sichtbare Website-Formulierung wurde in den passenden Specs dokumentiert: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Die Startseiten-Nutzung wurde als kurzer, sachlicher Vertrauenssatz spezifiziert.
+- Die Über-uns-Nutzung wurde als Abschnitt `Qualifikation & Anerkennung` mit vorheriger Rechte-, Datenschutz- und Sichtbarkeitsprüfung für Urkunde/Zertifikat spezifiziert.
+- DESAG-Logo, separate Siegel, Badges und werbliche Zertifikatsgrafiken bleiben ohne geklärte Nutzungsrechte ausgeschlossen.
+- Nicht belegbare Mitgliedschafts-, Partner-, Amts-, Vereidigungs-, staatliche Prüfungs- und Superlativ-Aussagen bleiben ausgeschlossen.
+- SEO-, Metadata-, OpenGraph- und Structured-Data-Grenzen für Aufgabe 029 wurden dokumentiert.
+- Fortbildungs-/Weiterbildungsregeln wurden ergänzt: nur belegte Fortbildungen, getrennt von Zertifizierung/Anerkennung/Sachverständigenstatus, ohne pauschale Kompetenzsteigerungen oder erfundene Qualitätsversprechen.
+- Software-Schulungen wie `autoiXpert` wurden als öffentliches Trust-/Zertifizierungsmerkmal, Credential, Siegel, Badge, Trust-Logo und Structured-Data-Signal ausgeschlossen.
+- Aufgabe 029 bleibt pausiert, bis 038 geprüft und abgeschlossen ist oder entschieden wurde, dass die Anerkennung nicht in SEO/Metadata/Structured Data einfliesst.
+
+Nicht geaendert:
+
+- Kein Code.
+- Keine Website-Dateien.
+- Keine Assets.
+- Keine SEO-/Metadata-/Structured-Data-Umsetzungsdateien.
+- `next-env.d.ts` aus dem Scope entfernt.
+- Keine neue Task-Datei.
+- Aufgabe 029 wurde nicht gestartet.
+- Aufgabe 037 wurde nicht gestartet.
+
 ## Status
 
 Status: in Arbeit

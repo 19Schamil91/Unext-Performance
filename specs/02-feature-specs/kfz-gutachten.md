@@ -235,6 +235,20 @@ Erfahrung seit 2024 darf sachlich kommuniziert werden, aber nicht als langjaehri
 
 Die Marke UNEXT steht im Vordergrund. Personennamen nicht prominent auf der Startseite platzieren, solange keine persoenliche Expertenpositionierung freigegeben ist.
 
+Zertifizierungsnachweis aus Aufgabe 036:
+
+- Laut geprüftem Nachweis ist die sichere fachliche Aussage auf die Anerkennung als Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung begrenzt.
+- Sichere sichtbare Website-Formulierung: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Sichtbare deutsche Website-Texte müssen echte deutsche Umlaute verwenden.
+- Auf der Startseite darf diese Anerkennung als kurzer, sachlicher Vertrauenssatz genutzt werden, ohne DESAG als Werbeanker zu verwenden.
+- Auf der Über-uns-Seite darf ein Abschnitt `Qualifikation & Anerkennung` geplant werden. Die Einbindung der Urkunde oder des Zertifikats erfordert vorherige Freigabe zu Veröffentlichungsrechten, Datenschutz, Reg.-Nr., personenbezogenen Angaben, Stempel und Unterschrift.
+- Keine DESAG-Logo-Nutzung, kein separates Zertifikats-Badge und kein Siegel ohne ausdrücklich geklärte Nutzungsrechte.
+- Keine Behauptung einer aktiven DESAG-Mitgliedschaft, einer DESAG-Partnerschaft oder einer BSG-Mitgliedschaft ohne separate aktuelle Prüfung.
+- Keine Ableitung als öffentlich bestellter, vereidigter, amtlich bestellter, amtlich anerkannter oder staatlich geprüfter Sachverständiger.
+- Fortbildungen dürfen nur als eigener sachlicher Bereich `Fortbildungen & Weiterbildung` eingeordnet werden.
+- Fortbildungen dürfen nicht mit Zertifizierung, Anerkennung oder Sachverständigenstatus vermischt werden.
+- Nur belegte Fortbildungen nennen. Keine pauschalen Kompetenzsteigerungen, keine erfundenen Qualitätsversprechen und keine indirekten Superlative ableiten.
+
 ## 14. Ausgeschlossene Begriffe
 
 Nicht verwenden:

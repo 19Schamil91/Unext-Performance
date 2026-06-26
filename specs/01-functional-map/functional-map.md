@@ -56,6 +56,14 @@ Funktionen:
 - Vertrauen / Qualifikation
 - FAQ
 
+Trust-/Zertifizierungsnachweis:
+
+- Die in Aufgabe 036 dokumentierte Anerkennung darf den Nutzerweg `Vertrauen / Qualifikation` für Version 1 stützen.
+- Auf der Startseite ist nur ein kurzer, sachlicher Vertrauenssatz vorgesehen, zum Beispiel: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Die Über-uns-Seite kann die Qualifikation in einem Abschnitt `Qualifikation & Anerkennung` sachlich einordnen.
+- Zertifikat, Urkunde, Reg.-Nr., personenbezogene Details, Logos oder Siegel dürfen nur nach gesonderter Freigabe und Rechte-/Datenschutzprüfung sichtbar werden.
+- Keine nicht belegbaren Mitgliedschafts-, Partner-, Amts- oder Superlativ-Aussagen in diesem Nutzerweg verwenden.
+
 ### Kunde hatte Unfall und braucht schnelle Kontaktaufnahme
 
 Ziel:

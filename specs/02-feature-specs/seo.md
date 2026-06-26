@@ -171,6 +171,16 @@ Formular darf nur erwaehnt werden, wenn es zum Launch umgesetzt und freigegeben 
 
 Keine 24/7-, Sofortdienst-, Schadenhoehen- oder Reparaturkostenversprechen.
 
+Trust-/Zertifizierungsbezug in Meta-Texten:
+
+- Die Anerkennung aus Aufgabe 036 darf in Meta Description oder OpenGraph nur berücksichtigt werden, wenn dieselbe Aussage sichtbar auf der jeweiligen Seite steht und in den Specs freigegeben ist.
+- Zulässige sachliche Grundlage: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Sichtbare deutsche Website-Texte müssen echte deutsche Umlaute verwenden.
+- Keine Meta- oder OpenGraph-Formulierung darf eine aktive Mitgliedschaft, DESAG-Partnerschaft, BSG-Mitgliedschaft, öffentliche Bestellung, Vereidigung, amtliche Anerkennung oder staatliche Prüfung behaupten.
+- Kein DESAG-Logo, Zertifikatsbild, Siegel oder Badge in SEO-/Sharing-Kontexten ohne separate Rechte-, Datenschutz- und Asset-Freigabe.
+- Fortbildungen dürfen in SEO, Metadata oder OpenGraph nur erwähnt werden, wenn sie sichtbar, belegbar und freigegeben sind.
+- Software-Schulungen wie `autoiXpert` dürfen nicht als öffentliches Trust- oder Zertifizierungsmerkmal verwendet werden.
+
 ## 9. KI in SEO
 
 Solange KI nicht technisch umgesetzt ist, nur vorsichtig formulieren:
@@ -217,6 +227,14 @@ Keine Bewertungen/Reviews ohne ausdrueckliche Freigabe.
 Keine alten Nicht-Scope-Leistungen in strukturierten Daten.
 
 Keine Upload-/Supabase-/KI-Funktionen in strukturierten Daten, solange sie nicht live sind.
+
+Trust-/Zertifizierungsdaten in Structured Data:
+
+- Strukturierte Daten dürfen die Anerkennung nur aufnehmen, wenn der konkrete Schema.org-Typ und die konkrete Eigenschaft fachlich passen, sichtbar belegbar sind und vor Umsetzung in Aufgabe 029 geprüft wurden.
+- Keine Mitgliedschaft, Partnerschaft, Bewertung, Zertifizierung, Organisationseigenschaft oder hoheitliche Stellung in Structured Data behaupten, wenn sie nicht sichtbar, freigegeben und belegt ist.
+- Software-Schulungen wie `autoiXpert` nicht als Credential und nicht in Structured Data verwenden.
+- Unpassende Typen wie `AutoRepair` und andere alte Leistungs- oder Werkstatt-Signale müssen in Aufgabe 029 weiterhin separat bewertet und bereinigt werden.
+- Die Anerkennung darf keine alten Nicht-Scope-Leistungen, keine Werkstattwirkung und keine übertriebenen Trust-Signale in strukturierten Daten erzeugen.
 
 ## 11. Mehrsprachige SEO
 
@@ -265,6 +283,9 @@ SEO darf nicht versprechen:
 - vollautomatisches Gutachten
 - Upload, Supabase oder KI als live, solange nicht freigegeben
 - Mietwagen-/Ersatzwagen-/Werkstatt-/Fahrzeugservice-/Autovermietungs-Leistungen als aktive Leistungen
+- aktives DESAG-Mitglied, DESAG-Partner oder BSG-Mitglied ohne separate aktuelle Prüfung
+- öffentlich bestellter, vereidigter, amtlich bestellter, amtlich anerkannter oder staatlich geprüfter Sachverständiger
+- Superlative oder anderweitig überlegen beworbener Gutachter ohne belastbare Freigabe
 
 ## 15. Offene Entscheidungen
 

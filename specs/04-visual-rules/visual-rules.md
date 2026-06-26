@@ -271,6 +271,18 @@ Regeln:
 - Keine uebertriebenen Erfolgsgarantien oder Versicherungsversprechen.
 - Trust-Elemente duerfen keine nicht bestaetigten Qualifikationen, Erfolgsgarantien, Versicherungsversprechen oder uebertriebenen Erfahrungsaussagen suggerieren.
 
+Zertifikats- und Nachweisdarstellung:
+
+- Die sichere sichtbare Website-Formulierung lautet: `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
+- Sichtbare deutsche Website-Texte zu dieser Qualifikation müssen echte deutsche Umlaute verwenden.
+- Auf der Startseite darf die Formulierung nur als kurzer, ruhiger Vertrauenssatz erscheinen.
+- Auf der Über-uns-Seite kann ein Bereich `Qualifikation & Anerkennung` geplant werden. Eine Urkunde oder ein Zertifikat darf visuell nur nach ausdrücklicher Freigabe der Nutzungsrechte, Datenschutzprüfung und Entscheidung zu sichtbaren personenbezogenen Details, Reg.-Nr., Stempel und Unterschrift erscheinen.
+- Kein separates DESAG-Logo, kein Badge, kein Siegel und keine werbliche Zertifikatsgrafik ohne geklärte Nutzungsrechte.
+- Lange Qualifikationsbegriffe müssen mobil auf Lesbarkeit, Zeilenumbrueche und Button-/Card-Breiten geprüft werden.
+- Keine Mitgliedschaft, Partnerschaft, öffentliche Bestellung, Vereidigung, amtliche Anerkennung oder staatliche Prüfung visuell suggerieren, solange sie nicht separat belegt und freigegeben ist.
+- `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` müssen visuell getrennt dargestellt werden.
+- Software-Schulungen wie `autoiXpert` dürfen nicht als Siegel, Badge, Zertifikat, Trust-Logo oder öffentliches Vertrauensmerkmal inszeniert werden.
+
 ## 13. Keine Werkstatt- oder Autovermietungswirkung
 
 Die Webseite darf nicht wie eine Autovermietung, Werkstatt oder Fahrzeugservice-Seite wirken.
