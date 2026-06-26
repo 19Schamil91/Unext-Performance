@@ -89,4 +89,4 @@ Nicht geaendert:
 
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
