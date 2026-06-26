@@ -35,4 +35,4 @@ Vor weiterer Website-Umsetzung soll die Projektstruktur langfristig verstaendlic
 
 ## Status
 
-Status: offen
+Status: in Arbeit
