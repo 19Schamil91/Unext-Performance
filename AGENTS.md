@@ -276,6 +276,16 @@ Der lokale Skill `typography-line-break-check` ist für Typografie, sichtbare de
 
 `PROJECT_STRUCTURE.md` erklärt die Projektordner und wichtigen Root-Dateien für Nutzer, Codex und Reviewende.
 
+Nach jeder größeren Aufgabe, jedem Done-Schritt und jeder PR-Vorbereitung muss geprüft werden, ob `CHANGELOG.md` oder `ROADMAP.md` aktualisiert werden müssen.
+
+`CHANGELOG.md` ist zu aktualisieren, wenn sich nachvollziehbar etwas im Projekt geändert hat, zum Beispiel Workflow, Specs, Website, Organisation, SEO, Launch, Assets, Architektur oder Skills.
+
+`ROADMAP.md` ist zu aktualisieren, wenn sich Projektphasen, Reihenfolge, Prioritäten, Meilensteine oder spätere Ausbaustufen ändern.
+
+Wenn keine Aktualisierung nötig ist, muss der Agent dies kurz begründen.
+
+Das ist keine technische Auto-Generierung, sondern eine verpflichtende Workflow-Prüfung durch den Agenten.
+
 ## Workflow-Regel
 
 Im Projekt wird ein einfacher Workflow-Ordner genutzt:

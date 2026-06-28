@@ -38,7 +38,7 @@ Vor weiterer Website-Umsetzung soll die Projektstruktur langfristig verständlic
 
 Im Rahmen von Aufgabe 037 wurden folgende Organisationsdateien erstellt oder gezielt ergänzt:
 
-- `AGENTS.md`: Projektorientierung, Sprach-/Benennungsregeln, lokale Skill-Regeln und Verhältnis von Workflow, Roadmap, Changelog und Projektstruktur ergänzt.
+- `AGENTS.md`: Projektorientierung, Sprach-/Benennungsregeln, lokale Skill-Regeln, Verhältnis von Workflow, Roadmap, Changelog und Projektstruktur sowie eine verbindliche Roadmap-/Changelog-Pflegeprüfung ergänzt.
 - `ROADMAP.md`: Projektphasen und nächster logischer Verlauf dokumentiert.
 - `CHANGELOG.md`: menschlich lesbare Änderungshistorie angelegt.
 - `PROJECT_STRUCTURE.md`: Projektordner und wichtige Root-Dateien erklärt.
