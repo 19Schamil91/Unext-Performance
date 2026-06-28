@@ -48,6 +48,10 @@ Im Rahmen von Aufgabe 037 wurden folgende Organisationsdateien erstellt oder gez
 
 Nicht umgesetzt wurden Website-Code, App-/Component-Änderungen, fachliche Spec-Änderungen, SEO-/Metadata-/Structured-Data-Umsetzung, Assets oder neue Website-Inhalte.
 
+## Abschlussnotiz
+
+Beim Abschluss von Aufgabe 037 wurden `ROADMAP.md` und `CHANGELOG.md` gemäß der neuen Pflege-Regel aktualisiert. Aufgabe 029 bleibt der nächste logische Task und wurde nicht gestartet.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen

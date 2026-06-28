@@ -6,9 +6,9 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Workflow
 
-- Aufgabe 037 wurde gestartet, um Projektorganisation, Agentenregeln, Roadmap, Changelog, Projektstruktur und lokale Skills zu verbessern.
+- Aufgabe 037 wurde abgeschlossen. Projektorganisation, Agentenregeln, Roadmap, Changelog, Projektstruktur und lokale Skills wurden verbessert.
 - Aufgabe 038 wurde abgeschlossen und liegt in `workflow/done/`.
-- Aufgabe 029 bleibt in `workflow/todo/` pausiert.
+- Aufgabe 029 bleibt in `workflow/todo/` pausiert und ist der nächste logische Task nach Abschluss von 037.
 
 ### Specs
 
@@ -17,12 +17,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Organisation
 
-- Aufgabe 037 ergänzt die Projektorientierung für Agenten und bereitet zentrale Organisationsdateien vor.
-- Ein lokaler Typografie-/Zeilenumbruch- und Textlayout-Skill wird für sichtbare Texte, Umlaute, Zeilenumbrüche und Layoutwirkung auf Desktop, Tablet und Mobile angelegt.
+- Aufgabe 037 hat `AGENTS.md`, `ROADMAP.md`, `CHANGELOG.md`, `PROJECT_STRUCTURE.md`, `.agents/skills/typography-line-break-check/SKILL.md` und `.agents/skills/site-launch-audit/SKILL.md` erstellt oder ergänzt.
+- Ein lokaler Typografie-/Zeilenumbruch- und Textlayout-Skill wurde für sichtbare Texte, Umlaute, Zeilenumbrüche und Layoutwirkung auf Desktop, Tablet und Mobile angelegt.
+- Die Roadmap-/Changelog-Pflegeprüfung wurde als verbindliche Agentenregel in `AGENTS.md` ergänzt.
 
 ### Website
 
-- In Aufgabe 037 wurden keine Website-Dateien geändert.
+- In Aufgabe 037 wurden keine Website-Dateien geändert und keine Website-Umsetzung vorgenommen.
 - Frühere erledigte Aufgaben haben die Website auf die KFZ-Gutachten-Ausrichtung vorbereitet und die Startseite entsprechend überarbeitet.
 
 ### SEO
@@ -36,10 +37,11 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Nicht geändert
 
-- Keine App-/Component-Implementierung.
-- Keine fachlichen Content-Specs.
+- Keine App-/Component- oder Code-Implementierung.
+- Keine fachlichen Content-Specs oder sonstigen Specs.
 - Keine Routen.
-- Keine Zertifikatsdateien oder Logos.
+- Keine SEO-/Metadata-/Structured-Data-Umsetzung.
+- Keine Assets, Zertifikatsdateien oder Logos.
 
 ## Frühere wichtige Aufgaben
 

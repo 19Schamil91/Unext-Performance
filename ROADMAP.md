@@ -40,15 +40,15 @@ Aufgabe 036 hat die belegbare Anerkennung als Sachverständiger fachlich vorsich
 
 ### 6. Projektorganisation
 
-Status: aktiv
+Status: abgeschlossen
 
-Aufgabe 037 verbessert die Orientierung für Agenten, Nutzer und Reviewende. Dazu gehören `AGENTS.md`, `ROADMAP.md`, `CHANGELOG.md`, `PROJECT_STRUCTURE.md` und ein lokaler Typografie-/Zeilenumbruch- und Textlayout-Skill.
+Aufgabe 037 hat die Orientierung für Agenten, Nutzer und Reviewende verbessert. Dazu gehören `AGENTS.md`, `ROADMAP.md`, `CHANGELOG.md`, `PROJECT_STRUCTURE.md` und ein lokaler Typografie-/Zeilenumbruch- und Textlayout-Skill.
 
 ### 7. SEO, Metadata und Structured Data
 
 Status: geplant
 
-Aufgabe 029 bleibt pausiert, bis die vorbereitenden Trust- und Organisationsaufgaben abgeschlossen sind. Danach kann die SEO-/Metadata-/Structured-Data-Arbeit auf Basis der freigegebenen Specs fortgesetzt werden.
+Aufgabe 029 ist nach Abschluss von Aufgabe 037 der nächste logische Task. Die SEO-/Metadata-/Structured-Data-Arbeit kann auf Basis der freigegebenen Specs fortgesetzt werden.
 
 ### 8. Weitere Launch-Vorbereitung
 
