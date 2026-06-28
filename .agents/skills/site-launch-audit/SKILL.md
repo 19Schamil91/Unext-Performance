@@ -7,28 +7,38 @@ description: "Use this skill when the user asks for a launch audit, premium webs
 
 ## Zweck
 
-Dieser Skill koordiniert die professionelle Launch-Pruefung der UNEXT-Website.
-Er nutzt getrennte read-only Spezialagenten und fuehrt deren Ergebnisse am Ende zusammen.
+Dieser Skill koordiniert die professionelle Launch-Prüfung der UNEXT-Website.
+Er nutzt getrennte read-only Spezialagenten und führt deren Ergebnisse am Ende zusammen.
 
 ## Grundregel
 
-Alle Spezialagenten pruefen und berichten nur. Sie schreiben keine Dateien.
-Code-Aenderungen werden erst vorbereitet, wenn der User die Findings freigibt.
+Alle Spezialagenten prüfen und berichten nur. Sie schreiben keine Dateien.
+Code-Änderungen werden erst vorbereitet, wenn der User die Findings freigibt.
+
+## Lokale Skills und Audit-Rollen
+
+Lokal vorhanden sind aktuell `site-launch-audit`, `next-router-check` und `typography-line-break-check`.
+
+`typography-line-break-check` ist der lokale Skill für Typografie, sichtbare deutsche Texte, Umlaute, CTA-Texte, Zeilenumbrüche und Textlayout auf Desktop, Tablet und Mobile.
+
+Andere in diesem Skill genannte Reviewer-Namen sind Audit-Rollen oder Prüfpunkte, solange keine passende Datei unter `.agents/skills/<name>/SKILL.md` existiert. Sie dürfen nicht als vorhandene lokale Skills dargestellt werden.
 
 ## Empfohlene Reihenfolge
 
-1. **Technische Basis pruefen**
+1. **Technische Basis prüfen**
    - `npm run lint`
    - `npx tsc --noEmit`
    - `npm run build`
 
 2. **Screenshots vorbereiten**
    - Mobile: 390x844 und 430x932
+   - Tablet: 768x1024 oder ein vergleichbarer Tablet-Viewport
    - Desktop: 1440x1100 und 2048x996
-   - Wichtige Routen: `/`, `/leistungen`, `/leistungen/autovermietung`, `/leistungen/autoservice`, `/leistungen/unfallgutachten`, `/kontakt`, `/impressum`, `/datenschutz`
+   - Aktuelle wichtige Routen nur aus dem freigegebenen Launch-Scope ableiten.
+   - Alte Leistungsrouten wie `/leistungen/autovermietung` oder `/leistungen/autoservice` nur prüfen, wenn Aufgabe 030 Routing/Redirects oder eine ausdrücklich freigegebene Alt-Routen-Prüfung aktiv ist.
 
-3. **Spezialagenten starten**
-   - `typography_checker`
+3. **Spezialprüfungen und Audit-Rollen durchführen**
+   - `typography-line-break-check`
    - `mobile_visual_checker`
    - `desktop_visual_checker`
    - `conversion_reviewer`
@@ -38,18 +48,18 @@ Code-Aenderungen werden erst vorbereitet, wenn der User die Findings freigibt.
    - `content_consistency_reviewer`
    - `premium_reviewer`
 
-4. **Bestehende Pflichtpruefer ergaenzen**
+4. **Bestehende Pflichtprüfer ergänzen**
    - `a11y_checker`, wenn UI oder interaktive Elemente betroffen sind.
-   - `quality_reviewer`, wenn Dateien geaendert wurden oder Aenderungen vorbereitet werden.
+   - `quality_reviewer`, wenn Dateien geändert wurden oder Änderungen vorbereitet werden.
    - `next-router-check`, wenn `/app`-Routen betroffen sind.
 
-5. **Final zusammenfuehren**
-   - `launch_reviewer` mit allen Spezialreports fuettern.
+5. **Final zusammenführen**
+   - `launch_reviewer` mit allen Spezialreports füttern.
    - Ergebnis nach P0/P1/P2/P3 priorisieren.
 
 ## Wann einzelne Agenten reichen
 
-- Nur Schrift/Lesbarkeit: `typography_checker`
+- Nur Schrift/Lesbarkeit: `typography-line-break-check`
 - Nur Handy-Darstellung: `mobile_visual_checker`
 - Nur Desktop-Eindruck: `desktop_visual_checker`
 - Nur Kontaktwege und Anfragen: `conversion_reviewer`
@@ -64,26 +74,26 @@ Code-Aenderungen werden erst vorbereitet, wenn der User die Findings freigibt.
 Der Hauptagent fasst Ergebnisse so zusammen:
 
 - **P0/P1 Launch-Blocker:** Muss vor Launch behoben werden.
-- **P2 Vor Launch empfohlen:** Verbessert Qualitaet, ist aber kein harter Blocker.
-- **P3 Nach Launch moeglich:** Sinnvolle Optimierung ohne akuten Launch-Druck.
+- **P2 Vor Launch empfohlen:** Verbessert Qualität, ist aber kein harter Blocker.
+- **P3 Nach Launch möglich:** Sinnvolle Optimierung ohne akuten Launch-Druck.
 - **Freigabe-Frage:** Der User entscheidet, welche Punkte umgesetzt werden.
 
-## Code-Aenderungen nach Freigabe
+## Code-Änderungen nach Freigabe
 
 Wenn der User eine Umsetzung freigibt:
 
 1. Bestehende Komponenten, Utilities und Types suchen.
-2. AGENTS.md §13 auf Pflicht-Rueckfragen pruefen.
-3. Geplante Dateien und Aenderungen nennen.
-4. Aenderungen umsetzen.
+2. AGENTS.md §13 auf Pflicht-Rückfragen prüfen.
+3. Geplante Dateien und Änderungen nennen.
+4. Änderungen umsetzen.
 5. `quality_reviewer` und, bei UI, `a11y_checker` starten.
-6. Pflicht-Checks aus AGENTS.md §14 ausfuehren.
-7. Kurz berichten, was geaendert wurde und warum.
+6. Pflicht-Checks aus AGENTS.md §14 ausführen.
+7. Kurz berichten, was geändert wurde und warum.
 
 ## Beispiel-Prompts
 
-- "Nutze site-launch-audit und pruefe die komplette Website vor Launch."
-- "Nutze den mobile_visual_checker fuer Startseite, Leistungen und Kontakt."
-- "Starte typography_checker und desktop_visual_checker fuer die Leistungsseiten."
-- "Fuehre alle Spezialreports im launch_reviewer zusammen."
-- "Bereite nach Freigabe Fixes fuer die P1-Probleme vor."
+- "Nutze site-launch-audit und prüfe die komplette Website vor Launch."
+- "Nutze den mobile_visual_checker für Startseite, Leistungen und Kontakt."
+- "Starte typography-line-break-check und desktop_visual_checker für die Leistungsseiten."
+- "Führe alle Spezialreports im launch_reviewer zusammen."
+- "Bereite nach Freigabe Fixes für die P1-Probleme vor."

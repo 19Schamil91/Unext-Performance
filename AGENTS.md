@@ -20,6 +20,32 @@ Das bedeutet:
 4. Danach prüfen und zusammenfassen.
 5. Erst nach ausdrücklicher Freigabe abschließen.
 
+## Projektorientierung für Agenten
+
+UNEXT ist ein Next.js-Projekt mit App Router, TypeScript und React. Das aktuelle fachliche Ziel ist eine professionelle KFZ-Gutachter-Webseite für Berlin.
+
+Wichtige Projektzonen:
+
+- `specs/`: verbindliche fachliche, funktionale, technische und visuelle Anforderungen.
+- `workflow/todo/`: geplante Aufgaben, die noch nicht aktiv bearbeitet werden.
+- `workflow/active/`: genau die aktuell aktive Aufgabe.
+- `workflow/done/`: abgeschlossene, geprüfte und freigegebene Aufgaben.
+- `.agents/skills/`: lokale Skills und Reviewer-Anleitungen für wiederkehrende Prüfungen.
+- `app/`: Next.js-App-Router-Routen, Layouts und Seiten.
+- `components/`: wiederverwendbare React-Komponenten.
+- `lib/`: Hilfslogik, Daten, Utilities und gemeinsame Projektlogik.
+- `public/`: statische Assets, die öffentlich ausgeliefert werden.
+
+Vor jeder Aufgabe muss geprüft werden:
+
+- aktueller Branch
+- sauberer Working Tree
+- nach Merge zuerst auf `main` wechseln und `git pull origin main` ausführen
+- aktive Aufgabe in `workflow/active/`
+- relevante Specs und Spec-Hierarchie
+- Scope-Grenzen der aktiven Aufgabe
+- relevante lokale Skills, Reviewer oder bewusst nicht erforderliche Reviewer
+
 ## Git-, Branch- und PR-Arbeitsweise
 
 Jedes Arbeitspaket bekommt einen eigenen Branch.
@@ -95,6 +121,19 @@ Verpflichtend:
 - Risiken und Hinweise konkret nennen
 - offene Punkte nur nennen, wenn es wirklich welche gibt; sonst `None` oder `Keine offenen Punkte` schreiben
 - PR-Beschreibung kurz, professionell und reviewfähig halten
+
+
+## Sprache, Benennung und Dokumentation
+
+Projektinterne Dokumentation bleibt auf Deutsch. Das gilt insbesondere für `AGENTS.md`, `ROADMAP.md`, `CHANGELOG.md`, `PROJECT_STRUCTURE.md`, Specs und Workflow-Inhalte.
+
+Branch-Namen, Workflow-Dateinamen, Commit-Messages sowie PR-Titel und PR-Beschreibungen müssen GitHub-tauglich sein. Branch-Namen, Commit-Messages, PR-Titel und PR-Beschreibungen werden auf Englisch formuliert, damit der Verlauf extern gut nachvollziehbar bleibt.
+
+Sichtbare deutsche Website-Texte und neue deutsche Projektdokumentation verwenden echte deutsche Umlaute. ASCII-Umschreibungen wie `ae`, `oe`, `ue` sind nur in Dateinamen, Branch-Namen oder technischen Bezeichnern sinnvoll.
+
+Nach einem Merge gilt immer: auf `main` wechseln, `git pull origin main` ausführen, den sauberen Working Tree prüfen und erst danach einen neuen Aufgaben-Branch erstellen.
+
+Nach abgeschlossenen Schritten soll der Agent immer den nächsten logischen Schritt nennen, ohne ihn ungefragt umzusetzen.
 
 ## Branch-Handoff-Regel nach Push
 
@@ -204,7 +243,7 @@ Beispiele:
 
 - Mobile UI: `mobile_visual_checker`
 - Desktop UI: `desktop_visual_checker`
-- Typografie und Zeilenumbrüche: `typography_checker`
+- Typografie, Zeilenumbrüche und Textlayout: `typography-line-break-check`
 - Accessibility: `a11y_checker`
 - SEO: `local_seo_reviewer`
 - Performance: `performance_budget_reviewer`
@@ -214,6 +253,28 @@ Beispiele:
 Reviewer ersetzen nicht die Freigabe durch den User.
 
 Technische Checks und Reviewer können eine Aufgabe prüfen, ersetzen aber niemals die ausdrückliche Freigabe durch den Nutzer.
+
+
+## Lokale Skills und Reviewer
+
+Lokale Skills gelten nur als vorhanden, wenn unter `.agents/skills/<skill-name>/SKILL.md` eine passende Datei existiert.
+
+Wenn `AGENTS.md`, ein Audit oder ein anderer Skill auf lokale Skills verweist, muss der Agent vor der Nutzung prüfen, ob die jeweilige Skill-Datei wirklich existiert. Nicht vorhandene lokale Skills dürfen nicht als vorhanden dargestellt werden.
+
+Reviewer-Namen ohne lokale Skill-Datei, zum Beispiel ältere Namen wie `typography_checker`, sind nur Audit-Rollen oder Prüfpunkte. In diesem Fall muss der Agent klar sagen, dass kein lokaler Skill existiert und die Prüfung manuell oder mit einem vorhandenen passenden Skill erfolgt.
+
+Der lokale Skill `typography-line-break-check` ist für Typografie, sichtbare deutsche Texte, Umlaute, Zeilenumbrüche und Textlayout auf Desktop, Tablet und Mobile vorgesehen.
+
+
+## Roadmap, Changelog und Projektstruktur
+
+`workflow/` steuert konkrete Aufgaben. Eine aktive Umsetzung oder Prüfung richtet sich immer nach der aktiven Task-Datei und den passenden Specs.
+
+`ROADMAP.md` beschreibt den größeren Projektverlauf, die Phasen und die nächsten logischen Projektabschnitte. Die Roadmap ersetzt keine Workflow-Aufgabe.
+
+`CHANGELOG.md` dokumentiert, wann in welchem Bereich etwas geändert wurde. Es ist eine nachvollziehbare Historie, aber keine Aufgabensteuerung.
+
+`PROJECT_STRUCTURE.md` erklärt die Projektordner und wichtigen Root-Dateien für Nutzer, Codex und Reviewende.
 
 ## Workflow-Regel
 
