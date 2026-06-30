@@ -6,7 +6,8 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Workflow
 
-- Aufgabe 039 wurde als neue Planungsaufgabe gestartet und liegt in `workflow/active/`.
+- Aufgabe 039 wurde als neue Planungsaufgabe gestartet und später abgeschlossen.
+- Aufgabe 039 wurde abgeschlossen; der V1-Launch-Masterplan wurde erstellt und freigegeben.
 - Grund: Vor der Fortsetzung von Aufgabe 029 fehlte ein zentraler V1-Launch-Masterplan, der Seiten, Inhalte, SEO, Routing, Legal, i18n, Cleanup und Zuständigkeiten zusammenzieht.
 - Aufgabe 029 wurde nicht umgesetzt und bleibt bis zum Abschluss des Masterplans in `workflow/todo/` pausiert.
 - Die frühere Einordnung von 029 als direkter nächster Schritt nach 037 wurde durch Aufgabe 039 ersetzt.
@@ -15,7 +16,8 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 - `specs/06-work-plans/v1-launch-masterplan.md` wurde als zentrale Work-Plan-Datei angelegt.
 - Der Masterplan dokumentiert die Seiten-/Content-/SEO-/Routing-/Legal-/i18n-/Cleanup-Matrix, die sichtbare Trust-/Qualifikationslücke, SEO-Abhängigkeiten und die empfohlene Restreihenfolge bis Launch.
-- Die Restreihenfolge wurde geschärft: 029 folgt erst nach sichtbarer Trust-/Qualifikationsklärung, Routing-/Redirect-Plan, Kontakt-/Legal-Prüfung und i18n-Launch-Scope.
+- Die Restreihenfolge wurde festgelegt: `039 → 040 → 030 → 031 → 032 → 029 → 026 → 033 → 034 → 035`.
+- Aufgabe 029 wurde nicht umgesetzt und bleibt bis zu den vorgelagerten Klärungen pausiert.
 - `ROADMAP.md` wurde angepasst, damit Aufgabe 039 vor Aufgabe 029 eingeordnet ist.
 
 ### Nicht geändert

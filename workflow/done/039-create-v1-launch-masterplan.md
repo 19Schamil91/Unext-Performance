@@ -72,6 +72,13 @@ Aufgabe 029 wurde formal gestartet, soll aber noch nicht umgesetzt werden, weil 
 - Es wurden keine App-/Component-Dateien geändert.
 - Es wurden keine Assets geändert.
 
+## Abschluss
+
+- Die Akzeptanzkriterien wurden geprüft und bestanden.
+- ROADMAP.md und CHANGELOG.md wurden beim Abschluss aktualisiert.
+- Aufgabe 040 wurde nur als nötige Folgeaufgabe benannt und noch nicht angelegt.
+- Es wurden keine Website-Code-, SEO-/Metadata-, Routen-, Asset-, Supabase-, KI-, Upload- oder Portal-Änderungen vorgenommen.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen

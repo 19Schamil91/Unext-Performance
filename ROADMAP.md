@@ -46,11 +46,11 @@ Aufgabe 037 hat die Orientierung für Agenten, Nutzer und Reviewende verbessert.
 
 ### 7. V1 Launch-Masterplan
 
-Status: in Arbeit
+Status: abgeschlossen
 
-Aufgabe 039 erstellt vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
+Aufgabe 039 hat vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan erstellt. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
 
-Aufgabe 029 bleibt bis zum Abschluss von 039 pausiert. Falls der Masterplan die sichtbare Trust-/Qualifikationslücke bestätigt, soll vor 029 eine Folgeaufgabe für die sichtbare Umsetzung auf Startseite und Über-uns-Seite eingeordnet werden.
+Der nächste logische Schritt ist die sichtbare Trust- und Qualifikationsumsetzung. Aufgabe 040 soll nach Merge und Freigabe von 039 gestartet werden. Aufgabe 029 bleibt weiterhin nach 040, 030, 031 und 032 eingeordnet.
 
 ### 8. Sichtbare Trust- und Qualifikationsumsetzung
 
