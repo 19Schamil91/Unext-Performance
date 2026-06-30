@@ -2,6 +2,31 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-06-30
+
+### Workflow
+
+- Aufgabe 039 wurde als neue Planungsaufgabe gestartet und liegt in `workflow/active/`.
+- Grund: Vor der Fortsetzung von Aufgabe 029 fehlte ein zentraler V1-Launch-Masterplan, der Seiten, Inhalte, SEO, Routing, Legal, i18n, Cleanup und Zuständigkeiten zusammenzieht.
+- Aufgabe 029 wurde nicht umgesetzt und bleibt bis zum Abschluss des Masterplans in `workflow/todo/` pausiert.
+- Die frühere Einordnung von 029 als direkter nächster Schritt nach 037 wurde durch Aufgabe 039 ersetzt.
+
+### Planung
+
+- `specs/06-work-plans/v1-launch-masterplan.md` wurde als zentrale Work-Plan-Datei angelegt.
+- Der Masterplan dokumentiert die Seiten-/Content-/SEO-/Routing-/Legal-/i18n-/Cleanup-Matrix, die sichtbare Trust-/Qualifikationslücke, SEO-Abhängigkeiten und die empfohlene Restreihenfolge bis Launch.
+- Die Restreihenfolge wurde geschärft: 029 folgt erst nach sichtbarer Trust-/Qualifikationsklärung, Routing-/Redirect-Plan, Kontakt-/Legal-Prüfung und i18n-Launch-Scope.
+- `ROADMAP.md` wurde angepasst, damit Aufgabe 039 vor Aufgabe 029 eingeordnet ist.
+
+### Nicht geändert
+
+- Keine Website-Code-Dateien.
+- Keine UI-Komponenten.
+- Keine SEO-/Metadata-/Structured-Data-Implementierung.
+- Keine alten Routen, Redirects oder Assets.
+- Keine Kontakt-/Legal-Umsetzung.
+- Keine Supabase-, Upload-, KI- oder Portal-Themen.
+
 ## 2026-06-28
 
 ### Workflow

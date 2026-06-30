@@ -44,19 +44,41 @@ Status: abgeschlossen
 
 Aufgabe 037 hat die Orientierung für Agenten, Nutzer und Reviewende verbessert. Dazu gehören `AGENTS.md`, `ROADMAP.md`, `CHANGELOG.md`, `PROJECT_STRUCTURE.md` und ein lokaler Typografie-/Zeilenumbruch- und Textlayout-Skill.
 
-### 7. SEO, Metadata und Structured Data
+### 7. V1 Launch-Masterplan
+
+Status: in Arbeit
+
+Aufgabe 039 erstellt vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
+
+Aufgabe 029 bleibt bis zum Abschluss von 039 pausiert. Falls der Masterplan die sichtbare Trust-/Qualifikationslücke bestätigt, soll vor 029 eine Folgeaufgabe für die sichtbare Umsetzung auf Startseite und Über-uns-Seite eingeordnet werden.
+
+### 8. Sichtbare Trust- und Qualifikationsumsetzung
+
+Status: geplant nach 039
+
+Der aktuelle Masterplan sieht eine Folgeaufgabe 040 für die sichtbare Umsetzung des Trust-Satzes und der Über-uns-Bereiche `Qualifikation & Anerkennung` sowie `Fortbildungen & Weiterbildung` vor. Die Aufgabe wird nach Freigabe von 039 angelegt.
+
+Erst danach sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden.
+
+### 9. Routing, Kontakt/Legal und i18n-Klärung
 
 Status: geplant
 
-Aufgabe 029 ist nach Abschluss von Aufgabe 037 der nächste logische Task. Die SEO-/Metadata-/Structured-Data-Arbeit kann auf Basis der freigegebenen Specs fortgesetzt werden.
+Vor der finalen SEO-/Metadata-/Structured-Data-Umsetzung müssen Aufgabe 030, Aufgabe 031 und Aufgabe 032 die notwendigen Launch-Entscheidungen klären: alte Service-Routen und Redirects, Kontaktwege, Formularstatus, Datenschutz, Impressum, AGB, Legal-Texte und Deutsch/EN/RU-Launch-Scope.
 
-### 8. Weitere Launch-Vorbereitung
+### 10. SEO, Metadata und Structured Data
 
 Status: geplant
 
-Geplante Launch-Themen sind Routing und Redirects, Kontakt- und Legal-Prüfung, i18n-Launch-Scope, Launch-Qualitätscheck, Deployment-Gate und Post-Launch-Monitoring.
+Aufgabe 029 folgt nach Aufgabe 039, nach der sichtbaren Trust-/Qualifikationsumsetzung sowie nach den Klärungen aus 030, 031 und 032. Die SEO-/Metadata-/Structured-Data-Arbeit muss die im Masterplan festgelegten Seiten, Routen, Inhalte, Kontakt-/Legal-Entscheidungen und Sprachen beachten.
 
-### 9. Spätere Ausbaustufen
+### 11. Cleanup und Launch-Schritte
+
+Status: geplant
+
+Nach 029 folgt Aufgabe 026 für Code-, Content-, Asset- und SEO-Cleanup nach Verwendungsprüfung. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
+
+### 12. Spätere Ausbaustufen
 
 Status: geplant für später
 
