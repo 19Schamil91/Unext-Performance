@@ -57,10 +57,9 @@ export const legalTranslations = {
         { title: "§ 1 Geltungsbereich", content: "Diese Allgemeinen Geschäftsbedingungen gelten für alle Geschäftsbeziehungen zwischen der UNEXT GmbH (nachfolgend 'Anbieter') und dem Kunden. Maßgeblich ist die zum Zeitpunkt des Vertragsschlusses gültige Fassung." },
         { title: "§ 2 Vertragsschluss", content: "Die Darstellung der Leistungen auf dieser Website ist kein verbindliches Angebot. Ein Vertrag kommt erst zustande, wenn wir Ihre Anfrage individuell bestaetigen oder Sie mit uns eine konkrete Leistung vereinbaren." },
         { title: "§ 3 Leistungen", subsections: [
-          { title: "3.1 Unfallgutachten", content: "Unfallgutachten und damit verbundene Unterstuetzung werden nach dem konkreten Schadenfall, dem Fahrzeugzustand und den notwendigen Unterlagen abgestimmt." },
-          { title: "3.2 Autovermietung", content: "Mietfahrzeuge werden nach Verfuegbarkeit, Mietdauer, Fahrzeugklasse und individuell vereinbarten Bedingungen bereitgestellt." },
-          { title: "3.3 Werkstattservice", content: "Werkstatt- und Reparaturleistungen erfolgen nach individueller Abstimmung. Vor umfangreicheren Arbeiten klaeren wir Umfang, Kostenrahmen und Termin mit Ihnen." },
-          { title: "3.4 Detailing", content: "Aufbereitungsleistungen richten sich nach Fahrzeugzustand, gewaehltem Paket und vereinbartem Leistungsumfang." },
+          { title: "3.1 KFZ-Gutachten", content: "KFZ-Gutachten, Unfallgutachten und damit verbundene Abstimmungen werden nach dem konkreten Schadenfall, dem Fahrzeugzustand und den notwendigen Unterlagen individuell geklärt." },
+          { title: "3.2 Fahrzeugbewertung und Wertermittlung", content: "Fahrzeugbewertungen und Wertermittlungen werden nach Fahrzeug, Anlass, Unterlagenlage und individuell vereinbartem Leistungsumfang abgestimmt." },
+          { title: "3.3 Beweissicherung und Schadenaufnahme", content: "Beweissicherung und Schadenaufnahme dienen der sachlichen Dokumentation von Fahrzeugzustand, sichtbaren Schäden und relevanten Unterlagen im abgestimmten Einzelfall." },
         ] },
         { title: "§ 4 Preise und Zahlung", content: "Preise, Zahlungsweise und Faelligkeit werden je nach Leistung individuell mitgeteilt oder vereinbart. Soweit nicht anders vereinbart, gelten die im Angebot oder in der Auftragsbestaetigung genannten Bedingungen." },
         { title: "§ 5 Haftung", content: "Es gelten die gesetzlichen Haftungsregelungen. Bei vermittelten Leistungen oder externen Partnern informieren wir Sie, soweit ein anderer Anbieter Vertragspartner wird." },

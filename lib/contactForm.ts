@@ -195,11 +195,11 @@ export function buildContactEmail(values: ContactFormValues) {
 
 export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
   return {
-    subject: `Service-Anfrage: ${values.service}`,
+    subject: `Gutachten-Anfrage: ${values.service}`,
     text: [
-      "Neue Anfrage über eine Leistungsseite.",
+      "Neue Gutachten-Anfrage über die UNEXT Website.",
       "",
-      `Leistung: ${values.service}`,
+      `Anfragebereich: ${values.service}`,
       `Name: ${values.name}`,
       `Telefon: ${values.phone}`,
       `E-Mail: ${values.email}`,
@@ -211,10 +211,10 @@ export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
       values.message || "Nicht angegeben",
     ].join("\n"),
     html: renderEmailHtml({
-      eyebrow: "Service-Anfrage",
-      title: `Neue Anfrage: ${values.service}`,
+      eyebrow: "Gutachten-Anfrage",
+      title: `Neue Gutachten-Anfrage: ${values.service}`,
       rows: [
-        renderEmailParagraph("Leistung", values.service),
+        renderEmailParagraph("Anfragebereich", values.service),
         renderEmailParagraph("Name", values.name),
         renderEmailParagraph("Telefon", values.phone),
         renderEmailParagraph("E-Mail", values.email),
