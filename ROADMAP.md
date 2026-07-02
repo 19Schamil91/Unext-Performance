@@ -50,7 +50,7 @@ Status: abgeschlossen
 
 Aufgabe 039 hat vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan erstellt. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
 
-Aufgabe 040 wurde abgeschlossen. Der nächste logische Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`. Aufgabe 029 bleibt weiterhin nach 030, 031 und 032 eingeordnet.
+Aufgabe 040 und Aufgabe 030 wurden abgeschlossen. Der nächste logische Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`. Aufgabe 029 bleibt weiterhin nach 031 und 032 eingeordnet.
 
 ### 8. Sichtbare Trust- und Qualifikationsumsetzung
 
@@ -58,25 +58,25 @@ Status: abgeschlossen
 
 Aufgabe 040 hat die sichtbare Umsetzung des Trust-Satzes auf der Startseite und der deutschen Über-uns-Bereiche `Qualifikation & Anerkennung` sowie `Fortbildungen & Weiterbildung` abgeschlossen. Die deutsche Über-uns-Seite ist damit auf den V1-Scope KFZ-Gutachten, Vertrauen, Qualifikation, Anerkennung und Fortbildungen ausgerichtet.
 
-Erst nach den weiteren Klärungen aus 030, 031 und 032 sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden.
+Erst nach dem abgeschlossenen Routing-Plan aus 030 und den weiteren Klärungen aus 031 und 032 sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden.
 
 ### 9. Routing, Kontakt/Legal und i18n-Klärung
 
-Status: geplant
+Status: in Arbeit
 
-Der nächste logische Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`. Danach müssen Aufgabe 031 und Aufgabe 032 die notwendigen Launch-Entscheidungen klären: alte Service-Routen und Redirects, Kontaktwege, Formularstatus, Datenschutz, Impressum, AGB, Legal-Texte und Deutsch/EN/RU-Launch-Scope.
+Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen` ist abgeschlossen. Der nächste logische Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`. Danach muss Aufgabe 032 den Deutsch/EN/RU-Launch-Scope klären.
 
 ### 10. SEO, Metadata und Structured Data
 
 Status: geplant
 
-Aufgabe 029 bleibt weiterhin nach Aufgabe 030, Aufgabe 031 und Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss die im Masterplan festgelegten Seiten, Routen, Inhalte, Kontakt-/Legal-Entscheidungen und Sprachen beachten.
+Aufgabe 029 bleibt weiterhin nach Aufgabe 031 und Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030 sowie die noch offenen Kontakt-/Legal- und i18n-Entscheidungen beachten.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen- und SEO-Entscheidungen eingeordnet. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
 
 ### 12. Spätere Ausbaustufen
 
