@@ -21,6 +21,7 @@ type HeroContentProps = {
   combinePrimaryTitle?: boolean
   description: string
   mobileDescription?: string
+  trustStatement?: string
   services: readonly { title: string; anchor: string }[]
   callNow: string
   inquiry: string
@@ -33,7 +34,11 @@ type HeroContentProps = {
 function renderHeroDescription(description: string, lineClassName?: string) {
   // Diese Begriffe bleiben zusammen, damit sie in allen Sprachen lesbar umbrechen.
   const protectedTerm = "KFZ-Gutachten"
-  const desktopBreakMarkers = ["Berlin."]
+  const desktopBreakMarkers = description.startsWith(
+    "UNEXT unterstützt Sie nach einem Unfall oder Schaden mit KFZ-Gutachten"
+  )
+    ? ["Schaden", "Berlin."]
+    : ["Berlin."]
   const protectedTerms = [protectedTerm, "Taxi-Fahrer"]
   const combinedEndingMarkers = ["Alles unter einem Dach.", "All under one roof."]
 
@@ -147,6 +152,28 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   )
 }
 
+function renderHeroTrustStatement(statement: string, lineClassName?: string) {
+  const germanMarker = "Sachverständiger für Schäden"
+
+  if (!statement.includes(germanMarker)) {
+    return statement
+  }
+
+  const [firstPart, secondPart] = statement.split(" für Schäden")
+  const lines = [firstPart, `für Schäden${secondPart}`]
+
+  return (
+    <>
+      {lines.map((line, index) => (
+        <span key={`${line}-${index}`} className={lineClassName}>
+          {line}
+          {index < lines.length - 1 ? " " : null}
+        </span>
+      ))}
+    </>
+  )
+}
+
 function HeroContent({
   tone,
   locale,
@@ -157,6 +184,7 @@ function HeroContent({
   combinePrimaryTitle = false,
   description,
   mobileDescription,
+  trustStatement,
   services,
   callNow,
   inquiry,
@@ -265,7 +293,7 @@ function HeroContent({
           }
         >
           <span className={mobileDescription ? "hidden md:contents" : undefined}>
-            {renderHeroDescription(description)}
+            {renderHeroDescription(description, locale === "de" ? "md:block" : undefined)}
           </span>
           {mobileDescription ? (
             <span className="contents md:hidden">
@@ -273,6 +301,21 @@ function HeroContent({
             </span>
           ) : null}
         </p>
+
+        {trustStatement ? (
+          <p
+            className={
+              isOverlay
+                ? "relative z-10 mt-4 max-w-[42rem] text-body-compact font-medium text-white/76 drop-shadow-[0_8px_24px_rgba(0,0,0,0.62)] max-md:mt-3"
+                : "mt-4 max-w-[42rem] text-body-compact font-medium text-foreground/72"
+            }
+          >
+            <span className="hidden md:contents">
+              {renderHeroTrustStatement(trustStatement, locale === "de" ? "md:block" : undefined)}
+            </span>
+            <span className="contents md:hidden">{renderHeroTrustStatement(trustStatement)}</span>
+          </p>
+        ) : null}
       </div>
 
       {!isOverlay ? (
@@ -432,6 +475,10 @@ export function HeroSection({ locale }: Props) {
       "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно\nи напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано.\nПрофессионально выполнено.",
   } as const satisfies Record<Locale, string>
   const mobileHeroDescription = mobileHeroDescriptions[locale]
+  const trustStatement =
+    locale === "de"
+      ? "Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
+      : undefined
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
   const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
 
@@ -462,6 +509,7 @@ export function HeroSection({ locale }: Props) {
             locale={locale}
             description={t.description}
             mobileDescription={mobileHeroDescription}
+            trustStatement={trustStatement}
             services={mainServices}
             callNow={t.callNow}
             inquiry={t.inquiry}
@@ -497,6 +545,7 @@ export function HeroSection({ locale }: Props) {
             locale={locale}
             combinePrimaryTitle
             description={t.description}
+            trustStatement={trustStatement}
             services={mainServices}
             callNow={t.callNow}
             inquiry={t.inquiry}

@@ -1,7 +1,7 @@
 /*
   Diese Datei zeigt den Inhalt der Ueber-uns-Seite.
-  Sie zeigt Teamfoto, Unternehmensgeschichte, Werte, UNFALLX-Hinweis und Kontaktbereich.
-  Nutzer koennen mehr ueber UNEXT lesen und zur passenden Leistung wechseln.
+  Die deutsche Version ist auf KFZ-Gutachten, Vertrauen, Qualifikation und sachliche Arbeitsweise ausgerichtet.
+  Englisch und Russisch nutzen weiterhin den bestehenden lokalisierten Ueber-uns-Inhalt.
 */
 import Image from "next/image"
 import Link from "next/link"
@@ -25,7 +25,171 @@ function normalizeText(text: string) {
   return text.split("\n").map((line) => line.trim()).filter(Boolean).join(" ")
 }
 
+const germanAbout = {
+  hero:
+    "UNEXT steht für KFZ-Gutachten in Berlin: sachlich, nachvollziehbar und direkt erreichbar. Nach einem Unfall oder Schaden erhalten Sie klare Orientierung – von der ersten Einschätzung bis zur weiteren Abstimmung.",
+  intro: {
+    title: "Wer hinter UNEXT steht",
+    paragraphs: [
+      "UNEXT ist auf die Begutachtung von Fahrzeugschäden und die Wertermittlung spezialisiert. Dabei steht der persönliche Kontakt im Mittelpunkt: telefonisch, per WhatsApp oder über eine Anfrage können die wichtigsten Informationen schnell geklärt werden.",
+      "Ziel ist eine verständliche Einschätzung, die den Schaden, das Fahrzeug und die nächsten Schritte nachvollziehbar einordnet.",
+    ],
+  },
+  method: {
+    title: "Sachliche Begutachtung",
+    paragraphs: [
+      "Ein Fahrzeugschaden sollte klar dokumentiert und sorgfältig bewertet werden. UNEXT nimmt relevante Fahrzeugdaten und Schadeninformationen strukturiert auf und bespricht das weitere Vorgehen persönlich und verständlich.",
+      "Digitale Angaben können die Anfrage vorbereiten. Die fachliche Einordnung erfolgt jedoch nicht automatisch, sondern nachvollziehbar im direkten Kontakt.",
+    ],
+  },
+  qualification: {
+    title: "Qualifikation & Anerkennung",
+    paragraphs: [
+      "Die Begutachtung erfolgt durch einen geprüften und anerkannten Sachverständigen für Schäden an Kraftfahrzeugen und Wertermittlung.",
+      "Damit steht die fachliche Einordnung von Fahrzeugschäden, Wertfragen und gutachterlichen Stellungnahmen auf einer sachlichen und sorgfältigen Grundlage.",
+    ],
+  },
+  training: {
+    title: "Fortbildungen & Weiterbildung",
+    paragraphs: [
+      "Ergänzende Fortbildungen unterstützen die fachliche Einordnung von Fahrzeugschäden, Wertfragen und Stellungnahmen.",
+      "Sie vertiefen die fachliche Arbeit und helfen dabei, Schäden, Wertfragen und Stellungnahmen sorgfältig, aktuell und nachvollziehbar einzuordnen.",
+    ],
+  },
+  ctaTitle: "Sie benötigen ein KFZ‑Gutachten in Berlin?",
+  ctaDescription:
+    "Rufen Sie an, schreiben Sie per WhatsApp oder senden Sie eine Anfrage. Gemeinsam klären wir, ob ein Gutachten oder eine Fahrzeugbewertung sinnvoll ist.",
+}
+
+function GermanAboutPageContent() {
+  return (
+    <>
+      <SiteHeader locale="de" />
+      <main>
+        <section className="bg-background py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+                KFZ-Gutachten Berlin
+              </p>
+              <h1 className="mt-3 max-w-4xl text-display-fluid font-semibold text-foreground">
+                Über UNEXT GmbH
+              </h1>
+              <ReadableText
+                text={germanAbout.hero}
+                className="mt-6 measure-intro text-body-fluid text-foreground/82"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-card py-16 lg:py-24">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8">
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-[34rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
+              <Image
+                src="/images/home-service-accident.webp"
+                alt="KFZ-Sachverständiger bei der Fahrzeugbegutachtung in Berlin"
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                quality={82}
+                className="object-cover object-top"
+              />
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+                Persönlicher Kontakt
+              </p>
+              <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
+                {germanAbout.intro.title}
+              </h2>
+              <div className="mt-6 space-y-4">
+                {germanAbout.intro.paragraphs.map((paragraph) => (
+                  <ReadableText
+                    key={paragraph}
+                    text={paragraph}
+                    className="measure-intro-tight text-body-fluid text-foreground/82"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+                  Arbeitsweise
+                </p>
+                <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
+                  {germanAbout.method.title}
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {germanAbout.method.paragraphs.map((paragraph) => (
+                  <ReadableText
+                    key={paragraph}
+                    text={paragraph}
+                    className="measure-intro-tight text-body-fluid text-foreground/82"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-card py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+                Vertrauen und Weiterbildung
+              </p>
+              <h2 className="mt-2 text-heading-fluid font-semibold text-foreground">
+                Qualifikation & Weiterbildung
+              </h2>
+            </div>
+
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+              {[germanAbout.qualification, germanAbout.training].map((section) => (
+                <Card key={section.title} className="border-border/60 bg-background">
+                  <CardContent className="p-6 sm:p-8">
+                    <h3 className="text-title-fluid font-semibold text-foreground">
+                      {section.title}
+                    </h3>
+                    <div className="mt-5 space-y-4">
+                      {section.paragraphs.map((paragraph) => (
+                        <ReadableText
+                          key={paragraph}
+                          text={paragraph}
+                          className="text-body-compact leading-7 text-foreground/82"
+                        />
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CtaSection
+          locale="de"
+          title={germanAbout.ctaTitle}
+          description={germanAbout.ctaDescription}
+        />
+      </main>
+      <SiteFooter locale="de" />
+    </>
+  )
+}
+
 export function AboutPageContent({ locale }: AboutPageContentProps) {
+  if (locale === "de") {
+    return <GermanAboutPageContent />
+  }
+
   const t = getTranslations(locale).aboutPage
 
   return (
@@ -49,7 +213,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
 
           <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
             <div className="max-w-5xl max-md:mx-auto max-md:max-w-[34rem] max-md:text-center">
-              <h1 className={`text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)] ${locale === "de" ? "md:whitespace-nowrap" : ""}`}>
+              <h1 className="text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)]">
                 {t.title}
               </h1>
               <ReadableText
