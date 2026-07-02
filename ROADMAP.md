@@ -50,7 +50,7 @@ Status: abgeschlossen
 
 Aufgabe 039 hat vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan erstellt. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
 
-Aufgabe 040 und Aufgabe 030 wurden abgeschlossen. Der nächste logische Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`. Aufgabe 029 bleibt weiterhin nach 031 und 032 eingeordnet.
+Aufgabe 040, Aufgabe 030 und Aufgabe 031 wurden abgeschlossen. Der nächste logische Schritt ist Aufgabe 032 `i18n Launch Scope / Deutsch, EN/RU prüfen`. Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet.
 
 ### 8. Sichtbare Trust- und Qualifikationsumsetzung
 
@@ -64,19 +64,19 @@ Erst nach dem abgeschlossenen Routing-Plan aus 030 und den weiteren Klärungen a
 
 Status: in Arbeit
 
-Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen` ist abgeschlossen. Der nächste logische Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`. Danach muss Aufgabe 032 den Deutsch/EN/RU-Launch-Scope klären.
+Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen` und Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen` sind abgeschlossen. Der nächste logische Schritt ist Aufgabe 032 `i18n Launch Scope / Deutsch, EN/RU prüfen`. Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet.
 
 ### 10. SEO, Metadata und Structured Data
 
 Status: geplant
 
-Aufgabe 029 bleibt weiterhin nach Aufgabe 031 und Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030 sowie die noch offenen Kontakt-/Legal- und i18n-Entscheidungen beachten.
+Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031 sowie die noch offenen i18n-Entscheidungen beachten.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
 
 ### 12. Spätere Ausbaustufen
 

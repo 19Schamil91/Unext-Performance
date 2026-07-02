@@ -1,7 +1,7 @@
 /*
   Diese Datei zeigt die Kontaktseite.
-  Sie zeigt Kontaktwege, das Kontaktformular, direkte Servicekontakte und den Standort.
-  Besucher koennen anrufen, WhatsApp oeffnen, eine echte Nachricht senden oder den Standort ansehen.
+  Sie zeigt Kontaktwege, das Kontaktformular und den Standort.
+  Besucher können anrufen, WhatsApp öffnen, eine echte Nachricht senden oder den Standort ansehen.
 */
 "use client"
 
@@ -32,8 +32,8 @@ import { initialContactActionState } from "@/lib/contactForm"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
-const serviceMeta = [
-  { icon: FileCheck, phone: "0176 64365185", social: "@unfallx" },
+const legacyServiceMeta = [
+  { icon: FileCheck, phone: "0176 64365185", social: "@unext.performance" },
   { icon: Car, phone: "0174 4292900", social: "@unext.performance" },
   { icon: Wrench, phone: "0177 7883206", social: "@unext.performance" },
   { icon: Sparkles, phone: "0177 6691006", social: "@unext.performance" },
@@ -75,6 +75,15 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
   const whatsappPhone = "0176 64365185"
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const privacyHref = getLocalizedPath(locale, "/datenschutz")
+  const legacyContactSection =
+    locale !== "de" && "serviceContacts" in t
+      ? {
+          title: t.serviceContactsTitle,
+          description: t.serviceContactsDescription,
+          contacts: t.serviceContacts,
+          whatsappLabel: t.whatsapp,
+        }
+      : null
 
   // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
   const getFieldError = (field: string) => formState.fieldErrors[field]
@@ -91,12 +100,24 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                   {t.title}
                 </h1>
                 <p className="measure-intro mt-6 text-body-fluid text-muted-foreground">
-                  <span>{descriptionParts.lead}</span>
-                  {descriptionParts.rest ? (
+                  {locale === "de" ? (
                     <>
-                      <span className="block">{descriptionParts.rest}</span>
+                      <span className="sm:hidden">
+                        Sie benötigen ein <span className="whitespace-nowrap">KFZ-Gutachten</span>, eine Fahrzeugbewertung oder eine erste Einschätzung nach einem Schaden? Sie erreichen UNEXT telefonisch, per WhatsApp, per E-Mail oder über das Kontaktformular.
+                      </span>
+                      <span className="hidden sm:block">
+                        <span>Sie benötigen ein <span className="whitespace-nowrap">KFZ-Gutachten</span>, eine Fahrzeugbewertung</span>
+                        <span className="block">oder eine erste Einschätzung nach einem Schaden?</span>
+                        <span className="mt-4 block">Sie erreichen UNEXT telefonisch, per WhatsApp, per E-Mail</span>
+                        <span className="block">oder über das Kontaktformular.</span>
+                      </span>
                     </>
-                  ) : null}
+                  ) : (
+                    <>
+                      <span>{descriptionParts.lead}</span>
+                      {descriptionParts.rest ? <span className="block">{descriptionParts.rest}</span> : null}
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -138,7 +159,7 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
           </div>
         </section>
 
-        <section className="bg-background py-16 lg:py-24">
+        <section className="bg-background py-10 lg:py-14">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-2xl">
               {formState.status === "success" ? (
@@ -255,74 +276,76 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
           </div>
         </section>
 
-        <section className="border-y border-border/70 bg-card py-16 lg:py-20">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="mb-10 max-w-3xl">
-              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                {t.serviceContactsTitle}
-              </h2>
-              <p className="mt-3 text-body-compact text-muted-foreground">
-                {t.serviceContactsDescription}
-              </p>
-            </div>
+        {legacyContactSection ? (
+          <section className="border-y border-border/70 bg-card py-16 lg:py-20">
+            <div className="mx-auto max-w-7xl px-4 lg:px-8">
+              <div className="mb-10 max-w-3xl">
+                <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  {legacyContactSection.title}
+                </h2>
+                <p className="mt-3 text-body-compact text-muted-foreground">
+                  {legacyContactSection.description}
+                </p>
+              </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {t.serviceContacts.map((service, index) => {
-                const meta = serviceMeta[index] ?? fallbackServiceMeta
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {legacyContactSection.contacts.map((service, index) => {
+                  const meta = legacyServiceMeta[index] ?? fallbackServiceMeta
 
-                return (
-                  <Card key={service.title} className="border-border/60 bg-background">
-                    <CardContent className="flex gap-4 p-5">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <meta.icon className="h-5 w-5" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                          {service.subtitle}
-                        </p>
-                        <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
-                        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-                          <a
-                            href={`tel:${meta.phone.replace(/\s/g, "")}`}
-                            className="flex items-center gap-2 text-sm text-foreground transition-colors hover:text-primary"
-                          >
-                            <Phone className="h-4 w-4" />
-                            {meta.phone}
-                          </a>
-                          <a
-                            href={`https://wa.me/49${meta.phone.replace(/\s/g, "").replace(/^0/, "")}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                          >
-                            <MessageCircle className="h-4 w-4" />
-                            {t.whatsapp}
-                          </a>
-                          <a
-                            href={`https://instagram.com/${meta.social.replace("@", "")}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                          >
-                            <Instagram className="h-4 w-4" />
-                            {meta.social}
-                          </a>
+                  return (
+                    <Card key={service.title} className="border-border/60 bg-background">
+                      <CardContent className="flex gap-4 p-5">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <meta.icon className="h-5 w-5" />
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                )
-              })}
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                            {service.subtitle}
+                          </p>
+                          <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
+                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                            <a
+                              href={"tel:" + meta.phone.replace(/\s/g, "")}
+                              className="flex items-center gap-2 text-sm text-foreground transition-colors hover:text-primary"
+                            >
+                              <Phone className="h-4 w-4" />
+                              {meta.phone}
+                            </a>
+                            <a
+                              href={"https://wa.me/49" + meta.phone.replace(/\s/g, "").replace(/^0/, "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                            >
+                              <MessageCircle className="h-4 w-4" />
+                              {legacyContactSection.whatsappLabel}
+                            </a>
+                            <a
+                              href={"https://instagram.com/" + meta.social.replace("@", "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                            >
+                              <Instagram className="h-4 w-4" />
+                              {meta.social}
+                            </a>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
-        <section className="bg-background py-16 lg:py-24">
+        <section className="bg-background pb-16 pt-8 lg:pb-24 lg:pt-10">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               {t.locationTitle}
             </h2>
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-12">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
               <div className="min-h-full">
                 <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-border/60 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.1)]">
                   <div className="space-y-6">
@@ -333,7 +356,16 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                       <p className="text-title-fluid font-semibold text-foreground">Lübarser Str. 25</p>
                       <p className="mt-2 text-body-compact text-muted-foreground">13435 Berlin</p>
                     </div>
-                    <p className="measure-card-copy text-body-compact text-muted-foreground">{t.locationDescription}</p>
+                    <p className="max-w-[58ch] text-body-compact text-muted-foreground">
+                      {locale === "de" ? (
+                        <>
+                          <span>UNEXT GmbH befindet sich in Berlin-Reinickendorf.</span>
+                          <span className="block">Über Google Maps können Sie den Standort direkt öffnen.</span>
+                        </>
+                      ) : (
+                        t.locationDescription
+                      )}
+                    </p>
                   </div>
                   <div className="mt-8">
                     <Button asChild variant="outline">

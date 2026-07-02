@@ -9,7 +9,8 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Aufgabe 040 wurde abgeschlossen und bleibt als erledigte Workflow-Aufgabe dokumentiert.
 - Aufgabe 030 wurde als Planungsaufgabe gestartet; die Routen-Inventur wurde dokumentiert.
 - Aufgabe 030 wurde abgeschlossen.
-- Nächster logischer Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`.
+- Aufgabe 031 wurde abgeschlossen.
+- Nächster logischer Schritt ist Aufgabe 032 `i18n Launch Scope / Deutsch, EN/RU prüfen`.
 
 ### Planung
 
@@ -21,6 +22,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - EN/RU alte Service-Routen bleiben bis Aufgabe 032 offen und gelten nicht ungeprüft als launchfähig.
 - Aufgabe 029 muss alte Keywords, Metadata, Structured Data, Sitemap/Robots/Canonicals und interne SEO-Signale auf Basis dieses Plans prüfen.
 - Aufgabe 026 darf alte Komponenten, Translation-Daten und Assets erst nach den Entscheidungen aus 030, 031, 032 und 029 bereinigen.
+- Finale rechtliche Prüfung bleibt vor Launch offen.
 
 ### Website
 
@@ -28,11 +30,18 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Die deutsche Über-uns-Seite wurde auf den V1-Scope KFZ-Gutachten, Vertrauen, Qualifikation, Anerkennung und Fortbildungen neu ausgerichtet.
 - `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` wurden sichtbar und getrennt eingebunden.
 - Das freigegebene Bild `/images/home-service-accident.webp` wurde auf der Über-uns-Seite verwendet.
+- Die deutsche Kontaktseite wurde auf den KFZ-Gutachten-Scope ausgerichtet.
+- Redundante Kontaktkarten wurden entfernt.
+- Kontaktformulartexte wurden geprüft und gekürzt.
+- E-Mail-Betreff und E-Mail-Text wurden auf Gutachten-Anfrage und Anfragebereich ausgerichtet.
+- Deutsche AGB-/Legal-Texte wurden minimal und scope-konform bereinigt.
 
 ### Nicht geändert
 
 - Keine Redirects, keine `noindex`-Regeln und keine 404-/410-Umstellung.
 - Keine App-/Route-Dateien.
+- Resend-/E-Mail-Versandlogik blieb unverändert.
+- `lib/contactActions.ts` blieb unverändert.
 - Keine SEO-/Metadata-/Structured-Data-Umsetzung.
 - Keine EN/RU-Texte.
 - Keine Assets, PDFs oder Zertifikate hinzugefügt.
