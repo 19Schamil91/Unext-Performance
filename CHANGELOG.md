@@ -8,6 +8,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 - Aufgabe 040 wurde abgeschlossen und bleibt als erledigte Workflow-Aufgabe dokumentiert.
 - Nächster logischer Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`.
+- Aufgabe 030 wurde als Planungsaufgabe gestartet; die Routen-Inventur wurde dokumentiert.
+
+### Planung
+
+- `specs/06-work-plans/routing-redirects-old-service-routes.md` wurde als Planungsgrundlage für alte Service-Routen erstellt.
+- Der Plan bewertet `/leistungen`, `/leistungen/unfallgutachten` und die alten Legacy-Routen für Autovermietung, Autoservice, Detailing, Zulassungsservice sowie Abschleppdienst/Pannenhilfe.
+- EN/RU alte Service-Routen bleiben bis Aufgabe 032 offen und gelten nicht ungeprüft als launchfähig.
+- Aufgabe 029 muss alte Keywords, Metadata, Structured Data, Sitemap/Robots/Canonicals und interne SEO-Signale auf Basis dieses Plans prüfen.
+- Aufgabe 026 darf alte Komponenten, Translation-Daten und Assets erst nach den Entscheidungen aus 030, 031, 032 und 029 bereinigen.
 
 ### Website
 
