@@ -84,6 +84,13 @@ Aufgabe 029 bleibt pausiert, bis diese sichtbaren Inhalte umgesetzt oder ausdrü
 - Es wurden keine SEO-/Metadata-/Structured-Data-Implementierungen vorgenommen.
 - Aufgabe 029 bleibt bis Abschluss von 040 in `workflow/todo/`.
 
+## Abschlussnotiz
+
+- Akzeptanzkriterien wurden geprüft und bestanden.
+- Roadmap und Changelog wurden beim Abschluss aktualisiert.
+- Nächster logischer Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`.
+- Die leere dunkle Box auf der Startseite bleibt als späterer offener UI-/Cleanup-Punkt notiert und wurde in 040 nicht geändert.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
