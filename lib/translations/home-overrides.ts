@@ -6,7 +6,7 @@ export const homeTranslationOverrides = {
       title2: "Berlin",
       title3: "nach Unfall oder Schaden",
       description:
-        "UNEXT unterstützt Sie nach Unfall oder Schaden mit KFZ-Gutachten und Fahrzeugbewertungen in Berlin.\n\nDirekt erreichbar per Telefon, WhatsApp oder Anfrage.",
+        "UNEXT unterstützt Sie nach einem Unfall oder Schaden mit KFZ-Gutachten und Fahrzeugbewertungen in Berlin. Direkt erreichbar per Telefon, WhatsApp oder Anfrage.",
       inquiry: "Gutachten anfragen",
       address: "Lübarser Straße 25, 13435 Berlin",
       directServicesLabel: "Direkt zu den Gutachtenarten",

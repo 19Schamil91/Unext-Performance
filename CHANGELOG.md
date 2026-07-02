@@ -2,6 +2,26 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-02
+
+### Workflow
+
+- Aufgabe 040 wurde abgeschlossen und bleibt als erledigte Workflow-Aufgabe dokumentiert.
+- Nächster logischer Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`.
+
+### Website
+
+- Der Startseiten-Hero wurde mit einem sichtbaren, sachlichen Trust-Satz verbessert.
+- Die deutsche Über-uns-Seite wurde auf den V1-Scope KFZ-Gutachten, Vertrauen, Qualifikation, Anerkennung und Fortbildungen neu ausgerichtet.
+- `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` wurden sichtbar und getrennt eingebunden.
+- Das freigegebene Bild `/images/home-service-accident.webp` wurde auf der Über-uns-Seite verwendet.
+
+### Nicht geändert
+
+- Keine SEO-/Metadata-/Structured-Data-Umsetzung.
+- Keine EN/RU-Texte.
+- Keine Assets, PDFs oder Zertifikate hinzugefügt.
+
 ## 2026-06-30
 
 ### Workflow
