@@ -7,13 +7,17 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 ### Workflow
 
 - Aufgabe 040 wurde abgeschlossen und bleibt als erledigte Workflow-Aufgabe dokumentiert.
-- Nächster logischer Schritt ist Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`.
 - Aufgabe 030 wurde als Planungsaufgabe gestartet; die Routen-Inventur wurde dokumentiert.
+- Aufgabe 030 wurde abgeschlossen.
+- Nächster logischer Schritt ist Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`.
 
 ### Planung
 
+- Die alten Service-Routen wurden inventarisiert.
 - `specs/06-work-plans/routing-redirects-old-service-routes.md` wurde als Planungsgrundlage für alte Service-Routen erstellt.
-- Der Plan bewertet `/leistungen`, `/leistungen/unfallgutachten` und die alten Legacy-Routen für Autovermietung, Autoservice, Detailing, Zulassungsservice sowie Abschleppdienst/Pannenhilfe.
+- `/leistungen` bleibt offen und soll später als mögliche KFZ-Gutachten-/Gutachtenarten-Übersicht behandelt werden.
+- `/leistungen/unfallgutachten` wurde als V1-nah und grundsätzlich zu behalten eingeordnet.
+- Autovermietung, Autoservice, Detailing, Zulassungsservice und Abschleppdienst/Pannenhilfe wurden als Legacy/Nicht-V1-Leistungen eingeordnet.
 - EN/RU alte Service-Routen bleiben bis Aufgabe 032 offen und gelten nicht ungeprüft als launchfähig.
 - Aufgabe 029 muss alte Keywords, Metadata, Structured Data, Sitemap/Robots/Canonicals und interne SEO-Signale auf Basis dieses Plans prüfen.
 - Aufgabe 026 darf alte Komponenten, Translation-Daten und Assets erst nach den Entscheidungen aus 030, 031, 032 und 029 bereinigen.
@@ -27,6 +31,8 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Nicht geändert
 
+- Keine Redirects, keine `noindex`-Regeln und keine 404-/410-Umstellung.
+- Keine App-/Route-Dateien.
 - Keine SEO-/Metadata-/Structured-Data-Umsetzung.
 - Keine EN/RU-Texte.
 - Keine Assets, PDFs oder Zertifikate hinzugefügt.

@@ -34,6 +34,14 @@ Nach Aufgabe 027 existieren alte Service-Routen möglicherweise weiter. Diese d�
 - Es wurden keine Redirects umgesetzt.
 - Es wurde kein Code geändert, falls diese Task nur Planung bleibt.
 
+## Abschlussstand
+
+- Akzeptanzkriterien bestanden.
+- Plan-Datei `specs/06-work-plans/routing-redirects-old-service-routes.md` erstellt.
+- Roadmap und Changelog beim Abschluss aktualisiert.
+- Es wurde keine Routing-, Redirect-, `noindex`-, 404-/410- oder SEO-Umsetzung gemacht.
+- Nächster logischer Schritt ist Aufgabe 031.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
