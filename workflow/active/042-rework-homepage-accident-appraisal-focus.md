@@ -2,13 +2,15 @@
 
 ## Ziel
 
-Die spätere Überarbeitung der Startseite so planen, dass sie klarer auf `KFZ-Unfallgutachten in Berlin` ausgerichtet wird.
+Die Startseite auf `KFZ-Unfallgutachten in Berlin` ausrichten und die Hauptleistung Unfallgutachten sichtbar priorisieren.
 
-Aufgabe 042 bereitet nur die Umsetzung vor. Die Startseite wird in dieser Aufgabe noch nicht umgebaut.
+Aufgabe 042 ist jetzt eine aktive Umsetzungsaufgabe. Sie darf die Startseite und direkt zugehörige Startseiten-Komponenten ändern, bleibt aber innerhalb der unten dokumentierten Scope-Grenzen.
 
 ## Kontext
 
 Aufgabe 041 wurde abgeschlossen und hat die V1-Seitenstruktur sowie den Routen-Scope vor i18n festgelegt.
+
+042 folgt direkt aus 041 und setzt den Startseiten-Teil dieser Entscheidung um.
 
 Wichtige Entscheidungen aus 041:
 
@@ -30,39 +32,48 @@ Relevante Grundlagen:
 
 ## Scope
 
-Diese Aufgabe plant die spätere Startseiten-Überarbeitung.
+Diese Aufgabe setzt die Startseiten-Überarbeitung um.
 
-In dieser Aufgabe wird nicht umgesetzt:
+Erlaubt:
 
-- keine Startseite umbauen
-- keine Website-Code-Dateien ändern
+- Startseite `/` beziehungsweise deutsche Startseitenroute prüfen und anpassen
+- direkt zugehörige Startseiten-Komponenten ändern
+- deutsche Startseiten-Texte, Hero, Karten, Ablauf, CTA-Logik und Startseiten-Abschnitte anpassen
+- vorhandene Assets innerhalb der Startseite anders verwenden, falls nötig
+- mobile-first Layout, Typografie, Zeilenumbrüche und CTA-Darstellung für die Startseite prüfen und korrigieren
+
+Nicht erlaubt:
+
+- keine `/leistungen`-Seite umbauen
+- keine `/leistungen/unfallgutachten`-Seite umbauen
 - keine Routen ändern
-- keine SEO-/Metadata-/Structured-Data-Dateien ändern
 - keine EN/RU-Texte ändern
-- keine Assets ändern
-- keine Upload-, Supabase-, KI-, Admin- oder Portal-Funktion planen oder umsetzen
+- keine SEO-/Metadata-/Structured-Data-Dateien ändern
+- keine neuen Assets hinzufügen oder bestehende Assets ändern
+- kein Upload, Supabase, KI, Admin oder Portal als Livefunktion darstellen
 - Aufgabe 032 nicht starten
 - Aufgabe 043 nicht starten
 - Aufgabe 044 nicht starten
 
-## Zu klärende Punkte
+## Inhaltliche Zielrichtung
 
 ### 1. Hero-Fokus
 
-Zu prüfen ist, wie der Startseiten-Hero später klarer auf den akuten Unfall-/Schadenfall ausgerichtet werden soll.
+Der Startseiten-Hero soll klarer auf den akuten Unfall-/Schadenfall ausgerichtet werden.
 
 Zielrichtung:
 
 - `KFZ-Unfallgutachten in Berlin` sofort erkennbar machen.
 - `KFZ-Gutachten Berlin` als fachlichen Oberbegriff erhalten.
+- Unfallgutachten als Hauptleistung sichtbar priorisieren.
 - Keine 24/7-, Sofortdienst-, garantierte Vor-Ort-, Schadenhöhen- oder Reparaturkostenversprechen machen.
 - Trust-Satz sachlich integrieren, ohne Übertreibung oder ungeprüfte Zertifikats-/Logo-Nutzung.
 
 ### 2. Karten- und Abschnittslogik
 
-Zu prüfen ist, ob die bestehenden Startseiten-Karten reduziert, geschärft oder neu geordnet werden müssen.
+Die Startseiten-Karten sollen die neue Schwerpunktlogik abbilden.
 
-Zielrichtung aus 041:
+Zu prüfen und umzusetzen:
 
 ```text
 Unfallgutachten
@@ -82,7 +93,7 @@ Wichtig:
 
 ### 3. Navigation und Nutzerfluss
 
-Zu prüfen ist, wie die Startseite den späteren V1-Nutzerfluss vorbereitet:
+Die Startseite soll den späteren V1-Nutzerfluss vorbereiten:
 
 ```text
 Startseite -> Unfallgutachten -> Gutachtenarten / KFZ-Gutachten / Weitere Gutachten -> Über uns -> Kontakt
@@ -90,7 +101,7 @@ Startseite -> Unfallgutachten -> Gutachtenarten / KFZ-Gutachten / Weitere Gutach
 
 Die Startseite soll Unfallgutachten sichtbar vor der allgemeinen Gutachtenübersicht priorisieren.
 
-Keine neue Route wie `/unfallgutachten-berlin`, `/gutachtenarten`, `/digitale-schadenaufnahme`, `/upload`, `/ki-voranalyse` oder `/portal` für V1 planen.
+Keine neue Route wie `/unfallgutachten-berlin`, `/gutachtenarten`, `/digitale-schadenaufnahme`, `/upload`, `/ki-voranalyse` oder `/portal` für V1 planen oder einbauen.
 
 ### 4. CTA- und Kontaktlogik
 
@@ -109,7 +120,7 @@ Falls KI erwähnt wird, dann nur als späterer Ausbauschritt. Die finale Bewertu
 
 ### 5. Mobile-First und Textwirkung
 
-Die spätere Umsetzung muss mobile-first geplant werden.
+Die Umsetzung muss mobile-first geprüft werden.
 
 Zu prüfen:
 
@@ -122,29 +133,33 @@ Zu prüfen:
 
 1. Bestehende Startseite und relevante Komponenten lesen.
 2. Relevante Specs und die Entscheidung aus 041 gegen die aktuelle Startseite abgleichen.
-3. Hero-Zielrichtung für die spätere Umsetzung formulieren.
-4. Karten- und Abschnittslogik für Unfallgutachten, Fahrzeugbewertung und Schadendokumentation vorbereiten.
-5. CTA- und Kontaktlogik auf Telefon, WhatsApp, E-Mail und freigegebenes Kontaktformular begrenzen.
-6. Roadmap-Grenzen für Upload, Supabase, KI, Admin und Portal dokumentieren.
-7. Mobile-First- und Typografie-Prüfpunkte für die spätere Umsetzung festhalten.
-8. Entscheiden, ob die Task nach der Planung direkt in `workflow/active/` gestartet werden soll oder ob zuerst weitere Freigabe nötig ist.
+3. Konkreten Umsetzungsplan formulieren.
+4. Startseite mobile-first auf `KFZ-Unfallgutachten in Berlin` überarbeiten.
+5. Typografie, Zeilenumbrüche, CTAs und Mobile-Darstellung prüfen.
+6. `npm run lint`, `npx tsc --noEmit`, `npm run build`, passende visuelle/mobile Prüfung und `git diff --check` ausführen.
+7. Prüfen, ob `CHANGELOG.md` oder `ROADMAP.md` nach der Umsetzung aktualisiert werden müssen.
 
 ## Akzeptanzkriterien
 
-- Aufgabe 042 liegt in `workflow/todo/`.
-- Status ist `offen`.
-- Aufgabe 042 wurde nicht nach `workflow/active/` verschoben.
+- Aufgabe 042 liegt in `workflow/active/`.
+- Status ist `in Arbeit`.
+- Die Startseite ist auf `KFZ-Unfallgutachten in Berlin` ausgerichtet.
+- Unfallgutachten ist sichtbar als Hauptleistung priorisiert.
+- `/leistungen/unfallgutachten` darf sichtbar als Hauptseite `Unfallgutachten` verlinkt werden.
+- `/leistungen` bleibt nur ergänzende Übersicht und wirkt nicht wichtiger als Unfallgutachten.
+- Es gibt keine künstliche Gleichstellung ähnlicher Begriffe wie Unfallgutachten und Schadengutachten.
+- CTAs bleiben auf Telefon, WhatsApp, E-Mail und freigegebenes Kontaktformular begrenzt.
+- Keine Upload-, Supabase-, KI-, Admin- oder Portal-Funktion wird als live dargestellt.
 - Aufgabe 032 wurde nicht gestartet.
 - Aufgabe 043 wurde nicht gestartet.
 - Aufgabe 044 wurde nicht gestartet.
-- Es wurden keine Website-Code-Dateien geändert.
-- Es wurden keine Startseiten-, Routen-, SEO-/Metadata-/Structured-Data-, EN/RU- oder Asset-Dateien geändert.
-- Die Task dokumentiert den V1-Hauptfokus `KFZ-Unfallgutachten in Berlin`.
-- Die Task dokumentiert, dass Unfallgutachten die primäre Folgeseite nach der Startseite ist.
-- Die Task dokumentiert die zu prüfende Hero-, Karten-, Navigations- und CTA-Logik.
-- Die Task begrenzt CTAs auf Telefon, WhatsApp, E-Mail und freigegebenes Kontaktformular.
-- Die Task dokumentiert, dass Upload, Supabase, KI, Admin und Portal keine V1-Livefunktionen sind.
-- Der nächste Schritt ist klar: Aufgabe 042 kann nach Freigabe aus `workflow/todo/` nach `workflow/active/` gestartet und dann inhaltlich ausgearbeitet werden.
+- Keine `/leistungen`-Seite wurde umgebaut.
+- Keine `/leistungen/unfallgutachten`-Seite wurde umgebaut.
+- Keine Routen, SEO-/Metadata-/Structured-Data-Dateien, EN/RU-Texte oder Assets wurden geändert.
+- `npm run lint` wurde ausgeführt.
+- `npx tsc --noEmit` wurde ausgeführt.
+- `npm run build` wurde ausgeführt.
+- Mobile- und typografische Prüfung für Hero, CTAs, Karten, Zeilenumbrüche und Umlaute ist vorgesehen beziehungsweise dokumentiert.
 
 ## Status
 
