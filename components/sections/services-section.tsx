@@ -87,23 +87,13 @@ const reportServiceMeta: readonly ServiceMeta[] = [
     image: "/images/services/unfallgutachten-berlin.png",
     imageAlt: "Unfallschaden an einem Fahrzeug in Berlin",
     imageClassName: "object-cover object-center",
-    href: "/kontakt",
+    href: "/leistungen/unfallgutachten",
     contactText: "030 23613927",
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/20 to-transparent",
   },
   {
-    icon: ClipboardCheck,
-    image: "/images/services/schadengutachten-detail.png",
-    imageAlt: "Detailaufnahme eines Fahrzeugschadens",
-    imageClassName: "object-cover object-center",
-    href: "/kontakt",
-    contactText: "030 23613927",
-    contactHref: "tel:+493023613927",
-    accentColor: "from-red-500/18 to-transparent",
-  },
-  {
-    icon: FileCheck,
+    icon: Car,
     image: "/images/services/wertgutachten-fahrzeugbewertung.png",
     imageAlt: "Fahrzeugbewertung mit Unterlagen und Kamera",
     imageClassName: "object-cover object-center",
@@ -122,16 +112,25 @@ const reportServiceMeta: readonly ServiceMeta[] = [
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/14 to-transparent",
   },
+  {
+    icon: Phone,
+    image: "/images/services/schadengutachten-detail.png",
+    imageAlt: "Vorbereitung einer Gutachten-Anfrage nach einem Fahrzeugschaden",
+    imageClassName: "object-cover object-center",
+    href: "/kontakt",
+    contactText: "030 23613927",
+    contactHref: "tel:+493023613927",
+    accentColor: "from-red-500/12 to-transparent",
+  },
 ] as const
-
 const protectedDesktopPhrases = ["sicheren Transport"] as const
 
 const mobileServiceDescriptions = {
   de: [
-    "Unabhängige Dokumentation nach einem Unfall mit klarer Einordnung der nächsten Schritte.",
-    "Schadendokumentation für Karosserie, Technik und sichtbare Unfallfolgen.",
-    "Fahrzeugbewertung und Wertgutachten für Kauf, Verkauf oder interne Entscheidungen.",
-    "Beweissicherung mit Fotos, Unterlagen und nachvollziehbarer Schadendokumentation.",
+    "Nach einem Unfall dokumentieren wir Schaden, Fahrzeug und relevante Informationen für die weitere Abstimmung.",
+    "Fahrzeugbewertung für Verkauf, Kauf oder interne Entscheidungen mit klarer Einordnung.",
+    "Schäden, Fotos und Unterlagen werden strukturiert vorbereitet und verständlich dokumentiert.",
+    "Sie schildern den Schaden kurz und klären den nächsten Schritt per Telefon, WhatsApp, E-Mail oder Kontaktformular.",
   ],
   en: [
     "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
@@ -152,7 +151,7 @@ const mobileServiceDescriptions = {
 } as const satisfies Record<Locale, readonly string[]>
 
 const mobileServicesIntro = {
-  de: "UNEXT fokussiert sich auf KFZ-Gutachten in Berlin:\nUnfallgutachten, Schadengutachten,\nFahrzeugbewertung und Beweissicherung.",
+  de: "UNEXT fokussiert sich auf KFZ-Unfallgutachten in Berlin:\nUnfallgutachten zuerst, danach Fahrzeugbewertung,\nSchadendokumentation und Anfragevorbereitung.",
   en: "UNEXT combines accident assistance, rental cars,\nworkshop service and detailing\nwith registration and roadside help in Berlin.",
   ru: "UNEXT объединяет помощь при ДТП,\nаренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге в Берлине.",
 } as const satisfies Record<Locale, string>
@@ -363,7 +362,7 @@ export function ServicesSection({ locale }: Props) {
                     Fotos, Fahrzeugdaten und eine kurze Schadenbeschreibung können vorab gesammelt werden.
                   </span>
                   <span className="block">
-                    Danach klären wir die nächsten Schritte telefonisch, per WhatsApp oder über das Kontaktformular.
+                    Danach klären wir die nächsten Schritte telefonisch, per WhatsApp, per E-Mail oder über das Kontaktformular.
                   </span>
                 </p>
               </div>

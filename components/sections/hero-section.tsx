@@ -39,7 +39,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   )
     ? ["Schaden", "Berlin."]
     : ["Berlin."]
-  const protectedTerms = [protectedTerm, "Taxi-Fahrer"]
+  const protectedTerms = ["KFZ-Unfallgutachten", protectedTerm, "Taxi-Fahrer"]
   const combinedEndingMarkers = ["Alles unter einem Dach.", "All under one roof."]
 
   const renderProtectedLine = (line: string) => {
