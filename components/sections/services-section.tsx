@@ -238,7 +238,11 @@ export function ServicesSection({ locale }: Props) {
               <Card
                 key={service.title}
                 id={serviceAnchors[index]}
-                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
+                className={`group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)] ${
+                  isGerman && index === 2
+                    ? "md:col-span-2 md:mx-auto md:w-[calc((100%-1.5rem)/2)] xl:col-span-1 xl:w-auto"
+                    : ""
+                }`}
               >
                 <CardContent className={isGerman ? "p-4 sm:p-5 lg:p-4" : "p-4 sm:p-5 lg:p-6"}>
                   <div className="flex h-full flex-col">

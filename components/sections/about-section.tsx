@@ -51,6 +51,7 @@ export function AboutSection({ locale }: Props) {
                 alt={aboutImageAlt}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
+                loading={isGerman ? "eager" : "lazy"}
                 quality={75}
                 className={aboutImageClassName}
               />
