@@ -514,6 +514,33 @@ In 041 wird nicht umgesetzt:
 - 022 Supabase, 023 KI und 024 Kundenportal/Web-App bleiben spätere separate Ausbaustufen.
 - Der nächste Schritt ist klar: 041 inhaltlich ausarbeiten und Entscheidungsvorschlag für die Seitenstruktur liefern.
 
+## Review / Prüfabschnitt
+
+Akzeptanzkriterien-Prüfung am 2026-07-03:
+
+| Akzeptanzkriterium | Bewertung | Hinweis |
+|---|---|---|
+| Aufgabe 041 liegt in `workflow/active/`. | erfüllt | `workflow/active/041-define-v1-page-route-scope-before-i18n.md` ist die aktive Aufgabe. |
+| Status ist `in Arbeit`. | erfüllt | Bis zur Prüfung war der Status `in Arbeit`; nach erfüllter Prüfung wird auf `wartet auf Freigabe` gesetzt. |
+| Aufgabe 032 wurde nicht gestartet. | erfüllt | 032 liegt weiterhin in `workflow/todo/`. |
+| Es wurden keine Code-Dateien geändert. | erfüllt | In Aufgabe 041 wurden nur Workflow-, Roadmap- und Changelog-Dokumentation geändert. |
+| Es wurden keine Website-Seiten, Routen, EN/RU-Texte, SEO-/Metadata-/Structured-Data-Dateien oder Assets geändert. | erfüllt | Keine entsprechenden Dateien wurden geändert. |
+| Die V1-relevanten Seiten und Legacy-Routen sind als zu prüfender Scope dokumentiert. | erfüllt | V1-Seiten und Legacy-Routen sind in der Entscheidungsvorlage dokumentiert. |
+| Die offene Entscheidung zu `/leistungen` ist dokumentiert. | erfüllt | `/leistungen` ist als bestehende Übersichtsroute und spätere Gutachtenarten-/Weitere-Gutachten-Seite eingeordnet. |
+| Die offene Entscheidung zu `/leistungen/unfallgutachten` ist dokumentiert. | erfüllt | `/leistungen/unfallgutachten` ist als bestehende Detailroute für die Hauptleistung eingeordnet. |
+| Die Begriffslogik für Unfallgutachten, Schadengutachten, Fahrzeugbewertung, Wertgutachten, Schadendokumentation und Beweissicherung ist dokumentiert. | erfüllt | Die Begriffslogik ist in der Entscheidungsvorlage und im Ausgangsteil dokumentiert. |
+| Die Folge-Reihenfolge vor 032 ist dokumentiert. | erfüllt | Empfohlen ist `041 -> 042 -> 043 -> 044 -> 032 -> 029 -> 026 -> 033 -> 034 -> 035`. |
+| Die Task dokumentiert, wie die V1-Seitenstruktur spätere digitale Schadenaufnahme, Upload, Supabase und KI vorbereitet, ohne diese Funktionen als live darzustellen. | erfüllt | Roadmap-Kompatibilität ist dokumentiert. |
+| Es wird ausdrücklich dokumentiert, dass keine Upload-, Supabase-, KI-, Admin- oder Portal-Route in V1 erstellt oder beworben wird. | erfüllt | V1-Routen wie `/upload`, `/portal`, `/ki-voranalyse` und `/digitale-schadenaufnahme` sind ausgeschlossen. |
+| CTA- und Navigationslogik bleibt auf freigegebene Kontaktwege begrenzt. | erfüllt | Telefon, WhatsApp, E-Mail und Kontaktformular sind als Kontaktwege dokumentiert. |
+| 022 Supabase, 023 KI und 024 Kundenportal/Web-App bleiben spätere separate Ausbaustufen. | erfüllt | Diese Aufgaben bleiben in `workflow/todo/` und sind in 041 als spätere Ausbaustufen dokumentiert. |
+| Der nächste Schritt ist klar: 041 inhaltlich ausarbeiten und Entscheidungsvorschlag für die Seitenstruktur liefern. | erfüllt | Die Ausarbeitung und Entscheidungsvorlage liegen vor; nächster Schritt ist Nutzerfreigabe. |
+
+Offene Punkte:
+
+- Aufgabe 041 wartet auf ausdrückliche Freigabe durch den Nutzer.
+- Erst nach Freigabe darf die Done-Regel angewendet und ein Verschieben nach `workflow/done/` vorbereitet werden.
+- 032, 042, 043 und 044 bleiben weiterhin nicht gestartet.
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Freigabe
