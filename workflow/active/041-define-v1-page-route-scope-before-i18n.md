@@ -222,6 +222,249 @@ Grundsatz:
 Startseite, Unfallgutachten-Unterseite und /leistungen müssen vor 032, 029 und 026 fachlich geklärt bzw. umgesetzt sein.
 ```
 
+## Entscheidungsvorlage
+
+Diese Entscheidungsvorlage ist der fachliche Vorschlag für die weitere V1-Struktur. Sie ist noch keine Umsetzung und ersetzt nicht die ausdrückliche Freigabe.
+
+### 1. V1-Hauptfokus
+
+Empfehlung:
+
+```text
+KFZ-Unfallgutachten in Berlin
+```
+
+Begründung:
+
+- Der konkrete Schadenfall nach einem Unfall ist der klarste Einstieg für Nutzer mit akutem Bedarf.
+- `Unfallgutachten` ist nah an den vorhandenen freigegebenen Gutachten-Specs und an der bestehenden Route `/leistungen/unfallgutachten`.
+- Die weitere Website kann danach ergänzende Gutachtenbereiche erklären, ohne mehrere ähnliche Leistungen künstlich gleich groß aufzubauen.
+- Der Oberbegriff `KFZ-Gutachten Berlin` bleibt für SEO, Struktur und fachliche Einordnung wichtig, während die sichtbare V1-Kommunikation stärker am Unfall-/Schadenfall ansetzt.
+
+### 2. V1-Seitenstruktur
+
+Empfohlene V1-Seiten:
+
+| Route | V1-Entscheidung | Rolle in V1 | Hinweise |
+|---|---|---|---|
+| `/` | Behalten und in Folgeaufgabe 042 überarbeiten | Hauptseite und erster Einstieg für Unfallgutachten in Berlin | Fokus auf Unfall-/Schadenfall schärfen, weitere Gutachtenbereiche ergänzend erklären. |
+| `/ueber-uns` | Behalten | Vertrauen, Qualifikation, Anerkennung, Fortbildungen | Aufgabe 040 hat die deutsche Seite bereits auf V1-Scope ausgerichtet. EN/RU bleiben Aufgabe 032. |
+| `/kontakt` | Behalten | Telefon, WhatsApp, E-Mail und freigegebenes Kontaktformular | Kontakt-/Legal-Scope wurde in 031 bereinigt; finale rechtliche Prüfung bleibt vor Launch offen. |
+| `/leistungen` | Behalten, aber in Folgeaufgabe 044 umbauen | Übersicht für Gutachtenarten / weitere Gutachtenbereiche | Darf nicht als alte 6-Service-Übersicht sichtbar bleiben. |
+| `/leistungen/unfallgutachten` | Behalten und in Folgeaufgabe 043 hochwertig überarbeiten | Haupt-Unterseite für die priorisierte Leistung | Als starke Detailseite für Unfallgutachten ausbauen, keine neue parallele Route in V1. |
+| `/impressum` | Behalten | Rechtliche Anbieterangaben | Muss dauerhaft erreichbar bleiben. |
+| `/datenschutz` | Behalten | Datenschutzinformationen | Darf Upload, Supabase oder KI nicht als live darstellen. |
+| `/agb` | Behalten, falls weiterhin verlinkt/relevant | Rechtlicher Rahmen für konkrete Leistungsabstimmung | Inhalt muss beim Launch zum tatsächlichen Scope passen. |
+
+### 3. Legacy-Routen
+
+Empfehlung:
+
+Die folgenden Routen gehören nicht zum aktiven V1-Scope und dürfen nicht mehr als aktive Leistungen beworben werden:
+
+```text
+/leistungen/autovermietung
+/leistungen/autoservice
+/leistungen/detailing
+/leistungen/zulassungsservice
+/leistungen/abschleppdienst-pannenhilfe
+```
+
+Planungsentscheidung:
+
+- Diese Routen bleiben bis zur späteren SEO-/Routing-/Cleanup-Umsetzung als Legacy-Bestand markiert.
+- Keine pauschalen Redirects auf KFZ-Gutachten, wenn die Suchintention nicht passt.
+- Kein blindes Löschen und keine 404-/410-/noindex-Umsetzung in Aufgabe 041.
+- Die konkrete Behandlung bleibt bei 029/026 beziehungsweise einer späteren freigegebenen Routing-/SEO-Umsetzung.
+- EN/RU-Versionen dieser Routen bleiben bis 032 ungeprüft und gelten nicht als launchfähig.
+
+### 4. Entscheidung für `/leistungen`
+
+Empfehlung:
+
+`/leistungen` bleibt in V1 erhalten, wird aber als eigene Folgeaufgabe 044 zu einer Gutachtenarten-/Weitere-Gutachten-Seite umgebaut.
+
+Technische Einordnung:
+
+- `/leistungen` ist die bestehende Übersichtsroute im Leistungsbereich.
+- Die Route bleibt in V1 technisch stabil, damit keine unnötigen Routing-, SEO- oder i18n-Risiken entstehen.
+- Sichtbar muss der Begriff `Leistungen` in 044 kritisch geprüft werden, weil er noch nach alter 6-Service-Logik wirken kann.
+- Für Nutzer soll die sichtbare Benennung später wahrscheinlich klarer werden, zum Beispiel `Gutachtenarten`, `KFZ-Gutachten` oder `Weitere Gutachten`.
+- Ziel ist: bestehende Route stabil halten, aber die sichtbare Benennung nutzerfreundlicher und scope-konform machen.
+
+Empfohlene Rolle:
+
+```text
+Gutachtenarten im Überblick
+```
+
+Mögliche sichtbare Seitenausrichtung:
+
+```text
+KFZ-Gutachten & Fahrzeugbewertung
+```
+
+Inhaltliche Struktur für 044:
+
+- Unfallgutachten als priorisierte Hauptleistung mit Verweis auf `/leistungen/unfallgutachten`.
+- Fahrzeugbewertung als kundenfreundlicher Bereich; `Wertgutachten` nur erklärend ergänzen.
+- Schadendokumentation als kundenfreundlicher Bereich; `Beweissicherung` nur erklärend ergänzen.
+- Schadengutachten nicht als eigene gleichwertige Hauptleistung aufblasen, sondern fachlich nah am Unfallgutachten erklären.
+- Keine Autovermietung, kein Autoservice, kein Detailing, kein Zulassungsservice, kein Abschleppdienst und keine Pannenhilfe als aktive Karten oder aktive Leistungen.
+
+Begründung:
+
+- Die Route existiert bereits und kann Nutzer sinnvoll auffangen, die eine Leistungsübersicht erwarten.
+- Eine gezielte Gutachtenarten-Übersicht ist weniger riskant als eine sofortige Entfernung oder ein unpassender Redirect.
+- `/leistungen` kann später interne Links, SEO-Entscheidungen und i18n besser strukturieren, ohne neue Unterseiten für jede Gutachtenart zu erzwingen.
+
+### 5. Entscheidung für `/leistungen/unfallgutachten`
+
+Empfehlung:
+
+`/leistungen/unfallgutachten` bleibt sichtbar und wird vor 032 als eigene Folgeaufgabe 043 überarbeitet.
+
+Rolle in V1:
+
+- `/leistungen/unfallgutachten` ist die bestehende Detailroute für die Hauptleistung.
+- Sichtbar darf diese Route als Hauptseite `Unfallgutachten` geführt werden, auch wenn der technische Pfad unter `/leistungen/` liegt.
+- Unfallgutachten ist im V1-Nutzerfluss die primäre Folgeseite nach der Startseite.
+- Haupt-Unterseite für den wichtigsten konkreten Nutzerbedarf nach einem Unfall.
+- Vertiefung zur Startseite und zur Übersichtsroute `/leistungen`, nicht doppelte oder konkurrierende Startseite.
+- Die technische Seitenhierarchie `/leistungen` -> `/leistungen/unfallgutachten` ist sinnvoll, solange die sichtbare Navigation nicht wie eine alte allgemeine Service-Struktur wirkt.
+- Einordnung unter `KFZ-Gutachten`, ohne neue Route wie `/unfallgutachten-berlin` für V1 zu erstellen.
+
+Inhaltliche Zielrichtung für 043:
+
+- Unfall-/Schadenfall aus Kundensicht erklären.
+- Ablauf der Anfrage verständlich machen.
+- Telefon, WhatsApp, E-Mail und Kontaktformular als Kontaktwege nutzen.
+- Keine Sofortdienst-, 24/7-, Schadenhöhen-, Reparaturkosten- oder KI-Bewertungsversprechen.
+- Qualifikation und finale Gutachterprüfung sachlich einordnen.
+- Digitale Schadenaufnahme nur als Anfragevorbereitung beschreiben, nicht als Upload-Prozess.
+
+### 6. Keine weiteren Gutachten-Unterseiten in V1
+
+Empfehlung:
+
+In V1 werden keine weiteren neuen Gutachten-Unterseiten erstellt.
+
+Nicht für V1 planen:
+
+```text
+/leistungen/schadengutachten
+/leistungen/fahrzeugbewertung
+/leistungen/wertgutachten
+/leistungen/schadendokumentation
+/leistungen/beweissicherung
+/unfallgutachten-berlin
+/gutachtenarten
+/schadengutachten-berlin
+/wertgutachten-berlin
+/fahrzeugbewertung-berlin
+/digitale-schadenaufnahme
+```
+
+Begründung:
+
+- Die Routing-Spec warnt vor künstlichen Keyword-Dopplungen und sofortigen Landingpages ohne eigene Content-, SEO- und Routing-Freigabe.
+- Die vorhandene Startseite, `/leistungen` und `/leistungen/unfallgutachten` reichen für V1 aus, wenn sie inhaltlich sauber strukturiert werden.
+- Weitere Unterseiten können später entstehen, wenn genug eigener Inhalt, klare Suchintention und freigegebene SEO-Strategie vorhanden sind.
+
+### 7. Begriffslogik für V1
+
+Verbindliche Empfehlung für Folgeaufgaben 042 bis 044:
+
+- `Unfallgutachten` ist die sichtbare Hauptleistung und darf prominent in Hero, Navigation und Detailseite erscheinen.
+- `Schadengutachten` wird fachlich erklärend genutzt, besonders im Kontext von Unfallgutachten und Fahrzeugschaden, aber nicht als künstlich getrennte Hauptleistung mit eigener gleichwertiger Karte oder eigener V1-Unterseite.
+- `Fahrzeugbewertung` ist der kundenfreundliche Begriff für Nutzer, die den Wert ihres Fahrzeugs einschätzen lassen möchten.
+- `Wertgutachten` bleibt als ergänzender Fachbegriff erhalten, aber nicht als alleiniger Hauptbegriff.
+- `Schadendokumentation` ist der kundenfreundliche Begriff für nachvollziehbare Dokumentation von Schaden, Zustand und relevanten Informationen.
+- `Beweissicherung` wird ergänzend verwendet, aber nicht allein als große Hauptleistung positioniert.
+
+### 8. Navigationslogik für V1
+
+Empfehlung für spätere Umsetzung:
+
+- Die sichtbare Nutzerfluss-Reihenfolge soll lauten: Startseite -> Unfallgutachten -> Gutachtenarten / KFZ-Gutachten / Weitere Gutachten -> Über uns -> Kontakt.
+- Navigation soll V1-relevante Seiten in dieser Reihenfolge priorisieren: Startseite, Unfallgutachten, Gutachtenarten beziehungsweise KFZ-Gutachten oder Weitere Gutachten, Über uns, Kontakt.
+- `Unfallgutachten` sollte sichtbar stärker priorisiert werden als die allgemeine alte Leistungslogik.
+- Die Navigation soll Unfallgutachten vor der allgemeinen Gutachtenübersicht priorisieren.
+- `/leistungen/unfallgutachten` bleibt technisch die bestehende Detailroute, darf sichtbar aber als Hauptseite `Unfallgutachten` geführt werden.
+- `/leistungen` bleibt technisch die Übersichtsroute, soll sichtbar aber nicht wichtiger wirken als Unfallgutachten.
+- Die Gutachtenarten-Übersicht ist ergänzend und kommt sichtbar nach der Hauptleistung.
+- Der Navigationsbegriff `Leistungen` sollte in 044 kritisch geprüft und wahrscheinlich zu `Gutachtenarten`, `KFZ-Gutachten` oder `Weitere Gutachten` geschärft werden.
+- Diese Prüfung betrifft die sichtbare Benennung und interne Linklogik, nicht automatisch die technische Route `/leistungen`.
+- Keine neue Route wie `/unfallgutachten-berlin` oder `/gutachtenarten` für V1 planen, solange Routing und SEO nicht separat geprüft und freigegeben sind.
+- Alte Service-Links zu Autovermietung, Autoservice, Detailing, Zulassungsservice und Abschleppdienst/Pannenhilfe sollen vor Launch nicht mehr als aktive Header-/Footer-Links erscheinen.
+- Footer und mobile Navigation müssen dieselbe fachliche Logik abbilden wie Header und Seitenstruktur.
+- Ein Sprachumschalter beziehungsweise EN/RU-Navigation darf erst nach 032 als launchfähig gelten.
+
+### 9. Empfehlung für die Startseiten-Überarbeitung
+
+Aufgabe 042 soll die Startseite nach der Seitenstruktur-Entscheidung neu schärfen.
+
+Empfehlung für 042:
+
+- Hero klarer auf Unfall-/Schadenfall ausrichten.
+- H1 und Einstieg so formulieren, dass `KFZ-Unfallgutachten in Berlin` sofort erkennbar ist.
+- Bestehende Kartenlogik reduzieren oder schärfen, damit keine künstliche Gleichstellung ähnlicher Begriffe entsteht.
+- Unfallgutachten als Hauptkarte oder Hauptbereich führen.
+- Fahrzeugbewertung und Schadendokumentation als ergänzende Bereiche führen.
+- Schadengutachten, Wertgutachten und Beweissicherung erklärend einordnen.
+- Kontaktwege mobile-first priorisieren: Telefon, WhatsApp, E-Mail und Kontaktformular.
+- Keine Upload-, Supabase-, KI-, Admin- oder Portal-Livefunktion andeuten.
+
+### 10. Roadmap-Kompatibilität für digitale Ausbaustufen
+
+Die V1-Seitenstruktur soll später erweiterbar bleiben, ohne Roadmap-Funktionen vorwegzunehmen.
+
+Planungsentscheidung:
+
+- Startseite, `/leistungen`, `/leistungen/unfallgutachten` und `/kontakt` bilden später sinnvolle Einstiegspunkte in eine digitale Schadenaufnahme.
+- V1 beschreibt digitale Schadenaufnahme nur als strukturierte Kontaktaufnahme beziehungsweise Anfragevorbereitung.
+- Keine V1-Route für `/upload`, `/portal`, `/ki-voranalyse`, `/digitale-schadenaufnahme`, Admin oder Kundenportal.
+- Keine Upload-, Supabase-, KI-, Admin- oder Portal-Links in Navigation, Footer, Sitemap oder CTAs.
+- KI darf höchstens als späterer Ausbauschritt erwähnt werden, nicht als aktive Leistung.
+- Die finale Bewertung erfolgt immer durch einen Gutachter.
+- KI ersetzt kein Gutachten und keinen Gutachter.
+- Keine finale Schadenhöhe, keine Reparaturkosten und keine automatische Bewertung durch KI.
+- Aufgabe 022 Supabase, Aufgabe 023 KI und Aufgabe 024 Kundenportal/Web-App bleiben separate spätere Ausbaustufen.
+
+### 11. Folgeaufgaben vor 032
+
+Empfohlene Reihenfolge:
+
+```text
+041: V1-Seitenstruktur verbindlich festlegen
+042: Startseite stärker auf Unfallgutachten ausrichten
+043: Unfallgutachten-Unterseite überarbeiten
+044: /leistungen als Gutachtenarten-/Weitere-Gutachten-Seite umbauen
+032: i18n Launch Scope DE/EN/RU
+029: SEO/Metadata/Structured Data
+026: Cleanup alter Legacy-Seiten
+033: Launch Quality Check
+034: Deployment Launch Gate
+035: Post Launch Monitoring
+```
+
+Begründung der Reihenfolge:
+
+- 042 zuerst, weil die Startseite den Hauptfokus, die Begriffslogik, die Navigationswirkung und den ersten Nutzerweg vorgibt.
+- 043 danach, weil Unfallgutachten im V1-Nutzerfluss die primäre Folgeseite nach der Startseite ist.
+- 044 danach, weil `/leistungen` als ergänzende Übersichtsseite die in 042 und 043 festgelegte Schwerpunktlogik zusammenfasst und ergänzt.
+- 032 erst danach, weil EN/RU auf freigegebenen deutschen Inhalten und einer geklärten Seitenstruktur basieren müssen.
+- 029 erst nach 032, weil Metadata, Structured Data, Canonicals, Sitemap und Hreflang von Seiten-, Routen- und Sprachentscheidungen abhängen.
+- 026 erst nach 029, weil Cleanup alte Komponenten, Translation-Daten und Assets erst nach geklärten SEO-, Routen- und i18n-Entscheidungen entfernen darf.
+
+### 12. ROADMAP- und CHANGELOG-Prüfung
+
+Prüfergebnis für den aktuellen Arbeitsstand:
+
+- `ROADMAP.md` ist fachlich anzupassen, sobald 041 freigegeben oder abgeschlossen wird, weil dort aktuell weiterhin 032 als nächster logischer Schritt genannt wird.
+- `CHANGELOG.md` ist beim Abschluss von 041 zu aktualisieren, weil die Seitenstruktur, die Folge-Reihenfolge vor 032 und die Roadmap-Kompatibilität dokumentiert wurden.
+- In dieser Ausarbeitung werden `ROADMAP.md` und `CHANGELOG.md` noch nicht geändert, weil 041 weiterhin `in Arbeit` ist und nicht ohne Nutzerfreigabe abgeschlossen wird.
+
 ## Scope-Grenzen
 
 In 041 wird nicht umgesetzt:
