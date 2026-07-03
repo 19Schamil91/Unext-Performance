@@ -64,7 +64,7 @@ Erst nach dem abgeschlossenen Routing-Plan aus 030, den Klärungen aus 031 und d
 
 Status: in Arbeit
 
-Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen` und Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen` sind abgeschlossen. Aufgabe 041 ist in Arbeit und klärt vor i18n die V1-Seitenstruktur mit Hauptfokus `KFZ-Unfallgutachten in Berlin`, die Rolle von `/leistungen` und `/leistungen/unfallgutachten`, Legacy-Routen und die Folge-Reihenfolge. 032 bleibt pausiert, bis 042, 043 und 044 fachlich geklärt beziehungsweise umgesetzt sind.
+Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`, Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen` und Aufgabe 041 `V1-Seitenstruktur und Routen-Scope vor i18n festlegen` sind abgeschlossen. Aufgabe 041 hat vor i18n die V1-Seitenstruktur mit Hauptfokus `KFZ-Unfallgutachten in Berlin`, die Rolle von `/leistungen` und `/leistungen/unfallgutachten`, Legacy-Routen und die Folge-Reihenfolge geklärt. 032 bleibt pausiert, bis 042, 043 und 044 fachlich geklärt beziehungsweise umgesetzt sind.
 
 ### 10. SEO, Metadata und Structured Data
 

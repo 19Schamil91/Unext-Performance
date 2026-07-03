@@ -6,7 +6,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Workflow
 
-- Aufgabe 041 wurde als aktive Planungsaufgabe zur V1-Seitenstruktur und zum Routen-Scope vor i18n ausgearbeitet.
+- Aufgabe 041 wurde als Planungsaufgabe zur V1-Seitenstruktur und zum Routen-Scope vor i18n ausgearbeitet und abgeschlossen.
 - Aufgabe 032 wurde weiterhin nicht gestartet.
 - Die empfohlene Folge-Reihenfolge wurde auf `041 -> 042 -> 043 -> 044 -> 032 -> 029 -> 026 -> 033 -> 034 -> 035` aktualisiert.
 
@@ -25,7 +25,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Keine SEO-/Metadata-/Structured-Data-Dateien.
 - Keine EN/RU-Texte.
 - Keine Assets.
-- Aufgabe 041 wurde nicht nach `workflow/done/` verschoben.
+- Keine Folgeaufgaben 032, 042, 043 oder 044 gestartet.
 
 ## 2026-07-02
 
