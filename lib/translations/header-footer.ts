@@ -10,7 +10,6 @@ export const headerFooterTranslations = {
     header: {
       navigation: [
         { name: "Startseite", href: "/" },
-        { name: "Unfallgutachten", href: "/leistungen/unfallgutachten" },
         {
           name: "Gutachtenarten",
           href: "/#leistungen",
@@ -18,7 +17,6 @@ export const headerFooterTranslations = {
             { name: "Unfallgutachten", href: "/leistungen/unfallgutachten" },
             { name: "Fahrzeugbewertung", href: "/#service-fahrzeugbewertung" },
             { name: "Schadendokumentation", href: "/#service-schadendokumentation" },
-            { name: "Anfrage und Ablauf", href: "/#service-anfrage-ablauf" },
           ],
         },
         { name: "Über uns", href: "/ueber-uns" },
@@ -36,7 +34,7 @@ export const headerFooterTranslations = {
     },
     footer: {
       description:
-        "KFZ-Gutachten in Berlin: Unfallgutachten, Fahrzeugbewertung, Schadendokumentation und digitale Anfragevorbereitung.",
+        "KFZ-Gutachten in Berlin mit direktem Kontakt per Telefon, WhatsApp, E‑Mail oder Kontaktformular.",
       address: "Lübarser Straße 25, 13435 Berlin",
       columns: {
         services: "Gutachtenarten",

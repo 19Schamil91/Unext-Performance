@@ -102,7 +102,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           />
         </Link>
 
-        <div className="hidden lg:flex lg:items-center lg:gap-x-8">
+        <div className="hidden lg:ml-8 lg:flex lg:flex-none lg:items-center lg:justify-start lg:gap-x-2 xl:gap-x-2">
           {navigation.map((item) =>
             item.children && resolvedServiceNavigation ? (
               <HeaderServicesMenu

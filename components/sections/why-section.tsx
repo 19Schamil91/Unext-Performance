@@ -21,10 +21,16 @@ export function WhySection({ locale }: Props) {
     <section className="bg-card py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-16 max-w-5xl text-center">
-          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground">
+          <h2
+            className={
+              isGerman
+                ? "mx-auto max-w-[46rem] text-[clamp(2rem,1.45rem+1.2vw,2.65rem)] leading-[1.08] font-semibold text-foreground [text-wrap:balance]"
+                : "mx-auto measure-heading text-heading-fluid font-semibold text-foreground"
+            }
+          >
             {t.title}
           </h2>
-          <p className="mx-auto mt-4 measure-intro text-body-fluid text-foreground/82">{t.description}</p>
+          <p className={isGerman ? "mx-auto mt-4 max-w-[50rem] text-body-fluid leading-8 text-foreground/82" : "mx-auto mt-4 measure-intro text-body-fluid text-foreground/82"}>{t.description}</p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

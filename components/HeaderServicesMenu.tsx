@@ -59,8 +59,8 @@ export function HeaderServicesMenu({ name, href, childrenItems }: HeaderServices
         type="button"
         className={
           isActive
-            ? "relative flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-semibold text-foreground transition-colors after:absolute after:inset-x-2 after:-bottom-1 after:h-px after:rounded-full after:bg-primary/80 hover:bg-accent/45"
-            : "flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-foreground/72 transition-colors hover:bg-accent/45 hover:text-foreground"
+            ? "relative flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-1 text-sm font-semibold text-foreground transition-colors after:absolute after:inset-x-2 after:-bottom-1 after:h-px after:rounded-full after:bg-primary/80 hover:bg-accent/45"
+            : "flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium text-foreground/72 transition-colors hover:bg-accent/45 hover:text-foreground"
         }
         aria-expanded={servicesMenuOpen}
         aria-current={isActive ? "page" : undefined}
