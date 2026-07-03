@@ -50,7 +50,7 @@ Status: abgeschlossen
 
 Aufgabe 039 hat vor der weiteren SEO-Umsetzung einen zentralen V1-Launch-Masterplan erstellt. Dieser Masterplan bündelt Seiten, Inhalte, Trust-/Qualifikationsbedarf, SEO, Routing, Legal, i18n, Cleanup und die empfohlene Restreihenfolge.
 
-Aufgabe 040, Aufgabe 030 und Aufgabe 031 wurden abgeschlossen. Der nächste logische Schritt ist Aufgabe 032 `i18n Launch Scope / Deutsch, EN/RU prüfen`. Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet.
+Aufgabe 040, Aufgabe 030 und Aufgabe 031 wurden abgeschlossen. Aufgabe 041 legt vor i18n die V1-Seitenstruktur und den Routen-Scope fest. Der nächste logische Umsetzungsschritt nach 041 ist voraussichtlich Aufgabe 042 `Startseite stärker auf Unfallgutachten ausrichten`; Aufgabe 032 folgt erst nach den fachlichen Klärungen zu Startseite, Unfallgutachten-Unterseite und `/leistungen`.
 
 ### 8. Sichtbare Trust- und Qualifikationsumsetzung
 
@@ -58,25 +58,25 @@ Status: abgeschlossen
 
 Aufgabe 040 hat die sichtbare Umsetzung des Trust-Satzes auf der Startseite und der deutschen Über-uns-Bereiche `Qualifikation & Anerkennung` sowie `Fortbildungen & Weiterbildung` abgeschlossen. Die deutsche Über-uns-Seite ist damit auf den V1-Scope KFZ-Gutachten, Vertrauen, Qualifikation, Anerkennung und Fortbildungen ausgerichtet.
 
-Erst nach dem abgeschlossenen Routing-Plan aus 030 und den weiteren Klärungen aus 031 und 032 sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden.
+Erst nach dem abgeschlossenen Routing-Plan aus 030, den Klärungen aus 031 und den Folgeentscheidungen aus 041 bis 044 sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden. Aufgabe 032 bleibt danach für i18n zuständig.
 
 ### 9. Routing, Kontakt/Legal und i18n-Klärung
 
 Status: in Arbeit
 
-Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen` und Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen` sind abgeschlossen. Der nächste logische Schritt ist Aufgabe 032 `i18n Launch Scope / Deutsch, EN/RU prüfen`. Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet.
+Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`, Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen` und Aufgabe 041 `V1-Seitenstruktur und Routen-Scope vor i18n festlegen` sind abgeschlossen. Aufgabe 041 hat vor i18n die V1-Seitenstruktur mit Hauptfokus `KFZ-Unfallgutachten in Berlin`, die Rolle von `/leistungen` und `/leistungen/unfallgutachten`, Legacy-Routen und die Folge-Reihenfolge geklärt. 032 bleibt pausiert, bis 042, 043 und 044 fachlich geklärt beziehungsweise umgesetzt sind.
 
 ### 10. SEO, Metadata und Structured Data
 
 Status: geplant
 
-Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031 sowie die noch offenen i18n-Entscheidungen beachten.
+Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041 bis 044 sowie die noch offenen i18n-Entscheidungen beachten.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen. Danach folgen Aufgabe 033 Launch-Quality-Check, Aufgabe 034 Deployment- und Launch-Gate und Aufgabe 035 Post-Launch-Monitoring.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach 041 sind voraussichtlich zuerst 042 Startseite, 043 Unfallgutachten-Unterseite und 044 /leistungen als Gutachtenarten-/Weitere-Gutachten-Seite einzuordnen; danach folgen 032, 029, 026, 033, 034 und 035. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 

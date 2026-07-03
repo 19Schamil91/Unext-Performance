@@ -2,6 +2,31 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-03
+
+### Workflow
+
+- Aufgabe 041 wurde als Planungsaufgabe zur V1-Seitenstruktur und zum Routen-Scope vor i18n ausgearbeitet und abgeschlossen.
+- Aufgabe 032 wurde weiterhin nicht gestartet.
+- Die empfohlene Folge-Reihenfolge wurde auf `041 -> 042 -> 043 -> 044 -> 032 -> 029 -> 026 -> 033 -> 034 -> 035` aktualisiert.
+
+### Planung
+
+- V1-Hauptfokus wurde als `KFZ-Unfallgutachten in Berlin` dokumentiert.
+- `/leistungen` bleibt als bestehende technische Übersichtsroute vorgesehen, soll aber in 044 als Gutachtenarten-/Weitere-Gutachten-Seite sichtbar nutzerfreundlicher benannt und umgebaut werden.
+- `/leistungen/unfallgutachten` bleibt als bestehende Detailroute für die Hauptleistung vorgesehen und soll sichtbar stärker priorisiert werden.
+- Alte Service-Routen bleiben Legacy und dürfen nicht als aktive V1-Leistungen beworben werden.
+- Upload, Supabase, KI, Admin und Portal bleiben spätere separate Ausbaustufen und werden in V1 nicht als Live-Funktionen dargestellt.
+
+### Nicht geändert
+
+- Keine Website-Code-Dateien.
+- Keine Routen, Redirects, `noindex`-Regeln oder 404-/410-Umstellungen.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine EN/RU-Texte.
+- Keine Assets.
+- Keine Folgeaufgaben 032, 042, 043 oder 044 gestartet.
+
 ## 2026-07-02
 
 ### Workflow
