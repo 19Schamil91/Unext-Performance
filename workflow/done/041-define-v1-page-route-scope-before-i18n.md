@@ -521,7 +521,7 @@ Akzeptanzkriterien-Prüfung am 2026-07-03:
 | Akzeptanzkriterium | Bewertung | Hinweis |
 |---|---|---|
 | Aufgabe 041 liegt in `workflow/active/`. | erfüllt | `workflow/active/041-define-v1-page-route-scope-before-i18n.md` ist die aktive Aufgabe. |
-| Status ist `in Arbeit`. | erfüllt | Bis zur Prüfung war der Status `in Arbeit`; nach erfüllter Prüfung wird auf `wartet auf Freigabe` gesetzt. |
+| Status ist `in Arbeit`. | erfüllt | Bis zur Prüfung war der Status `in Arbeit`; danach stand die Aufgabe auf `wartet auf Freigabe`; nach Nutzerfreigabe wird sie auf `abgeschlossen` gesetzt. |
 | Aufgabe 032 wurde nicht gestartet. | erfüllt | 032 liegt weiterhin in `workflow/todo/`. |
 | Es wurden keine Code-Dateien geändert. | erfüllt | In Aufgabe 041 wurden nur Workflow-, Roadmap- und Changelog-Dokumentation geändert. |
 | Es wurden keine Website-Seiten, Routen, EN/RU-Texte, SEO-/Metadata-/Structured-Data-Dateien oder Assets geändert. | erfüllt | Keine entsprechenden Dateien wurden geändert. |
@@ -534,13 +534,13 @@ Akzeptanzkriterien-Prüfung am 2026-07-03:
 | Es wird ausdrücklich dokumentiert, dass keine Upload-, Supabase-, KI-, Admin- oder Portal-Route in V1 erstellt oder beworben wird. | erfüllt | V1-Routen wie `/upload`, `/portal`, `/ki-voranalyse` und `/digitale-schadenaufnahme` sind ausgeschlossen. |
 | CTA- und Navigationslogik bleibt auf freigegebene Kontaktwege begrenzt. | erfüllt | Telefon, WhatsApp, E-Mail und Kontaktformular sind als Kontaktwege dokumentiert. |
 | 022 Supabase, 023 KI und 024 Kundenportal/Web-App bleiben spätere separate Ausbaustufen. | erfüllt | Diese Aufgaben bleiben in `workflow/todo/` und sind in 041 als spätere Ausbaustufen dokumentiert. |
-| Der nächste Schritt ist klar: 041 inhaltlich ausarbeiten und Entscheidungsvorschlag für die Seitenstruktur liefern. | erfüllt | Die Ausarbeitung und Entscheidungsvorlage liegen vor; nächster Schritt ist Nutzerfreigabe. |
+| Der nächste Schritt ist klar: 041 inhaltlich ausarbeiten und Entscheidungsvorschlag für die Seitenstruktur liefern. | erfüllt | Die Ausarbeitung und Entscheidungsvorlage liegen vor; Nutzerfreigabe wurde erteilt. |
 
 Offene Punkte:
 
-- Aufgabe 041 wartet auf ausdrückliche Freigabe durch den Nutzer.
-- Erst nach Freigabe darf die Done-Regel angewendet und ein Verschieben nach `workflow/done/` vorbereitet werden.
+- Aufgabe 041 wurde durch den Nutzer ausdrücklich freigegeben.
+- Die Done-Regel wurde angewendet und die Aufgabe wird nach `workflow/done/` verschoben.
 - 032, 042, 043 und 044 bleiben weiterhin nicht gestartet.
 ## Status
 
-Status: wartet auf Freigabe
+Status: abgeschlossen
