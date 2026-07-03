@@ -138,7 +138,7 @@ export const homeTranslationOverrides = {
     },
     cta: {
       badge: "Telefonisch am schnellsten",
-      title: "Sie brauchen ein Unfallgutachten?",
+      title: "Sie brauchen Hilfe?",
       description:
         "Rufen Sie an, schreiben Sie per WhatsApp oder senden Sie eine Anfrage.\nUNEXT meldet sich zeitnah zur weiteren Abstimmung.",
       inquiry: "Gutachten anfragen",

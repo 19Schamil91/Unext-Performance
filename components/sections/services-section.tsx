@@ -84,7 +84,7 @@ const serviceMeta: readonly ServiceMeta[] = [
 const reportServiceMeta: readonly ServiceMeta[] = [
   {
     icon: FileCheck,
-    image: "/images/services/unfallgutachten-berlin.png",
+    image: "/images/services/unfallgutachten-berlin.webp",
     imageAlt: "Unfallschaden an einem Fahrzeug in Berlin",
     imageClassName: "object-cover object-center",
     href: "/leistungen/unfallgutachten",
@@ -94,7 +94,7 @@ const reportServiceMeta: readonly ServiceMeta[] = [
   },
   {
     icon: Car,
-    image: "/images/services/wertgutachten-fahrzeugbewertung.png",
+    image: "/images/services/wertgutachten-fahrzeugbewertung.webp",
     imageAlt: "Fahrzeugbewertung mit Unterlagen und Kamera",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
@@ -104,7 +104,7 @@ const reportServiceMeta: readonly ServiceMeta[] = [
   },
   {
     icon: ClipboardCheck,
-    image: "/images/services/beweissicherung-dokumentation.png",
+    image: "/images/services/beweissicherung-dokumentation.webp",
     imageAlt: "Dokumentation eines Fahrzeugschadens mit Fotos",
     imageClassName: "object-cover object-center",
     href: "/kontakt",

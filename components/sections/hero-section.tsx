@@ -460,7 +460,7 @@ export function HeroSection({ locale }: Props) {
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc =
-    locale === "de" ? "/images/hero-kfz-gutachten-berlin.png" : "/images/home-hero-new.webp"
+    locale === "de" ? "/images/hero-kfz-gutachten-berlin.webp" : "/images/home-hero-new.webp"
   const mobileHeroImageClass =
     locale === "de"
       ? "scale-[1.08] object-cover object-[78%_58%]"

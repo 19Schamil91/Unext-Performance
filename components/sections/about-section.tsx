@@ -19,7 +19,7 @@ export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
   const isGerman = locale === "de"
   const showStatsPanel = locale !== "de"
-  const aboutImageSrc = isGerman ? "/images/home-service-accident-new.png" : "/images/hero-car.webp"
+  const aboutImageSrc = isGerman ? "/images/home-service-accident-new.webp" : "/images/hero-car.webp"
   const aboutImageAlt = isGerman ? "Begutachtung eines Fahrzeugs nach einem Unfall" : "UNEXT team member"
   const aboutImageClassName = isGerman
     ? "scale-[1.03] object-cover object-[50%_42%] brightness-[1.02] contrast-[1.03] saturate-[1.02]"

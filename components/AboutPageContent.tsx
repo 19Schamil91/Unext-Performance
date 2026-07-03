@@ -56,12 +56,11 @@ const germanAbout = {
       "Sie vertiefen die fachliche Arbeit und helfen dabei, Schäden, Wertfragen und Stellungnahmen sorgfältig, aktuell und nachvollziehbar einzuordnen.",
     ],
   },
-  ctaTitle: "Sie benötigen ein KFZ‑Gutachten in Berlin?",
-  ctaDescription:
-    "Rufen Sie an, schreiben Sie per WhatsApp oder senden Sie eine Anfrage. Gemeinsam klären wir, ob ein Gutachten oder eine Fahrzeugbewertung sinnvoll ist.",
 }
 
 function GermanAboutPageContent() {
+  const homeCta = getTranslations("de").home.cta
+
   return (
     <>
       <SiteHeader locale="de" />
@@ -85,14 +84,14 @@ function GermanAboutPageContent() {
 
         <section className="bg-card py-16 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8">
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-[34rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[27rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
               <Image
-                src="/images/home-service-accident.webp"
-                alt="KFZ-Sachverständiger bei der Fahrzeugbegutachtung in Berlin"
+                src="/images/about-office.webp"
+                alt="UNEXT Mitarbeiter im Büro"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 quality={82}
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
             </div>
 
@@ -176,8 +175,8 @@ function GermanAboutPageContent() {
 
         <CtaSection
           locale="de"
-          title={germanAbout.ctaTitle}
-          description={germanAbout.ctaDescription}
+          title={homeCta.title}
+          description={homeCta.description}
         />
       </main>
       <SiteFooter locale="de" />
