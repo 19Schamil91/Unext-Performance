@@ -161,6 +161,16 @@ Zu prüfen:
 - `npm run build` wurde ausgeführt.
 - Mobile- und typografische Prüfung für Hero, CTAs, Karten, Zeilenumbrüche und Umlaute ist vorgesehen beziehungsweise dokumentiert.
 
+## Abschlussnotiz
+
+- Akzeptanzkriterien bestanden.
+- Startseite wurde auf Unfallgutachten-Fokus geschärft.
+- Drei Gutachtenkarten umgesetzt.
+- Header/Dropdown, CTA, Footer und About-Bereiche angepasst.
+- Bilder optimiert.
+- Keine EN/RU-, SEO-, Routen-, Upload-, Supabase-, KI- oder Portal-Änderungen.
+- Nächster Schritt muss separat geklärt oder angelegt werden: wahrscheinlich `/leistungen/unfallgutachten` oder `/leistungen` gemäß 041.
+- 032 bleibt weiterhin zurückgestellt, bis die deutschen Seiten-/Routenentscheidungen abgeschlossen sind.
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
