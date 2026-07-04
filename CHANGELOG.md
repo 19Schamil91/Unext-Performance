@@ -2,6 +2,42 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-04
+
+### Workflow
+
+- Aufgabe 042 wurde abgeschlossen und bleibt als erledigte Workflow-Aufgabe dokumentiert.
+- Aufgabe 032 wurde nicht gestartet.
+- 043 und 044 wurden nicht begonnen.
+
+### Website
+
+- Die Startseite wurde auf `KFZ-Unfallgutachten Berlin` fokussiert.
+- Der Hero-Text wurde gestrafft.
+- Die Header-Navigation wurde beruhigt: `Startseite`, `Gutachtenarten`, `Über uns`, `Kontakt`.
+- Das Dropdown `Gutachtenarten` enthält `Unfallgutachten`, `Fahrzeugbewertung` und `Schadendokumentation`.
+- Der Gutachtenbereich wurde auf drei Karten reduziert: `Unfallgutachten`, `Fahrzeugbewertung` und `Schadendokumentation`.
+- Die Karte `Anfrage und Ablauf` und ein doppelter Schadenaufnahme-Block wurden entfernt.
+- Prozessbereich und Warum-UNEXT-Bereich wurden sprachlich verbessert.
+- Die Startseiten-CTA wurde auf `Sie brauchen Hilfe?` geändert.
+- Die Über-uns-Seite wurde mit anderem Bild, angeglichener CTA und besseren Qualifikationstexten nachgezogen.
+- Bilder im 042-Scope wurden als WebP optimiert.
+- Alte direkt ersetzte PNG-Dateien wurden entfernt, sofern sie nicht mehr referenziert wurden.
+
+### Checks
+
+- `git diff --check` bestanden.
+- `npm run lint` bestanden.
+- `npx tsc --noEmit` bestanden.
+- `npm run build` bestanden.
+
+### Nicht geändert
+
+- Keine EN/RU-Texte.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine Routen.
+- Keine Upload-/Supabase-/KI-/Portal-Funktionen.
+
 ## 2026-07-03
 
 ### Workflow

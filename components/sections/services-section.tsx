@@ -1,7 +1,7 @@
 /*
-  Diese Datei zeigt den Leistungsbereich auf der Startseite.
-  Sie zeigt die sechs Hauptleistungen als Karten mit Bild, Kurztext, Vorteilen und Kontaktaktion.
-  Besucher koennen eine Leistung ansehen, Details oeffnen oder direkt anrufen.
+  Diese Datei zeigt den Gutachtenbereich auf der Startseite.
+  Die deutsche Startseite zeigt drei Gutachtenkarten mit Bild, Kurztext, Vorteilen und Kontaktaktion.
+  Besucher koennen Unfallgutachten oeffnen oder direkt Kontakt aufnehmen.
 */
 import Image from "next/image"
 import Link from "next/link"
@@ -84,27 +84,17 @@ const serviceMeta: readonly ServiceMeta[] = [
 const reportServiceMeta: readonly ServiceMeta[] = [
   {
     icon: FileCheck,
-    image: "/images/services/unfallgutachten-berlin.png",
+    image: "/images/services/unfallgutachten-berlin.webp",
     imageAlt: "Unfallschaden an einem Fahrzeug in Berlin",
     imageClassName: "object-cover object-center",
-    href: "/kontakt",
+    href: "/leistungen/unfallgutachten",
     contactText: "030 23613927",
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/20 to-transparent",
   },
   {
-    icon: ClipboardCheck,
-    image: "/images/services/schadengutachten-detail.png",
-    imageAlt: "Detailaufnahme eines Fahrzeugschadens",
-    imageClassName: "object-cover object-center",
-    href: "/kontakt",
-    contactText: "030 23613927",
-    contactHref: "tel:+493023613927",
-    accentColor: "from-red-500/18 to-transparent",
-  },
-  {
-    icon: FileCheck,
-    image: "/images/services/wertgutachten-fahrzeugbewertung.png",
+    icon: Car,
+    image: "/images/services/wertgutachten-fahrzeugbewertung.webp",
     imageAlt: "Fahrzeugbewertung mit Unterlagen und Kamera",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
@@ -114,7 +104,7 @@ const reportServiceMeta: readonly ServiceMeta[] = [
   },
   {
     icon: ClipboardCheck,
-    image: "/images/services/beweissicherung-dokumentation.png",
+    image: "/images/services/beweissicherung-dokumentation.webp",
     imageAlt: "Dokumentation eines Fahrzeugschadens mit Fotos",
     imageClassName: "object-cover object-center",
     href: "/kontakt",
@@ -123,15 +113,13 @@ const reportServiceMeta: readonly ServiceMeta[] = [
     accentColor: "from-red-500/14 to-transparent",
   },
 ] as const
-
 const protectedDesktopPhrases = ["sicheren Transport"] as const
 
 const mobileServiceDescriptions = {
   de: [
-    "Unabhängige Dokumentation nach einem Unfall mit klarer Einordnung der nächsten Schritte.",
-    "Schadendokumentation für Karosserie, Technik und sichtbare Unfallfolgen.",
-    "Fahrzeugbewertung und Wertgutachten für Kauf, Verkauf oder interne Entscheidungen.",
-    "Beweissicherung mit Fotos, Unterlagen und nachvollziehbarer Schadendokumentation.",
+    "Nach einem Unfall unterstützt UNEXT bei der sachlichen Einordnung des Fahrzeugschadens und klärt die nächsten Schritte.",
+    "Der Fahrzeugwert wird für Verkauf, Kauf oder weitere Entscheidungen nachvollziehbar eingeordnet.",
+    "Fotos und Unterlagen werden strukturiert vorbereitet, damit der Schaden nachvollziehbar bleibt.",
   ],
   en: [
     "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
@@ -152,7 +140,7 @@ const mobileServiceDescriptions = {
 } as const satisfies Record<Locale, readonly string[]>
 
 const mobileServicesIntro = {
-  de: "UNEXT fokussiert sich auf KFZ-Gutachten in Berlin:\nUnfallgutachten, Schadengutachten,\nFahrzeugbewertung und Beweissicherung.",
+  de: "UNEXT unterstützt Sie bei KFZ-Unfallgutachten in Berlin:\nSchaden sachlich dokumentieren,\nFahrzeugwert einordnen und Unterlagen bereithalten.",
   en: "UNEXT combines accident assistance, rental cars,\nworkshop service and detailing\nwith registration and roadside help in Berlin.",
   ru: "UNEXT объединяет помощь при ДТП,\nаренду авто, сервис и детейлинг\nс регистрацией и помощью на дороге в Берлине.",
 } as const satisfies Record<Locale, string>
@@ -215,23 +203,33 @@ export function ServicesSection({ locale }: Props) {
           <h2
             className={
               isGerman
-                ? "mx-auto max-w-[28ch] text-[clamp(1.95rem,1.38rem+1.25vw,2.85rem)] leading-[1.08] font-semibold text-foreground [text-wrap:balance]"
+                ? "mx-auto max-w-[50ch] text-[clamp(1.85rem,1.08rem+0.82vw,2.2rem)] leading-[1.1] font-semibold text-foreground"
                 : "mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none"
             }
           >
             {t.title}
           </h2>
-          <ReadableText
-            text={t.description}
-            className="mx-auto mt-3 hidden measure-intro text-body-fluid text-foreground/82 sm:mt-4 md:block"
-          />
+          {isGerman ? (
+            <p className="mx-auto mt-4 hidden max-w-[64rem] text-body-fluid leading-8 text-foreground/82 md:block">
+              {t.description.split("\n").map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </p>
+          ) : (
+            <ReadableText
+              text={t.description}
+              className="mx-auto mt-3 hidden measure-intro text-body-fluid text-foreground/82 sm:mt-4 md:block"
+            />
+          )}
           <ReadableText
             text={mobileServicesIntro[locale]}
             className="mx-auto mt-3 measure-intro-tight text-body-compact text-foreground/82 md:hidden"
           />
         </div>
 
-        <div className="grid gap-7 md:grid-cols-2">
+        <div className={isGerman ? "grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-5" : "grid gap-7 md:grid-cols-2"}>
           {t.items.map((service, index) => {
             const meta = resolvedServiceMeta[index] ?? resolvedServiceMeta[0]
             const contactText = meta.contactText ?? ""
@@ -240,9 +238,13 @@ export function ServicesSection({ locale }: Props) {
               <Card
                 key={service.title}
                 id={serviceAnchors[index]}
-                className="group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)]"
+                className={`group relative scroll-mt-28 overflow-hidden rounded-[1.75rem] border border-border/65 bg-card/98 shadow-[0_16px_38px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-[0_22px_48px_rgba(15,23,42,0.14)] focus-within:-translate-y-0.5 focus-within:border-primary/35 focus-within:shadow-[0_22px_48px_rgba(15,23,42,0.14)] ${
+                  isGerman && index === 2
+                    ? "md:col-span-2 md:mx-auto md:w-[calc((100%-1.5rem)/2)] xl:col-span-1 xl:w-auto"
+                    : ""
+                }`}
               >
-                <CardContent className="p-4 sm:p-5 lg:p-6">
+                <CardContent className={isGerman ? "p-4 sm:p-5 lg:p-4" : "p-4 sm:p-5 lg:p-6"}>
                   <div className="flex h-full flex-col">
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[1.45rem] border border-border/55 bg-background shadow-[0_10px_22px_rgba(15,23,42,0.08)]">
                       <Image
@@ -256,7 +258,7 @@ export function ServicesSection({ locale }: Props) {
                       <div className={`absolute inset-0 bg-gradient-to-t ${meta.accentColor}`} />
                     </div>
 
-                    <div className="flex min-w-0 flex-1 flex-col px-1 pt-5 sm:px-2 lg:px-1">
+                    <div className="flex min-w-0 flex-1 flex-col px-1 pt-5 sm:px-2 lg:px-0">
                       <div className="flex items-start gap-4">
                         <div className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                           <meta.icon className="h-6 w-6" />
@@ -277,7 +279,7 @@ export function ServicesSection({ locale }: Props) {
                       <p
                         className={
                           isGerman
-                            ? "mt-3 measure-card-copy-wide hidden text-[1rem] leading-7 text-foreground/78 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]"
+                            ? "mt-3 hidden max-w-none text-[1rem] leading-7 text-foreground/78 md:block"
                             : "mt-3 measure-card-copy-wide hidden text-body-compact leading-7 text-foreground/74 md:block lg:!max-w-[58ch] xl:!max-w-[60ch] lg:[text-wrap:balance]"
                         }
                       >
@@ -345,45 +347,6 @@ export function ServicesSection({ locale }: Props) {
           })}
         </div>
 
-        {locale === "de" ? (
-          <div
-            id="service-digitale-schadenaufnahme"
-            className="mt-7 scroll-mt-28 rounded-[1.75rem] border border-primary/22 bg-card/88 p-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] sm:p-6 lg:mt-8 lg:p-8"
-          >
-            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-              <div>
-                <p className="text-[0.68rem] font-medium uppercase tracking-[0.24em] text-primary/90">
-                  Anfrage vorbereiten
-                </p>
-                <h3 className="mt-2 text-card-heading-fluid text-foreground">
-                  Schadenaufnahme für die Anfrage vorbereiten
-                </h3>
-                <p className="mt-3 max-w-3xl text-body-compact leading-7 text-foreground/76">
-                  <span className="block">
-                    Fotos, Fahrzeugdaten und eine kurze Schadenbeschreibung können vorab gesammelt werden.
-                  </span>
-                  <span className="block">
-                    Danach klären wir die nächsten Schritte telefonisch, per WhatsApp oder über das Kontaktformular.
-                  </span>
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Button asChild className="gap-2">
-                  <Link href="/kontakt">
-                    Gutachten anfragen
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="gap-2">
-                  <a href="tel:+493023613927">
-                    <Phone className="h-4 w-4" />
-                    030 23613927
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        ) : null}
       </div>
     </section>
   )

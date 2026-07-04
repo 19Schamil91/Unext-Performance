@@ -16,17 +16,24 @@ type Props = {
 
 export function ProcessSection({ locale }: Props) {
   const t = getTranslations(locale).home.process
+  const isGerman = locale === "de"
 
   return (
     <section className="bg-card py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-10 max-w-5xl text-center sm:mb-16">
-          <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none">
+          <h2
+            className={
+              isGerman
+                ? "mx-auto max-w-[44rem] text-[clamp(2rem,1.45rem+1.2vw,2.65rem)] leading-[1.08] font-semibold text-foreground [text-wrap:balance]"
+                : "mx-auto measure-heading text-heading-fluid font-semibold text-foreground lg:max-w-none"
+            }
+          >
             {t.title}
           </h2>
           <ReadableText
             text={t.description}
-            className="mx-auto mt-3 measure-intro text-body-fluid text-foreground/82 sm:mt-4"
+            className={isGerman ? "mx-auto mt-3 max-w-[52rem] text-body-fluid leading-8 text-foreground/82 sm:mt-4" : "mx-auto mt-3 measure-intro text-body-fluid text-foreground/82 sm:mt-4"}
           />
         </div>
 

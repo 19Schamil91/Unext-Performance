@@ -39,7 +39,7 @@ function renderHeroDescription(description: string, lineClassName?: string) {
   )
     ? ["Schaden", "Berlin."]
     : ["Berlin."]
-  const protectedTerms = [protectedTerm, "Taxi-Fahrer"]
+  const protectedTerms = ["KFZ-Unfallgutachten", protectedTerm, "Taxi-Fahrer"]
   const combinedEndingMarkers = ["Alles unter einem Dach.", "All under one roof."]
 
   const renderProtectedLine = (line: string) => {
@@ -288,7 +288,9 @@ function HeroContent({
         <p
           className={
             isOverlay
-              ? "relative z-10 mt-8 measure-intro-tight text-body-compact font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:font-normal"
+              ? locale === "de"
+                ? "relative z-10 mt-6 max-w-[34rem] text-body-compact font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.72)] max-md:mt-4 max-md:font-normal"
+                : "relative z-10 mt-8 measure-intro-tight text-body-compact font-medium text-white/88 drop-shadow-[0_10px_30px_rgba(0,0,0,0.78)] max-md:mt-5 max-md:font-normal"
               : "mt-4 max-w-none text-body-fluid text-foreground/82 sm:mt-6"
           }
         >
@@ -306,7 +308,9 @@ function HeroContent({
           <p
             className={
               isOverlay
-                ? "relative z-10 mt-4 max-w-[42rem] text-body-compact font-medium text-white/76 drop-shadow-[0_8px_24px_rgba(0,0,0,0.62)] max-md:mt-3"
+                ? locale === "de"
+                  ? "relative z-10 mt-3 max-w-[38rem] text-body-compact font-medium text-white/76 drop-shadow-[0_8px_24px_rgba(0,0,0,0.58)] max-md:mt-3"
+                  : "relative z-10 mt-4 max-w-[42rem] text-body-compact font-medium text-white/76 drop-shadow-[0_8px_24px_rgba(0,0,0,0.62)] max-md:mt-3"
                 : "mt-4 max-w-[42rem] text-body-compact font-medium text-foreground/72"
             }
           >
@@ -456,10 +460,10 @@ export function HeroSection({ locale }: Props) {
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
   const heroImageSrc =
-    locale === "de" ? "/images/hero-kfz-gutachten-berlin.png" : "/images/home-hero-new.webp"
+    locale === "de" ? "/images/hero-kfz-gutachten-berlin.webp" : "/images/home-hero-new.webp"
   const mobileHeroImageClass =
     locale === "de"
-      ? "scale-105 object-cover object-[82%_64%]"
+      ? "scale-[1.08] object-cover object-[78%_58%]"
       : "scale-125 object-cover object-[58%_64%]"
   // Diese Varianten halten den mobilen Hero kurz, ohne harte Zeilen fuer einzelne Geraete zu erzwingen.
   const mobileHeroTitles = {
@@ -486,7 +490,7 @@ export function HeroSection({ locale }: Props) {
     <section className="overflow-x-clip overflow-y-hidden bg-background">
       <h1 className="sr-only">{heroTitle}</h1>
       <div className="bg-black md:hidden">
-        <div className="relative h-[17.5rem] overflow-hidden bg-black min-[430px]:h-[19.25rem]">
+        <div className="relative h-[16.5rem] overflow-hidden bg-black min-[430px]:h-[18.25rem]">
           <Image
             src={heroImageSrc}
             alt=""
@@ -496,7 +500,7 @@ export function HeroSection({ locale }: Props) {
             className={mobileHeroImageClass}
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_54%,rgba(5,7,11,0.42)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0)_0%,rgba(5,7,11,0.02)_54%,rgba(5,7,11,0.18)_100%)]" />
         </div>
 
         <div className="px-5 pb-7 pt-6">
@@ -521,7 +525,7 @@ export function HeroSection({ locale }: Props) {
         </div>
       </div>
 
-      <div className="relative hidden h-[calc(88svh-5rem)] min-h-[39rem] max-h-[50rem] items-start overflow-hidden md:flex">
+      <div className={locale === "de" ? "relative hidden h-[calc(100svh-4.3125rem)] min-h-[43rem] max-h-none items-start overflow-hidden md:flex" : "relative hidden h-[calc(88svh-5rem)] min-h-[39rem] max-h-[50rem] items-start overflow-hidden md:flex"}>
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
@@ -529,14 +533,14 @@ export function HeroSection({ locale }: Props) {
             fill
             sizes="(min-width: 768px) 100vw, 0vw"
             quality={88}
-            className="object-cover object-[58%_18%] lg:object-[57%_16%]"
+            className={locale === "de" ? "scale-[1.025] object-cover object-[56%_18%] lg:object-[55%_16%]" : "object-cover object-[58%_18%] lg:object-[57%_16%]"}
             priority
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_63%_42%,rgba(255,255,255,0.14),transparent_32%),linear-gradient(90deg,rgba(4,6,10,0.68)_0%,rgba(7,9,13,0.52)_30%,rgba(7,9,13,0.18)_58%,rgba(7,9,13,0.02)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]" />
+          <div className={locale === "de" ? "absolute inset-0 bg-[radial-gradient(circle_at_63%_42%,rgba(255,255,255,0.11),transparent_32%),linear-gradient(90deg,rgba(4,6,10,0.54)_0%,rgba(7,9,13,0.38)_30%,rgba(7,9,13,0.12)_58%,rgba(7,9,13,0)_100%)]" : "absolute inset-0 bg-[radial-gradient(circle_at_63%_42%,rgba(255,255,255,0.14),transparent_32%),linear-gradient(90deg,rgba(4,6,10,0.68)_0%,rgba(7,9,13,0.52)_30%,rgba(7,9,13,0.18)_58%,rgba(7,9,13,0.02)_100%)]"} />
+          <div className={locale === "de" ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.12)_0%,rgba(5,7,11,0)_38%,rgba(5,7,11,0.03)_100%)]" : "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]"} />
         </div>
 
-        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-12 pt-[clamp(7rem,13vh,10rem)]">
+        <div className={locale === "de" ? "relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-10 pt-[clamp(6rem,10vh,8.25rem)]" : "relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-12 pt-[clamp(7rem,13vh,10rem)]"}>
           <HeroContent
             tone="overlay"
             title1={t.title1}

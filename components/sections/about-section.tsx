@@ -19,10 +19,10 @@ export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
   const isGerman = locale === "de"
   const showStatsPanel = locale !== "de"
-  const aboutImageSrc = isGerman ? "/images/about-office.webp" : "/images/hero-car.webp"
-  const aboutImageAlt = isGerman ? "UNEXT Büro in Berlin" : "UNEXT team member"
+  const aboutImageSrc = isGerman ? "/images/home-service-accident-new.webp" : "/images/hero-car.webp"
+  const aboutImageAlt = isGerman ? "Begutachtung eines Fahrzeugs nach einem Unfall" : "UNEXT team member"
   const aboutImageClassName = isGerman
-    ? "object-cover object-[48%_48%] brightness-[0.82] contrast-[1.05] saturate-[0.9]"
+    ? "scale-[1.03] object-cover object-[50%_42%] brightness-[1.02] contrast-[1.03] saturate-[1.02]"
     : "object-cover object-[62%_42%]"
   // Diese mobile englische Fassung setzt Sinnzeilen, ohne die Desktop-Fassung oder andere Sprachen zu veraendern.
   const mobileEnglishParagraph1 =
@@ -39,16 +39,29 @@ export function AboutSection({ locale }: Props) {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative lg:pr-6">
-            <div className="relative aspect-[16/11] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm">
+            <div
+              className={
+                isGerman
+                  ? "relative aspect-[1/1] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm"
+                  : "relative aspect-[16/11] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm"
+              }
+            >
               <Image
                 src={aboutImageSrc}
                 alt={aboutImageAlt}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
+                loading={isGerman ? "eager" : "lazy"}
                 quality={75}
                 className={aboutImageClassName}
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,6,10,0.22)_0%,rgba(7,9,13,0.14)_44%,rgba(7,9,13,0.08)_100%),linear-gradient(180deg,rgba(5,7,11,0.08)_0%,rgba(5,7,11,0.02)_34%,rgba(5,7,11,0.18)_100%)]" />
+              <div
+                className={
+                  isGerman
+                    ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.04)_0%,rgba(5,7,11,0.01)_48%,rgba(5,7,11,0.10)_100%)]"
+                    : "absolute inset-0 bg-[linear-gradient(90deg,rgba(4,6,10,0.22)_0%,rgba(7,9,13,0.14)_44%,rgba(7,9,13,0.08)_100%),linear-gradient(180deg,rgba(5,7,11,0.08)_0%,rgba(5,7,11,0.02)_34%,rgba(5,7,11,0.18)_100%)]"
+                }
+              />
             </div>
 
             {showStatsPanel ? (

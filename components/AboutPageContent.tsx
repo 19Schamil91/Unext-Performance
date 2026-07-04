@@ -43,25 +43,24 @@ const germanAbout = {
     ],
   },
   qualification: {
-    title: "Qualifikation & Anerkennung",
+    title: "Qualifikation, die im Schadenfall zählt",
     paragraphs: [
-      "Die Begutachtung erfolgt durch einen geprüften und anerkannten Sachverständigen für Schäden an Kraftfahrzeugen und Wertermittlung.",
-      "Damit steht die fachliche Einordnung von Fahrzeugschäden, Wertfragen und gutachterlichen Stellungnahmen auf einer sachlichen und sorgfältigen Grundlage.",
+      "Ihr Fahrzeug wird durch einen geprüften und anerkannten Sachverständigen für KFZ-Schäden und Wertermittlung begutachtet.",
+      "Dabei geht es nicht nur um den sichtbaren Schaden, sondern je nach Fall auch um Reparaturkosten, Wertminderung, Wiederbeschaffungswert und eine nachvollziehbare Dokumentation für die weitere Schadenabwicklung.",
     ],
   },
   training: {
-    title: "Fortbildungen & Weiterbildung",
+    title: "Fortbildung für aktuelle Fachkenntnis",
     paragraphs: [
-      "Ergänzende Fortbildungen unterstützen die fachliche Einordnung von Fahrzeugschäden, Wertfragen und Stellungnahmen.",
-      "Sie vertiefen die fachliche Arbeit und helfen dabei, Schäden, Wertfragen und Stellungnahmen sorgfältig, aktuell und nachvollziehbar einzuordnen.",
+      "Fortbildungen unterstützen die fachliche Bewertung von Fahrzeugschäden, Reparaturmethoden und Wertfragen.",
+      "So entsteht eine nachvollziehbare Einschätzung, die als solide Grundlage für die Abstimmung mit Versicherung, Anwalt oder Werkstatt dienen kann.",
     ],
   },
-  ctaTitle: "Sie benötigen ein KFZ‑Gutachten in Berlin?",
-  ctaDescription:
-    "Rufen Sie an, schreiben Sie per WhatsApp oder senden Sie eine Anfrage. Gemeinsam klären wir, ob ein Gutachten oder eine Fahrzeugbewertung sinnvoll ist.",
 }
 
 function GermanAboutPageContent() {
+  const homeCta = getTranslations("de").home.cta
+
   return (
     <>
       <SiteHeader locale="de" />
@@ -85,14 +84,14 @@ function GermanAboutPageContent() {
 
         <section className="bg-card py-16 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8">
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-[34rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[27rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
               <Image
-                src="/images/home-service-accident.webp"
-                alt="KFZ-Sachverständiger bei der Fahrzeugbegutachtung in Berlin"
+                src="/images/about-office.webp"
+                alt="UNEXT Mitarbeiter im Büro"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 quality={82}
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
             </div>
 
@@ -176,8 +175,8 @@ function GermanAboutPageContent() {
 
         <CtaSection
           locale="de"
-          title={germanAbout.ctaTitle}
-          description={germanAbout.ctaDescription}
+          title={homeCta.title}
+          description={homeCta.description}
         />
       </main>
       <SiteFooter locale="de" />

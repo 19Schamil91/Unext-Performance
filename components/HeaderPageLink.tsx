@@ -27,8 +27,8 @@ export function HeaderPageLink({ name, href }: HeaderPageLinkProps) {
       aria-current={isActive ? "page" : undefined}
       className={
         isActive
-          ? "relative rounded-lg px-2 py-1 text-sm font-semibold text-foreground transition-colors after:absolute after:inset-x-2 after:-bottom-1 after:h-px after:rounded-full after:bg-primary/80 hover:bg-accent/45"
-          : "rounded-lg px-2 py-1 text-sm font-medium text-foreground/72 transition-colors hover:bg-accent/45 hover:text-foreground"
+          ? "relative whitespace-nowrap rounded-lg px-2 py-1 text-sm font-semibold text-foreground transition-colors after:absolute after:inset-x-2 after:-bottom-1 after:h-px after:rounded-full after:bg-primary/80 hover:bg-accent/45"
+          : "whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium text-foreground/72 transition-colors hover:bg-accent/45 hover:text-foreground"
       }
     >
       {name}
