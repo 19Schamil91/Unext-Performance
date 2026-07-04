@@ -43,17 +43,17 @@ const germanAbout = {
     ],
   },
   qualification: {
-    title: "Qualifikation & Anerkennung",
+    title: "Qualifikation, die im Schadenfall zählt",
     paragraphs: [
-      "Die Begutachtung erfolgt durch einen geprüften und anerkannten Sachverständigen für Schäden an Kraftfahrzeugen und Wertermittlung.",
-      "Damit steht die fachliche Einordnung von Fahrzeugschäden, Wertfragen und gutachterlichen Stellungnahmen auf einer sachlichen und sorgfältigen Grundlage.",
+      "Ihr Fahrzeug wird durch einen geprüften und anerkannten Sachverständigen für KFZ-Schäden und Wertermittlung begutachtet.",
+      "Dabei geht es nicht nur um den sichtbaren Schaden, sondern je nach Fall auch um Reparaturkosten, Wertminderung, Wiederbeschaffungswert und eine nachvollziehbare Dokumentation für die weitere Schadenabwicklung.",
     ],
   },
   training: {
-    title: "Fortbildungen & Weiterbildung",
+    title: "Fortbildung für aktuelle Fachkenntnis",
     paragraphs: [
-      "Ergänzende Fortbildungen unterstützen die fachliche Einordnung von Fahrzeugschäden, Wertfragen und Stellungnahmen.",
-      "Sie vertiefen die fachliche Arbeit und helfen dabei, Schäden, Wertfragen und Stellungnahmen sorgfältig, aktuell und nachvollziehbar einzuordnen.",
+      "Fortbildungen unterstützen die fachliche Bewertung von Fahrzeugschäden, Reparaturmethoden und Wertfragen.",
+      "So entsteht eine nachvollziehbare Einschätzung, die als solide Grundlage für die Abstimmung mit Versicherung, Anwalt oder Werkstatt dienen kann.",
     ],
   },
 }
