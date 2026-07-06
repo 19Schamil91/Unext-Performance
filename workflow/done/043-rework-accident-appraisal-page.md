@@ -150,7 +150,7 @@ lib/
 ## Akzeptanzkriterien
 
 - 043 liegt in `workflow/active/`.
-- 043 hat `Status: wartet auf Review`.
+- 043 hat `Status: abgeschlossen`.
 - Die bestehende Route `/leistungen/unfallgutachten` wurde inventarisiert.
 - Betroffene Dateien, Komponenten, deutsche Texte, Bilder, CTAs und Layoutbereiche wurden identifiziert.
 - Die deutsche Seite `/leistungen/unfallgutachten` wurde kompakt und hochwertig auf `KFZ-Unfallgutachten Berlin` ausgerichtet.
@@ -173,4 +173,4 @@ lib/
 
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen

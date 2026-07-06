@@ -66,7 +66,7 @@ Status: in Arbeit
 
 Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`, Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`, Aufgabe 041 `V1-Seitenstruktur und Routen-Scope vor i18n festlegen` und Aufgabe 042 `Startseite stärker auf Unfallgutachten ausrichten` sind abgeschlossen. Aufgabe 042 hat die Startseite auf `KFZ-Unfallgutachten Berlin` fokussiert, die Gutachtenkarten auf drei Bereiche reduziert und die Bildwelt im 042-Scope optimiert.
 
-Aufgabe 043 `/leistungen/unfallgutachten` wurde umgesetzt, geprüft und committed. Die Seite ist reviewbereit und bleibt bis zur Freigabe in `workflow/active/`. Nächster fachlicher Schritt nach Review/PR ist Aufgabe 044: `/leistungen` als Gutachtenarten-/Weitere-Gutachten-Seite klären und umbauen. Aufgabe 032 bleibt weiterhin nach den deutschen Seiten- und Routenentscheidungen eingeordnet.
+Aufgabe 043 `/leistungen/unfallgutachten` wurde umgesetzt, geprüft, gemerged und nach `workflow/done/` verschoben. Nächster fachlicher Schritt ist Aufgabe 044: `/leistungen` als Gutachtenarten-/Weitere-Gutachten-Seite klären und umbauen. Aufgabe 032 bleibt weiterhin nach den deutschen Seiten- und Routenentscheidungen eingeordnet.
 ### 10. SEO, Metadata und Structured Data
 
 Status: geplant
@@ -77,7 +77,7 @@ Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/St
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach dem Review/PR-Abschluss von 043 ist als nächster fachlicher Schritt Aufgabe 044 für `/leistungen` sinnvoll. Danach bleiben 032, 029, 026, 033, 034 und 035 eingeordnet. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach dem Abschluss von 043 ist als nächster fachlicher Schritt Aufgabe 044 für `/leistungen` sinnvoll. Danach bleiben 032, 029, 026, 033, 034 und 035 eingeordnet. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 
