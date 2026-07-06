@@ -68,6 +68,27 @@ Planungszusatz vor der Umsetzung:
 - Layout-Grenze: Das bestehende `service-page-layout.tsx` soll bevorzugt weiterverwendet werden. Keine globale Layout-Refaktorierung in 043. Falls Anpassungen nötig sind, sollen sie möglichst seitenbezogen, deutsch und eng auf `/leistungen/unfallgutachten` begrenzt bleiben.
 - Textumfang: Der Seitenvorschlag soll bewusst kompakt bleiben. Ziel ist eine hochwertige, mobile gut scannbare Detailseite mit kurzen Absätzen, klaren Karten/Punkten und ohne überladene Fachtext-Wand.
 
+Kurswechsel vor der Umsetzung:
+
+- Die Unterseite soll nicht als zweite Startseite oder lange Wiederholung der Startseite aufgebaut werden.
+- Die bereits begonnene breite Umsetzungsrichtung gilt nicht als Zielversion und muss vor einer Fortsetzung kritisch zurückgeschnitten oder ersetzt werden.
+- 043 soll eine kompakte, praktische Detailseite für Besucher nach einem Unfall werden: weniger Verkaufsargumentation, mehr konkrete Orientierung.
+- Der Mehrwert der Seite soll aus klaren Antworten auf praktische Fragen entstehen: wann ein Unfallgutachten sinnvoll ist, was dokumentiert wird, welche Unterlagen helfen und wie der nächste Schritt abläuft.
+- Upload, Supabase, Portal, Datenbank, Storage oder versteckte Upload-Vorbereitung bleiben außerhalb von 043. Die Seite darf nur textlich so vorbereitet werden, dass spätere Upload-Funktionen sauber ergänzt werden können.
+- Sichtbare Formulierungen dürfen nicht behaupten, dass Dokumente bereits hochgeladen oder über ein Portal eingereicht werden können.
+- Für spätere Supabase-/Upload-Funktionen soll nach 043 oder 044 eine eigene Aufgabe mit eigener Spec geplant werden.
+
+Geplanter Umsetzungsumfang in 043 ab diesem Kurswechsel:
+
+- Hero kurz und eigenständig formulieren, ohne die Startseite zu kopieren.
+- Abschnitt `Wann ist ein Unfallgutachten sinnvoll?` mit wenigen klaren Punkten.
+- Abschnitt `Was wird dokumentiert?` mit Schadendokumentation, Reparaturkosten, Wertminderung, Wiederbeschaffungswert, Restwert und Fotodokumentation, soweit fachlich passend.
+- Abschnitt `Welche Unterlagen helfen?` ohne Upload-Versprechen, zum Beispiel Fahrzeugschein/Zulassungsbescheinigung, vorhandene Schadenfotos, Versicherungs- oder Unfalldaten und kurze Schadenschilderung.
+- Ablauf in maximal vier kompakten Schritten von Kontaktaufnahme bis Gutachten/weiterer Abstimmung.
+- Vorsichtige Kostenformulierung: Bei unverschuldetem Unfall werden Gutachterkosten in der Regel von der gegnerischen Haftpflichtversicherung übernommen; keine harte `kostenlos`-Hauptaussage.
+- Kurze FAQ nur, wenn sie echten Mehrwert hat; maximal wenige Fragen, keine lange Fachtext-Wand.
+- CTA klar zu Telefon, WhatsApp, E-Mail oder Anfrage führen, soweit diese Kontaktwege vorhanden und freigegeben sind.
+
 ## Zu prüfende Dateien/Routen
 
 Im Inventurschritt sind mindestens zu prüfen:

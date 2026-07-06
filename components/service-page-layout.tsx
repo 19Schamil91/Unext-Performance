@@ -10,7 +10,11 @@ import { ReadableText } from "@/components/readable-text"
 import { CtaSection } from "@/components/sections/cta-section"
 import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
-import { ServiceInquiryForm, type ServiceInquiryFields } from "@/components/service-inquiry-form"
+import {
+  ServiceInquiryForm,
+  type ServiceInquiryFields,
+  type ServiceInquiryTextOverrides,
+} from "@/components/service-inquiry-form"
 import {
   Accordion,
   AccordionContent,
@@ -27,19 +31,27 @@ export type ServicePageLayoutProps = {
   subtitle: string
   description: string
   image: string
+  imageAlt?: string
   imageClassName?: string
   phone?: string
   heroActions?: readonly ServiceAction[]
   bottomActions?: readonly ServiceAction[]
-  contactNote?: string
+  heroNotice?: string
+  serviceNote?: ServiceDetailCard
+  backLinkHref?: string
+  detailSections?: readonly ServiceDetailSection[]
+  layoutLabels?: ServicePageLayoutLabels
   benefits: readonly string[]
   services: readonly { title: string; description: string }[]
   whyChoose: readonly { title: string; description: string }[]
   faqs?: readonly { question: string; answer: string }[]
   formTitle: string
+  ctaTitle?: string
+  ctaDescription?: string
   serviceName: string
   badge?: string
   formFields?: ServiceInquiryFields
+  formTextOverrides?: ServiceInquiryTextOverrides
   balancedTypography?: boolean
   singleLineHeadings?: boolean
   titleLines?: readonly string[]
@@ -56,6 +68,25 @@ type ServiceAction = {
   icon?: "phone" | "message"
   external?: boolean
 }
+type ServiceDetailCard = {
+  title: string
+  description: string
+}
+
+type ServiceDetailSection = {
+  title: string
+  description?: string
+  items: readonly ServiceDetailCard[]
+}
+
+type ServicePageLayoutLabels = Partial<{
+  backToServices: string
+  servicesTitle: string
+  whyTitle: string
+  whyDescription: string
+  faqTitle: string
+  contactCta: string
+}>
 
 export async function ServicePageLayout({
   locale,
@@ -63,19 +94,27 @@ export async function ServicePageLayout({
   subtitle,
   description,
   image,
+  imageAlt,
   imageClassName,
   phone,
   heroActions,
   bottomActions,
-  contactNote,
+  heroNotice,
+  serviceNote,
+  backLinkHref,
+  detailSections,
+  layoutLabels,
   benefits,
   services,
   whyChoose,
   faqs,
   formTitle,
+  ctaTitle,
+  ctaDescription,
   serviceName,
   badge,
   formFields,
+  formTextOverrides,
   balancedTypography = false,
   titleLines,
   descriptionLines,
@@ -84,10 +123,11 @@ export async function ServicePageLayout({
   benefitsSingleLine = false,
 }: ServicePageLayoutProps) {
   const translations = getTranslations(locale)
-  const t = translations.serviceDetail.layout
+  const t = { ...translations.serviceDetail.layout, ...layoutLabels }
   const inquiryId = `${serviceName}-anfrage`
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const servicesHref = getLocalizedPath(locale, "/leistungen")
+  const resolvedBackLinkHref = backLinkHref ?? servicesHref
 
   const defaultHeroActions = phone
     ? [
@@ -215,7 +255,7 @@ export async function ServicePageLayout({
         <div className="relative h-[14.5rem] overflow-hidden bg-black min-[430px]:h-[15.5rem] md:absolute md:inset-0 md:h-auto">
           <Image
             src={image}
-            alt={title}
+            alt={imageAlt ?? title}
             fill
             sizes="100vw"
             quality={78}
@@ -228,7 +268,7 @@ export async function ServicePageLayout({
 
         <div className="relative mx-auto max-w-7xl px-4 pb-9 pt-5 md:pb-0 md:pt-0 lg:px-8">
           <Link
-            href={servicesHref}
+            href={resolvedBackLinkHref}
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/6 px-3 py-1.5 text-sm text-white/78 transition-colors hover:border-primary/35 hover:text-white md:mb-8 md:bg-black/28 md:backdrop-blur-sm"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -265,8 +305,15 @@ export async function ServicePageLayout({
               />
             )}
 
+            {heroNotice && (
+              <ReadableText
+                text={heroNotice}
+                className="mt-5 max-w-[68ch] rounded-2xl border border-white/18 border-l-4 border-l-primary/75 bg-black/50 px-4 py-3 text-body-compact font-medium leading-7 text-white shadow-[0_16px_34px_rgba(0,0,0,0.3)] backdrop-blur-sm md:mt-7"
+              />
+            )}
+
             {resolvedHeroActions.length > 0 && (
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-7">
                 {resolvedHeroActions.map((action, index) => (
                   <div key={`${action.href}-${action.label}`} className="contents">
                     {renderAction(
@@ -279,15 +326,14 @@ export async function ServicePageLayout({
                 )}
               </div>
             )}
-
-            <ul className="mt-5 grid min-w-0 gap-3 sm:grid-cols-2 md:mt-8">
+            <ul className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2 md:mt-7">
               {benefits.map((benefit) => (
                 <li
                   key={benefit}
                   className={
                     benefitsSingleLine
-                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-3 py-2.5 text-[0.8125rem] leading-snug text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
-                      : "flex items-start gap-3 rounded-2xl border border-white/14 bg-black/32 px-4 py-3 text-body-compact text-white shadow-[0_12px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm"
+                      ? "flex min-w-0 items-start gap-3 rounded-2xl border border-white/20 bg-black/55 px-3 py-2.5 text-[0.8125rem] leading-snug text-white shadow-[0_18px_42px_rgba(0,0,0,0.36)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-3 sm:text-body-compact sm:leading-normal"
+                      : "flex items-start gap-3 rounded-2xl border border-white/20 bg-black/55 px-4 py-3 text-body-compact text-white shadow-[0_18px_42px_rgba(0,0,0,0.36)] backdrop-blur-sm"
                   }
                 >
                   <CheckCircle
@@ -312,19 +358,13 @@ export async function ServicePageLayout({
               ))}
             </ul>
 
-            {contactNote && (
-              <ReadableText
-                text={contactNote}
-                className="mt-4 max-w-[72ch] text-sm leading-7 text-white/72"
-              />
-            )}
           </div>
         </div>
       </section>
 
       <section className="bg-card py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <h2 className="mb-12 max-w-[20ch] text-heading-fluid font-semibold text-foreground">
+          <h2 className="mb-12 max-w-[34ch] text-heading-fluid font-semibold text-foreground">
             {t.servicesTitle}
           </h2>
 
@@ -351,12 +391,66 @@ export async function ServicePageLayout({
               </div>
             ))}
           </div>
+
+          {serviceNote && (
+            <div className="mt-5 rounded-[1.6rem] border border-border/60 border-l-4 border-l-primary/75 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.05)] sm:p-7">
+              <div>
+                <div className="mb-4 h-1.5 w-12 rounded-full bg-primary/70" />
+                <h3 className="text-card-heading-fluid text-foreground">
+                  {serviceNote.title}
+                </h3>
+              </div>
+              <ReadableText
+                text={serviceNote.description}
+                className="mt-3 max-w-[76ch] text-body-compact text-foreground/78"
+              />
+            </div>
+          )}
         </div>
       </section>
 
+      {detailSections && detailSections.length > 0 && (
+        <section className="bg-background py-16 lg:py-24">
+          <div className="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-2 lg:px-8">
+            {detailSections.map((section) => (
+              <div
+                key={section.title}
+                className="rounded-[1.6rem] border border-border/55 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.05)] sm:p-7"
+              >
+                <h2 className="max-w-[30ch] text-[clamp(1.75rem,2vw,2.35rem)] font-semibold leading-[1.12] text-foreground">
+                  {section.title}
+                </h2>
+                {section.description && (
+                  <ReadableText
+                    text={section.description}
+                    className="mt-4 max-w-[58ch] text-body-compact text-foreground/78"
+                  />
+                )}
+                <div className="mt-6 space-y-4">
+                  {section.items.map((item) => (
+                    <div key={item.title} className="flex gap-3">
+                      <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                      <div>
+                        <h3 className="text-[1rem] font-semibold leading-6 text-foreground">
+                          {item.title}
+                        </h3>
+                        <ReadableText
+                          text={item.description}
+                          className="mt-1 max-w-[54ch] text-body-compact leading-6 text-foreground/76"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section id={inquiryId} className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16">
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:gap-16">
             <div>
               <h2 className="measure-heading text-heading-fluid font-semibold text-foreground">
                 {t.whyTitle}
@@ -401,6 +495,7 @@ export async function ServicePageLayout({
                 serviceName={serviceName}
                 serviceTitle={formTitle}
                 fields={formFields}
+                textOverrides={formTextOverrides}
               />
             </div>
           </div>
@@ -443,7 +538,12 @@ export async function ServicePageLayout({
         </section>
       )}
 
-      <CtaSection locale={locale} actions={resolvedBottomActions} note={contactNote} />
+      <CtaSection
+        locale={locale}
+        actions={resolvedBottomActions}
+        title={ctaTitle}
+        description={ctaDescription}
+      />
     </main>
   )
 }

@@ -81,7 +81,7 @@ export function HeaderMobileMenu({
         <Button
           variant="ghost"
           size="icon"
-          className="h-10 w-10 rounded-full border border-border/80 bg-card text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent lg:hidden"
+          className="h-10 w-10 rounded-full border border-border/80 bg-card text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent xl:hidden"
         >
           <Menu className="h-5 w-5" />
           <span className="sr-only">{labels.openMenu}</span>

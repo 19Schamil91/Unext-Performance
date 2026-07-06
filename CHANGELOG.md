@@ -2,6 +2,35 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-06
+
+### Website
+
+- Die deutsche Unterseite `/leistungen/unfallgutachten` wurde kompakter und conversionstärker auf `KFZ-Unfallgutachten Berlin` ausgerichtet.
+- Hero, Kostenhinweis, DESAG-Trust, Entscheidungskarten, Detailbereiche, Ablauf, FAQ, Formular und Abschluss-CTA wurden sprachlich geschärft.
+- Die Entscheidungskarten wurden auf drei starke Fälle reduziert und um einen breiten Hinweis zur freien Gutachterwahl ergänzt; die doppelte Hero-Aussage zur Gutachterwahl wurde entfernt.
+- Die Detailbereiche `Was enthält das Unfallgutachten?` und `Welche Unterlagen helfen?` werden ab Tablet zweispaltig dargestellt.
+- Der Kostenhinweis steht im Hero vor den CTAs, die Hero-Trust-Karten wurden auf zwei stärkere Aussagen reduziert, kompakter dargestellt und stärker vom Bild abgesetzt; Abschnittsüberschriften erhielten mehr Breite, die FAQ wurde auf fünf Fragen erweitert.
+- Der finale visuelle Feinschliff verbessert die Freie Gutachterwahl-Infobox, hält die Überschrift einzeilig, stapelt Header/Formular bei 1024px sauberer und reduziert Detail-Headlines innerhalb von Karten auf eine ruhigere Größe.
+- Im letzten Sprach- und Typografie-Feinschliff wurden Hero-Text, Versicherungskarte, Gutachterwahl-Hinweis, Detailtexte, Formular-Subline, Ablauf-Schritt 4 und Abschluss-CTA geschärft; der DESAG-Hero-Badge wurde auf eine neutrale Formulierung zurückgenommen und rote Hinweise wurden ruhiger als Trust-Cards gestaltet.
+
+### Checks
+
+- `git diff --check` bestanden.
+- `npm run lint` bestanden.
+- `npx tsc --noEmit` bestanden.
+- `npm run build` bestanden.
+- Neue Fullpage-Screenshots für Mobile, Tablet und Desktop wurden erstellt.
+
+### Nicht geändert
+
+- Keine EN/RU-Texte.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine Routen.
+- Keine Assets.
+- Keine Upload-/Supabase-/KI-/Admin-/Portal-Funktionen.
+- Kein Commit, kein Push und kein PR.
+
 ## 2026-07-04
 
 ### Workflow

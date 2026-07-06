@@ -25,6 +25,7 @@ type ServiceInquiryFormProps = {
   serviceName: string
   serviceTitle: string
   fields?: ServiceInquiryFields
+  textOverrides?: ServiceInquiryTextOverrides
 }
 
 export type ServiceInquiryFields = {
@@ -33,16 +34,28 @@ export type ServiceInquiryFields = {
   subject?: boolean
 }
 
+export type ServiceInquiryTextOverrides = Partial<{
+  description: string
+  successText: string
+  vehicle: string
+  vehiclePlaceholder: string
+  date: string
+  message: string
+  messagePlaceholder: string
+  submit: string
+}>
+
 export function ServiceInquiryForm({
   locale,
   serviceName,
   serviceTitle,
   fields = { vehicle: true, date: true, subject: false },
+  textOverrides,
 }: ServiceInquiryFormProps) {
   // Dieser Wert enthaelt die Server-Antwort nach dem Absenden der Anfrage.
   const [formState, formAction] = useActionState(sendServiceInquiry, initialContactActionState)
   const pathname = usePathname()
-  const t = getTranslations(locale).serviceDetail.form
+  const t = { ...getTranslations(locale).serviceDetail.form, ...textOverrides }
   const privacyHref = getLocalizedPath(locale, "/datenschutz")
 
   // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
