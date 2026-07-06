@@ -2,6 +2,18 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-07
+
+### Workflow
+
+- Aufgabe 043 wurde nach Umsetzung, Checks und visueller Prüfung auf `wartet auf Review` gesetzt.
+- Die Akzeptanzkriterien in `workflow/active/043-rework-accident-appraisal-page.md` wurden vom ursprünglichen Start-/Inventurstand auf den tatsächlichen Umsetzungs- und Reviewstand aktualisiert.
+- Die Roadmap wurde aktualisiert: 043 ist reviewbereit, nächster fachlicher Schritt nach Review/PR ist 044 für `/leistungen`.
+
+### Status
+
+- Kein Push und kein PR.
+- Nächster Schritt ist die finale PR-Vorbereitung für 043.
 ## 2026-07-06
 
 ### Website
@@ -25,12 +37,12 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Nicht geändert
 
-- Keine EN/RU-Texte.
+- Keine EN/RU-Inhalte der Unfallgutachten-Seite; die globalen Footer-Social-Links wurden auf ausdrückliche Freigabe entfernt.
 - Keine SEO-/Metadata-/Structured-Data-Dateien.
 - Keine Routen.
 - Keine Assets.
 - Keine Upload-/Supabase-/KI-/Admin-/Portal-Funktionen.
-- Kein Commit, kein Push und kein PR.
+- Commits wurden erstellt; kein Push und kein PR.
 
 ## 2026-07-04
 
@@ -63,7 +75,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Nicht geändert
 
-- Keine EN/RU-Texte.
+- Keine EN/RU-Inhalte der Unfallgutachten-Seite; die globalen Footer-Social-Links wurden auf ausdrückliche Freigabe entfernt.
 - Keine SEO-/Metadata-/Structured-Data-Dateien.
 - Keine Routen.
 - Keine Upload-/Supabase-/KI-/Portal-Funktionen.
@@ -89,7 +101,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Keine Website-Code-Dateien.
 - Keine Routen, Redirects, `noindex`-Regeln oder 404-/410-Umstellungen.
 - Keine SEO-/Metadata-/Structured-Data-Dateien.
-- Keine EN/RU-Texte.
+- Keine EN/RU-Inhalte der Unfallgutachten-Seite; die globalen Footer-Social-Links wurden auf ausdrückliche Freigabe entfernt.
 - Keine Assets.
 - Keine Folgeaufgaben 032, 042, 043 oder 044 gestartet.
 
@@ -134,7 +146,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Resend-/E-Mail-Versandlogik blieb unverändert.
 - `lib/contactActions.ts` blieb unverändert.
 - Keine SEO-/Metadata-/Structured-Data-Umsetzung.
-- Keine EN/RU-Texte.
+- Keine EN/RU-Inhalte der Unfallgutachten-Seite; die globalen Footer-Social-Links wurden auf ausdrückliche Freigabe entfernt.
 - Keine Assets, PDFs oder Zertifikate hinzugefügt.
 
 ## 2026-06-30

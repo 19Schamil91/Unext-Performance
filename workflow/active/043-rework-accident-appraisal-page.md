@@ -150,17 +150,27 @@ lib/
 ## Akzeptanzkriterien
 
 - 043 liegt in `workflow/active/`.
-- 043 hat `Status: in Arbeit`.
+- 043 hat `Status: wartet auf Review`.
 - Die bestehende Route `/leistungen/unfallgutachten` wurde inventarisiert.
-- Betroffene Dateien/Komponenten wurden identifiziert.
-- Es ist klar dokumentiert, welche Inhalte der Seite später überarbeitet werden müssen.
-- Es ist klar dokumentiert, welche Änderungen nicht zu 043 gehören.
+- Betroffene Dateien, Komponenten, deutsche Texte, Bilder, CTAs und Layoutbereiche wurden identifiziert.
+- Die deutsche Seite `/leistungen/unfallgutachten` wurde kompakt und hochwertig auf `KFZ-Unfallgutachten Berlin` ausgerichtet.
+- Die Seite erklärt verständlich, wann ein Unfallgutachten sinnvoll ist, was dokumentiert wird, welche Unterlagen helfen und wie der Ablauf funktioniert.
+- Hero, Kostenhinweis, Trust-Hinweise, Gutachterwahl, Detailbereiche, Ablauf, FAQ, Formular und Abschluss-CTA wurden geprüft und überarbeitet.
+- Die Seite bleibt eine Detailseite zur Hauptleistung und ist keine Kopie der Startseite.
+- Die Seite verwendet keine harten Aussagen wie `kostenlos`, `garantiert`, `rechtssicher`, `gerichtsfest` oder `Versicherung zahlt immer`.
+- Upload, Supabase, Portal, KI, Admin oder Datenbankfunktionen werden nicht als live dargestellt und wurden nicht technisch ergänzt.
+- Keine neuen Routen wurden erstellt und keine bestehenden Routen gelöscht oder redirectet.
+- Keine Assets wurden hinzugefügt.
+- Keine SEO-/Metadata-/Structured-Data-Dateien, Sitemap, Robots, Canonicals oder Hreflang wurden geändert.
+- Keine EN/RU-Inhalte der Unfallgutachten-Seite wurden überarbeitet.
+- Die globalen Footer-Instagram-Links wurden auf ausdrückliche Freigabe entfernt und im Changelog dokumentiert.
 - 032 wurde nicht gestartet.
 - 029 wurde nicht gestartet.
 - 026 wurde nicht gestartet.
-- Keine Code-Umsetzung im Startschritt.
-- Keine EN/RU-, SEO-, Routen-, Upload-, Supabase-, KI- oder Portal-Änderungen im Startschritt.
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` wurden erfolgreich ausgeführt.
+- Finale Fullpage-Screenshots für Mobile, Tablet und Desktop wurden erstellt.
+- Umsetzung ist committed, aber noch nicht gepusht und es wurde noch kein PR erstellt.
 
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review
