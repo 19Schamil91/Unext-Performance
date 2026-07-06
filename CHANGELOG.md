@@ -13,6 +13,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Der Kostenhinweis steht im Hero vor den CTAs, die Hero-Trust-Karten wurden auf zwei stärkere Aussagen reduziert, kompakter dargestellt und stärker vom Bild abgesetzt; Abschnittsüberschriften erhielten mehr Breite, die FAQ wurde auf fünf Fragen erweitert.
 - Der finale visuelle Feinschliff verbessert die Freie Gutachterwahl-Infobox, hält die Überschrift einzeilig, stapelt Header/Formular bei 1024px sauberer und reduziert Detail-Headlines innerhalb von Karten auf eine ruhigere Größe.
 - Im letzten Sprach- und Typografie-Feinschliff wurden Hero-Text, Versicherungskarte, Gutachterwahl-Hinweis, Detailtexte, Formular-Subline, Ablauf-Schritt 4 und Abschluss-CTA geschärft; der DESAG-Hero-Badge wurde auf eine neutrale Formulierung zurückgenommen und rote Hinweise wurden ruhiger als Trust-Cards gestaltet.
+- Die zwei Instagram-Verlinkungen wurden aus dem globalen Footer entfernt; der Footer zeigt dort nur noch die direkten Kontaktwege und Seitenlinks.
 
 ### Checks
 
