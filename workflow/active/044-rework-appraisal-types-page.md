@@ -21,13 +21,27 @@ Die Navigation zeigt bereits `Gutachtenarten`, verweist technisch aber auf `/lei
 Geplante Reihenfolge:
 
 ```text
-044: /leistungen als Gutachtenarten-/Weitere-Gutachten-Seite klären/umbauen
-032: i18n Launch Scope DE/EN/RU
-029: SEO/Metadata/Structured Data
+044: /leistungen zu Gutachtenarten-Seite umbauen
+045: Fahrzeugbewertung-Unterseite hochwertig ausbauen
+046: Schadendokumentation-Unterseite hochwertig ausbauen
+047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken
+032: i18n Launch Scope
+029: SEO / Metadata / Structured Data
 026: Cleanup alter Legacy-Seiten
+033: Launch Quality Check
+034: Deployment Launch Gate
+035: Post-Launch Monitoring
 ```
 
-Nicht gestartet werden in dieser Aufgabe: 032, 029 und 026.
+Spätere Ausbaustufen bleiben:
+
+```text
+022: Supabase Damage Upload
+023: KI-Voranalyse
+024: Customer Portal/Web-App später
+```
+
+Nicht gestartet werden in dieser Aufgabe: 032, 029, 026, 033, 034, 035 sowie die späteren Ausbaustufen 022, 023 und 024.
 
 ## Aktueller Stand
 
@@ -57,6 +71,24 @@ Die Seite soll:
 - alte Service-Bezüge wie Autovermietung, Werkstatt, Detailing, Zulassung, Abschlepp- oder Pannenhilfe entfernen, soweit sie auf `/leistungen` sichtbar sind.
 - klar zur passenden Detailseite oder Kontaktaufnahme führen, soweit vorhandene Routen und Kontaktwege freigegeben sind.
 - kompakt bleiben und nicht als überladene Fachtext-Seite aufgebaut werden.
+
+Fachliche Folgeentscheidung:
+
+- Die Frage, ob Fahrzeugbewertung und Schadendokumentation eigene Unterseiten bekommen, ist entschieden.
+- Es gibt keinen separaten Entscheidungs-Task dafür.
+- Fahrzeugbewertung und Schadendokumentation werden nach 044 als eigene Unterseiten in 045 und 046 hochwertig ausgebaut.
+- 044 bereitet diese beiden Gutachtenarten inhaltlich und navigationslogisch vor, erstellt aber keine neuen Unterseiten und keine neuen Routen.
+- Unfallgutachten verlinkt auf die bereits überarbeitete Seite `/leistungen/unfallgutachten`.
+- Fahrzeugbewertung und Schadendokumentation dürfen in 044 nicht auf nicht vorhandene Detailseiten zeigen.
+- Solange die Unterseiten noch nicht existieren, dürfen die Karten vorläufig auf Abschnitte innerhalb `/leistungen` oder auf Kontakt/Anfrage führen.
+- Die Links auf echte Unterseiten werden später in 045 und 046 angepasst.
+
+Metadata-Grenze:
+
+- `servicesPage.title` und `servicesPage.description` können Metadata indirekt berühren.
+- Sichtbare deutsche Textänderungen in 044 dürfen erfolgen, auch wenn sie diese gemeinsame Textquelle betreffen.
+- Mögliche indirekte Metadata-Auswirkungen müssen vor der Umsetzung bewusst geprüft und im Abschluss dokumentiert werden.
+- 044 wird dadurch keine SEO-/Metadata-Aufgabe; finale SEO-, Metadata-, Structured-Data-, Sitemap-, Robots-, Canonical- und Hreflang-Arbeit bleibt bei 029.
 
 ## Zu prüfende Dateien/Routen
 
@@ -102,9 +134,15 @@ lib/
 - Upload-, Supabase-, KI-, Admin- oder Portal-Funktionen ergänzen.
 - Upload, Supabase, KI, Admin oder Portal als live darstellen.
 - Unterseiten für Fahrzeugbewertung oder Schadendokumentation erstellen.
+- Aufgabe 045 starten oder eine Fahrzeugbewertung-Unterseite umsetzen.
+- Aufgabe 046 starten oder eine Schadendokumentation-Unterseite umsetzen.
+- Aufgabe 047 starten oder die Über-uns-Seite erneut umbauen.
 - Aufgabe 032 starten.
 - Aufgabe 029 starten.
 - Aufgabe 026 starten.
+- Aufgabe 033 starten.
+- Aufgabe 034 starten.
+- Aufgabe 035 starten.
 
 ## Vorgehen
 
@@ -130,6 +168,9 @@ lib/
 - Keine Code-Umsetzung im Startschritt.
 - Keine EN/RU-, SEO-, Routen-, Redirect-, Upload-, Supabase-, KI-, Admin- oder Portal-Änderungen im Startschritt.
 - Keine neuen Routen oder Unterseiten im Startschritt.
+- Keine 045-, 046- oder 047-Dateien im Startschritt.
+- 033, 034 und 035 bleiben als bestehende Launch-Aufgaben in `workflow/todo/`.
+- 022, 023 und 024 bleiben spätere Ausbaustufen und werden in 044 nicht gestartet.
 
 ## Status
 
