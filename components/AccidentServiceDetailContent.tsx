@@ -1,7 +1,7 @@
 /*
-  Diese Datei zeigt den Inhalt der Detailseite fuer Unfallhilfe & Gutachten.
-  Sie zeigt den Leistungsbereich mit Einleitung, Vorteilen, Servicekarten, Gruenden, Fragen und dem Anfrageformular in der gewaehlten Sprache.
-  Besucher koennen die Inhalte lesen und direkt Kontakt per Telefon, WhatsApp oder Formular aufnehmen.
+  Diese Datei zeigt die Detailseite für Unfallgutachten.
+  Besucher sehen eine kompakte Orientierung nach einem Unfall, die Schadenaufnahme, hilfreiche Unterlagen, den Ablauf und das Anfrageformular.
+  Sie können direkt per Telefon, WhatsApp oder Formular Kontakt aufnehmen.
 */
 import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
@@ -15,18 +15,48 @@ type AccidentServiceDetailContentProps = {
   locale: Locale
 }
 
+type AccidentServicePageExtras = {
+  imageAlt?: string
+  heroNotice?: string
+  serviceNote?: { title: string; description: string }
+  detailSections?: readonly {
+    title: string
+    description?: string
+    items: readonly { title: string; description: string }[]
+  }[]
+  layoutLabels?: Partial<{
+    backToServices: string
+    servicesTitle: string
+    whyTitle: string
+    whyDescription: string
+    faqTitle: string
+    contactCta: string
+  }>
+  ctaTitle?: string
+  ctaDescription?: string
+  formTextOverrides?: Partial<{
+    description: string
+    successText: string
+    vehicle: string
+    vehiclePlaceholder: string
+    date: string
+    message: string
+    messagePlaceholder: string
+    submit: string
+  }>
+}
+
 const accidentTitleLines = {
-  de: ["Unfallhilfe & Gutachten"],
+  de: ["Unfallgutachten Berlin"],
   en: ["Accident Help & Reports"],
   ru: ["Экспертиза", "ДТП и срочная", "помощь"],
 } satisfies Record<Locale, readonly string[]>
 
 const accidentDescriptionLines = {
   de: [
-    "Nach einem Unfall nehmen wir Ihnen die Last ab.",
-    "Zertifizierte Gutachter erstellen unabhängige Kfz-Gutachten",
-    "und unterstützen Sie bei der Schadensabwicklung.",
-    "Schnell, professionell und fair.",
+    "Nach einem Unfall brauchen Sie schnell Klarheit:",
+    "Was ist beschädigt, welche Kosten entstehen und wie geht es mit Versicherung, Werkstatt oder Anwalt weiter?",
+    "UNEXT dokumentiert Fahrzeugschäden sachlich, nachvollziehbar und unabhängig.",
   ],
   en: [
     "An accident is always stressful. We take the burden off your shoulders:",
@@ -54,6 +84,28 @@ const accidentWhyTitleLineBreaks = {
   ru: {},
 } satisfies Record<Locale, Record<string, readonly string[]>>
 
+const germanHeroActions = [
+  { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
+  {
+    label: "WhatsApp schreiben",
+    href: "https://wa.me/4917664365185",
+    icon: "message" as const,
+    external: true,
+  },
+  { label: "Anfrage senden", href: "#unfallgutachten-anfrage" },
+] as const
+
+const germanBottomActions = [
+  { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
+  {
+    label: "WhatsApp schreiben",
+    href: "https://wa.me/4917664365185",
+    icon: "message" as const,
+    external: true,
+  },
+  { label: "Anfrage senden", href: "#unfallgutachten-anfrage" },
+] as const
+
 export function getAccidentServiceMetadata(locale: Locale): Metadata {
   const t = getTranslations(locale).serviceDetail.pages.accident
 
@@ -67,22 +119,36 @@ export function getAccidentServiceMetadata(locale: Locale): Metadata {
 
 export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailContentProps) {
   const t = getTranslations(locale).serviceDetail.pages.accident
+  const isGerman = locale === "de"
+  const page = t as typeof t & AccidentServicePageExtras
   const afterLayout = (
     <ServicePageLayout
       locale={locale}
       title={t.title}
       subtitle={t.subtitle}
-      badge={t.badge}
+      badge={isGerman ? undefined : t.badge}
       description={t.description}
-      image="/images/home-service-accident.webp"
-      imageClassName="object-cover object-[center_top]"
-      phone="0176 64365185"
+      image={isGerman ? "/images/services/unfallgutachten-berlin.webp" : "/images/home-service-accident.webp"}
+      imageAlt={isGerman ? page.imageAlt : undefined}
+      imageClassName={isGerman ? "object-cover object-[center_center]" : "object-cover object-[center_top]"}
+      phone={isGerman ? undefined : "0176 64365185"}
+      heroActions={isGerman ? germanHeroActions : undefined}
+      bottomActions={isGerman ? germanBottomActions : undefined}
+      heroNotice={isGerman ? page.heroNotice : undefined}
+      serviceNote={isGerman ? page.serviceNote : undefined}
+      backLinkHref={isGerman ? getLocalizedPath(locale, "/") : undefined}
+      detailSections={isGerman ? page.detailSections : undefined}
+      layoutLabels={isGerman ? page.layoutLabels : undefined}
       benefits={t.benefits}
       services={t.services}
       whyChoose={t.whyChoose}
       faqs={t.faqs}
       formTitle={t.formTitle}
+      ctaTitle={isGerman ? page.ctaTitle : undefined}
+      ctaDescription={isGerman ? page.ctaDescription : undefined}
+      formTextOverrides={isGerman ? page.formTextOverrides : undefined}
       serviceName="unfallgutachten"
+      benefitsSingleLine={isGerman}
       balancedTypography
       titleLines={accidentTitleLines[locale]}
       descriptionLines={accidentDescriptionLines[locale]}

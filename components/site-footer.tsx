@@ -1,11 +1,11 @@
 /*
   Diese Datei definiert den Fussbereich der Website mit kompakten Kontakt- und Navigationslinks.
-  Sie zeigt Logo, Standort, zentrale Kontaktwege, Social Links und die wichtigsten Seitenlinks.
-  Nutzer koennen von hier schnell anrufen, mailen, Social Media oeffnen oder zu wichtigen Seiten springen.
+  Sie zeigt Logo, Standort, zentrale Kontaktwege und die wichtigsten Seitenlinks.
+  Nutzer koennen von hier schnell anrufen, mailen oder zu wichtigen Seiten springen.
 */
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
@@ -84,21 +84,6 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
                 >
                   <item.icon className="h-4 w-4 shrink-0 text-primary" />
                   <span>{item.label}</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-1.5 lg:justify-end">
-              {t.footer.socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-9 items-center gap-2 rounded-full border border-border/60 bg-background/40 px-3 text-sm text-foreground/72 transition-colors hover:border-primary/35 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <Instagram className="h-4 w-4" />
-                  <span>{item.name}</span>
                 </a>
               ))}
             </div>
