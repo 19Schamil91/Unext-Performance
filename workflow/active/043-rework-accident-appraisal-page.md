@@ -62,6 +62,12 @@ Begriffslogik:
 - `Beweissicherung` darf vorsichtig ergänzend verwendet werden, soll aber nicht als harte oder übertriebene Hauptaussage dominieren.
 - `Fahrzeugbewertung` und `Wertgutachten` bleiben ergänzende Themen und dürfen nicht künstlich mit Unfallgutachten gleichgestellt werden.
 
+Planungszusatz vor der Umsetzung:
+
+- Metadata-Grenze: Für die spätere Umsetzung wird zunächst Option B vorgemerkt. Sichtbare deutsche Textänderungen in der gemeinsamen Textquelle dürfen in 043 erfolgen, auch wenn `title` oder `description` indirekt Metadata berühren. Diese Auswirkung muss vor der Umsetzung bewusst geprüft und im Abschluss dokumentiert werden. 043 wird dadurch keine SEO-/Metadata-Aufgabe; finale SEO-, Structured-Data-, Sitemap-, Robots-, Canonical- und Hreflang-Arbeit bleibt bei 029.
+- Layout-Grenze: Das bestehende `service-page-layout.tsx` soll bevorzugt weiterverwendet werden. Keine globale Layout-Refaktorierung in 043. Falls Anpassungen nötig sind, sollen sie möglichst seitenbezogen, deutsch und eng auf `/leistungen/unfallgutachten` begrenzt bleiben.
+- Textumfang: Der Seitenvorschlag soll bewusst kompakt bleiben. Ziel ist eine hochwertige, mobile gut scannbare Detailseite mit kurzen Absätzen, klaren Karten/Punkten und ohne überladene Fachtext-Wand.
+
 ## Zu prüfende Dateien/Routen
 
 Im Inventurschritt sind mindestens zu prüfen:
