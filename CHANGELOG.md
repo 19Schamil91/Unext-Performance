@@ -6,9 +6,9 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ### Workflow
 
-- Aufgabe 043 wurde nach Umsetzung, Checks und visueller Prüfung auf `wartet auf Review` gesetzt.
+- Aufgabe 043 wurde nach Umsetzung, Checks, PR-Merge und Freigabe nach `workflow/done/` verschoben.
 - Die Akzeptanzkriterien in `workflow/active/043-rework-accident-appraisal-page.md` wurden vom ursprünglichen Start-/Inventurstand auf den tatsächlichen Umsetzungs- und Reviewstand aktualisiert.
-- Die Roadmap wurde aktualisiert: 043 ist reviewbereit, nächster fachlicher Schritt nach Review/PR ist 044 für `/leistungen`.
+- Die Roadmap wurde aktualisiert: 043 ist abgeschlossen, nächster fachlicher Schritt ist 044 für `/leistungen`.
 
 ### Status
 
