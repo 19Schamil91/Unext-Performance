@@ -93,6 +93,8 @@ Bis 045 abgeschlossen ist:
 - bestehender Startseitenanker darf vorläufig erhalten bleiben.
 - keine irreführende direkte Unterseiten-Verlinkung.
 - Aufgabe 045 richtet anschließend Header-Dropdown und Startseitenkarte auf die echte Unterseite aus.
+- Der aktuelle Karten-CTA bleibt bis dahin bewusst `Bewertung anfragen`, weil noch keine echte Unterseite existiert.
+- Sobald die echte Unterseite in 045 existiert, soll der Karten-CTA auf `Zur Fahrzeugbewertung` geändert werden.
 
 Später bevorzugter Karten-CTA:
 
@@ -110,6 +112,8 @@ Bis 046 abgeschlossen ist:
 - bestehender Startseitenanker darf vorläufig erhalten bleiben.
 - keine irreführende direkte Unterseiten-Verlinkung.
 - Aufgabe 046 richtet anschließend Header-Dropdown und Startseitenkarte auf die echte Unterseite aus.
+- Der aktuelle Karten-CTA bleibt bis dahin bewusst `Dokumentation anfragen`, weil noch keine echte Unterseite existiert.
+- Sobald die echte Unterseite in 046 existiert, soll der Karten-CTA auf `Zur Schadendokumentation` geändert werden.
 
 Später bevorzugter Karten-CTA:
 

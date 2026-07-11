@@ -19,8 +19,9 @@ type HeaderMobileMenuProps = {
   homeHref: string
   contactHref: string
   servicesHref: string
+  showServicesOverviewLink?: boolean
   pageNavigation: readonly { name: string; href: string }[]
-  serviceNavigation: { name: string; href: string; children: readonly { name: string; href: string }[] } | null
+  serviceNavigation: { name: string; children: readonly { name: string; href: string }[] } | null
   languages: readonly { code: Locale; name: string }[]
   localizedPagePaths: readonly string[]
   labels: {
@@ -39,6 +40,7 @@ export function HeaderMobileMenu({
   homeHref,
   contactHref,
   servicesHref,
+  showServicesOverviewLink = true,
   pageNavigation,
   serviceNavigation,
   languages,
@@ -180,14 +182,16 @@ export function HeaderMobileMenu({
                 {labels.servicesTitle}
               </p>
               <div className="rounded-[1.35rem] border border-border/60 bg-background/50 p-2">
-                <Link
-                  href={servicesHref}
-                  onClick={closeMobileMenu}
-                  className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-semibold leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <span className="min-w-0 [text-wrap:balance]">{serviceNavigation.name}</span>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                </Link>
+                {showServicesOverviewLink ? (
+                  <Link
+                    href={servicesHref}
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-semibold leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <span className="min-w-0 [text-wrap:balance]">{serviceNavigation.name}</span>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  </Link>
+                ) : null}
                 {serviceNavigation.children.map((child) => (
                   <Link
                     key={child.name}
