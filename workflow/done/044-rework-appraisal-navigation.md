@@ -199,8 +199,8 @@ lib/translations/home-overrides.ts
 
 ## Akzeptanzkriterien
 
-- 044 liegt in `workflow/active/`.
-- 044 hat `Status: in Arbeit`.
+- 044 liegt in `workflow/done/`.
+- 044 hat `Status: abgeschlossen`.
 - Der deutsche Headerpunkt `Gutachtenarten` ist als reiner Dropdown-Trigger dokumentiert.
 - `Gutachtenarten` verlinkt nicht auf `/leistungen`.
 - Es gibt keinen sichtbaren Eintrag `Alle Gutachtenarten`.
@@ -217,6 +217,15 @@ lib/translations/home-overrides.ts
 - Aufgaben 045 und 046 bleiben noch ungestartet.
 - 032, 029, 026, 033, 034 und 035 bleiben ungestartet.
 
+## Abschlussnotiz
+
+- Akzeptanzkriterien bestanden.
+- Navigation und direkte Einstiege umgesetzt.
+- Mobile-Menü-Accessibility-Issues mit `SheetTitle` und `SheetDescription` behoben.
+- `/leistungen` wurde nicht umgebaut.
+- Übergangslinks für Fahrzeugbewertung und Schadendokumentation werden in 045/046 durch echte Unterseiten ersetzt.
+- Next-Image-Quality-Warnungen zu `88` und `74` bleiben für 033 beziehungsweise Launch-/Performance-QA offen.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
