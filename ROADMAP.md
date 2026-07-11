@@ -64,9 +64,37 @@ Erst nach dem abgeschlossenen Routing-Plan aus 030, den Klärungen aus 031 und d
 
 Status: in Arbeit
 
-Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`, Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`, Aufgabe 041 `V1-Seitenstruktur und Routen-Scope vor i18n festlegen` und Aufgabe 042 `Startseite stärker auf Unfallgutachten ausrichten` sind abgeschlossen. Aufgabe 042 hat die Startseite auf `KFZ-Unfallgutachten Berlin` fokussiert, die Gutachtenkarten auf drei Bereiche reduziert und die Bildwelt im 042-Scope optimiert.
+Aufgabe 030 `Routing- und Redirect-Plan für alte Service-Routen`, Aufgabe 031 `Kontakt, Formular, Impressum, Datenschutz, AGB und Legal prüfen`, Aufgabe 041 `V1-Seitenstruktur und Routen-Scope vor i18n festlegen`, Aufgabe 042 `Startseite stärker auf Unfallgutachten ausrichten` und Aufgabe 043 `/leistungen/unfallgutachten` sind abgeschlossen.
 
-Aufgabe 043 `/leistungen/unfallgutachten` wurde umgesetzt, geprüft, gemerged und nach `workflow/done/` verschoben. Nächster fachlicher Schritt ist Aufgabe 044: `/leistungen` als Gutachtenarten-/Weitere-Gutachten-Seite klären und umbauen. Aufgabe 032 bleibt weiterhin nach den deutschen Seiten- und Routenentscheidungen eingeordnet.
+Die geplante sichtbare Gutachtenarten-Übersichtsseite `/leistungen` wird nicht gebaut. Grund: Die Startseite stellt `Unfallgutachten`, `Fahrzeugbewertung` und `Schadendokumentation` bereits ausreichend vor; eine zusätzliche Übersichtsseite würde Inhalte wiederholen und einen unnötigen Zwischenschritt erzeugen.
+
+Aufgabe 044 kümmert sich deshalb nicht mehr um einen sichtbaren Umbau von `/leistungen`, sondern um die deutsche Gutachtenarten-Navigation und direkte Einstiege: Startseitenkarten und Header-Dropdown führen Besucher direkt zur passenden Gutachtenart. `Gutachtenarten` ist ein Dropdown-Trigger, kein Link auf `/leistungen`.
+
+Die technische Behandlung von `/leistungen` bleibt offen und wird später bewusst in Aufgabe 029 beziehungsweise Aufgabe 026 entschieden. In 044 wird `/leistungen` weder gelöscht noch umgeleitet und nicht als fertige Gutachtenarten-Seite dargestellt.
+
+Die Folge-Reihenfolge lautet:
+
+```text
+044: Gutachtenarten-Navigation und direkte Einstiege
+045: Fahrzeugbewertung-Unterseite
+046: Schadendokumentation-Unterseite
+047: Über-uns Trust / Qualifikation / Zertifikat
+032: i18n Launch Scope
+029: SEO / Metadata / Structured Data und Routing-Entscheidungen
+026: Cleanup alter Legacy-Seiten
+033: Launch Quality Check
+034: Deployment Launch Gate
+035: Post-Launch Monitoring
+```
+
+Spätere Ausbaustufen bleiben:
+
+```text
+022: Supabase Damage Upload
+023: KI-Voranalyse
+024: Customer Portal/Web-App
+```
+
 ### 10. SEO, Metadata und Structured Data
 
 Status: geplant
@@ -77,7 +105,9 @@ Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/St
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach dem Abschluss von 043 ist als nächster fachlicher Schritt Aufgabe 044 für `/leistungen` sinnvoll. Danach bleiben 032, 029, 026, 033, 034 und 035 eingeordnet. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach Aufgabe 044 folgen die deutschen Detailseiten 045 und 046, danach Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Anschließend bleiben 032, 029, 026, 033, 034 und 035 eingeordnet.
+
+Die alte Route `/leistungen` wird nicht in 044 bereinigt. Ihre endgültige technische Behandlung, mögliche SEO-Einordnung und spätere Entfernung oder Umleitung bleiben den Aufgaben 029 und 026 vorbehalten. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 

@@ -2,6 +2,26 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-11
+
+### Planung
+
+- Aufgabe 044 wurde fachlich neu ausgerichtet: Der geplante Umbau von `/leistungen` zu einer sichtbaren Gutachtenarten-Landingpage wurde verworfen.
+- Grund ist die unnötige Dopplung zur Startseite und zu den späteren Detailseiten für Fahrzeugbewertung und Schadendokumentation.
+- Die direkte Nutzerführung erfolgt künftig über Header-Dropdown und Startseitenkarten.
+- `/leistungen` bleibt vorerst technisch bestehen, wird aber nicht aktiv als Gutachtenarten-Seite beworben.
+- Die endgültige Behandlung der Route erfolgt später in Aufgabe 029 beziehungsweise Aufgabe 026.
+- Es wurden keine neuen Unterseiten oder Routen erstellt.
+- Aufgabe 044 bleibt in Arbeit; die konkrete Navigation-/Link-Umsetzung erfolgt erst nach erneuter Freigabe.
+
+### Nicht geändert
+
+- Keine Website-Code-Umsetzung.
+- Keine EN/RU-Inhalte.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine Routen, Redirects oder Assets.
+- Keine Upload-/Supabase-/KI-/Admin-/Portal-Funktionen.
+
 ## 2026-07-07
 
 ### Workflow
