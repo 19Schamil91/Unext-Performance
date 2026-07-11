@@ -55,6 +55,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const homeHref = getLocalizedPath(locale, "/")
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const servicesHref = getLocalizedPath(locale, "/leistungen")
+  const showServicesOverviewLink = locale !== "de"
   const navigation = t.header.navigation as readonly NavigationItem[]
   const pageNavigation = navigation.filter((item) => !item.children)
   const serviceNavigation = navigation.find((item) => item.children)
@@ -109,6 +110,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 key={item.name}
                 name={resolvedServiceNavigation.name}
                 href={resolvedServiceNavigation.href}
+                showOverviewLink={showServicesOverviewLink}
                 childrenItems={resolvedServiceNavigation.children}
               />
             ) : (
@@ -156,6 +158,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             homeHref={homeHref}
             contactHref={contactHref}
             servicesHref={servicesHref}
+            showServicesOverviewLink={showServicesOverviewLink}
             pageNavigation={resolvedPageNavigation}
             serviceNavigation={resolvedServiceNavigation}
             languages={languages}

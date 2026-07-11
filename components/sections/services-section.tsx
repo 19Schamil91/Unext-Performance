@@ -233,6 +233,11 @@ export function ServicesSection({ locale }: Props) {
           {t.items.map((service, index) => {
             const meta = resolvedServiceMeta[index] ?? resolvedServiceMeta[0]
             const contactText = meta.contactText ?? ""
+            const primaryCtaLabel = isGerman
+              ? ["Zum Unfallgutachten", "Bewertung anfragen", "Dokumentation anfragen"][index] ?? t.learnMore
+              : t.learnMore
+            const callCtaLabel = isGerman ? "Anrufen" : contactText
+            const callCtaAriaLabel = isGerman && contactText ? `Anrufen: ${contactText}` : undefined
 
             return (
               <Card
@@ -317,7 +322,7 @@ export function ServicesSection({ locale }: Props) {
                           }
                         >
                           <Link href={getLocalizedPath(locale, meta.href)}>
-                            {t.learnMore}
+                            {primaryCtaLabel}
                             <ArrowRight className="h-4 w-4" />
                           </Link>
                         </Button>
@@ -329,9 +334,9 @@ export function ServicesSection({ locale }: Props) {
                               size="sm"
                               className="group w-full gap-2 border-primary/45 bg-primary/14 font-semibold text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:!border-primary/60 hover:!bg-primary/16 hover:!text-foreground sm:ml-auto sm:w-auto"
                             >
-                              <a href={meta.contactHref}>
+                              <a href={meta.contactHref} aria-label={callCtaAriaLabel}>
                                 <Phone className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110" />
-                                <span className="transition-colors duration-300 group-hover:text-primary">{contactText}</span>
+                                <span className="transition-colors duration-300 group-hover:text-primary">{callCtaLabel}</span>
                               </a>
                             </Button>
                           </>

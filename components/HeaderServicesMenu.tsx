@@ -2,8 +2,8 @@
 
 /*
   Diese Datei zeigt das Leistungsmenue im Desktop-Kopfbereich.
-  Sie oeffnet eine Linkliste zu den Leistungen und schliesst sie bei Auswahl.
-  Nutzer koennen damit direkt zu einer Leistung oder zur Leistungsuebersicht wechseln.
+  Sie oeffnet eine Linkliste zu den Gutachtenarten und schliesst sie bei Auswahl.
+  Nutzer koennen damit direkt zu einer Gutachtenart wechseln.
 */
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
@@ -14,17 +14,18 @@ import { removeLocalePrefix } from "@/lib/i18n"
 type HeaderServicesMenuProps = {
   name: string
   href: string
+  showOverviewLink?: boolean
   childrenItems: readonly { name: string; href: string }[]
 }
 
-export function HeaderServicesMenu({ name, href, childrenItems }: HeaderServicesMenuProps) {
+export function HeaderServicesMenu({ name, href, showOverviewLink = true, childrenItems }: HeaderServicesMenuProps) {
   // Dieser Wert steuert, ob das Leistungsmenue sichtbar ist.
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
   const servicesMenuRef = useRef<HTMLDivElement | null>(null)
   // Dieser Wert markiert den Leistungsbereich im Header, wenn der Nutzer dort ist.
   const pathname = usePathname()
   const currentPath = removeLocalePrefix(pathname)
-  const isActive = currentPath === "/leistungen" || currentPath.startsWith("/leistungen/")
+  const isActive = currentPath.startsWith("/leistungen/")
 
   // Dieser Ablauf schliesst das Leistungsmenue bei Klick ausserhalb oder Escape.
   useEffect(() => {
@@ -72,13 +73,15 @@ export function HeaderServicesMenu({ name, href, childrenItems }: HeaderServices
 
       {servicesMenuOpen ? (
         <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-2xl border border-border/70 bg-popover/98 p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.2)]">
-          <Link
-            href={href}
-            className="block w-full rounded-lg px-3 py-2 text-sm font-semibold leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-            onClick={() => setServicesMenuOpen(false)}
-          >
-            {name}
-          </Link>
+          {showOverviewLink ? (
+            <Link
+              href={href}
+              className="block w-full rounded-lg px-3 py-2 text-sm font-semibold leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              onClick={() => setServicesMenuOpen(false)}
+            >
+              {name}
+            </Link>
+          ) : null}
           {childrenItems.map((child) => (
             <Link
               key={child.name}

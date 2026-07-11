@@ -11,7 +11,7 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { ChevronRight, Menu, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { getLocalizedPath, removeLocalePrefix, type Locale } from "@/lib/i18n"
 
 type HeaderMobileMenuProps = {
@@ -19,8 +19,9 @@ type HeaderMobileMenuProps = {
   homeHref: string
   contactHref: string
   servicesHref: string
+  showServicesOverviewLink?: boolean
   pageNavigation: readonly { name: string; href: string }[]
-  serviceNavigation: { name: string; href: string; children: readonly { name: string; href: string }[] } | null
+  serviceNavigation: { name: string; children: readonly { name: string; href: string }[] } | null
   languages: readonly { code: Locale; name: string }[]
   localizedPagePaths: readonly string[]
   labels: {
@@ -39,6 +40,7 @@ export function HeaderMobileMenu({
   homeHref,
   contactHref,
   servicesHref,
+  showServicesOverviewLink = true,
   pageNavigation,
   serviceNavigation,
   languages,
@@ -91,6 +93,10 @@ export function HeaderMobileMenu({
         side="right"
         className="w-[88vw] max-w-[20rem] overflow-y-auto border-l border-border/70 bg-card/98 px-3.5 pb-5 pt-4 shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur"
       >
+        <SheetTitle className="sr-only">{labels.openMenu}</SheetTitle>
+        <SheetDescription className="sr-only">
+          {`${labels.quickContact}, ${labels.navigationTitle}, ${labels.servicesTitle}, ${labels.languageTitle}`}
+        </SheetDescription>
         <div className="flex min-h-full flex-col gap-5 pt-2">
           <div className="rounded-[1.35rem] border border-border/60 bg-background/70 p-4 shadow-sm">
             <Link href={homeHref} onClick={closeMobileMenu} className="flex items-center">
@@ -180,14 +186,16 @@ export function HeaderMobileMenu({
                 {labels.servicesTitle}
               </p>
               <div className="rounded-[1.35rem] border border-border/60 bg-background/50 p-2">
-                <Link
-                  href={servicesHref}
-                  onClick={closeMobileMenu}
-                  className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-semibold leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  <span className="min-w-0 [text-wrap:balance]">{serviceNavigation.name}</span>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                </Link>
+                {showServicesOverviewLink ? (
+                  <Link
+                    href={servicesHref}
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between rounded-[1rem] px-3.5 py-3 text-sm font-semibold leading-5 text-foreground transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <span className="min-w-0 [text-wrap:balance]">{serviceNavigation.name}</span>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  </Link>
+                ) : null}
                 {serviceNavigation.children.map((child) => (
                   <Link
                     key={child.name}

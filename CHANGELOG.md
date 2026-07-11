@@ -2,6 +2,54 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-11
+
+### Workflow
+
+- Aufgabe 044 wurde nach bestandener Prüfung formal abgeschlossen und nach `workflow/done/` verschoben.
+- Nächster logischer Task ist `045: Fahrzeugbewertung-Unterseite hochwertig ausbauen`.
+
+### Website
+
+- Der deutsche Headerpunkt `Gutachtenarten` ist ein reiner Dropdown-Trigger und verlinkt nicht mehr auf `/leistungen`.
+- Es gibt keinen Eintrag `Alle Gutachtenarten`.
+- Das deutsche Dropdown enthält nur `Unfallgutachten`, `Fahrzeugbewertung` und `Schadendokumentation`.
+- `Unfallgutachten` führt auf die bestehende Detailseite `/leistungen/unfallgutachten`.
+- `Fahrzeugbewertung` und `Schadendokumentation` nutzen vorläufige Übergangslinks, bis 045 und 046 echte Unterseiten bereitstellen.
+- Die drei Startseitenkarten haben klare Hauptaktionen und kompakte `Anrufen`-Buttons.
+- Das mobile Menü wurde mit `SheetTitle` und `SheetDescription` zugänglicher gemacht.
+- `/leistungen` wurde nicht als neue Gutachtenarten-Seite umgebaut und bleibt technisch vorerst bestehen.
+
+### Launch-QA-Hinweis
+
+- Die separaten Next-Image-Quality-Warnungen zu den Werten `88` und `74` wurden für Aufgabe 033 beziehungsweise Launch-/Performance-QA dokumentiert.
+- Keine `next.config`-Änderung in 044.
+
+### Nicht geändert
+
+- Keine EN/RU-Inhalte.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine Routen, Redirects oder Assets.
+- Keine Upload-/Supabase-/KI-/Admin-/Portal-Funktionen.
+
+### Planung
+
+- Aufgabe 044 wurde fachlich neu ausgerichtet: Der geplante Umbau von `/leistungen` zu einer sichtbaren Gutachtenarten-Landingpage wurde verworfen.
+- Grund ist die unnötige Dopplung zur Startseite und zu den späteren Detailseiten für Fahrzeugbewertung und Schadendokumentation.
+- Die direkte Nutzerführung erfolgt künftig über Header-Dropdown und Startseitenkarten.
+- `/leistungen` bleibt vorerst technisch bestehen, wird aber nicht aktiv als Gutachtenarten-Seite beworben.
+- Die endgültige Behandlung der Route erfolgt später in Aufgabe 029 beziehungsweise Aufgabe 026.
+- Es wurden keine neuen Unterseiten oder Routen erstellt.
+- Aufgabe 044 bleibt in Arbeit; die konkrete Navigation-/Link-Umsetzung erfolgt erst nach erneuter Freigabe.
+
+### Nicht geändert
+
+- Keine Website-Code-Umsetzung.
+- Keine EN/RU-Inhalte.
+- Keine SEO-/Metadata-/Structured-Data-Dateien.
+- Keine Routen, Redirects oder Assets.
+- Keine Upload-/Supabase-/KI-/Admin-/Portal-Funktionen.
+
 ## 2026-07-07
 
 ### Workflow
