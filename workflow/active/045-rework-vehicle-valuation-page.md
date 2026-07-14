@@ -133,8 +133,9 @@ Der lokale Skill `next-router-check` wurde lesend ausgeführt:
 
 - Eine neue `page.tsx` kann über `generateMetadata()` oder `buildPageMetadata()` neue Metadaten erzeugen, ohne `lib/metadata.ts` zu ändern.
 - `components/service-page-layout.tsx` rendert immer Service- und Breadcrumb-Structured-Data.
-- Direkte Wiederverwendung würde daher strukturierte Daten ausgeben, obwohl 045 keine SEO-/Metadata-/Structured-Data-Umsetzung übernehmen darf.
-- Vor Code-Umsetzung muss der Plan festlegen, wie das Layout wiederverwendet wird, ohne Aufgabe 029 vorwegzunehmen.
+- Direkte Wiederverwendung gibt daher strukturierte Daten aus, obwohl 045 keine eigene SEO-/Metadata-/Structured-Data-Umsetzung übernimmt.
+- Diese indirekte Ausgabe wurde für 045 ausdrücklich freigegeben. Das Layout wird ohne Änderung an den Structured-Data-Dateien wiederverwendet; die finale fachliche und SEO-Prüfung bleibt Aufgabe 029.
+- Der automatisch erzeugte Breadcrumb kann weiterhin `/leistungen` enthalten, obwohl diese Route nicht Teil der sichtbaren deutschen V1-Navigation ist.
 
 ### Wahrscheinlich später betroffene Dateien
 
@@ -217,4 +218,4 @@ Nur prüfen, nicht automatisch ändern:
 
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review

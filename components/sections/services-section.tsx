@@ -97,7 +97,7 @@ const reportServiceMeta: readonly ServiceMeta[] = [
     image: "/images/services/wertgutachten-fahrzeugbewertung.webp",
     imageAlt: "Fahrzeugbewertung mit Unterlagen und Kamera",
     imageClassName: "object-cover object-center",
-    href: "/kontakt",
+    href: "/leistungen/fahrzeugbewertung",
     contactText: "030 23613927",
     contactHref: "tel:+493023613927",
     accentColor: "from-red-500/16 to-transparent",
@@ -234,7 +234,7 @@ export function ServicesSection({ locale }: Props) {
             const meta = resolvedServiceMeta[index] ?? resolvedServiceMeta[0]
             const contactText = meta.contactText ?? ""
             const primaryCtaLabel = isGerman
-              ? ["Zum Unfallgutachten", "Bewertung anfragen", "Dokumentation anfragen"][index] ?? t.learnMore
+              ? ["Zum Unfallgutachten", "Zur Fahrzeugbewertung", "Dokumentation anfragen"][index] ?? t.learnMore
               : t.learnMore
             const callCtaLabel = isGerman ? "Anrufen" : contactText
             const callCtaAriaLabel = isGerman && contactText ? `Anrufen: ${contactText}` : undefined
