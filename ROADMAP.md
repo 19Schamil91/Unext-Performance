@@ -87,9 +87,10 @@ Die Folge-Reihenfolge lautet:
 ```text
 045: Fahrzeugbewertung-Unterseite hochwertig ausbauen
 046: Schadendokumentation-Unterseite hochwertig ausbauen
-047: Über-uns Trust / Qualifikation / Zertifikat
+048: Gutachten-Unterseiten auf Konsistenz und Typografie prüfen
+047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken
 032: i18n Launch Scope
-029: SEO / Metadata / Structured Data und Routing-Entscheidungen
+029: SEO / Metadata / Structured Data
 026: Cleanup alter Legacy-Seiten
 033: Launch Quality Check
 034: Deployment Launch Gate
@@ -114,7 +115,7 @@ Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/St
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach Aufgabe 044 folgt als nächster fachlicher Schritt Aufgabe 045 für die Fahrzeugbewertung-Unterseite, danach Aufgabe 046 für Schadendokumentation und Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Anschließend bleiben 032, 029, 026, 033, 034 und 035 eingeordnet.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach Aufgabe 044 folgt als nächster fachlicher Schritt Aufgabe 045 für die Fahrzeugbewertung-Unterseite, danach Aufgabe 046 für Schadendokumentation, Aufgabe 048 für den gemeinsamen Konsistenz- und Typografiecheck der drei Gutachten-Unterseiten und Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Anschließend bleiben 032, 029, 026, 033, 034 und 035 eingeordnet.
 
 Die alte Route `/leistungen` wird nicht in 044 bereinigt. Ihre endgültige technische Behandlung, mögliche SEO-Einordnung und spätere Entfernung oder Umleitung bleiben den Aufgaben 029 und 026 vorbehalten. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
