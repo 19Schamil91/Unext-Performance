@@ -2,6 +2,40 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-14
+
+### Workflow
+
+- Aufgabe 045 wurde nach bestandener Akzeptanzprüfung formal abgeschlossen und nach `workflow/done/` verschoben.
+- Aufgabe 048 wurde als späterer gemeinsamer Konsistenz-, Typografie- und Trust-Check der deutschen Kernseiten verbreitert.
+- Aufgabe 049 bleibt als späterer vollständiger V1-User-Story- und Nutzerwege-Audit dokumentiert.
+- Nächster logischer Task ist `046: Schadendokumentation-Unterseite hochwertig ausbauen`.
+
+### Website
+
+- Die neue deutsche Route `/leistungen/fahrzeugbewertung` wurde umgesetzt.
+- Eine eigenständige Fahrzeugbewertungs-Komponente stellt einen kompakten Hero mit Telefon, WhatsApp und Anfrageweg bereit.
+- Die Seite enthält vier Bewertungsanlässe, sechs relevante Bewertungsmerkmale, vier Ablaufschritte, vier kompakte FAQ und einen Abschluss-CTA.
+- Das Anfrageformular wurde seitenbezogen für Fahrzeugmodell und Bewertungszweck konfiguriert.
+- Das vorhandene optimierte WebP `public/images/services/wertgutachten-fahrzeugbewertung.webp` wird wiederverwendet.
+- Deutsche Header-, Mobile- und Startseitenlinks führen auf die neue Fahrzeugbewertungsroute.
+
+### Checks
+
+- Responsive Darstellung bei 390 px, 768 px und 1440 px geprüft.
+- Kein horizontaler Overflow und keine Browser-Console-Errors auf den geprüften Seiten.
+- `git diff --check` bestanden.
+- `npm run lint` bestanden.
+- `npx tsc --noEmit` bestanden.
+- `npm run build` bestanden; die Fahrzeugbewertungsroute wird statisch erzeugt.
+
+### Nicht geändert
+
+- Keine EN/RU-Fahrzeugbewertungsroute erstellt.
+- Keine SEO-/Metadata-/Structured-Data-Datei geändert; die indirekte Service- und `BreadcrumbList`-Ausgabe bleibt für Aufgabe 029 dokumentiert.
+- Keine zusätzlichen Routen oder Assets erstellt.
+- Keine Upload-, Supabase-, KI-, Admin- oder Portal-Funktion ergänzt.
+
 ## 2026-07-11
 
 ### Workflow

@@ -43,6 +43,8 @@ export type ServicePageLayoutProps = {
   layoutLabels?: ServicePageLayoutLabels
   benefits: readonly string[]
   services: readonly { title: string; description: string }[]
+  servicesDescription?: string
+  servicesGridClassName?: string
   whyChoose: readonly { title: string; description: string }[]
   faqs?: readonly { question: string; answer: string }[]
   formTitle: string
@@ -52,6 +54,7 @@ export type ServicePageLayoutProps = {
   badge?: string
   formFields?: ServiceInquiryFields
   formTextOverrides?: ServiceInquiryTextOverrides
+  formHelperText?: string
   balancedTypography?: boolean
   singleLineHeadings?: boolean
   titleLines?: readonly string[]
@@ -77,6 +80,7 @@ type ServiceDetailSection = {
   title: string
   description?: string
   items: readonly ServiceDetailCard[]
+  wide?: boolean
 }
 
 type ServicePageLayoutLabels = Partial<{
@@ -106,6 +110,8 @@ export async function ServicePageLayout({
   layoutLabels,
   benefits,
   services,
+  servicesDescription,
+  servicesGridClassName,
   whyChoose,
   faqs,
   formTitle,
@@ -115,6 +121,7 @@ export async function ServicePageLayout({
   badge,
   formFields,
   formTextOverrides,
+  formHelperText,
   balancedTypography = false,
   titleLines,
   descriptionLines,
@@ -368,7 +375,18 @@ export async function ServicePageLayout({
             {t.servicesTitle}
           </h2>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {servicesDescription && (
+            <ReadableText
+              text={servicesDescription}
+              className="-mt-8 mb-10 max-w-[64ch] text-body-compact text-foreground/78"
+            />
+          )}
+
+          <div
+            className={`grid gap-5 sm:grid-cols-2 ${
+              servicesGridClassName ?? "lg:grid-cols-3"
+            }`}
+          >
             {services.map((service) => (
               <div
                 key={service.title}
@@ -415,7 +433,9 @@ export async function ServicePageLayout({
             {detailSections.map((section) => (
               <div
                 key={section.title}
-                className="rounded-[1.6rem] border border-border/55 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.05)] sm:p-7"
+                className={`rounded-[1.6rem] border border-border/55 bg-card p-6 shadow-[0_14px_34px_rgba(15,23,42,0.05)] sm:p-7 ${
+                  section.wide ? "md:col-span-2" : ""
+                }`}
               >
                 <h2 className="max-w-[30ch] text-[clamp(1.75rem,2vw,2.35rem)] font-semibold leading-[1.12] text-foreground">
                   {section.title}
@@ -423,10 +443,20 @@ export async function ServicePageLayout({
                 {section.description && (
                   <ReadableText
                     text={section.description}
-                    className="mt-4 max-w-[58ch] text-body-compact text-foreground/78"
+                    className={
+                      section.wide
+                        ? "mt-4 max-w-[82ch] text-body-compact text-foreground/78"
+                        : "mt-4 max-w-[58ch] text-body-compact text-foreground/78"
+                    }
                   />
                 )}
-                <div className="mt-6 space-y-4">
+                <div
+                  className={
+                    section.wide
+                      ? "mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3"
+                      : "mt-6 space-y-4"
+                  }
+                >
                   {section.items.map((item) => (
                     <div key={item.title} className="flex gap-3">
                       <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-primary" />
@@ -490,6 +520,13 @@ export async function ServicePageLayout({
             </div>
 
             <div>
+              {formHelperText && (
+                <ReadableText
+                  text={formHelperText}
+                  className="mb-5 rounded-[1.4rem] border border-border/55 border-l-4 border-l-primary/75 bg-card px-5 py-4 text-body-compact leading-6 text-foreground/78 shadow-[0_12px_28px_rgba(15,23,42,0.04)]"
+                />
+              )}
+
               <ServiceInquiryForm
                 locale={locale}
                 serviceName={serviceName}
@@ -505,7 +542,7 @@ export async function ServicePageLayout({
       {faqs && faqs.length > 0 && (
         <section className="bg-card py-16 lg:py-24">
           <div className="mx-auto max-w-4xl px-3 sm:px-4 lg:px-8">
-            <h2 className="mx-auto mb-12 max-w-[18ch] text-heading-fluid font-semibold text-center text-foreground">
+            <h2 className="mx-auto mb-12 max-w-[18ch] text-heading-fluid font-semibold text-center text-foreground lg:max-w-none lg:whitespace-nowrap">
               {t.faqTitle}
             </h2>
 

@@ -39,6 +39,7 @@ export type ServiceInquiryTextOverrides = Partial<{
   successText: string
   vehicle: string
   vehiclePlaceholder: string
+  phonePlaceholder: string
   date: string
   message: string
   messagePlaceholder: string
