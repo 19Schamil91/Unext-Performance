@@ -26,8 +26,8 @@ Aufgabe 049 erfolgt erst nach:
 
 - 045: Fahrzeugbewertung-Unterseite
 - 046: Schadendokumentation-Unterseite
-- 048: Konsistenz- und Typografiecheck der drei Gutachten-Unterseiten
 - 047: Über-uns Trust / Qualifikation / Zertifikat
+- 048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
 
 Aufgabe 049 muss vor 032 und 029 abgeschlossen sein, damit Übersetzungen und SEO auf einer fachlich und nutzerseitig geprüften deutschen V1-Struktur aufbauen.
 
@@ -224,7 +224,7 @@ Aufgabe 049 darf nicht:
 
 ### Aufgabe 048
 
-Gezielter gemeinsamer Typografie-, Layout- und Konsistenzcheck der drei deutschen Gutachten-Unterseiten.
+Gemeinsamer Konsistenz-, Typografie- und Trust-Check von Startseite, Über-uns-Seite und den drei deutschen Gutachten-Unterseiten.
 
 ### Aufgabe 049
 
@@ -248,7 +248,7 @@ Späterer vollständiger technischer, visueller und funktionaler Launch-Qualitä
 - Kleine Korrekturen bleiben klar begrenzt; große Änderungen wurden nicht nebenbei umgesetzt.
 - EN/RU-, SEO-, Metadata-, Structured-Data-, Upload-, Supabase-, KI-, Admin- und Portal-Scope wurde nicht vorweggenommen.
 - Das Ergebnis lautet eindeutig `V1 user stories and user journeys passed` oder `V1 user stories and user journeys have gaps`.
-- Aufgabe 049 wurde erst nach 045, 046, 048 und 047 begonnen und vor 032 und 029 abgeschlossen.
+- Aufgabe 049 wurde erst nach 045, 046, 047 und 048 begonnen und vor 032 und 029 abgeschlossen.
 
 ## Status
 

@@ -87,8 +87,8 @@ Die Folge-Reihenfolge lautet:
 ```text
 045: Fahrzeugbewertung-Unterseite hochwertig ausbauen
 046: Schadendokumentation-Unterseite hochwertig ausbauen
-048: Gutachten-Unterseiten auf Konsistenz und Typografie prüfen
 047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken
+048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
 049: V1-User-Stories und Nutzerwege vollständig prüfen
 032: i18n Launch Scope
 029: SEO / Metadata / Structured Data
@@ -116,7 +116,7 @@ Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/St
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach Aufgabe 044 folgt als nächster fachlicher Schritt Aufgabe 045 für die Fahrzeugbewertung-Unterseite, danach Aufgabe 046 für Schadendokumentation, Aufgabe 048 für den gemeinsamen Konsistenz- und Typografiecheck der drei Gutachten-Unterseiten und Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 049 prüft anschließend die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033, 034 und 035 eingeordnet.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Nach Aufgabe 044 folgt als nächster fachlicher Schritt Aufgabe 045 für die Fahrzeugbewertung-Unterseite, danach Aufgabe 046 für Schadendokumentation und Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 048 prüft anschließend die deutschen Kernseiten gemeinsam auf Konsistenz, Typografie und Trust. Aufgabe 049 prüft danach die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033, 034 und 035 eingeordnet.
 
 Die alte Route `/leistungen` wird nicht in 044 bereinigt. Ihre endgültige technische Behandlung, mögliche SEO-Einordnung und spätere Entfernung oder Umleitung bleiben den Aufgaben 029 und 026 vorbehalten. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
