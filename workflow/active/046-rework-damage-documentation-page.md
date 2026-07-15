@@ -267,6 +267,566 @@ Nur prüfen, nicht automatisch ändern:
 - Passende Reviewer wurden verwendet oder nachvollziehbar als nicht erforderlich begründet.
 - Aufgabe 046 wird erst nach Review und ausdrücklicher Freigabe abgeschlossen und nach `workflow/done/` verschoben.
 
+## Empfohlener Umsetzungsplan zur Freigabe
+
+Dieser Plan legt eine einzige empfohlene Seiten-, Text- und Umsetzungsrichtung fest. Er ist die Grundlage für die fachliche und sprachliche Freigabe vor der Website-Umsetzung. Bis zu dieser Freigabe werden keine Website-Dateien geändert.
+
+### Finale Informationsarchitektur
+
+Die Seite wird in dieser Reihenfolge aufgebaut:
+
+1. Hero mit Leistungsversprechen, Trust-Zeile und drei Kontaktwegen
+2. `Wann ist eine Schadendokumentation sinnvoll?` mit vier kompakten Anwendungsfällen
+3. `Was kann dokumentiert werden?` mit sechs fachlich eingegrenzten Punkten
+4. `Schadendokumentation oder Unfallgutachten?` als sichtbare Abgrenzung
+5. `So läuft die Schadendokumentation ab` mit vier Schritten
+6. kurzer Hilfetext unmittelbar vor dem Formular
+7. spezifisches Anfrageformular
+8. vier kompakte FAQ
+9. Abschluss-CTA
+
+Im vorhandenen `ServicePageLayout` stehen Ablauf und Formular auf Desktop nebeneinander. Der Hilfetext sitzt direkt oberhalb des Formulars. Auf Mobile folgen Ablauf, Hilfetext und Formular untereinander. Dadurch bleibt die Seite kompakt, ohne eine künstlich lange Abschnittsfolge oder eine Kopie der Fahrzeugbewertungsseite zu erzeugen.
+
+### Hero
+
+**Eyebrow**
+
+```text
+SCHÄDEN GEORDNET FESTHALTEN
+```
+
+**H1**
+
+```text
+Schadendokumentation in Berlin
+```
+
+**Hero-Fließtext**
+
+```text
+Eine Schadendokumentation hält sichtbare Schäden oder den Zustand Ihres Fahrzeugs geordnet fest. Je nach Anlass können Fotos, Fahrzeugdaten und vorhandene Unterlagen berücksichtigt werden. Den passenden Umfang stimmen wir vorab mit Ihnen ab.
+```
+
+**Trust-Zeile**
+
+```text
+Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.
+```
+
+**Kontaktaktionen in mobiler und visueller Reihenfolge**
+
+1. Primärer Telefon-CTA: `Jetzt anrufen` -> `tel:+493023613927`
+2. WhatsApp-CTA: `WhatsApp schreiben` -> `https://wa.me/4917664365185`
+3. Anfrage-CTA: `Dokumentation anfragen` -> `#schadendokumentation-anfrage`
+
+**Kompakte Hero-Vorteile**
+
+- `Sichtbare Schäden dokumentieren`
+- `Fahrzeugzustand festhalten`
+- `Fotos und Unterlagen berücksichtigen`
+- `Umfang vorab abstimmen`
+
+Die H1 erhält keinen künstlichen Umbruch innerhalb von `Schadendokumentation`. Auf 390 px ist zu prüfen, ob der Browser sauber vor `in Berlin` umbricht. Eyebrow, Trust-Zeile, CTAs und Vorteile werden ohne manuelle Zeilenumbrüche geplant und später bei 390, 768 und 1440 px geprüft.
+
+### Wann ist eine Schadendokumentation sinnvoll?
+
+**Abschnittsüberschrift**
+
+```text
+Wann ist eine Schadendokumentation sinnvoll?
+```
+
+**Einleitung**
+
+```text
+Eine geordnete Dokumentation kann sinnvoll sein, wenn ein sichtbarer Schaden oder ein bestimmter Fahrzeugzustand für die weitere Abstimmung nachvollziehbar festgehalten werden soll.
+```
+
+**Anwendungsfälle**
+
+1. **Sichtbaren Schaden festhalten**
+
+   ```text
+   Ein erkennbarer Schaden soll zeitnah und geordnet dokumentiert werden.
+   ```
+
+2. **Übergabe oder Rückgabe vorbereiten**
+
+   ```text
+   Der aktuelle Fahrzeugzustand soll vor einer Übergabe oder Rückgabe nachvollziehbar festgehalten werden.
+   ```
+
+3. **Vorschäden oder Veränderungen erfassen**
+
+   ```text
+   Erkennbare Vorschäden oder spätere Veränderungen sollen nachvollziehbar erfasst werden.
+   ```
+
+4. **Fachliche Prüfung vorbereiten**
+
+   ```text
+   Fotos, Fahrzeugdaten und vorhandene Unterlagen sollen für die weitere fachliche Abstimmung geordnet vorliegen.
+   ```
+
+Die vier Karten verwenden für `servicesGridClassName` den Wert `lg:grid-cols-4`. Sie versprechen weder Rechtswirkung noch Versicherungsanerkennung oder Schadenhöhe.
+
+### Was kann dokumentiert werden?
+
+**Abschnittsüberschrift**
+
+```text
+Was kann dokumentiert werden?
+```
+
+**Einleitung**
+
+```text
+Welche Punkte berücksichtigt werden, richtet sich nach Anlass, Fahrzeug und vereinbartem Umfang. Dokumentiert werden können insbesondere:
+```
+
+**Dokumentationspunkte**
+
+1. **Sichtbare Beschädigungen**
+
+   ```text
+   Art und Lage erkennbarer Schäden am Fahrzeug.
+   ```
+
+2. **Betroffene Fahrzeugbereiche**
+
+   ```text
+   Die Bereiche, an denen Schäden oder Veränderungen erkennbar sind.
+   ```
+
+3. **Fahrzeugdaten**
+
+   ```text
+   Modell und weitere für den Anlass relevante Grunddaten.
+   ```
+
+4. **Fotos aus sinnvollen Perspektiven**
+
+   ```text
+   Übersichts- und Detailaufnahmen, soweit sie für die Dokumentation hilfreich sind.
+   ```
+
+5. **Vorschäden und Besonderheiten**
+
+   ```text
+   Erkennbare Vorschäden oder Besonderheiten, soweit sie für den Anlass relevant sind.
+   ```
+
+6. **Unterlagen und ergänzende Angaben**
+
+   ```text
+   Vorhandene Unterlagen sowie ergänzende Angaben zum Anlass.
+   ```
+
+Der Abschnitt wird als breite `detailSection` mit sechs kompakten Punkten umgesetzt. Die Einleitung stellt klar, dass nicht automatisch jeder Punkt Bestandteil jeder Dokumentation ist.
+
+### Schadendokumentation oder Unfallgutachten?
+
+**Abschnittsüberschrift**
+
+```text
+Schadendokumentation oder Unfallgutachten?
+```
+
+**Erklärung**
+
+```text
+Eine Schadendokumentation hält den Fahrzeugzustand oder sichtbare Schäden geordnet fest. Ein Unfallgutachten geht fachlich weiter und kann unter anderem regulierungsrelevante Schadenspositionen und Werte einordnen. Welcher Umfang zu Ihrem Anliegen passt, besprechen wir vorab.
+```
+
+**Drei Orientierungspunkte**
+
+1. **Schadendokumentation**
+
+   ```text
+   Geordnete Erfassung eines Zustands oder sichtbarer Schäden im vereinbarten Umfang.
+   ```
+
+2. **Unfallgutachten**
+
+   ```text
+   Weitergehende fachliche Einordnung eines Unfallschadens einschließlich relevanter Schadenspositionen und Werte.
+   ```
+
+3. **Passenden Umfang klären**
+
+   ```text
+   Sie müssen die richtige Leistung nicht selbst sicher bestimmen; wir besprechen Ihr Anliegen vorab.
+   ```
+
+Auch dieser Bereich wird als breite `detailSection` umgesetzt. Er enthält keine juristische Beratung und keine pauschale Empfehlung für eine bestimmte Leistung.
+
+### So läuft die Schadendokumentation ab
+
+**Abschnittsüberschrift**
+
+```text
+So läuft die Schadendokumentation ab
+```
+
+**Einleitung**
+
+```text
+Anlass und Umfang werden vorab abgestimmt. Die fachliche Einordnung bleibt beim Gutachter.
+```
+
+**Ablauf**
+
+1. **1. Anliegen schildern**
+
+   ```text
+   Sie beschreiben kurz den sichtbaren Schaden, den betroffenen Bereich und den Anlass.
+   ```
+
+2. **2. Umfang abstimmen**
+
+   ```text
+   Wir klären, welche Angaben, Fotos oder vorhandenen Unterlagen für Ihren Fall hilfreich sind.
+   ```
+
+3. **3. Fahrzeug prüfen**
+
+   ```text
+   Das Fahrzeug und die vereinbarten Informationen werden im abgestimmten Umfang betrachtet.
+   ```
+
+4. **4. Dokumentation erläutern**
+
+   ```text
+   Die Dokumentation wird im vereinbarten Umfang erstellt und anschließend mit Ihnen besprochen.
+   ```
+
+Es wird keine feste Dauer oder Rückmeldefrist genannt.
+
+### Hilfreiche Angaben vor dem Formular
+
+Der folgende Hinweis steht unmittelbar über dem Anfrageformular:
+
+```text
+Für die erste Kontaktaufnahme genügen Fahrzeugmodell, sichtbarer Schaden oder betroffener Bereich und der Anlass der Dokumentation. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend ab.
+```
+
+Der Text ist bewusst keine Pflichtliste, fordert keine sensiblen Unterlagen ungefragt an und suggeriert keinen Website-Upload.
+
+### Verbindliche Formularkonfiguration
+
+**Formularüberschrift**
+
+```text
+Schadendokumentation anfragen
+```
+
+**Formularbeschreibung**
+
+```text
+Beschreiben Sie kurz den sichtbaren Schaden, den betroffenen Bereich und den Anlass. Wir melden uns zur weiteren Abstimmung.
+```
+
+**Sichtbare Felder**
+
+- `Name *` mit vorhandenem Platzhalter `Ihr Name`
+- `Telefonnummer *` mit Platzhalter `Ihre Telefonnummer`
+- `E-Mail *` mit vorhandenem Platzhalter `ihre@email.de`
+- `Fahrzeugmodell` mit Platzhalter `z. B. VW Golf, EZ 2021`
+- `Schaden und Anlass` mit Nachrichten-Platzhalter:
+
+  ```text
+  Zum Beispiel sichtbarer Schaden, betroffener Bereich, ungefährer Zeitpunkt und Anlass der Dokumentation
+  ```
+
+**Ausgeblendete Felder**
+
+- Datum: `date: false`
+- Betreff: `subject: false`
+
+Das vorhandene Datumsfeld ist technisch ein zukünftiges `Wunschtermin`-Feld und setzt als Mindestwert den aktuellen Tag. Es akzeptiert deshalb keine vergangenen Daten und wird nicht ungeprüft als Schaden- oder Unfallzeitpunkt verwendet. Das Betreffsfeld bietet neben dem spezifischen Nachrichtenfeld keinen zusätzlichen Nutzen.
+
+**Pflichtfelder gemäß bestehender Logik**
+
+- Name
+- Telefonnummer
+- E-Mail
+
+Fahrzeugmodell und Nachricht bleiben gemäß `lib/contactForm.ts` optional. Diese Validierungsentscheidung wird in 046 nicht global verändert.
+
+**Submit-Button**
+
+```text
+Dokumentation anfragen
+```
+
+**Unverändert übernommene Formularzustände**
+
+- während des Versands: `Wird gesendet...`
+- Erfolgstitel: `Anfrage gesendet!`
+- Server-Erfolgsmeldung: `Ihre Anfrage wurde erfolgreich übermittelt.`
+- neue Anfrage: `Neue Anfrage`
+- Datenschutzhinweis und Link bleiben aus der bestehenden deutschen Formularübersetzung unverändert.
+
+**Technische Konfiguration**
+
+```ts
+const formFields = { vehicle: true, date: false, subject: false } as const
+```
+
+Die vorhandenen `formTextOverrides` reichen für Beschreibung, Fahrzeuglabel, Fahrzeug-Platzhalter, Telefon-Platzhalter, Nachrichtenlabel, Nachrichten-Platzhalter und Submit-Text aus. Es ist keine neue optionale Prop erforderlich. Resend-, Validierungs-, E-Mail- und Backendlogik bleiben unverändert; andere Formulare erhalten keine sichtbare Änderung.
+
+### FAQ
+
+**Abschnittsüberschrift**
+
+```text
+Häufige Fragen zur Schadendokumentation
+```
+
+1. **Was ist eine Schadendokumentation?**
+
+   ```text
+   Eine Schadendokumentation hält den Fahrzeugzustand oder sichtbare Schäden im vereinbarten Umfang geordnet fest. Welche Angaben, Fotos und Unterlagen berücksichtigt werden, wird vorab abgestimmt.
+   ```
+
+2. **Was ist der Unterschied zu einem Unfallgutachten?**
+
+   ```text
+   Ein Unfallgutachten geht über die reine Dokumentation hinaus und kann regulierungsrelevante Schadenspositionen und Werte fachlich einordnen. Welcher Umfang zu Ihrem Anliegen passt, klären wir vorab.
+   ```
+
+3. **Welche Angaben oder Unterlagen sind hilfreich?**
+
+   ```text
+   Für die erste Anfrage genügen wenige Angaben zum Fahrzeug, zum sichtbaren Schaden oder betroffenen Bereich und zum Anlass. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend über einen passenden Kontaktweg ab.
+   ```
+
+4. **Was passiert nach meiner Anfrage?**
+
+   ```text
+   Wir besprechen Ihr Anliegen, klären den passenden Umfang und stimmen ab, welche Informationen oder Unterlagen für den nächsten Schritt hilfreich sind.
+   ```
+
+Es wird kein `FAQPage`-Schema ergänzt. Die FAQ bleiben sichtbarer Seiteninhalt im bestehenden Accordion.
+
+### Abschluss-CTA
+
+**Überschrift**
+
+```text
+Sie möchten einen Schaden oder Fahrzeugzustand dokumentieren lassen?
+```
+
+**Begleittext**
+
+```text
+Schildern Sie uns kurz, was festgehalten werden soll. Wir klären mit Ihnen, welcher Umfang zu Ihrem Anliegen passt.
+```
+
+**Aktionen**
+
+1. `Jetzt anrufen` -> `tel:+493023613927`
+2. `WhatsApp schreiben` -> `https://wa.me/4917664365185`
+3. `Dokumentation anfragen` -> `#schadendokumentation-anfrage`
+
+Der Abschluss-CTA wiederholt nicht den Hero-Fließtext und enthält kein Zeit-, Preis- oder Ergebnisversprechen.
+
+### Wiederverwendung vorhandener Komponenten
+
+Die neue Komponente `DamageDocumentationServiceDetailContent` verwendet:
+
+- `SiteHeader` mit `locale` = `de`
+- `ServicePageLayout`
+- `SiteFooter` mit `locale` = `de`
+- vorhandene Action-, Benefit-, Service-, Detail-, Ablauf-, FAQ- und Formular-Props
+- `balancedTypography`
+- `benefitsSingleLine`
+- `servicesGridClassName` = `lg:grid-cols-4`
+- `backLinkHref` = `/`
+- `serviceName` = `schadendokumentation`
+
+Geplante `layoutLabels`:
+
+```text
+backToServices: Zur Startseite
+servicesTitle: Wann ist eine Schadendokumentation sinnvoll?
+whyTitle: So läuft die Schadendokumentation ab
+whyDescription: Anlass und Umfang werden vorab abgestimmt. Die fachliche Einordnung bleibt beim Gutachter.
+faqTitle: Häufige Fragen zur Schadendokumentation
+```
+
+`components/service-page-layout.tsx` und `components/service-inquiry-form.tsx` benötigen nach aktuellem Komponentenabgleich keine Änderung. Falls die spätere Umsetzung wider Erwarten eine gemeinsame Komponente ändern müsste, ist vorher nachzuweisen, warum die vorhandenen Props nicht ausreichen und dass Unfallgutachten, Fahrzeugbewertung sowie EN/RU unverändert bleiben.
+
+### Bildverwendung
+
+- Bild: `public/images/services/beweissicherung-dokumentation.webp`
+- Einsatz: Hero-Bild über die vorhandene `image`-Prop des `ServicePageLayout`
+- empfohlener Alt-Text:
+
+  ```text
+  Beschädigtes Fahrzeug mit Tablet, Schadenfotos und Unterlagen zur Schadendokumentation
+  ```
+
+- initiale Positionierung: vorhandenes `object-cover object-center`
+- abweichende `object-position`: voraussichtlich nicht nötig; nur seitenbezogen anpassen, wenn der responsive Test einen relevanten Beschnitt zeigt
+- 390 px: sichtbare Beschädigung und Tablet dürfen nicht vollständig aus dem Ausschnitt fallen
+- 768 px: Fahrzeug, beschädigter Bereich und Dokumentationsmittel sollen ausgewogen erkennbar bleiben
+- 1440 px: wichtige Bildelemente dürfen weder vom Textbereich noch vom Verlauf unverständlich verdeckt werden
+- keine neue Bilddatei
+- `public/images/services/schadengutachten-detail.png` wird nicht verwendet und in 046 nicht gelöscht
+
+### Navigation und Startseitenkarte
+
+Nach Umsetzung werden ausschließlich die deutschen Ziele angepasst:
+
+- Desktop-Navigation: `Schadendokumentation` -> `/leistungen/schadendokumentation`
+- Mobile-Navigation: `Schadendokumentation` -> `/leistungen/schadendokumentation`
+- Startseitenkarte: Linkziel `/leistungen/schadendokumentation`
+- Startseitenkarten-CTA: `Zur Schadendokumentation`
+- kompakter Telefon-Button: `Anrufen` bleibt unverändert
+- EN/RU bleiben unverändert
+- `service-schadendokumentation` wird in 046 nicht gelöscht
+
+Die spätere Prüfung muss bestätigen, dass Desktop- und Mobile-Navigation dieselbe deutsche Übersetzungsquelle verwenden und deshalb mit der einen deutschen Linkänderung korrekt auf die neue Route führen.
+
+### Routinggrenze und spätere URL-Migration
+
+Der technische Zwischenstand von Aufgabe 046 ist:
+
+```text
+/leistungen/schadendokumentation
+```
+
+Der aktuelle Planungsauftrag ordnet eine mögliche spätere kanonische Umstellung auf:
+
+```text
+/gutachtenarten/schadendokumentation
+```
+
+Aufgabe 025 zu. Diese spätere Migration muss gemeinsam prüfen beziehungsweise umsetzen:
+
+- permanente Redirects
+- interne Links
+- Breadcrumbs
+- Canonicals
+- Sitemap
+- Structured Data
+- Erhalt bestehender SEO-Signale
+
+Aufgabe 046 nimmt diese Migration nicht vor und ändert weder Redirect- noch Routingkonfiguration.
+
+Repository-Befund: `workflow/done/025-implement-after-approved-specs.md` ist bereits abgeschlossen und enthält diese konkrete URL-Migration derzeit nicht. Vor einer späteren Migration muss die Workflow-Zuordnung deshalb ausdrücklich bereinigt werden, zum Beispiel durch eine freigegebene Ergänzung/Nachfolgeaufgabe oder eine ausdrücklich erlaubte Wiederaufnahme von 025. Dieser Befund ändert nicht die Scope-Grenze von 046: Die Migration bleibt hier ausgeschlossen.
+
+### Akzeptierte indirekte Structured-Data-Ausgabe
+
+Für Aufgabe 046 ist die Wiederverwendung von `ServicePageLayout` und die dadurch automatisch entstehende Ausgabe folgender Schemas akzeptiert:
+
+- `Service`
+- `BreadcrumbList`
+
+Dabei gelten verbindlich:
+
+- keine Änderung an `lib/structuredData.ts`
+- keine Änderung an `components/StructuredData.tsx`
+- keine Änderung an `lib/metadata.ts`
+- kein `FAQPage`-Schema
+- keine neue zentrale SEO-Architektur
+- `/leistungen` darf vorerst weiterhin im automatisch erzeugten Breadcrumb enthalten sein
+- die abschließende fachliche und technische Prüfung erfolgt in Aufgabe 029
+- die mögliche spätere URL-Migration bleibt außerhalb von 046
+
+Die bestehende Fahrzeugbewertungsroute verwendet kein lokales `generateMetadata()` und keine eigene Metadata-Hilfsfunktion. Die neue deutsche `page.tsx` folgt diesem tatsächlichen Muster und rendert ausschließlich `DamageDocumentationServiceDetailContent`. Aufgabe 046 führt somit keine neue lokale oder zentrale Metadata-Architektur ein. Die indirekten `Service`- und `BreadcrumbList`-Daten entstehen ausschließlich über das unveränderte `ServicePageLayout`.
+
+### Verbindliche Dateiliste für die spätere Umsetzung
+
+**Neu**
+
+- `app/(de)/leistungen/schadendokumentation/page.tsx`
+- `components/DamageDocumentationServiceDetailContent.tsx`
+
+**Anzupassen**
+
+- `components/sections/services-section.tsx`
+- `lib/translations/header-footer.ts`
+
+**Nach aktuellem Plan nur prüfen, nicht ändern**
+
+- `components/service-page-layout.tsx`
+- `components/service-inquiry-form.tsx`
+- `lib/contactForm.ts`
+- `lib/contactActions.ts`
+- `lib/service-anchors.ts`
+- `components/site-header.tsx`
+- `components/site-footer.tsx`
+
+**Nicht ändern**
+
+- EN/RU-Dateien und lokalisierte EN/RU-Routen
+- `lib/metadata.ts`
+- `lib/structuredData.ts`
+- `components/StructuredData.tsx`
+- Redirect- oder Routingkonfiguration
+- Sitemap, Robots, Canonicals und Hreflang
+- Dateien unter `public/`
+- Unfallgutachten- und Fahrzeugbewertungs-Inhalte
+- Über-uns-Seite
+- Aufgaben 047, 048 und 049
+
+### Technische und visuelle Prüfschritte nach der späteren Umsetzung
+
+1. `git status --short`
+2. `git diff --name-only`
+3. `git diff --check`
+4. `git diff -- next-env.d.ts`
+5. `npm run lint`
+6. `npx tsc --noEmit`
+7. `npm run build`
+8. `next-router-check` für die neue statische Route erneut ausführen
+9. Route, Headerlink, Mobile-Link, Startseitenkarte und alle drei CTA-Ziele prüfen
+10. Formularfelder, Pflichtfelder, Validierung, Versandzustände und unveränderte andere Formulare prüfen
+11. Browser-Konsole auf Fehler prüfen
+12. horizontalen Overflow ausschließen
+13. Screenshots und Sichtprüfung bei 390, 768 und 1440 px
+14. Bildfokus und Alt-Text prüfen
+15. `typography-line-break-check` für H1, Eyebrow, Trust-Zeile, Kartenüberschriften, FAQ und CTA-Texte ausführen
+16. Umlaute, Fachbegriffe und verbotene Claims erneut prüfen
+
+### Typografie- und Textprüfung des Entwurfs
+
+Der lokale Skill `typography-line-break-check` wurde für den Plan berücksichtigt:
+
+- echte deutsche Umlaute werden verwendet
+- CTA-Texte bleiben kurz
+- Kartenüberschriften sind kompakt und parallel aufgebaut
+- FAQ-Antworten bleiben kurze Absätze
+- keine manuellen Trennungen innerhalb von Fachbegriffen
+- `Schadendokumentation in Berlin`, die lange Trust-Zeile und `Zur Schadendokumentation` müssen bei 390 px visuell geprüft werden
+- auf 768 und 1440 px sind ruhige Kartenumbrüche und ausgeglichene Textlängen zu prüfen
+
+Da in diesem Schritt keine UI existiert, sind tatsächliche Zeilenumbrüche, Viewport-Screenshots und Layoutwirkung noch nicht prüfbar. Diese Prüfung ist Teil der späteren Umsetzung und keine Freigabe des visuellen Ergebnisses vorweg.
+
+### Verbindliche Scope-Grenze für die Umsetzung
+
+Die spätere Umsetzung darf ausschließlich:
+
+- die neue deutsche Detailseite und ihre eigene Content-Komponente erstellen
+- die zwei deutschen Übergangslinks auf die neue Route umstellen
+- den deutschen Startseitenkarten-CTA ändern
+- vorhandenes Layout, Formular und vorhandenes WebP unverändert wiederverwenden
+- seitenbezogene Texte und Props innerhalb der neuen Komponente ergänzen
+
+Sie darf nicht:
+
+- Website-Upload, neue Upload-Felder oder Bildversand im Formular einführen
+- Resend-, Validierungs-, E-Mail- oder Backendlogik ändern
+- Supabase-, KI-, Portal- oder Adminfunktionen ergänzen
+- automatische Schadenbewertung, Schadenhöhe, Rechtsberatung oder garantierte Verwertbarkeit versprechen
+- EN/RU, zentrale SEO-/Structured-Data-Dateien, Redirects, Sitemap, Robots oder Assets ändern
+- Unfallgutachten, Fahrzeugbewertung, Über-uns oder andere Aufgaben mitbearbeiten
+- die spätere URL-Migration vorwegnehmen
+
+Die Umsetzung beginnt erst nach ausdrücklicher Freigabe dieses Plans und der sichtbaren deutschen Texte.
+
 ## Status
 
 Status: in Arbeit
