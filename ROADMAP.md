@@ -74,15 +74,17 @@ Aufgabe 044 hat stattdessen die deutsche Gutachtenarten-Navigation und direkte E
 - Es gibt keinen Eintrag `Alle Gutachtenarten`.
 - Das Dropdown enthält `Unfallgutachten`, `Fahrzeugbewertung` und `Schadendokumentation`.
 - `Unfallgutachten` führt auf die bestehende Detailseite `/leistungen/unfallgutachten`.
-- `Fahrzeugbewertung` und `Schadendokumentation` nutzen vorläufige Übergangslinks, bis 045 und 046 echte Unterseiten bereitstellen.
+- `Fahrzeugbewertung` und `Schadendokumentation` führen auf ihre in 045 und 046 umgesetzten deutschen Unterseiten.
 - Die drei Startseitenkarten haben klare Hauptaktionen und kompakte `Anrufen`-Buttons.
 - Das mobile Menü wurde mit `SheetTitle` und `SheetDescription` zugänglicher gemacht.
 
 Aufgabe 045 ist abgeschlossen. Die deutsche Fahrzeugbewertungs-Unterseite wurde unter `/leistungen/fahrzeugbewertung` umgesetzt. Deutsche Header-, Mobile- und Startseitenlinks führen auf die neue Route. Die Seite ist kompakt, mobile-first und fachlich vom Unfallgutachten abgegrenzt, verwendet das gemeinsame `ServicePageLayout` und konfiguriert das Anfrageformular seitenbezogen. Es wurden keine EN/RU-, SEO-, Metadata-, Routing- oder Asset-Nebenbaustellen eröffnet. Die indirekte Service- und `BreadcrumbList`-Ausgabe bleibt für Aufgabe 029 dokumentiert; Aufgabe 048 und Aufgabe 049 bleiben spätere offene Todo-Aufgaben.
 
+Aufgabe 046 ist nach bestandener Akzeptanzprüfung abgeschlossen. Die eigenständige deutsche Schadendokumentations-Unterseite wurde unter `/leistungen/schadendokumentation` umgesetzt; deutscher Desktop- und Mobile-Link sowie die deutsche Startseitenkarte führen auf diese Route. Das vorhandene optimierte WebP, `ServicePageLayout` und das gemeinsame Anfrageformular werden wiederverwendet, ohne eine neue allgemeine Formular-Prop einzuführen. EN/RU, direkte SEO-, Metadata- und Structured-Data-Dateien sowie die spätere Routingmigration blieben unverändert. Die indirekte Ausgabe von `Service` und `BreadcrumbList` ist für 046 akzeptiert und bleibt für Aufgabe 029 dokumentiert. Die spätere URL-Migration bleibt Aufgabe 050. Der bestätigte globale Formular-Semantik- und Autocomplete-Punkt ist als verbindlich zentral zu behebender Punkt in Aufgabe 033 aufgenommen.
+
 Die technische Behandlung von `/leistungen` bleibt offen und wird in Aufgabe 050 gemeinsam mit der Gutachtenarten-Routenmigration geprüft und entschieden. In 044 wurde `/leistungen` weder gelöscht noch umgeleitet und nicht als fertige Gutachtenarten-Seite dargestellt.
 
-Aufgabe 025 bleibt abgeschlossen und wird nicht wieder geöffnet. Die später erkannte Migration der drei deutschen Detailseiten von `/leistungen/...` auf voraussichtlich `/gutachtenarten/...` übernimmt die neue Aufgabe 050. Aufgabe 046 verwendet `/leistungen/schadendokumentation` bis dahin bewusst als technische Zwischenroute.
+Aufgabe 025 bleibt abgeschlossen und wird nicht wieder geöffnet. Die später erkannte Migration der drei deutschen Detailseiten von `/leistungen/...` auf voraussichtlich `/gutachtenarten/...` übernimmt Aufgabe 050. Die in 046 umgesetzte Route `/leistungen/schadendokumentation` bleibt bis dahin bewusst die technische Zwischenroute.
 
 Die Next-Image-Quality-Warnungen zu den Werten `88` und `74` blockieren Aufgabe 044 nicht. Sie bleiben als Performance-/Launch-QA-Punkt für Aufgabe 033 beziehungsweise einen passenden Config-/Cleanup-Schritt dokumentiert. In 044 wurde keine `next.config`-Änderung vorgenommen.
 
@@ -90,7 +92,7 @@ Die Folge-Reihenfolge lautet:
 
 ```text
 045: Fahrzeugbewertung-Unterseite hochwertig ausbauen (abgeschlossen)
-046: Schadendokumentation-Unterseite hochwertig ausbauen
+046: Schadendokumentation-Unterseite hochwertig ausbauen (abgeschlossen)
 047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken
 048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
 050: Gutachtenarten-URLs und bestehende Leistungsrouten migrieren
@@ -98,7 +100,7 @@ Die Folge-Reihenfolge lautet:
 032: i18n Launch Scope
 029: SEO / Metadata / Structured Data
 026: Cleanup alter Legacy-Seiten
-033: Launch Quality Check
+033: Launch Quality Check einschließlich zentraler Formularsemantik und Autocomplete-Korrektur
 034: Deployment Launch Gate
 035: Post-Launch Monitoring
 ```
@@ -121,7 +123,7 @@ Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/St
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgabe 045 ist abgeschlossen. Der nächste logische Task ist Aufgabe 046 für die Schadendokumentations-Unterseite, danach folgt Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 048 prüft anschließend die deutschen Kernseiten gemeinsam auf Konsistenz, Typografie und Trust. Aufgabe 050 migriert danach die deutschen Gutachtenarten-Routen. Aufgabe 049 prüft anschließend die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033, 034 und 035 eingeordnet.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgaben 045 und 046 sind abgeschlossen. Der nächste logische Task ist Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 048 prüft anschließend die deutschen Kernseiten gemeinsam auf Konsistenz, Typografie und Trust. Aufgabe 050 migriert danach die deutschen Gutachtenarten-Routen. Aufgabe 049 prüft anschließend die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet.
 
 Die alte Route `/leistungen` wird nicht in 044 oder 046 bereinigt. Ihre endgültige technische Behandlung und eine mögliche Umleitung werden in Aufgabe 050 geprüft. Aufgabe 029 finalisiert danach die SEO-, Metadata- und Structured-Data-Qualität; Aufgabe 026 bleibt für späteren Cleanup zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 

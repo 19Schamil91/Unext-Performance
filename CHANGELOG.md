@@ -2,6 +2,39 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-15
+
+### Workflow
+
+- Aufgabe 046 wurde nach bestandener Akzeptanzprüfung formal abgeschlossen und nach `workflow/done/` verschoben.
+- Der bereits vor 046 bestehende globale Formular-Semantik- und Autocomplete-Punkt wurde als verbindlich zentral zu behebender Punkt in Aufgabe 033 dokumentiert; er war kein 046-Blocker.
+- Nächster logischer Task ist `047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken`.
+
+### Website
+
+- Die neue deutsche Route `/leistungen/schadendokumentation` wurde als eigenständige Schadendokumentations-Unterseite umgesetzt.
+- Die Seite besitzt einen kompakten mobile-first Hero mit Telefon, WhatsApp und Anfrage als direkten Kontaktwegen.
+- Vier Anwendungsfälle, sechs dokumentierbare Bereiche, die klare Abgrenzung zum Unfallgutachten, vier Ablaufschritte, vier FAQ und ein Abschluss-CTA strukturieren den Informationsfluss.
+- Das gemeinsame Anfrageformular wurde schadendokumentationsspezifisch konfiguriert; Fahrzeugmodell und Nachricht sind sichtbar, Datum und Betreff ausgeblendet.
+- Das vorhandene WebP `public/images/services/beweissicherung-dokumentation.webp` wird unverändert wiederverwendet.
+- Deutscher Header-, Mobile- und Startseitenlink führen auf die neue Route.
+- `ServicePageLayout` und das vorhandene Anfrageformular werden ohne neue allgemeine Formular-Prop wiederverwendet.
+
+### Checks
+
+- Responsive Darstellung bei 390 px, 768 px und 1440 px bestanden.
+- Kein horizontaler Overflow und keine Browser-Console-, Page- oder Hydration-Fehler.
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden.
+- Die neue Route wird statisch erzeugt; die formale Akzeptanzprüfung wurde bestanden.
+
+### Nicht geändert
+
+- Keine Änderung an Validierungs-, Resend-, E-Mail- oder Backendlogik.
+- Keine EN/RU-Schadendokumentationsroute und keine Route unter `/gutachtenarten/...`.
+- Keine Redirects und keine direkte Änderung an SEO-, Metadata- oder Structured-Data-Dateien; die indirekte `Service`- und `BreadcrumbList`-Ausgabe bleibt akzeptiert.
+- Kein Upload, Supabase, KI, Adminbereich oder Portal.
+- Die spätere URL-Migration bleibt Aufgabe 050.
+
 ## 2026-07-14
 
 ### Workflow
