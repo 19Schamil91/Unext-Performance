@@ -831,6 +831,20 @@ Sie darf nicht:
 
 Die Umsetzung beginnt erst nach ausdrücklicher Freigabe dieses Plans und der sichtbaren deutschen Texte.
 
+## Implementierungsnotiz
+
+- Die statische deutsche Zwischenroute `/leistungen/schadendokumentation` wurde mit `app/(de)/leistungen/schadendokumentation/page.tsx` erstellt.
+- `components/DamageDocumentationServiceDetailContent.tsx` enthält die freigegebenen Hero-, Anwendungsfall-, Dokumentations-, Abgrenzungs-, Ablauf-, Formular-, FAQ- und CTA-Inhalte.
+- Das vorhandene `ServicePageLayout`, das vorhandene `ServiceInquiryForm` und das WebP `public/images/services/beweissicherung-dokumentation.webp` werden wiederverwendet; gemeinsame Layout-, Formular-, Validierungs- und Versandlogik wurden nicht geändert.
+- Das Formular zeigt Fahrzeugmodell und Nachricht, blendet Datum und Betreff aus und verwendet weiterhin ausschließlich Name, Telefonnummer und E-Mail als Pflichtfelder.
+- Der deutsche Desktop- und Mobile-Link sowie die deutsche Startseitenkarte führen auf die Zwischenroute; der Karten-CTA lautet `Zur Schadendokumentation`, der Telefon-CTA bleibt `Anrufen`.
+- Die indirekte Ausgabe von `Service` und `BreadcrumbList` erfolgt unverändert über `ServicePageLayout`; ein `FAQPage`-Schema wurde nicht ergänzt.
+- EN/RU, Unfallgutachten, Fahrzeugbewertung, Über-uns, Assets, Redirects, Sitemap, Robots, Canonicals, Hreflang und zentrale SEO-/Structured-Data-Dateien blieben unverändert. Es wurde keine Route unter `/gutachtenarten/` angelegt.
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` sind erfolgreich. Der Build führt die neue Route als statisch prerenderte Seite auf; `next-env.d.ts` blieb unverändert.
+- Der lokale `next-router-check` bestätigt eine statische Route ohne eigene Datenladung. Die vorhandenen deutschen `loading.tsx`-, `error.tsx`- und `not-found.tsx`-Grenzen im übergeordneten Scope sind ausreichend.
+- Die Browser- und Typografieprüfung bei 390, 768 und 1440 px sowie ergänzend bei 430 und 2048 px bestätigt HTTP 200, vollständige Bilder, funktionierende CTAs, Navigation und FAQ, keinen horizontalen Scroll sowie keine Console- oder Page-Errors. Ein zunächst abgeschnittener Desktop-Formulartext wurde seitenbezogen korrigiert und erneut geprüft.
+- Aufgabe 050 wurde nicht gestartet; die spätere Migration auf `/gutachtenarten/schadendokumentation` bleibt vollständig außerhalb von Aufgabe 046.
+
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review
