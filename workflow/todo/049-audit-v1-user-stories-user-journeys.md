@@ -28,8 +28,9 @@ Aufgabe 049 erfolgt erst nach:
 - 046: Schadendokumentation-Unterseite
 - 047: Über-uns Trust / Qualifikation / Zertifikat
 - 048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
+- 050: Gutachtenarten-URLs und bestehende Leistungsrouten migrieren
 
-Aufgabe 049 muss vor 032 und 029 abgeschlossen sein, damit Übersetzungen und SEO auf einer fachlich und nutzerseitig geprüften deutschen V1-Struktur aufbauen.
+Aufgabe 049 startet erst nach Aufgabe 050 und muss vor 032 und 029 abgeschlossen sein, damit der User-Journey-Audit die endgültige deutsche Gutachtenarten-Routenstruktur prüft und Übersetzungen sowie SEO auf einer fachlich und nutzerseitig geprüften deutschen V1-Struktur aufbauen.
 
 ## Zu lesende Grundlagen
 
@@ -50,14 +51,16 @@ Keine neue User Story darf unbemerkt erfunden werden. Neue Empfehlungen müssen 
 ### Kernseiten
 
 - Startseite `/`
-- Unfallgutachten `/leistungen/unfallgutachten`
-- Fahrzeugbewertung `/leistungen/fahrzeugbewertung`
-- Schadendokumentation `/leistungen/schadendokumentation`
+- Unfallgutachten `/gutachtenarten/unfallgutachten`
+- Fahrzeugbewertung `/gutachtenarten/fahrzeugbewertung`
+- Schadendokumentation `/gutachtenarten/schadendokumentation`
 - Über uns `/ueber-uns`
 - Kontakt `/kontakt`
 - Impressum `/impressum`
 - Datenschutz `/datenschutz`
 - AGB `/agb`
+
+Die bisherigen deutschen `/leistungen/...`-URLs werden im Audit zusätzlich auf korrektes permanentes Redirect-Verhalten zu den endgültigen Gutachtenarten-Routen geprüft.
 
 ### Navigation und Nutzerführung
 
@@ -248,7 +251,7 @@ Späterer vollständiger technischer, visueller und funktionaler Launch-Qualitä
 - Kleine Korrekturen bleiben klar begrenzt; große Änderungen wurden nicht nebenbei umgesetzt.
 - EN/RU-, SEO-, Metadata-, Structured-Data-, Upload-, Supabase-, KI-, Admin- und Portal-Scope wurde nicht vorweggenommen.
 - Das Ergebnis lautet eindeutig `V1 user stories and user journeys passed` oder `V1 user stories and user journeys have gaps`.
-- Aufgabe 049 wurde erst nach 045, 046, 047 und 048 begonnen und vor 032 und 029 abgeschlossen.
+- Aufgabe 049 wurde erst nach 045, 046, 047, 048 und 050 begonnen und vor 032 und 029 abgeschlossen.
 
 ## Status
 

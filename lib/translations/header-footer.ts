@@ -16,7 +16,7 @@ export const headerFooterTranslations = {
           children: [
             { name: "Unfallgutachten", href: "/leistungen/unfallgutachten" },
             { name: "Fahrzeugbewertung", href: "/leistungen/fahrzeugbewertung" },
-            { name: "Schadendokumentation", href: "/#service-schadendokumentation" },
+            { name: "Schadendokumentation", href: "/leistungen/schadendokumentation" },
           ],
         },
         { name: "Über uns", href: "/ueber-uns" },
