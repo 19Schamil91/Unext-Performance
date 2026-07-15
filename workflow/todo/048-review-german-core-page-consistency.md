@@ -41,7 +41,9 @@ Die Startseite dient als Referenz für:
 
 Aufgabe 048 darf weder die Startseite noch die Über-uns-Seite vollständig neu umbauen. Größere fachliche Änderungen benötigen einen eigenen Task.
 
-Aufgabe 048 muss vor Aufgabe 049, Aufgabe 032 und Aufgabe 029 abgeschlossen sein, damit User-Story-Audit, Übersetzungen und SEO auf harmonisierten deutschen Kernseiten aufbauen.
+Aufgabe 048 muss vor Aufgabe 050, Aufgabe 049, Aufgabe 032 und Aufgabe 029 abgeschlossen sein, damit Routenmigration, User-Story-Audit, Übersetzungen und SEO auf harmonisierten deutschen Kernseiten aufbauen.
+
+Aufgabe 048 konzentriert sich auf Inhalte, Typografie, Trust und visuelle Konsistenz. Sie nimmt keine URL-Migration vor; diese bleibt Aufgabe 050.
 
 ## Vorgehen
 

@@ -304,7 +304,7 @@ Schadendokumentation in Berlin
 **Hero-Fließtext**
 
 ```text
-Eine Schadendokumentation hält sichtbare Schäden oder den Zustand Ihres Fahrzeugs geordnet fest. Je nach Anlass können Fotos, Fahrzeugdaten und vorhandene Unterlagen berücksichtigt werden. Den passenden Umfang stimmen wir vorab mit Ihnen ab.
+Eine Schadendokumentation hält Schäden und den aktuellen Zustand Ihres Fahrzeugs geordnet fest. Dabei können betroffene Fahrzeugbereiche, Fotos, Fahrzeugdaten und vorhandene Unterlagen berücksichtigt werden. Vorab besprechen wir mit Ihnen, was genau dokumentiert werden soll.
 ```
 
 **Trust-Zeile**
@@ -321,10 +321,10 @@ Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen un
 
 **Kompakte Hero-Vorteile**
 
-- `Sichtbare Schäden dokumentieren`
+- `Schäden geordnet dokumentieren`
 - `Fahrzeugzustand festhalten`
 - `Fotos und Unterlagen berücksichtigen`
-- `Umfang vorab abstimmen`
+- `Vorgehen vorab besprechen`
 
 Die H1 erhält keinen künstlichen Umbruch innerhalb von `Schadendokumentation`. Auf 390 px ist zu prüfen, ob der Browser sauber vor `in Berlin` umbricht. Eyebrow, Trust-Zeile, CTAs und Vorteile werden ohne manuelle Zeilenumbrüche geplant und später bei 390, 768 und 1440 px geprüft.
 
@@ -339,12 +339,12 @@ Wann ist eine Schadendokumentation sinnvoll?
 **Einleitung**
 
 ```text
-Eine geordnete Dokumentation kann sinnvoll sein, wenn ein sichtbarer Schaden oder ein bestimmter Fahrzeugzustand für die weitere Abstimmung nachvollziehbar festgehalten werden soll.
+Eine geordnete Dokumentation kann sinnvoll sein, wenn ein Schaden oder ein bestimmter Fahrzeugzustand für die weitere Abstimmung festgehalten werden soll.
 ```
 
 **Anwendungsfälle**
 
-1. **Sichtbaren Schaden festhalten**
+1. **Schaden zeitnah festhalten**
 
    ```text
    Ein erkennbarer Schaden soll zeitnah und geordnet dokumentiert werden.
@@ -353,19 +353,19 @@ Eine geordnete Dokumentation kann sinnvoll sein, wenn ein sichtbarer Schaden ode
 2. **Übergabe oder Rückgabe vorbereiten**
 
    ```text
-   Der aktuelle Fahrzeugzustand soll vor einer Übergabe oder Rückgabe nachvollziehbar festgehalten werden.
+   Der aktuelle Fahrzeugzustand soll vor einer Übergabe oder Rückgabe festgehalten werden.
    ```
 
 3. **Vorschäden oder Veränderungen erfassen**
 
    ```text
-   Erkennbare Vorschäden oder spätere Veränderungen sollen nachvollziehbar erfasst werden.
+   Bereits vorhandene Schäden oder Veränderungen am Fahrzeug sollen geordnet erfasst werden.
    ```
 
 4. **Fachliche Prüfung vorbereiten**
 
    ```text
-   Fotos, Fahrzeugdaten und vorhandene Unterlagen sollen für die weitere fachliche Abstimmung geordnet vorliegen.
+   Fotos, Fahrzeugdaten und vorhandene Unterlagen sollen für die weitere Prüfung geordnet vorliegen.
    ```
 
 Die vier Karten verwenden für `servicesGridClassName` den Wert `lg:grid-cols-4`. Sie versprechen weder Rechtswirkung noch Versicherungsanerkennung oder Schadenhöhe.
@@ -381,12 +381,12 @@ Was kann dokumentiert werden?
 **Einleitung**
 
 ```text
-Welche Punkte berücksichtigt werden, richtet sich nach Anlass, Fahrzeug und vereinbartem Umfang. Dokumentiert werden können insbesondere:
+Was aufgenommen wird, hängt von Ihrem Fahrzeug und Ihrem Anliegen ab. Dazu können gehören:
 ```
 
 **Dokumentationspunkte**
 
-1. **Sichtbare Beschädigungen**
+1. **Schäden am Fahrzeug**
 
    ```text
    Art und Lage erkennbarer Schäden am Fahrzeug.
@@ -395,13 +395,13 @@ Welche Punkte berücksichtigt werden, richtet sich nach Anlass, Fahrzeug und ver
 2. **Betroffene Fahrzeugbereiche**
 
    ```text
-   Die Bereiche, an denen Schäden oder Veränderungen erkennbar sind.
+   Fahrzeugbereiche, an denen Schäden oder Veränderungen erkennbar sind.
    ```
 
 3. **Fahrzeugdaten**
 
    ```text
-   Modell und weitere für den Anlass relevante Grunddaten.
+   Modell und weitere für das Anliegen hilfreiche Grunddaten.
    ```
 
 4. **Fotos aus sinnvollen Perspektiven**
@@ -413,13 +413,13 @@ Welche Punkte berücksichtigt werden, richtet sich nach Anlass, Fahrzeug und ver
 5. **Vorschäden und Besonderheiten**
 
    ```text
-   Erkennbare Vorschäden oder Besonderheiten, soweit sie für den Anlass relevant sind.
+   Erkennbare Vorschäden oder Besonderheiten, soweit sie für das Anliegen relevant sind.
    ```
 
 6. **Unterlagen und ergänzende Angaben**
 
    ```text
-   Vorhandene Unterlagen sowie ergänzende Angaben zum Anlass.
+   Vorhandene Unterlagen sowie ergänzende Angaben zu dem, was dokumentiert werden soll.
    ```
 
 Der Abschnitt wird als breite `detailSection` mit sechs kompakten Punkten umgesetzt. Die Einleitung stellt klar, dass nicht automatisch jeder Punkt Bestandteil jeder Dokumentation ist.
@@ -435,7 +435,7 @@ Schadendokumentation oder Unfallgutachten?
 **Erklärung**
 
 ```text
-Eine Schadendokumentation hält den Fahrzeugzustand oder sichtbare Schäden geordnet fest. Ein Unfallgutachten geht fachlich weiter und kann unter anderem regulierungsrelevante Schadenspositionen und Werte einordnen. Welcher Umfang zu Ihrem Anliegen passt, besprechen wir vorab.
+Eine Schadendokumentation hält Schäden und den Fahrzeugzustand geordnet fest. Ein Unfallgutachten geht weiter und kann zusätzlich zum Beispiel Reparaturkosten, Wertminderung und weitere wichtige Werte eines Unfallschadens einordnen. Verdeckte oder technisch zu prüfende Schäden lassen sich durch eine reine Dokumentation nicht abschließend beurteilen. Welcher Weg für Ihr Anliegen passt, klären wir gemeinsam mit Ihnen.
 ```
 
 **Drei Orientierungspunkte**
@@ -443,19 +443,19 @@ Eine Schadendokumentation hält den Fahrzeugzustand oder sichtbare Schäden geor
 1. **Schadendokumentation**
 
    ```text
-   Geordnete Erfassung eines Zustands oder sichtbarer Schäden im vereinbarten Umfang.
+   Geordnete Erfassung von Schäden oder des Fahrzeugzustands im zuvor besprochenen Rahmen.
    ```
 
 2. **Unfallgutachten**
 
    ```text
-   Weitergehende fachliche Einordnung eines Unfallschadens einschließlich relevanter Schadenspositionen und Werte.
+   Weitergehende fachliche Bewertung eines Unfallschadens, zum Beispiel mit Reparaturkosten, Wertminderung und weiteren relevanten Werten.
    ```
 
-3. **Passenden Umfang klären**
+3. **Passenden Weg klären**
 
    ```text
-   Sie müssen die richtige Leistung nicht selbst sicher bestimmen; wir besprechen Ihr Anliegen vorab.
+   Sie müssen nicht selbst entscheiden, welche Leistung passend ist. Wir besprechen Ihr Anliegen vorab.
    ```
 
 Auch dieser Bereich wird als breite `detailSection` umgesetzt. Er enthält keine juristische Beratung und keine pauschale Empfehlung für eine bestimmte Leistung.
@@ -471,7 +471,7 @@ So läuft die Schadendokumentation ab
 **Einleitung**
 
 ```text
-Anlass und Umfang werden vorab abgestimmt. Die fachliche Einordnung bleibt beim Gutachter.
+Vor Beginn besprechen wir mit Ihnen, was dokumentiert werden soll und welche Angaben dafür hilfreich sind.
 ```
 
 **Ablauf**
@@ -479,25 +479,25 @@ Anlass und Umfang werden vorab abgestimmt. Die fachliche Einordnung bleibt beim 
 1. **1. Anliegen schildern**
 
    ```text
-   Sie beschreiben kurz den sichtbaren Schaden, den betroffenen Bereich und den Anlass.
+   Sie beschreiben kurz den Schaden, den betroffenen Fahrzeugbereich oder den Fahrzeugzustand.
    ```
 
-2. **2. Umfang abstimmen**
+2. **2. Vorgehen besprechen**
 
    ```text
-   Wir klären, welche Angaben, Fotos oder vorhandenen Unterlagen für Ihren Fall hilfreich sind.
+   Wir klären, welche Fahrzeugbereiche, Fotos und vorhandenen Unterlagen berücksichtigt werden sollen.
    ```
 
 3. **3. Fahrzeug prüfen**
 
    ```text
-   Das Fahrzeug und die vereinbarten Informationen werden im abgestimmten Umfang betrachtet.
+   Wir betrachten die relevanten Fahrzeugbereiche und berücksichtigen die zuvor besprochenen Angaben.
    ```
 
-4. **4. Dokumentation erläutern**
+4. **4. Ergebnis besprechen**
 
    ```text
-   Die Dokumentation wird im vereinbarten Umfang erstellt und anschließend mit Ihnen besprochen.
+   Wir führen die dokumentierten Punkte zusammen und besprechen das Ergebnis mit Ihnen.
    ```
 
 Es wird keine feste Dauer oder Rückmeldefrist genannt.
@@ -507,7 +507,7 @@ Es wird keine feste Dauer oder Rückmeldefrist genannt.
 Der folgende Hinweis steht unmittelbar über dem Anfrageformular:
 
 ```text
-Für die erste Kontaktaufnahme genügen Fahrzeugmodell, sichtbarer Schaden oder betroffener Bereich und der Anlass der Dokumentation. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend ab.
+Für die erste Kontaktaufnahme genügen Fahrzeugmodell, betroffener Bereich und eine kurze Beschreibung dessen, was dokumentiert werden soll. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend mit Ihnen ab.
 ```
 
 Der Text ist bewusst keine Pflichtliste, fordert keine sensiblen Unterlagen ungefragt an und suggeriert keinen Website-Upload.
@@ -523,7 +523,7 @@ Schadendokumentation anfragen
 **Formularbeschreibung**
 
 ```text
-Beschreiben Sie kurz den sichtbaren Schaden, den betroffenen Bereich und den Anlass. Wir melden uns zur weiteren Abstimmung.
+Beschreiben Sie kurz, was beschädigt ist oder welchen Fahrzeugzustand Sie festhalten lassen möchten. Wir melden uns bei Ihnen und besprechen die nächsten Schritte.
 ```
 
 **Sichtbare Felder**
@@ -532,10 +532,10 @@ Beschreiben Sie kurz den sichtbaren Schaden, den betroffenen Bereich und den Anl
 - `Telefonnummer *` mit Platzhalter `Ihre Telefonnummer`
 - `E-Mail *` mit vorhandenem Platzhalter `ihre@email.de`
 - `Fahrzeugmodell` mit Platzhalter `z. B. VW Golf, EZ 2021`
-- `Schaden und Anlass` mit Nachrichten-Platzhalter:
+- `Schaden oder Fahrzeugzustand` mit Nachrichten-Platzhalter:
 
   ```text
-  Zum Beispiel sichtbarer Schaden, betroffener Bereich, ungefährer Zeitpunkt und Anlass der Dokumentation
+  Zum Beispiel: Kratzer an der rechten Tür, sichtbarer Unfallschaden oder Zustand vor einer Fahrzeugrückgabe
   ```
 
 **Ausgeblendete Felder**
@@ -586,25 +586,25 @@ Häufige Fragen zur Schadendokumentation
 1. **Was ist eine Schadendokumentation?**
 
    ```text
-   Eine Schadendokumentation hält den Fahrzeugzustand oder sichtbare Schäden im vereinbarten Umfang geordnet fest. Welche Angaben, Fotos und Unterlagen berücksichtigt werden, wird vorab abgestimmt.
+   Eine Schadendokumentation hält Schäden oder den aktuellen Zustand Ihres Fahrzeugs geordnet fest. Was genau aufgenommen wird, besprechen wir vorher mit Ihnen.
    ```
 
 2. **Was ist der Unterschied zu einem Unfallgutachten?**
 
    ```text
-   Ein Unfallgutachten geht über die reine Dokumentation hinaus und kann regulierungsrelevante Schadenspositionen und Werte fachlich einordnen. Welcher Umfang zu Ihrem Anliegen passt, klären wir vorab.
+   Ein Unfallgutachten geht über die reine Dokumentation hinaus und kann zusätzlich zum Beispiel Reparaturkosten, Wertminderung und weitere wichtige Werte eines Unfallschadens einordnen. Welcher Weg zu Ihrem Anliegen passt, klären wir gemeinsam mit Ihnen.
    ```
 
 3. **Welche Angaben oder Unterlagen sind hilfreich?**
 
    ```text
-   Für die erste Anfrage genügen wenige Angaben zum Fahrzeug, zum sichtbaren Schaden oder betroffenen Bereich und zum Anlass. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend über einen passenden Kontaktweg ab.
+   Für die erste Anfrage genügen wenige Angaben zum Fahrzeug, zum betroffenen Bereich und zu dem, was dokumentiert werden soll. Vorhandene Fotos oder Unterlagen stimmen wir bei Bedarf anschließend über einen passenden Kontaktweg mit Ihnen ab.
    ```
 
 4. **Was passiert nach meiner Anfrage?**
 
    ```text
-   Wir besprechen Ihr Anliegen, klären den passenden Umfang und stimmen ab, welche Informationen oder Unterlagen für den nächsten Schritt hilfreich sind.
+   Wir besprechen Ihr Anliegen, klären das passende Vorgehen und teilen Ihnen mit, welche Angaben oder Unterlagen für den nächsten Schritt hilfreich sind.
    ```
 
 Es wird kein `FAQPage`-Schema ergänzt. Die FAQ bleiben sichtbarer Seiteninhalt im bestehenden Accordion.
@@ -614,13 +614,13 @@ Es wird kein `FAQPage`-Schema ergänzt. Die FAQ bleiben sichtbarer Seiteninhalt 
 **Überschrift**
 
 ```text
-Sie möchten einen Schaden oder Fahrzeugzustand dokumentieren lassen?
+Sie möchten einen Schaden oder den Zustand Ihres Fahrzeugs dokumentieren lassen?
 ```
 
 **Begleittext**
 
 ```text
-Schildern Sie uns kurz, was festgehalten werden soll. Wir klären mit Ihnen, welcher Umfang zu Ihrem Anliegen passt.
+Schildern Sie uns kurz, was festgehalten werden soll. Wir besprechen mit Ihnen, welches Vorgehen zu Ihrem Anliegen passt.
 ```
 
 **Aktionen**
@@ -651,7 +651,7 @@ Geplante `layoutLabels`:
 backToServices: Zur Startseite
 servicesTitle: Wann ist eine Schadendokumentation sinnvoll?
 whyTitle: So läuft die Schadendokumentation ab
-whyDescription: Anlass und Umfang werden vorab abgestimmt. Die fachliche Einordnung bleibt beim Gutachter.
+whyDescription: Vor Beginn besprechen wir mit Ihnen, was dokumentiert werden soll und welche Angaben dafür hilfreich sind.
 faqTitle: Häufige Fragen zur Schadendokumentation
 ```
 
@@ -664,7 +664,7 @@ faqTitle: Häufige Fragen zur Schadendokumentation
 - empfohlener Alt-Text:
 
   ```text
-  Beschädigtes Fahrzeug mit Tablet, Schadenfotos und Unterlagen zur Schadendokumentation
+  Schadendokumentation an einem beschädigten Fahrzeug mit Tablet, Fotos und Unterlagen
   ```
 
 - initiale Positionierung: vorhandenes `object-cover object-center`
@@ -697,13 +697,13 @@ Der technische Zwischenstand von Aufgabe 046 ist:
 /leistungen/schadendokumentation
 ```
 
-Der aktuelle Planungsauftrag ordnet eine mögliche spätere kanonische Umstellung auf:
+Eine mögliche spätere kanonische Umstellung auf:
 
 ```text
 /gutachtenarten/schadendokumentation
 ```
 
-Aufgabe 025 zu. Diese spätere Migration muss gemeinsam prüfen beziehungsweise umsetzen:
+gehört zu Aufgabe 050. Diese spätere Migration muss gemeinsam prüfen beziehungsweise umsetzen:
 
 - permanente Redirects
 - interne Links
@@ -713,9 +713,7 @@ Aufgabe 025 zu. Diese spätere Migration muss gemeinsam prüfen beziehungsweise 
 - Structured Data
 - Erhalt bestehender SEO-Signale
 
-Aufgabe 046 nimmt diese Migration nicht vor und ändert weder Redirect- noch Routingkonfiguration.
-
-Repository-Befund: `workflow/done/025-implement-after-approved-specs.md` ist bereits abgeschlossen und enthält diese konkrete URL-Migration derzeit nicht. Vor einer späteren Migration muss die Workflow-Zuordnung deshalb ausdrücklich bereinigt werden, zum Beispiel durch eine freigegebene Ergänzung/Nachfolgeaufgabe oder eine ausdrücklich erlaubte Wiederaufnahme von 025. Dieser Befund ändert nicht die Scope-Grenze von 046: Die Migration bleibt hier ausgeschlossen.
+Aufgabe 025 ist abgeschlossen, wird nicht wieder geöffnet und enthält diese neu erkannte Migration nicht. Aufgabe 046 nimmt die Migration ebenfalls nicht vor und ändert weder Redirect- noch Routingkonfiguration. Sie setzt ausschließlich `/leistungen/schadendokumentation` als technische Zwischenroute um. Aufgabe 050 liegt als zukünftige Aufgabe mit Status `offen` in `workflow/todo/` und wird in 046 nicht gestartet.
 
 ### Akzeptierte indirekte Structured-Data-Ausgabe
 
@@ -733,7 +731,7 @@ Dabei gelten verbindlich:
 - keine neue zentrale SEO-Architektur
 - `/leistungen` darf vorerst weiterhin im automatisch erzeugten Breadcrumb enthalten sein
 - die abschließende fachliche und technische Prüfung erfolgt in Aufgabe 029
-- die mögliche spätere URL-Migration bleibt außerhalb von 046
+- die mögliche spätere URL-Migration bleibt Aufgabe 050 und außerhalb von 046
 
 Die bestehende Fahrzeugbewertungsroute verwendet kein lokales `generateMetadata()` und keine eigene Metadata-Hilfsfunktion. Die neue deutsche `page.tsx` folgt diesem tatsächlichen Muster und rendert ausschließlich `DamageDocumentationServiceDetailContent`. Aufgabe 046 führt somit keine neue lokale oder zentrale Metadata-Architektur ein. Die indirekten `Service`- und `BreadcrumbList`-Daten entstehen ausschließlich über das unveränderte `ServicePageLayout`.
 
@@ -759,6 +757,10 @@ Die bestehende Fahrzeugbewertungsroute verwendet kein lokales `generateMetadata(
 - `components/site-header.tsx`
 - `components/site-footer.tsx`
 
+**Spätere Routingaufgabe**
+
+- `workflow/todo/050-migrate-appraisal-routes-to-gutachtenarten.md` wird nur dokumentiert und nicht gestartet
+
 **Nicht ändern**
 
 - EN/RU-Dateien und lokalisierte EN/RU-Routen
@@ -771,6 +773,7 @@ Die bestehende Fahrzeugbewertungsroute verwendet kein lokales `generateMetadata(
 - Unfallgutachten- und Fahrzeugbewertungs-Inhalte
 - Über-uns-Seite
 - Aufgaben 047, 048 und 049
+- Aufgabe 050
 
 ### Technische und visuelle Prüfschritte nach der späteren Umsetzung
 
@@ -824,6 +827,7 @@ Sie darf nicht:
 - EN/RU, zentrale SEO-/Structured-Data-Dateien, Redirects, Sitemap, Robots oder Assets ändern
 - Unfallgutachten, Fahrzeugbewertung, Über-uns oder andere Aufgaben mitbearbeiten
 - die spätere URL-Migration vorwegnehmen
+- Aufgabe 050 starten
 
 Die Umsetzung beginnt erst nach ausdrücklicher Freigabe dieses Plans und der sichtbaren deutschen Texte.
 

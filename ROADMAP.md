@@ -80,7 +80,9 @@ Aufgabe 044 hat stattdessen die deutsche Gutachtenarten-Navigation und direkte E
 
 Aufgabe 045 ist abgeschlossen. Die deutsche Fahrzeugbewertungs-Unterseite wurde unter `/leistungen/fahrzeugbewertung` umgesetzt. Deutsche Header-, Mobile- und Startseitenlinks führen auf die neue Route. Die Seite ist kompakt, mobile-first und fachlich vom Unfallgutachten abgegrenzt, verwendet das gemeinsame `ServicePageLayout` und konfiguriert das Anfrageformular seitenbezogen. Es wurden keine EN/RU-, SEO-, Metadata-, Routing- oder Asset-Nebenbaustellen eröffnet. Die indirekte Service- und `BreadcrumbList`-Ausgabe bleibt für Aufgabe 029 dokumentiert; Aufgabe 048 und Aufgabe 049 bleiben spätere offene Todo-Aufgaben.
 
-Die technische Behandlung von `/leistungen` bleibt offen und wird später bewusst in Aufgabe 029 beziehungsweise Aufgabe 026 entschieden. In 044 wurde `/leistungen` weder gelöscht noch umgeleitet und nicht als fertige Gutachtenarten-Seite dargestellt.
+Die technische Behandlung von `/leistungen` bleibt offen und wird in Aufgabe 050 gemeinsam mit der Gutachtenarten-Routenmigration geprüft und entschieden. In 044 wurde `/leistungen` weder gelöscht noch umgeleitet und nicht als fertige Gutachtenarten-Seite dargestellt.
+
+Aufgabe 025 bleibt abgeschlossen und wird nicht wieder geöffnet. Die später erkannte Migration der drei deutschen Detailseiten von `/leistungen/...` auf voraussichtlich `/gutachtenarten/...` übernimmt die neue Aufgabe 050. Aufgabe 046 verwendet `/leistungen/schadendokumentation` bis dahin bewusst als technische Zwischenroute.
 
 Die Next-Image-Quality-Warnungen zu den Werten `88` und `74` blockieren Aufgabe 044 nicht. Sie bleiben als Performance-/Launch-QA-Punkt für Aufgabe 033 beziehungsweise einen passenden Config-/Cleanup-Schritt dokumentiert. In 044 wurde keine `next.config`-Änderung vorgenommen.
 
@@ -91,6 +93,7 @@ Die Folge-Reihenfolge lautet:
 046: Schadendokumentation-Unterseite hochwertig ausbauen
 047: Über-uns-Seite Trust / Qualifikation / Zertifikat verstärken
 048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
+050: Gutachtenarten-URLs und bestehende Leistungsrouten migrieren
 049: V1-User-Stories und Nutzerwege vollständig prüfen
 032: i18n Launch Scope
 029: SEO / Metadata / Structured Data
@@ -112,15 +115,15 @@ Spätere Ausbaustufen bleiben:
 
 Status: geplant
 
-Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041 sowie die noch zu klärenden deutschen Detailseiten und die offenen i18n-Entscheidungen beachten.
+Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die offenen i18n-Entscheidungen beachten.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgabe 045 ist abgeschlossen. Der nächste logische Task ist Aufgabe 046 für die Schadendokumentations-Unterseite, danach folgt Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 048 prüft anschließend die deutschen Kernseiten gemeinsam auf Konsistenz, Typografie und Trust. Aufgabe 049 prüft danach die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033, 034 und 035 eingeordnet.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Aufgabe 045 ist abgeschlossen. Der nächste logische Task ist Aufgabe 046 für die Schadendokumentations-Unterseite, danach folgt Aufgabe 047 für Über-uns / Trust / Qualifikation / Zertifikat. Aufgabe 048 prüft anschließend die deutschen Kernseiten gemeinsam auf Konsistenz, Typografie und Trust. Aufgabe 050 migriert danach die deutschen Gutachtenarten-Routen. Aufgabe 049 prüft anschließend die V1-User-Stories und vollständigen Nutzerwege, bevor 032 und 029 beginnen. Danach bleiben 026, 033, 034 und 035 eingeordnet.
 
-Die alte Route `/leistungen` wird nicht in 044 bereinigt. Ihre endgültige technische Behandlung, mögliche SEO-Einordnung und spätere Entfernung oder Umleitung bleiben den Aufgaben 029 und 026 vorbehalten. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
+Die alte Route `/leistungen` wird nicht in 044 oder 046 bereinigt. Ihre endgültige technische Behandlung und eine mögliche Umleitung werden in Aufgabe 050 geprüft. Aufgabe 029 finalisiert danach die SEO-, Metadata- und Structured-Data-Qualität; Aufgabe 026 bleibt für späteren Cleanup zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 
