@@ -10,7 +10,7 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Aufgabe 047 wurde auf dem eigenen Branch `task-047-strengthen-about-trust-qualification-certificate` nach `workflow/active/` verschoben und auf `in Arbeit` gesetzt.
 - Bestand, sichtbare Texte, Komponenten, Assets, Route und Nachweisgrenzen wurden inventarisiert und der Seiten-, Text- und Umsetzungsplan wurde abschließend freigegeben.
 - Aktive DESAG-Mitgliedschaft, Namensnennung, Qualifikation, Personenfoto, Bildrechte und der externe Profil-Link wurden für die Umsetzung bestätigt.
-- Die Umsetzung und technischen Prüfungen sind abgeschlossen; Aufgabe 047 wartet in `workflow/active/` auf die visuelle Nutzerfreigabe.
+- Die Umsetzung wurde gegen die Akzeptanzkriterien geprüft, visuell freigegeben und Aufgabe 047 formal nach `workflow/done/` abgeschlossen.
 
 ### Website
 

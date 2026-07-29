@@ -462,6 +462,13 @@ Seitenplan, sichtbare Texte, Personenfoto, Namensnennung, externe Profilverlinku
 - `ROADMAP.md` wurde nicht geändert, weil Reihenfolge, Prioritäten und Projektplanung unverändert bleiben.
 - Review-Screenshots liegen ausschließlich temporär unter `C:\tmp\unext-task-047-review`.
 
+## Abschluss
+
+- Die Umsetzung wurde gegen die Akzeptanzkriterien geprüft und vom Nutzer visuell freigegeben.
+- Responsive Darstellung, Typografie, Accessibility, externer DESAG-Link und die technischen Checks wurden erfolgreich geprüft.
+- Aufgabe 047 wurde am 29. Juli 2026 formal abgeschlossen; der aufgabenfremde `/favicon.ico`-Befund bleibt außerhalb des Scopes.
+- Aufgabe 048 bleibt der nächste nachgelagerte Workflow-Schritt und wurde nicht vorzeitig gestartet.
+
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen
