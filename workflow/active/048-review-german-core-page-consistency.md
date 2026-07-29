@@ -9,8 +9,12 @@ Nach Abschluss der Aufgaben 046 und 047 sollen diese deutschen Kernseiten gemein
 - Fahrzeugbewertung `/leistungen/fahrzeugbewertung`
 - Schadendokumentation `/leistungen/schadendokumentation`
 - Über uns `/ueber-uns`
+- Kontakt `/kontakt`
+- gemeinsamer Header und Footer
 
 Die Seiten sollen sichtbar zur gleichen professionellen Website-Familie gehören, ohne inhaltlich zu Kopien voneinander zu werden.
+
+Zusätzlich sollen kleine sichtbare Qualitätsprobleme gezielt behoben werden. Dazu gehören insbesondere unnötig schmale Textbereiche, unruhige Zeilenumbrüche, vermeidbare Wiederholungen und eine unausgewogene Textbalance auf Mobile, Tablet und Desktop.
 
 ## Kontext und Abhängigkeiten
 
@@ -85,6 +89,21 @@ Dabei prüfen:
 - vollständig sichtbare CTA-Texte
 - keine künstlich gequetschte Typografie
 
+### Expliziter Prüffokus: Gutachtenkarten der Startseite
+
+- Die Gutachtenkarten der Startseite sind ausdrücklich Teil von Aufgabe 048.
+- Besonders zu prüfen sind die Beschreibungstexte der Karten `Fahrzeugbewertung` und `Schadendokumentation`.
+- Die aktuell zu schmal wirkenden Textbereiche, unnötige `max-width`-Begrenzungen und der dadurch entstehende rechte Leerraum müssen im tatsächlichen Komponenten- und Viewport-Kontext geprüft werden.
+- Beschreibungstexte sollen ihre verfügbare Kartenbreite sinnvoll nutzen und bei 390 px, 768 px und 1440 px ruhig, hochwertig und natürlich umbrechen.
+- Text und Layout dürfen nur leicht optimiert werden; Kartenstruktur, Verlinkung und fachliche Bedeutung bleiben erhalten.
+
+Folgende Formulierungen dienen ausschließlich als Prüfrichtung und sind noch nicht als sichtbarer Website-Text freigegeben:
+
+- Fahrzeugbewertung: `Wir ordnen den Fahrzeugwert nachvollziehbar ein – für Verkauf, Kauf oder weitere Entscheidungen.`
+- Schadendokumentation: `Schadenfotos und Unterlagen werden geordnet erfasst, damit der Schaden nachvollziehbar bleibt.`
+
+Vor einer Umsetzung werden diese Vorschläge mit dem bestehenden Startseitenkontext, den Detailseiten und den häufigen Wiederholungen abgeglichen.
+
 ### Hero-, Bild- und Trust-Wirkung
 
 - Hero-Höhen, Aufbau und Textpositionen vergleichen.
@@ -139,11 +158,13 @@ Dabei prüfen:
 Aufgabe 048 darf:
 
 - direkt sichtbare deutsche Texte der genannten Kernseiten harmonisieren
+- sichtbare deutsche Texte der Kontaktseite sowie gemeinsame Header- und Footer-Texte prüfen und bei kleinen Konsistenzproblemen korrigieren
 - responsive Zeilenumbrüche korrigieren
 - Abstände und Textbreiten angleichen
 - Bildpositionen und Zuschnitte nachjustieren
 - kleinere seitenübergreifende Qualitätsunterschiede beheben
 - CTA-, Trust- und Formularbeschriftungen konsistent machen
+- die Gutachtenkarten der Startseite textlich und visuell leicht optimieren, ohne ihre Struktur oder Verlinkung grundlegend zu verändern
 
 Aufgabe 048 darf nicht:
 
@@ -154,11 +175,12 @@ Aufgabe 048 darf nicht:
 - EN/RU-Texte ändern
 - SEO-/Metadata-/Structured-Data-Dateien ändern
 - Redirects erstellen
+- Routen ändern oder die Migration von `/leistungen` zu `/gutachtenarten` vorwegnehmen
 - `/leistungen` wieder als Übersichtsseite aufbauen
 - Upload-, Supabase-, KI-, Admin- oder Portal-Funktionen ergänzen
-- Aufgabe 049 oder Aufgabe 033 ersetzen
+- die Aufgaben 049, 050, 032, 029, 026, 033, 034 oder 035 starten oder vorwegnehmen
 
-## Abgrenzung zu Aufgabe 047, Aufgabe 049 und Aufgabe 033
+## Abgrenzung zu anderen Aufgaben
 
 ### Aufgabe 047
 
@@ -175,16 +197,33 @@ Aufgabe 048 darf nicht:
 
 - prüft alle relevanten User Stories und vollständigen End-to-End-Nutzerwege der deutschen Website
 
+### Aufgabe 050
+
+- übernimmt ausschließlich die spätere Routenmigration zu `/gutachtenarten`
+
+### Aufgabe 032
+
+- übernimmt den späteren i18n- und Übersetzungsumfang
+
+### Aufgabe 029
+
+- übernimmt SEO, Metadata und Structured Data
+
+### Aufgabe 026
+
+- übernimmt den kontrollierten Cleanup alter Legacy-Seiten und nicht mehr benötigter Strukturen
+
 ### Aufgabe 033
 
 - bleibt der spätere umfassende technische, visuelle und funktionale Launch-Qualitätscheck der gesamten Website
 
 ## Akzeptanzkriterien
 
-- Startseite, Über-uns-Seite und die drei deutschen Gutachten-Unterseiten wurden gemeinsam bei 1440 px, 768 px und 390 px geprüft.
+- Startseite, Über-uns-Seite, Kontaktseite, die drei deutschen Gutachten-Unterseiten sowie Header und Footer wurden gemeinsam bei 1440 px, 768 px und 390 px geprüft.
 - Aufgabe 048 wurde erst nach Abschluss von Aufgabe 046 und Aufgabe 047 gestartet.
 - Das H1-System, der Startseiten-Hauptfokus, Eyebrows, Trust-Zeilen, Qualifikationsformulierungen und Hauptbegriffe wurden nachvollziehbar verglichen.
 - Auffällige Wiederholungen, ungünstige Zeilenumbrüche, unnötig schmale Textcontainer und gequetschte Typografie sind behoben oder als bewusste Abweichung dokumentiert.
+- Die Karten `Fahrzeugbewertung` und `Schadendokumentation` nutzen ihre verfügbare Textbreite ausgewogen; unnötiger rechter Leerraum und unruhige Beschreibungstext-Umbrüche sind behoben oder begründet dokumentiert.
 - Hero-Höhen, Bildzuschnitte, Textpositionen, Trust-Wirkung und Bilddateigrößen sind geprüft; zentrale Motive bleiben ohne Verzerrung sichtbar.
 - Abschnittsreihenfolge, Informationsdichte, Karten, FAQ-Umfang und Ablaufbereiche wirken als gemeinsame Seitenfamilie, ohne die fachliche Eigenständigkeit zu verlieren.
 - Startseite bleibt Haupt-Verkaufsseite und Über-uns bleibt zentrale Trust- und Qualifikationsseite.
@@ -192,8 +231,8 @@ Aufgabe 048 darf nicht:
 - Es gibt keinen horizontalen Overflow, keine Browser-Console-Errors und keine sichtbaren Next.js-Issues.
 - `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` wurden erfolgreich ausgeführt oder Abweichungen klar dokumentiert.
 - Es wurden keine EN/RU-, SEO-, Metadata-, Structured-Data-, Redirect- oder neuen Funktionsänderungen vorgenommen.
-- Aufgabe 049 und Aufgabe 033 wurden nicht vorweggenommen.
+- Die Aufgaben 049, 050, 032, 029, 026, 033, 034 und 035 wurden weder gestartet noch vorweggenommen.
 
 ## Status
 
-Status: offen
+Status: in Arbeit
