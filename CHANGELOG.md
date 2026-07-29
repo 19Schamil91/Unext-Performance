@@ -3,6 +3,17 @@
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
 ## 2026-07-29
+### Aufgabe 050 - Routenmigration umgesetzt
+
+- Die drei deutschen Gutachtenarten wurden auf neue kanonische Routen unter `/gutachtenarten/...` migriert.
+- Die bisherigen deutschen Detail-URLs unter `/leistungen/unfallgutachten`, `/leistungen/fahrzeugbewertung` und `/leistungen/schadendokumentation` leiten permanent und direkt auf die passenden neuen Zielrouten weiter.
+- Deutsche Header-/Footer-Links, Startseitenkarten, der Über-uns-Link sowie Service-Structured-Data- und Breadcrumb-Pfade wurden auf die neue Routenstruktur angepasst.
+- `/leistungen` bleibt technisch erhalten und wurde nicht gelöscht, nicht umgebaut und nicht umgeleitet.
+- EN/RU-Routen und alte Legacy-Service-Routen bleiben unverändert.
+- `next-router-check`, `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` wurden ausgeführt; der erste TypeScript-Lauf benötigte nach der Routenentfernung neu erzeugte `.next`-Router-Typen und bestand nach `npm run build`.
+- Route-/Redirect-Prüfung erfolgte lokal auf `127.0.0.1:3108`; Screenshots wurden außerhalb des Repositorys unter `C:/tmp/unext-task-050-route-migration-review/` erstellt.
+- `next-env.d.ts` wurde nach Dev-Server-Nutzung wieder auf den committed Stand zurückgesetzt.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden.
 
 ### Aufgabe 050 - Start und Inventur
 

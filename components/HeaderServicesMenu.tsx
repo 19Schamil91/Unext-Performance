@@ -25,7 +25,7 @@ export function HeaderServicesMenu({ name, href, showOverviewLink = true, childr
   // Dieser Wert markiert den Leistungsbereich im Header, wenn der Nutzer dort ist.
   const pathname = usePathname()
   const currentPath = removeLocalePrefix(pathname)
-  const isActive = currentPath.startsWith("/leistungen/")
+  const isActive = currentPath.startsWith("/leistungen/") || currentPath.startsWith("/gutachtenarten/")
 
   // Dieser Ablauf schliesst das Leistungsmenue bei Klick ausserhalb oder Escape.
   useEffect(() => {

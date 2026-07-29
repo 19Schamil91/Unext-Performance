@@ -287,6 +287,98 @@ Zusätzlich zu den bestehenden Kriterien gilt:
 - Aufgabe 049 wurde vor Abschluss von 050 nicht gestartet.
 - Aufgabe 050 wird erst nach Review und ausdrücklicher Freigabe abgeschlossen.
 
+
+## Umsetzungsnotiz
+
+Die freigegebene Migration wurde umgesetzt.
+
+Neue deutsche Zielrouten:
+
+```text
+/gutachtenarten/unfallgutachten
+/gutachtenarten/fahrzeugbewertung
+/gutachtenarten/schadendokumentation
+```
+
+Alte deutsche Detail-URLs leiten in `next.config.mjs` permanent und direkt weiter:
+
+```text
+/leistungen/unfallgutachten -> /gutachtenarten/unfallgutachten
+/leistungen/fahrzeugbewertung -> /gutachtenarten/fahrzeugbewertung
+/leistungen/schadendokumentation -> /gutachtenarten/schadendokumentation
+```
+
+Umgesetzte technische Änderungen:
+
+- Neue deutsche App-Router-Seiten unter `app/(de)/gutachtenarten/...` angelegt.
+- Die alten deutschen Detail-`page.tsx`-Dateien unter `app/(de)/leistungen/...` entfernt; die URLs werden per Redirect behandelt.
+- Deutsche Navigation in `lib/translations/header-footer.ts` auf die neuen Gutachtenarten-Zielrouten umgestellt.
+- `HeaderServicesMenu` markiert den Gutachtenartenbereich auch auf `/gutachtenarten/...` als aktiv.
+- Deutsche Startseitenkarten in `components/sections/services-section.tsx` verlinken direkt auf die neuen Zielrouten.
+- Der deutsche Über-uns-Link zum Unfallgutachten zeigt direkt auf `/gutachtenarten/unfallgutachten`.
+- `ServicePageLayout` kann einen expliziten `servicePath` erhalten, damit `Service`-Structured-Data und `BreadcrumbList` nicht mehr automatisch `/leistungen/${serviceName}` verwenden müssen.
+- Unfallgutachten-Metadata nutzt für Deutsch die neue Zielroute; EN/RU bleiben auf den bisherigen lokalisierten `/leistungen/...`-Pfaden.
+- Fahrzeugbewertung und Schadendokumentation übergeben die neuen deutschen `servicePath`-Werte an das gemeinsame Layout.
+- Die bestehende `/leistungen`-Übersicht bleibt technisch erhalten; sie wird nicht gelöscht, nicht umgebaut und nicht umgeleitet. Der deutsche Unfallgutachten-Detail-Link dort vermeidet jedoch den Umweg über den Redirect.
+
+Nicht geändert:
+
+- Keine EN/RU-Routen migriert.
+- Keine alten Legacy-Service-Routen pauschal umgeleitet.
+- Keine neue Sitemap-, Robots-, Canonical- oder Hreflang-Architektur erfunden.
+- Keine Upload-, Supabase-, KI-, Admin- oder Portal-Funktion ergänzt.
+- Keine Website-Texte umfassend neu geschrieben.
+- Aufgabe 049 wurde nicht gestartet.
+
+Offen für 029/026:
+
+- Vollständige finale SEO-, Canonical-, Sitemap-, Robots-, Hreflang- und Structured-Data-Endprüfung bleibt Aufgabe 029.
+- Spätere technische Behandlung oder Bereinigung der alten `/leistungen`-Übersicht und anderer Legacy-Routen bleibt Aufgabe 026 beziehungsweise der dort vorgesehenen Cleanup-Entscheidung.
+
+## Prüfnotiz
+
+Ausgeführte Prüfungen:
+
+- `git diff --check`: bestanden.
+- `git diff -- next-env.d.ts`: nach Dev-Server-Nutzung wieder leer; `next-env.d.ts` blieb nicht Teil der Umsetzung.
+- `npm run lint`: bestanden.
+- `npx tsc --noEmit`: erster Lauf schlug wegen veralteter `.next/types/validator.ts` nach Entfernen der alten Routen fehl; nach `npm run build` wurden die Router-Typen neu erzeugt und TypeScript bestand.
+- `npm run build`: bestanden, 43 Seiten erzeugt, neue Routen `/gutachtenarten/...` statisch gebaut.
+- `next-router-check`: 28 UI-Routen geprüft, davon 13 datenladend. Die drei neuen deutschen Gutachtenarten-Routen sind statisch und durch `app/(de)/loading.tsx`, `app/(de)/error.tsx` und `app/(de)/not-found.tsx` im deutschen Scope abgedeckt. Der bekannte lokalisierte `not-found.tsx`-Befund bleibt außerhalb von 050.
+
+Lokale Route-/Redirect-Prüfung auf `http://127.0.0.1:3108`:
+
+| Pfad | Ergebnis |
+|---|---|
+| `/gutachtenarten/unfallgutachten` | `200 OK` |
+| `/gutachtenarten/fahrzeugbewertung` | `200 OK` |
+| `/gutachtenarten/schadendokumentation` | `200 OK` |
+| `/leistungen` | `200 OK` |
+| `/leistungen/unfallgutachten` | `308 Permanent Redirect` -> `/gutachtenarten/unfallgutachten` |
+| `/leistungen/fahrzeugbewertung` | `308 Permanent Redirect` -> `/gutachtenarten/fahrzeugbewertung` |
+| `/leistungen/schadendokumentation` | `308 Permanent Redirect` -> `/gutachtenarten/schadendokumentation` |
+| `/en/leistungen/unfallgutachten` | `200 OK` |
+| `/ru/leistungen/unfallgutachten` | `200 OK` |
+
+Die alten Detailrouten leiten jeweils direkt auf genau eine neue Zielroute weiter. Es bestehen keine Redirect-Ketten oder Redirect-Schleifen. Bei der manuellen Prüfung traten keine Browser-, Hydration-, Request- oder Bildfehler auf.
+
+Screenshots wurden außerhalb des Repositorys erstellt:
+
+- `C:/tmp/unext-task-050-route-migration-review/unfallgutachten-390.png`
+- `C:/tmp/unext-task-050-route-migration-review/unfallgutachten-768.png`
+- `C:/tmp/unext-task-050-route-migration-review/unfallgutachten-1440.png`
+- `C:/tmp/unext-task-050-route-migration-review/fahrzeugbewertung-390.png`
+- `C:/tmp/unext-task-050-route-migration-review/fahrzeugbewertung-768.png`
+- `C:/tmp/unext-task-050-route-migration-review/fahrzeugbewertung-1440.png`
+- `C:/tmp/unext-task-050-route-migration-review/schadendokumentation-390.png`
+- `C:/tmp/unext-task-050-route-migration-review/schadendokumentation-768.png`
+- `C:/tmp/unext-task-050-route-migration-review/schadendokumentation-1440.png`
+
+Hinweis: Die Screenshots wurden erfolgreich durch Playwright geschrieben. Eine zusätzliche Anzeige über das lokale `view_image`-Tool war wegen des Windows-Sandbox-Wrappers für `C:/tmp` nicht möglich; die Dateien liegen außerhalb des Repositories und wurden nicht in Git aufgenommen.
+
+Bekannte aufgabenfremde Warnung:
+
+- Der Dev-Server meldete erneut eine Next-Image-Quality-Warnung für Bildqualitäten wie `78`. Diese Warnung blockiert die Routenmigration nicht und bleibt als Launch-/Performance-QA-Punkt außerhalb von 050.
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review

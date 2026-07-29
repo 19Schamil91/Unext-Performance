@@ -14,9 +14,9 @@ export const headerFooterTranslations = {
           name: "Gutachtenarten",
           href: "/#leistungen",
           children: [
-            { name: "Unfallgutachten", href: "/leistungen/unfallgutachten" },
-            { name: "Fahrzeugbewertung", href: "/leistungen/fahrzeugbewertung" },
-            { name: "Schadendokumentation", href: "/leistungen/schadendokumentation" },
+            { name: "Unfallgutachten", href: "/gutachtenarten/unfallgutachten" },
+            { name: "Fahrzeugbewertung", href: "/gutachtenarten/fahrzeugbewertung" },
+            { name: "Schadendokumentation", href: "/gutachtenarten/schadendokumentation" },
           ],
         },
         { name: "Über uns", href: "/ueber-uns" },

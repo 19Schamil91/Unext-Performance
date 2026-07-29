@@ -374,7 +374,7 @@ export function AboutPageContent({ locale }: AboutPageContentProps) {
                 </ul>
                 <div className="mt-8">
                   <Button asChild className="gap-2">
-                    <Link href="/leistungen/unfallgutachten">
+                    <Link href="/gutachtenarten/unfallgutachten">
                       {t.subBrandCta}
                       <ArrowRight className="h-5 w-5" />
                     </Link>
