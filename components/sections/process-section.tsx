@@ -57,7 +57,13 @@ export function ProcessSection({ locale }: Props) {
                   </div>
 
                   <h3 className="measure-card-copy text-card-heading-fluid text-foreground">{item.title}</h3>
-                  <p className="mt-2 measure-card-copy text-body-compact text-foreground/78">
+                  <p
+                    className={
+                      isGerman
+                        ? "mt-2 max-w-none text-body-compact text-foreground/78 [text-wrap:pretty] sm:measure-card-copy"
+                        : "mt-2 measure-card-copy text-body-compact text-foreground/78"
+                    }
+                  >
                     {item.description}
                   </p>
 

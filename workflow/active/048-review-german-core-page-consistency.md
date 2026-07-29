@@ -233,6 +233,135 @@ Aufgabe 048 darf nicht:
 - Es wurden keine EN/RU-, SEO-, Metadata-, Structured-Data-, Redirect- oder neuen Funktionsänderungen vorgenommen.
 - Die Aufgaben 049, 050, 032, 029, 026, 033, 034 und 035 wurden weder gestartet noch vorweggenommen.
 
+## Umsetzungsnotiz
+
+Auf Grundlage der abgeschlossenen read-only Prüfung wurde ein kleines, gezieltes Änderungspaket umgesetzt:
+
+- Die deutsche Startseitenkarte `Fahrzeugbewertung` wurde sprachlich präzisiert, um Wiederholungen von `einordnen` und `Einordnung` zu reduzieren.
+- Die deutsche Startseitenkarte `Schadendokumentation` wurde verständlicher formuliert und vermeidet unnatürliche Punkte wie `Ablauf sammeln` oder `Schaden nachvollziehbar halten`.
+- Die deutschen Desktop-/Tablet-Texte in `lib/translations/home-overrides.ts` und die deutschen mobilen Duplikate in `components/sections/services-section.tsx` wurden inhaltlich konsistent aktualisiert.
+- Die CTA-Anordnung der deutschen Gutachtenkarten wurde so angepasst, dass Buttons auf Mobile und im schmalen Tablet-Zweispaltenlayout gestapelt bleiben und erst ab `lg` wieder nebeneinander stehen.
+- Die sichtbare deutsche H1 der Unfallgutachten-Seite wurde von `Unfallgutachten Berlin` auf `Unfallgutachten in Berlin` vereinheitlicht.
+
+Nicht geändert wurden EN/RU-Texte, Routen, SEO, Metadata, Structured Data, Assets, globale Styles, Header, Footer, Kontaktseite, Über-uns-Seite und `ROADMAP.md`.
+
+## Prüfergebnisse
+
+Technische Checks:
+
+- `git diff --check`: bestanden.
+- `git diff -- next-env.d.ts`: unverändert.
+- `npm run lint`: bestanden.
+- `npx tsc --noEmit`: bestanden.
+- `npm run build`: bestanden, 43 Seiten erzeugt.
+
+Visuelle und funktionale Prüfung:
+
+- Startseite bei 390 px, 768 px und 1440 px geprüft.
+- Unfallgutachten-Seite bei 390 px, 768 px und 1440 px geprüft.
+- Kein horizontaler Overflow bei den geprüften Viewports.
+- Die sichtbare H1 lautet `Unfallgutachten in Berlin`.
+- Die Startseitenkarten `Fahrzeugbewertung` und `Schadendokumentation` zeigen die neuen deutschen Beschreibungstexte.
+- Bei 390 px und 768 px sind Haupt-CTA und `Anrufen` gestapelt und vollständig sichtbar.
+- Bei 1440 px stehen die CTAs wieder nebeneinander und bleiben vollständig sichtbar.
+- Es wurden keine Page-, Hydration-, Request- oder Bildfehler festgestellt.
+- Im Headless-Dev-Server traten nur HMR-WebSocket-Meldungen des Entwicklungsservers auf; sie betreffen keine Seitenfunktion und blockieren Aufgabe 048 nicht.
+
+Screenshots wurden außerhalb des Repositorys abgelegt:
+
+- `C:/tmp/unext-task-048-implementation-review/home-390-full.png`
+- `C:/tmp/unext-task-048-implementation-review/home-768-full.png`
+- `C:/tmp/unext-task-048-implementation-review/home-1440-full.png`
+- `C:/tmp/unext-task-048-implementation-review/accident-390-full.png`
+- `C:/tmp/unext-task-048-implementation-review/accident-768-full.png`
+- `C:/tmp/unext-task-048-implementation-review/accident-1440-full.png`
+
+## Feinschliffnotiz
+
+Auf Grundlage der finalen visuellen Prüfung wurde ein gezielter Feinschliff ergänzt:
+
+- Die deutschen Startseitenbeschreibungen für `Fahrzeugbewertung` und `Schadendokumentation` wurden nochmals gekürzt, damit sie auf Desktop ruhiger umbrechen.
+- Endgültiger Text `Fahrzeugbewertung`: `Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.`
+- Endgültiger Text `Schadendokumentation`: `Wir dokumentieren Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen.`
+- Die mobilen und Desktop-/Tablet-Texte bleiben inhaltlich konsistent.
+- Die Ursache der schmal wirkenden mobilen Ablauftexte lag in `components/sections/process-section.tsx`: Die Beschreibung nutzte auf Mobile ebenfalls `measure-card-copy` und damit eine zusätzliche Lesebreitenbegrenzung.
+- Die Korrektur wurde lokal auf die deutsche Startseiten-Prozesskomponente begrenzt: Auf Mobile nutzt der Beschreibungstext jetzt `max-w-none` und `text-wrap: pretty`; ab `sm` greift wieder `measure-card-copy`, damit Tablet und Desktop keine überlangen Zeilen bekommen.
+
+Nicht geändert wurden weitere Detailseitenabschnitte, Header, Footer, Kontaktseite, Über-uns-Seite, EN/RU, Routen, SEO, Metadata, Structured Data, Assets, globale Styles und `ROADMAP.md`.
+
+## Finale Prüfergebnisse
+
+Technische Checks nach dem Feinschliff:
+
+- `git diff --check`: bestanden.
+- `git diff -- next-env.d.ts`: unverändert.
+- `npm run lint`: bestanden.
+- `npx tsc --noEmit`: bestanden.
+- `npm run build`: bestanden, 43 Seiten erzeugt.
+
+Visuelle und funktionale Prüfung nach dem Feinschliff:
+
+- Startseite, Unfallgutachten, Fahrzeugbewertung und Schadendokumentation wurden bei 390 px, 768 px und 1440 px geprüft.
+- Kein horizontaler Overflow bei den geprüften Seiten und Viewports.
+- Keine abgeschnittenen Startseitenkarten-CTAs; die Tablet-CTA-Korrektur bleibt wirksam.
+- Die Startseitenkarten `Fahrzeugbewertung` und `Schadendokumentation` zeigen die final gekürzten deutschen Beschreibungstexte.
+- Die mobilen Prozesskarten `Schaden schildern`, `Unterlagen vorbereiten` und `Weitere Schritte klären` nutzen bei 390 px die verfügbare innere Kartenbreite.
+- Bei 390 px beträgt die Kartenbreite der geprüften Prozesskarten 358 px und die Textbreite 316 px; es bleibt nur der reguläre Innenabstand.
+- Bei 768 px bleibt die Prozess-Textbreite im Zweispaltenlayout bei 318 px; bei 1440 px bleibt sie mit 280 px ruhig lesbar.
+- Die Detailseiten-Ablaufbereiche wurden bei 390 px und 1440 px als Screenshots geprüft; es wurde keine Layoutverschlechterung festgestellt.
+- Es wurden keine Browser-Console-Errors, Hydration-Fehler, neuen Bildfehler oder Requestfehler festgestellt. Sichtbar war nur der React-DevTools-Hinweis des lokalen Entwicklungsservers.
+
+Screenshots wurden außerhalb des Repositorys abgelegt:
+
+- `C:/tmp/unext-task-048-final-refinement/home-390-full.png`
+- `C:/tmp/unext-task-048-final-refinement/home-768-full.png`
+- `C:/tmp/unext-task-048-final-refinement/home-1440-full.png`
+- `C:/tmp/unext-task-048-final-refinement/home-cards-390.png`
+- `C:/tmp/unext-task-048-final-refinement/home-cards-768.png`
+- `C:/tmp/unext-task-048-final-refinement/home-cards-1440.png`
+- `C:/tmp/unext-task-048-final-refinement/home-process-390.png`
+- `C:/tmp/unext-task-048-final-refinement/home-process-768.png`
+- `C:/tmp/unext-task-048-final-refinement/home-process-1440.png`
+- `C:/tmp/unext-task-048-final-refinement/accident-process-390.png`
+- `C:/tmp/unext-task-048-final-refinement/accident-process-1440.png`
+- `C:/tmp/unext-task-048-final-refinement/valuation-process-390.png`
+- `C:/tmp/unext-task-048-final-refinement/valuation-process-1440.png`
+- `C:/tmp/unext-task-048-final-refinement/damage-process-390.png`
+- `C:/tmp/unext-task-048-final-refinement/damage-process-1440.png`
+## Letzter Kartenabgleich
+
+Nach der letzten Kartenprüfung wurden ausschließlich die drei deutschen Startseitenbeschreibungen der Gutachtenkarten in den vorgesehenen Desktop-/Tablet- und Mobile-Quellen vereinheitlicht:
+
+- Unfallgutachten: `UNEXT ordnet den Fahrzeugschaden fachlich ein und klärt mit Ihnen die nächsten Schritte.`
+- Fahrzeugbewertung: `Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.`
+- Schadendokumentation: `Wir halten Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen fest.`
+
+Feststellungen zur Wiederverwendung:
+
+- Die Desktop-/Tablet-Quelle ist `lib/translations/home-overrides.ts` unter `homeTranslationOverrides.de.services.items`.
+- Die mobile deutsche Duplikatquelle ist `components/sections/services-section.tsx` unter `mobileServiceDescriptions.de`.
+- Die Texte erscheinen nicht als gemeinsam genutzte EN/RU-Quelle.
+- Die CTA-Breakpoint-Korrektur bleibt durch `isGerman` auf deutsche Gutachtenkarten begrenzt.
+- Die Prozesskarten-Korrektur in `components/sections/process-section.tsx` greift nur für `locale === "de"`; EN/RU behalten die bestehende Klasse.
+- `measure-card-copy` wird auch in weiteren Komponenten genutzt, wurde aber nicht global verändert.
+
+Prüfergebnis des Kartenabgleichs:
+
+- Bei 390 px belegen die Beschreibungen 2, 3 und 2 Zeilen; mobile Karten stehen untereinander, daher ist keine identische Zeilenzahl erforderlich.
+- Bei 768 px belegen alle drei Beschreibungen 3 Zeilen; die CTA-Korrektur bleibt wirksam und es gibt keine abgeschnittenen Buttons.
+- Bei 1440 px belegen alle drei Beschreibungen 2 Zeilen, haben dieselbe Beschreibungshöhe und die erste Stichpunktzeile beginnt bei allen drei Karten auf derselben Höhe.
+- Eine Desktop-Mindesthöhe war nicht notwendig.
+- Kein horizontaler Overflow, keine Browser-Console-Errors, keine Hydration-Fehler und keine Request- oder Bildfehler wurden festgestellt.
+- Die sichtbare H1 der Unfallgutachten-Seite bleibt `Unfallgutachten in Berlin`.
+
+Screenshots wurden außerhalb des Repositorys abgelegt:
+
+- `C:/tmp/unext-task-048-card-alignment-review/home-cards-390.png`
+- `C:/tmp/unext-task-048-card-alignment-review/home-cards-768.png`
+- `C:/tmp/unext-task-048-card-alignment-review/home-cards-1440.png`
+- `C:/tmp/unext-task-048-card-alignment-review/accident-process-390.png`
+- `C:/tmp/unext-task-048-card-alignment-review/valuation-process-390.png`
+- `C:/tmp/unext-task-048-card-alignment-review/damage-process-390.png`
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review

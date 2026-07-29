@@ -47,7 +47,7 @@ type AccidentServicePageExtras = {
 }
 
 const accidentTitleLines = {
-  de: ["Unfallgutachten Berlin"],
+  de: ["Unfallgutachten in Berlin"],
   en: ["Accident Help & Reports"],
   ru: ["Экспертиза", "ДТП и срочная", "помощь"],
 } satisfies Record<Locale, readonly string[]>
