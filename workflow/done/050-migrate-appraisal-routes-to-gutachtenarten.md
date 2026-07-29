@@ -379,6 +379,16 @@ Hinweis: Die Screenshots wurden erfolgreich durch Playwright geschrieben. Eine z
 Bekannte aufgabenfremde Warnung:
 
 - Der Dev-Server meldete erneut eine Next-Image-Quality-Warnung für Bildqualitäten wie `78`. Diese Warnung blockiert die Routenmigration nicht und bleibt als Launch-/Performance-QA-Punkt außerhalb von 050.
+## Abschlussnotiz
+
+- Sämtliche Akzeptanzkriterien der freigegebenen Routenmigration wurden gegen den finalen Stand geprüft und erfüllt.
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit`, `npm run build` und `next-router-check` wurden erfolgreich bestätigt.
+- Die drei neuen deutschen Gutachtenarten-Routen liefern direkt `200 OK`; die drei alten Detailrouten leiten permanent, direkt und ohne Kette oder Schleife auf die neuen Ziele weiter.
+- `/leistungen` sowie die unveränderten EN/RU-Routen bleiben erreichbar.
+- Die visuelle Prüfung bei 390, 768 und 1440 Pixeln wurde vom Nutzer freigegeben.
+- Der bekannte lokalisierte `not-found.tsx`-Befund und die finale SEO-/Canonical-/Sitemap-Prüfung bleiben außerhalb von 050 für die bereits vorgesehenen Folgeaufgaben offen.
+- Der Nutzer hat den formalen Abschluss von Aufgabe 050 ausdrücklich freigegeben.
+
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen
