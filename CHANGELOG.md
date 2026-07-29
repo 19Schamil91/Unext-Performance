@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-29
 
+### Aufgabe 050 - Start und Inventur
+
+- Aufgabe 050 wurde auf dem eigenen Branch `task-050-migrate-appraisal-routes` gestartet und nach `workflow/active/` verschoben.
+- Die aktuelle deutsche Gutachtenarten-Struktur unter `/leistungen/...`, die geplanten Zielrouten unter `/gutachtenarten/...`, interne Links, Redirect-Abhängigkeiten, Structured-Data-/Breadcrumb-Ausgaben und Metadata-Auswirkungen wurden inventarisiert.
+- `/leistungen` wurde als eigener Entscheidungsfall dokumentiert und nicht umgebaut, gelöscht oder umgeleitet.
+- `next-router-check` wurde read-only angewendet; der bekannte lokalisierte `not-found.tsx`-Befund bleibt außerhalb dieses Startschritts.
+- Es wurden keine Website-, Code-, Routen-, Redirect-, SEO-, Metadata-, Structured-Data-, Sitemap-, Robots-, Text-, Layout- oder Asset-Änderungen umgesetzt.
+
 ### Aufgabe 048 - Abschluss
 
 - Aufgabe 048 wurde nach finaler Akzeptanzprüfung formal abgeschlossen und nach `workflow/done/` verschoben.
