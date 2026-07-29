@@ -188,6 +188,7 @@ export function DamageDocumentationServiceDetailContent() {
         bottomActions={heroActions}
         heroNotice="Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
         backLinkHref="/"
+        servicePath="/gutachtenarten/schadendokumentation"
         benefits={benefits}
         services={documentationOccasions}
         servicesDescription="Eine geordnete Dokumentation kann sinnvoll sein, wenn ein Schaden oder ein bestimmter Fahrzeugzustand für die weitere Abstimmung festgehalten werden soll."

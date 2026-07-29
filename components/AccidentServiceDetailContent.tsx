@@ -113,7 +113,7 @@ export function getAccidentServiceMetadata(locale: Locale): Metadata {
     locale,
     `${t.title} | UNFALLX | UNEXT GmbH Berlin`,
     t.description,
-    getLocalizedPath(locale, "/leistungen/unfallgutachten")
+    locale === "de" ? "/gutachtenarten/unfallgutachten" : getLocalizedPath(locale, "/leistungen/unfallgutachten")
   )
 }
 
@@ -137,6 +137,7 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
       heroNotice={isGerman ? page.heroNotice : undefined}
       serviceNote={isGerman ? page.serviceNote : undefined}
       backLinkHref={isGerman ? getLocalizedPath(locale, "/") : undefined}
+      servicePath={isGerman ? "/gutachtenarten/unfallgutachten" : undefined}
       detailSections={isGerman ? page.detailSections : undefined}
       layoutLabels={isGerman ? page.layoutLabels : undefined}
       benefits={t.benefits}

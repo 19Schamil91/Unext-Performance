@@ -153,7 +153,11 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
       {t.items.map((service, index) => {
         const meta = serviceMeta[index]
         const contactText = meta.contactText ?? ""
-        const detailHref = getLocalizedPath(locale, meta.href)
+        const detailPath =
+          locale === "de" && meta.href === "/leistungen/unfallgutachten"
+            ? "/gutachtenarten/unfallgutachten"
+            : meta.href
+        const detailHref = getLocalizedPath(locale, detailPath)
 
         return (
           <Card

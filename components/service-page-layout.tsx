@@ -39,6 +39,7 @@ export type ServicePageLayoutProps = {
   heroNotice?: string
   serviceNote?: ServiceDetailCard
   backLinkHref?: string
+  servicePath?: string
   detailSections?: readonly ServiceDetailSection[]
   layoutLabels?: ServicePageLayoutLabels
   benefits: readonly string[]
@@ -106,6 +107,7 @@ export async function ServicePageLayout({
   heroNotice,
   serviceNote,
   backLinkHref,
+  servicePath: explicitServicePath,
   detailSections,
   layoutLabels,
   benefits,
@@ -168,11 +170,11 @@ export async function ServicePageLayout({
     locale === "ru" || locale === "de"
       ? "mt-2 measure-heading text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:measure-display md:text-display-fluid"
       : "mt-2 measure-display text-heading-fluid font-semibold text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.42)] md:mt-3 md:text-display-fluid"
-  const servicePath =
+  const fallbackServicePath =
     serviceName === "abschleppdienst"
       ? "/leistungen/abschleppdienst-pannenhilfe"
       : `/leistungen/${serviceName}`
-  const localizedServicePath = getLocalizedPath(locale, servicePath)
+  const localizedServicePath = getLocalizedPath(locale, explicitServicePath ?? fallbackServicePath)
 
   const renderLines = (text: string, lines?: readonly string[]) => {
     if (!lines || lines.length === 0) {

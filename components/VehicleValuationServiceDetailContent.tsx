@@ -160,6 +160,7 @@ export function VehicleValuationServiceDetailContent() {
         bottomActions={heroActions}
         heroNotice="Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
         backLinkHref="/"
+        servicePath="/gutachtenarten/fahrzeugbewertung"
         benefits={benefits}
         services={valuationOccasions}
         servicesDescription="Vor Kauf, Verkauf oder einer anderen wichtigen Entscheidung kann eine fachliche Einschätzung des Fahrzeugwerts Klarheit schaffen."
