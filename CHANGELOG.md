@@ -3,6 +3,15 @@
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
 ## 2026-07-29
+
+### Aufgabe 049 - Dreisprachigen V1-User-Journey-Audit gestartet
+
+- Aufgabe 049 wurde auf dem eigenen Branch gestartet und nach `workflow/active/` verschoben.
+- Der gemeinsame V1-Launch auf Deutsch, Englisch und Russisch wurde als verbindliche Projektentscheidung dokumentiert; Deutsch bleibt die fachliche Referenz.
+- Aufgabe 032 wurde als spätere Konkretisierung des Übersetzungs-, Qualitäts- und Layoutvorgehens eingeordnet und entscheidet nicht mehr über den Sprachumfang.
+- Deutsche V1-Kernrouten sowie vorhandene EN/RU-Routen, Inhalte, Navigation, Sprachwechsel, Kontaktwege und Formulare wurden read-only inventarisiert.
+- Erkennbare EN/RU-Lücken und Altinhalte wurden in Aufgabe 049 dokumentiert; es wurden keine Website-Dateien, Übersetzungen oder Routen geändert.
+
 ### Aufgabe 050 - Routenmigration umgesetzt und abgeschlossen
 
 - Die drei deutschen Gutachtenarten wurden auf neue kanonische Routen unter `/gutachtenarten/...` migriert.
