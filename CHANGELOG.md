@@ -2,6 +2,54 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-29
+
+### Workflow
+
+- Der Entwurf von Aufgabe 047 wurde ausdrücklich freigegeben.
+- Aufgabe 047 wurde auf dem eigenen Branch `task-047-strengthen-about-trust-qualification-certificate` nach `workflow/active/` verschoben und auf `in Arbeit` gesetzt.
+- Bestand, sichtbare Texte, Komponenten, Assets, Route und Nachweisgrenzen wurden inventarisiert und der Seiten-, Text- und Umsetzungsplan wurde abschließend freigegeben.
+- Aktive DESAG-Mitgliedschaft, Namensnennung, Qualifikation, Personenfoto, Bildrechte und der externe Profil-Link wurden für die Umsetzung bestätigt.
+- Die Umsetzung und technischen Prüfungen sind abgeschlossen; Aufgabe 047 wartet in `workflow/active/` auf die visuelle Nutzerfreigabe.
+
+### Website
+
+- Die deutsche Über-uns-Seite wurde innerhalb ihrer bestehenden Struktur textlich geschärft.
+- Der Personenbereich zeigt das freigegebene Foto von Selimchan Kasumov mit personenbezogenem Alternativtext.
+- `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` sind als getrennte Bereiche umgesetzt.
+- Die Qualifikation wird sachlich und namentlich eingeordnet; ein normaler externer Link führt erst nach bewusstem Klick zum öffentlichen DESAG-Profil.
+- Die belegten Fachwebinare zu Wertdefinitionen sowie Kürzungen und fachlichen Stellungnahmen werden ausschließlich textlich genannt.
+
+### Assets und Nachweise
+
+- `public/images/about-selimchan-kasumov.webp` wurde als unveränderte Kopie der freigegebenen WebP-Datei ergänzt.
+- Keine Urkunde, Teilnahmebestätigung, kein DESAG-Logo, Siegel, Badge, Zertifikatsbild, Embed-Code oder extern geladenes Bild wurde eingebunden.
+
+### Checks
+
+- Responsive Prüfung bei 390 px, 768 px und 1440 px ohne horizontalen Overflow bestanden.
+- Typografie-, Zeilenumbruch-, Router-, Accessibility-, Link-, Netzwerk- und Bildprüfung durchgeführt.
+- Der bekannte aufgabenfremde 404 für `/favicon.ico` bleibt außerhalb der freigegebenen Dateigrenzen von Aufgabe 047.
+- `npm run lint`, `npx tsc --noEmit` und `npm run build` erfolgreich.
+
+### Nicht geändert
+
+- EN/RU-Inhalte, Übersetzungen, Routen, Redirects, SEO, Metadata, Structured Data, Kontakt-, Formular-, E-Mail- und Backend-Logik blieben unverändert.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung durch die Umsetzung nicht geändert wurden.
+
+## 2026-07-28
+
+### Workflow
+
+- Aufgabe 047 wurde als vollständiger Entwurf unter `workflow/todo/` angelegt.
+- Die Aufgabe bleibt `offen`, wurde nicht nach `workflow/active/` verschoben und enthält ein ausdrückliches Rechte-, Datenschutz- und Sichtbarkeits-Gate für eine mögliche Zertifikatsdarstellung.
+- Aufgabe 048 bleibt bis zum geprüften und freigegebenen Abschluss von Aufgabe 047 nachgelagert.
+
+### Nicht geändert
+
+- Keine Website-, Komponenten-, Routen-, SEO-, Metadata-, Structured-Data- oder Asset-Änderungen.
+- Kein Zertifikat, keine Urkunde, kein Logo, kein Siegel und kein Badge wurde eingebunden.
+
 ## 2026-07-15
 
 ### Workflow

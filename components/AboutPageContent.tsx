@@ -1,5 +1,5 @@
 /*
-  Diese Datei zeigt den Inhalt der Ueber-uns-Seite.
+  Diese Datei zeigt den Inhalt der Über-uns-Seite.
   Die deutsche Version ist auf KFZ-Gutachten, Vertrauen, Qualifikation und sachliche Arbeitsweise ausgerichtet.
   Englisch und Russisch nutzen weiterhin den bestehenden lokalisierten Ueber-uns-Inhalt.
 */
@@ -27,34 +27,36 @@ function normalizeText(text: string) {
 
 const germanAbout = {
   hero:
-    "UNEXT steht für KFZ-Gutachten in Berlin: sachlich, nachvollziehbar und direkt erreichbar. Nach einem Unfall oder Schaden erhalten Sie klare Orientierung – von der ersten Einschätzung bis zur weiteren Abstimmung.",
+    "UNEXT steht für KFZ-Gutachten in Berlin – mit persönlichem Kontakt, strukturierter Schadenaufnahme und verständlicher Einordnung. Von der ersten Anfrage bis zur weiteren Abstimmung erhalten Sie klare Informationen zu Ihrem Fahrzeug und dem nächsten sinnvollen Schritt.",
   intro: {
     title: "Wer hinter UNEXT steht",
     paragraphs: [
-      "UNEXT ist auf die Begutachtung von Fahrzeugschäden und die Wertermittlung spezialisiert. Dabei steht der persönliche Kontakt im Mittelpunkt: telefonisch, per WhatsApp oder über eine Anfrage können die wichtigsten Informationen schnell geklärt werden.",
-      "Ziel ist eine verständliche Einschätzung, die den Schaden, das Fahrzeug und die nächsten Schritte nachvollziehbar einordnet.",
+      "UNEXT ist auf die Begutachtung von Fahrzeugschäden und die Wertermittlung spezialisiert. Im Mittelpunkt stehen der persönliche Kontakt, eine strukturierte Aufnahme der relevanten Informationen und eine verständliche Abstimmung.",
+      "Sie erreichen UNEXT telefonisch, per WhatsApp oder über eine Anfrage. So können Fahrzeugdaten, Schadeninformationen und das weitere Vorgehen frühzeitig geklärt werden.",
     ],
   },
   method: {
     title: "Sachliche Begutachtung",
     paragraphs: [
-      "Ein Fahrzeugschaden sollte klar dokumentiert und sorgfältig bewertet werden. UNEXT nimmt relevante Fahrzeugdaten und Schadeninformationen strukturiert auf und bespricht das weitere Vorgehen persönlich und verständlich.",
-      "Digitale Angaben können die Anfrage vorbereiten. Die fachliche Einordnung erfolgt jedoch nicht automatisch, sondern nachvollziehbar im direkten Kontakt.",
+      "Fahrzeugschäden werden strukturiert dokumentiert und fachlich bewertet. Je nach Fall werden sichtbare Schäden, relevante Fahrzeugdaten und wertbezogene Merkmale berücksichtigt.",
+      "Digitale Angaben können die Anfrage vorbereiten. Die fachliche Einordnung und die finale Bewertung erfolgen durch den Gutachter.",
     ],
   },
   qualification: {
-    title: "Qualifikation, die im Schadenfall zählt",
+    title: "Qualifikation & Anerkennung",
     paragraphs: [
-      "Ihr Fahrzeug wird durch einen geprüften und anerkannten Sachverständigen für KFZ-Schäden und Wertermittlung begutachtet.",
-      "Dabei geht es nicht nur um den sichtbaren Schaden, sondern je nach Fall auch um Reparaturkosten, Wertminderung, Wiederbeschaffungswert und eine nachvollziehbare Dokumentation für die weitere Schadenabwicklung.",
+      "Selimchan Kasumov ist durch die DESAG als Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung geprüft und anerkannt.",
     ],
+    linkLabel: "Qualifikation bei DESAG ansehen",
+    linkHref: "https://www.desag.de/zertifikat/selimchankasumov/",
   },
   training: {
-    title: "Fortbildung für aktuelle Fachkenntnis",
+    title: "Fortbildungen & Weiterbildung",
     paragraphs: [
-      "Fortbildungen unterstützen die fachliche Bewertung von Fahrzeugschäden, Reparaturmethoden und Wertfragen.",
-      "So entsteht eine nachvollziehbare Einschätzung, die als solide Grundlage für die Abstimmung mit Versicherung, Anwalt oder Werkstatt dienen kann.",
+      "Zu den nachgewiesenen Fachwebinaren gehören Wertdefinitionen sowie Kürzungen und fachliche Stellungnahmen.",
     ],
+    linkLabel: undefined,
+    linkHref: undefined,
   },
 }
 
@@ -86,8 +88,8 @@ function GermanAboutPageContent() {
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[27rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
               <Image
-                src="/images/about-office.webp"
-                alt="UNEXT Mitarbeiter im Büro"
+                src="/images/about-selimchan-kasumov.webp"
+                alt="Selimchan Kasumov im Büro der UNEXT GmbH in Berlin"
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 quality={82}
@@ -143,10 +145,10 @@ function GermanAboutPageContent() {
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Vertrauen und Weiterbildung
+                Vertrauen und fachliche Grundlage
               </p>
               <h2 className="mt-2 text-heading-fluid font-semibold text-foreground">
-                Qualifikation & Weiterbildung
+                Qualifikation und Weiterbildung
               </h2>
             </div>
 
@@ -166,6 +168,16 @@ function GermanAboutPageContent() {
                         />
                       ))}
                     </div>
+                    {section.linkHref && section.linkLabel && (
+                      <a
+                        href={section.linkHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex rounded-sm text-sm font-semibold text-primary underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+                      >
+                        {section.linkLabel}
+                      </a>
+                    )}
                   </CardContent>
                 </Card>
               ))}
