@@ -362,6 +362,20 @@ Screenshots wurden außerhalb des Repositorys abgelegt:
 - `C:/tmp/unext-task-048-card-alignment-review/accident-process-390.png`
 - `C:/tmp/unext-task-048-card-alignment-review/valuation-process-390.png`
 - `C:/tmp/unext-task-048-card-alignment-review/damage-process-390.png`
+
+## Abschlussnotiz
+
+Aufgabe 048 wurde nach Nutzerfreigabe final gegen die Akzeptanzkriterien geprüft und abgeschlossen.
+
+- Die deutschen Kernseiten wurden im Rahmen von 048 gemeinsam auf Konsistenz, Typografie, Kartenrhythmus und sichtbare Qualitätsprobleme geprüft.
+- Die Startseiten-Gutachtenkarten wurden sprachlich vereinheitlicht und bei 390 px, 768 px und 1440 px visuell geprüft.
+- Die sichtbare Unfallgutachten-H1 lautet `Unfallgutachten in Berlin`.
+- Die mobile Textbreite der deutschen Prozesskarten wurde lokal verbessert.
+- Der CTA-Überstand im Tablet-Zweispaltenlayout wurde behoben.
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` wurden erfolgreich ausgeführt.
+- EN/RU, Routen, SEO, Metadata, Structured Data, Assets, Header, Footer, Kontaktseite und Über-uns-Seite wurden nicht geändert.
+- `ROADMAP.md` blieb unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+- Es bestehen keine offenen Punkte innerhalb von Aufgabe 048.
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen

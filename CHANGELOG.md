@@ -4,6 +4,12 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-29
 
+### Aufgabe 048 - Abschluss
+
+- Aufgabe 048 wurde nach finaler Akzeptanzprüfung formal abgeschlossen und nach `workflow/done/` verschoben.
+- Die Umsetzung bleibt auf deutsche sichtbare Inhalte und responsive Darstellung begrenzt.
+- `ROADMAP.md` blieb unverändert, weil der Abschluss keine Reihenfolge, Priorität oder Projektplanung ändert.
+
 ### Aufgabe 048 - Kartenabgleich
 
 - Die drei deutschen Gutachtenkarten der Startseite wurden in ihren Beschreibungstexten final vereinheitlicht.
