@@ -23,7 +23,7 @@ export const homeTranslationOverrides = {
           title: "Unfallgutachten",
           subtitle: "Nach Unfall oder Schaden",
           description:
-            "Nach einem Unfall unterstützt UNEXT bei der sachlichen Einordnung des Fahrzeugschadens und klärt die nächsten Schritte.",
+            "UNEXT ordnet den Fahrzeugschaden fachlich ein und klärt mit Ihnen die nächsten Schritte.",
           features: [
             "Schaden sachlich einordnen",
             "Fotos und Fahrzeugdaten bereithalten",
@@ -35,23 +35,23 @@ export const homeTranslationOverrides = {
           title: "Fahrzeugbewertung",
           subtitle: "Fahrzeugwert einordnen",
           description:
-            "Der Fahrzeugwert wird für Verkauf, Kauf oder weitere Entscheidungen nachvollziehbar eingeordnet.",
+            "Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.",
           features: [
             "Fahrzeugdaten aufnehmen",
-            "Zustand und Ausstattung einordnen",
-            "Fahrzeugwert klar einordnen",
-            "Persönliche Einordnung",
+            "Zustand und Ausstattung berücksichtigen",
+            "Fahrzeugwert fachlich bewerten",
+            "Ergebnis persönlich erläutern",
           ],
         },
         {
           title: "Schadendokumentation",
           subtitle: "Unterlagen sichern",
           description:
-            "Fotos und Unterlagen werden strukturiert vorbereitet, damit der Schaden nachvollziehbar bleibt.",
+            "Wir halten Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen fest.",
           features: [
-            "Schadenfotos bereithalten",
-            "Unterlagen und Ablauf sammeln",
-            "Schaden nachvollziehbar halten",
+            "Betroffene Bereiche festhalten",
+            "Fotos und Unterlagen erfassen",
+            "Fahrzeugzustand dokumentieren",
             "Prüfung durch Gutachter",
           ],
         },

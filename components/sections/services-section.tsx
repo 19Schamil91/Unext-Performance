@@ -117,9 +117,9 @@ const protectedDesktopPhrases = ["sicheren Transport"] as const
 
 const mobileServiceDescriptions = {
   de: [
-    "Nach einem Unfall unterstützt UNEXT bei der sachlichen Einordnung des Fahrzeugschadens und klärt die nächsten Schritte.",
-    "Der Fahrzeugwert wird für Verkauf, Kauf oder weitere Entscheidungen nachvollziehbar eingeordnet.",
-    "Fotos und Unterlagen werden strukturiert vorbereitet, damit der Schaden nachvollziehbar bleibt.",
+    "UNEXT ordnet den Fahrzeugschaden fachlich ein und klärt mit Ihnen die nächsten Schritte.",
+    "Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.",
+    "Wir halten Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen fest.",
   ],
   en: [
     "After an accident, you get fast support,\nan independent vehicle report\nand clear next steps.",
@@ -310,14 +310,20 @@ export function ServicesSection({ locale }: Props) {
                         ))}
                       </ul>
 
-                      <div className="mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                      <div
+                        className={
+                          isGerman
+                            ? "mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 lg:flex-row lg:items-center lg:justify-between"
+                            : "mt-6 flex flex-col gap-3 border-t border-border/55 pt-5 sm:flex-row sm:items-center sm:justify-between"
+                        }
+                      >
                         <Button
                           asChild
                           size="sm"
                           variant={isGerman ? "outline" : "default"}
                           className={
                             isGerman
-                              ? "w-full gap-2 border-primary/28 bg-background/60 text-foreground/88 shadow-none hover:border-primary/45 hover:bg-primary/10 sm:w-auto"
+                              ? "w-full gap-2 border-primary/28 bg-background/60 text-foreground/88 shadow-none hover:border-primary/45 hover:bg-primary/10 lg:w-auto"
                               : "w-full gap-2 sm:w-auto"
                           }
                         >
@@ -332,7 +338,11 @@ export function ServicesSection({ locale }: Props) {
                               asChild
                               variant="outline"
                               size="sm"
-                              className="group w-full gap-2 border-primary/45 bg-primary/14 font-semibold text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:!border-primary/60 hover:!bg-primary/16 hover:!text-foreground sm:ml-auto sm:w-auto"
+                              className={
+                                isGerman
+                                  ? "group w-full gap-2 border-primary/45 bg-primary/14 font-semibold text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:!border-primary/60 hover:!bg-primary/16 hover:!text-foreground lg:ml-auto lg:w-auto"
+                                  : "group w-full gap-2 border-primary/45 bg-primary/14 font-semibold text-foreground shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:!border-primary/60 hover:!bg-primary/16 hover:!text-foreground sm:ml-auto sm:w-auto"
+                              }
                             >
                               <a href={meta.contactHref} aria-label={callCtaAriaLabel}>
                                 <Phone className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110" />

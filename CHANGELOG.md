@@ -4,6 +4,39 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-29
 
+### Aufgabe 048 - Abschluss
+
+- Aufgabe 048 wurde nach finaler Akzeptanzprüfung formal abgeschlossen und nach `workflow/done/` verschoben.
+- Die Umsetzung bleibt auf deutsche sichtbare Inhalte und responsive Darstellung begrenzt.
+- `ROADMAP.md` blieb unverändert, weil der Abschluss keine Reihenfolge, Priorität oder Projektplanung ändert.
+
+### Aufgabe 048 - Kartenabgleich
+
+- Die drei deutschen Gutachtenkarten der Startseite wurden in ihren Beschreibungstexten final vereinheitlicht.
+- Bei 1440 px nutzen alle drei Karten zwei Beschreibungszeilen; die Stichpunktlisten beginnen gleichmäßig.
+- Für den Kartenabgleich war keine Desktop-Mindesthöhe erforderlich.
+- Neue Screenshots wurden außerhalb des Repositorys unter `C:/tmp/unext-task-048-card-alignment-review/` erstellt.
+### Aufgabe 048 - Feinschliff
+
+- Die deutschen Startseitenbeschreibungen für `Fahrzeugbewertung` und `Schadendokumentation` wurden final gekürzt, damit sie auf Desktop ruhiger umbrechen.
+- Die deutsche Startseiten-Prozesskomponente nutzt auf Mobile die verfügbare Karteninnenbreite besser; Tablet und Desktop behalten ihre begrenzte Lesebreite.
+- Neue Screenshots wurden außerhalb des Repositorys unter `C:/tmp/unext-task-048-final-refinement/` erstellt.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden.
+
+### Aufgabe 048 - Umsetzung
+
+- Die deutschen Startseitenkarten `Fahrzeugbewertung` und `Schadendokumentation` wurden sprachlich harmonisiert.
+- Die zugehörigen deutschen mobilen Kartentexte wurden konsistent mit den Desktop-/Tablet-Texten aktualisiert.
+- Die CTA-Anordnung der deutschen Gutachtenkarten wurde so angepasst, dass bei Mobile und im schmalen Tablet-Zweispaltenlayout keine Button-Überstände entstehen.
+- Die sichtbare deutsche Unfallgutachten-H1 wurde zu `Unfallgutachten in Berlin` vereinheitlicht.
+- Aufgabe 048 bleibt in `workflow/active/` und wartet nach erfolgreichen Checks auf Review.
+
+### Aufgabe 048 - Checks
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden.
+- Responsive Prüfung bei 390 px, 768 px und 1440 px ohne horizontalen Overflow und ohne abgeschnittene Startseitenkarten-CTAs.
+- `next-env.d.ts` blieb unverändert.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden.
 ### Workflow
 
 - Der Entwurf von Aufgabe 047 wurde ausdrücklich freigegeben.
