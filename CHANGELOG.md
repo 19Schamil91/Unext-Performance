@@ -15,7 +15,8 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Formulare ohne echten Versand auf Pflichtfelder, Labels, Datenschutzlinks und Kontaktziele geprüft; Deployment-Konfiguration und kontrollierter Versand bleiben Launch-Gate.
 - `site-launch-audit`, `typography-line-break-check`, `next-router-check` sowie read-only Spezialreviewer eingesetzt.
 - `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden; 43 Seiten erzeugt.
-- Aufgabe 049 bleibt mit Status `wartet auf Review` in `workflow/active/`. Keine Website-, Routen-, Übersetzungs-, SEO- oder Assetdatei wurde geändert.
+- Aufgabe 049 wurde nach erfüllter Akzeptanzprüfung und ausdrücklicher Nutzerfreigabe als Audit abgeschlossen. Das Ergebnis bleibt `V1 user stories and user journeys have gaps`; die Website ist wegen der dokumentierten Blocker weiterhin nicht launchbereit.
+- Keine Website-, Routen-, Übersetzungs-, SEO- oder Assetdatei wurde durch den Audit geändert.
 - `ROADMAP.md` blieb unverändert, weil der Audit keine bestätigte Reihenfolge, Priorität oder neue Aufgabe eingeführt hat.
 
 ## 2026-07-29

@@ -558,6 +558,15 @@ Insgesamt wurden 57 PNG-Dateien ausschließlich außerhalb des Repositorys erzeu
 
 Die vier deutschen Kernnutzerwege sind fachlich weitgehend vollständig und responsiv nutzbar. Der gemeinsame DE/EN/RU-Launch ist noch nicht möglich, weil EN/RU nicht dieselben Seiten, denselben bestätigten Leistungsumfang, dieselben Grenzen und dieselbe Trust-/Routingqualität besitzen.
 
+## Abschlussnotiz
+
+- Die Akzeptanzkriterien des read-only Audits wurden vollständig geprüft und erfüllt.
+- Der Nutzer hat den formalen Abschluss von Aufgabe 049 am 30. Juli 2026 ausdrücklich freigegeben.
+- Abgeschlossen ist ausschließlich die Prüfung und Dokumentation der V1-User-Stories, Nutzerwege und Sprachparität.
+- Das Ergebnis bleibt `V1 user stories and user journeys have gaps`.
+- Die Website ist wegen der dokumentierten Launch-Blocker noch nicht für den gemeinsamen DE/EN/RU-V1-Launch freigegeben.
+- Alle offenen Befunde und ihre Zuordnung zu 032, einer später separat freizugebenden EN/RU-Umsetzung sowie 029, 026, 033, 034 und 035 bleiben bestehen.
+
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen
