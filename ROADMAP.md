@@ -58,7 +58,7 @@ Status: abgeschlossen
 
 Aufgabe 040 hat die sichtbare Umsetzung des Trust-Satzes auf der Startseite und der deutschen Über-uns-Bereiche `Qualifikation & Anerkennung` sowie `Fortbildungen & Weiterbildung` abgeschlossen. Die deutsche Über-uns-Seite ist damit auf den V1-Scope KFZ-Gutachten, Vertrauen, Qualifikation, Anerkennung und Fortbildungen ausgerichtet.
 
-Erst nach dem abgeschlossenen Routing-Plan aus 030, den Klärungen aus 031 und den weiteren deutschen Seitenentscheidungen sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden. Aufgabe 032 bleibt danach für i18n zuständig.
+Erst nach dem abgeschlossenen Routing-Plan aus 030, den Klärungen aus 031 und den weiteren deutschen Seitenentscheidungen sollen Trust-/Qualifikationsaussagen in SEO, Metadata, OpenGraph oder Structured Data verwendet werden. Aufgabe 032 bleibt danach für die Konkretisierung des EN/RU-Übersetzungs-, Qualitäts- und Layoutvorgehens zuständig.
 
 ### 9. Routing, Kontakt/Legal und deutsche Seitenklärung
 
@@ -97,7 +97,7 @@ Die Folge-Reihenfolge lautet:
 048: Deutsche Kernseiten auf Konsistenz, Typografie und Trust prüfen
 050: Gutachtenarten-URLs und bestehende Leistungsrouten migrieren
 049: V1-User-Stories und Nutzerwege vollständig prüfen
-032: i18n Launch Scope
+032: DE/EN/RU-Übersetzungs-, Qualitäts- und Layoutvorgehen konkretisieren
 029: SEO / Metadata / Structured Data
 026: Cleanup alter Legacy-Seiten
 033: Launch Quality Check einschließlich zentraler Formularsemantik und Autocomplete-Korrektur
@@ -117,7 +117,9 @@ Spätere Ausbaustufen bleiben:
 
 Status: geplant
 
-Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die offenen i18n-Entscheidungen beachten.
+Aufgabe 029 bleibt weiterhin nach Aufgabe 032 eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die konkrete i18n-Umsetzungs- und Qualitätsplanung beachten.
+
+Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch müssen gemeinsam launchfähig sein. Deutsch bildet die fachliche Referenz. Aufgabe 049 inventarisiert die vorhandenen Sprach- und Nutzerweglücken; Aufgabe 032 konkretisiert danach die Umsetzung und Prüfung, statt erneut zwischen Deutsch-only und einem dreisprachigen Launch zu wählen. Eine spätere EN/RU-Umsetzungsaufgabe wird erst nach eigener Nutzerfreigabe angelegt.
 
 ### 11. Cleanup und Launch-Schritte
 

@@ -132,6 +132,20 @@ Test-Vergleich nach Cloud-Umstellung mit identischen Inputs:
 
 ---
 
+## 8. Dreisprachiger V1-Launch als verbindlicher Scope
+
+**Entscheidung:** Die V1-Website startet vollständig auf Deutsch, Englisch und Russisch. Deutsch ist die fachliche Referenz; Englisch und Russisch müssen vor dem Launch inhaltlich gleichwertig, technisch funktionsfähig und menschlich geprüft sein.
+
+**Kontext:** Frühere Planungsstände behandelten einen Deutsch-only-Launch oder eine spätere EN/RU-Umsetzung noch als offene Option. Diese Auswahl ist durch die Nutzerentscheidung aufgehoben.
+
+**Begründung:** Die drei sichtbaren Sprachversionen sollen Nutzern dieselben fachlichen Aussagen, Grenzen, Kontaktwege und Kernfunktionen bieten. Eine nur technisch vorhandene oder inhaltlich veraltete Sprachversion erfüllt diesen Anspruch nicht.
+
+**Konsequenz:** Deutsch bleibt die freigegebene Inhaltsreferenz. EN/RU müssen sinngleich und fachlich gleichwertig sein, dürfen aber sprachspezifisch gekürzt oder umgestellt werden; wortgetreue Übersetzungen sind nicht erforderlich. Zusätzliche oder unbestätigte Versprechen sind unzulässig. Aufgabe 049 inventarisiert Sprach- und Nutzerweglücken. Aufgabe 032 konkretisiert anschließend das Übersetzungs-, Qualitäts- und responsive Layoutvorgehen, entscheidet aber nicht mehr über den Sprachumfang. Die eigentliche EN/RU-Umsetzung benötigt eine spätere, ausdrücklich freizugebende Aufgabe. Die finale Launch-Freigabe setzt bestandene Prüfungen für alle drei Sprachen voraus.
+
+**Status:** Aktiv.
+
+---
+
 ## Hinweise zur Pflege dieses Dokuments
 
 - Eine neue Entscheidung wird als **neuer Eintrag unten** angefügt, alte Einträge bleiben unverändert (historische Wahrheit).
