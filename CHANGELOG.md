@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Aufgabe 032 - Dreisprachige V1-Launch-Planung gestartet
+
+- Aufgabe 032 wurde für den gemeinsamen V1-Launch auf Deutsch, Englisch und Russisch offiziell gestartet; Deutsch bleibt die fachliche Referenz.
+- Der Bestand aus Aufgabe 049 wurde mit Routing, Übersetzungen, Navigation, Formularen, Fehlerzuständen und Trust read-only abgeglichen.
+- Soll-Routen, fachlicher Sprachwechsel, natürlicher Übersetzungsprozess, menschliche Freigaben und responsive Prüfungen bei 390, 768 und 1440 px wurden geplant.
+- Die spätere EN/RU-Umsetzung wurde von SEO in 029, Legacy-Cleanup in 026, Launch-QA in 033, Deployment/Formularversand in 034 und Monitoring in 035 abgegrenzt.
+- `next-router-check` bestätigte 28 Routen, davon 13 datenladende lokalisierte Routen mit vorhandenen Loading-/Error-Grenzen und fehlendem lokalisiertem Not-found-Scope.
+- Es wurden keine Website-, Übersetzungs-, Routen-, SEO-, Metadata-, Structured-Data- oder Assetdateien geändert.
+
 ### Dreisprachige V1-Launch-Entscheidung in Specs konsolidiert
 
 - Die bereits bestätigte gemeinsame V1-Veröffentlichung auf Deutsch, Englisch und Russisch wurde in Global Spec, Functional Map, Mehrsprachigkeits-Spec, Open Questions und Launch Readiness konsistent nachgeführt.
