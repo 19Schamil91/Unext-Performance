@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Aufgabe 051 - EN/RU-V1-Kernseiten und Nutzerwege gestartet
+
+- Aufgabe 051 wurde auf einem eigenen Branch angelegt, aktiviert und vollständig als EN/RU-Umsetzungsaufgabe geplant; Deutsch bleibt die fachliche Referenz.
+- Bestehende DE/EN/RU-Routen, Übersetzungsquellen, Kernkomponenten, Navigation, Sprachwechsel, Formulare, Trust-Angaben, Legal-Seiten sowie Error- und 404-Zustände wurden read-only inventarisiert.
+- Eine Seiten- und Inhaltsmatrix, die neun geplanten Gutachtenartenrouten, direkte EN/RU-Redirectziele, ein seiten-ID-basiertes Sprachwechselmodell und getrennte Text-, Freigabe-, Umsetzungs- und Prüfphasen wurden dokumentiert.
+- `next-router-check` erfasste 28 Routen und 13 datenladende lokalisierte Routen mit vorhandenen Loading-/Error-Grenzen; für diese Routen fehlt weiterhin ein lokalisierter Not-found-Scope, der in 051 geplant und vor Abschluss erneut geprüft wird.
+- Vor EN/RU-Textentwürfen oder Website-Codeänderungen sind eine ausdrückliche Planfreigabe, separate Textentwürfe, menschliche EN/RU-Freigaben und ein freigegebener Dateiplan erforderlich.
+- Es wurden in diesem Startschritt keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetdateien geändert. Die Website ist weiterhin nicht launchbereit.
+
 ### Aufgabe 032 - Dreisprachige V1-Launch-Planung abgeschlossen
 
 - Alle Akzeptanzkriterien wurden geprüft, erfüllt und nach ausdrücklicher Nutzerfreigabe abgeschlossen.
