@@ -341,6 +341,16 @@ Aufgabe 032 darf nicht:
 - Keine Website-, Code-, Übersetzungs-, Routen-, SEO-, Metadata-, Structured-Data- oder Assetänderung wurde umgesetzt.
 - Aufgabe 032 bleibt mit `Status: in Arbeit` in `workflow/active/`, bis der Plan geprüft und freigegeben wurde.
 
+## Abschlussnotiz
+
+- Alle Akzeptanzkriterien wurden vollständig geprüft, erfüllt und vom Nutzer zum Abschluss freigegeben.
+- Der gemeinsame DE/EN/RU-V1-Launch, Deutsch als fachliche Referenz sowie das Übersetzungs-, Routing-, Sprachwechsel-, Formular-, Fehler- und Responsive-Vorgehen sind verbindlich geplant.
+- Die Dokumentationsprüfung umfasste den Git-Diff, `git diff --check`, die synchronisierten Specs, Roadmap, Changelog sowie die Traceability der Befunde aus Aufgabe 049. `next-env.d.ts` blieb unverändert.
+- Lint, TypeScript und Build waren nicht erforderlich, weil Aufgabe 032 ausschließlich Markdown-Dokumentation und Workflowplanung verändert hat.
+- Es erfolgte keine Website-, Übersetzungs-, Routen- oder EN/RU-Codeumsetzung.
+- Offen und korrekt nachgelagert bleiben eine gesondert freizugebende EN/RU-Umsetzungsaufgabe sowie die Aufgaben 029, 026, 033, 034 und 035.
+- Der fehlende lokalisierte `not-found.tsx`-Scope wird in der späteren EN/RU-Umsetzung behoben und in Aufgabe 033 erneut geprüft.
+
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen

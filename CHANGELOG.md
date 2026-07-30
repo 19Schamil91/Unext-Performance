@@ -4,6 +4,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Aufgabe 032 - Dreisprachige V1-Launch-Planung abgeschlossen
+
+- Alle Akzeptanzkriterien wurden geprüft, erfüllt und nach ausdrücklicher Nutzerfreigabe abgeschlossen.
+- Der gemeinsame DE/EN/RU-V1-Launch, Deutsch als fachliche Referenz und das Vorgehen für Übersetzung, Routen, Sprachwechsel, Formulare, Fehlerzustände, menschliche Freigaben und responsive Qualität sind verbindlich dokumentiert.
+- Alle Befunde aus Aufgabe 049 sind einer später gesondert freizugebenden EN/RU-Umsetzung oder den Aufgaben 029, 026, 033, 034 und 035 zugeordnet; der fehlende lokalisierte Not-found-Scope bleibt der EN/RU-Umsetzung und Aufgabe 033 zugeordnet.
+- Aufgabe 032 wurde nach `workflow/done/` verschoben. Es wurden keine Website-, Code-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetänderungen umgesetzt.
+
 ### Aufgabe 032 - Aktive Routing- und Launch-Dokumentation synchronisiert
 
 - Mehrsprachigkeits-, SEO- und Routing-Specs wurden mit den durch Aufgabe 050 umgesetzten deutschen `/gutachtenarten/...`-Routen und den direkten permanenten Weiterleitungen der früheren `/leistungen/...`-Detailrouten synchronisiert.
