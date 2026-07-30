@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Aufgabe 032 - Aktive Routing- und Launch-Dokumentation synchronisiert
+
+- Mehrsprachigkeits-, SEO- und Routing-Specs wurden mit den durch Aufgabe 050 umgesetzten deutschen `/gutachtenarten/...`-Routen und den direkten permanenten Weiterleitungen der früheren `/leistungen/...`-Detailrouten synchronisiert.
+- `/leistungen` ist dokumentarisch als weiterhin bestehende eigenständige Übersichtsroute eingeordnet; ihre finale SEO- und Cleanup-Behandlung bleibt bei 029 und 026.
+- Die geplanten, noch nicht implementierten EN/RU-Gutachtenartenrouten wurden klar vom deutschen Ist-Stand getrennt; der fachliche Seitenkontext muss beim späteren Sprachwechsel erhalten bleiben.
+- Open Questions, V1-Launch-Masterplan, historischer Routing-/Redirectplan, Roadmap und die aktive Aufgabe 032 wurden auf die abgeschlossenen Aufgaben 047 bis 050 und die aktive dreisprachige Planung aktualisiert.
+- Es wurden ausschließlich Dokumentationsdateien geändert; keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetänderung wurde umgesetzt.
+
 ### Aufgabe 032 - Dreisprachige V1-Launch-Planung gestartet
 
 - Aufgabe 032 wurde für den gemeinsamen V1-Launch auf Deutsch, Englisch und Russisch offiziell gestartet; Deutsch bleibt die fachliche Referenz.

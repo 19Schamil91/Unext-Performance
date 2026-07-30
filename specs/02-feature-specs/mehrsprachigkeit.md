@@ -55,14 +55,14 @@ Der gemeinsame V1-Launch darf nicht freigegeben werden, solange ein dreisprachig
 
 ### Zielversion / Roadmap
 
-Die Zielversion umfasst:
+Über den dreisprachigen V1-Launch hinaus umfasst die Zielversion:
 
-- vollstaendige Sprachversionen Deutsch, Russisch und Englisch
+- dauerhaft konsistent gepflegte Sprachversionen Deutsch, Russisch und Englisch
 - sprachspezifische SEO- und Meta-Texte
 - mehrsprachige FAQ
 - mehrsprachige Kontakt- und CTA-Texte
 - mehrsprachige Datenschutz-/Einwilligungstexte nach Freigabe
-- technische Locale-/Routing-Struktur spaeter in Technical Specs klaeren
+- spätere Erweiterungen nur mit vollständiger Sprach-, Routing- und Qualitätsparität
 
 ## 3. Fuehrende Sprache
 
@@ -238,19 +238,36 @@ Pruefen:
 - Sprachumschalter müssen mobil gut erreichbar sein und auf die fachlich entsprechende Seite wechseln.
 - Sprachspezifische Textanpassung hat Vorrang vor globaler Schriftverkleinerung oder erzwungenen Zeilenumbrüchen.
 
-## 12. Bestehende Struktur
+## 12. Bestehende Struktur und verbindliches Routenziel
 
-Falls das Projekt bereits mehrsprachige Strukturen enthaelt, sollen diese spaeter im Rework-Plan geprueft und nach Moeglichkeit weiterverwendet werden.
+Die bestehende URL-basierte Locale-Struktur wird weiterverwendet: Deutsch bleibt ohne Sprachpräfix, Englisch verwendet `/en` und Russisch `/ru`.
 
-Keine bestehende Mehrsprachigkeitsstruktur blind loeschen.
+Aktueller deutscher Ist-Stand nach Aufgabe 050:
 
-Keine neue technische i18n-Struktur ohne Technical Spec, Rework-Plan und ausdrueckliche Freigabe.
+- `/gutachtenarten/unfallgutachten`
+- `/gutachtenarten/fahrzeugbewertung`
+- `/gutachtenarten/schadendokumentation`
 
-URLs, Locale-Strukturen und Routing werden spaeter technisch geklaert.
+Die früheren deutschen Detailrouten unter `/leistungen/...` leiten permanent und direkt auf diese Ziele weiter. `/leistungen` bleibt als eigenständige Übersichtsroute bestehen.
 
-Der Sprachwechsel muss die fachlich entsprechende Seite in der Zielsprache öffnen und den Seitenkontext erhalten. Ein kontrollierter Fallback darf weder stillschweigend auf eine fachlich andere Seite noch auf eine nicht vorhandene Route führen.
+Aktueller EN/RU-Stand:
 
-Hreflang, Canonical-Regeln, Sprach-Routing und Sitemap-Strategie werden spaeter in einer Technical Spec oder SEO-Umsetzungsaufgabe geplant.
+- Die bestehende Unfallgutachtenseite liegt noch unter `/en/leistungen/unfallgutachten` beziehungsweise `/ru/leistungen/unfallgutachten`.
+- Gleichwertige EN/RU-Seiten für Fahrzeugbewertung und Schadendokumentation fehlen noch.
+- Die EN/RU-Gutachtenartenmigration wurde in Aufgabe 050 bewusst nicht umgesetzt.
+
+Verbindliches Ziel der später gesondert freizugebenden EN/RU-Umsetzung:
+
+- `/en/gutachtenarten/unfallgutachten`
+- `/en/gutachtenarten/fahrzeugbewertung`
+- `/en/gutachtenarten/schadendokumentation`
+- `/ru/gutachtenarten/unfallgutachten`
+- `/ru/gutachtenarten/fahrzeugbewertung`
+- `/ru/gutachtenarten/schadendokumentation`
+
+Der Sprachwechsel muss die fachlich entsprechende Seite in der Zielsprache öffnen und den Seitenkontext erhalten. Solange ein fachlich entsprechendes Sprachziel fehlt, darf die betreffende Sprachoption nicht als funktionierender Link auf eine andere Seite angeboten werden. Sie wird vorübergehend ausgeblendet oder barrierearm als nicht verfügbar gekennzeichnet. Zum gemeinsamen V1-Launch müssen alle freigegebenen Kernziele vorhanden und geprüft sein.
+
+Keine bestehende Mehrsprachigkeitsstruktur darf blind gelöscht werden. Hreflang, Canonical-Regeln, Sitemap, Robots und sprachspezifische Metadata bleiben der späteren SEO-Umsetzung in Aufgabe 029 zugeordnet.
 
 ## 13. Datenschutz / Einwilligung / rechtliche Texte
 
@@ -266,11 +283,10 @@ Offen:
 
 - Wer die russischen und englischen fachlichen Formulierungen prueft.
 - Ob KI-, Datenschutz- und Einwilligungstexte extern rechtlich oder fachlich geprueft werden.
-- Welche URLs oder Locale-Strukturen spaeter fuer die neue KFZ-Gutachten-Webseite genutzt werden.
+- Technische Umsetzung der freigegebenen EN/RU-Zielrouten und fachlichen Seitenzuordnung.
+- Konkrete barrierearme UI-Ausführung für vorübergehend nicht verfügbare Sprachziele.
 - Mehrsprachige SEO-Keyword-Strategie.
 - Mehrsprachige FAQ-Freigabe.
 - Mehrsprachige Datenschutz-/Einwilligungstexte.
-- Konkrete Zuordnung und Benennung der EN/RU-Zielrouten für alle V1-Kernseiten.
-- Technische Fallback-Strategie für noch nicht freigegebene lokalisierte Zielseiten während der Umsetzung.
 - Ob Formular direkt zum Launch live ist.
 - Ob Upload, Supabase oder KI beim ersten Launch live sind oder spaeter aktiviert werden.

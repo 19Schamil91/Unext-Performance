@@ -67,8 +67,8 @@ Noch offene Roadmap-Entscheidungen:
 - Upload, Supabase und KI, falls nicht zum Launch live
 - Adminbereich
 - Kundenportal
-- Landingpages
-- mehrsprachige vollstaendige Ausbaustufe, falls nicht zum Launch live
+- zusätzliche Landingpages außerhalb der bereits umgesetzten Gutachtenartenstruktur
+- technische Umsetzung und menschliche Freigabe der verbindlichen EN/RU-V1-Fassungen
 - kundensichtbare KI-Ergebnisse, falls spaeter gewuenscht
 
 Spaetere Datenschutz-/Rechts-/Security-Pruefungen:
@@ -381,7 +381,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Formu
 
 ## 13. SEO
 
-Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landingpages, konkrete Einzugsgebiete und technische SEO-Details bleiben teilweise offen.
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Die drei deutschen Gutachtenarten-Detailseiten sind seit Aufgabe 050 umgesetzt; zusätzliche Landingpages, konkrete Einzugsgebiete und technische SEO-Details bleiben teilweise offen.
 
 - Welche Hauptkeywords sollen priorisiert werden?
   - Antwort: Die SEO-Ausrichtung der Webseite soll vollstaendig auf KFZ-Gutachten in Berlin ausgerichtet werden.
@@ -398,10 +398,11 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landi
   - Diese alten Keywords gehoeren nicht mehr zur neuen Webseite und duerfen nicht mehr als SEO-Ziele fuer die Hauptseite geplant werden.
   - Vor Launch sollen alte Meta-Texte, alte SEO-Keywords, alte Uebersetzungen und alte strukturierte Daten auf Autovermietung, Mietwagen, Werkstatt und Fahrzeugservice geprueft und spaeter im SEO-/Content-Cleanup entfernt oder ersetzt werden.
 - Soll es eigene Landingpages fuer einzelne Gutachtenarten geben oder zunaechst eine klare Hauptseite?
-  - Antwort: Fuer die erste Version soll zunaechst eine starke Hauptseite geplant werden.
-  - Eigene Landingpages fuer einzelne Gutachtenarten sollen nicht sofort umgesetzt werden.
-  - Moegliche spaetere Landingpages koennen geprueft werden, wenn genug Inhalt und klare Suchintention vorhanden sind: `/unfallgutachten-berlin`, `/schadengutachten-berlin`, `/wertgutachten-berlin`, `/fahrzeugbewertung-berlin`, `/digitale-schadenaufnahme`.
-  - Fuer die erste Version sollen Unfallgutachten, Schadengutachten, Wertgutachten / Fahrzeugbewertung und Beweissicherung als Abschnitte auf der Hauptseite erklaert werden.
+  - Historischer Ausgangsstand: Zunaechst war nur eine starke Hauptseite mit Gutachtenarten als Abschnitte geplant.
+  - Entschieden und umgesetzt durch Aufgabe 050: Die Hauptseite bleibt bestehen und drei eigenständige deutsche Detailseiten liegen unter `/gutachtenarten/unfallgutachten`, `/gutachtenarten/fahrzeugbewertung` und `/gutachtenarten/schadendokumentation`.
+  - Die früheren deutschen Detailpfade unter `/leistungen/...` leiten permanent und direkt auf die entsprechenden `/gutachtenarten/...`-Ziele weiter.
+  - `/leistungen` bleibt als eigenständige Übersichtsroute technisch bestehen.
+  - Nur zusätzliche Landingpages außerhalb dieser bestätigten Struktur bleiben nach Content-, SEO- und Routingprüfung offen.
 - Welche lokalen Bezirke oder Einzugsgebiete duerfen genannt werden?
   - Antwort: Berlin ist als lokaler Fokus bestaetigt.
   - Die Adresse `Luebarser Str. 25, 13435 Berlin` darf als Standort im Kontaktbereich, Footer und in strukturierten Daten verwendet werden.
@@ -420,7 +421,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landi
   - Sobald Upload, Supabase und KI-Voranalyse technisch umgesetzt und freigegeben sind, kann die Formulierung `KI-gestuetzte Voranalyse von Fahrzeugschaeden` aktiv verwendet werden.
 - Welche strukturierten Daten sind fuer die neue Ausrichtung sinnvoll?
   - Antwort: Strukturierte Daten sollen spaeter geprueft und geplant werden.
-  - Sinnvolle strukturierte Daten fuer die neue Ausrichtung koennen Organization, LocalBusiness oder ProfessionalService falls passend, PostalAddress, OpeningHoursSpecification, ContactPoint, FAQPage falls FAQ sichtbar auf der Seite vorhanden ist, und BreadcrumbList falls spaeter mehrere Seiten/Routen entstehen sein.
+  - Sinnvolle strukturierte Daten fuer die neue Ausrichtung koennen Organization, LocalBusiness oder ProfessionalService falls passend, PostalAddress, OpeningHoursSpecification, ContactPoint, FAQPage bei sichtbarer FAQ und BreadcrumbList für die bestehenden Detailrouten sein. Die konkrete technische Prüfung und Bereinigung bleibt Aufgabe 029.
   - Strukturierte Daten muessen mit sichtbaren Seiteninhalten uebereinstimmen.
   - Keine strukturierten Daten fuer Leistungen einbauen, die nicht mehr Teil des Scopes sind.
   - Keine strukturierten Daten fuer Autovermietung, Mietwagen, Werkstatt, Reifenservice, Abschleppdienst oder Fahrzeugservice planen.
@@ -477,6 +478,7 @@ Status: Grundfrage beantwortet. Die verbindliche Entscheidung zum gemeinsamen DE
 - Sollen alle neuen KFZ-Gutachten-Inhalte vollstaendig uebersetzt werden?
   - Antwort: Alle neuen KFZ-Gutachten-Inhalte müssen für den gemeinsamen Launch vollständig, konsistent und fachlich korrekt in Deutsch, Russisch und Englisch vorliegen.
   - Russisch und Englisch sollen auf Basis der freigegebenen deutschen Inhalte erstellt werden.
+  - Geplante, noch nicht implementierte Gutachtenarten-Ziele sind `/en/gutachtenarten/...` und `/ru/gutachtenarten/...` für Unfallgutachten, Fahrzeugbewertung und Schadendokumentation. Die konkrete Umsetzung erfolgt erst in einer gesondert freizugebenden Aufgabe.
 - Welche Sprache ist fachlich fuehrend fuer Specs und Freigaben?
   - Antwort: Deutsch ist die fachlich fuehrende Sprache fuer Specs, Freigaben und rechtlich/fachlich sensible Formulierungen.
   - Die erste inhaltliche Ausarbeitung der neuen KFZ-Gutachten-Webseite soll auf Deutsch erfolgen.
@@ -569,7 +571,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkr
 
 ### Launch-blockierend zu klaeren, falls fuer ersten Launch relevant
 
-- konkretes Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehen für den verbindlichen DE/EN/RU-Launch
+- Umsetzung des in Aufgabe 032 festgelegten Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehens sowie dokumentierte EN/RU-Freigaben
 - Formular zum Launch ja/nein
 - konkrete Datenschutz-/Einwilligungstexte, falls Formular, Upload oder KI live gehen
 - rechtliche Seiten vor Launch
@@ -581,7 +583,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkr
 ### Nicht launch-blockierend / spaeter
 
 - konkretes Einzugsgebiet ueber Berlin hinaus
-- spaetere Landingpages
+- zusätzliche Landingpages außerhalb der bereits umgesetzten Gutachtenartenstruktur
 - Upload, Supabase und KI, falls nicht zum Launch live
 - Adminbereich
 - Kundenportal

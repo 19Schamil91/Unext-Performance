@@ -22,9 +22,13 @@ Er ersetzt keine Feature-Spec und keine spätere Umsetzung. Er soll verhindern, 
 - `workflow/done/038-update-specs-trust-zertifizierung-nachweis.md`
 - `workflow/todo/026-code-cleanup-after-rework.md`
 - `workflow/todo/029-implement-seo-metadata-kfz-gutachten.md`
-- `workflow/todo/030-plan-routing-redirects-old-service-routes.md`
-- `workflow/todo/031-review-contact-legal-kfz-gutachten.md`
-- `workflow/todo/032-review-i18n-launch-scope.md`
+- `workflow/done/030-plan-routing-redirects-old-service-routes.md`
+- `workflow/done/031-review-contact-legal-kfz-gutachten.md`
+- `workflow/active/032-review-i18n-launch-scope.md`
+- `workflow/done/047-strengthen-about-trust-qualification-certificate.md`
+- `workflow/done/048-review-german-core-page-consistency.md`
+- `workflow/done/049-audit-v1-user-stories-user-journeys.md`
+- `workflow/done/050-migrate-appraisal-routes-to-gutachtenarten.md`
 - `workflow/todo/033-launch-quality-check.md`
 - `workflow/todo/034-deployment-launch-gate.md`
 - `workflow/todo/035-post-launch-monitoring.md`
@@ -38,6 +42,8 @@ Version 1 umfasst nach den freigegebenen Specs:
 
 - starke Hauptseite für `KFZ-Gutachten Berlin`
 - Gutachtenarten als sichtbare Erklärbereiche
+- drei eigenständige deutsche Gutachtenarten-Detailseiten unter `/gutachtenarten/...`
+- gemeinsamer V1-Launch auf Deutsch, Englisch und Russisch; Deutsch ist die fachliche Referenz
 - Ablauf / Anfragevorbereitung
 - digitale Schadenaufnahme nur als Kontakt- und Anfrageprozess
 - Telefon, WhatsApp und E-Mail als freigegebene Kontaktwege
@@ -53,20 +59,20 @@ Konkrete finale Website-Texte werden in diesem Masterplan nicht erfunden. Fehlen
 
 | Seite/Routenbereich | Existiert aktuell | V1-Entscheidung | Zweck | Content/Sections | Trust/Qualifikation | CTA/Kontakt | SEO/Metadata | Routing/Redirect | Legal/Kontakt | i18n | Cleanup | Zuständige Aufgabe | Offene Punkte |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Startseite `/` bzw. `/de` | Ja | V1-relevant | Hauptseite für `KFZ-Gutachten Berlin` | Hero, Gutachtenarten, Ablauf, digitale Schadenaufnahme als Anfragevorbereitung, Vertrauen, FAQ, Kontakt-CTA | Trust-Satz aus Aufgabe 038 fehlt sichtbar noch | Telefon, WhatsApp, Anfrage-CTA; Formular nur bei Freigabe | 029 nach sichtbarer Inhaltsklärung und 030 bis 032 | Kein Redirect-Thema für Hauptseite bekannt | Kontaktdaten müssen stimmen | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Altbezüge später über 026 prüfen | 040 empfohlen, 029 nach 030 bis 032 | Sichtbarer Trust-Satz muss vor Trust-SEO geklärt werden |
-| Über-uns `/ueber-uns` | Ja | V1-relevant, aber noch zu prüfen | Vertrauen, Einordnung von UNEXT und Qualifikation | `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` fehlen sichtbar | Hoher Bedarf; Zertifikat/Urkunde nur nach Rechte-/Datenschutzfreigabe | Kontaktverweis sinnvoll, konkrete Umsetzung offen | 029 nur nach sichtbarer Inhaltsklärung und 030 bis 032 | Kein Redirect-Thema bekannt | Personen-/Nachweisdaten sensibel | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Alte Inhalte später prüfen | 040 empfohlen, 031 bei rechtlichen Bezügen, 029 nach 030 bis 032 | Finale Texte und Zertifikatssichtbarkeit offen |
-| Kontakt `/kontakt` | Ja | V1-relevant | Telefon, WhatsApp, E-Mail, Standort, ggf. Formular | Kontaktwege, Standort, Öffnungszeiten, Formularstatus | Trust nur sachlich, nicht Hauptzweck | Primär Telefon und WhatsApp, E-Mail ergänzend | 029 prüft Metadata, falls Seite indexierbar bleibt | Kein Redirect-Thema bekannt | 031 prüft Kontakt, Formular, Resend, Datenschutz | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Alte Kontaktbezüge später prüfen | 031 | Formularstatus und Pflichttexte offen |
-| Leistungsübersicht `/leistungen` | Ja | Entscheidung offen | Aktuelle oder historische Leistungsübersicht | Darf keine alten Nicht-Scope-Leistungen als aktiv darstellen | Nur KFZ-Gutachten-Trust, falls passend | CTA zu Kontakt/KFZ-Gutachten | 029 prüft alte SEO-Signale | 030 entscheidet Behandlung | 031 falls falsche Leistungsversprechen sichtbar sind | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 nach Routing-Entscheidung | 030, 029, 026 | Ob die Seite in V1 bleibt, umgebaut oder anders behandelt wird, ist offen |
-| Unfallgutachten `/leistungen/unfallgutachten` | Ja | V1-relevant nach KFZ-Gutachten-Scope; finale Inhalts-/Routingprüfung offen | Erklärseite oder Route zu Unfallgutachten | Muss unter `KFZ-Gutachten` eingeordnet bleiben | Sachliche Qualifikation möglich, falls sichtbar | CTA zu Telefon/WhatsApp/Kontakt | 029 prüft Metadata und Structured Data nach 030 bis 032 | 030 prüft Route im alten Service-Kontext | 031 bei Kontakt-/Legal-Bezügen | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | 026 nach Entscheidung | 030, 031, 032, danach 029 | Finaler Seitenstatus und Inhalte vor Launch prüfen |
-| Autovermietung `/leistungen/autovermietung` | Ja | Nicht als aktive V1-Leistung | Altbestand | Keine aktive Leistung in V1 | Kein Trust-Bezug | Keine aktiven Mietwagen-CTAs | Alte SEO-Ziele entfernen/prüfen | 030 entscheidet noindex, Redirect, 404/410 oder anderer Umgang | 031 falls rechtliche/Leistungsversprechen sichtbar | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 erst nach 030 | 030, 026 | Konkrete Behandlung offen |
-| Autoservice/Werkstatt `/leistungen/autoservice` | Ja | Nicht als aktive V1-Leistung | Altbestand | Keine Werkstatt-/Service-Wirkung in V1 | Kein Trust-Bezug als Werkstatt | Keine Werkstatt-CTAs | Alte SEO-Ziele und `AutoRepair` prüfen | 030 entscheidet Behandlung | 031 falls falsche Leistungsversprechen sichtbar | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 erst nach 030 | 030, 029, 026 | Konkrete Behandlung offen |
-| Detailing `/leistungen/detailing` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Detailing als aktive Leistung | Kein Trust-Bezug | Keine Detailing-CTAs | Alte SEO-Ziele entfernen/prüfen | 030 entscheidet Behandlung | 031 falls Leistungsversprechen sichtbar | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 erst nach 030 | 030, 026 | Konkrete Behandlung offen |
-| Zulassungsservice `/leistungen/zulassungsservice` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Zulassungsservice als aktive Leistung | Kein Trust-Bezug | Keine Zulassungs-CTAs | Alte SEO-Ziele entfernen/prüfen | 030 entscheidet Behandlung | 031 falls Leistungsversprechen sichtbar | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 erst nach 030 | 030, 026 | Konkrete Behandlung offen |
-| Abschleppdienst/Pannenhilfe `/leistungen/abschleppdienst-pannenhilfe` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Abschleppdienst/Pannenhilfe als aktive Leistung | Kein Trust-Bezug | Keine Notdienst- oder Pannenhilfe-CTAs | Alte SEO-Ziele entfernen/prüfen | 030 entscheidet Behandlung | 031 wegen Notdienst-/Leistungsversprechen relevant | Nicht V1-relevant; lokalisierte Altbestände in 032/026 prüfen | 026 erst nach 030 | 030, 031, 026 | Konkrete Behandlung offen |
-| Impressum `/impressum` | Ja | V1-relevant | Rechtliche Anbieterangaben | Rechtliche Angaben aus freigegebenen Daten | Keine werblichen Trust-Aussagen | Kontaktdaten korrekt | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | 031 prüft Inhalt | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | 031 | Finale rechtliche Prüfung offen |
-| Datenschutz `/datenschutz` | Ja | V1-relevant | Datenschutzinformationen | Muss zum Launch-Stand passen; kein Upload/Supabase/KI als live | Keine Trust-Aussagen | Kontakt-/Datenschutzkontakt prüfen | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | 031 prüft Inhalt | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | 031 | Datenschutztexte für Formular/Sprachen offen |
-| AGB `/agb` | Ja | V1-Entscheidung offen, falls verlinkt/relevant | Rechtlicher oder vertraglicher Kontext | Muss zum tatsächlichen Leistungsumfang passen | Keine werblichen Trust-Aussagen | Kontaktverweise prüfen | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | 031 prüft Inhalt | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | 031 | Ob AGB für V1 benötigt und inhaltlich passend sind, ist offen |
-| EN/RU lokalisierte Routen `/(localized)/[locale]/*` | Ja | Für V1 verbindlich | Mehrsprachige Inhalte | Müssen fachlich gleichwertig zu Deutsch sein und dürfen nicht mehr versprechen | Trust-Aussagen nur nach deutscher Freigabe und Übersetzungsprüfung | CTA-Texte je Sprache prüfen | Hreflang/Metadata erst nach inhaltlicher und technischer Sprachfreigabe | 032 konkretisiert lokalisierte Zielstruktur und Prüfung | Rechtliche Texte pro Sprache menschlich prüfen | 032 konkretisiert Umsetzung und Qualität | 026 erst nach Sprach- und Routenprüfung | 049, 032, spätere freizugebende Umsetzung, danach 029/031 | EN/RU-Inhalte, Routen und responsive Darstellung müssen vor Launch gleichwertig umgesetzt und geprüft werden |
+| Startseite `/` bzw. `/de` | Ja | V1-relevant | Hauptseite für `KFZ-Gutachten Berlin` | Hero, Gutachtenarten, Ablauf, digitale Schadenaufnahme als Anfragevorbereitung, Vertrauen, FAQ, Kontakt-CTA | Deutscher Trust- und Qualifikationsstand durch 047/048 sichtbar geklärt | Telefon, WhatsApp, Anfrage-CTA; Formular nur bei Freigabe | 029 nach Abschluss der dreisprachigen Inhalts- und Routenarbeit | Kein Redirect-Thema für Hauptseite bekannt | Kontaktdaten müssen stimmen | DE ist Referenz; EN/RU werden im später freizugebenden Umsetzungsschritt gleichwertig hergestellt | Altbezüge später über 026 prüfen | 032, spätere EN/RU-Umsetzung, danach 029 | EN/RU-Parität und menschliche Freigaben fehlen noch |
+| Über-uns `/ueber-uns` | Ja | V1-relevant | Vertrauen, Einordnung von UNEXT und Qualifikation | Deutsche Bereiche `Qualifikation & Anerkennung` und `Fortbildungen & Weiterbildung` sind durch 047 umgesetzt | Namentliche DESAG-Qualifikation und externer Nachweis sind auf Deutsch sichtbar; keine Logos, Siegel oder Urkunden eingebettet | Kontaktverweis vorhanden | 029 erst nach dreisprachiger Inhaltsfreigabe | Kein Redirect-Thema bekannt | Personen-/Nachweisdaten sensibel | DE ist Referenz; EN/RU-Trust muss inhaltlich identisch und menschlich geprüft sein | Alte Inhalte später prüfen | 032, spätere EN/RU-Umsetzung, danach 029 | EN/RU-Parität und Freigabe fehlen noch |
+| Kontakt `/kontakt` | Ja | V1-relevant | Telefon, WhatsApp, E-Mail, Standort, ggf. Formular | Kontaktwege, Standort, Öffnungszeiten, Formularstatus | Trust nur sachlich, nicht Hauptzweck | Primär Telefon und WhatsApp, E-Mail ergänzend | 029 prüft Metadata, falls Seite indexierbar bleibt | Kein Redirect-Thema bekannt | Kontakt-/Legal-Prüfung 031 abgeschlossen | DE ist Referenz; EN/RU werden später gleichwertig geprüft | Alte Kontaktbezüge später prüfen | spätere EN/RU-Umsetzung, danach 029/026 | Formularstatus und dreisprachige Pflichttexte vor Launch prüfen |
+| Leistungsübersicht `/leistungen` | Ja | Bleibt technisch als eigenständige Übersichtsroute bestehen | Bestehende Leistungsübersicht außerhalb des sichtbaren deutschen Gutachtenarten-Einstiegs | Darf keine alten Nicht-Scope-Leistungen als aktiv darstellen | Nur belegbare Aussagen | Kein sichtbarer allgemeiner Gutachtenarten-Einstieg | 029 prüft Indexierung, Canonical und alte SEO-Signale | In 050 nicht gelöscht, umgebaut oder umgeleitet | 031-Prüfung abgeschlossen | Lokalisierte Altbestände werden in 032/026 abgegrenzt | 026 nach SEO-Entscheidung | 029, 026 | Endgültige SEO- und Cleanup-Behandlung bleibt offen |
+| Deutsche Gutachtenarten `/gutachtenarten/unfallgutachten`, `/gutachtenarten/fahrzeugbewertung`, `/gutachtenarten/schadendokumentation` | Ja | V1-relevant und durch 050 kanonisch festgelegt | Eigenständige Detailseiten für die drei Gutachtenarten | Deutsche Inhalte durch 043, 045, 046 und 048 umgesetzt und geprüft | Belegbare Qualifikation im freigegebenen Umfang | CTA zu Telefon/WhatsApp/Kontakt | Finale Metadata und Structured Data bleiben 029 | Alte deutsche `/leistungen/...`-Detailrouten leiten permanent und direkt auf die neuen Ziele | Kontakt-/Legal-Grenzen aus 031 gelten | Geplante gleichwertige EN/RU-Gegenstücke unter `/en/gutachtenarten/...` und `/ru/gutachtenarten/...` | Alte Quellen erst nach 029 über 026 bereinigen | 050 abgeschlossen; 032 und spätere EN/RU-Umsetzung, danach 029/026 | EN/RU-Gegenstücke, Hreflang und finale SEO-Prüfung fehlen noch |
+| Autovermietung `/leistungen/autovermietung` | Ja | Nicht als aktive V1-Leistung | Altbestand | Keine aktive Leistung in V1 | Kein Trust-Bezug | Keine aktiven Mietwagen-CTAs | Alte SEO-Ziele entfernen/prüfen | Behandlung durch 030 geplant; finale technische Entscheidung in 029/026 | Rechtliche Prüfung aus 031 berücksichtigen | Lokalisierte Altbestände in 032/026 prüfen | 026 nach 029 | 029, 026 | Konkrete technische Behandlung offen |
+| Autoservice/Werkstatt `/leistungen/autoservice` | Ja | Nicht als aktive V1-Leistung | Altbestand | Keine Werkstatt-/Service-Wirkung in V1 | Kein Trust-Bezug als Werkstatt | Keine Werkstatt-CTAs | Alte SEO-Ziele und `AutoRepair` prüfen | Behandlung durch 030 geplant; finale technische Entscheidung in 029/026 | Kontakt-/Legal-Prüfung 031 abgeschlossen | Lokalisierte Altbestände in 032/026 prüfen | 026 nach 029 | 029, 026 | Konkrete technische Behandlung offen |
+| Detailing `/leistungen/detailing` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Detailing als aktive Leistung | Kein Trust-Bezug | Keine Detailing-CTAs | Alte SEO-Ziele entfernen/prüfen | Behandlung durch 030 geplant; finale technische Entscheidung in 029/026 | Rechtliche Prüfung aus 031 berücksichtigen | Lokalisierte Altbestände in 032/026 prüfen | 026 nach 029 | 029, 026 | Konkrete technische Behandlung offen |
+| Zulassungsservice `/leistungen/zulassungsservice` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Zulassungsservice als aktive Leistung | Kein Trust-Bezug | Keine Zulassungs-CTAs | Alte SEO-Ziele entfernen/prüfen | Behandlung durch 030 geplant; finale technische Entscheidung in 029/026 | Rechtliche Prüfung aus 031 berücksichtigen | Lokalisierte Altbestände in 032/026 prüfen | 026 nach 029 | 029, 026 | Konkrete technische Behandlung offen |
+| Abschleppdienst/Pannenhilfe `/leistungen/abschleppdienst-pannenhilfe` | Ja | Nicht als aktive V1-Leistung | Altbestand | Kein Abschleppdienst/Pannenhilfe als aktive Leistung | Kein Trust-Bezug | Keine Notdienst- oder Pannenhilfe-CTAs | Alte SEO-Ziele entfernen/prüfen | Behandlung durch 030 geplant; finale technische Entscheidung in 029/026 | Kontakt-/Legal-Prüfung 031 abgeschlossen | Lokalisierte Altbestände in 032/026 prüfen | 026 nach 029 | 029, 026 | Konkrete technische Behandlung offen |
+| Impressum `/impressum` | Ja | V1-relevant | Rechtliche Anbieterangaben | Rechtliche Angaben aus freigegebenen Daten | Keine werblichen Trust-Aussagen | Kontaktdaten korrekt | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | Inhalt in 031 geprüft; dreisprachige Endprüfung bleibt erforderlich | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | spätere EN/RU-Umsetzung, 029 | Menschliche Sprachfreigabe vor Launch |
+| Datenschutz `/datenschutz` | Ja | V1-relevant | Datenschutzinformationen | Muss zum Launch-Stand passen; kein Upload/Supabase/KI als live | Keine Trust-Aussagen | Kontakt-/Datenschutzkontakt prüfen | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | Inhalt in 031 geprüft; dreisprachige Endprüfung bleibt erforderlich | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | spätere EN/RU-Umsetzung, 029 | Datenschutztexte für Formular und Sprachen vor Launch prüfen |
+| AGB `/agb` | Ja | V1-Entscheidung offen, falls verlinkt/relevant | Rechtlicher oder vertraglicher Kontext | Muss zum tatsächlichen Leistungsumfang passen | Keine werblichen Trust-Aussagen | Kontaktverweise prüfen | 029 prüft Indexierungs-/Metadata-Kontext, falls relevant | Kein Redirect-Thema bekannt | Inhalt in 031 geprüft; Launch-Relevanz bleibt zu bestätigen | DE/EN/RU verbindlich; 032 konkretisiert Umsetzung und Prüfung | Kein Cleanup ohne Prüfung | spätere EN/RU-Umsetzung, 029 | Ob AGB für V1 benötigt und inhaltlich passend sind, ist offen |
+| EN/RU lokalisierte Routen `/(localized)/[locale]/*` | Teilweise | Für V1 verbindlich, derzeit nicht launchfähig | Mehrsprachige Inhalte | Müssen fachlich gleichwertig zu Deutsch sein und dürfen nicht mehr versprechen | Trust-Aussagen nur nach deutscher Freigabe und Übersetzungsprüfung | CTA-Texte je Sprache prüfen | Hreflang/Metadata erst nach inhaltlicher und technischer Sprachfreigabe | Bestehende Struktur teilweise alt; sechs Gutachtenarten-Ziele unter `/en/gutachtenarten/...` und `/ru/gutachtenarten/...` sind geplant, aber nicht umgesetzt | Rechtliche Texte pro Sprache menschlich prüfen | 032 konkretisiert Umsetzung und Qualität | 026 erst nach Sprach- und Routenprüfung | 032, spätere EN/RU-Umsetzung, danach 029/026 | Umsetzung, Freigaben und responsive Prüfung fehlen noch |
 
 ## Alte Service-Seiten
 
@@ -80,7 +86,7 @@ Betroffen sind aktuell:
 - Zulassungsservice
 - Abschleppdienst/Pannenhilfe
 
-Aufgabe 030 muss je Route entscheiden:
+Aufgabe 030 hat die Behandlung je Legacy-Route geplant. Die noch offenen technischen SEO- und Cleanup-Entscheidungen werden in 029 und 026 umgesetzt beziehungsweise finalisiert:
 
 - behalten und umbauen
 - auf KFZ-Gutachten-Kontext zurückführen
@@ -104,24 +110,17 @@ Für Version 1 ist verbindlich entschieden:
 - Sprachspezifische Kürzungen oder Umstellungen sind erlaubt, wenn Aussage, Grenzen und Nutzerziel erhalten bleiben.
 - Mobile, Tablet und Desktop werden je Sprache separat geprüft.
 
-Aufgabe 049 inventarisiert die vorhandenen Sprach-, Routen- und Nutzerweglücken. Aufgabe 032 konkretisiert anschließend das Übersetzungs-, Qualitäts- und Layoutvorgehen, entscheidet aber nicht mehr über den Sprachumfang. Die eigentliche EN/RU-Umsetzung erfolgt erst in einer später ausdrücklich freizugebenden Aufgabe. Hreflang, mehrsprachige Metadata sowie lokalisierte Legal- und Kontakttexte gelten bis zur fachlichen und technischen Prüfung nicht als launchfähig.
+Aufgabe 049 hat die vorhandenen Sprach-, Routen- und Nutzerweglücken inventarisiert. Aufgabe 032 konkretisiert das Übersetzungs-, Qualitäts-, Routing- und Layoutvorgehen, entscheidet aber nicht mehr über den Sprachumfang. Die geplanten Gutachtenarten-Ziele lauten `/en/gutachtenarten/...` und `/ru/gutachtenarten/...`; sie sind noch nicht umgesetzt. Die eigentliche EN/RU-Umsetzung erfolgt erst in einer später ausdrücklich freizugebenden Aufgabe. Hreflang, mehrsprachige Metadata sowie lokalisierte Legal- und Kontakttexte gelten bis zur fachlichen und technischen Prüfung nicht als launchfähig.
 
-## Trust-/Qualifikationslücke
+## Trust-/Qualifikationsstand
 
-Aufgabe 038 hat die Trust-, Qualifikations-, Fortbildungs- und SEO-Grenzen in den Specs geregelt.
+Aufgabe 038 hat die Trust-, Qualifikations-, Fortbildungs- und SEO-Grenzen in den Specs geregelt. Die Aufgaben 040, 047 und 048 haben die freigegebenen deutschen Trust- und Qualifikationsinhalte sichtbar umgesetzt und geprüft.
 
-Sichtbar noch offen:
+Für den dreisprachigen Launch bleibt offen:
 
-- Startseite: kurzer Vertrauenssatz `Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.`
-- Über-uns-Seite: Bereich `Qualifikation & Anerkennung`
-- Über-uns-Seite: Bereich `Fortbildungen & Weiterbildung`
-- Entscheidung, ob ein Zertifikat/Nachweis nur vorbereitet oder nach Rechte-/Datenschutzfreigabe sichtbar eingebunden wird
-
-Bewertung:
-
-- Eine neue Folgeaufgabe 040 für sichtbare Trust-/Qualifikationsbereiche ist nötig.
-- 029 sollte Trust-/Qualifikationsaussagen in Metadata, OpenGraph oder Structured Data erst verwenden, wenn diese Aussagen sichtbar auf der jeweiligen Seite stehen und in 040 umgesetzt oder ausdrücklich ausgeschlossen wurden.
-- 029 kann ohne Trust-Bezug fortgesetzt werden, wäre dann aber nicht die empfohlene Reihenfolge für eine vollständige Version 1.
+- EN und RU müssen dieselben bestätigten Unternehmens-, Kontakt-, Qualifikations- und Trust-Angaben wie Deutsch enthalten.
+- Die Übersetzungen müssen natürlich formuliert, fachlich gleichwertig und menschlich freigegeben sein.
+- Aufgabe 029 darf Trust-Aussagen in Metadata, OpenGraph oder Structured Data erst nach dieser inhaltlichen Freigabe final verwenden.
 
 ## SEO-Abhängigkeiten
 
@@ -137,18 +136,17 @@ Aufgabe 029 bleibt zuständig für:
 
 Abhängigkeiten vor 029:
 
-- Masterplan 039 muss die Seiten und Zuständigkeiten zusammenziehen.
-- Die sichtbaren Trust-/Qualifikationsinhalte aus Folgeaufgabe 040 müssen geklärt sein, bevor 029 Trust-Aussagen in Metadata, OpenGraph oder Structured Data final verwendet.
-- 029 soll Routing-/Redirect-Entscheidungen aus 030 berücksichtigen, insbesondere alte Service-Routen, Sitemap, Robots und Canonicals.
-- 029 soll die Kontakt-/Legal-Prüfung aus 031 berücksichtigen, insbesondere Kontaktwege, Formularstatus, Datenschutz, Impressum, AGB und rechtliche Pflichttexte.
+- Masterplan 039, Routingplan 030, Kontakt-/Legal-Prüfung 031, Seitenstruktur 041, Trust-Umsetzung 047/048 und deutsche Routenmigration 050 sind abgeschlossen und bilden die dokumentarische Grundlage.
+- 029 soll die tatsächlich umgesetzten deutschen Gutachtenartenrouten und direkten permanenten Redirects aus 050 berücksichtigen.
+- 029 soll die Ergebnisse aus 031 sowie die in 032 geplante und später freizugebende EN/RU-Umsetzung berücksichtigen.
 - 029 soll den verbindlichen DE/EN/RU-Launch-Scope und das in 032 konkretisierte Qualitätsvorgehen berücksichtigen, insbesondere Hreflang und mehrsprachige Metadata.
 - Falls 029 vor Abschluss einzelner Klärungen technisch vorbereitet wird, dürfen offene Punkte nicht erfunden, vorweggenommen oder übergangen werden.
 - Sitemap, Robots, Canonicals und Hreflang dürfen nicht ohne geklärte Seiten-, Routen- und Sprachentscheidungen finalisiert werden.
-- Alte Routen dürfen in 029 nicht blind gelöscht werden; Redirects bleiben Aufgabe 030.
+- Alte Routen dürfen in 029 nicht blind gelöscht werden; die durch 050 umgesetzten deutschen Redirects bleiben bestehen, weitere Legacy-Behandlungen folgen dem Plan aus 030 und dem Cleanup aus 026.
 
 ## Routing- und Cleanup-Abhängigkeiten
 
-Aufgabe 030 entscheidet den Umgang mit alten Service-Routen.
+Aufgabe 030 hat den Umgang mit alten Service-Routen geplant. Aufgabe 050 hat ausschließlich die drei deutschen Gutachtenarten-Detailrouten migriert und ihre bisherigen URLs direkt permanent weitergeleitet.
 
 Aufgabe 026 Cleanup gehört danach, sobald mindestens diese Punkte geklärt sind:
 
@@ -161,26 +159,21 @@ Vorher darf Cleanup keine Routen, Inhalte, Komponenten, Assets oder SEO-Texte en
 
 ## Empfohlene Restreihenfolge
 
-1. Aufgabe 039 abschließen: V1-Launch-Masterplan prüfen und freigeben.
-2. Neue Folgeaufgabe 040 anlegen: sichtbare Trust-/Qualifikationsbereiche auf Startseite und Über-uns-Seite planen und umsetzen.
-3. Aufgabe 030 durchführen: Routing- und Redirect-Plan für alte Service-Routen.
-4. Aufgabe 031 durchführen: Kontakt, Formular, Resend, Datenschutz, Impressum, AGB und Legal prüfen.
-5. Aufgabe 032 durchführen: Übersetzungs-, Qualitäts- und Layoutvorgehen für den verbindlichen DE/EN/RU-Launch konkretisieren.
-6. Aufgabe 029 fortsetzen: SEO, Metadata, OpenGraph, Structured Data, Sitemap/Robots, Canonicals und Hreflang auf Basis der geklärten Seiten, Routen, Inhalte und Sprachen.
-7. Aufgabe 026 durchführen: Code-, Content-, Asset- und SEO-Cleanup nach Verwendungsprüfung.
-8. Aufgabe 033 durchführen: Launch-Quality-Check.
-9. Aufgabe 034 durchführen: Deployment- und Launch-Gate.
-10. Aufgabe 035 durchführen: Post-Launch-Kontrolle nach Livegang.
-11. Spätere Roadmap-Themen separat behandeln: 022 Supabase, 023 KI-Voranalyse, 024 Kundenportal/Web-App.
+1. Aufgabe 032 abschließen: Übersetzungs-, Qualitäts-, Routing- und Layoutvorgehen für den verbindlichen DE/EN/RU-Launch freigeben.
+2. Eine gesonderte EN/RU-Umsetzungsaufgabe erst nach ausdrücklicher Nutzerfreigabe anlegen und durchführen.
+3. Aufgabe 029 durchführen: SEO, Metadata, OpenGraph, Structured Data, Sitemap/Robots, Canonicals und Hreflang auf Basis der freigegebenen dreisprachigen Seiten und Routen.
+4. Aufgabe 026 durchführen: Code-, Content-, Asset- und SEO-Cleanup nach Verwendungsprüfung.
+5. Aufgabe 033 durchführen: Launch-Quality-Check.
+6. Aufgabe 034 durchführen: Deployment- und Launch-Gate.
+7. Aufgabe 035 durchführen: Post-Launch-Kontrolle nach Livegang.
+8. Spätere Roadmap-Themen separat behandeln: 022 Supabase, 023 KI-Voranalyse, 024 Kundenportal/Web-App.
 
 ## Offene Entscheidungen
 
-- Finale sichtbare Texte für den Trust-Satz und die Über-uns-Bereiche.
-- Ob Zertifikat/Urkunde sichtbar eingebunden wird oder nur intern bleibt.
 - Ob das Formular zum Launch live ist.
-- Konkrete EN/RU-Zielrouten, Übersetzungsfreigabe, menschliche Prüfung und responsive Qualitätsabnahme.
+- Umsetzung und menschliche Freigabe der geplanten EN/RU-Zielrouten einschließlich der drei Gutachtenarten-Detailseiten.
 - Wie jede alte Service-Route behandelt wird.
-- Ob `/leistungen` und `/leistungen/unfallgutachten` als eigene V1-Seiten bleiben oder anders eingeordnet werden.
+- Finale SEO- und Cleanup-Behandlung der weiterhin bestehenden Route `/leistungen`.
 - Finale Meta-Titel, Meta-Descriptions, OpenGraph-Texte und Structured-Data-Typen.
 - Datenschutz-/Legal-Texte für Formular, Kontakt und mögliche mehrsprachige Versionen.
 - Konkretes Einzugsgebiet über Berlin hinaus.

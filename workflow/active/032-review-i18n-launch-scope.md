@@ -240,24 +240,33 @@ Empfohlener Scope:
 
 Ausgeschlossen bleiben technische SEO-Endarbeit, allgemeiner Legacy-Cleanup und produktiver Versandtest.
 
-## Dokumentarische Vorbedingungen vor der Umsetzung
+## Dokumentationsabgleich vor der Umsetzung
 
-Die read-only Prüfung gegen den Abschlussstand von Aufgabe 050 zeigt, dass mehrere weiterhin als Planungsgrundlage geführte Dokumente noch Aussagen aus der Zeit vor der deutschen Gutachtenarten-Routenmigration enthalten. Diese aktiven Widersprüche müssen vor Beginn der späteren EN/RU-Codeumsetzung in einem gesondert freizugebenden Dokumentationsschritt bereinigt werden. Aufgabe 032 inventarisiert sie nur und ändert die betroffenen Dateien nicht.
+Der ausdrücklich freigegebene Dokumentationsabgleich wurde innerhalb von Aufgabe 032 durchgeführt. Die aktiven Specs, Work-Pläne und die Roadmap unterscheiden jetzt konsistent zwischen dem bereits umgesetzten deutschen Stand und dem geplanten, noch nicht implementierten EN/RU-Ziel.
 
-| Datei / Fundstelle | Einordnung | Erforderliche Behandlung und Zuständigkeit |
-| --- | --- | --- |
-| `specs/02-feature-specs/mehrsprachigkeit.md`, insbesondere offene Punkte um Zeilen 269 sowie 273 bis 274 | Kein Widerspruch während Aufgabe 032, aber nach Planfreigabe synchronisierungsbedürftig: konkrete EN/RU-Zielrouten und das Verhalten bei noch nicht freigegebenen Sprachzielen werden dort noch als offen geführt. | Nach Freigabe des 032-Plans und vor EN/RU-Codeumsetzung im ausdrücklich freizugebenden Spec-Abgleich mit der Routen- und Sprachwechselmatrix synchronisieren. |
-| `specs/02-feature-specs/seo.md`, insbesondere Abschnitte 2 und 6 | Echter aktiver Widerspruch: V1 wird noch als reine Hauptseite mit Gutachtenarten nur als Abschnitte beschrieben; eigene Landingpages und beispielhafte Routen gelten dort noch als später und offen. Aufgabe 050 hat die drei deutschen Detailrouten unter `/gutachtenarten/...` bereits umgesetzt. | Vor EN/RU-Umsetzung in einem ausdrücklich freizugebenden Spec-Abgleich auf den bestätigten Routenstand bringen. Die spätere technische SEO-Endprüfung bleibt Aufgabe 029. |
-| `specs/03-technical-specs/routing.md`, insbesondere Abschnitte 2, 4 und 5 | Echter aktiver Widerspruch: Gutachtenarten werden nur als Hauptseitenabschnitte geplant; Landingpages und Hauptseiten-URL werden als unentschieden dargestellt. | Vor EN/RU-Umsetzung im selben freizugebenden Spec-Abgleich an Entscheidung und Abschluss von Aufgabe 050 anpassen. Keine neue Routingentscheidung in 032 treffen. |
-| `specs/07-open-questions/open-questions.md`, Zeilen 400 bis 404 | Durch Aufgabe 050 überholt: Die beantwortete Frage führt eigene Gutachtenarten-Landingpages weiterhin nur als spätere Möglichkeit und V1 ausschließlich als Hauptseitenabschnitte. | Entscheidungshistorie erhalten, aber vor EN/RU-Umsetzung eindeutig als überholt beziehungsweise durch Aufgabe 050 ersetzt kennzeichnen. |
-| `specs/06-work-plans/v1-launch-masterplan.md`, insbesondere Seitenmatrix Zeilen 56 bis 60 und offene Entscheidungen um Zeile 183 | Echter aktiver Widerspruch beziehungsweise veralteter Masterplan: deutsche Trust-/Über-uns-Lücken und der Status der Gutachtenartenroute werden noch als offen geführt; Unfallgutachten steht weiterhin unter `/leistungen/unfallgutachten`. | Vor EN/RU-Umsetzung durch gesondert freizugebenden Masterplan-Abgleich auf die abgeschlossenen Aufgaben 047, 050 und 049 aktualisieren. |
-| `specs/06-work-plans/routing-redirects-old-service-routes.md`, insbesondere Matrix Zeilen 62 bis 69, Empfehlungen ab Zeile 84 und offene Fragen ab Zeile 243 | Ursprünglicher Planungsstand ist nachvollziehbar, wird aber weiterhin als aktiver Work-Plan geführt. Die deutsche Unfallgutachtenroute und deren Status sind seit Aufgabe 050 überholt. | Historische Planung nicht löschen; vor EN/RU-Umsetzung den heutigen Stand und die durch 050 erledigte deutsche Migration kenntlich machen. Verbleibende SEO-/Cleanup-Fragen bleiben 029/026. |
-| `ROADMAP.md`, insbesondere Zeilen 76 bis 87 sowie 128 bis 130 | Teilweise historisch korrekt, teilweise aktiv veraltet: frühe 044- bis 046-Ergebnisse dürfen als damaliger Stand bleiben; die aktuelle Reihenfolge und die noch als künftig dargestellte Aufgabe 050/049 sowie deren offene Entscheidungen widersprechen dem tatsächlichen Abschlussstand. | In einem gesondert freizugebenden Dokumentationsschritt vor EN/RU-Umsetzung den aktuellen Projektstand ergänzen, ohne historische Abschlussnotizen umzuschreiben. |
-| `specs/03-technical-specs/frontend.md` und `specs/04-visual-rules/visual-rules.md` mit „Gutachtenarten als Abschnitte“ | Weiterhin korrekt, sofern damit die vorhandenen Gutachtenkarten beziehungsweise Erklärabschnitte auf der Startseite gemeint sind. Die Aussagen schließen Detailseiten nicht ausdrücklich aus. | Kein unmittelbarer Korrekturbedarf; beim Spec-Abgleich nur auf Eindeutigkeit prüfen. |
-| `DECISIONS.md`, Entscheidungen 7 und 8 | Weiterhin korrekt: URL-basierte Locale-Architektur und gemeinsamer DE/EN/RU-Launch sind verbindlich festgelegt. | Keine Korrektur erforderlich. |
-| `workflow/done/045-*`, `workflow/done/046-*` und die Inventur-/Planungsteile von `workflow/done/050-*` | Historischer und im jeweiligen Aufgabenverlauf erkennbarer Stand. Die Abschlussnotiz von Aufgabe 050 dokumentiert die umgesetzten `/gutachtenarten/...`-Routen und Redirects eindeutig. | Keine rückwirkende Bereinigung. Für die Umsetzung gilt der Abschlussstand von Aufgabe 050. |
+Synchronisiert wurden:
 
-Bis diese aktiven Spec- und Masterplan-Widersprüche freigegeben bereinigt sind, darf aus Aufgabe 032 keine EN/RU-Codeumsetzung gestartet werden.
+- `specs/02-feature-specs/mehrsprachigkeit.md`
+- `specs/02-feature-specs/seo.md`
+- `specs/03-technical-specs/routing.md`
+- `specs/07-open-questions/open-questions.md`
+- `specs/06-work-plans/v1-launch-masterplan.md`
+- `specs/06-work-plans/routing-redirects-old-service-routes.md`
+- `ROADMAP.md`
+- diese aktive Task-Datei und `CHANGELOG.md`
+
+Dabei wurden folgende überholte Annahmen korrigiert:
+
+- Die deutschen Gutachtenarten sind nicht mehr nur Startseitenabschnitte, sondern besitzen drei kanonische Detailrouten unter `/gutachtenarten/...`.
+- Die früheren deutschen Detailrouten unter `/leistungen/...` sind permanente direkte Redirect-Quellen und keine offenen Zielroutenentscheidungen mehr.
+- `/leistungen` bleibt als eigenständige Übersichtsroute bestehen; nur ihre spätere SEO- und Cleanup-Behandlung ist noch offen.
+- Die Trust-, Über-uns-, Konsistenz-, User-Journey- und deutsche Routenarbeit aus 047, 048, 049 und 050 ist abgeschlossen.
+- Die geplanten EN/RU-Gutachtenartenrouten unter `/en/gutachtenarten/...` und `/ru/gutachtenarten/...` sind verbindliches V1-Ziel, aber noch nicht implementiert.
+- Der spätere Sprachwechsel muss den fachlichen Seitenkontext erhalten und darf nicht auf eine fachlich unpassende Startseite führen.
+
+Historische Aufgaben- und Planungsstände bleiben erhalten, sind aber als historisch, entschieden oder durch Aufgabe 050 ersetzt gekennzeichnet. `specs/03-technical-specs/frontend.md`, `specs/04-visual-rules/visual-rules.md`, `DECISIONS.md` und abgeschlossene Workflow-Dateien wurden nicht geändert, weil ihre Aussagen weiterhin gelten oder bewusst historische Entscheidungsverläufe dokumentieren.
+
+Dieser Abgleich enthält keine EN/RU-Codeumsetzung, keine Routenerstellung und keine technische SEO-Änderung. Eine spätere EN/RU-Umsetzungsaufgabe darf erst nach gesonderter ausdrücklicher Freigabe angelegt werden.
 
 ## Scope
 
@@ -328,7 +337,7 @@ Aufgabe 032 darf nicht:
 - Alle Task-049-Befunde sind EN/RU-Umsetzung oder 026, 029, 033, 034 beziehungsweise 035 zugeordnet.
 - `next-router-check` wurde read-only durchgeführt und der lokalisierte Not-found-Befund dokumentiert.
 - Titel und Scope der späteren EN/RU-Aufgabe sind einschließlich interner Links, Navigation, Redirects ohne Ketten/Schleifen, vollständiger Formularzustände, Browser-/Hydration-/Request-/Bildprüfung, Pflichtviewports und dokumentierter menschlicher EN-/RU-Freigaben vorgeschlagen, aber keine neue Aufgabe wurde angelegt.
-- Aktive veraltete Routing-, SEO-, Open-Questions-, Masterplan- und Roadmap-Aussagen sind als dokumentarische Vorbedingungen inventarisiert und müssen vor der EN/RU-Codeumsetzung freigegeben bereinigt werden.
+- Aktive Routing-, SEO-, Open-Questions-, Masterplan- und Roadmap-Aussagen wurden freigegeben mit dem Abschlussstand von Aufgabe 050 und dem geplanten EN/RU-Ziel synchronisiert.
 - Keine Website-, Code-, Übersetzungs-, Routen-, SEO-, Metadata-, Structured-Data- oder Assetänderung wurde umgesetzt.
 - Aufgabe 032 bleibt mit `Status: in Arbeit` in `workflow/active/`, bis der Plan geprüft und freigegeben wurde.
 
