@@ -41,6 +41,7 @@ Roadmap-Funktionen duerfen nicht als live erscheinen.
 
 Version 1 umfasst:
 
+- vollständige Kernseiten und zentrale Nutzerwege in Deutsch, Russisch und Englisch
 - starke Hauptseite fuer `KFZ-Gutachten Berlin`
 - Hero mit klarer Aussage
 - Gutachtenarten
@@ -65,7 +66,6 @@ Roadmap-Funktionen sind spaetere Ausbaustufen und duerfen nicht als live erschei
 - Adminbereich
 - Kundenportal
 - Landingpages
-- mehrsprachige technische Ausbaustufe
 
 ## 3. Launch-Gates
 
@@ -84,6 +84,12 @@ Vor Launch muessen erfuellt sein:
 - Datenschutz-/Einwilligungstexte geprueft, soweit relevant
 - Reviewer/Checker genutzt oder begruendet uebersprungen
 - technische Checks passend zum Aenderungsumfang ausgefuehrt
+- DE-, EN- und RU-Kernseiten sowie zentrale Nutzerwege vollständig vorhanden und geprüft
+- Navigation, Sprachwechsel, Kontaktwege, Formulare und Fehlermeldungen pro Sprache geprüft
+- Metadata und Structured Data je Sprache geprüft
+- menschliche Sprachfreigabe für EN/RU und geeignete Freigabe fremdsprachiger Rechtstexte vorhanden
+- responsive Prüfung jeder Sprache bestanden
+- keine offenen dreisprachigen Launch-Blocker
 - Launch-Freigabe ausdruecklich erteilt
 - ausdrueckliche Nutzerfreigabe vor Veroeffentlichung / Deployment erteilt
 
@@ -107,6 +113,8 @@ Launch-blockierende Punkte duerfen nicht offen bleiben, wenn sie folgende Bereic
 - Routing-Grundlagen
 - technische Stabilitaet
 - Mobile-Nutzbarkeit
+- fehlende, veraltete oder fachlich abweichende Sprachversionen
+- falsche Sprachwechsel, fehlende lokalisierte Zielseiten oder nicht lokalisierte Formular-/Fehlertexte
 - Impressum / Datenschutz-Erreichbarkeit
 
 Nicht launch-blockierende Punkte duerfen nur offen bleiben, wenn sie dokumentiert, fachlich akzeptiert und ausdruecklich auf spaeter verschoben wurden.
@@ -253,7 +261,7 @@ Vor Launch pruefen:
 - FAQ mobil
 - Kontaktbereich mobil
 - Impressum/Datenschutz erreichbar
-- Sprachversionen mobil, falls mehrsprachig live
+- deutsche, englische und russische Sprachversionen jeweils mobil
 - Upload-Strecke mobil, falls Upload live ist
 
 ## 11. Kontaktweg-Test vor Launch
@@ -300,15 +308,20 @@ Vor Launch pruefen:
 
 ## 14. Mehrsprachige Launch-Checks
 
-Wenn mehrsprachig live:
+Verbindlich für den gemeinsamen DE/EN/RU-V1-Launch:
 
 - Deutsch ist fachlich fuehrend
 - jede Sprachversion basiert auf freigegebenem deutschen Inhalt
 - keine Sprachversion verspricht mehr als Deutsch
-- nicht freigegebene Sprachversionen nicht sichtbar/verlinkt/indexierbar
-- Sprachumschalter nur fuer freigegebene Sprachen
-- Datenschutz-/Einwilligungstexte pro Sprache geprueft
-- CTA-Laengen und mobile Umbrueche pro Sprache geprueft
+- alle V1-Kernseiten und zentralen Nutzerwege sind in jeder Sprache vorhanden
+- keine alten Nicht-Scope-Leistungen in EN/RU sichtbar
+- Sprachumschalter erhalten den fachlichen Seitenkontext und führen nicht auf fehlende Ziele
+- Formulare, Validierungs-, Serverfehler- und Erfolgsmeldungen sind sprachlich geprüft
+- Metadata und Structured Data sind pro Sprache fachlich korrekt und geprüft
+- Datenschutz-/Einwilligungstexte pro Sprache geprüft
+- EN/RU-Texte sind menschlich sprachlich freigegeben; Rechtstexte besitzen eine geeignete qualifizierte Freigabe
+- responsive Darstellung, CTA-Längen und Umbrüche sind je Sprache bei 390, 768 und 1440 px geprüft
+- kein dreisprachiger Launch-Blocker ist offen
 
 ## 15. Performance-Checks
 
@@ -425,7 +438,6 @@ Diese Spec ist keine:
 
 ## 22. Offene Launch-Entscheidungen
 
-- Ob Deutsch, Russisch und Englisch direkt live gehen oder Deutsch zuerst.
 - Ob Formular zum Launch live ist.
 - Ob Upload, Supabase oder KI beim ersten Launch live sind oder spaeter aktiviert werden.
 - Konkretes Einzugsgebiet ueber Berlin hinaus.

@@ -51,10 +51,10 @@ Beantwortete Grundlagen:
 - Firmendaten, Marke, Adresse, Registerdaten, Telefon, WhatsApp, E-Mail und Oeffnungszeiten sind beantwortet und in freigegebenen Specs beruecksichtigt.
 - Hauptpositionierung `KFZ-Gutachten Berlin`, Gutachtenarten, Kontaktwege, Sachverstaendigenkompetenz, digitale Schadenaufnahme als Anfragevorbereitung und KI als spaetere unterstuetzende Voranalyse sind beantwortet und in freigegebenen Specs beruecksichtigt.
 - Nicht-Scope-Leistungen wie Autovermietung, Mietwagen, Werkstatt, Reifenservice, Abschleppdienst, Pannenhilfe, Fahrzeugaufbereitung und Detailing sind als nicht aktive Leistungen eingeordnet.
+- Launch-Sprachen: Deutsch, Englisch und Russisch gehen gemeinsam live; Deutsch ist die fachliche Referenz.
 
 Noch offene Launch-Entscheidungen:
 
-- finale Launch-Sprachen
 - Formular zum Launch ja/nein
 - konkrete rechtliche Seiten und Datenschutz-/Einwilligungstexte vor Launch
 - Nutzung konkreter Google-Bewertungen / Reviews, falls eingebunden
@@ -464,7 +464,7 @@ Status: Beantwortet / in freigegebenen Specs beruecksichtigt. Finale rechtliche 
 
 ## 15. Mehrsprachigkeit
 
-Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale Launch-Sprachen und vollstaendige mehrsprachige Umsetzung bleiben Launch- beziehungsweise Roadmap-Entscheidungen.
+Status: Grundfrage beantwortet. Die verbindliche Entscheidung zum gemeinsamen DE/EN/RU-V1-Launch wurde am 30. Juli 2026 bestätigt und ist in `DECISIONS.md`, Global Spec, Functional Map und Mehrsprachigkeits-Spec nachgeführt. Technische und qualitative Detailfragen bleiben offen.
 
 - Soll die Webseite weiterhin mehrsprachig bleiben?
   - Antwort: Die Webseite soll grundsaetzlich dreisprachig geplant werden: Deutsch, Russisch und Englisch.
@@ -472,11 +472,10 @@ Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale L
   - Falls das bestehende Projekt bereits mehrsprachige Strukturen enthaelt, sollen diese nicht blind geloescht werden.
   - Bestehende Mehrsprachigkeitsstruktur soll spaeter im Rework-Plan geprueft und nach Moeglichkeit weiterverwendet werden.
 - Welche Sprachen sollen zum Launch unterstuetzt werden?
-  - Antwort: Grundsaetzlich geplant sind Deutsch, Russisch und Englisch.
-  - Offen: Ob alle drei Sprachen direkt zum ersten Launch vollstaendig live gehen oder ob Russisch und Englisch nachgezogen werden, bleibt als Launch-Entscheidung offen.
-  - Fuer den ersten fachlichen Aufbau und die Freigabe der Inhalte wird Deutsch priorisiert.
+  - Antwort: Deutsch, Russisch und Englisch müssen gemeinsam zum V1-Launch vollständig und geprüft live gehen.
+  - Deutsch bleibt für fachlichen Aufbau und Freigaben die Referenz.
 - Sollen alle neuen KFZ-Gutachten-Inhalte vollstaendig uebersetzt werden?
-  - Antwort: Falls Deutsch, Russisch und Englisch zum Launch live gehen sollen, muessen alle neuen KFZ-Gutachten-Inhalte vollstaendig, konsistent und fachlich korrekt uebersetzt werden.
+  - Antwort: Alle neuen KFZ-Gutachten-Inhalte müssen für den gemeinsamen Launch vollständig, konsistent und fachlich korrekt in Deutsch, Russisch und Englisch vorliegen.
   - Russisch und Englisch sollen auf Basis der freigegebenen deutschen Inhalte erstellt werden.
 - Welche Sprache ist fachlich fuehrend fuer Specs und Freigaben?
   - Antwort: Deutsch ist die fachlich fuehrende Sprache fuer Specs, Freigaben und rechtlich/fachlich sensible Formulierungen.
@@ -494,7 +493,7 @@ Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale L
 
 ## 16. Launch / Nachweise / Dokumentation
 
-Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` beruecksichtigt. Finale Launch-Freigabe, Launch-Sprachen und Live-Umfang bleiben offen.
+Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` beruecksichtigt. Die drei Launch-Sprachen sind entschieden; finale Launch-Freigabe und weiterer Live-Funktionsumfang bleiben offen.
 
 - Welche fachlichen Inhalte muessen vor Launch final freigegeben werden?
   - Antwort: Die Zielversion der Webseite umfasst reine KFZ-Gutachten-Webseite, digitale Schadenaufnahme, spaeteren Foto-Upload, Supabase-Speicherung von Anfragen und Bildern, spaetere KI-gestuetzte Voranalyse von Fahrzeugschaeden, interne Pruefung durch einen Gutachter und spaeter optional Adminbereich / Kundenportal / Web-App.
@@ -504,7 +503,7 @@ Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` ber
   - Die Webseite soll von Anfang an strukturell so geplant werden, dass Upload, Supabase und KI-Voranalyse spaeter ohne kompletten Neuaufbau integriert werden koennen.
   - Falls Upload, Supabase oder KI beim ersten Launch noch nicht technisch umgesetzt sind, darf die Webseite nicht so formulieren, als waeren diese Funktionen bereits aktiv verfuegbar. Sie duerfen dann nur als geplante beziehungsweise vorbereitete Ausbaustufen kommuniziert werden.
   - Vor Launch muessen alle fachlichen Inhalte zur neuen Positionierung final geprueft und freigegeben werden.
-  - Vor Launch muessen insbesondere freigegeben werden: Hauptpositionierung als reine KFZ-Gutachten-Webseite, Firmendaten, Kontaktwege, Oeffnungszeiten, Standortangaben, Gutachtenarten, Sachverstaendigenqualifikation / Vertrauenselemente, Kontaktflow, SEO-Texte, FAQ-Inhalte, KI-Formulierungen, Mehrsprachigkeit beziehungsweise Launch-Sprachen, rechtliche Hinweise zu KI falls KI erwaehnt wird sowie die Entscheidung, ob Upload/Supabase/KI bereits live sind oder nur als geplante Ausbaustufe kommuniziert werden.
+  - Vor Launch müssen insbesondere freigegeben werden: Hauptpositionierung als reine KFZ-Gutachten-Webseite, Firmendaten, Kontaktwege, Öffnungszeiten, Standortangaben, Gutachtenarten, Sachverständigenqualifikation / Vertrauenselemente, Kontaktflow, SEO-Texte, FAQ-Inhalte, KI-Formulierungen, das konkrete Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehen für den verbindlichen DE/EN/RU-Launch, rechtliche Hinweise zu KI falls KI erwähnt wird sowie die Entscheidung, ob Upload/Supabase/KI bereits live sind oder nur als geplante Ausbaustufe kommuniziert werden.
 - Welche rechtlichen Seiten muessen wegen der neuen Positionierung angepasst werden?
   - Antwort: Rechtliche Seiten und Hinweise, die wegen der neuen Positionierung geprueft und angepasst werden muessen, sind Impressum, Datenschutz, Cookie-/Consent-Hinweise falls vorhanden, Kontaktformular-Hinweise, spaetere Upload-Hinweise, spaetere KI-Verarbeitungshinweise und Einwilligungstexte fuer Upload und spaetere KI-Voranalyse.
 - Welche Nachweise duerfen oeffentlich genannt oder gezeigt werden?
@@ -522,9 +521,8 @@ Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` ber
   - Antwort: Vor Launch sollen folgende Checks beziehungsweise Reviewer genutzt oder bewusst begruendet uebersprungen werden: mobile_visual_checker, desktop_visual_checker, typography_checker, a11y_checker, local_seo_reviewer, performance_budget_reviewer, launch_reviewer und quality_reviewer.
   - Vor Launch muessen nach Code-Aenderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausgefuehrt werden.
   - Mobile First ist vor Launch Pflicht: Startseite auf Mobile pruefen, Telefon-CTA pruefen, WhatsApp-CTA pruefen, Anfrage-CTA pruefen, Textlaengen und Zeilenumbrueche pruefen, FAQ mobil pruefen, Kontaktbereich mobil pruefen, Sprachversionen mobil pruefen falls mehrsprachig live, und spaetere Upload-Strecke mobil pruefen falls Upload live ist.
-  - Mehrsprachigkeit vor Launch: Deutsch, Russisch und Englisch sind grundsaetzlich geplant.
-  - Offen: Ob alle drei Sprachen direkt zum Launch live gehen oder ob Deutsch zuerst veroeffentlicht wird.
-  - Wenn mehrere Sprachen live gehen, muessen alle rechtlichen, fachlichen und KI-bezogenen Formulierungen pro Sprache geprueft werden.
+  - Mehrsprachigkeit vor Launch: Deutsch, Russisch und Englisch sind verbindlicher gemeinsamer V1-Launch-Scope.
+  - Alle rechtlichen, fachlichen und KI-bezogenen Formulierungen müssen pro Sprache geprüft und geeignet freigegeben werden.
 - Welche alten Inhalte muessen vor Launch mindestens entfernt oder ausgeblendet sein?
   - Antwort: Vor Launch muessen alte Inhalte mindestens entfernt oder ausgeblendet werden, die die neue Positionierung stoeren.
   - Alte Inhalte, die vor Launch nicht mehr sichtbar sein duerfen: Autovermietung als Leistung, Mietwagen / Ersatzwagen als Leistung, Fahrzeugservice, Werkstatt, Reifenservice, Dashcam-Einbau, Zulassungsservice, Abschleppdienst, Pannenhilfe, Fahrzeugaufbereitung, alte SEO-Texte zu diesen Themen, alte FAQ-Inhalte zu diesen Themen, alte strukturierte Daten zu diesen Themen und alte Navigationspunkte zu diesen Themen.
@@ -571,7 +569,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkr
 
 ### Launch-blockierend zu klaeren, falls fuer ersten Launch relevant
 
-- finale Launch-Sprachen
+- konkretes Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehen für den verbindlichen DE/EN/RU-Launch
 - Formular zum Launch ja/nein
 - konkrete Datenschutz-/Einwilligungstexte, falls Formular, Upload oder KI live gehen
 - rechtliche Seiten vor Launch

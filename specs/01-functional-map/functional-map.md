@@ -123,7 +123,7 @@ Funktionen:
 ### Mehrsprachiger Nutzer
 
 Ziel:
-Der Nutzer kann Inhalte grundsaetzlich auf Deutsch, Russisch oder Englisch verstehen.
+Der Nutzer kann die V1-Kernseiten und zentralen Nutzerwege in Deutsch, Russisch oder Englisch vollständig verstehen und nutzen.
 
 Funktionen:
 
@@ -131,7 +131,10 @@ Funktionen:
 - Russisch und Englisch basieren auf freigegebenen deutschen Inhalten
 - keine Sprache darf mehr versprechen als Deutsch
 - KI-/Rechts-/Datenschutzformulierungen je Sprache vorsichtig pruefen
-- mobile Textlaengen je Sprache beruecksichtigen
+- mobile Textlängen je Sprache berücksichtigen
+- Startseite, Gutachtenarten, Über uns, Kontakt und rechtliche Pflichtseiten sind in allen drei Sprachen erreichbar
+- Navigation, Sprachwechsel, Kontaktwege und Formulare funktionieren sprachspezifisch und erhalten den Seitenkontext
+- fehlende, veraltete oder nur teilweise geprüfte Sprachversionen sind keine akzeptierte V1-Lösung
 
 ### Gutachter / interner Bearbeiter
 
@@ -166,7 +169,8 @@ Funktionen:
 
 Version 1 umfasst mindestens:
 
-- Startseite / Hauptseite fuer KFZ-Gutachten Berlin
+- vollständige V1-Kernseiten und zentrale Nutzerwege in Deutsch, Russisch und Englisch
+- Startseite / Hauptseite für KFZ-Gutachten Berlin
 - Gutachtenarten
 - Ablauf der Anfrage
 - digitale Schadenaufnahme als Kontakt-/Anfrageprozess
@@ -247,7 +251,6 @@ Offen bleiben:
 - konkretes Einzugsgebiet ueber Berlin hinaus
 - ob Formular direkt zum Launch live ist
 - ob Upload/Supabase/KI beim ersten Launch live sind oder spaeter aktiviert werden
-- Launch-Sprachen: Deutsch zuerst oder Deutsch/Russisch/Englisch direkt
 - konkrete Rueckmeldefrist/Bearbeitungszeit
 - Nutzung von Google-Bewertungen
 - weitere Gutachtenarten

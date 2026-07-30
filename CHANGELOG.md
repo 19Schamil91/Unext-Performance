@@ -4,6 +4,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Dreisprachige V1-Launch-Entscheidung in Specs konsolidiert
+
+- Die bereits bestätigte gemeinsame V1-Veröffentlichung auf Deutsch, Englisch und Russisch wurde in Global Spec, Functional Map, Mehrsprachigkeits-Spec, Open Questions und Launch Readiness konsistent nachgeführt.
+- Die frühere offene Frage `Deutsch zuerst oder alle drei Sprachen` wurde dokumentarisch geschlossen; Deutsch bleibt fachliche Referenz, EN/RU müssen gleichwertig, menschlich freigegeben und separat responsiv geprüft sein.
+- Der alte Routingplan wurde nur hinsichtlich der überholten Sprachumfangsentscheidung eingeordnet; bestehende Routing- und Cleanup-Empfehlungen blieben erhalten.
+- Aufgabe 032 wurde noch nicht gestartet und bleibt mit Status `offen` in `workflow/todo/`.
+
 ### Aufgabe 049 - Vollständiger dreisprachiger V1-User-Journey-Audit
 
 - 41 vorhandene DE/EN/RU-Seitenziele und sechs fehlende Gutachtenziele read-only auf HTTP-Status, Inhalt, Navigation, Sprachwechsel, Kontaktwege, Formulare und Fehlerzustände geprüft.

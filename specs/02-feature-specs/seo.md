@@ -238,17 +238,17 @@ Trust-/Zertifizierungsdaten in Structured Data:
 
 ## 11. Mehrsprachige SEO
 
-Deutsch ist fachlich fuehrend.
+Deutsch ist die fachliche Referenz für Inhalte und SEO-Freigaben.
 
-Russisch und Englisch basieren auf freigegebenen deutschen Inhalten.
+Deutsch, Englisch und Russisch gehören gemeinsam zum V1-Launch.
 
-Uebersetzte Meta-Texte duerfen nicht mehr versprechen als Deutsch.
+Englische und russische Inhalte müssen vollständig, inhaltlich gleichwertig, natürlich formuliert und geprüft sein.
 
-Sensible Begriffe zu Gutachten, KI, Datenschutz und Kontakt muessen sprachlich geprueft werden.
+Übersetzte Meta-Texte dürfen nicht mehr versprechen als Deutsch.
 
-Keyword-Strategie pro Sprache spaeter separat pruefen.
+Sensible Begriffe zu Gutachten, KI, Datenschutz und Kontakt müssen sprachlich geprüft werden.
 
-Offen: alle drei Sprachen direkt zum Launch oder Deutsch zuerst.
+Die sprachspezifische SEO-Umsetzung und Prüfung erfolgt später im vorgesehenen SEO-Arbeitspaket. Diese dokumentarische Korrektur nimmt keine technische Metadata-, Canonical-, Hreflang-, Sitemap-, Robots- oder Structured-Data-Änderung vorweg.
 
 ## 12. Mobile SEO
 
@@ -296,6 +296,5 @@ Offen bleiben:
 - finale Meta-Titel und Meta-Descriptions
 - strukturierte Daten-Typen
 - Google-Bewertungen / Reviews
-- Launch-Sprachen
 - ob Formular, Upload, Supabase oder KI zum Launch live sind
 - mehrsprachige Keyword-Strategie

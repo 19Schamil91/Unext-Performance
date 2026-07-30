@@ -31,7 +31,7 @@ Für alte Service-Routen gilt:
 - Keine pauschalen Redirects auf KFZ-Gutachten, wenn die Suchintention nicht semantisch passt.
 - Redirects sind nur sinnvoll, wenn ein Ziel fachlich wirklich nahe liegt.
 - Legacy-Seiten müssen vor Launch hinsichtlich Navigation, Indexierung, 404/410 und Cleanup bewertet werden.
-- EN/RU-Routen bleiben bis Aufgabe 032 offen und gelten nicht ungeprüft als launchfähig.
+- Der gemeinsame DE/EN/RU-V1-Launch ist inzwischen verbindlich entschieden. Aufgabe 032 konkretisiert nur noch das Vorgehen für Übersetzung, Routing, Qualitätssicherung und responsive Prüfung. EN/RU-Routen gelten bis zur später freizugebenden Umsetzung und Prüfung weiterhin nicht als launchfähig.
 
 ## Betroffene Routen
 
@@ -66,7 +66,7 @@ Lokalisierte Routen:
 | `/leistungen/detailing` | Existiert als alte Detailseite | Legacy | Detailing passt nicht zum V1-Scope | Nicht mehr aktiv bewerben; später `noindex`, 404 oder 410 prüfen | SEO, i18n, Cleanup | 029, 032, 026 | Ob alte Inhalte vollständig entfernt werden sollen |
 | `/leistungen/zulassungsservice` | Existiert als alte Detailseite | Legacy | Zulassungsservice passt nicht zum V1-Scope | Nicht mehr aktiv bewerben; später `noindex`, 404 oder 410 prüfen | SEO, i18n, Cleanup | 029, 032, 026 | Ob Zulassung als spätere Leistung denkbar bleibt |
 | `/leistungen/abschleppdienst-pannenhilfe` | Existiert als alte Detailseite | Legacy | Kann falsche Soforthilfe-/Pannenhilfe-Erwartung erzeugen | Nicht mehr aktiv bewerben; später `noindex`, 404 oder 410 prüfen | Legal, SEO, i18n, Cleanup | 031, 029, 032, 026 | Ob und wie Notfall-/Abschleppversprechen entfernt werden |
-| EN/RU lokalisierte alte Service-Routen | Existieren | Offen bis 032 | Alte Leistungen werden in EN/RU weiter sichtbar und verlinkbar | Bis 032 nicht als launchfähig behandeln; Entscheidung an DE-Routen koppeln | i18n, SEO, Cleanup | 032, 029, 026 | Ob EN/RU zum Launch aktiv bleiben |
+| EN/RU lokalisierte alte Service-Routen | Existieren | Nicht launchfähig | Alte Leistungen werden in EN/RU weiter sichtbar und verlinkbar | Auf den verbindlichen V1-Scope umstellen und Entscheidungen an DE-Routen koppeln | i18n, SEO, Cleanup | 032, spätere EN/RU-Umsetzung, 029, 026 | Konkrete Zielrouten, Migration und Cleanup je Sprache |
 
 ## Empfehlungen je Route
 
@@ -156,7 +156,7 @@ Die lokalisierten Routen existieren weiterhin und enthalten beziehungsweise verl
 
 Empfehlung:
 
-- Bis Aufgabe 032 nicht als launchfähig behandeln.
+- Bis zur später freizugebenden EN/RU-Umsetzung und vollständigen Prüfung nicht als launchfähig behandeln.
 - Entscheidungen zu EN/RU an die finalen deutschen Routenentscheidungen koppeln.
 - Keine ungeprüften EN/RU-SEO-, hreflang- oder Sitemap-Signale für alte Service-Routen setzen.
 - Wenn eine deutsche Legacy-Route entfernt, noindex gesetzt oder auf 404/410 gestellt wird, muss die entsprechende EN/RU-Route konsistent bewertet werden.
@@ -195,7 +195,7 @@ Diese Punkte müssen geklärt sein, bevor alte Routen final öffentlich bewertet
 
 ## i18n-Abhängigkeiten für Aufgabe 032
 
-Aufgabe 032 muss entscheiden, ob EN/RU zum V1-Launch aktiv bleiben und welche Inhalte dort sichtbar sein dürfen.
+Der gemeinsame DE/EN/RU-V1-Launch ist durch `DECISIONS.md`, `ROADMAP.md`, den V1-Masterplan und Aufgabe 049 verbindlich entschieden. Aufgabe 032 entscheidet nicht mehr über den Sprachumfang, sondern konkretisiert Zielrouten, Übersetzungsregeln, Sprachwechsel, Freigaben und responsive Prüfung für die spätere EN/RU-Umsetzung.
 
 Zu prüfen sind:
 
@@ -244,6 +244,6 @@ In Aufgabe 030 wird nicht umgesetzt:
 - Soll `/leistungen/unfallgutachten` als eigenständige Landingpage erhalten bleiben?
 - Welche Legacy-Routen sollen später `noindex`, 404 oder 410 erhalten?
 - Gibt es für einzelne Legacy-Routen eine echte semantische Redirect-Zielroute?
-- Bleiben EN/RU-Seiten zum V1-Launch aktiv?
+- Gelöst: EN/RU gehören verbindlich zum gemeinsamen V1-Launch. Offen bleiben konkrete Zielrouten, Umsetzungsreihenfolge innerhalb des gemeinsamen Arbeitspakets und Freigaben.
 - Welche alten Kontakt-, Legal- und Serviceversprechen müssen vor Launch entfernt werden?
 - Welche alten Komponenten, Daten und Assets dürfen nach den Entscheidungen aus 030/031/032/029 bereinigt werden?
