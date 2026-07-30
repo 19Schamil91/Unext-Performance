@@ -2,6 +2,22 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-07-30
+
+### Aufgabe 049 - Vollständiger dreisprachiger V1-User-Journey-Audit
+
+- 41 vorhandene DE/EN/RU-Seitenziele und sechs fehlende Gutachtenziele read-only auf HTTP-Status, Inhalt, Navigation, Sprachwechsel, Kontaktwege, Formulare und Fehlerzustände geprüft.
+- Vier zentrale Nutzerwege in Deutsch, Englisch und Russisch mit den V1-User-Stories abgeglichen und als Traceability-Matrix dokumentiert.
+- 57 Screenshots bei 390, 768 und 1440 px ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-049-multilingual-audit/` erstellt.
+- Die deutschen Kernnutzerwege funktionieren weitgehend; die alten deutschen Gutachten-URLs leiten korrekt permanent auf `/gutachtenarten/...` weiter.
+- Launch-Blocker dokumentiert: fehlende EN/RU-Seiten, verlorener Detailkontext beim Sprachwechsel, alter EN/RU-Multi-Service-Scope, stärkere EN/RU-Versprechen, fehlende Trust-Parität, veraltete Metadata/Structured Data, verbleibende Legacy-Seiten und ein russischer Desktop-Textüberlauf.
+- Performance-Folgepunkte dokumentiert: nicht konfigurierte Next-Image-Qualitätswerte für 033 sowie ein unreferenziertes 19,4-MB-Asset zur kontrollierten Prüfung in 026; keine akute Laufzeitregression festgestellt.
+- Formulare ohne echten Versand auf Pflichtfelder, Labels, Datenschutzlinks und Kontaktziele geprüft; Deployment-Konfiguration und kontrollierter Versand bleiben Launch-Gate.
+- `site-launch-audit`, `typography-line-break-check`, `next-router-check` sowie read-only Spezialreviewer eingesetzt.
+- `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden; 43 Seiten erzeugt.
+- Aufgabe 049 bleibt mit Status `wartet auf Review` in `workflow/active/`. Keine Website-, Routen-, Übersetzungs-, SEO- oder Assetdatei wurde geändert.
+- `ROADMAP.md` blieb unverändert, weil der Audit keine bestätigte Reihenfolge, Priorität oder neue Aufgabe eingeführt hat.
+
 ## 2026-07-29
 
 ### Aufgabe 049 - Dreisprachigen V1-User-Journey-Audit gestartet

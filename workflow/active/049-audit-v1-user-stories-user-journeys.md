@@ -320,7 +320,7 @@ Späterer vollständiger technischer, visueller und funktionaler Launch-Qualitä
 
 - Desktop-Header, Mobile-Menü und Footer besitzen grundsätzlich Locale-Varianten.
 - Die deutsche Navigation folgt dem neuen Gutachtenarten-Scope. EN/RU führen noch alte Leistungen wie Mietwagen, Werkstatt, Detailing, Zulassung sowie Abschlepp- und Pannenhilfe.
-- `getLocalizedPath` überträgt grundsätzlich denselben Pfad in die gewählte Sprache. Beim Wechsel von einer neuen deutschen `/gutachtenarten/...`-Route entstehen dadurch derzeit `/en/gutachtenarten/...` beziehungsweise `/ru/gutachtenarten/...`, obwohl diese Zielrouten noch fehlen.
+- `getLocalizedPath` könnte denselben Pfad lokalisieren, die Headerlogik behandelt die neuen deutschen `/gutachtenarten/...`-Routen jedoch noch nicht als lokalisierte Seiten. Der tatsächlich geprüfte Sprachwechsel fällt deshalb auf `/en` beziehungsweise `/ru` zurück und verliert den gewählten Gutachtenkontext. Direkte Aufrufe der nicht vorhandenen `/en/gutachtenarten/...`- und `/ru/gutachtenarten/...`-Routen liefern `404`.
 - Die lokalisierten Kontakt- und Serviceformulare besitzen EN/RU-Labels sowie lokalisierte Erfolgs- und Aktionsmeldungen. Vollständigkeit, Verständlichkeit, Validierungsfehler und tatsächlicher End-to-End-Versand werden erst im vollständigen Audit geprüft.
 - Der gemeinsame lokalisierte `error.tsx` zeigt derzeit deutsche Fehlertexte auf EN/RU-Routen. Das ist eine bestätigte Sprachmischung.
 - Im lokalisierten App-Router-Scope fehlt weiterhin ein eigenes `not-found.tsx`. Dieser bekannte Befund wird nicht in diesem Startschritt behoben und bleibt für die spätere i18n-/Launch-QA-Einordnung offen.
@@ -360,6 +360,204 @@ Nicht durchgeführt wurden:
 - SEO-, Metadata-, Structured-Data-, Hreflang-, Sitemap-, Robots- oder Canonical-Änderungen
 - Start von Aufgabe 032 oder Anlage einer neuen Übersetzungsaufgabe
 
+## Vollständiger read-only Audit vom 30. Juli 2026
+
+### Auditmethodik
+
+- Grundlagen gelesen: User Stories, Functional Map, KFZ-Gutachten-Spec, Visual Rules, V1-Launch-Masterplan, Entscheidungen, Roadmap und die abgeschlossenen Aufgaben 045 bis 050.
+- Lokale Skills angewendet: `site-launch-audit`, `typography-line-break-check` und `next-router-check`.
+- Read-only Reviewer eingesetzt: Content-Konsistenz, Conversion, Legal/Trust, Local SEO, Accessibility, Mobile, Desktop, Typografie, Premium, Performance und Launch.
+- Produktionsbuild lokal unter `http://127.0.0.1:3113` geprüft.
+- 41 vorhandene DE/EN/RU-Seitenziele auf HTTP-Status, Titel, H1, Sprache, Links, Formulare, Konsolen- und Requestfehler sowie Overflow geprüft.
+- 45 Fullpage-Screenshots der Kernseiten bei 390 × 844, 768 × 1024 und 1440 × 1100 erstellt.
+- Sechs 404-Screenshots fehlender EN/RU-Gutachtenrouten und sechs Journey-Screenshots ergänzt.
+- Sprachwechsel, Mobile-Menü, Escape-Schließen, interne Links, `tel:`, WhatsApp, E-Mail und Datenschutz-Ziele technisch geprüft.
+- Formulare nur leer gegen Pflichtfelder geprüft. Keine Anfrage und keine externe Kommunikation wurde ausgelöst.
+
+### Technisches Gesamtergebnis
+
+| Prüfung | Ergebnis |
+|---|---|
+| Vorhandene Seitenziele | 41 von 41 antworten mit `200` |
+| Alte deutsche Gutachten-URLs | drei direkte permanente `308`-Weiterleitungen auf `/gutachtenarten/...` |
+| Fehlende EN/RU-Gutachtenrouten | sechs direkte Aufrufe antworten mit `404` |
+| Produktions-Browser | keine Console-Errors, Page-Errors oder Requestfehler |
+| Responsive Dokumentbreite | kein horizontaler Seiten-Overflow in 45 Kernseiten-Screenshots |
+| Mobile-Menü | DE/EN/RU öffnen, besitzen zugänglichen Titel/Beschreibung und schließen mit Escape |
+| Lint / TypeScript / Build | bestanden; Build erzeugt 43 Seiten |
+| Generierte Datei | `next-env.d.ts` nach dem Audit unverändert |
+
+### V1-Kernroutenmatrix
+
+| Sprache | Bereich | Route | HTTP / H1 | Fachstand | Sprachwechsel | Navigation, CTA, Formular | Fehler / Launchstatus |
+|---|---|---|---|---|---|---|---|
+| DE | Startseite | `/` | 200 / `KFZ-Unfallgutachten Berlin nach Unfall oder Schaden` | V1-Referenz | EN `/en`, RU `/ru` | drei Gutachtenkarten, Telefon, WhatsApp, Kontakt; kein Formular | alte allgemeine Metadata; teilweise launchfähig |
+| EN | Startseite | `/en` | 200 / `Vehicle reports and automotive service in one place` | alter Sechs-Leistungen-Scope | DE/RU korrekt | alte Karten und mehrere alte Telefonnummern | Mietwagen, Werkstatt, Detailing, Zulassung, Pannenhilfe, Express-Kurier, UNFALLX; Blocker |
+| RU | Startseite | `/ru` | 200 / `Автоэкспертиза и услуги для автомобиля в одном месте` | alter Sechs-Leistungen-Scope | DE/EN korrekt | alte Karten und mehrere alte Telefonnummern | gleiche Altleistungen und lange alte Copy; Blocker |
+| DE | Unfallgutachten | `/gutachtenarten/unfallgutachten` | 200 / `Unfallgutachten in Berlin` | aktuelle V1-Seite | tatsächlich EN `/en`, RU `/ru` | Telefon, WhatsApp, Formular | Detailkontext geht verloren; Metadata mit UNFALLX |
+| EN | Unfallgutachten | `/en/leistungen/unfallgutachten` | 200 / `Accident Help & Reports` | technisch vorhanden, inhaltlich alt | DE korrekt über Redirect; RU pfadgleich | Telefon, WhatsApp, Formular | stärkere Termin-, Zeit-, Claims- und Gutachtenversprechen; Blocker |
+| RU | Unfallgutachten | `/ru/leistungen/unfallgutachten` | 200 / `Экспертиза ДТП и срочная помощь` | technisch vorhanden, inhaltlich alt | DE über Redirect; EN pfadgleich | Telefon, WhatsApp, Formular | stärkere Versprechen; Kartentitel läuft bei 1440 px sichtbar über; Blocker |
+| DE | Fahrzeugbewertung | `/gutachtenarten/fahrzeugbewertung` | 200 / `Fahrzeugbewertung in Berlin` | aktuelle V1-Seite | tatsächlich EN `/en`, RU `/ru` | Telefon, WhatsApp, Bewertungsformular | generische alte Metadata; i18n blockiert |
+| EN/RU | Fahrzeugbewertung | keine V1-Route | erwartete direkte Pfade 404 | nicht vorhanden | Wechsel von DE fällt auf Sprach-Home zurück | kein V1-Einstieg und keine CTA | Nutzerweg fehlt; Blocker |
+| DE | Schadendokumentation | `/gutachtenarten/schadendokumentation` | 200 / `Schadendokumentation in Berlin` | aktuelle V1-Seite | tatsächlich EN `/en`, RU `/ru` | Telefon, WhatsApp, Dokumentationsformular | generische alte Metadata; i18n blockiert |
+| EN/RU | Schadendokumentation | keine V1-Route | erwartete direkte Pfade 404 | nicht vorhanden | Wechsel von DE fällt auf Sprach-Home zurück | kein V1-Einstieg und keine CTA | Nutzerweg fehlt; Blocker |
+| DE | Leistungsübersicht | `/leistungen` | 200 / `6 Hauptleistungen rund ums Fahrzeug` | Legacy-Bestand | EN/RU pfadgleich | direkt erreichbar | sechs ausgeschlossene Leistungen; 026/029 |
+| EN | Leistungsübersicht | `/en/leistungen` | 200 / `Our services` | aktiver Alt-Scope | DE/RU pfadgleich | im Menü erreichbar | sechs ausgeschlossene Leistungen; Blocker |
+| RU | Leistungsübersicht | `/ru/leistungen` | 200 / `Наши услуги` | aktiver Alt-Scope | DE/EN pfadgleich | im Menü erreichbar | sechs ausgeschlossene Leistungen; Blocker |
+| DE | Über uns | `/ueber-uns` | 200 / `Über UNEXT GmbH` | aktuelle Trust-Seite | EN/RU pfadgleich | DESAG-Link, Telefon, WhatsApp, Kontakt | fachlich erfüllt |
+| EN/RU | Über uns | `/en/ueber-uns`, `/ru/ueber-uns` | 200 / lokalisiert | alter Automotive-/UNFALLX-Stand | Header korrekt | Kontakt, kein gleichwertiger DESAG-/Weiterbildungsbereich | Trust-Parität fehlt; Home-CTA führt teils auf deutsches `/ueber-uns`; Blocker |
+| DE | Kontakt | `/kontakt` | 200 / `Kontakt für KFZ-Gutachten` | aktuelle Ausrichtung | EN/RU pfadgleich | Telefon, WhatsApp, E-Mail, Formular | Versandkonfiguration nicht End-to-End geprüft |
+| EN/RU | Kontakt | `/en/kontakt`, `/ru/kontakt` | 200 / lokalisiert | Formular lokalisiert, Inhalt alt | pfadgleich | Formular plus alte Service-Unterkontakte | 24-Stunden-Versprechen und ausgeschlossene Leistungen; Blocker |
+| DE/EN/RU | Impressum | `/impressum`, `/en/impressum`, `/ru/impressum` | jeweils 200 / lokalisiert | vorhanden | pfadgleich | Footer erreichbar | menschliche Rechts-/Sprachprüfung offen |
+| DE/EN/RU | Datenschutz | `/datenschutz`, `/en/datenschutz`, `/ru/datenschutz` | jeweils 200 / lokalisiert | vorhanden | pfadgleich | Footer/Formularlink erreichbar | menschliche Rechts-/Sprachprüfung offen |
+| DE/EN/RU | AGB | `/agb`, `/en/agb`, `/ru/agb` | jeweils 200 / lokalisiert | vorhanden | pfadgleich | Footer erreichbar | V1-Relevanz und alter EN/RU-Kontext vor Launch prüfen |
+
+### Legacy-Routeninventar
+
+Alle folgenden Altpfade antworten in DE, EN und RU jeweils mit `200` und stellen die Leistung sichtbar als aktiv dar:
+
+| Altleistung | DE | EN | RU | Zuständigkeit |
+|---|---|---|---|---|
+| Autovermietung | `/leistungen/autovermietung` | `/en/leistungen/autovermietung` | `/ru/leistungen/autovermietung` | 026/029 |
+| Autoservice/Werkstatt | `/leistungen/autoservice` | `/en/leistungen/autoservice` | `/ru/leistungen/autoservice` | 026/029 |
+| Detailing | `/leistungen/detailing` | `/en/leistungen/detailing` | `/ru/leistungen/detailing` | 026/029 |
+| Zulassungsservice | `/leistungen/zulassungsservice` | `/en/leistungen/zulassungsservice` | `/ru/leistungen/zulassungsservice` | 026/029 |
+| Abschleppdienst/Pannenhilfe | `/leistungen/abschleppdienst-pannenhilfe` | `/en/leistungen/abschleppdienst-pannenhilfe` | `/ru/leistungen/abschleppdienst-pannenhilfe` | 026/029 |
+
+### Redirect-, Loading- und Fehlerzustände
+
+- Die alten deutschen Unfallgutachten-, Fahrzeugbewertungs- und Schadendokumentationspfade antworten mit `308` direkt auf die jeweilige neue `/gutachtenarten/...`-Route.
+- `next-router-check`: 28 UI-Routendefinitionen, davon 13 asynchrone lokalisierte Routen.
+- DE erbt `loading.tsx`, `error.tsx` und `not-found.tsx` aus dem deutschen Scope.
+- EN/RU erben `loading.tsx` und `error.tsx`; für alle 13 datenladenden lokalisierten Routen fehlt `app/(localized)/[locale]/not-found.tsx`.
+- Der lokalisierte `error.tsx` zeigt deutsche Texte.
+- Fehlende EN/RU-Gutachtenpfade zeigen die generische englische Next.js-404 ohne gesetztes `lang`-Attribut.
+
+### Nutzerwege
+
+| Sprache | Nutzerweg | Einstieg / Ziel | CTA | Schritte | Ergebnis / Sackgasse | User Stories |
+|---|---|---|---|---:|---|---|
+| DE | Unfall | Home/Dropdown → Unfallgutachten | Telefon, WhatsApp, Anfrage | 2 | vollständig; Ablauf, Unterlagen, FAQ und Trust verständlich | US-01, 02, 04, 05, 13, 14, 15, 16, 20 |
+| EN/RU | Unfall | alte Homekarte/Services → alte Unfallroute | Telefon, WhatsApp, Formular | 2 | technisch vollständig, fachlich alte/stärkere Versprechen; RU mit Desktop-Überlauf | US-01, 02, 04, 05, 11, 13, 14, 20 |
+| DE | Fahrzeugbewertung | Home/Dropdown → Fahrzeugbewertung | Telefon, WhatsApp, Anfrage | 2 | vollständig, keine automatische Bewertung | US-03, 04, 13, 16, 20 |
+| EN/RU | Fahrzeugbewertung | kein V1-Einstieg | keine | - | nicht vorhanden; direkte Pfade 404, Sprachwechsel fällt auf Home | US-03, 11 |
+| DE | Schadendokumentation | Home/Dropdown → Schadendokumentation | Telefon, WhatsApp, Anfrage | 2 | vollständig abgegrenzt, kein Upload-/Berechnungsversprechen | US-02, 04, 05, 13, 16, 20 |
+| EN/RU | Schadendokumentation | kein V1-Einstieg | keine | - | nicht vorhanden; direkte Pfade 404, Sprachwechsel fällt auf Home | US-02, 05, 11 |
+| DE | Vertrauen/Kontakt | Home/Header → Über uns → Kontakt | DESAG, Telefon, WhatsApp, E-Mail, Formular | 2-3 | vollständig; externer Nachweis erst nach Klick | US-13, 15, 16, 19, 20 |
+| EN/RU | Vertrauen/Kontakt | Header lokalisiert; Home-CTA teils deutsch | Kontaktwege vorhanden | 2-3 | Trust alt, DESAG-Parität fehlt, Home-CTA kann Sprache verlieren | US-11, 13, 15, 19 |
+
+### Navigation, Accessibility und Formulare
+
+- Deutscher Header, Mobile-Menü und Footer führen zu den drei neuen Gutachtenrouten.
+- EN/RU führen weiterhin zu Unfallgutachten plus fünf ausgeschlossenen Altleistungen.
+- Mobile-Menüs besitzen je Sprache einen screenreader-zugänglichen Titel und eine Beschreibung und schließen nach Escape.
+- Primäre Ziele sind konsistent: `tel:+493023613927`, `https://wa.me/4917664365185`, `mailto:info@unext.de`.
+- EN/RU zeigen zusätzlich alte servicebezogene Telefonnummern und WhatsApp-Ziele.
+- Das Kontaktformular hat in allen Sprachen vier Pflichtfelder: Name, E-Mail, Betreff und Nachricht. Labels und Datenschutzlinks sind lokalisiert.
+- Gutachtenformulare verlangen Name, Telefon und E-Mail. Diese zusätzliche Reibung ist in 033 fachlich zu prüfen.
+- Leere Pflichtfelder wurden ohne Versand abgefangen. Die native Meldung war wegen der Headless-Browser-Locale englisch und ist kein belastbarer Website-Sprachbefund.
+- Erfolgs-, Konfigurations- und Versandmeldungen sind lokalisiert. Zod-Feldfehler werden als rohe Standardsprache ausgegeben.
+- Resend wurde nicht extern ausgelöst. Zielumgebungsvariablen und kontrollierter Versandtest bleiben für 034.
+- Grundlegende Semantik, Fokuslogik, Alt-Texte und Mobile-Menü-Bedienung sind vorhanden. Vollständige Kontrast-, Screenreader- und Tastaturabnahme bleibt 033.
+
+### Traceability-Matrix
+
+Jede Zeile enthält die getrennte Bewertung für DE, EN und RU.
+
+| User Story | Sprache / Einstieg / Route / CTA | Erwartung und tatsächliches Ergebnis | Status | Priorität / Folgetask |
+|---|---|---|---|---|
+| US-01 Unfallkunde | DE: Home/Unfallseite, Telefon/WhatsApp/Anfrage. EN/RU: alte Home/Unfallseite | DE klar und ohne Sofortgarantie. EN/RU technisch erreichbar, aber alter Scope und stärkere Zusagen | DE erfüllt; EN/RU teilweise | hoch, EN/RU-Umsetzung |
+| US-02 Fahrzeugschaden | DE: Detailseiten/Formulare. EN/RU: alte Unfallseite/Formular | DE erklärt Unterlagen; Pflichtfeldlogik prüfen. EN/RU enthalten Zeit-/Claims-Zusagen | DE/EN/RU teilweise | mittel DE: 033; EN/RU Blocker |
+| US-03 Fahrzeugbewertung | DE: neue Detailseite/Anfrage. EN/RU: kein Einstieg | DE als Gutachtenart verständlich. EN/RU fehlen vollständig | DE erfüllt; EN/RU nicht vorhanden | Blocker, 032 + EN/RU-Umsetzung |
+| US-04 Smartphone | DE/EN/RU: Mobile Header/CTAs | 390 px ohne Seiten-Overflow, CTAs erreichbar; EN/RU führen fachlich falsch | DE erfüllt; EN/RU teilweise | hoch, EN/RU-Umsetzung/033 |
+| US-05 Bilder | DE/EN/RU: WhatsApp/Formular | kein Website-Upload; EN/RU ohne Dokumentationsparität | DE erfüllt; EN/RU teilweise | hoch, EN/RU-Umsetzung |
+| US-11 Mehrsprachigkeit | Sprachumschalter und drei Sprachstände | DE Referenz; Wechsel verliert Gutachtenkontext; EN/RU versprechen mehr | DE teilweise; EN/RU nicht erfüllt | Blocker, 032 + EN/RU-Umsetzung |
+| US-12 keine Altleistungen | Legacy-Routen, Home, Header, Footer | DE-Legacy direkt aktiv; EN/RU bewerben fünf Altleistungen sichtbar | nicht erfüllt in DE/EN/RU | Blocker, 026/029/EN-RU |
+| US-13 Kontakt | Telefon, WhatsApp, E-Mail, Formulare | DE primäre Wege korrekt. EN/RU zusätzlich alte Servicekontakte | DE erfüllt; EN/RU teilweise | hoch EN/RU; Versand 034 |
+| US-14 FAQ | Gutachten-Detailseiten | DE kurz und bestätigt. EN/RU enthalten stärkere Aussagen | DE erfüllt; EN/RU teilweise | hoch, EN/RU-Umsetzung |
+| US-15 Trust | Über uns/DESAG/Kontakt | DE sachlich. EN/RU ohne gleichwertige Qualifikation/Weiterbildung | DE erfüllt; EN/RU nicht erfüllt | Blocker, EN/RU-Umsetzung |
+| US-16 Accessibility | Menüs, Links, FAQ, Formulare | Grundsemantik/Escape bestanden; Vollabnahme offen; RU-Textüberlauf | teilweise in DE/EN/RU | mittel/hoch, 033 + EN/RU |
+| US-17 Datenschutz | Formulare/Datenschutz | kein Upload/Supabase/KI; Legaltexte und Deployment noch prüfen | DE erfüllt; EN/RU teilweise | 032/034 |
+| US-18 Cleanup | alte Seiten, Navigation, SEO | Gutachten migriert, Alt-Scope bleibt aktiv | DE teilweise; EN/RU nicht erfüllt | hoch, 026/029/EN-RU |
+| US-19 Pflichtseiten | Footer/Formularlinks | Impressum/Datenschutz in allen Sprachen erreichbar | erfüllt in DE/EN/RU | menschliche Prüfung 032/034 |
+| US-20 mobile Konsistenz | 390/768/1440 | kein Dokument-Overflow; RU-Unfallkarte überläuft bei 1440 | DE erfüllt; EN teilweise; RU teilweise | hoch RU, 033 + EN/RU |
+
+### Priorisierte Befunde
+
+#### Launch-Blocker
+
+1. Fehlende EN/RU-V1-Seiten für Fahrzeugbewertung und Schadendokumentation.
+2. Sprachwechsel von deutschen Gutachtenseiten verliert den Detailkontext; direkte neue lokalisierte Pfade liefern 404.
+3. EN/RU-Startseite, Navigation, Footer, Leistungsübersicht, Über uns, Kontakt und AGB bewerben ausgeschlossene Altleistungen.
+4. EN/RU enthalten stärkere unbestätigte Zeit-, Soforthilfe-, Claims- und Gutachtenversprechen.
+5. EN/RU bilden die deutsche Qualifikation und Weiterbildung nicht gleichwertig ab.
+6. Gemeinsame Metadata bewirbt Altleistungen; Structured Data verwendet `AutoRepair`. Zuständig ist 029.
+7. `/leistungen` und fünf deutsche Altleistungsrouten bleiben direkt als aktive Angebote erreichbar. Zuständig sind 026/029.
+8. Der russische Kartentitel `Сертифицированные эксперты` läuft bei 1440 px sichtbar über.
+
+#### Hohe und mittlere Folgepunkte
+
+- EN/RU-Home-Über-uns-Link kann auf die deutsche Route führen.
+- Lokalisierter Error-State ist deutsch; lokalisierter Not-Found-State fehlt.
+- Resend-Deployment und echter kontrollierter Versand sind nicht geprüft.
+- Serverseitige Zod-Feldfehler sind nicht sprachspezifisch.
+- Gutachtenformulare verlangen gleichzeitig Telefon und E-Mail.
+- Schreibweise `UNEXT GmbH` gegenüber `Unext GmbH` in Specs menschlich bestätigen.
+- Legaltexte in allen drei Sprachen menschlich prüfen.
+- Next Image meldete im Dev-Modus nicht konfigurierte Qualitätswerte `72`, `74`, `78`, `82`, `86` und `88`; der Build besteht, die Konfiguration bleibt 033.
+- Das nicht referenzierte Asset `public/images/home-hero-team-new.webp.png` ist mit rund 19,4 MB ein Cleanup- und Deployment-Bloat-Risiko, aber kein aktueller Laufzeitfehler. Nutzung und Entfernung sind in 026 kontrolliert zu prüfen.
+- Inline-`clamp()`-Typografie und einzelne harte Blockumbrüche sind derzeit keine sichtbaren Clippingfehler, bleiben aber 033-Punkte.
+
+### Zuordnung zu Folgeaufgaben
+
+| Zuständigkeit | Befunde |
+|---|---|
+| 032 | Übersetzungs-, Qualitäts-, Review- und Responsive-Vorgehen; Route-Mapping; menschliche EN/RU-Prüfung |
+| spätere freizugebende EN/RU-Umsetzung | neue Gutachtenseiten, V1-Texte, Navigation, Trust, Kontakt, Fehlerzustände, Link- und Layoutparität |
+| 029 | Metadata, OpenGraph, Structured Data, `AutoRepair`, Canonicals, Hreflang, Sitemap/Robots |
+| 026 | kontrollierter Rückbau der Legacy-Inhalte nach Routing-/SEO-Entscheidung |
+| 033 | Accessibility, Typografie, Geräte, Formulare, Performance und Regression |
+| 034 | Deployment-Variablen, kontrollierter Formularversand und externe Dienste |
+| 035 | Fehler-, Formular- und Routingmonitoring nach Launch |
+| 026 | zusätzlich Nutzung und kontrollierte Entfernung des unreferenzierten 19,4-MB-Assets prüfen |
+
+Keine neue Aufgabe wurde angelegt. Aufgabe 032 wurde nicht gestartet.
+
+### Reviewer- und Skill-Ergebnisse
+
+- Content-Konsistenz: nicht launchfähig wegen altem EN/RU-Scope, fehlenden Seiten und Zeitversprechen.
+- Conversion: nicht launchfähig wegen fehlenden V1-Journeys und altem Multi-Service-Fluss.
+- Legal/Trust: nicht launchfähig; Scope- und Trust-/Firmierungsfragen benötigen menschliche Klärung, ohne Rechtsberatung zu ersetzen.
+- Local SEO: nicht launchfähig; Metadata, interne Verlinkung und Structured Data zeigen alte Suchintentionen.
+- Accessibility: Grundsemantik des Mobile-Menüs funktioniert; Sprachwechsel, Alt-Navigation und deutsche Fehlertexte brechen die mehrsprachige Journey.
+- Premium: EN/RU wirken wie ein älteres anderes Angebot.
+- Typografie: kein allgemeiner Dokument-Overflow; ein bestätigter russischer Desktop-Kartentitel läuft über.
+- Desktop: nicht launchfähig wegen fehlender Sprachrouten und russischem Textüberlauf.
+- Mobile: 390 px ohne horizontalen Overflow; Menüs, CTAs und Formulare bedienbar, fachliche EN/RU-Journeys falsch.
+- Performance: keine akute Laufzeitregression; Route-Parität blockiert den Launch, Bild-Quality-Konfiguration bleibt 033 und das unreferenzierte 19,4-MB-Asset bleibt 026.
+- `next-router-check`: 28 Definitionen, 13 datenladende lokalisierte Routen, ein fehlender lokalisierter Not-Found-Scope mit 13 betroffenen Routen.
+
+### Screenshot- und Auditpfade
+
+Auditwurzel: `C:/tmp/unext-task-049-multilingual-audit/`
+
+| Ordner | Inhalt |
+|---|---|
+| `de/` | 21 Fullpage-Screenshots: Home, drei Gutachtenarten, `/leistungen`, Über uns, Kontakt bei 390/768/1440 |
+| `en/` | 12 Fullpage-Screenshots: Home, Unfallgutachten, Über uns, Kontakt bei 390/768/1440 |
+| `ru/` | 12 Fullpage-Screenshots: Home, Unfallgutachten, Über uns, Kontakt bei 390/768/1440 |
+| `missing-routes/` | sechs 390-px-Screenshots der fehlenden EN/RU-`/gutachtenarten/...`-Routen |
+| `journeys/` | sechs Journey-Screenshots und `interaction-results.json` |
+| `audit-results.json` | Status-, Titel-, H1-, Link-, Formular-, Konsolen- und Overflow-Ergebnisse |
+
+Insgesamt wurden 57 PNG-Dateien ausschließlich außerhalb des Repositorys erzeugt.
+
+### Ergebnis
+
+`V1 user stories and user journeys have gaps`
+
+Die vier deutschen Kernnutzerwege sind fachlich weitgehend vollständig und responsiv nutzbar. Der gemeinsame DE/EN/RU-Launch ist noch nicht möglich, weil EN/RU nicht dieselben Seiten, denselben bestätigten Leistungsumfang, dieselben Grenzen und dieselbe Trust-/Routingqualität besitzen.
+
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review
