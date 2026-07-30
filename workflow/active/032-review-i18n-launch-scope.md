@@ -107,6 +107,7 @@ Der lokale Skill wurde am 30. Juli 2026 read-only angewendet:
 7. EN und RU erhalten je eine menschliche Sprachprüfung; sensible Aussagen zusätzlich einen Fachabgleich mit Deutsch.
 8. Rechtstexte benötigen freigegebene Übersetzungen beziehungsweise geeignete qualifizierte Prüfung.
 9. Freigaben dokumentieren Seite, Sprache, Prüferrolle, Datum und offene Abweichungen.
+10. Gemeinsame Unternehmens-, Kontakt- und Trust-Daten werden sprachübergreifend gegen eine bestätigte Referenz geprüft. Nur die sprachliche Form darf abweichen.
 
 ### B. Soll-Routenparität
 
@@ -143,8 +144,12 @@ Eine explizite Zuordnung über fachliche Seiten-IDs ersetzt für V1-Kernseiten d
 | `legal-notice` | `/impressum` | `/en/impressum` | `/ru/impressum` | nur zwischen freigegebenen Fassungen |
 | `privacy` | `/datenschutz` | `/en/datenschutz` | `/ru/datenschutz` | nur zwischen freigegebenen Fassungen |
 | `terms` | `/agb` | `/en/agb` | `/ru/agb` | nur zwischen freigegebenen, V1-relevanten Fassungen |
+| `error` | lokalisierter deutscher Fehlerzustand | lokalisierter englischer Fehlerzustand | lokalisierter russischer Fehlerzustand | aktuelle Sprache beibehalten; nur bei bekanntem fachlichem Gegenstück sprachlich wechseln |
+| `not-found` | lokalisierte deutsche 404 | lokalisierte englische 404 | lokalisierte russische 404 | aktuelle Sprache beibehalten; Wiederherstellung klar als sprachlich passende Orientierung kennzeichnen |
 
-Während der Entwicklung darf ein fehlendes Gegenstück nicht zu 404 führen. Bevorzugt bleibt die betroffene Sprache deaktiviert, bis das Ziel existiert. Ein Fallback auf die Zielsprach-Startseite ist nur als dokumentierte Entwicklungsübergangslösung zulässig. Zum Launch müssen alle Kernziele vorhanden sein; Fallbacks dürfen keine Lücke verdecken.
+Ein Sprachwechsel darf nie auf eine fachlich andere Seite führen. Solange für eine Seite kein fachlich entsprechendes Sprachziel existiert, darf die betreffende Sprache nicht als funktionierender Link angeboten werden. Sie wird vorübergehend ausgeblendet oder eindeutig und barrierearm als nicht verfügbar dargestellt. Die konkrete UI-Ausführung wird erst in der späteren EN/RU-Umsetzungsaufgabe festgelegt. Zum finalen V1-Launch müssen für alle freigegebenen Kernseiten vollständige Sprachgegenstücke existieren; der fachliche Seitenkontext bleibt in allen Sprachrichtungen erhalten.
+
+Fehler- und Not-found-Zustände behalten die aktuelle Sprache bei. Retry-, Kontakt-, Zurück- und Startseitenoptionen werden in derselben Sprache angeboten. Insbesondere die russische 404 darf keine deutschen oder unpassenden englischen Texte enthalten. Ein Sprachwechsel ist nur zulässig, wenn für den ursprünglich angeforderten Inhalt ein bekanntes fachliches Sprachgegenstück existiert. Fehlt dieses Gegenstück, darf keine andere Seite als vermeintlich gleiche Seite geöffnet werden. Eine Wiederherstellung darf stattdessen zu einer klar bezeichneten, sprachlich passenden Orientierung oder Startseite führen. Die spätere EN/RU-Umsetzungsaufgabe implementiert dieses Verhalten; Aufgabe 033 prüft es funktional und sprachlich.
 
 ### D. Zuordnung der Task-049-Befunde
 
@@ -189,6 +194,19 @@ Echter Resend-Versand, produktive Variablen und kontrollierte Zustellung bleiben
 
 Zusätzlich: kein horizontaler Overflow, keine künstliche Schriftverkleinerung, keine deutschen Zwangsumbrüche in EN/RU, natürliche statt wortgetreuer Sprache, Prüfung von Header, Menü, Footer, Karten, CTA, FAQ, Trust, Formularen, Legal, Fehler und 404, keine neuen Konsolen- oder Hydration-Fehler sowie Tastatur-, Fokus- und Screenreader-Grundprüfung.
 
+### G. Gemeinsame Unternehmens-, Kontakt- und Trust-Daten
+
+Folgende Angaben müssen in DE, EN und RU sachlich identisch sein; nur ihre sprachliche Form darf sich unterscheiden:
+
+- Firmenname und Rechtsform;
+- Anschrift;
+- Telefonnummer und E-Mail-Adresse;
+- Öffnungszeiten beziehungsweise bestätigte Erreichbarkeitsangaben;
+- vertretungsberechtigte und weitere rechtlich erforderliche Unternehmensangaben;
+- bestätigte Qualifikation und Trust-Aussagen.
+
+Jede inhaltliche Abweichung gilt als Fehler. Änderungen dieser Angaben erfolgen nicht in Aufgabe 032; die spätere EN/RU-Umsetzung übernimmt den Abgleich und Aufgabe 033 prüft die veröffentlichungsnahe Parität erneut.
+
 ## Zuordnung zu Folgeaufgaben
 
 - **032:** Plan, Inventur, Soll-Matrizen, Qualitäts- und Freigabeverfahren; keine Website-Umsetzung.
@@ -203,7 +221,43 @@ Keine neue Aufgabe wird in 032 angelegt. Empfohlener späterer Titel:
 
 `EN/RU-V1-Kernseiten, Routen und Nutzerwege umsetzen`
 
-Empfohlener Scope: natürliche EN/RU-Texte mit menschlicher Prüfung; drei lokalisierte Gutachtenartenrouten je Sprache; Angleichung von Startseite, Header, Footer, Über uns, Kontakt, Formularen, Trust, Fehlern und 404; explizite Sprachwechsel-Zuordnung; Entfernung sichtbarer Altbezüge ohne 026/029 vorwegzunehmen; Prüfung bei 390/768/1440. Ausgeschlossen bleiben SEO-Technik, allgemeiner Legacy-Cleanup und produktiver Versandtest.
+Empfohlener Scope:
+
+- natürliche und fachlich gleichwertige EN/RU-Texte;
+- drei lokalisierte Gutachtenartenrouten je Sprache;
+- Angleichung von Startseite, Über uns, Kontakt, Trust, Legal, Fehlern und 404;
+- interne Links sowie Desktop-Header, Footer und Mobile-Navigation;
+- explizite fachliche Sprachwechsel-Zuordnung ohne unpassenden Startseiten-Fallback;
+- direkte permanente Weiterleitungen der bestehenden alten EN/RU-Unfallgutachten-Routen auf die jeweils gleichsprachigen neuen Ziele;
+- Ausschluss von Redirect-Ketten, Redirect-Schleifen und fachfremden Zielen;
+- vollständig lokalisierte Formularlabels, Validierung, Erfolgs- und Fehlerzustände einschließlich serverseitiger Feld- und Versandfehler;
+- Entfernung sichtbarer Altbezüge, ohne den allgemeinen Cleanup aus 026 oder die SEO-Technik aus 029 vorwegzunehmen;
+- Browser-Console-, Hydration-, Request- und Bildfehlerprüfung;
+- responsive Sichtprüfung bei 390, 768 und 1440 px für Englisch und Russisch;
+- dokumentierte menschliche Sprachfreigabe der englischen Texte;
+- dokumentierte menschliche Sprachfreigabe der russischen Texte;
+- zusätzliche fachliche beziehungsweise qualifizierte Prüfung sensibler Fach-, Versicherungs-, Datenschutz- und Rechtstexte.
+
+Ausgeschlossen bleiben technische SEO-Endarbeit, allgemeiner Legacy-Cleanup und produktiver Versandtest.
+
+## Dokumentarische Vorbedingungen vor der Umsetzung
+
+Die read-only Prüfung gegen den Abschlussstand von Aufgabe 050 zeigt, dass mehrere weiterhin als Planungsgrundlage geführte Dokumente noch Aussagen aus der Zeit vor der deutschen Gutachtenarten-Routenmigration enthalten. Diese aktiven Widersprüche müssen vor Beginn der späteren EN/RU-Codeumsetzung in einem gesondert freizugebenden Dokumentationsschritt bereinigt werden. Aufgabe 032 inventarisiert sie nur und ändert die betroffenen Dateien nicht.
+
+| Datei / Fundstelle | Einordnung | Erforderliche Behandlung und Zuständigkeit |
+| --- | --- | --- |
+| `specs/02-feature-specs/mehrsprachigkeit.md`, insbesondere offene Punkte um Zeilen 269 sowie 273 bis 274 | Kein Widerspruch während Aufgabe 032, aber nach Planfreigabe synchronisierungsbedürftig: konkrete EN/RU-Zielrouten und das Verhalten bei noch nicht freigegebenen Sprachzielen werden dort noch als offen geführt. | Nach Freigabe des 032-Plans und vor EN/RU-Codeumsetzung im ausdrücklich freizugebenden Spec-Abgleich mit der Routen- und Sprachwechselmatrix synchronisieren. |
+| `specs/02-feature-specs/seo.md`, insbesondere Abschnitte 2 und 6 | Echter aktiver Widerspruch: V1 wird noch als reine Hauptseite mit Gutachtenarten nur als Abschnitte beschrieben; eigene Landingpages und beispielhafte Routen gelten dort noch als später und offen. Aufgabe 050 hat die drei deutschen Detailrouten unter `/gutachtenarten/...` bereits umgesetzt. | Vor EN/RU-Umsetzung in einem ausdrücklich freizugebenden Spec-Abgleich auf den bestätigten Routenstand bringen. Die spätere technische SEO-Endprüfung bleibt Aufgabe 029. |
+| `specs/03-technical-specs/routing.md`, insbesondere Abschnitte 2, 4 und 5 | Echter aktiver Widerspruch: Gutachtenarten werden nur als Hauptseitenabschnitte geplant; Landingpages und Hauptseiten-URL werden als unentschieden dargestellt. | Vor EN/RU-Umsetzung im selben freizugebenden Spec-Abgleich an Entscheidung und Abschluss von Aufgabe 050 anpassen. Keine neue Routingentscheidung in 032 treffen. |
+| `specs/07-open-questions/open-questions.md`, Zeilen 400 bis 404 | Durch Aufgabe 050 überholt: Die beantwortete Frage führt eigene Gutachtenarten-Landingpages weiterhin nur als spätere Möglichkeit und V1 ausschließlich als Hauptseitenabschnitte. | Entscheidungshistorie erhalten, aber vor EN/RU-Umsetzung eindeutig als überholt beziehungsweise durch Aufgabe 050 ersetzt kennzeichnen. |
+| `specs/06-work-plans/v1-launch-masterplan.md`, insbesondere Seitenmatrix Zeilen 56 bis 60 und offene Entscheidungen um Zeile 183 | Echter aktiver Widerspruch beziehungsweise veralteter Masterplan: deutsche Trust-/Über-uns-Lücken und der Status der Gutachtenartenroute werden noch als offen geführt; Unfallgutachten steht weiterhin unter `/leistungen/unfallgutachten`. | Vor EN/RU-Umsetzung durch gesondert freizugebenden Masterplan-Abgleich auf die abgeschlossenen Aufgaben 047, 050 und 049 aktualisieren. |
+| `specs/06-work-plans/routing-redirects-old-service-routes.md`, insbesondere Matrix Zeilen 62 bis 69, Empfehlungen ab Zeile 84 und offene Fragen ab Zeile 243 | Ursprünglicher Planungsstand ist nachvollziehbar, wird aber weiterhin als aktiver Work-Plan geführt. Die deutsche Unfallgutachtenroute und deren Status sind seit Aufgabe 050 überholt. | Historische Planung nicht löschen; vor EN/RU-Umsetzung den heutigen Stand und die durch 050 erledigte deutsche Migration kenntlich machen. Verbleibende SEO-/Cleanup-Fragen bleiben 029/026. |
+| `ROADMAP.md`, insbesondere Zeilen 76 bis 87 sowie 128 bis 130 | Teilweise historisch korrekt, teilweise aktiv veraltet: frühe 044- bis 046-Ergebnisse dürfen als damaliger Stand bleiben; die aktuelle Reihenfolge und die noch als künftig dargestellte Aufgabe 050/049 sowie deren offene Entscheidungen widersprechen dem tatsächlichen Abschlussstand. | In einem gesondert freizugebenden Dokumentationsschritt vor EN/RU-Umsetzung den aktuellen Projektstand ergänzen, ohne historische Abschlussnotizen umzuschreiben. |
+| `specs/03-technical-specs/frontend.md` und `specs/04-visual-rules/visual-rules.md` mit „Gutachtenarten als Abschnitte“ | Weiterhin korrekt, sofern damit die vorhandenen Gutachtenkarten beziehungsweise Erklärabschnitte auf der Startseite gemeint sind. Die Aussagen schließen Detailseiten nicht ausdrücklich aus. | Kein unmittelbarer Korrekturbedarf; beim Spec-Abgleich nur auf Eindeutigkeit prüfen. |
+| `DECISIONS.md`, Entscheidungen 7 und 8 | Weiterhin korrekt: URL-basierte Locale-Architektur und gemeinsamer DE/EN/RU-Launch sind verbindlich festgelegt. | Keine Korrektur erforderlich. |
+| `workflow/done/045-*`, `workflow/done/046-*` und die Inventur-/Planungsteile von `workflow/done/050-*` | Historischer und im jeweiligen Aufgabenverlauf erkennbarer Stand. Die Abschlussnotiz von Aufgabe 050 dokumentiert die umgesetzten `/gutachtenarten/...`-Routen und Redirects eindeutig. | Keine rückwirkende Bereinigung. Für die Umsetzung gilt der Abschlussstand von Aufgabe 050. |
+
+Bis diese aktiven Spec- und Masterplan-Widersprüche freigegeben bereinigt sind, darf aus Aufgabe 032 keine EN/RU-Codeumsetzung gestartet werden.
 
 ## Scope
 
@@ -262,16 +316,19 @@ Aufgabe 032 darf nicht:
 - Bestehende Seiten, Routen und Textquellen sind nachvollziehbar inventarisiert.
 - Soll-Routenmatrix für Startseite, drei Gutachtenarten, Über uns, Kontakt, Legal, Fehler und 404 ist dokumentiert.
 - `/leistungen` und alte EN/RU-Leistungsrouten sind zu 026/029 abgegrenzt.
-- Sprachwechsel-Matrix deckt alle sechs Richtungen und den Entwicklungsübergang ab.
+- Sprachwechsel-Matrix deckt alle sechs Richtungen, lokalisierte Fehler-/404-Zustände und den Entwicklungsübergang ohne fachlich unpassenden Fallback ab.
+- Fehlende Sprachziele werden nicht als funktionierende Links angeboten; zum finalen V1-Launch bestehen alle freigegebenen Sprachgegenstücke.
 - Natürlicher, gleichwertiger Übersetzungsprozess statt Wort-für-Wort-Übertragung ist festgelegt.
 - Menschliche Sprachprüfung sowie Fach-/Rechts-Gates sind festgelegt.
+- Firmenname, Rechtsform, Anschrift, Kontakt- und Erreichbarkeitsdaten, rechtlich erforderliche Unternehmensangaben sowie bestätigte Qualifikation und Trust sind als sprachübergreifend identische Prüfdaten festgelegt.
 - Startseite, Header, Footer, Gutachtenarten, Über uns, Kontakt, Formulare, Trust, Legal, Fehler und 404 sind berücksichtigt.
 - Labels, Platzhalter, Hilfen, Validierungs-, Server-, Erfolgs-/Fehlerzustände, Datenschutzlinks und Versandkontext sind eingeplant.
 - Responsive Prüfmatrix enthält 390, 768 und 1440 px für jede Sprache.
 - Konsole, Hydration, Accessibility, Tastatur, Fokus und Overflow sind als spätere Prüfungen berücksichtigt.
 - Alle Task-049-Befunde sind EN/RU-Umsetzung oder 026, 029, 033, 034 beziehungsweise 035 zugeordnet.
 - `next-router-check` wurde read-only durchgeführt und der lokalisierte Not-found-Befund dokumentiert.
-- Titel und Scope der späteren EN/RU-Aufgabe sind vorgeschlagen, aber keine neue Aufgabe wurde angelegt.
+- Titel und Scope der späteren EN/RU-Aufgabe sind einschließlich interner Links, Navigation, Redirects ohne Ketten/Schleifen, vollständiger Formularzustände, Browser-/Hydration-/Request-/Bildprüfung, Pflichtviewports und dokumentierter menschlicher EN-/RU-Freigaben vorgeschlagen, aber keine neue Aufgabe wurde angelegt.
+- Aktive veraltete Routing-, SEO-, Open-Questions-, Masterplan- und Roadmap-Aussagen sind als dokumentarische Vorbedingungen inventarisiert und müssen vor der EN/RU-Codeumsetzung freigegeben bereinigt werden.
 - Keine Website-, Code-, Übersetzungs-, Routen-, SEO-, Metadata-, Structured-Data- oder Assetänderung wurde umgesetzt.
 - Aufgabe 032 bleibt mit `Status: in Arbeit` in `workflow/active/`, bis der Plan geprüft und freigegeben wurde.
 
