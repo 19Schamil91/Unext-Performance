@@ -341,6 +341,28 @@ Technische Abschlusschecks nach Codeänderungen:
 6. Responsive, funktionale und technische Prüfungen werden vollständig bestanden.
 7. Abschluss und Verschiebung nach workflow/done erfolgen nur nach ausdrücklicher Nutzerfreigabe.
 
+## Phase-B-Zwischenstand
+
+Der Plan wurde ausdrücklich für Phase B freigegeben. Die getrennten Textentwürfe liegen hier:
+
+- specs/06-work-plans/task-051-en-content-draft.md
+- specs/06-work-plans/task-051-ru-content-draft.md
+
+Beide Dokumente ordnen die Entwürfe über stabile Inhalts-IDs und Abschnittsnamen den aktuellen deutschen Referenztexten zu. Sie decken Navigation, Footer, Startseite, alle drei Gutachtenarten, Über uns, Kontakt, gemeinsame Formulare, Server- und Feldmeldungen sowie Error- und 404-Zustände ab.
+
+Die vorhandenen Legal-Texte werden nicht ungeprüft neu formuliert. Impressum, Datenschutz und AGB bleiben bis zu einer geeigneten beziehungsweise qualifizierten Rechts- und Sprachprüfung ausdrücklich vorläufig.
+
+Noch offen:
+
+- menschliche englische Sprachprüfung;
+- menschliche russische Sprachprüfung;
+- fachliche Prüfung sensibler Gutachten-, Kosten- und Trust-Aussagen;
+- geeignete Prüfung der Rechtstexte;
+- ausdrückliche Freigabe der korrigierten Textentwürfe;
+- konkreter Dateiplan und dessen Freigabe vor jeder Codeänderung.
+
+Die Entwürfe sind keine menschliche Freigabe. Es wurde noch keine Website-, Übersetzungs-, Routen- oder Codeänderung vorgenommen.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;
@@ -391,7 +413,3 @@ Technische Abschlusschecks nach Codeänderungen:
 - Es wurden keine Leistungen, Qualifikationen, Mitgliedschaften oder Versprechen erfunden.
 - CHANGELOG.md ist aktualisiert; ROADMAP.md ist nur bei veränderter Projektplanung angepasst.
 - Aufgabe 051 bleibt bis zur ausdrücklichen Abschlussfreigabe in workflow/active/.
-
-## Status
-
-Status: in Arbeit

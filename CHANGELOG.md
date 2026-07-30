@@ -13,6 +13,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Vor EN/RU-Textentwürfen oder Website-Codeänderungen sind eine ausdrückliche Planfreigabe, separate Textentwürfe, menschliche EN/RU-Freigaben und ein freigegebener Dateiplan erforderlich.
 - Es wurden in diesem Startschritt keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetdateien geändert. Die Website ist weiterhin nicht launchbereit.
 
+### Aufgabe 051 - Englische und russische V1-Textentwürfe vorbereitet
+
+- Nach ausdrücklicher Freigabe des Plans wurden getrennte englische und russische Textentwürfe mit Zuordnung zur aktuellen deutschen Referenz erstellt.
+- Die Entwürfe decken Navigation, Footer, Startseite, alle drei Gutachtenarten, Über uns, Kontakt, Formulare sowie Error- und 404-Zustände ab und vermeiden den früheren Mehrleistungs-Scope.
+- Natürlichkeit, sinngleiche Aussage und kompakte UI-Texte wurden als Ziel berücksichtigt; die Entwürfe sind noch nicht menschlich sprachlich, fachlich oder rechtlich freigegeben.
+- Rechtstexte bleiben bis zu einer geeigneten beziehungsweise qualifizierten Prüfung vorläufig. Vor Codeänderungen bleiben Textfreigabe und ein gesondert freizugebender Dateiplan erforderlich.
+- Es wurden keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetdateien geändert.
+
 ### Aufgabe 032 - Dreisprachige V1-Launch-Planung abgeschlossen
 
 - Alle Akzeptanzkriterien wurden geprüft, erfüllt und nach ausdrücklicher Nutzerfreigabe abgeschlossen.
