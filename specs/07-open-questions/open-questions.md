@@ -51,10 +51,10 @@ Beantwortete Grundlagen:
 - Firmendaten, Marke, Adresse, Registerdaten, Telefon, WhatsApp, E-Mail und Oeffnungszeiten sind beantwortet und in freigegebenen Specs beruecksichtigt.
 - Hauptpositionierung `KFZ-Gutachten Berlin`, Gutachtenarten, Kontaktwege, Sachverstaendigenkompetenz, digitale Schadenaufnahme als Anfragevorbereitung und KI als spaetere unterstuetzende Voranalyse sind beantwortet und in freigegebenen Specs beruecksichtigt.
 - Nicht-Scope-Leistungen wie Autovermietung, Mietwagen, Werkstatt, Reifenservice, Abschleppdienst, Pannenhilfe, Fahrzeugaufbereitung und Detailing sind als nicht aktive Leistungen eingeordnet.
+- Launch-Sprachen: Deutsch, Englisch und Russisch gehen gemeinsam live; Deutsch ist die fachliche Referenz.
 
 Noch offene Launch-Entscheidungen:
 
-- finale Launch-Sprachen
 - Formular zum Launch ja/nein
 - konkrete rechtliche Seiten und Datenschutz-/Einwilligungstexte vor Launch
 - Nutzung konkreter Google-Bewertungen / Reviews, falls eingebunden
@@ -67,8 +67,8 @@ Noch offene Roadmap-Entscheidungen:
 - Upload, Supabase und KI, falls nicht zum Launch live
 - Adminbereich
 - Kundenportal
-- Landingpages
-- mehrsprachige vollstaendige Ausbaustufe, falls nicht zum Launch live
+- zusätzliche Landingpages außerhalb der bereits umgesetzten Gutachtenartenstruktur
+- technische Umsetzung und menschliche Freigabe der verbindlichen EN/RU-V1-Fassungen
 - kundensichtbare KI-Ergebnisse, falls spaeter gewuenscht
 
 Spaetere Datenschutz-/Rechts-/Security-Pruefungen:
@@ -381,7 +381,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Formu
 
 ## 13. SEO
 
-Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landingpages, konkrete Einzugsgebiete und technische SEO-Details bleiben teilweise offen.
+Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Die drei deutschen Gutachtenarten-Detailseiten sind seit Aufgabe 050 umgesetzt; zusätzliche Landingpages, konkrete Einzugsgebiete und technische SEO-Details bleiben teilweise offen.
 
 - Welche Hauptkeywords sollen priorisiert werden?
   - Antwort: Die SEO-Ausrichtung der Webseite soll vollstaendig auf KFZ-Gutachten in Berlin ausgerichtet werden.
@@ -398,10 +398,11 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landi
   - Diese alten Keywords gehoeren nicht mehr zur neuen Webseite und duerfen nicht mehr als SEO-Ziele fuer die Hauptseite geplant werden.
   - Vor Launch sollen alte Meta-Texte, alte SEO-Keywords, alte Uebersetzungen und alte strukturierte Daten auf Autovermietung, Mietwagen, Werkstatt und Fahrzeugservice geprueft und spaeter im SEO-/Content-Cleanup entfernt oder ersetzt werden.
 - Soll es eigene Landingpages fuer einzelne Gutachtenarten geben oder zunaechst eine klare Hauptseite?
-  - Antwort: Fuer die erste Version soll zunaechst eine starke Hauptseite geplant werden.
-  - Eigene Landingpages fuer einzelne Gutachtenarten sollen nicht sofort umgesetzt werden.
-  - Moegliche spaetere Landingpages koennen geprueft werden, wenn genug Inhalt und klare Suchintention vorhanden sind: `/unfallgutachten-berlin`, `/schadengutachten-berlin`, `/wertgutachten-berlin`, `/fahrzeugbewertung-berlin`, `/digitale-schadenaufnahme`.
-  - Fuer die erste Version sollen Unfallgutachten, Schadengutachten, Wertgutachten / Fahrzeugbewertung und Beweissicherung als Abschnitte auf der Hauptseite erklaert werden.
+  - Historischer Ausgangsstand: Zunaechst war nur eine starke Hauptseite mit Gutachtenarten als Abschnitte geplant.
+  - Entschieden und umgesetzt durch Aufgabe 050: Die Hauptseite bleibt bestehen und drei eigenständige deutsche Detailseiten liegen unter `/gutachtenarten/unfallgutachten`, `/gutachtenarten/fahrzeugbewertung` und `/gutachtenarten/schadendokumentation`.
+  - Die früheren deutschen Detailpfade unter `/leistungen/...` leiten permanent und direkt auf die entsprechenden `/gutachtenarten/...`-Ziele weiter.
+  - `/leistungen` bleibt als eigenständige Übersichtsroute technisch bestehen.
+  - Nur zusätzliche Landingpages außerhalb dieser bestätigten Struktur bleiben nach Content-, SEO- und Routingprüfung offen.
 - Welche lokalen Bezirke oder Einzugsgebiete duerfen genannt werden?
   - Antwort: Berlin ist als lokaler Fokus bestaetigt.
   - Die Adresse `Luebarser Str. 25, 13435 Berlin` darf als Standort im Kontaktbereich, Footer und in strukturierten Daten verwendet werden.
@@ -420,7 +421,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Landi
   - Sobald Upload, Supabase und KI-Voranalyse technisch umgesetzt und freigegeben sind, kann die Formulierung `KI-gestuetzte Voranalyse von Fahrzeugschaeden` aktiv verwendet werden.
 - Welche strukturierten Daten sind fuer die neue Ausrichtung sinnvoll?
   - Antwort: Strukturierte Daten sollen spaeter geprueft und geplant werden.
-  - Sinnvolle strukturierte Daten fuer die neue Ausrichtung koennen Organization, LocalBusiness oder ProfessionalService falls passend, PostalAddress, OpeningHoursSpecification, ContactPoint, FAQPage falls FAQ sichtbar auf der Seite vorhanden ist, und BreadcrumbList falls spaeter mehrere Seiten/Routen entstehen sein.
+  - Sinnvolle strukturierte Daten fuer die neue Ausrichtung koennen Organization, LocalBusiness oder ProfessionalService falls passend, PostalAddress, OpeningHoursSpecification, ContactPoint, FAQPage bei sichtbarer FAQ und BreadcrumbList für die bestehenden Detailrouten sein. Die konkrete technische Prüfung und Bereinigung bleibt Aufgabe 029.
   - Strukturierte Daten muessen mit sichtbaren Seiteninhalten uebereinstimmen.
   - Keine strukturierten Daten fuer Leistungen einbauen, die nicht mehr Teil des Scopes sind.
   - Keine strukturierten Daten fuer Autovermietung, Mietwagen, Werkstatt, Reifenservice, Abschleppdienst oder Fahrzeugservice planen.
@@ -464,7 +465,7 @@ Status: Beantwortet / in freigegebenen Specs beruecksichtigt. Finale rechtliche 
 
 ## 15. Mehrsprachigkeit
 
-Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale Launch-Sprachen und vollstaendige mehrsprachige Umsetzung bleiben Launch- beziehungsweise Roadmap-Entscheidungen.
+Status: Grundfrage beantwortet. Die verbindliche Entscheidung zum gemeinsamen DE/EN/RU-V1-Launch wurde am 30. Juli 2026 bestätigt und ist in `DECISIONS.md`, Global Spec, Functional Map und Mehrsprachigkeits-Spec nachgeführt. Technische und qualitative Detailfragen bleiben offen.
 
 - Soll die Webseite weiterhin mehrsprachig bleiben?
   - Antwort: Die Webseite soll grundsaetzlich dreisprachig geplant werden: Deutsch, Russisch und Englisch.
@@ -472,12 +473,12 @@ Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale L
   - Falls das bestehende Projekt bereits mehrsprachige Strukturen enthaelt, sollen diese nicht blind geloescht werden.
   - Bestehende Mehrsprachigkeitsstruktur soll spaeter im Rework-Plan geprueft und nach Moeglichkeit weiterverwendet werden.
 - Welche Sprachen sollen zum Launch unterstuetzt werden?
-  - Antwort: Grundsaetzlich geplant sind Deutsch, Russisch und Englisch.
-  - Offen: Ob alle drei Sprachen direkt zum ersten Launch vollstaendig live gehen oder ob Russisch und Englisch nachgezogen werden, bleibt als Launch-Entscheidung offen.
-  - Fuer den ersten fachlichen Aufbau und die Freigabe der Inhalte wird Deutsch priorisiert.
+  - Antwort: Deutsch, Russisch und Englisch müssen gemeinsam zum V1-Launch vollständig und geprüft live gehen.
+  - Deutsch bleibt für fachlichen Aufbau und Freigaben die Referenz.
 - Sollen alle neuen KFZ-Gutachten-Inhalte vollstaendig uebersetzt werden?
-  - Antwort: Falls Deutsch, Russisch und Englisch zum Launch live gehen sollen, muessen alle neuen KFZ-Gutachten-Inhalte vollstaendig, konsistent und fachlich korrekt uebersetzt werden.
+  - Antwort: Alle neuen KFZ-Gutachten-Inhalte müssen für den gemeinsamen Launch vollständig, konsistent und fachlich korrekt in Deutsch, Russisch und Englisch vorliegen.
   - Russisch und Englisch sollen auf Basis der freigegebenen deutschen Inhalte erstellt werden.
+  - Geplante, noch nicht implementierte Gutachtenarten-Ziele sind `/en/gutachtenarten/...` und `/ru/gutachtenarten/...` für Unfallgutachten, Fahrzeugbewertung und Schadendokumentation. Die konkrete Umsetzung erfolgt erst in einer gesondert freizugebenden Aufgabe.
 - Welche Sprache ist fachlich fuehrend fuer Specs und Freigaben?
   - Antwort: Deutsch ist die fachlich fuehrende Sprache fuer Specs, Freigaben und rechtlich/fachlich sensible Formulierungen.
   - Die erste inhaltliche Ausarbeitung der neuen KFZ-Gutachten-Webseite soll auf Deutsch erfolgen.
@@ -494,7 +495,7 @@ Status: Teilweise beantwortet / in freigegebenen Specs beruecksichtigt. Finale L
 
 ## 16. Launch / Nachweise / Dokumentation
 
-Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` beruecksichtigt. Finale Launch-Freigabe, Launch-Sprachen und Live-Umfang bleiben offen.
+Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` beruecksichtigt. Die drei Launch-Sprachen sind entschieden; finale Launch-Freigabe und weiterer Live-Funktionsumfang bleiben offen.
 
 - Welche fachlichen Inhalte muessen vor Launch final freigegeben werden?
   - Antwort: Die Zielversion der Webseite umfasst reine KFZ-Gutachten-Webseite, digitale Schadenaufnahme, spaeteren Foto-Upload, Supabase-Speicherung von Anfragen und Bildern, spaetere KI-gestuetzte Voranalyse von Fahrzeugschaeden, interne Pruefung durch einen Gutachter und spaeter optional Adminbereich / Kundenportal / Web-App.
@@ -504,7 +505,7 @@ Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` ber
   - Die Webseite soll von Anfang an strukturell so geplant werden, dass Upload, Supabase und KI-Voranalyse spaeter ohne kompletten Neuaufbau integriert werden koennen.
   - Falls Upload, Supabase oder KI beim ersten Launch noch nicht technisch umgesetzt sind, darf die Webseite nicht so formulieren, als waeren diese Funktionen bereits aktiv verfuegbar. Sie duerfen dann nur als geplante beziehungsweise vorbereitete Ausbaustufen kommuniziert werden.
   - Vor Launch muessen alle fachlichen Inhalte zur neuen Positionierung final geprueft und freigegeben werden.
-  - Vor Launch muessen insbesondere freigegeben werden: Hauptpositionierung als reine KFZ-Gutachten-Webseite, Firmendaten, Kontaktwege, Oeffnungszeiten, Standortangaben, Gutachtenarten, Sachverstaendigenqualifikation / Vertrauenselemente, Kontaktflow, SEO-Texte, FAQ-Inhalte, KI-Formulierungen, Mehrsprachigkeit beziehungsweise Launch-Sprachen, rechtliche Hinweise zu KI falls KI erwaehnt wird sowie die Entscheidung, ob Upload/Supabase/KI bereits live sind oder nur als geplante Ausbaustufe kommuniziert werden.
+  - Vor Launch müssen insbesondere freigegeben werden: Hauptpositionierung als reine KFZ-Gutachten-Webseite, Firmendaten, Kontaktwege, Öffnungszeiten, Standortangaben, Gutachtenarten, Sachverständigenqualifikation / Vertrauenselemente, Kontaktflow, SEO-Texte, FAQ-Inhalte, KI-Formulierungen, das konkrete Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehen für den verbindlichen DE/EN/RU-Launch, rechtliche Hinweise zu KI falls KI erwähnt wird sowie die Entscheidung, ob Upload/Supabase/KI bereits live sind oder nur als geplante Ausbaustufe kommuniziert werden.
 - Welche rechtlichen Seiten muessen wegen der neuen Positionierung angepasst werden?
   - Antwort: Rechtliche Seiten und Hinweise, die wegen der neuen Positionierung geprueft und angepasst werden muessen, sind Impressum, Datenschutz, Cookie-/Consent-Hinweise falls vorhanden, Kontaktformular-Hinweise, spaetere Upload-Hinweise, spaetere KI-Verarbeitungshinweise und Einwilligungstexte fuer Upload und spaetere KI-Voranalyse.
 - Welche Nachweise duerfen oeffentlich genannt oder gezeigt werden?
@@ -522,9 +523,8 @@ Status: Teilweise beantwortet / in `specs/06-work-plans/launch-readiness.md` ber
   - Antwort: Vor Launch sollen folgende Checks beziehungsweise Reviewer genutzt oder bewusst begruendet uebersprungen werden: mobile_visual_checker, desktop_visual_checker, typography_checker, a11y_checker, local_seo_reviewer, performance_budget_reviewer, launch_reviewer und quality_reviewer.
   - Vor Launch muessen nach Code-Aenderungen `npm run lint`, `npx tsc --noEmit` und `npm run build` ausgefuehrt werden.
   - Mobile First ist vor Launch Pflicht: Startseite auf Mobile pruefen, Telefon-CTA pruefen, WhatsApp-CTA pruefen, Anfrage-CTA pruefen, Textlaengen und Zeilenumbrueche pruefen, FAQ mobil pruefen, Kontaktbereich mobil pruefen, Sprachversionen mobil pruefen falls mehrsprachig live, und spaetere Upload-Strecke mobil pruefen falls Upload live ist.
-  - Mehrsprachigkeit vor Launch: Deutsch, Russisch und Englisch sind grundsaetzlich geplant.
-  - Offen: Ob alle drei Sprachen direkt zum Launch live gehen oder ob Deutsch zuerst veroeffentlicht wird.
-  - Wenn mehrere Sprachen live gehen, muessen alle rechtlichen, fachlichen und KI-bezogenen Formulierungen pro Sprache geprueft werden.
+  - Mehrsprachigkeit vor Launch: Deutsch, Russisch und Englisch sind verbindlicher gemeinsamer V1-Launch-Scope.
+  - Alle rechtlichen, fachlichen und KI-bezogenen Formulierungen müssen pro Sprache geprüft und geeignet freigegeben werden.
 - Welche alten Inhalte muessen vor Launch mindestens entfernt oder ausgeblendet sein?
   - Antwort: Vor Launch muessen alte Inhalte mindestens entfernt oder ausgeblendet werden, die die neue Positionierung stoeren.
   - Alte Inhalte, die vor Launch nicht mehr sichtbar sein duerfen: Autovermietung als Leistung, Mietwagen / Ersatzwagen als Leistung, Fahrzeugservice, Werkstatt, Reifenservice, Dashcam-Einbau, Zulassungsservice, Abschleppdienst, Pannenhilfe, Fahrzeugaufbereitung, alte SEO-Texte zu diesen Themen, alte FAQ-Inhalte zu diesen Themen, alte strukturierte Daten zu diesen Themen und alte Navigationspunkte zu diesen Themen.
@@ -571,7 +571,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkr
 
 ### Launch-blockierend zu klaeren, falls fuer ersten Launch relevant
 
-- finale Launch-Sprachen
+- Umsetzung des in Aufgabe 032 festgelegten Übersetzungs-, Qualitäts-, Routing- und Responsive-Vorgehens sowie dokumentierte EN/RU-Freigaben
 - Formular zum Launch ja/nein
 - konkrete Datenschutz-/Einwilligungstexte, falls Formular, Upload oder KI live gehen
 - rechtliche Seiten vor Launch
@@ -583,7 +583,7 @@ Status: Ueberwiegend beantwortet / in freigegebenen Specs beruecksichtigt. Konkr
 ### Nicht launch-blockierend / spaeter
 
 - konkretes Einzugsgebiet ueber Berlin hinaus
-- spaetere Landingpages
+- zusätzliche Landingpages außerhalb der bereits umgesetzten Gutachtenartenstruktur
 - Upload, Supabase und KI, falls nicht zum Launch live
 - Adminbereich
 - Kundenportal

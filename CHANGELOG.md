@@ -4,6 +4,37 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-07-30
 
+### Aufgabe 032 - Dreisprachige V1-Launch-Planung abgeschlossen
+
+- Alle Akzeptanzkriterien wurden geprüft, erfüllt und nach ausdrücklicher Nutzerfreigabe abgeschlossen.
+- Der gemeinsame DE/EN/RU-V1-Launch, Deutsch als fachliche Referenz und das Vorgehen für Übersetzung, Routen, Sprachwechsel, Formulare, Fehlerzustände, menschliche Freigaben und responsive Qualität sind verbindlich dokumentiert.
+- Alle Befunde aus Aufgabe 049 sind einer später gesondert freizugebenden EN/RU-Umsetzung oder den Aufgaben 029, 026, 033, 034 und 035 zugeordnet; der fehlende lokalisierte Not-found-Scope bleibt der EN/RU-Umsetzung und Aufgabe 033 zugeordnet.
+- Aufgabe 032 wurde nach `workflow/done/` verschoben. Es wurden keine Website-, Code-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetänderungen umgesetzt.
+
+### Aufgabe 032 - Aktive Routing- und Launch-Dokumentation synchronisiert
+
+- Mehrsprachigkeits-, SEO- und Routing-Specs wurden mit den durch Aufgabe 050 umgesetzten deutschen `/gutachtenarten/...`-Routen und den direkten permanenten Weiterleitungen der früheren `/leistungen/...`-Detailrouten synchronisiert.
+- `/leistungen` ist dokumentarisch als weiterhin bestehende eigenständige Übersichtsroute eingeordnet; ihre finale SEO- und Cleanup-Behandlung bleibt bei 029 und 026.
+- Die geplanten, noch nicht implementierten EN/RU-Gutachtenartenrouten wurden klar vom deutschen Ist-Stand getrennt; der fachliche Seitenkontext muss beim späteren Sprachwechsel erhalten bleiben.
+- Open Questions, V1-Launch-Masterplan, historischer Routing-/Redirectplan, Roadmap und die aktive Aufgabe 032 wurden auf die abgeschlossenen Aufgaben 047 bis 050 und die aktive dreisprachige Planung aktualisiert.
+- Es wurden ausschließlich Dokumentationsdateien geändert; keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetänderung wurde umgesetzt.
+
+### Aufgabe 032 - Dreisprachige V1-Launch-Planung gestartet
+
+- Aufgabe 032 wurde für den gemeinsamen V1-Launch auf Deutsch, Englisch und Russisch offiziell gestartet; Deutsch bleibt die fachliche Referenz.
+- Der Bestand aus Aufgabe 049 wurde mit Routing, Übersetzungen, Navigation, Formularen, Fehlerzuständen und Trust read-only abgeglichen.
+- Soll-Routen, fachlicher Sprachwechsel, natürlicher Übersetzungsprozess, menschliche Freigaben und responsive Prüfungen bei 390, 768 und 1440 px wurden geplant.
+- Die spätere EN/RU-Umsetzung wurde von SEO in 029, Legacy-Cleanup in 026, Launch-QA in 033, Deployment/Formularversand in 034 und Monitoring in 035 abgegrenzt.
+- `next-router-check` bestätigte 28 Routen, davon 13 datenladende lokalisierte Routen mit vorhandenen Loading-/Error-Grenzen und fehlendem lokalisiertem Not-found-Scope.
+- Es wurden keine Website-, Übersetzungs-, Routen-, SEO-, Metadata-, Structured-Data- oder Assetdateien geändert.
+
+### Dreisprachige V1-Launch-Entscheidung in Specs konsolidiert
+
+- Die bereits bestätigte gemeinsame V1-Veröffentlichung auf Deutsch, Englisch und Russisch wurde in Global Spec, Functional Map, Mehrsprachigkeits-Spec, Open Questions und Launch Readiness konsistent nachgeführt.
+- Die frühere offene Frage `Deutsch zuerst oder alle drei Sprachen` wurde dokumentarisch geschlossen; Deutsch bleibt fachliche Referenz, EN/RU müssen gleichwertig, menschlich freigegeben und separat responsiv geprüft sein.
+- Der alte Routingplan wurde nur hinsichtlich der überholten Sprachumfangsentscheidung eingeordnet; bestehende Routing- und Cleanup-Empfehlungen blieben erhalten.
+- Aufgabe 032 wurde noch nicht gestartet und bleibt mit Status `offen` in `workflow/todo/`.
+
 ### Aufgabe 049 - Vollständiger dreisprachiger V1-User-Journey-Audit
 
 - 41 vorhandene DE/EN/RU-Seitenziele und sechs fehlende Gutachtenziele read-only auf HTTP-Status, Inhalt, Navigation, Sprachwechsel, Kontaktwege, Formulare und Fehlerzustände geprüft.

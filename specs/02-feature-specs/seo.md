@@ -12,9 +12,7 @@ Hauptkeyword ist `KFZ-Gutachten Berlin`.
 
 Alte Leistungsbereiche wie Autovermietung, Mietwagen, Ersatzwagen, Fahrzeugservice, Werkstatt und aehnliche Service-Ziele sind keine SEO-Ziele mehr.
 
-Version 1 fokussiert auf eine starke Hauptseite.
-
-Spaetere Landingpages sind nur nach Pruefung und Freigabe moeglich.
+Version 1 verbindet eine starke Hauptseite mit drei bereits umgesetzten deutschen Gutachtenarten-Detailseiten. Zusätzliche SEO-Landingpages außerhalb dieser bestätigten Struktur bleiben prüf- und freigabepflichtig.
 
 Upload, Supabase und KI duerfen nicht als live dargestellt werden, solange sie nicht umgesetzt, datenschutzseitig geprueft und freigegeben sind.
 
@@ -25,7 +23,9 @@ Upload, Supabase und KI duerfen nicht als live dargestellt werden, solange sie n
 Version 1 umfasst:
 
 - starke Hauptseite fuer KFZ-Gutachten Berlin
-- Gutachtenarten als Abschnitte
+- Gutachtenarten als Erklärbereiche auf der Startseite
+- drei deutsche Gutachtenarten-Detailseiten unter `/gutachtenarten/...`
+- vollständige gleichwertige EN/RU-Kernseiten als verbindliches, noch nicht umgesetztes Launchziel
 - Kontaktwege Telefon, WhatsApp und E-Mail
 - Formular nur, wenn es zum Launch umgesetzt und freigegeben ist
 - FAQ, Standort, Oeffnungszeiten und Mobile-First-CTAs
@@ -33,9 +33,9 @@ Version 1 umfasst:
 
 ### Zielversion / Roadmap
 
-Die Zielversion umfasst:
+Die Zielversion kann zusätzlich umfassen:
 
-- moegliche spaetere Landingpages fuer Gutachtenarten
+- weitere fachlich begründete Landingpages erst nach Content-, SEO- und Routingprüfung
 - moegliche spaetere digitale Schadenaufnahme / Upload-Seite
 - moegliche spaetere KI-Kommunikation erst nach technischer Umsetzung, Datenschutzpruefung und Freigabe
 - strukturierte Daten erweitern, wenn sichtbare Inhalte vorhanden sind
@@ -103,27 +103,34 @@ Diese Begriffe duerfen nicht mehr als SEO-Ziele, Meta-Titel, Meta-Descriptions, 
 
 Sie duerfen nur im Cleanup-Kontext als zu entfernende Altinhalte vorkommen.
 
-## 6. Seitenstrategie
+## 6. Seitenstrategie und dokumentierter Routenstand
 
-Fuer die erste Version: eine starke Hauptseite.
+Die Startseite bleibt die starke Hauptseite für `KFZ-Gutachten Berlin` und erklärt die drei Gutachtenarten kompakt. Zusätzlich sind seit Aufgabe 050 folgende deutsche Detailseiten umgesetzt:
 
-Keine sofortige Umsetzung eigener Landingpages.
+- `/gutachtenarten/unfallgutachten`
+- `/gutachtenarten/fahrzeugbewertung`
+- `/gutachtenarten/schadendokumentation`
 
-Spaeter pruefbare Landingpages:
+Die früheren deutschen Detailrouten leiten permanent und direkt weiter:
 
-- `/unfallgutachten-berlin`
-- `/schadengutachten-berlin`
-- `/wertgutachten-berlin`
-- `/fahrzeugbewertung-berlin`
-- `/digitale-schadenaufnahme`
+- `/leistungen/unfallgutachten` auf `/gutachtenarten/unfallgutachten`
+- `/leistungen/fahrzeugbewertung` auf `/gutachtenarten/fahrzeugbewertung`
+- `/leistungen/schadendokumentation` auf `/gutachtenarten/schadendokumentation`
 
-Erste Version: Unfallgutachten, Schadengutachten, Wertgutachten / Fahrzeugbewertung und Beweissicherung als Abschnitte auf der Hauptseite.
+Die eigenständige Übersicht `/leistungen` besteht technisch weiter. Ihre finale Indexierungs-, Canonical-, Sitemap- und Cleanup-Behandlung bleibt Aufgabe 029 beziehungsweise 026 vorbehalten.
 
-Spaetere Landingpages erst nach Content-/SEO-Plan, Routing-Plan und Freigabe.
+Für den gemeinsamen V1-Launch sind folgende gleichwertige EN/RU-Ziele verbindlich geplant, aber noch nicht implementiert:
 
-Landingpages duerfen keine Inhalte duplizieren.
+- `/en/gutachtenarten/unfallgutachten`
+- `/en/gutachtenarten/fahrzeugbewertung`
+- `/en/gutachtenarten/schadendokumentation`
+- `/ru/gutachtenarten/unfallgutachten`
+- `/ru/gutachtenarten/fahrzeugbewertung`
+- `/ru/gutachtenarten/schadendokumentation`
 
-Landingpages duerfen nur bestaetigte Gutachtenarten behandeln.
+Zusätzliche Landingpages außerhalb dieser bestätigten Gutachtenartenstruktur entstehen nur nach eigenem Content-, SEO- und Routingplan. Sie dürfen keine Inhalte duplizieren und nur bestätigte Leistungen behandeln.
+
+Die technische mehrsprachige SEO-Umsetzung mit Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data bleibt Aufgabe 029.
 
 ## 7. Lokaler Fokus
 
@@ -238,17 +245,17 @@ Trust-/Zertifizierungsdaten in Structured Data:
 
 ## 11. Mehrsprachige SEO
 
-Deutsch ist fachlich fuehrend.
+Deutsch ist die fachliche Referenz für Inhalte und SEO-Freigaben.
 
-Russisch und Englisch basieren auf freigegebenen deutschen Inhalten.
+Deutsch, Englisch und Russisch gehören gemeinsam zum V1-Launch.
 
-Uebersetzte Meta-Texte duerfen nicht mehr versprechen als Deutsch.
+Englische und russische Inhalte müssen vollständig, inhaltlich gleichwertig, natürlich formuliert und geprüft sein.
 
-Sensible Begriffe zu Gutachten, KI, Datenschutz und Kontakt muessen sprachlich geprueft werden.
+Übersetzte Meta-Texte dürfen nicht mehr versprechen als Deutsch.
 
-Keyword-Strategie pro Sprache spaeter separat pruefen.
+Sensible Begriffe zu Gutachten, KI, Datenschutz und Kontakt müssen sprachlich geprüft werden.
 
-Offen: alle drei Sprachen direkt zum Launch oder Deutsch zuerst.
+Die sprachspezifische SEO-Umsetzung und Prüfung erfolgt später im vorgesehenen SEO-Arbeitspaket. Diese dokumentarische Korrektur nimmt keine technische Metadata-, Canonical-, Hreflang-, Sitemap-, Robots- oder Structured-Data-Änderung vorweg.
 
 ## 12. Mobile SEO
 
@@ -292,10 +299,9 @@ SEO darf nicht versprechen:
 Offen bleiben:
 
 - konkrete Bezirke / Einzugsgebiet
-- spaetere Landingpages
+- zusätzliche Landingpages außerhalb der bestehenden Gutachtenartenstruktur
 - finale Meta-Titel und Meta-Descriptions
 - strukturierte Daten-Typen
 - Google-Bewertungen / Reviews
-- Launch-Sprachen
 - ob Formular, Upload, Supabase oder KI zum Launch live sind
 - mehrsprachige Keyword-Strategie

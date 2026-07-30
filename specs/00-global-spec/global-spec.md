@@ -283,7 +283,7 @@ Besonders wichtig:
 
 ## 12. Mehrsprachigkeit
 
-Die Webseite wird grundsaetzlich dreisprachig geplant:
+Die V1-Website startet verbindlich dreisprachig:
 
 - Deutsch
 - Russisch
@@ -291,20 +291,21 @@ Die Webseite wird grundsaetzlich dreisprachig geplant:
 
 Deutsch ist fachlich fuehrend fuer Specs, Freigaben und sensible rechtliche oder fachliche Formulierungen.
 
-Russisch und Englisch sollen auf Basis freigegebener deutscher Inhalte erstellt werden.
+Russisch und Englisch werden auf Basis freigegebener deutscher Inhalte erstellt und müssen fachlich gleichwertig sein.
 
 Keine Sprache darf mehr versprechen als Deutsch.
 
-KI-, Rechts- und Datenschutzformulierungen muessen pro Sprache vorsichtig geprueft werden.
+KI-, Rechts- und Datenschutzformulierungen müssen pro Sprache vorsichtig geprüft werden.
 
-Offen: Ob alle drei Sprachen direkt zum Launch live gehen oder ob Deutsch zuerst veroeffentlicht wird.
+Alle V1-Kernseiten, Nutzerwege, Navigationen, Sprachwechsel, Kontaktwege und Formulare müssen in Deutsch, Russisch und Englisch technisch vollständig und responsiv geprüft sein.
+
+Keine Launch-Freigabe ist zulässig, solange ein dreisprachiger Launch-Blocker offen ist.
 
 ## 13. Offene Entscheidungen
 
 Offen bleiben:
 
 - konkretes Einzugsgebiet ueber Berlin hinaus
-- Launch-Sprachen: Deutsch zuerst oder alle drei Sprachen direkt
 - ob Upload/Supabase/KI beim ersten Launch live sind oder spaeter aktiviert werden
 - konkrete Rueckmeldefrist oder Bearbeitungszeit
 - Nutzung von Google-Bewertungen

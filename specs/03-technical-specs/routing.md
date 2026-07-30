@@ -14,18 +14,19 @@ Routing muss die neue reine KFZ-Gutachten-Ausrichtung unterstuetzen.
 
 Alte Autovermietung-, Mietwagen-, Werkstatt- oder Service-Routen duerfen nicht blind geloescht oder weiter als aktive Leistungen gefuehrt werden.
 
-Mehrsprachigkeit, Landingpages, Redirects, Canonical, Hreflang und Sitemap werden erst nach Codebestand-Pruefung und Freigabe konkret umgesetzt.
+Die deutsche Gutachtenartenmigration und die zugehörigen Redirects wurden in Aufgabe 050 umgesetzt. EN/RU-Routen, fachlicher Sprachwechsel sowie Canonical-, Hreflang- und Sitemap-Auszeichnungen bleiben getrennten Folgeaufgaben vorbehalten.
 
 ## 2. Version 1 und Zielversion
 
 ### Version 1 / erste veroeffentlichbare Website
 
-Version 1 umfasst technisch als Planungsgrundlage:
+Version 1 umfasst technisch:
 
 - eine starke Hauptseite fuer `KFZ-Gutachten Berlin`
-- Gutachtenarten als Abschnitte auf der Hauptseite
+- Gutachtenarten als Erklärbereiche auf der Startseite
+- drei umgesetzte deutsche Detailrouten unter `/gutachtenarten/...`
+- vollständige gleichwertige EN/RU-Kernrouten als verbindliches, noch nicht umgesetztes Launchziel
 - Kontakt, FAQ, Standort, Datenschutz und Impressum erreichbar
-- keine sofortigen Landingpages ohne Freigabe
 - Formularroute nur, wenn Formular umgesetzt und freigegeben ist
 - keine Upload-/Supabase-/KI-Routen als live
 - keine Admin-/Portal-Routen als live
@@ -34,11 +35,10 @@ Version 1 umfasst technisch als Planungsgrundlage:
 
 Die Zielversion kann spaeter umfassen:
 
-- moegliche spaetere Landingpages fuer Gutachtenarten
+- zusätzliche Landingpages außerhalb der bestehenden Gutachtenartenstruktur nach gesonderter Freigabe
 - moegliche spaetere digitale Schadenaufnahme / Upload-Route
 - moegliche spaetere Admin-/Portal-Routen
-- moegliche spaetere mehrsprachige Locale-Struktur
-- Redirect-/Sitemap-/Canonical-/Hreflang-Strategie nach Pruefung
+- Redirect-/Sitemap-/Canonical-/Hreflang-Erweiterungen nach Pruefung
 
 Roadmap-Funktionen duerfen nicht als Bestandteil von Version 1 dargestellt werden.
 
@@ -61,43 +61,32 @@ Vor Routing-Aenderungen muss geprueft werden:
 
 Keine Route darf blind geloescht, umbenannt oder umgeleitet werden, ohne vorherige Pruefung.
 
-## 4. Hauptseiten-Strategie
+## 4. Hauptseiten- und Gutachtenarten-Strategie
 
-Version 1 fokussiert auf eine starke Hauptseite.
+Die deutsche Hauptseite liegt unter `/` und bleibt auf `KFZ-Gutachten Berlin` ausgerichtet. Sie erklärt die Gutachtenarten als direkte Einstiege, ersetzt aber nicht deren Detailseiten.
 
-Hauptthema:
+Seit Aufgabe 050 bestehen diese deutschen Zielrouten:
 
-```text
-KFZ-Gutachten Berlin
-```
+- `/gutachtenarten/unfallgutachten`
+- `/gutachtenarten/fahrzeugbewertung`
+- `/gutachtenarten/schadendokumentation`
 
-Gutachtenarten wie Unfallgutachten, Schadengutachten, Wertgutachten/Fahrzeugbewertung und Beweissicherung werden zunaechst als Abschnitte der Hauptseite geplant.
-
-Die konkrete Hauptseiten-URL ist offen und wird erst nach Bestandsaufnahme, SEO-Pruefung und Routing-Freigabe festgelegt.
-
-Moegliche Varianten wie `/`, `/kfz-gutachten-berlin` oder andere Routen duerfen nicht ohne Routing- und SEO-Freigabe umgesetzt werden.
-
-Die Hauptseiten-URL muss zur neuen Ausrichtung `KFZ-Gutachten Berlin`, zur SEO-Spec, zur bestehenden Routing-Struktur und zu moeglichen alten indexierten URLs passen.
-
-Eigene Landingpages entstehen erst spaeter nach SEO-Plan, Routing-Plan, Content-Plan und Freigabe.
+Die eigenständige Übersicht `/leistungen` bleibt technisch erreichbar, wird aber nicht als sichtbarer allgemeiner Gutachtenarten-Einstieg vorausgesetzt. Ihre spätere SEO- und Cleanup-Behandlung bleibt 029/026.
 
 Keine kuenstlichen Keyword-Dopplungen durch mehrere fast gleiche Seiten.
 
-## 5. Moegliche spaetere Landingpages
+## 5. Mehrsprachiges Routenziel und zusätzliche Landingpages
 
-Moegliche spaetere Landingpages als Roadmap, nicht als sofortige Umsetzung:
+Für die spätere, gesondert freizugebende EN/RU-Umsetzung sind folgende fachlich gleichwertige Ziele vorgesehen:
 
-- `/unfallgutachten-berlin`
-- `/schadengutachten-berlin`
-- `/wertgutachten-berlin`
-- `/fahrzeugbewertung-berlin`
-- `/digitale-schadenaufnahme`
+- `/en/gutachtenarten/unfallgutachten`
+- `/en/gutachtenarten/fahrzeugbewertung`
+- `/en/gutachtenarten/schadendokumentation`
+- `/ru/gutachtenarten/unfallgutachten`
+- `/ru/gutachtenarten/fahrzeugbewertung`
+- `/ru/gutachtenarten/schadendokumentation`
 
-Landingpages duerfen nur bestaetigte Gutachtenarten behandeln.
-
-Landingpages duerfen keine Inhalte duplizieren.
-
-Landingpages brauchen eigene Content-, SEO- und Routing-Freigabe.
+Diese EN/RU-Routen sind noch nicht implementiert. Zusätzliche Landingpages außerhalb dieser Struktur benötigen weiterhin eine eigene Content-, SEO- und Routing-Freigabe, dürfen keine Inhalte duplizieren und dürfen nur bestätigte Leistungen behandeln.
 
 `digitale-schadenaufnahme` darf nicht automatisch Upload bedeuten.
 
@@ -157,17 +146,13 @@ Roadmap-Routen duerfen nicht sichtbar, nicht verlinkt, nicht indexierbar und nic
 
 ## 9. Mehrsprachiges Routing
 
-Keine neue technische i18n- oder Locale-Struktur darf ohne eigene Technical Spec und Freigabe umgesetzt werden.
+Die bestehende URL-Struktur verwendet Deutsch ohne Präfix sowie `/en` und `/ru` für die lokalisierten Bereiche. Diese Architektur wird für V1 weiterverwendet.
 
-Eine bestehende Mehrsprachigkeitsstruktur muss zuerst geprueft und moeglichst wiederverwendet werden.
+Deutsch ist die fachliche Referenz. EN/RU müssen fachlich gleichwertig sein und dürfen nicht mehr versprechen als Deutsch.
 
-Nicht freigegebene Sprachversionen duerfen nicht ueber Route, Navigation, Sprachumschalter, Sitemap, interne Links oder Suchmaschinenindexierung erreichbar sein.
+Der Sprachwechsel wird für V1-Kernseiten über eine fachliche Seitenzuordnung geplant. Er darf nicht auf eine fachlich andere Startseite oder eine fehlende Route führen. Solange ein entsprechendes Sprachziel noch nicht existiert, darf die Sprache nicht als funktionierender Link angeboten werden. Zum Launch müssen alle freigegebenen Kernziele vorhanden sein.
 
-Hreflang und Canonical muessen pro Sprache spaeter gesondert geplant werden.
-
-Deutsch ist die fachliche Referenz.
-
-Keine Sprachversion darf mehr versprechen als Deutsch.
+Die konkrete EN/RU-Routen- und Sprachwechselumsetzung erfolgt erst in einer gesondert freizugebenden Aufgabe. Hreflang und Canonical werden anschließend in Aufgabe 029 sprachspezifisch geprüft und umgesetzt.
 
 ## 10. SEO, Canonical, Hreflang und Sitemap
 
@@ -189,7 +174,9 @@ Keine Review- oder Bewertungs-strukturierten Daten ohne ausdrueckliche Freigabe.
 
 ## 11. Redirects, 404, 410 und Cleanup
 
-Die Redirect-Strategie wird erst nach Bestandsaufnahme alter Routen festgelegt.
+Aufgabe 050 hat die drei früheren deutschen Detailrouten permanent und direkt auf die entsprechenden `/gutachtenarten/...`-Ziele umgeleitet. Die geprüften Redirects enthalten keine Ketten oder Schleifen.
+
+Die weitere Redirect-, 404-, 410- und Cleanup-Strategie für fachfremde Legacy-Routen bleibt nach Bestandsaufnahme und Freigabe zu entscheiden.
 
 Redirects duerfen nur gesetzt werden, wenn Zielseite, Suchintention und fachlicher Inhalt sinnvoll zusammenpassen.
 
@@ -277,16 +264,14 @@ Diese Spec ist keine:
 
 Offen bleiben:
 
-- tatsaechliche aktuelle Routing-Struktur
-- Hauptseiten-URL
-- spaetere Landingpages
-- Umgang mit alten Routen
-- Redirect-, noindex-, 404- oder 410-Strategie
-- mehrsprachige Locale-Struktur
-- Canonical-/Hreflang-Regeln
-- Sitemap-/Robots-Strategie
-- Formularroute
+- technische Umsetzung der geplanten EN/RU-Gutachtenartenrouten und fachlichen Sprachzuordnung
+- langfristige Indexierungs-, Redirect- oder Cleanup-Behandlung der eigenständigen Übersicht `/leistungen`
+- Umgang mit fachfremden alten Service-Routen
+- Redirect-, `noindex`-, 404- oder 410-Strategie für diese Legacy-Routen
+- Canonical-/Hreflang-Regeln sowie Sitemap-/Robots-Strategie in Aufgabe 029
+- zusätzliche Landingpages außerhalb der bestätigten Gutachtenartenstruktur
+- Formularroute beziehungsweise Formularstatus zum Launch
 - Upload-/Supabase-/KI-Routen
 - Admin-/Portal-Routen
-- Datenschutz-/Impressum-Routen, falls noch nicht stabil
-- technische Umsetzung nach Codebestand-Pruefung
+
+Die drei deutschen Gutachtenartenrouten, ihre direkten alten Redirect-Quellen und die deutsche Hauptseiten-URL sind nicht mehr offen.

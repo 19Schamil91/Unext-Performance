@@ -6,7 +6,7 @@ Grundlage: `specs/07-open-questions/open-questions.md`, Abschnitt 11, Aufgabe 01
 
 ## 1. Kurzueberblick / Executive Summary
 
-Die Webseite wird grundsaetzlich dreisprachig geplant:
+Die V1-Website startet verbindlich dreisprachig:
 
 - Deutsch
 - Russisch
@@ -16,13 +16,15 @@ Deutsch ist die fachlich fuehrende Sprache.
 
 Russisch und Englisch basieren auf freigegebenen deutschen Inhalten.
 
+Übersetzungen müssen sinngleich und natürlich formuliert sein. Eine wortgetreue Übersetzung ist nicht erforderlich, solange Aussage, Leistungsgrenzen und Nutzerziel erhalten bleiben.
+
 Mehrsprachigkeit darf in keiner Sprache staerkere Versprechen erzeugen als die freigegebene deutsche Fassung.
 
 Diese Spec beschreibt fachliche Leitplanken fuer mehrsprachige Inhalte. Sie ist keine finale Uebersetzung und keine technische Internationalisierungs-, Locale- oder Routing-Umsetzung.
 
 Diese Spec basiert auf den freigegebenen deutschen Inhalten und muss mit den anderen Specs synchron bleiben.
 
-Die Launch-Reihenfolge der Sprachen bleibt offen.
+Deutsch, Russisch und Englisch müssen vor dem gemeinsamen V1-Launch inhaltlich gleichwertig, technisch vollständig, menschlich freigegeben und separat responsiv geprüft sein.
 
 ## 2. Version 1 und Zielversion
 
@@ -30,10 +32,9 @@ Die Launch-Reihenfolge der Sprachen bleibt offen.
 
 Fuer Version 1 gilt:
 
-- Launch-Sprachen bleiben offen: Deutsch zuerst oder alle drei Sprachen direkt.
-- Nur freigegebene deutsche Inhalte duerfen uebersetzt werden.
-- Wenn Deutsch zuerst live geht, duerfen Russisch und Englisch nicht halb fertig sichtbar sein.
-- Wenn alle drei Sprachen live gehen, muessen alle sichtbaren Inhalte vollstaendig, konsistent und fachlich geprueft sein.
+- Deutsch, Russisch und Englisch gehen gemeinsam live.
+- Nur freigegebene deutsche Inhalte dürfen übersetzt werden.
+- Alle sichtbaren Inhalte, Kernseiten und zentralen Nutzerwege müssen in jeder Sprache vollständig, konsistent und fachlich geprüft sein.
 - Kontakt, FAQ, SEO, Meta-Texte, CTAs, Datenschutz-/Einwilligungshinweise und KI-Hinweise muessen pro Sprache geprueft werden.
 - Formular nur sprachlich darstellen, wenn es zum Launch umgesetzt und freigegeben ist.
 - Upload, Supabase und KI in keiner Sprache als live darstellen, solange sie nicht umgesetzt, datenschutzseitig geprueft und ausdruecklich freigegeben sind.
@@ -48,18 +49,20 @@ Nicht freigegebene Sprachversionen duerfen nicht erreichbar sein ueber:
 - interne Links
 - Suchmaschinenindexierung
 
-Halbfertige oder ungepruefte Sprachversionen duerfen nicht live gehen.
+Halbfertige oder ungeprüfte Sprachversionen dürfen nicht live gehen.
+
+Der gemeinsame V1-Launch darf nicht freigegeben werden, solange ein dreisprachiger Launch-Blocker offen ist.
 
 ### Zielversion / Roadmap
 
-Die Zielversion umfasst:
+Über den dreisprachigen V1-Launch hinaus umfasst die Zielversion:
 
-- vollstaendige Sprachversionen Deutsch, Russisch und Englisch
+- dauerhaft konsistent gepflegte Sprachversionen Deutsch, Russisch und Englisch
 - sprachspezifische SEO- und Meta-Texte
 - mehrsprachige FAQ
 - mehrsprachige Kontakt- und CTA-Texte
 - mehrsprachige Datenschutz-/Einwilligungstexte nach Freigabe
-- technische Locale-/Routing-Struktur spaeter in Technical Specs klaeren
+- spätere Erweiterungen nur mit vollständiger Sprach-, Routing- und Qualitätsparität
 
 ## 3. Fuehrende Sprache
 
@@ -83,15 +86,18 @@ Russisch und Englisch duerfen keine Inhalte ergaenzen, die im Deutschen nicht fr
 Der Prozess fuer jede Sprachversion:
 
 1. Deutscher Inhalt wird fachlich freigegeben.
-2. Uebersetzung wird erstellt.
-3. Uebersetzung wird sprachlich und fachlich geprueft.
-4. Sensible Begriffe werden gesondert geprueft.
-5. Sprachversion wird freigegeben.
-6. Erst danach darf die Sprachversion live gehen.
+2. Sinngleicher und natürlicher EN/RU-Entwurf wird erstellt.
+3. Fachliche Aussage und Leistungsgrenzen werden mit der deutschen Referenz verglichen.
+4. Übersetzung wird durch eine sprachkundige Person geprüft.
+5. Sensible und rechtliche Begriffe werden gesondert geprüft.
+6. Sprachversion wird responsiv und technisch geprüft.
+7. Sprachversion wird durch den Nutzer freigegeben.
+8. Erst danach darf die Sprachversion gemeinsam mit den anderen V1-Sprachen live gehen.
 
 Verbindliche Regeln:
 
-- Keine freie automatische Uebersetzung sensibler Begriffe ohne Pruefung.
+- Keine freie automatische Übersetzung sensibler Begriffe ohne Prüfung.
+- Sprachspezifische Kürzungen, Umstellungen und kürzere CTA-Texte sind erlaubt, wenn die fachliche Aussage erhalten bleibt.
 - Keine halb fertigen Sprachversionen sichtbar machen.
 - Keine Sprachversion darf mehr versprechen als die deutsche Version.
 - Fachliche, rechtliche und KI-bezogene Begriffe muessen pro Sprache separat geprueft und freigegeben werden.
@@ -133,6 +139,7 @@ Begriffe duerfen nicht woertlich uebersetzt werden, wenn dadurch fachlich oder r
 - Telefon und WhatsApp bleiben primaere Kontaktwege.
 - E-Mail bleibt ergaenzender Kontaktweg.
 - Formular nur in einer Sprache sichtbar oder kommuniziert darstellen, wenn es technisch umgesetzt und freigegeben ist.
+- Labels, Platzhalter, Validierungs-, Serverfehler- und Erfolgsmeldungen müssen je Sprache vollständig und konsistent lokalisiert sein.
 - Digitale Schadenaufnahme bedeutet in Version 1 strukturierte Kontaktaufnahme beziehungsweise Anfragevorbereitung.
 - Digitale Schadenaufnahme darf in keiner Sprache automatisch als Website-Upload verstanden werden.
 - Bildabstimmung ueber freigegebene Kontaktwege ist nicht Website-Upload.
@@ -220,30 +227,52 @@ Mobile First gilt fuer alle Sprachversionen.
 
 Pruefen:
 
-- Texte muessen mobil gut lesbar bleiben.
+- jede Sprache separat bei 390 x 844, 768 x 1024 und 1440 x 1100
+- Texte müssen mobil gut lesbar bleiben.
 - Uebersetzungen duerfen Buttons und Layouts nicht sprengen.
 - CTA-Texte muessen kurz und verstaendlich bleiben.
 - CTA-Texte pro Sprache kurz halten.
 - Russische und englische Texte muessen separat mobil geprueft werden.
 - FAQ, Kontaktflow, Meta-Texte, Disclaimer und Buttons muessen pro Sprache auf Laenge und Umbruch geprueft werden.
 - Keine unkontrollierten langen Woerter oder ueberfuellten Buttons.
-- Sprachumschalter spaeter mobil gut erreichbar planen.
+- Sprachumschalter müssen mobil gut erreichbar sein und auf die fachlich entsprechende Seite wechseln.
+- Sprachspezifische Textanpassung hat Vorrang vor globaler Schriftverkleinerung oder erzwungenen Zeilenumbrüchen.
 
-## 12. Bestehende Struktur
+## 12. Bestehende Struktur und verbindliches Routenziel
 
-Falls das Projekt bereits mehrsprachige Strukturen enthaelt, sollen diese spaeter im Rework-Plan geprueft und nach Moeglichkeit weiterverwendet werden.
+Die bestehende URL-basierte Locale-Struktur wird weiterverwendet: Deutsch bleibt ohne Sprachpräfix, Englisch verwendet `/en` und Russisch `/ru`.
 
-Keine bestehende Mehrsprachigkeitsstruktur blind loeschen.
+Aktueller deutscher Ist-Stand nach Aufgabe 050:
 
-Keine neue technische i18n-Struktur ohne Technical Spec, Rework-Plan und ausdrueckliche Freigabe.
+- `/gutachtenarten/unfallgutachten`
+- `/gutachtenarten/fahrzeugbewertung`
+- `/gutachtenarten/schadendokumentation`
 
-URLs, Locale-Strukturen und Routing werden spaeter technisch geklaert.
+Die früheren deutschen Detailrouten unter `/leistungen/...` leiten permanent und direkt auf diese Ziele weiter. `/leistungen` bleibt als eigenständige Übersichtsroute bestehen.
 
-Hreflang, Canonical-Regeln, Sprach-Routing und Sitemap-Strategie werden spaeter in einer Technical Spec oder SEO-Umsetzungsaufgabe geplant.
+Aktueller EN/RU-Stand:
+
+- Die bestehende Unfallgutachtenseite liegt noch unter `/en/leistungen/unfallgutachten` beziehungsweise `/ru/leistungen/unfallgutachten`.
+- Gleichwertige EN/RU-Seiten für Fahrzeugbewertung und Schadendokumentation fehlen noch.
+- Die EN/RU-Gutachtenartenmigration wurde in Aufgabe 050 bewusst nicht umgesetzt.
+
+Verbindliches Ziel der später gesondert freizugebenden EN/RU-Umsetzung:
+
+- `/en/gutachtenarten/unfallgutachten`
+- `/en/gutachtenarten/fahrzeugbewertung`
+- `/en/gutachtenarten/schadendokumentation`
+- `/ru/gutachtenarten/unfallgutachten`
+- `/ru/gutachtenarten/fahrzeugbewertung`
+- `/ru/gutachtenarten/schadendokumentation`
+
+Der Sprachwechsel muss die fachlich entsprechende Seite in der Zielsprache öffnen und den Seitenkontext erhalten. Solange ein fachlich entsprechendes Sprachziel fehlt, darf die betreffende Sprachoption nicht als funktionierender Link auf eine andere Seite angeboten werden. Sie wird vorübergehend ausgeblendet oder barrierearm als nicht verfügbar gekennzeichnet. Zum gemeinsamen V1-Launch müssen alle freigegebenen Kernziele vorhanden und geprüft sein.
+
+Keine bestehende Mehrsprachigkeitsstruktur darf blind gelöscht werden. Hreflang, Canonical-Regeln, Sitemap, Robots und sprachspezifische Metadata bleiben der späteren SEO-Umsetzung in Aufgabe 029 zugeordnet.
 
 ## 13. Datenschutz / Einwilligung / rechtliche Texte
 
-- Datenschutz- und Einwilligungstexte muessen pro Sprache fachlich und rechtlich geprueft werden.
+- Datenschutz- und Einwilligungstexte müssen pro Sprache fachlich und rechtlich geprüft werden.
+- Impressum, Datenschutz und AGB benötigen je Sprache eine menschliche Sprachprüfung und eine geeignete qualifizierte rechtliche Freigabe.
 - Uebersetzungen duerfen Datenschutzrechte, Einwilligung, Speicherfristen, Zugriff oder Loeschung nicht ungenau darstellen.
 - Solange Datenschutz- oder Einwilligungstexte in einer Sprache nicht geprueft und freigegeben sind, duerfen sie in dieser Sprache nicht live gehen.
 - Datenschutz- und Einwilligungstexte duerfen Upload, Supabase oder KI nicht als live darstellen, solange diese Funktionen nicht umgesetzt und freigegeben sind.
@@ -252,14 +281,12 @@ Hreflang, Canonical-Regeln, Sprach-Routing und Sitemap-Strategie werden spaeter 
 
 Offen:
 
-- Ob Deutsch, Russisch und Englisch direkt zum Launch live gehen.
-- Ob Deutsch zuerst live geht und Russisch/Englisch danach folgen.
 - Wer die russischen und englischen fachlichen Formulierungen prueft.
 - Ob KI-, Datenschutz- und Einwilligungstexte extern rechtlich oder fachlich geprueft werden.
-- Welche URLs oder Locale-Strukturen spaeter fuer die neue KFZ-Gutachten-Webseite genutzt werden.
+- Technische Umsetzung der freigegebenen EN/RU-Zielrouten und fachlichen Seitenzuordnung.
+- Konkrete barrierearme UI-Ausführung für vorübergehend nicht verfügbare Sprachziele.
 - Mehrsprachige SEO-Keyword-Strategie.
 - Mehrsprachige FAQ-Freigabe.
 - Mehrsprachige Datenschutz-/Einwilligungstexte.
-- Ob alle drei Sprachen denselben Funktionsumfang zum Launch haben.
 - Ob Formular direkt zum Launch live ist.
 - Ob Upload, Supabase oder KI beim ersten Launch live sind oder spaeter aktiviert werden.
