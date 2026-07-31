@@ -21,6 +21,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 - Rechtstexte bleiben bis zu einer geeigneten beziehungsweise qualifizierten Prüfung vorläufig. Vor Codeänderungen bleiben Textfreigabe und ein gesondert freizugebender Dateiplan erforderlich.
 - Es wurden keine Website-, Übersetzungs-, Routen-, Redirect-, SEO-Technik- oder Assetdateien geändert.
 
+### Aufgabe 051 - Menschliche EN/RU-Sprachprüfung dokumentarisch vorbereitet
+
+- Für den englischen und russischen V1-Textentwurf wurden getrennte Prüfpakete mit Prüferfeldern, Ergebnisstatus, Bereichschecklisten und Korrekturtabellen vorbereitet.
+- Die Pakete trennen Sprachprüfung, Fachprüfung und Rechtsprüfung und kennzeichnen Versicherungs-, Kosten-, Gutachterwahl-, Qualifikations-, DESAG- und Legal-Aussagen als zusätzliche Prüf-Gates.
+- Unternehmens- und Kontaktdaten sind als feste sprachübergreifende Referenz aufgenommen; reale Daten dürfen durch die Sprachprüfung nicht eigenständig geändert werden.
+- Eine menschliche EN- oder RU-Freigabe wird nicht behauptet. Textfreigabe, Fach-/Rechtsprüfung, technischer Dateiplan und Website-Umsetzung bleiben offen.
+- Es wurden ausschließlich Dokumentationsdateien geändert; `ROADMAP.md` blieb unverändert, weil Reihenfolge und Projektplanung unverändert bleiben.
+
 ### Aufgabe 032 - Dreisprachige V1-Launch-Planung abgeschlossen
 
 - Alle Akzeptanzkriterien wurden geprüft, erfüllt und nach ausdrücklicher Nutzerfreigabe abgeschlossen.

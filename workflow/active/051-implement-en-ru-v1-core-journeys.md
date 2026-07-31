@@ -363,6 +363,26 @@ Noch offen:
 
 Die Entwürfe sind keine menschliche Freigabe. Es wurde noch keine Website-, Übersetzungs-, Routen- oder Codeänderung vorgenommen.
 
+## Phase-C-Zwischenstand
+
+Für die reale menschliche Sprachprüfung wurden zwei getrennte, strukturierte Prüfpakete vorbereitet:
+
+- `specs/06-work-plans/task-051-en-human-review-checklist.md`
+- `specs/06-work-plans/task-051-ru-human-review-checklist.md`
+
+Die Prüfpakete verweisen auf die jeweiligen Entwürfe aus Commit `0614292`, enthalten leere Prüfer-, Datums- und Ergebnisfelder und trennen Sprachprüfung, Fachprüfung und Rechtsprüfung eindeutig. Sie decken Navigation, Footer, Startseite, alle drei Gutachtenarten, Über uns, Trust, Kontakt, Formulare, Servermeldungen sowie Error und 404 ab. Rechtstexte bleiben ein gesondertes, nicht abgeschlossenes Gate.
+
+Weiterhin offen:
+
+- menschliche englische Sprachprüfung;
+- menschliche russische Sprachprüfung;
+- Fachprüfung sensibler Gutachten-, Versicherungs-, Kosten- und Trust-Aussagen;
+- geeignete beziehungsweise qualifizierte Rechtsprüfung;
+- Korrektur und ausdrückliche Freigabe der Textentwürfe auf Grundlage realer Rückmeldungen;
+- konkreter technischer Dateiplan und dessen Freigabe.
+
+Die Vorbereitung der Prüfpakete ist keine Textfreigabe. Es besteht noch kein technischer Dateiplan, und es wurde weiterhin keine Website-, Übersetzungs-, Routen- oder Codeumsetzung begonnen.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;
