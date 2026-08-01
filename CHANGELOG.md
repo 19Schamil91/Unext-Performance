@@ -2,6 +2,18 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-01
+
+### Aufgabe 051 - Vorläufige lokale Umsetzung und technischer Dateiplan vorbereitet
+
+- Der konkrete technische Dateiplan wurde ausdrücklich für die vorläufige lokale EN/RU-Umsetzung freigegeben; die Codeumsetzung darf auf dem Aufgabenbranch beginnen.
+- Der entstehende Preview-Stand bleibt bis zur menschlichen EN/RU-Sprachprüfung sowie den erforderlichen Fach- und Rechtsprüfungen vorläufig und nicht launchfähig.
+- Die ausdrücklich freigegebene Reihenfolge wurde angepasst: Nach Freigabe des konkreten Dateiplans dürfen die EN/RU-Entwürfe vorläufig lokal umgesetzt und anschließend im echten Layout geprüft werden.
+- Menschliche EN/RU-Sprachprüfung, erforderliche Fachprüfung und geeignete Behandlung der Rechtstexte bleiben verbindliche Gates vor Abschluss, Push, Pull Request und Launch.
+- Ein konkreter Dateiplan kartiert zentrale Seiten-IDs, sechs EN/RU-Gutachtenartenrouten, zwei direkte Redirects, Navigation, Startseiten, Trust, Kontakt, Formulare, Error/404, interne Links sowie die Prüfungen bei 390, 768 und 1440 px.
+- Bestehende Komponenten werden bevorzugt locale-fähig weiterverwendet; eine neue React-Komponente ist nicht geplant.
+- Die Codeumsetzung hat noch nicht begonnen. `ROADMAP.md` bleibt unverändert, weil Aufgabe, Projektziel und nachgelagerte Reihenfolge nicht verändert wurden.
+
 ## 2026-07-30
 
 ### Aufgabe 051 - EN/RU-V1-Kernseiten und Nutzerwege gestartet

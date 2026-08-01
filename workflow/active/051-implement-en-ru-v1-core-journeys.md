@@ -8,7 +8,7 @@ Status: in Arbeit
 
 Die bereits freigegebene deutsche V1-Webseite wird für den gemeinsamen Launch vollständig und qualitativ gleichwertig auf Englisch und Russisch umgesetzt. Deutsch bleibt die fachliche Referenz. EN und RU sollen natürlich, kompakt und zur jeweiligen Sprache passend formuliert werden, ohne stärkere Aussagen, neue Leistungen oder unbestätigte Versprechen einzuführen.
 
-Dieser Startschritt aktiviert und plant die Aufgabe ausschließlich dokumentarisch. EN/RU-Texte und Website-Code dürfen erst nach gesonderter Freigabe der Textentwürfe und des konkreten Dateiplans geändert werden.
+Die Aufgabe ist weiterhin in Arbeit. Die EN/RU-Textentwürfe und menschlichen Prüfpakete liegen als vorläufige Dokumente vor. Der Nutzer hat ausdrücklich erlaubt, die Entwürfe nach Freigabe des konkreten Dateiplans vorläufig auf dem lokalen Aufgabenbranch umzusetzen und erst im sichtbaren Seitenkontext menschlich prüfen zu lassen. Diese lokale Umsetzung ist weder eine menschliche Sprachfreigabe noch eine Abschluss- oder Launchfreigabe.
 
 ## Kontext
 
@@ -79,7 +79,8 @@ Aufgabe 051 darf nach Freigabe umsetzen:
 - kein Post-Launch-Monitoring; dieses bleibt Aufgabe 035;
 - keine neuen Leistungen, Qualifikationen, Mitgliedschaften oder Garantien;
 - keine neue Dependency, kein Supabase, keine KI und kein Portal;
-- keine technischen Änderungen vor Freigabe der EN/RU-Texte und des Dateiplans.
+- keine technischen Änderungen vor ausdrücklicher Freigabe des konkreten Dateiplans;
+- keine Einstufung vorläufig umgesetzter EN/RU-Texte als final oder launchfähig vor den erforderlichen Sprach-, Fach- und gegebenenfalls Rechtsfreigaben.
 
 ## Read-only-Inventur
 
@@ -213,34 +214,49 @@ Alle sechs Wechselrichtungen DE->EN, DE->RU, EN->DE, EN->RU, RU->DE und RU->EN w
 - keine unbestätigten oder stärkeren Aussagen ergänzen;
 - vollständige Zuordnung zur deutschen Referenz dokumentieren.
 
-### Phase C - Menschliche Freigabe
+### Phase C - Prüfpakete und Dateiplan
 
-- EN durch eine geeignete sprachkundige Person prüfen lassen;
-- RU durch eine geeignete sprachkundige Person prüfen lassen;
-- fachlich sensible Aussagen zusätzlich fachlich prüfen;
-- Rechtstexte nur auf geeigneter beziehungsweise freigegebener Übersetzungsgrundlage verwenden;
-- Korrekturen und Freigaben nachvollziehbar in der Task dokumentieren.
+- getrennte menschliche EN- und RU-Prüfpakete vorbereiten;
+- konkreten technischen Dateiplan auf Grundlage der Entwürfe und der bestehenden Implementierung erstellen;
+- Wiederverwendung, neue Dateien, Risiken und Teilprüfungen je Datei dokumentieren;
+- Dateiplan vor der ersten Codeänderung ausdrücklich freigeben lassen.
 
-### Phase D - Technische Umsetzung
+### Phase D - Vorläufige lokale Umsetzung
 
-Erst nach ausdrücklicher Freigabe von Texten und Dateiplan:
+Erst nach ausdrücklicher Freigabe des Dateiplans:
 
 - bestehende Locale-, Daten- und Komponentenstrukturen wiederverwenden;
 - deutsche Detailkomponenten locale-fähig machen, statt unnötig zu duplizieren;
 - sechs EN/RU-Gutachtenartenrouten ergänzen;
 - Navigation, Links, Sprachwechsel, Formulare, Trust, Error und 404 angleichen;
 - zwei alte EN/RU-Unfallrouten direkt weiterleiten;
-- keine technische SEO-Endarbeit aus Aufgabe 029 vorziehen.
+- keine technische SEO-Endarbeit aus Aufgabe 029 vorziehen;
+- alle eingebauten EN/RU-Texte sichtbar als vorläufigen Review-Stand behandeln.
 
-### Phase E - Prüfung
+### Phase E - Lokale visuelle und inhaltliche Prüfung
 
-- EN und RU jeweils bei 390, 768 und 1440 px prüfen;
-- alle Kernseiten, Navigationen, Formulare und Zustände prüfen;
+- EN und RU jeweils bei 390, 768 und 1440 px sichtbar machen;
+- Nutzerfeedback zu Layout, Textlängen, Zeilenumbrüchen und inhaltlicher Wirkung einarbeiten;
+- alle Kernseiten, Navigationen, Formulare und Zustände im echten Seitenkontext prüfen;
+- die lokale visuelle Freigabe nicht als Sprach-, Fach- oder Rechtsfreigabe behandeln.
+
+### Phase F - Menschliche und fachliche Freigaben
+
+- EN durch eine geeignete sprachkundige Person prüfen lassen;
+- RU durch eine geeignete sprachkundige Person prüfen lassen;
+- fachlich sensible Aussagen zusätzlich fachlich prüfen;
+- Rechtstexte nicht neu formulieren und nur auf geeigneter beziehungsweise freigegebener Übersetzungsgrundlage als launchfähig behandeln;
+- Korrekturen und Freigaben nachvollziehbar in der Task dokumentieren.
+
+### Phase G - Finale Prüfung
+
 - Links und Sprachwechsel in alle Richtungen testen;
 - Redirects auf Ketten und Schleifen prüfen;
 - Browserkonsole, Hydration, Requests und Bilder prüfen;
 - Accessibility, Tastatur, Fokus und verständliche Statusmeldungen prüfen;
-- Lint, TypeScript und Build ausführen.
+- next-router-check und typography-line-break-check ausführen;
+- Lint, TypeScript und Build ausführen;
+- erst nach allen Freigaben und ausdrücklicher Nutzerbestätigung abschließen, pushen und einen Pull Request erstellen.
 
 ## Formular- und Fehlerzustände
 
@@ -333,13 +349,17 @@ Technische Abschlusschecks nach Codeänderungen:
 
 ## Freigabe-Gates
 
-1. Dieser Plan und die Inventur werden ausdrücklich freigegeben.
-2. EN/RU-Textentwürfe und ihre DE-Zuordnung werden separat vorgelegt.
-3. Menschliche EN- und RU-Prüfung sowie sensible Fach-/Rechtsprüfung werden dokumentiert.
-4. Der konkrete Dateiplan wird vor Codeänderungen freigegeben.
-5. Erst danach beginnt die technische Umsetzung.
-6. Responsive, funktionale und technische Prüfungen werden vollständig bestanden.
-7. Abschluss und Verschiebung nach workflow/done erfolgen nur nach ausdrücklicher Nutzerfreigabe.
+1. Der konkrete technische Dateiplan wird erstellt und ausdrücklich freigegeben.
+2. Die vorhandenen EN/RU-Entwürfe dürfen danach vorläufig auf dem lokalen Aufgabenbranch umgesetzt werden.
+3. Die Seiten werden lokal bei 390, 768 und 1440 px sichtbar gemacht.
+4. Visuelle und inhaltliche Rückmeldung des Nutzers wird eingearbeitet.
+5. Menschliche EN- und RU-Sprachprüfung wird anschließend dokumentiert und bleibt vor Abschluss verpflichtend.
+6. Fachlich sensible Aussagen werden zusätzlich geeignet geprüft.
+7. Rechtstexte werden nur nach geeigneter Freigabe als launchfähig behandelt und in 051 nicht ungeprüft neu formuliert.
+8. Responsive, funktionale, barrierebezogene und technische Prüfungen werden vollständig bestanden.
+9. Abschluss, Push und Pull Request erfolgen erst danach und nur nach ausdrücklicher Nutzerfreigabe.
+
+Die lokale visuelle Prüfung ersetzt keine Sprach-, Fach- oder Rechtsfreigabe. Vorläufige Texte dürfen nicht unbemerkt als final oder launchfähig bezeichnet werden. Aufgabe 051 bleibt aktiv, solange ein erforderliches Gate offen ist.
 
 ## Phase-B-Zwischenstand
 
@@ -352,14 +372,14 @@ Beide Dokumente ordnen die Entwürfe über stabile Inhalts-IDs und Abschnittsnam
 
 Die vorhandenen Legal-Texte werden nicht ungeprüft neu formuliert. Impressum, Datenschutz und AGB bleiben bis zu einer geeigneten beziehungsweise qualifizierten Rechts- und Sprachprüfung ausdrücklich vorläufig.
 
-Noch offen:
+Zum damaligen Phase-B-Zwischenstand offen:
 
 - menschliche englische Sprachprüfung;
 - menschliche russische Sprachprüfung;
 - fachliche Prüfung sensibler Gutachten-, Kosten- und Trust-Aussagen;
 - geeignete Prüfung der Rechtstexte;
 - ausdrückliche Freigabe der korrigierten Textentwürfe;
-- konkreter Dateiplan und dessen Freigabe vor jeder Codeänderung.
+- konkreter Dateiplan und dessen Freigabe vor jeder Codeänderung; der Plan ist inzwischen erstellt, seine Freigabe bleibt offen.
 
 Die Entwürfe sind keine menschliche Freigabe. Es wurde noch keine Website-, Übersetzungs-, Routen- oder Codeänderung vorgenommen.
 
@@ -372,16 +392,24 @@ Für die reale menschliche Sprachprüfung wurden zwei getrennte, strukturierte P
 
 Die Prüfpakete verweisen auf die jeweiligen Entwürfe aus Commit `0614292`, enthalten leere Prüfer-, Datums- und Ergebnisfelder und trennen Sprachprüfung, Fachprüfung und Rechtsprüfung eindeutig. Sie decken Navigation, Footer, Startseite, alle drei Gutachtenarten, Über uns, Trust, Kontakt, Formulare, Servermeldungen sowie Error und 404 ab. Rechtstexte bleiben ein gesondertes, nicht abgeschlossenes Gate.
 
-Weiterhin offen:
+Zum damaligen Phase-C-Zwischenstand weiterhin offen:
 
 - menschliche englische Sprachprüfung;
 - menschliche russische Sprachprüfung;
 - Fachprüfung sensibler Gutachten-, Versicherungs-, Kosten- und Trust-Aussagen;
 - geeignete beziehungsweise qualifizierte Rechtsprüfung;
 - Korrektur und ausdrückliche Freigabe der Textentwürfe auf Grundlage realer Rückmeldungen;
-- konkreter technischer Dateiplan und dessen Freigabe.
+- konkreter technischer Dateiplan und dessen Freigabe; der Plan ist inzwischen erstellt, seine Freigabe bleibt offen.
 
-Die Vorbereitung der Prüfpakete ist keine Textfreigabe. Es besteht noch kein technischer Dateiplan, und es wurde weiterhin keine Website-, Übersetzungs-, Routen- oder Codeumsetzung begonnen.
+Die Vorbereitung der Prüfpakete ist keine Textfreigabe. Es wurde weiterhin keine Website-, Übersetzungs-, Routen- oder Codeumsetzung begonnen.
+
+## Dateiplan-Zwischenstand
+
+Der konkrete technische Dateiplan wurde unter `specs/06-work-plans/task-051-implementation-file-plan.md` erstellt. Er kartiert die tatsächlich geplanten Dateien, die Wiederverwendung vorhandener Komponenten, neue Routen, direkte Redirects, das zentrale Seiten-ID-Modell, Formulare, Error/404, interne Links, responsive Prüfungen sowie die Grenzen zu 029, 026, 033, 034 und 035.
+
+Der Nutzer hat die neue Reihenfolge ausdrücklich festgelegt: Nach Freigabe dieses Dateiplans dürfen die vorhandenen EN/RU-Entwürfe vorläufig lokal umgesetzt und im echten Layout geprüft werden. Menschliche EN/RU-Prüfung, erforderliche Fachprüfung und geeignete Behandlung der Rechtstexte bleiben Abschluss- und Launch-Gates.
+
+Der Dateiplan wurde ausdrücklich freigegeben. Die vorläufige lokale Codeumsetzung darf beginnen. Die menschliche EN/RU-Prüfung bleibt vor Abschluss, Push, Pull Request und Launch verpflichtend; der technische Preview-Stand darf nicht als sprachlich final oder launchfähig bezeichnet werden. Status bleibt `in Arbeit`.
 
 ## Zuordnung zu Folgeaufgaben
 
@@ -394,15 +422,15 @@ Die Vorbereitung der Prüfpakete ist keine Textfreigabe. Es besteht noch kein te
 
 ## Vorgehen
 
-1. Plan und Inventur freigeben lassen.
-2. Vollständige EN-Textmatrix entwerfen und prüfen lassen.
-3. Vollständige RU-Textmatrix entwerfen und prüfen lassen.
-4. Fachlich und rechtlich sensible Aussagen gesondert freigeben lassen.
-5. Dateiplan und technische Umsetzung freigeben lassen.
-6. Routen, Inhalte, Navigation, Sprachwechsel, Formulare und Zustände umsetzen.
-7. Reviewer, responsive Prüfungen und technische Checks ausführen.
-8. Akzeptanzkriterien einzeln nachweisen.
-9. Aufgabe zur Nutzerfreigabe vorlegen.
+1. Konkreten Dateiplan erstellen und ausdrücklich freigeben lassen.
+2. EN/RU-Entwürfe vorläufig auf dem lokalen Branch umsetzen.
+3. EN/RU-Seiten bei 390, 768 und 1440 px sichtbar machen.
+4. Visuelle und inhaltliche Rückmeldung des Nutzers einarbeiten.
+5. Menschliche EN- und RU-Sprachprüfung dokumentieren.
+6. Fachlich sensible Aussagen zusätzlich prüfen.
+7. Rechtstexte nur nach geeigneter Freigabe als launchfähig behandeln.
+8. Reviewer, responsive, funktionale und technische Prüfungen vollständig ausführen.
+9. Akzeptanzkriterien einzeln nachweisen und Aufgabe zur ausdrücklichen Abschlussfreigabe vorlegen.
 
 ## Akzeptanzkriterien
 
