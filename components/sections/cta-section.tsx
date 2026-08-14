@@ -11,6 +11,7 @@ import { getTranslations } from "@/lib/translations"
 
 export type CtaAction = {
   label: string
+  ariaLabel?: string
   href: string
   icon?: "phone" | "message"
   external?: boolean
@@ -79,13 +80,13 @@ export function CtaSection({ locale, actions, title, description, note }: Props)
         className={className}
       >
         {action.external ? (
-          <a href={action.href} target="_blank" rel="noopener noreferrer">
+          <a href={action.href} target="_blank" rel="noopener noreferrer" aria-label={action.ariaLabel}>
             {content}
           </a>
         ) : action.href.startsWith("/") ? (
-          <Link href={action.href}>{content}</Link>
+          <Link href={action.href} aria-label={action.ariaLabel}>{content}</Link>
         ) : (
-          <a href={action.href}>{content}</a>
+          <a href={action.href} aria-label={action.ariaLabel}>{content}</a>
         )}
       </Button>
     )

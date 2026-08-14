@@ -7,7 +7,7 @@ import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
-import { getLocalizedPath, type Locale } from "@/lib/i18n"
+import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
 import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
@@ -34,6 +34,14 @@ type AccidentServicePageExtras = {
   }>
   ctaTitle?: string
   ctaDescription?: string
+  heroActions?: readonly {
+    label: string
+    href: string
+    icon?: "phone" | "message"
+    external?: boolean
+  }[]
+  servicesDescription?: string
+  formHelperText?: string
   formTextOverrides?: Partial<{
     description: string
     successText: string
@@ -113,7 +121,7 @@ export function getAccidentServiceMetadata(locale: Locale): Metadata {
     locale,
     `${t.title} | UNFALLX | UNEXT GmbH Berlin`,
     t.description,
-    locale === "de" ? "/gutachtenarten/unfallgutachten" : getLocalizedPath(locale, "/leistungen/unfallgutachten")
+    getLocalizedPagePath("accidentAppraisal", locale)
   )
 }
 
@@ -126,33 +134,34 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
       locale={locale}
       title={t.title}
       subtitle={t.subtitle}
-      badge={isGerman ? undefined : t.badge}
+      badge={undefined}
       description={t.description}
-      image={isGerman ? "/images/services/unfallgutachten-berlin.webp" : "/images/home-service-accident.webp"}
-      imageAlt={isGerman ? page.imageAlt : undefined}
-      imageClassName={isGerman ? "object-cover object-[center_center]" : "object-cover object-[center_top]"}
-      phone={isGerman ? undefined : "0176 64365185"}
-      heroActions={isGerman ? germanHeroActions : undefined}
-      bottomActions={isGerman ? germanBottomActions : undefined}
-      heroNotice={isGerman ? page.heroNotice : undefined}
-      serviceNote={isGerman ? page.serviceNote : undefined}
-      backLinkHref={isGerman ? getLocalizedPath(locale, "/") : undefined}
-      servicePath={isGerman ? "/gutachtenarten/unfallgutachten" : undefined}
-      detailSections={isGerman ? page.detailSections : undefined}
-      layoutLabels={isGerman ? page.layoutLabels : undefined}
+      image="/images/services/unfallgutachten-berlin.webp"
+      imageAlt={page.imageAlt}
+      imageClassName="object-cover object-[center_center]"
+      heroActions={page.heroActions ?? germanHeroActions}
+      bottomActions={page.heroActions ?? germanBottomActions}
+      heroNotice={page.heroNotice}
+      serviceNote={page.serviceNote}
+      backLinkHref={getLocalizedPagePath("home", locale)}
+      servicePath={getLocalizedPagePath("accidentAppraisal", locale)}
+      detailSections={page.detailSections}
+      layoutLabels={page.layoutLabels}
       benefits={t.benefits}
       services={t.services}
+      servicesDescription={page.servicesDescription}
       whyChoose={t.whyChoose}
       faqs={t.faqs}
       formTitle={t.formTitle}
-      ctaTitle={isGerman ? page.ctaTitle : undefined}
-      ctaDescription={isGerman ? page.ctaDescription : undefined}
-      formTextOverrides={isGerman ? page.formTextOverrides : undefined}
+      ctaTitle={page.ctaTitle}
+      ctaDescription={page.ctaDescription}
+      formTextOverrides={page.formTextOverrides}
+      formHelperText={page.formHelperText}
       serviceName="unfallgutachten"
       benefitsSingleLine={isGerman}
       balancedTypography
-      titleLines={accidentTitleLines[locale]}
-      descriptionLines={accidentDescriptionLines[locale]}
+      titleLines={isGerman ? accidentTitleLines[locale] : [t.title]}
+      descriptionLines={isGerman ? accidentDescriptionLines[locale] : undefined}
       serviceTitleLineBreaks={accidentServiceTitleLineBreaks[locale]}
       whyChooseTitleLineBreaks={accidentWhyTitleLineBreaks[locale]}
     />

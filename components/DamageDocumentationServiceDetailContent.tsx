@@ -6,9 +6,8 @@
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
-import type { Locale } from "@/lib/i18n"
-
-const locale: Locale = "de"
+import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
+import { appraisalPageTranslations } from "@/lib/translations/appraisal-pages"
 
 const heroActions = [
   { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
@@ -172,7 +171,55 @@ const formTextOverrides = {
   submit: "Dokumentation anfragen",
 } as const
 
-export function DamageDocumentationServiceDetailContent() {
+type DamageDocumentationServiceDetailContentProps = {
+  locale?: Locale
+}
+
+export function DamageDocumentationServiceDetailContent({
+  locale = "de",
+}: DamageDocumentationServiceDetailContentProps) {
+  if (locale !== "de") {
+    const page = appraisalPageTranslations[locale].damageDocumentation
+
+    return (
+      <div className="max-[430px]:[&_[id=schadendokumentation-anfrage]_h2]:text-[1.85rem] lg:[&_[data-slot=card-description]]:whitespace-normal">
+        <SiteHeader locale={locale} />
+        <ServicePageLayout
+          locale={locale}
+          title={page.title}
+          subtitle={page.subtitle}
+          description={page.description}
+          image="/images/services/beweissicherung-dokumentation.webp"
+          imageAlt={page.imageAlt}
+          imageClassName="object-cover object-center"
+          heroActions={page.heroActions}
+          bottomActions={page.heroActions}
+          heroNotice={page.heroNotice}
+          backLinkHref={getLocalizedPagePath("home", locale)}
+          servicePath={getLocalizedPagePath("damageDocumentation", locale)}
+          benefits={page.benefits}
+          services={page.services}
+          servicesDescription={page.servicesDescription}
+          servicesGridClassName="lg:grid-cols-4"
+          detailSections={page.detailSections}
+          whyChoose={page.whyChoose}
+          faqs={page.faqs}
+          formTitle={page.formTitle}
+          ctaTitle={page.ctaTitle}
+          ctaDescription={page.ctaDescription}
+          serviceName="schadendokumentation"
+          formFields={formFields}
+          formTextOverrides={page.formTextOverrides}
+          formHelperText={page.formHelperText}
+          layoutLabels={page.layoutLabels}
+          balancedTypography
+          benefitsSingleLine
+        />
+        <SiteFooter locale={locale} />
+      </div>
+    )
+  }
+
   return (
     <div className="max-[430px]:[&_[id=schadendokumentation-anfrage]_h2]:text-[1.85rem] lg:[&_[data-slot=card-description]]:whitespace-normal">
       <SiteHeader locale={locale} />

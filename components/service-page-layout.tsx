@@ -68,6 +68,7 @@ export type ServicePageLayoutProps = {
 
 type ServiceAction = {
   label: string
+  ariaLabel?: string
   href: string
   icon?: "phone" | "message"
   external?: boolean
@@ -227,15 +228,15 @@ export async function ServicePageLayout({
     return (
       <Button asChild size="lg" variant={variant} className={actionClassName}>
         {action.external ? (
-          <a href={action.href} target="_blank" rel="noopener noreferrer" className={contentClassName}>
+          <a href={action.href} target="_blank" rel="noopener noreferrer" className={contentClassName} aria-label={action.ariaLabel}>
             {content}
           </a>
         ) : action.href.startsWith("/") ? (
-          <Link href={action.href} className={contentClassName}>
+          <Link href={action.href} className={contentClassName} aria-label={action.ariaLabel}>
             {content}
           </Link>
         ) : (
-          <a href={action.href} className={contentClassName}>
+          <a href={action.href} className={contentClassName} aria-label={action.ariaLabel}>
             {content}
           </a>
         )}
@@ -292,7 +293,7 @@ export async function ServicePageLayout({
             )}
 
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-sm sm:tracking-[0.14em]">{subtitle}</p>
-            <h1 className={heroTitleClassName}>
+            <h1 className={`${heroTitleClassName} ${locale === "en" ? "md:!max-w-[18ch]" : ""}`}>
               {renderLines(title, titleLines)}
             </h1>
             {descriptionLines ? (

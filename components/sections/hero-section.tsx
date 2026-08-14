@@ -7,8 +7,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, DoorOpen, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { Locale } from "@/lib/i18n"
-import { homeReportAnchors, homeServiceAnchors } from "@/lib/service-anchors"
+import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
+import { homeReportAnchors } from "@/lib/service-anchors"
 import { getTranslations } from "@/lib/translations"
 
 type HeroContentProps = {
@@ -389,7 +389,7 @@ function HeroContent({
             variant="outline"
             className={isOverlay ? "hidden" : "hidden w-full gap-2 sm:inline-flex sm:w-auto"}
           >
-            <Link href="/kontakt">
+            <Link href={getLocalizedPagePath("contact", locale)}>
               {inquiry}
               <ArrowRight className="h-5 w-5" />
             </Link>
@@ -453,38 +453,39 @@ export function HeroSection({ locale }: Props) {
   // Diese Inhalte werden serverseitig nach der Sprache der aktuellen URL geladen.
   const home = getTranslations(locale).home
   const t = home.hero
-  const serviceAnchors = locale === "de" ? homeReportAnchors : homeServiceAnchors
+  const serviceAnchors = homeReportAnchors
   const mainServices = home.services.items.map((service, index) => ({
     title: service.title,
     anchor: serviceAnchors[index] ?? serviceAnchors[0],
   }))
   // Dieses optimierte Bild ist der visuelle Einstieg der Startseite.
-  const heroImageSrc =
-    locale === "de" ? "/images/hero-kfz-gutachten-berlin.webp" : "/images/home-hero-new.webp"
-  const mobileHeroImageClass =
-    locale === "de"
-      ? "scale-[1.08] object-cover object-[78%_58%]"
-      : "scale-125 object-cover object-[58%_64%]"
+  const heroImageSrc = "/images/hero-kfz-gutachten-berlin.webp"
+  const mobileHeroImageClass = "scale-[1.08] object-cover object-[78%_58%]"
   // Diese Varianten halten den mobilen Hero kurz, ohne harte Zeilen fuer einzelne Geraete zu erzwingen.
   const mobileHeroTitles = {
     de: { title1: t.title1, title2: t.title2, title3: t.title3 },
-    en: { title1: "Vehicle reports and car services", title2: "in one place", title3: "" },
-    ru: { title1: "Автоэкспертиза и автоуслуги", title2: "в одном месте", title3: "" },
+    en: { title1: t.title1, title2: t.title2, title3: t.title3 },
+    ru: { title1: t.title1, title2: t.title2, title3: t.title3 },
   } as const satisfies Record<Locale, { title1: string; title2: string; title3: string }>
   const mobileHeroTitle = mobileHeroTitles[locale]
   const mobileHeroDescriptions = {
     de: t.description,
     en: t.description,
-    ru:
-      "От экспертизы ДТП до регистрации:\nUNEXT сопровождает вас понятно\nи напрямую в Берлине.\n\nБыстро на связи. Хорошо согласовано.\nПрофессионально выполнено.",
+    ru: t.description,
   } as const satisfies Record<Locale, string>
   const mobileHeroDescription = mobileHeroDescriptions[locale]
-  const trustStatement =
-    locale === "de"
-      ? "Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
-      : undefined
+const trustStatements = {
+    de: "Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung.",
+    en: "Assessed and recognised by DESAG as an expert in motor vehicle damage and valuation.",
+    ru: "Квалификация эксперта по повреждениям транспортных средств и оценке стоимости проверена и признана DESAG.",
+  } as const satisfies Record<Locale, string>
+  const trustStatement = trustStatements[locale]
   // Dieser vollstaendige Titel ist fuer Suchmaschinen und Screenreader gedacht.
-  const heroTitle = [t.title1, t.title2, t.title3].filter(Boolean).join(" ")
+  const heroTitle = {
+    de: "KFZ-Unfallgutachten in Berlin nach Unfall oder Schaden",
+    en: "Vehicle accident damage appraisals in Berlin after an accident or damage",
+    ru: "Оценка ущерба после ДТП в Берлине",
+  }[locale]
 
   return (
     <section className="overflow-x-clip overflow-y-hidden bg-background">
@@ -525,7 +526,7 @@ export function HeroSection({ locale }: Props) {
         </div>
       </div>
 
-      <div className={locale === "de" ? "relative hidden h-[calc(100svh-4.3125rem)] min-h-[43rem] max-h-none items-start overflow-hidden md:flex" : "relative hidden h-[calc(88svh-5rem)] min-h-[39rem] max-h-[50rem] items-start overflow-hidden md:flex"}>
+      <div className="relative hidden h-[calc(100svh-4.3125rem)] min-h-[43rem] max-h-[64.5rem] items-start overflow-hidden md:flex">
         <div className="absolute inset-0">
           <Image
             src={heroImageSrc}
@@ -540,7 +541,7 @@ export function HeroSection({ locale }: Props) {
           <div className={locale === "de" ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.12)_0%,rgba(5,7,11,0)_38%,rgba(5,7,11,0.03)_100%)]" : "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]"} />
         </div>
 
-        <div className={locale === "de" ? "relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-10 pt-[clamp(6rem,10vh,8.25rem)]" : "relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-12 pt-[clamp(7rem,13vh,10rem)]"}>
+        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-10 pt-[clamp(7rem,13vh,10rem)] lg:pt-[clamp(9rem,18.5vh,12.5rem)]">
           <HeroContent
             tone="overlay"
             title1={t.title1}

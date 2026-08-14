@@ -1,16 +1,13 @@
 /*
-  Diese Datei zeigt den Inhalt der Über-uns-Seite.
-  Die deutsche Version ist auf KFZ-Gutachten, Vertrauen, Qualifikation und sachliche Arbeitsweise ausgerichtet.
-  Englisch und Russisch nutzen weiterhin den bestehenden lokalisierten Ueber-uns-Inhalt.
+  Diese Datei zeigt die gemeinsame V1-Ueber-uns-Seite in Deutsch, Englisch und Russisch.
+  Besucher sehen die Person hinter UNEXT, die Arbeitsweise sowie belegte Qualifikation und Weiterbildung.
+  Sie koennen die DESAG-Qualifikation oeffnen oder direkt Kontakt aufnehmen.
 */
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, Award, CheckCircle, Heart, Target, Users } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { CtaSection } from "@/components/sections/cta-section"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
@@ -19,67 +16,98 @@ type AboutPageContentProps = {
   locale: Locale
 }
 
-const icons = [Award, Users, Target, Heart]
-
-function normalizeText(text: string) {
-  return text.split("\n").map((line) => line.trim()).filter(Boolean).join(" ")
-}
-
-const germanAbout = {
-  hero:
-    "UNEXT steht für KFZ-Gutachten in Berlin – mit persönlichem Kontakt, strukturierter Schadenaufnahme und verständlicher Einordnung. Von der ersten Anfrage bis zur weiteren Abstimmung erhalten Sie klare Informationen zu Ihrem Fahrzeug und dem nächsten sinnvollen Schritt.",
-  intro: {
-    title: "Wer hinter UNEXT steht",
-    paragraphs: [
+const aboutContent = {
+  de: {
+    heroEyebrow: "KFZ-Gutachten Berlin",
+    title: "Über UNEXT GmbH",
+    hero: "UNEXT steht für KFZ-Gutachten in Berlin – mit persönlichem Kontakt, strukturierter Schadenaufnahme und verständlicher Einordnung. Von der ersten Anfrage bis zur weiteren Abstimmung erhalten Sie klare Informationen zu Ihrem Fahrzeug und dem nächsten sinnvollen Schritt.",
+    imageAlt: "Selimchan Kasumov im Büro der UNEXT GmbH in Berlin",
+    introEyebrow: "Persönlicher Kontakt",
+    introTitle: "Wer hinter UNEXT steht",
+    intro: [
       "UNEXT ist auf die Begutachtung von Fahrzeugschäden und die Wertermittlung spezialisiert. Im Mittelpunkt stehen der persönliche Kontakt, eine strukturierte Aufnahme der relevanten Informationen und eine verständliche Abstimmung.",
       "Sie erreichen UNEXT telefonisch, per WhatsApp oder über eine Anfrage. So können Fahrzeugdaten, Schadeninformationen und das weitere Vorgehen frühzeitig geklärt werden.",
     ],
-  },
-  method: {
-    title: "Sachliche Begutachtung",
-    paragraphs: [
+    methodEyebrow: "Arbeitsweise",
+    methodTitle: "Sachliche Begutachtung",
+    method: [
       "Fahrzeugschäden werden strukturiert dokumentiert und fachlich bewertet. Je nach Fall werden sichtbare Schäden, relevante Fahrzeugdaten und wertbezogene Merkmale berücksichtigt.",
       "Digitale Angaben können die Anfrage vorbereiten. Die fachliche Einordnung und die finale Bewertung erfolgen durch den Gutachter.",
     ],
+    trustEyebrow: "Vertrauen und fachliche Grundlage",
+    trustTitle: "Qualifikation und Weiterbildung",
+    qualificationTitle: "Qualifikation & Anerkennung",
+    qualification: "Selimchan Kasumov ist durch die DESAG als Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung geprüft und anerkannt.",
+    qualificationLink: "Qualifikation bei DESAG ansehen",
+    trainingTitle: "Fort- und Weiterbildung",
+    training: "Die nachgewiesenen Fachwebinare behandeln unter anderem Wertdefinitionen, Kürzungen und fachliche Stellungnahmen.",
   },
-  qualification: {
-    title: "Qualifikation & Anerkennung",
-    paragraphs: [
-      "Selimchan Kasumov ist durch die DESAG als Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung geprüft und anerkannt.",
+  en: {
+    heroEyebrow: "Vehicle appraisals in Berlin",
+    title: "About UNEXT GmbH",
+    hero: "UNEXT provides vehicle appraisals in Berlin with personal contact, structured damage assessment and clear explanations. From the first enquiry to the next steps, you receive clear information about your vehicle and the appropriate way forward.",
+    imageAlt: "Selimchan Kasumov at the UNEXT GmbH office in Berlin",
+    introEyebrow: "Personal contact",
+    introTitle: "The person behind UNEXT",
+    intro: [
+      "UNEXT specialises in assessing vehicle damage and determining vehicle values. Personal contact, a structured review of the relevant information and clear communication are central to our work.",
+      "You can contact UNEXT by phone, WhatsApp or the enquiry form. This allows us to clarify vehicle details, damage information and the next steps at an early stage.",
     ],
-    linkLabel: "Qualifikation bei DESAG ansehen",
-    linkHref: "https://www.desag.de/zertifikat/selimchankasumov/",
-  },
-  training: {
-    title: "Fortbildungen & Weiterbildung",
-    paragraphs: [
-      "Zu den nachgewiesenen Fachwebinaren gehören Wertdefinitionen sowie Kürzungen und fachliche Stellungnahmen.",
+    methodEyebrow: "How we work",
+    methodTitle: "Objective vehicle assessment",
+    method: [
+      "Vehicle damage is documented systematically and assessed professionally. Depending on the case, visible damage, relevant vehicle details and value-related features are considered.",
+      "Digital information can help prepare the enquiry. The professional assessment and final valuation are completed by the appraiser.",
     ],
-    linkLabel: undefined,
-    linkHref: undefined,
+    trustEyebrow: "Trust and professional background",
+    trustTitle: "Qualifications and continuing education",
+    qualificationTitle: "Qualification and recognition",
+    qualification: "Selimchan Kasumov has been assessed and recognised by DESAG as an expert in motor vehicle damage and valuation.",
+    qualificationLink: "View qualification at DESAG",
+    trainingTitle: "Training and continuing professional development",
+    training: "The documented specialist webinars cover value definitions, reductions applied to claims and the preparation of technical opinions.",
   },
-}
+  ru: {
+    heroEyebrow: "Автоэкспертиза в Берлине",
+    title: "О компании UNEXT GmbH",
+    hero: "UNEXT проводит автоэкспертизу в Берлине с личным сопровождением, последовательным осмотром повреждений и понятным объяснением. От первого запроса до дальнейшего согласования вы получаете ясную информацию об автомобиле и разумных следующих шагах.",
+    imageAlt: "Селимхан Касумов в офисе UNEXT GmbH в Берлине",
+    introEyebrow: "Личный контакт",
+    introTitle: "Кто стоит за UNEXT",
+    intro: [
+      "UNEXT специализируется на оценке повреждений и определении стоимости автомобилей. В центре нашей работы — личный контакт, последовательный сбор важной информации и понятное согласование.",
+      "Связаться с UNEXT можно по телефону, WhatsApp или через форму запроса. Это позволяет заранее уточнить данные автомобиля, информацию о повреждении и дальнейший порядок действий.",
+    ],
+    methodEyebrow: "Как мы работаем",
+    methodTitle: "Объективная автоэкспертиза",
+    method: [
+      "Повреждения автомобиля последовательно документируются и профессионально оцениваются. В зависимости от случая учитываются видимые повреждения, существенные данные автомобиля и характеристики, влияющие на стоимость.",
+      "Цифровые сведения помогают подготовить запрос. Профессиональную оценку и окончательное заключение выполняет автоэксперт.",
+    ],
+    trustEyebrow: "Доверие и профессиональная основа",
+    trustTitle: "Квалификация и повышение квалификации",
+    qualificationTitle: "Квалификация и признание",
+    qualification: "Селимчан Касумов прошёл проверку DESAG и признан этой организацией экспертом по повреждениям транспортных средств и оценке стоимости.",
+    qualificationLink: "Посмотреть квалификацию на сайте DESAG",
+    trainingTitle: "Повышение квалификации и профессиональное обучение",
+    training: "Подтверждённые профильные вебинары посвящены определениям стоимости, сокращениям страховых выплат и подготовке профессиональных заключений.",
+  },
+} as const satisfies Record<Locale, object>
 
-function GermanAboutPageContent() {
-  const homeCta = getTranslations("de").home.cta
+export function AboutPageContent({ locale }: AboutPageContentProps) {
+  const content = aboutContent[locale]
+  const homeCta = getTranslations(locale).home.cta
 
   return (
     <>
-      <SiteHeader locale="de" />
+      <SiteHeader locale={locale} />
       <main>
         <section className="bg-background py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="max-w-4xl">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                KFZ-Gutachten Berlin
-              </p>
-              <h1 className="mt-3 max-w-4xl text-display-fluid font-semibold text-foreground">
-                Über UNEXT GmbH
-              </h1>
-              <ReadableText
-                text={germanAbout.hero}
-                className="mt-6 measure-intro text-body-fluid text-foreground/82"
-              />
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{content.heroEyebrow}</p>
+              <h1 className="mt-3 max-w-4xl text-display-fluid font-semibold text-foreground">{content.title}</h1>
+              <ReadableText text={content.hero} className="mt-6 measure-intro text-body-fluid text-foreground/82" />
             </div>
           </div>
         </section>
@@ -87,30 +115,14 @@ function GermanAboutPageContent() {
         <section className="bg-card py-16 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[27rem] overflow-hidden rounded-[1.5rem] border border-border/50 bg-background shadow-sm lg:mx-0">
-              <Image
-                src="/images/about-selimchan-kasumov.webp"
-                alt="Selimchan Kasumov im Büro der UNEXT GmbH in Berlin"
-                fill
-                sizes="(min-width: 1024px) 44vw, 100vw"
-                quality={82}
-                className="object-cover object-center"
-              />
+              <Image src="/images/about-selimchan-kasumov.webp" alt={content.imageAlt} fill sizes="(min-width: 1024px) 44vw, 100vw" quality={82} className="object-cover object-center" />
             </div>
-
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Persönlicher Kontakt
-              </p>
-              <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
-                {germanAbout.intro.title}
-              </h2>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{content.introEyebrow}</p>
+              <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">{content.introTitle}</h2>
               <div className="mt-6 space-y-4">
-                {germanAbout.intro.paragraphs.map((paragraph) => (
-                  <ReadableText
-                    key={paragraph}
-                    text={paragraph}
-                    className="measure-intro-tight text-body-fluid text-foreground/82"
-                  />
+                {content.intro.map((paragraph) => (
+                  <ReadableText key={paragraph} text={paragraph} className="measure-intro-tight text-body-fluid text-foreground/82" />
                 ))}
               </div>
             </div>
@@ -118,25 +130,15 @@ function GermanAboutPageContent() {
         </section>
 
         <section className="bg-background py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                  Arbeitsweise
-                </p>
-                <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
-                  {germanAbout.method.title}
-                </h2>
-              </div>
-              <div className="space-y-4">
-                {germanAbout.method.paragraphs.map((paragraph) => (
-                  <ReadableText
-                    key={paragraph}
-                    text={paragraph}
-                    className="measure-intro-tight text-body-fluid text-foreground/82"
-                  />
-                ))}
-              </div>
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:px-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{content.methodEyebrow}</p>
+              <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">{content.methodTitle}</h2>
+            </div>
+            <div className="space-y-4">
+              {content.method.map((paragraph) => (
+                <ReadableText key={paragraph} text={paragraph} className="measure-intro-tight text-body-fluid text-foreground/82" />
+              ))}
             </div>
           </div>
         </section>
@@ -144,248 +146,30 @@ function GermanAboutPageContent() {
         <section className="bg-card py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Vertrauen und fachliche Grundlage
-              </p>
-              <h2 className="mt-2 text-heading-fluid font-semibold text-foreground">
-                Qualifikation und Weiterbildung
-              </h2>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{content.trustEyebrow}</p>
+              <h2 className="mt-2 text-heading-fluid font-semibold text-foreground">{content.trustTitle}</h2>
             </div>
-
             <div className="mt-12 grid gap-6 lg:grid-cols-2">
-              {[germanAbout.qualification, germanAbout.training].map((section) => (
-                <Card key={section.title} className="border-border/60 bg-background">
-                  <CardContent className="p-6 sm:p-8">
-                    <h3 className="text-title-fluid font-semibold text-foreground">
-                      {section.title}
-                    </h3>
-                    <div className="mt-5 space-y-4">
-                      {section.paragraphs.map((paragraph) => (
-                        <ReadableText
-                          key={paragraph}
-                          text={paragraph}
-                          className="text-body-compact leading-7 text-foreground/82"
-                        />
-                      ))}
-                    </div>
-                    {section.linkHref && section.linkLabel && (
-                      <a
-                        href={section.linkHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-5 inline-flex rounded-sm text-sm font-semibold text-primary underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
-                      >
-                        {section.linkLabel}
-                      </a>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+              <Card className="border-border/60 bg-background">
+                <CardContent className="p-6 sm:p-8">
+                  <h3 className="text-title-fluid font-semibold text-foreground">{content.qualificationTitle}</h3>
+                  <ReadableText text={content.qualification} className="mt-5 text-body-compact leading-7 text-foreground/82" />
+                  <a href="https://www.desag.de/zertifikat/selimchankasumov/" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex rounded-sm text-sm font-semibold text-primary underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4">
+                    {content.qualificationLink}
+                  </a>
+                </CardContent>
+              </Card>
+              <Card className="border-border/60 bg-background">
+                <CardContent className="p-6 sm:p-8">
+                  <h3 className="text-title-fluid font-semibold text-foreground">{content.trainingTitle}</h3>
+                  <ReadableText text={content.training} className="mt-5 text-body-compact leading-7 text-foreground/82" />
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        <CtaSection
-          locale="de"
-          title={homeCta.title}
-          description={homeCta.description}
-        />
-      </main>
-      <SiteFooter locale="de" />
-    </>
-  )
-}
-
-export function AboutPageContent({ locale }: AboutPageContentProps) {
-  if (locale === "de") {
-    return <GermanAboutPageContent />
-  }
-
-  const t = getTranslations(locale).aboutPage
-
-  return (
-    <>
-      <SiteHeader locale={locale} />
-      <main>
-        <section className="overflow-hidden bg-black md:relative md:aspect-[5022/1795]">
-          <div className="relative aspect-[5022/1795] bg-black md:absolute md:inset-0 md:h-auto md:aspect-auto">
-            {/* Dieses breite Teamfoto bleibt mobil voll sichtbar, damit die Personen nicht unruhig angeschnitten werden. */}
-            <Image
-              src="/images/about-hero-team-cropped.webp"
-              alt="Team von UNEXT GmbH"
-              fill
-              sizes="100vw"
-              quality={86}
-              className="object-contain object-top md:object-contain md:object-top"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/8 to-black/34 md:via-black/18 md:to-black/58" />
-          </div>
-
-          <div className="mx-auto max-w-7xl px-4 pb-9 pt-6 md:absolute md:inset-0 md:flex md:items-end md:pb-10 md:pt-0 lg:px-8 lg:pb-12">
-            <div className="max-w-5xl max-md:mx-auto max-md:max-w-[34rem] max-md:text-center">
-              <h1 className="text-display-fluid text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.42)]">
-                {t.title}
-              </h1>
-              <ReadableText
-                text={normalizeText(t.description)}
-                className="mx-auto mt-4 measure-intro-tight text-body-compact text-white/82 drop-shadow-[0_6px_20px_rgba(0,0,0,0.36)] md:mx-0 md:mt-6 md:measure-intro md:text-body-fluid"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="border-y border-border bg-card py-12">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              {t.stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-3xl font-bold text-primary sm:text-4xl">{stat.value}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-background py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-                  {t.storyEyebrow}
-                </p>
-                <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
-                  {t.storyTitle}
-                </h2>
-                <div className="mt-6 measure-intro-tight space-y-4 text-body-fluid text-muted-foreground">
-                  {t.storyParagraphs.map((paragraph) => (
-                    <ReadableText
-                      key={paragraph}
-                      text={normalizeText(paragraph)}
-                      className="text-body-fluid text-muted-foreground"
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-l border-primary/24 pb-6 pl-10 lg:border-l-2 lg:border-primary/30 lg:pb-0 lg:pl-10">
-                <div className="space-y-11 lg:space-y-8">
-                  {t.milestones.map((milestone, index) => (
-                    <div key={`${milestone.year}-${milestone.title}`} className="relative">
-                      <div className="absolute -left-[54px] flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground lg:-left-[41px] lg:h-6 lg:w-6">
-                        {index + 1}
-                      </div>
-                      <div>
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-primary">
-                          {milestone.year}
-                        </span>
-                        <h3 className="mt-1 max-w-none text-title-fluid font-semibold leading-[1.14] text-foreground [text-wrap:balance] lg:mt-0 lg:leading-normal lg:whitespace-nowrap">
-                          {milestone.title}
-                        </h3>
-                        <ReadableText
-                          text={normalizeText(milestone.description)}
-                          className="mt-2 measure-card-copy-wide text-body-compact text-muted-foreground lg:mt-1"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-card py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <h2 className="mx-auto measure-heading text-heading-fluid font-semibold text-foreground">
-                {t.valuesTitle}
-              </h2>
-              <ReadableText
-                text={normalizeText(t.valuesDescription)}
-                className="mx-auto mt-4 measure-intro text-body-fluid text-muted-foreground"
-              />
-            </div>
-
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {t.values.map((value, index) => {
-                const Icon = icons[index]
-
-                return (
-                  <Card
-                    key={value.title}
-                    className="border-border/50 bg-background text-left transition-all hover:border-primary/30 sm:text-center"
-                  >
-                    <CardContent className="p-6">
-                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary sm:mx-auto">
-                        <Icon className="h-7 w-7" />
-                      </div>
-                      <h3 className="text-title-fluid font-semibold text-foreground sm:measure-card-copy">{value.title}</h3>
-                      <ReadableText
-                        text={normalizeText(value.description)}
-                        className="mt-2 max-w-none text-body-compact text-muted-foreground sm:mx-auto sm:measure-card-copy-wide"
-                      />
-                    </CardContent>
-                  </Card>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-background py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-12">
-              <div className="order-2 lg:order-2 lg:pl-6">
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card p-2 shadow-sm lg:max-w-[20rem] xl:max-w-[22rem]">
-                  <div className="relative h-full w-full overflow-hidden rounded-[1.35rem]">
-                    {/* Dieses Foto zeigt den Mitarbeiter im Buero mit etwas Abstand zum Kartenrand. */}
-                    <Image
-                      src="/images/about-office.webp"
-                      alt="UNEXT Mitarbeiter im Buero"
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      quality={82}
-                      className="object-cover object-center"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="order-1 lg:order-1">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5">
-                  <span className="text-sm font-semibold text-primary">{t.subBrandBadge}</span>
-                </div>
-                <h2 className="measure-heading text-heading-fluid font-semibold text-foreground">
-                  {t.subBrandTitle}
-                </h2>
-                <ReadableText
-                  text={normalizeText(t.subBrandDescription)}
-                  className="mt-6 measure-intro-tight text-body-compact leading-[1.72] text-muted-foreground"
-                />
-                <ul className="mt-6 space-y-3">
-                  {t.subBrandHighlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-foreground">
-                      <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <Button asChild className="gap-2">
-                    <Link href="/gutachtenarten/unfallgutachten">
-                      {t.subBrandCta}
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <CtaSection locale={locale} />
+        <CtaSection locale={locale} title={homeCta.title} description={homeCta.description} />
       </main>
       <SiteFooter locale={locale} />
     </>

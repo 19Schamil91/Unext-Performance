@@ -6,7 +6,6 @@
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { HeroSection } from "@/components/sections/hero-section"
-import { ExpressCourierSection } from "@/components/sections/express-courier-section"
 import { ServicesSection } from "@/components/sections/services-section"
 import { WhySection } from "@/components/sections/why-section"
 import { AboutSection } from "@/components/sections/about-section"
@@ -20,7 +19,7 @@ type Props = {
 }
 
 export function HomePageContent({ locale }: Props) {
-  const homeCta = locale === "de" ? getTranslations(locale).home.cta : null
+  const homeCta = getTranslations(locale).home.cta
 
   return (
     <>
@@ -31,7 +30,6 @@ export function HomePageContent({ locale }: Props) {
         <ProcessSection locale={locale} />
         <WhySection locale={locale} />
         <AboutSection locale={locale} />
-        {locale !== "de" ? <ExpressCourierSection locale={locale} /> : null}
         <CtaSection
           locale={locale}
           title={homeCta?.title}

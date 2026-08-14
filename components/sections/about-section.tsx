@@ -8,7 +8,7 @@ import Link from "next/link"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { ReadableText } from "@/components/readable-text"
 import { Button } from "@/components/ui/button"
-import type { Locale } from "@/lib/i18n"
+import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type Props = {
@@ -17,22 +17,11 @@ type Props = {
 
 export function AboutSection({ locale }: Props) {
   const t = getTranslations(locale).home.about
-  const isGerman = locale === "de"
-  const showStatsPanel = locale !== "de"
-  const aboutImageSrc = isGerman ? "/images/home-service-accident-new.webp" : "/images/hero-car.webp"
-  const aboutImageAlt = isGerman ? "Begutachtung eines Fahrzeugs nach einem Unfall" : "UNEXT team member"
-  const aboutImageClassName = isGerman
-    ? "scale-[1.03] object-cover object-[50%_42%] brightness-[1.02] contrast-[1.03] saturate-[1.02]"
-    : "object-cover object-[62%_42%]"
-  // Diese mobile englische Fassung setzt Sinnzeilen, ohne die Desktop-Fassung oder andere Sprachen zu veraendern.
-  const mobileEnglishParagraph1 =
-    "UNEXT GmbH is a Berlin-based company,\nfounded in 2024 with a focus on\nprofessional accident reports and\nimmediate assistance.\n\nUnder the UNFALLX brand, we quickly became\na reliable partner for customers."
-  const mobileEnglishParagraph2 =
-    "Today, we offer more:\ncar rental, workshop service and detailing,\nvehicle registration, roadside assistance\nand towing - all in one place.\n\nOur goal is to support you\nwith vehicle-related questions\nclearly, directly and competently."
-  const mobileRussianParagraph1 =
-    "UNEXT GmbH - берлинская компания,\nоснованная в 2024 году с фокусом\nна автоэкспертизу после ДТП\nи срочную помощь.\n\nПод брендом UNFALLX мы быстро стали\nнадежным партнером для клиентов."
-  const mobileRussianParagraph2 =
-    "Сегодня мы предлагаем больше:\nаренду авто, сервис и детейлинг,\nрегистрацию, помощь на дороге\nи эвакуацию - все в одном месте.\n\nНаша цель - помогать вам\nв автомобильных вопросах\nпонятно, напрямую и компетентно."
+  const aboutImageAlt = {
+    de: "Begutachtung eines Fahrzeugs nach einem Unfall",
+    en: "Vehicle inspection after an accident",
+    ru: "Осмотр автомобиля после ДТП",
+  } as const
 
   return (
     <section className="bg-background py-20 lg:py-28">
@@ -41,49 +30,25 @@ export function AboutSection({ locale }: Props) {
           <div className="relative lg:pr-6">
             <div
               className={
-                isGerman
-                  ? "relative aspect-[1/1] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm"
-                  : "relative aspect-[16/11] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm"
+                "relative aspect-[1/1] overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm"
               }
             >
               <Image
-                src={aboutImageSrc}
-                alt={aboutImageAlt}
+                src="/images/home-service-accident-new.webp"
+                alt={aboutImageAlt[locale]}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                loading={isGerman ? "eager" : "lazy"}
+                loading="eager"
                 quality={75}
-                className={aboutImageClassName}
+                className="scale-[1.03] object-cover object-[50%_42%] brightness-[1.02] contrast-[1.03] saturate-[1.02]"
               />
               <div
                 className={
-                  isGerman
-                    ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.04)_0%,rgba(5,7,11,0.01)_48%,rgba(5,7,11,0.10)_100%)]"
-                    : "absolute inset-0 bg-[linear-gradient(90deg,rgba(4,6,10,0.22)_0%,rgba(7,9,13,0.14)_44%,rgba(7,9,13,0.08)_100%),linear-gradient(180deg,rgba(5,7,11,0.08)_0%,rgba(5,7,11,0.02)_34%,rgba(5,7,11,0.18)_100%)]"
+                  "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.04)_0%,rgba(5,7,11,0.01)_48%,rgba(5,7,11,0.10)_100%)]"
                 }
               />
             </div>
 
-            {showStatsPanel ? (
-              <div className="absolute -bottom-5 left-4 right-4 sm:left-8 sm:right-auto">
-                <div className="flex flex-wrap justify-center gap-3 rounded-xl border border-border/80 bg-card/95 p-3.5 shadow-lg backdrop-blur sm:flex-nowrap">
-                  <div className="min-w-[84px] px-2 text-center">
-                    <p className="text-2xl font-bold text-primary">2024</p>
-                    <p className="text-xs font-medium text-foreground/72">{t.stats.founded}</p>
-                  </div>
-                  <div className="hidden w-px bg-border sm:block" />
-                  <div className="min-w-[84px] px-2 text-center">
-                    <p className="text-2xl font-bold text-primary">6</p>
-                    <p className="text-xs font-medium text-foreground/72">{t.stats.services}</p>
-                  </div>
-                  <div className="hidden w-px bg-border sm:block" />
-                  <div className="min-w-[84px] px-2 text-center">
-                    <p className="text-2xl font-bold text-primary">1</p>
-                    <p className="text-xs font-medium text-foreground/72">{t.stats.location}</p>
-                  </div>
-                </div>
-              </div>
-            ) : null}
           </div>
 
           <div className="lg:pl-8">
@@ -93,37 +58,14 @@ export function AboutSection({ locale }: Props) {
             <h2 className="mt-2 measure-heading text-heading-fluid font-semibold text-foreground">
               {t.title}
             </h2>
-            {locale === "en" || locale === "ru" ? (
-              <>
-                <ReadableText
-                  text={t.paragraph1}
-                  className="mt-6 hidden measure-intro-tight text-body-fluid text-foreground/82 md:block"
-                />
-                <ReadableText
-                  text={t.paragraph2}
-                  className="mt-4 hidden measure-intro-tight text-body-fluid text-foreground/82 md:block"
-                />
-                <ReadableText
-                  text={locale === "en" ? mobileEnglishParagraph1 : mobileRussianParagraph1}
-                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/82 md:hidden"
-                />
-                <ReadableText
-                  text={locale === "en" ? mobileEnglishParagraph2 : mobileRussianParagraph2}
-                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/82 md:hidden"
-                />
-              </>
-            ) : (
-              <>
-                <ReadableText
-                  text={t.paragraph1}
-                  className="mt-6 measure-intro-tight text-body-fluid text-foreground/86"
-                />
-                <ReadableText
-                  text={t.paragraph2}
-                  className="mt-4 measure-intro-tight text-body-fluid text-foreground/86"
-                />
-              </>
-            )}
+            <ReadableText
+              text={t.paragraph1}
+              className="mt-6 measure-intro-tight text-body-fluid text-foreground/86"
+            />
+            <ReadableText
+              text={t.paragraph2}
+              className="mt-4 measure-intro-tight text-body-fluid text-foreground/86"
+            />
 
             <ul className="mt-8 space-y-3">
               {t.highlights.map((item) => (
@@ -136,7 +78,7 @@ export function AboutSection({ locale }: Props) {
 
             <div className="mt-8">
               <Button asChild className="gap-2">
-                <Link href="/ueber-uns">
+                <Link href={getLocalizedPagePath("about", locale)}>
                   {t.cta}
                   <ArrowRight className="h-5 w-5" />
                 </Link>

@@ -8,18 +8,11 @@
 import { useActionState, type ReactNode } from "react"
 import Link from "next/link"
 import {
-  Car,
   CheckCircle,
-  ClipboardCheck,
-  FileCheck,
-  Instagram,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
-  Sparkles,
-  Truck,
-  Wrench,
 } from "lucide-react"
 import { FormSubmitButton } from "@/components/FormSubmitButton"
 import { Button } from "@/components/ui/button"
@@ -28,24 +21,10 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendContactMessage } from "@/lib/contactActions"
-import { initialContactActionState } from "@/lib/contactForm"
+import { initialContactActionState, validateContactForm } from "@/lib/contactForm"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
-
-const legacyServiceMeta = [
-  { icon: FileCheck, phone: "0176 64365185", social: "@unext.performance" },
-  { icon: Car, phone: "0174 4292900", social: "@unext.performance" },
-  { icon: Wrench, phone: "0177 7883206", social: "@unext.performance" },
-  { icon: Sparkles, phone: "0177 6691006", social: "@unext.performance" },
-  { icon: ClipboardCheck, phone: "030 23613927", social: "@unext.performance" },
-  { icon: Truck, phone: "030 23613927", social: "@unext.performance" },
-] as const
-
-const fallbackServiceMeta = {
-  icon: Phone,
-  phone: "030 23613927",
-  social: "@unext.performance",
-} as const
+import { useLocalizedFormValidation } from "@/lib/use-localized-form-validation"
 
 function splitAtSentenceBoundary(text: string) {
   const match = text.match(/^(.+?[.!?])(\s+.+)$/)
@@ -67,26 +46,24 @@ type ContactPageClientProps = {
 }
 
 export function ContactPageClient({ locale, header, footer }: ContactPageClientProps) {
-  // Dieser Wert enthaelt die Server-Antwort nach dem Absenden des Formulars.
-  const [formState, formAction] = useActionState(sendContactMessage, initialContactActionState)
+  // Die Servervalidierung bleibt verbindlich; die gemeinsame Clientprüfung verhindert nur ungültige Requests.
+  const [formState, formAction, isPending] = useActionState(sendContactMessage, initialContactActionState)
+  const validation = useLocalizedFormValidation({
+    locale,
+    serverState: formState,
+    submitAction: formAction,
+    validate: validateContactForm,
+  })
   const t = getTranslations(locale).contactPage
   const descriptionParts = splitAtSentenceBoundary(t.description)
   const primaryPhone = "030 23613927"
   const whatsappPhone = "0176 64365185"
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const privacyHref = getLocalizedPath(locale, "/datenschutz")
-  const legacyContactSection =
-    locale !== "de" && "serviceContacts" in t
-      ? {
-          title: t.serviceContactsTitle,
-          description: t.serviceContactsDescription,
-          contacts: t.serviceContacts,
-          whatsappLabel: t.whatsapp,
-        }
-      : null
 
-  // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
-  const getFieldError = (field: string) => formState.fieldErrors[field]
+  const { fieldErrors, getFieldError, handleChange, handleSubmit, message: validationMessage } = validation
+  const errorMessage = validationMessage || (formState.status === "error" ? formState.message : "")
+  const hasFieldErrors = Object.keys(fieldErrors).length > 0
 
   return (
     <>
@@ -96,7 +73,11 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-16">
               <div className="measure-intro max-w-[58rem]">
-                <h1 className="measure-display text-display-fluid text-foreground">
+                <h1
+                  className={`text-display-fluid text-foreground ${
+                    locale === "de" ? "measure-display" : "max-w-[18ch] [text-wrap:balance]"
+                  }`}
+                >
                   {t.title}
                 </h1>
                 <p className="measure-intro mt-6 text-body-fluid text-muted-foreground">
@@ -150,7 +131,7 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                 >
                   <Mail className="h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <p className="text-xs font-medium text-muted-foreground">E-Mail</p>
+                    <p className="text-xs font-medium text-muted-foreground">{t.methods.email.title}</p>
                     <p className="font-semibold">info@unext.de</p>
                   </div>
                 </a>
@@ -182,16 +163,17 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                     <CardDescription>{t.form.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    {/* Dieses Formular sendet die Anfrage an den Server, damit daraus eine E-Mail entsteht. */}
-                    <form action={formAction}>
+                    {/* Native Browserblasen sind deaktiviert, damit alle Sprachen dieselbe zugängliche Rückmeldung erhalten. */}
+                    <form noValidate onSubmit={handleSubmit} onChange={handleChange}>
                       <input type="hidden" name="locale" value={locale} />
                       <FieldGroup className="space-y-4">
-                        {formState.status === "error" ? (
+                        {errorMessage ? (
                           <div
-                            role="alert"
+                            role={hasFieldErrors ? undefined : "alert"}
+                            aria-hidden={hasFieldErrors || undefined}
                             className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
                           >
-                            {formState.message}
+                            {errorMessage}
                           </div>
                         ) : null}
                         <div className="grid gap-4 sm:grid-cols-2">
@@ -225,6 +207,7 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                             id="email"
                             name="email"
                             type="email"
+                            placeholder={t.form.emailPlaceholder}
                             aria-invalid={Boolean(getFieldError("email"))}
                             aria-describedby={getFieldError("email") ? "email-error" : undefined}
                             required
@@ -257,7 +240,12 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
                           <FieldError id="message-error">{getFieldError("message")}</FieldError>
                         </Field>
 
-                        <FormSubmitButton submitLabel={t.form.submit} pendingLabel={t.form.submitting} />
+                        <FormSubmitButton
+                          submitLabel={t.form.submit}
+                          ariaLabel={t.form.submitAriaLabel}
+                          pendingLabel={t.form.submitting}
+                          pending={isPending}
+                        />
 
                         <p className="text-center text-xs text-muted-foreground">
                           {t.form.privacyPrefix}{" "}
@@ -275,70 +263,6 @@ export function ContactPageClient({ locale, header, footer }: ContactPageClientP
             </div>
           </div>
         </section>
-
-        {legacyContactSection ? (
-          <section className="border-y border-border/70 bg-card py-16 lg:py-20">
-            <div className="mx-auto max-w-7xl px-4 lg:px-8">
-              <div className="mb-10 max-w-3xl">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                  {legacyContactSection.title}
-                </h2>
-                <p className="mt-3 text-body-compact text-muted-foreground">
-                  {legacyContactSection.description}
-                </p>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {legacyContactSection.contacts.map((service, index) => {
-                  const meta = legacyServiceMeta[index] ?? fallbackServiceMeta
-
-                  return (
-                    <Card key={service.title} className="border-border/60 bg-background">
-                      <CardContent className="flex gap-4 p-5">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                          <meta.icon className="h-5 w-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                            {service.subtitle}
-                          </p>
-                          <h3 className="text-lg font-semibold text-foreground">{service.title}</h3>
-                          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-                            <a
-                              href={"tel:" + meta.phone.replace(/\s/g, "")}
-                              className="flex items-center gap-2 text-sm text-foreground transition-colors hover:text-primary"
-                            >
-                              <Phone className="h-4 w-4" />
-                              {meta.phone}
-                            </a>
-                            <a
-                              href={"https://wa.me/49" + meta.phone.replace(/\s/g, "").replace(/^0/, "")}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                            >
-                              <MessageCircle className="h-4 w-4" />
-                              {legacyContactSection.whatsappLabel}
-                            </a>
-                            <a
-                              href={"https://instagram.com/" + meta.social.replace("@", "")}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-                            >
-                              <Instagram className="h-4 w-4" />
-                              {meta.social}
-                            </a>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
-        ) : null}
 
         <section className="bg-background pb-16 pt-8 lg:pb-24 lg:pt-10">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">

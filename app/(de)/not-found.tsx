@@ -14,7 +14,7 @@ export default function NotFound() {
         <p className="text-sm font-semibold uppercase tracking-wider text-primary">404</p>
         <h1 className="mt-3 text-2xl font-semibold text-foreground">Seite nicht gefunden</h1>
         <p className="mt-3 text-muted-foreground">
-          Die angeforderte Seite gibt es nicht oder sie wurde verschoben.
+          Die angeforderte Seite existiert nicht oder wurde verschoben.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild>

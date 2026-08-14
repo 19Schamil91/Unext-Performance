@@ -12,7 +12,13 @@ import { HeaderPageLink } from "@/components/HeaderPageLink"
 import { HeaderServicesMenu } from "@/components/HeaderServicesMenu"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { getLocalizedPath, locales, type Locale } from "@/lib/i18n"
+import {
+  getLocalizedPageId,
+  getLocalizedPagePath,
+  getLocalizedPath,
+  locales,
+  type Locale,
+} from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
 
 type SiteHeaderProps = {
@@ -24,21 +30,6 @@ type NavigationItem = {
   href: string
   children?: readonly { name: string; href: string }[]
 }
-
-const localizedPagePaths = [
-  "/agb",
-  "/datenschutz",
-  "/impressum",
-  "/kontakt",
-  "/ueber-uns",
-  "/leistungen",
-  "/leistungen/unfallgutachten",
-  "/leistungen/autovermietung",
-  "/leistungen/abschleppdienst-pannenhilfe",
-  "/leistungen/autoservice",
-  "/leistungen/detailing",
-  "/leistungen/zulassungsservice",
-] as const
 
 const themeLabels = {
   de: { light: "Hellmodus aktivieren", dark: "Darkmodus aktivieren" },
@@ -55,23 +46,21 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const homeHref = getLocalizedPath(locale, "/")
   const contactHref = getLocalizedPath(locale, "/kontakt")
   const servicesHref = getLocalizedPath(locale, "/leistungen")
-  const showServicesOverviewLink = locale !== "de"
+  const showServicesOverviewLink = false
   const navigation = t.header.navigation as readonly NavigationItem[]
   const pageNavigation = navigation.filter((item) => !item.children)
   const serviceNavigation = navigation.find((item) => item.children)
   const languages = locales.map((code) => ({ code, name: t.languages[code] }))
 
-  // Diese Funktion haelt Navigationslinks in der aktuellen Sprache, wenn die Zielseite bereits migriert ist.
+  // Diese Funktion ordnet bekannte Fachseiten zentral der aktuellen Sprache zu.
   const getNavigationHref = (href: string) => {
-    const isLocalizedPagePath = localizedPagePaths.includes(
-      href as (typeof localizedPagePaths)[number]
-    )
+    const pageId = getLocalizedPageId(href)
 
-    if (href === "/" || isLocalizedPagePath) {
-      return getLocalizedPath(locale, href)
+    if (pageId) {
+      return getLocalizedPagePath(pageId, locale)
     }
 
-    return href
+    return getLocalizedPath(locale, href)
   }
 
   const resolvedPageNavigation = pageNavigation.map((item) => ({
@@ -127,7 +116,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           <HeaderLanguageSwitcher
             locale={locale}
             languages={languages}
-            localizedPagePaths={localizedPagePaths}
           />
 
           <ThemeToggle
@@ -162,9 +150,9 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             pageNavigation={resolvedPageNavigation}
             serviceNavigation={resolvedServiceNavigation}
             languages={languages}
-            localizedPagePaths={localizedPagePaths}
             labels={{
               openMenu: t.header.openMenu,
+              closeMenu: t.header.closeMenu,
               quickContact: t.header.quickContact,
               callNow: t.header.callNow,
               inquiry: t.header.inquiry,

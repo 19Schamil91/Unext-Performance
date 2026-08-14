@@ -9,18 +9,16 @@ import { useEffect, useRef, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { ChevronDown, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getLocalizedPath, removeLocalePrefix, type Locale } from "@/lib/i18n"
+import { getLocalizedCounterpartPath, type Locale } from "@/lib/i18n"
 
 type HeaderLanguageSwitcherProps = {
   locale: Locale
   languages: readonly { code: Locale; name: string }[]
-  localizedPagePaths: readonly string[]
 }
 
 export function HeaderLanguageSwitcher({
   locale,
   languages,
-  localizedPagePaths,
 }: HeaderLanguageSwitcherProps) {
   // Diese Werte steuern das Sprachmenue und sperren es kurz waehrend der Navigation.
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
@@ -56,19 +54,18 @@ export function HeaderLanguageSwitcher({
     }
   }, [languageMenuOpen])
 
-  // Diese Funktion wechselt auf migrierten Seiten pfadtreu und sonst zur Sprach-Startseite.
+  // Diese Funktion wechselt nur dann, wenn fuer dieselbe Fachseite ein Sprachziel existiert.
   const handleLocaleChange = (nextLocale: Locale) => {
     if (nextLocale === locale) {
       setLanguageMenuOpen(false)
       return
     }
 
-    const currentPath = removeLocalePrefix(pathname)
-    const isLocalizedPagePath = localizedPagePaths.includes(currentPath)
-    const nextPath = getLocalizedPath(
-      nextLocale,
-      currentPath === "/" || isLocalizedPagePath ? currentPath : "/"
-    )
+    const nextPath = getLocalizedCounterpartPath(pathname, nextLocale)
+
+    if (!nextPath) {
+      return
+    }
 
     setIsPending(true)
     setLanguageMenuOpen(false)
@@ -92,17 +89,21 @@ export function HeaderLanguageSwitcher({
 
       {languageMenuOpen ? (
         <div className="absolute right-0 top-full z-50 mt-2 min-w-[11rem] rounded-2xl border border-border/70 bg-popover/98 p-1.5 shadow-[0_18px_40px_rgba(15,23,42,0.2)]">
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              type="button"
-              className="flex w-full items-center rounded-lg px-3 py-2 text-left text-sm leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
-              disabled={isPending}
-              onClick={() => handleLocaleChange(lang.code)}
-            >
-              {lang.name}
-            </button>
-          ))}
+          {languages.map((lang) => {
+            const isAvailable = Boolean(getLocalizedCounterpartPath(pathname, lang.code))
+
+            return (
+              <button
+                key={lang.code}
+                type="button"
+                className="flex w-full items-center rounded-lg px-3 py-2 text-left text-sm leading-5 text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
+                disabled={isPending || !isAvailable}
+                onClick={() => handleLocaleChange(lang.code)}
+              >
+                {lang.name}
+              </button>
+            )
+          })}
         </div>
       ) : null}
     </div>

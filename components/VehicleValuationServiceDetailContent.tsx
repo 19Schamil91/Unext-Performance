@@ -6,9 +6,8 @@
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
-import type { Locale } from "@/lib/i18n"
-
-const locale: Locale = "de"
+import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
+import { appraisalPageTranslations } from "@/lib/translations/appraisal-pages"
 
 const heroActions = [
   { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
@@ -138,13 +137,61 @@ const formTextOverrides = {
   vehicle: "Fahrzeugmodell",
   vehiclePlaceholder: "z. B. BMW 5er, EZ 2020",
   phonePlaceholder: "Ihre Telefonnummer",
-  message: "Fahrzeug und weitere Angaben",
+  message: "Fahrzeugdaten und weitere Angaben",
   messagePlaceholder:
     "Zum Beispiel Verkauf, Kilometerstand, Ausstattung oder bekannte Vorschäden",
   submit: "Bewertung anfragen",
 } as const
 
-export function VehicleValuationServiceDetailContent() {
+type VehicleValuationServiceDetailContentProps = {
+  locale?: Locale
+}
+
+export function VehicleValuationServiceDetailContent({
+  locale = "de",
+}: VehicleValuationServiceDetailContentProps) {
+  if (locale !== "de") {
+    const page = appraisalPageTranslations[locale].vehicleValuation
+
+    return (
+      <>
+        <SiteHeader locale={locale} />
+        <ServicePageLayout
+          locale={locale}
+          title={page.title}
+          subtitle={page.subtitle}
+          description={page.description}
+          image="/images/services/wertgutachten-fahrzeugbewertung.webp"
+          imageAlt={page.imageAlt}
+          imageClassName="object-cover object-[center_60%] md:object-[center_58%]"
+          heroActions={page.heroActions}
+          bottomActions={page.heroActions}
+          heroNotice={page.heroNotice}
+          backLinkHref={getLocalizedPagePath("home", locale)}
+          servicePath={getLocalizedPagePath("vehicleValuation", locale)}
+          benefits={page.benefits}
+          services={page.services}
+          servicesDescription={page.servicesDescription}
+          servicesGridClassName="lg:grid-cols-4"
+          detailSections={page.detailSections}
+          whyChoose={page.whyChoose}
+          faqs={page.faqs}
+          formTitle={page.formTitle}
+          ctaTitle={page.ctaTitle}
+          ctaDescription={page.ctaDescription}
+          serviceName="fahrzeugbewertung"
+          formFields={formFields}
+          formTextOverrides={page.formTextOverrides}
+          formHelperText={page.formHelperText}
+          layoutLabels={page.layoutLabels}
+          balancedTypography
+          benefitsSingleLine
+        />
+        <SiteFooter locale={locale} />
+      </>
+    )
+  }
+
   return (
     <>
       <SiteHeader locale={locale} />

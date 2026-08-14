@@ -411,6 +411,232 @@ Der Nutzer hat die neue Reihenfolge ausdrücklich festgelegt: Nach Freigabe dies
 
 Der Dateiplan wurde ausdrücklich freigegeben. Die vorläufige lokale Codeumsetzung darf beginnen. Die menschliche EN/RU-Prüfung bleibt vor Abschluss, Push, Pull Request und Launch verpflichtend; der technische Preview-Stand darf nicht als sprachlich final oder launchfähig bezeichnet werden. Status bleibt `in Arbeit`.
 
+## Codebase-Explorer vor der Umsetzung
+
+Der vorgeschriebene read-only Codebase-Explorer hat den freigegebenen Plan vor der ersten Codeänderung geprüft:
+
+- Die vorhandenen deutschen Gutachtenrouten unter `app/(de)/gutachtenarten/` und die lokalisierten `[locale]`-Routen liefern passende App-Router-Muster für die neuen EN/RU-Routen.
+- Die bestehende Locale-Validierung erfolgt mit `isUrlLocale(locale)` und `notFound()`; die geplante zentrale Seiten-ID-Zuordnung in `lib/i18n.ts` ist für einen kontexttreuen Sprachwechsel erforderlich.
+- `ServicePageLayout`, `ServiceInquiryForm` und die drei vorhandenen Gutachten-Komponenten werden wiederverwendet. Eine neue wiederverwendbare React-Komponente ist nicht erforderlich.
+- `app/(localized)/[locale]/not-found.tsx` und die drei lokalisierten Gutachten-`page.tsx`-Dateien sind sinnvolle neue Dateien.
+- Der Explorer bestätigte zunächst vier neue Route-/State-Dateien, weil `app/(localized)/[locale]/error.tsx` bereits existiert. Die reale Browserprüfung zeigte anschließend, dass unbekannte Unterpfade ohne eine locale-nahe Catch-all-Route auf die allgemeine Next.js-404 fallen. Deshalb wurde zusätzlich `app/(localized)/[locale]/[...notFound]/page.tsx` angelegt und diese Laufzeitabweichung geprüft.
+
+Diese Abweichung verändert den fachlichen oder technischen Scope nicht. Der freigegebene Dateiplan bleibt umsetzbar.
+
+## Vorläufiger lokaler Umsetzungsstand
+
+Der freigegebene Dateiplan wurde mit Commit `877e057 task-051: plan provisional EN/RU implementation` separat gesichert. Danach wurde der technische Preview-Stand lokal und noch uncommitted umgesetzt.
+
+Umgesetzt sind:
+
+- zentrale, typisierte Seiten-IDs und kontexttreue DE/EN/RU-Ziele;
+- sechs neue EN/RU-Gutachtenartenrouten und zwei direkte permanente Redirects;
+- Header, Mobile-Menü, Footer und Startseiten auf drei Gutachtenarten ausgerichtet;
+- Startseite, Über uns, Trust, Kontakt und alle drei Gutachtenarten in EN/RU an den deutschen V1-Aufbau angeglichen;
+- locale-spezifische Formular-, Feld-, Server- und interne Versandkontexte ohne Änderung des echten Versands;
+- lokalisierte Error- und 404-Zustände mit sprachrichtigen Rückwegen;
+- deutsche Gutachtenrouten ausschließlich technisch um die explizite Locale-Übergabe ergänzt.
+
+Tatsächlich geändert oder neu angelegt wurden:
+
+- `app/(de)/gutachtenarten/fahrzeugbewertung/page.tsx`
+- `app/(de)/gutachtenarten/schadendokumentation/page.tsx`
+- `app/(localized)/[locale]/error.tsx`
+- `app/(localized)/[locale]/not-found.tsx`
+- `app/(localized)/[locale]/[...notFound]/page.tsx`
+- `app/(localized)/[locale]/gutachtenarten/unfallgutachten/page.tsx`
+- `app/(localized)/[locale]/gutachtenarten/fahrzeugbewertung/page.tsx`
+- `app/(localized)/[locale]/gutachtenarten/schadendokumentation/page.tsx`
+- `components/AboutPageContent.tsx`
+- `components/AccidentServiceDetailContent.tsx`
+- `components/DamageDocumentationServiceDetailContent.tsx`
+- `components/HeaderLanguageSwitcher.tsx`
+- `components/HeaderMobileMenu.tsx`
+- `components/HomePageContent.tsx`
+- `components/VehicleValuationServiceDetailContent.tsx`
+- `components/contact-page-client.tsx`
+- `components/sections/about-section.tsx`
+- `components/sections/hero-section.tsx`
+- `components/sections/services-section.tsx`
+- `components/site-header.tsx`
+- `lib/contactActions.ts`
+- `lib/contactForm.ts`
+- `lib/i18n.ts`
+- `lib/translations.ts`
+- `lib/translations/appraisal-pages.ts`
+- `lib/translations/contact.ts`
+- `lib/translations/header-footer.ts`
+- `lib/translations/home-overrides.ts`
+- `lib/translations/service-details.ts`
+- `next.config.mjs`
+
+Abweichungen vom Dateiplan:
+
+- `lib/translations/service-pages-part1.ts` wurde nicht verändert. Die vorläufigen EN/RU-Unfallgutachten-Daten werden zusammen mit Fahrzeugbewertung und Schadendokumentation in der neuen, typisierten Quelle `lib/translations/appraisal-pages.ts` geführt und im Dictionary zuletzt zusammengeführt. So bleiben die alten Rental-Daten in der Legacy-Datei unberührt.
+- `lib/translations/about-overrides.ts` wurde nicht verändert. Der aktuelle deutsche V1-Aufbau wurde direkt in `AboutPageContent.tsx` als gemeinsame locale-fähige Struktur weiterverwendet, damit keine zweite sichtbare Trust-Datenquelle entsteht.
+- Die zusätzliche locale-nahe Catch-all-Route ist nötig, weil eine unbekannte EN/RU-Unterroute die verschachtelte `not-found.tsx` sonst nicht zuverlässig erreicht. `notFound()` aktiviert den Next.js-Not-found-Zustand; bei gestreamten Antworten kann Next.js HTTP 200 mit `noindex` ausgeben.
+
+Prüfstand:
+
+- `git diff --check`, ESLint, TypeScript und Produktions-Build bestanden; der Build erzeugt 49 statische Seiten und die dynamische locale-nahe Catch-all-Route.
+- `next-router-check`: 32 UI-Routen geprüft, davon 16 datenladende lokalisierte Routen; die zusätzliche locale-nahe Catch-all-Route ist synchron. Vorhandene `loading.tsx`, `error.tsx` und der neue locale-nahe `not-found.tsx` decken die relevanten Scopes ab, keine fehlende Pflichtdatei.
+- Alle sechs neuen Routen liefern HTTP 200. Die beiden alten EN/RU-Unfallrouten leiten direkt mit HTTP 308 auf die neuen Ziele, ohne Kette oder Schleife.
+- Alle 18 geprüften Sprachwechsel zwischen DE, EN und RU auf den drei Gutachtenarten erhalten den Seitenkontext.
+- 50 Fullpage-Screenshots liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-provisional-preview/`.
+- EN/RU wurden bei 390, 768 und 1440 px geprüft; die vier deutschen Referenzseiten bei 390 und 1440 px.
+- Keine horizontalen Überläufe, Console-, Hydration-, Request- oder sichtbaren Bildfehler in den geprüften Kernwegen.
+- Der gezielte Aufruf einer ungültigen Locale unter `/fr/...` liefert die erwartete globale HTTP-404. Der lokale Next.js-Server protokolliert bei diesem absichtlichen Negativtest intern `NoFallbackError`; im Browser entstehen daraus keine Console-, Hydration- oder Darstellungsfehler. Der Loghinweis bleibt als Framework-/Route-QA-Befund für Aufgabe 033 dokumentiert.
+- `a11y_checker`, `quality_reviewer`, `content_consistency_reviewer`, `mobile_visual_checker`, `desktop_visual_checker`, `typography-line-break-check` und `next-router-check` wurden eingesetzt. Der anfängliche 404-Blocker wurde behoben; die übrigen Kernseiten zeigen keine blockierenden Layout- oder Accessibility-Befunde.
+- Veraltete EN/RU-Metadata und Structured Data sind technisch weiterhin vorhanden, aber nicht als sichtbarer V1-Inhalt. Ihre finale Bereinigung bleibt ausdrücklich Aufgabe 029; Legacy-Seiten und Alt-Daten bleiben Aufgabe 026.
+
+Weiterhin offen und verpflichtend:
+
+- menschliche englische Sprachprüfung;
+- menschliche russische Sprachprüfung;
+- fachliche Prüfung sensibler Gutachten-, Versicherungs-, Kosten- und Trust-Aussagen;
+- geeignete beziehungsweise qualifizierte Prüfung der Rechtstexte;
+- visuelle Nutzerfreigabe des lokalen Preview-Stands.
+
+Dieser Stand ist nicht launchfähig. Aufgabe 051 bleibt aktiv und hat weiterhin den Status `in Arbeit`.
+
+## Freigegebene Referenztext-Korrekturen
+
+Die nach der vorläufigen Paritätsprüfung ausdrücklich freigegebenen kleinen Referenztext-Korrekturen wurden in DE, EN und RU synchronisiert. Betroffen sind der ergänzende Startseitenhinweis, Prozessschritt 4, zwei Begriffe beziehungsweise Beschreibungen des Unfallgutachtens, die Formularüberschrift der Fahrzeugbewertung sowie der Fortbildungsbereich auf der Über-uns-Seite.
+
+Unbekannte deutsche Pfade erhalten über eine locale-nahe Catch-all-Route nun die vorhandene deutsche 404-Seite. Die bestehenden lokalisierten EN/RU-404-Aktionen wurden auf die freigegebenen Beschriftungen angepasst. Es wurde keine allgemeine `/gutachtenarten`-Route angelegt oder verlinkt.
+
+Die englischen und russischen Fortbildungsformulierungen bleiben ausdrücklich vorläufig und benötigen weiterhin menschliche Sprachprüfung sowie eine geeignete fachliche Prüfung. Gutachterkosten, Legal-Texte, SEO, Legacy-Inhalte und die übrigen gesammelten Layoutbefunde wurden in diesem Korrekturschritt nicht verändert. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+
+## Kontrollierte Überarbeitung der Rechtstexte
+
+Die bestätigten Betreiberangaben wurden als verbindliche Arbeitsgrundlage verwendet. Impressum, Datenschutzerklärung und AGB wurden zunächst auf Deutsch neu gefasst und anschließend sinngleich und kompakt auf Englisch und Russisch übertragen. Die Texte bleiben bis zur geeigneten rechtlichen Prüfung sowie zur menschlichen EN/RU-Sprachprüfung ausdrücklich vorläufig und nicht launchfähig.
+
+Umgesetzter Stand:
+
+- Das Impressum enthält ausschließlich die bestätigten Angaben zu UNEXT GmbH, Anschrift, Geschäftsführer, Kontakt, Handelsregister und Umsatzsteuer-ID.
+- Veraltete Platzhalter, der frühere RStV-Verweis und der nicht mehr passende EU-ODR-Hinweis wurden entfernt.
+- Die Datenschutzerklärung beschreibt IONOS-Hosting und Server-Protokolle, beide Formulararten, Datenkategorien, Zwecke, Rechtsgrundlagen, Empfänger, Resend, das IONOS-Postfach, Speicherkriterien, Browser-Theme, externe Links, lokale Assets, fehlendes aktives Tracking, Sicherheit, Betroffenenrechte und die Berliner Aufsichtsbehörde.
+- Die Hinweise an Kontakt- und Serviceformularen informieren neutral über die Datenverarbeitung. Sie stellen keine Einwilligung als Voraussetzung für die Anfrage dar.
+- Die AGB beschreiben die Formulare als unverbindliche Anfragen, die drei Gutachtenarten, Kundenmitwirkung, individuelle Termine, Preise und Zahlungen, fehlende pauschale Ausfallgebühren, keine garantierte Versicherungszahlung, gesetzliche Haftung und den nur bei tatsächlicher Relevanz gesondert zu behandelnden Widerruf.
+- Es wird weder behauptet, dass ein Vertrag online geschlossen wird, noch dass bereits ein technischer Prozess für den vorzeitigen Leistungsbeginn existiert.
+- Es wurde keine deutsche Vorrangklausel für die drei Sprachfassungen eingeführt.
+
+Read-only eingeordnete Rechts- und Betriebsfragen:
+
+- Datenschutzbeauftragter: Die bekannte Beschäftigtenzahl liegt unter der Schwelle des § 38 BDSG. Zusätzlich wurden die tätigkeitsbezogenen Kriterien aus Art. 37 DSGVO betrachtet. Im aktuellen Website- und Betriebsumfang wurden keine umfangreiche regelmäßige Überwachung, keine umfangreiche Verarbeitung besonderer Datenkategorien und keine sonstige erkennbare Pflichtkonstellation festgestellt. Ein Datenschutzbeauftragter wird daher derzeit nicht öffentlich benannt. Die abschließende rechtliche Bewertung bleibt offen.
+- Medienstaatsvertrag: Die Website enthält nach aktuellem Stand kein journalistisch-redaktionelles, periodisches Angebot, das einen gesonderten Verantwortlichen nach § 18 Abs. 2 MStV erfordert. Die abschließende rechtliche Bewertung bleibt offen.
+- Verbraucherstreitbeilegung: Bei höchstens zehn Beschäftigten zum 31. Dezember 2025 und ohne freiwillige Teilnahme oder bekannte Verpflichtung wird derzeit keine öffentliche Erklärung nach § 36 VSBG ergänzt. Eine gegebenenfalls fallbezogene Information nach § 37 VSBG bleibt ein interner Prozesspunkt.
+- Dienstleistungsinformationen: Die bestätigten Anbieter- und Kontaktdaten sind im Impressum verfügbar. Vor einem schriftlichen Vertrag beziehungsweise vor Leistungserbringung muss operativ geprüft werden, dass alle im Einzelfall erforderlichen Informationen nach DL-InfoV rechtzeitig bereitgestellt werden.
+- Auftragsverarbeitung: IONOS stellt einen Vertrag zur Auftragsverarbeitung bereit; Resend stellt ein DPA mit Angaben zu US-Verarbeitung und Transfermechanismen bereit. Ob diese Vertragsunterlagen in den tatsächlich genutzten Konten wirksam einbezogen beziehungsweise abgeschlossen sind, ist noch nicht belegt und muss vor Launch intern geprüft werden.
+- AGB und Widerruf: Die wirksame Einbeziehung der AGB sowie ein gegebenenfalls erforderlicher Widerrufs- und Prozess für einen vorzeitigen Leistungsbeginn müssen außerhalb des reinen Anfrageformulars operativ und rechtlich geprüft werden.
+
+Verwendete Primärquellen:
+
+- § 5 DDG, § 18 MStV, DSGVO, § 38 BDSG, § 25 TDDDG, §§ 305 und 307 BGB, §§ 312b, 312d, 312f, 312g, 312j, 355 und 356 BGB, Art. 246a § 1 EGBGB, §§ 36 und 37 VSBG sowie DL-InfoV;
+- offizielle Kontaktdaten der Berliner Beauftragten für Datenschutz und Informationsfreiheit;
+- offizielle Datenschutz-, Hosting-, AVV- und Protokollhinweise von IONOS;
+- offizielle Privacy-, DPA-, Subprocessor- und Regionshinweise von Resend.
+
+Offene Launch-Gates:
+
+- geeignete beziehungsweise qualifizierte Prüfung der deutschen Rechtstexte;
+- menschliche und rechtlich geeignete Prüfung der englischen und russischen Fassungen;
+- Prüfung der tatsächlichen AVV-/DPA-Einbeziehung in den IONOS- und Resend-Konten;
+- operative Prüfung der AGB-Einbeziehung, DL-InfoV-Informationen, Widerrufsbelehrung und eines gegebenenfalls gewünschten vorzeitigen Leistungsbeginns;
+- fallbezogener interner Prozess für § 37 VSBG.
+
+Prüfstand dieses Rechtstext-Schritts:
+
+- git diff --check, ESLint, TypeScript und Produktions-Build bestanden; der Build erzeugt weiterhin 49 Seiten.
+- Impressum, Datenschutz und AGB wurden in DE, EN und RU bei 390, 768 und 1440 px geprüft: 27 Seiten-/Viewport-Kombinationen liefern HTTP 200, enthalten die erwarteten Kernangaben und zeigen keinen horizontalen Overflow.
+- Neun repräsentative Sprachwechsel zwischen den drei Legal-Seiten bewahren den Seitenkontext.
+- In der Produktionsvorschau traten keine Console-, Hydration-, Request- oder Page-Fehler auf.
+- 27 Fullpage-Screenshots und der maschinenlesbare QA-Bericht liegen ausschließlich außerhalb des Repositorys unter C:/tmp/unext-task-051-legal-review/.
+- Der lokale Skill typography-line-break-check wurde für Textbreiten, Überschriften und Überlaufkontrolle herangezogen. Die direkte Bildansicht des Agenten war wegen einer Windows-Sandbox-Störung des Bildwerkzeugs nicht möglich; die Screenshots bleiben deshalb zusätzlich für die persönliche Sichtprüfung des Nutzers erhalten.
+- next-env.d.ts blieb unverändert.
+Dieser Schritt ändert keine Metadata, Structured Data, Routen, Assets, Environment-Konfiguration oder Projektplanung. ROADMAP.md bleibt deshalb unverändert.
+## Kontrollierter Korrekturstand für Sprache, Parität, Layout und Formulare
+
+Die priorisierten Befunde aus dem vollständigen DE/EN/RU-Text- und Sichtvergleich wurden kontrolliert bearbeitet. Deutsch bleibt die fachliche Referenz; die Fassungen in Englisch und Russisch bleiben bis zur menschlichen Sprachprüfung vorläufig.
+
+Umgesetzt wurden:
+
+- konsistente sichtbare Begriffe für Vehicle appraisal services, Accident damage appraisal, Vehicle valuation, Vehicle damage documentation und enquiry;
+- konsistente russische Begriffe für Arten der Autoexpertise, die Bewertung des Unfallschadens, die Fahrzeugbewertung, die Fixierung von Schäden und den merkantilen Minderwert;
+- ein klarer DESAG-Bezug in den englischen und russischen Trustaussagen ohne staatliche oder behördliche Anerkennungsbehauptung;
+- die Entfernung des deutschen Resttexts zur Zulassungsbescheinigung aus der russischen Unfallgutachtenseite;
+- die Entfernung einer doppelten Wortwiederholung im russischen Schadendokumentationsformular;
+- die korrekte russische Bedeutung von unverbindlicher Anfrage sowie von Rechten und Ansprüchen in den vorläufigen Rechtstexten;
+- eine gemeinsame responsive Hero-Grundlogik für DE, EN und RU;
+- ein gemeinsames Kartenraster mit einer Spalte auf Mobile, zwei Spalten und zentrierter dritter Karte auf Tablet sowie drei Spalten auf Desktop;
+- eine gemeinsame lokalisierte Clientvalidierung für Kontakt- und Gutachtenformulare auf Grundlage derselben Zod-Schemas wie die Servervalidierung;
+- lokalisierte Pflichtfeld-, E-Mail-, Längen- und Datumsfehler mit Fokus auf das erste ungültige Feld, `aria-invalid`, `aria-describedby` und sichtbaren `role="alert"`-Meldungen;
+- Schutz vor ungültigen und doppelten Übermittlungen, während gültige Daten weiterhin den bestehenden Server-Action-Ablauf verwenden.
+
+Prüfstand:
+
+- `git diff --check`, ESLint, TypeScript und Produktions-Build bestanden; der Build erzeugt 49 Seiten.
+- `next-router-check` prüfte 33 UI-Routen und 18 datenladende Routen ohne fehlende Pflichtgrenzen.
+- Startseiten, neun Gutachtenrouten, Kontaktformulare und die korrigierten russischen Rechtstextstellen wurden bei 390, 768 und 1440 Pixeln geprüft.
+- DE, EN und RU verwenden bei 1440 Pixeln denselben 1031 Pixel hohen Hero-Rahmen und bei 768 Pixeln denselben 955 Pixel hohen Rahmen. Mobile bleibt textabhängig flexibel und vollständig sichtbar.
+- In den geprüften Seiten traten kein horizontaler Overflow, keine Console-, Hydration-, Request- oder fehlerhaften HTTP-Antworten auf.
+- Ungültige Formularprüfungen lösten keine POST-Anfrage aus. Tastatur-Submit, Fehlerkorrektur, Fokusführung und die Feldverknüpfungen wurden geprüft.
+- Accessibility-, Mobile-, Desktop-, Content-, Typografie- und allgemeine Qualitätsprüfungen wurden ausgeführt. Die zusätzliche menschliche Sichtprüfung bleibt Teil der Nutzerfreigabe.
+- Screenshots, Laufzeitdaten und der aktualisierte Textvergleich liegen ausschließlich unter `C:/tmp/unext-task-051-corrections-review/`.
+- `next-env.d.ts` und `ROADMAP.md` blieben unverändert.
+
+Weiterhin offen und nicht als erledigt markiert:
+
+- menschliche englische Sprachfreigabe;
+- menschliche russische Sprachfreigabe;
+- geeignete fachliche Prüfung sensibler Gutachten-, Versicherungs-, Kosten- und Trustaussagen;
+- geeignete beziehungsweise qualifizierte Rechtsprüfung der drei vorläufigen Rechtstextfassungen;
+- ausdrückliche Nutzerfreigabe des korrigierten Preview-Stands.
+
+Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit`.
+
+## Enger Korrekturschritt für bestätigte Sprach- und Accessibility-Befunde
+
+Das bestätigte externe Sprachfeedback wurde ohne strukturellen Umbau auf die vorläufigen EN/RU-V1-Fassungen angewendet. Fehlende Einleitungen auf den Gutachtenseiten, verkürzte russische Detailbeschreibungen und ausgewählte unnatürliche englische UI-Texte wurden an die deutsche Referenz angeglichen. Die russische Unfallgutachten-Überschrift bleibt grammatisch korrekt auf Berlin bezogen; DESAG-Aussagen nennen DESAG ausdrücklich als prüfende und anerkennende Organisation und behaupten keine staatliche Anerkennung.
+
+Accessibility-Texte wurden pro Sprache ergänzt: Die drei Startseitenbilder besitzen lokalisierte Alternativtexte, das mobile Menü eine lokalisierte Schließen-Beschriftung und die Footer-Navigation ein sprachspezifisches `aria-label`. Die kurzen englischen Kartenaktionen behalten über vollständige zugängliche Namen ein eindeutiges Ziel. Der zusammengesetzte englische Startseiten-H1 besitzt einen grammatisch vollständigen Screenreader-Text, ohne die sichtbare Zeilenaufteilung zu verändern.
+
+Die deutsche FAQ-Antwort zu vorab gesendeten Fotos war bereits vollständig vorhanden und wurde nicht dupliziert. Der frühere Befund wird ausschließlich als Zuordnungsfehler der externen Inventur korrigiert. Rechtstexte, Routing, Redirects, Assets und technische SEO-Dateien blieben außerhalb dieses Schritts. Der `UNFALLX`-Metadata-Befund bleibt Aufgabe 029 zugeordnet.
+
+Weiterhin offen bleiben die menschlichen EN/RU-Sprachfreigaben, geeignete Fachprüfungen sensibler Gutachten-, Versicherungs-, Kosten- und DESAG-Aussagen sowie die geeignete Rechtsprüfung der vorläufigen Rechtstexte. Für `Wiederbeschaffungswert` wurde bewusst kein neuer russischer Fachbegriff festgelegt. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+
+## Enger visueller Paritätsabgleich
+
+Die bestätigten Layoutabweichungen der lokalisierten Gutachtenseiten wurden mit der bereits vorhandenen gemeinsamen Layoutlogik korrigiert. Die EN/RU-Merkmale der Fahrzeugbewertung sowie beide umfangreichen EN/RU-Bereiche der Schadendokumentation nutzen auf Tablet und Desktop nun wie die deutsche Referenz breite Karten mit responsiven Inhaltsrastern; Mobile bleibt einspaltig.
+
+Die drei englischen Detailseiten erhalten ab Tablet moderat mehr H1-Breite, ohne Texte, Schriftgröße oder Zeilenumbrüche manuell zu verändern. Ihre FAQ-Bereichsüberschrift lautet einheitlich `Frequently asked questions`. Der gemeinsame Startseiten-Hero nutzt ausschließlich auf Desktop einen größeren responsiven oberen Innenabstand, damit der Inhalt im vorhandenen Hero-Rahmen ausgewogener steht. Hero-Höhe, Bilder, Bildausschnitte, Texte und Tablet-/Mobile-Layout bleiben unverändert.
+
+Bewusst unverändert bleiben weitere sichtbare Texte, deutsche und russische Inhalte, Rechtstexte, Formulare, Routen, Redirects, technische SEO-Dateien, Navigation und Assets. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+
+## Letzter CTA-, Überschriften- und Desktop-Hero-Feinschliff
+
+Die vorbereitenden Formularlinks der englischen und russischen Gutachtenseiten verwenden nun die kurzen sichtbaren Beschriftungen `Make an enquiry` beziehungsweise `Оставить заявку`. Ihre lokalisierten zugänglichen Namen nennen zusätzlich die jeweilige Gutachtenart. Die tatsächlichen Submit-Buttons sind davon sprachlich eindeutig getrennt und lauten sichtbar `Send enquiry` beziehungsweise `Отправить заявку`; auch hier bleibt der fachliche Kontext im zugänglichen Namen erhalten. Der allgemeine Kontakt verwendet entsprechend `Send enquiry to UNEXT` beziehungsweise `Отправить заявку в UNEXT`.
+
+Für die längeren englischen und russischen Kontakt-H1 wurde ausschließlich die verfügbare responsive Textbreite moderat erweitert und eine ausgeglichene Umbruchregel genutzt. Sichtbare Überschriftentexte, deutsche Texte und die Überschriftenhierarchie blieben unverändert; es wurden keine kürzeren Überschriften vorgeschlagen oder eigenständig formuliert. Der gemeinsame Startseiten-Hero erhält ausschließlich auf Desktop etwas mehr responsiven oberen Innenabstand. Hero-Höhe, Bild, Bildausschnitt, Schriftgrößen sowie Mobile- und Tablet-Positionierung bleiben unverändert.
+
+Bewusst unverändert blieben akzeptierte Kartenraster und Detailbereiche, Rechtstexte, Formularvalidierung und Server Actions, Routing, Redirects, technische SEO-Dateien, Navigation und Assets. Menschliche EN-/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`. `ROADMAP.md` bleibt unverändert, weil sich weder Projektplanung noch Reihenfolge oder Prioritäten geändert haben.
+
+Der Feinschliff wurde in 44 Seiten-/Viewport-Kombinationen bei 390, 768, 1440 × 900 und 1440 × 1100 Pixeln ohne HTTP-, Console-, Hydration-, Request-, Bild- oder Overflowfehler geprüft. Alle 18 Sprachwechselrichtungen der drei Gutachtenarten bewahren den fachlichen Seitenkontext. 36 Fullpage-Screenshots und 16 deterministische Vergleichsbilder wurden tatsächlich visuell geprüft und liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-final-cta-linebreak-review/20260805-223500/`. Die geänderten CTA-Texte sind sichtbar einzeilig und unbeschnitten. `next-router-check` prüfte 33 UI-Routen, davon 16 nach seiner Datenlade-Heuristik, ohne fehlende Pflichtgrenzen.
+
+## Kontrollierte Satztrennung der EN/RU-Abschluss-CTAs
+
+Die jeweils zwei bestehenden Beschreibungssätze der Abschluss-CTAs auf den sechs englischen und russischen Gutachtenseiten werden mit der vorhandenen gemeinsamen CTA-Logik als getrennte Textblöcke gerendert. Der zweite Satz beginnt dadurch bewusst in einem neuen Block, während beide Sätze innerhalb ihres Blocks weiterhin responsiv und ohne erzwungene Einzeiligkeit umbrechen dürfen.
+
+Der sichtbare Wortlaut, die Satzzeichen, CTA-Überschriften, Buttons und zugänglichen Namen blieben unverändert. Deutsche Texte und übrige Seitenbereiche wurden nicht angepasst. Die Untersuchung des roten Entwicklungsindikators, die Einordnung der Router-Check-Zählung und die responsive Sichtprüfung werden in diesem Korrekturschritt dokumentiert. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+
+Der technische Diff-Check, ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden. Der aktuelle `next-router-check` zählt gemäß seiner dokumentierten Async-/Fetch-Heuristik 16 datenladende lokalisierte Seiten. Die frühere Zahl 18 entstand durch eine breitere Einordnung, die zusätzlich die synchrone deutsche und lokalisierte Catch-all-404-Route mitzählte. Beide Catch-all-Routen rufen ausschließlich `notFound()` auf und werden durch die vorhandenen sprachbezogenen `not-found.tsx`-Grenzen abgedeckt; es fehlt keine Route oder Pflichtgrenze.
+
+Die saubere Produktionsprüfung in Playwright/Chromium bestand für alle sechs EN/RU-Gutachtenseiten bei 390 × 844, 768 × 1024, 1440 × 900 und 1440 × 1100 Pixeln. Alle 24 Kombinationen lieferten HTTP 200, renderten genau zwei blockweise Beschreibungssätze und zeigten keinen horizontalen Overflow, keine abgeschnittenen Texte sowie keine Console-, Hydration-, Request- oder Bildfehler. Die CTA-Überschriften und Aktionsbeschriftungen blieben unverändert. Sechs deutsche Stichproben bei 390 × 844 und 1440 × 1100 Pixeln zeigten keine Regression. Alle 18 Sprachwechselrichtungen bewahren den fachlichen Seitenkontext.
+
+Das rote `1 Issue`-Badge erschien in der sauberen, erweiterungsfreien Produktionssitzung nicht. Es gab kein `nextjs-portal`, keine Browserkonsolenfehler, keine Seitenfehler und keine fehlgeschlagenen Requests. Der frühere Screenshot-Befund ist damit dem Next.js-Entwicklungsindikator beziehungsweise der damaligen Entwicklungswerkzeug-Sitzung zuzuordnen und nicht der Produktionsanwendung.
+
+Unter `C:/tmp/unext-task-051-final-cta-sentence-review/20260814T173316Z/` liegen 24 gezielte CTA-Ausschnitte, 12 deterministisch zusammengesetzte EN/RU-Vergleichsbilder, vier Kontaktbögen und der maschinenlesbare QA-Bericht. Alle 24 Einzelansichten und 12 Vergleichsbilder wurden über die vier Kontaktbögen tatsächlich visuell geprüft. Mobile, Tablet und beide Desktop-Höhen wirken ruhig; der zweite Satz beginnt überall in einem eigenen Block, darf darin natürlich umbrechen und erzeugt keine unnatürlich große Absatzlücke. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;

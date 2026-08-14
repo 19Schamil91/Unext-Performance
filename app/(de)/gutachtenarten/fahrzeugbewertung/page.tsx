@@ -6,5 +6,5 @@
 import { VehicleValuationServiceDetailContent } from "@/components/VehicleValuationServiceDetailContent"
 
 export default function FahrzeugbewertungPage() {
-  return <VehicleValuationServiceDetailContent />
+  return <VehicleValuationServiceDetailContent locale="de" />
 }

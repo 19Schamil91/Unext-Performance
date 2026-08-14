@@ -2,11 +2,80 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-05
+
+### Aufgabe 051 - Abschluss-CTA-Sätze in EN/RU typografisch getrennt
+
+- Die unveränderten zwei Beschreibungssätze der Abschluss-CTAs auf allen sechs EN/RU-Gutachtenseiten werden mit der vorhandenen gemeinsamen CTA-Logik als getrennte Textblöcke dargestellt.
+- Der zweite Satz beginnt dadurch kontrolliert in einem neuen Block und darf innerhalb dieses Blocks auf Mobile, Tablet und Desktop weiterhin natürlich umbrechen.
+- Überschriften, Buttons, zugängliche Namen, deutsche Texte und übrige Seitenbereiche bleiben unverändert. Menschliche Sprach-, Fach- und Rechtsfreigaben bleiben offen.
+- Die Router-Zählung wurde eingeordnet: Der aktuelle Skill zählt 16 asynchrone Seiten; frühere 18er-Angaben schlossen zusätzlich die zwei synchronen Catch-all-404-Routen ein. Es fehlt keine Pflichtgrenze.
+- Die sechs EN/RU-Seiten bestanden die Browserprüfung bei 390 × 844, 768 × 1024, 1440 × 900 und 1440 × 1100 Pixeln ohne Overflow, Console-, Hydration-, Request- oder Bildfehler. Das frühere rote `1 Issue`-Badge trat in der sauberen Produktionssitzung nicht auf.
+- 24 CTA-Ausschnitte und 12 deterministische EN/RU-Vergleichsbilder wurden tatsächlich visuell geprüft und ausschließlich außerhalb des Repositorys gespeichert.
+
+### Aufgabe 051 - CTA-Semantik, Textumbrüche und Desktop-Hero nachgeschärft
+
+- Vorbereitende Formularlinks und echte Submit-Buttons sind in EN/RU sprachlich eindeutig getrennt: sichtbar `Make an enquiry` beziehungsweise `Оставить заявку` vor dem Formular und `Send enquiry` beziehungsweise `Отправить заявку` beim tatsächlichen Absenden.
+- Kontextspezifische zugängliche Namen nennen die jeweilige Gutachtenart oder UNEXT und enthalten den sichtbaren CTA-Text vollständig und in derselben Reihenfolge.
+- Längere EN/RU-Kontaktüberschriften nutzen ihre responsive Textbreite besser und balancieren ohne Textänderung ruhiger; alle übrigen sichtbaren Überschriftentexte bleiben unverändert.
+- Der gemeinsame Startseiten-Hero positioniert den Inhalt nur auf Desktop geringfügig tiefer. Hero-Höhe, Bilder, Bildausschnitte sowie Mobile und Tablet bleiben unverändert.
+- Menschliche EN/RU-Sprachfreigaben und geeignete Fach- und Rechtsprüfungen bleiben offen. `ROADMAP.md` bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
+
+### Aufgabe 051 - Visuelle Parität der dreisprachigen Kernseiten verfeinert
+
+- Fahrzeugbewertung und Schadendokumentation verwenden in EN/RU auf Tablet und Desktop dieselben breiten Detailbereiche und mehrspaltigen Inhaltsraster wie die deutsche Referenz; Mobile bleibt einspaltig.
+- Englische Detailseiten erhalten ab Tablet mehr Titelbreite, ohne Textänderung oder erzwungene Umbrüche. Die englischen FAQ-Bereichstitel wurden einheitlich auf `Frequently asked questions` verkürzt.
+- Der gemeinsame Startseiten-Hero positioniert seinen Inhalt ausschließlich auf Desktop etwas tiefer im bestehenden Layoutfluss; Hero-Höhe, Bildausschnitt, Texte und mobile beziehungsweise Tablet-Darstellung bleiben unverändert.
+- Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+
+### Aufgabe 051 - Bestätigte Sprach- und Accessibility-Lücken korrigiert
+
+- Bestätigtes externes Sprachfeedback wurde eng auf die sichtbaren EN/RU-Kerntexte angewendet: fehlende Einleitungen, verkürzte Fachbeschreibungen, russische Detailtexte und ausgewählte englische UI-Beschriftungen wurden an die deutsche Referenz angeglichen.
+- Startseiten-Bildbeschreibungen, Schließen-Beschriftung des mobilen Menüs und Footer-Navigation sind jetzt in DE/EN/RU zugänglich lokalisiert; kompakte englische Kartenaktionen besitzen vollständige zugängliche Zielnamen.
+- Die vorhandene deutsche Foto-FAQ blieb unverändert. Ihre vermeintliche Lücke war ausschließlich eine fehlerhafte Zuordnung in der externen Inventur und wird außerhalb des Repositorys berichtigt.
+- Rechtstexte, Routing, Redirects, Assets sowie technische SEO-Dateien blieben unverändert. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen; der russische Fachbegriff für `Wiederbeschaffungswert` wurde nicht neu festgelegt.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden.
+
+## 2026-08-03
+
+### Aufgabe 051 - DE/EN/RU-Parität, Layout und Formularvalidierung korrigiert
+
+- Englische und russische Begriffe für Gutachtenarten, Anfragen, Wertminderung und Fahrzeugwerte wurden vereinheitlicht; deutsche Resttexte, ein doppeltes russisches Wort und zwei nachgewiesene Bedeutungsfehler in den russischen Rechtstexten wurden korrigiert.
+- Die sichtbaren EN/RU-Trustaussagen nennen DESAG eindeutig als prüfende und anerkennende Organisation, ohne eine staatliche oder behördliche Anerkennung zu behaupten. Menschliche Sprach-, Fach- und Rechtsfreigaben bleiben offen.
+- Startseiten-Hero und Gutachtenkarten verwenden in DE, EN und RU dieselbe responsive Grundlogik. Desktop zeigt drei Karten, Tablet zwei Karten mit zentrierter dritter Karte und Mobile eine Karte pro Reihe.
+- Kontakt- und Gutachtenformulare verwenden gemeinsame Zod-Regeln für lokalisierte Client- und Servervalidierung. Ungültige Eingaben fokussieren das erste Fehlerfeld, sind barrierearm verknüpft und lösen keine Server Action aus.
+- Diff-Check, ESLint, TypeScript, Produktions-Build, Router-, Accessibility-, Mobile-, Desktop-, Content-, Typografie- und Browserprüfungen bestanden. Screenshots und Laufzeitberichte liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-corrections-review/`.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden.
+### Aufgabe 051 - Dreisprachige Rechtstexte kontrolliert überarbeitet
+
+- Bestätigte Unternehmens-, Register-, Umsatzsteuer- und Kontaktdaten wurden in das dreisprachige Impressum übernommen; Platzhalter, veralteter RStV-Verweis und früherer EU-ODR-Hinweis wurden entfernt.
+- Datenschutzerklärungen in DE/EN/RU wurden an den tatsächlichen Website-Stand mit IONOS-Hosting, Resend-Versand, Formularen, Browser-Theme, externen Links, lokalen Assets, fehlendem aktivem Tracking, Speicherkriterien, Betroffenenrechten und Berliner Aufsichtsbehörde angepasst.
+- Kontakt- und Serviceformulare informieren neutral über die Datenverarbeitung und verlangen keine Datenschutzeinwilligung als Voraussetzung der Anfrage.
+- AGB in DE/EN/RU bilden nur unverbindliche Anfragen, die drei Gutachtenarten, individuelle Vereinbarungen, Zahlungen, Kundenmitwirkung, Termine, gesetzliche Haftung und einen nur bei Relevanz gesondert zu behandelnden Widerruf ab.
+- Datenschutzbeauftragter, MStV-Verantwortlichkeit und VSBG-Hinweis wurden anhand des bestätigten Betriebsstands eingeordnet. AVV/DPA-Nachweise, wirksame AGB-Einbeziehung, DL-InfoV-, Widerrufs- und §-37-VSBG-Prozesse bleiben interne Launch-Gates.
+- Alle drei Sprachfassungen bleiben bis zur geeigneten Rechtsprüfung und menschlichen EN/RU-Sprachprüfung ausdrücklich vorläufig. ROADMAP.md blieb unverändert, weil sich Reihenfolge und Projektplanung nicht geändert haben.
+- Diff-Check, ESLint, TypeScript, Produktions-Build, 27 responsive Legal-Seiten-Prüfungen und neun kontexttreue Sprachwechsel bestanden; die Screenshots liegen ausschließlich außerhalb des Repositorys.
+
+## 2026-08-02
+
+### Aufgabe 051 - Freigegebene Referenztexte und deutsche 404 korrigiert
+
+- Kleine freigegebene Referenztext-Korrekturen wurden auf Startseite, Unfallgutachten, Fahrzeugbewertung und Über-uns-Seite in DE sowie vorläufig sinngleich in EN/RU übernommen.
+- Eine deutsche Catch-all-Route führt unbekannte deutsche Pfade zur vorhandenen deutschen 404-Ausgabe; EN/RU-Wiederherstellungsaktionen wurden sprachlich angeglichen.
+- EN/RU-Fortbildungstexte bleiben bis zur menschlichen Sprach- und geeigneten Fachprüfung ausdrücklich vorläufig. Gutachterkosten, Legal-Texte, SEO, Legacy-Inhalte, Layouts und Assets blieben unverändert.
+- `ROADMAP.md` blieb unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht verändert wurden.
+
 ## 2026-08-01
 
 ### Aufgabe 051 - Vorläufige lokale Umsetzung und technischer Dateiplan vorbereitet
 
 - Der konkrete technische Dateiplan wurde ausdrücklich für die vorläufige lokale EN/RU-Umsetzung freigegeben; die Codeumsetzung darf auf dem Aufgabenbranch beginnen.
+- Der vorläufige lokale Preview-Stand wurde anschließend umgesetzt: sechs neue EN/RU-Gutachtenartenrouten, zwei direkte permanente Redirects, kontexttreuer Sprachwechsel, drei Gutachtenarten, Startseite, Über uns, Trust, Kontakt, Formulare sowie Error- und 404-Zustände.
+- Header, Mobile-Menü und Footer führen in EN/RU auf die drei Gutachtenarten; alter sichtbarer Mehrleistungs-Scope wurde aus den V1-Kernwegen entfernt, ohne Legacy-Seiten oder Assets zu löschen.
+- Lokalisierte Feld- und Servermeldungen sowie ein sprachlich eindeutiger interner Formularkontext wurden ergänzt; Versand-, Environment- und Empfängerkonfiguration blieben unverändert.
+- Alle sechs neuen Routen, beide 308-Redirects und 18 Sprachwechselrichtungen wurden lokal geprüft. 50 Fullpage-Screenshots bei 390, 768 und 1440 px liegen ausschließlich unter `C:/tmp/unext-task-051-provisional-preview/`.
+- Diff-Check, ESLint, TypeScript, Produktions-Build, Route-, Accessibility-, Content-, Mobile-, Desktop- und Typografieprüfungen wurden ausgeführt. Ein anfänglicher lokalisierter 404-Befund wurde mit einer locale-nahen Catch-all-Route behoben.
+- Alte EN/RU-Metadata und Structured Data bleiben als technischer Folgepunkt bei Aufgabe 029; Legacy-Seiten und Alt-Daten bleiben Aufgabe 026. `ROADMAP.md` bleibt unverändert, weil Reihenfolge und Projektplanung nicht geändert wurden.
 - Der entstehende Preview-Stand bleibt bis zur menschlichen EN/RU-Sprachprüfung sowie den erforderlichen Fach- und Rechtsprüfungen vorläufig und nicht launchfähig.
 - Die ausdrücklich freigegebene Reihenfolge wurde angepasst: Nach Freigabe des konkreten Dateiplans dürfen die EN/RU-Entwürfe vorläufig lokal umgesetzt und anschließend im echten Layout geprüft werden.
 - Menschliche EN/RU-Sprachprüfung, erforderliche Fachprüfung und geeignete Behandlung der Rechtstexte bleiben verbindliche Gates vor Abschluss, Push, Pull Request und Launch.
