@@ -261,7 +261,7 @@ export async function ServicePageLayout({
         ]}
       />
 
-      <section className="overflow-hidden bg-black md:relative md:py-20 lg:py-28">
+      <section className="overflow-hidden bg-black md:relative md:py-20 lg:min-h-[clamp(52rem,64vw,57rem)] lg:py-28">
         <div className="relative h-[14.5rem] overflow-hidden bg-black min-[430px]:h-[15.5rem] md:absolute md:inset-0 md:h-auto">
           <Image
             src={image}

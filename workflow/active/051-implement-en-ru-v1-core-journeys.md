@@ -637,6 +637,55 @@ Das rote `1 Issue`-Badge erschien in der sauberen, erweiterungsfreien Produktion
 
 Unter `C:/tmp/unext-task-051-final-cta-sentence-review/20260814T173316Z/` liegen 24 gezielte CTA-Ausschnitte, 12 deterministisch zusammengesetzte EN/RU-Vergleichsbilder, vier Kontaktbögen und der maschinenlesbare QA-Bericht. Alle 24 Einzelansichten und 12 Vergleichsbilder wurden über die vier Kontaktbögen tatsächlich visuell geprüft. Mobile, Tablet und beide Desktop-Höhen wirken ruhig; der zweite Satz beginnt überall in einem eigenen Block, darf darin natürlich umbrechen und erzeugt keine unnatürlich große Absatzlücke. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
 
+## Letzter Hero-Konsistenzabgleich
+
+Die neun Gutachten-Heros verwendeten bereits dieselbe Komponente, besaßen auf Desktop aber nur gemeinsame vertikale Innenabstände. Ihre Gesamthöhe blieb dadurch vom jeweiligen Titel, Beschreibungstext, Hinweis, CTA und den Merkmalszeilen abhängig. Bei 1440 Pixeln lagen die gemessenen Hero-Höhen vor der Korrektur zwischen 726,4 und 885,9 Pixeln.
+
+Umgesetzt wurden ausschließlich zwei gemeinsame Layoutkorrekturen:
+
+- service-page-layout.tsx verwendet ab Desktop eine responsive Mindesthöhe mit clamp(). Inhalt bleibt wachstumsfähig, sodass längere EN/RU-Fassungen weder abgeschnitten noch durch feste Platzhalter ausgeglichen werden.
+- hero-section.tsx verwendet ausschließlich ab xl einen größeren gemeinsamen horizontalen Gutter. Die Inhaltsbreite, Schriftgrößen, vertikale Position, Hero-Höhe, Hintergrundbilder und Bildfokuspunkte bleiben unverändert.
+
+Prüfergebnis:
+
+- Alle neun Gutachten-Heros sind bei 1440 × 1100 und 2048 × 1100 Pixeln exakt 912 Pixel hoch.
+- Alle neun Hintergrundbilder füllen jeweils die vollständigen 912 Pixel ohne Verzerrung oder leeren Streifen.
+- Der nachfolgende Abschnitt beginnt in beiden Desktop-Viewports auf allen neun Seiten einheitlich bei y = 981 Pixeln.
+- Auf der Startseite beginnt der Hero-Inhalt bei 1440 Pixeln bei x = 115,2 Pixeln und bei 2048 Pixeln bei x = 160 Pixeln. Bei 768 Pixeln bleibt der bisherige Einzug von 38,4 Pixeln unverändert.
+- Mobile und Tablet bleiben inhaltsabhängig flexibel. Bei 390 und 768 Pixeln sind alle Texte, Trustbereiche und CTAs vollständig sichtbar; es gibt keinen horizontalen Overflow.
+- Sichtbare Texte, Übersetzungen, Schriftgrößen, CTA-Beschriftungen, Navigation, Formulare, Routen, Redirects, technische SEO-Dateien und Assets blieben unverändert.
+- 48 Fullpage-Screenshots und 24 gezielte Hero-Screenshots wurden unter C:/tmp/unext-task-051-final-hero-consistency-review/2026-08-14T20-02-56-761Z/ erstellt. Die Aufnahmen wurden über 16 zusätzliche Kontaktblätter und vollständig geladene kompakte Vorschauen tatsächlich visuell geprüft.
+- Alle 48 Seiten-/Viewport-Kombinationen lieferten HTTP 200 ohne horizontalen Overflow, Console-, Hydration-, Page- oder Requestfehler. Sichtbare Bilder wurden in den Aufnahmen korrekt geladen.
+- Alle 18 Sprachwechselrichtungen der drei Gutachtenarten bewahren den fachlichen Seitenkontext.
+- git diff --check, ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden.
+- next-router-check prüfte 33 UI-Routen und 16 datenladende lokalisierte Seiten. Loading-, Error- und erforderliche Not-found-Grenzen fehlen nicht.
+- Accessibility-, Mobile-, Desktop-, Typografie- und allgemeine Codequalitätsprüfungen fanden keine aufgabenbezogenen Verstöße. Die direkte lokale Bildansicht der Reviewer war unter der Windows-Sandbox eingeschränkt; die Hauptprüfung öffnete die vollständigen Kontaktblätter deshalb über vollständig übertragene, unverzerrte Vorschauen.
+- next-env.d.ts blieb unverändert. ROADMAP.md bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
+- Der Produktionsserver läuft mit dem aktuellen Build auf Port 3000 für die persönliche Sichtprüfung weiter.
+
+Aufgabe 051 bleibt in workflow/active/ mit Status: in Arbeit.
+
+## Letzter russischer CTA-Breitenabgleich
+
+Der erste Satz der russischen Abschluss-CTA-Beschreibung beim Unfallgutachten war bereits als eigener Block ausgezeichnet. Die gemeinsame `measure-intro`-Begrenzung auf `66ch` ließ bei 1440 und 2048 Pixeln jedoch nur knapp zu wenig Platz, sodass `в форме.` als kurze dritte Beschreibungslinie isoliert wurde.
+
+Die gemeinsame CTA-Komponente überschreibt die Textbreite deshalb ausschließlich ab Desktop responsiv mit maximal `72ch`. Die Regel gilt für alle Sprachen und nutzt die vorhandene linke Textspalte besser, ohne deren Grid-/Flex-Aufteilung oder die rechte Buttonspalte zu verändern. Wortlaut, Satzzeichen, Schriftgrößen, CTA-Überschriften, Buttons und zugängliche Namen blieben unverändert. Mobile und Tablet verwenden weiterhin die bestehende natürliche Breitenbegrenzung.
+
+Prüfergebnis:
+
+- Beim russischen Unfallgutachten stehen bei 1440 × 900, 1440 × 1100 und 2048 × 996 Pixeln beide vollständigen Beschreibungssätze jeweils in einer eigenen Zeile. `в форме.` erscheint nicht mehr isoliert.
+- Bei 390 × 844 und 768 × 1024 Pixeln darf der Text weiterhin natürlich umbrechen; alle Inhalte und Buttons bleiben vollständig sichtbar.
+- Die russische Überschrift bleibt auf den Desktopansichten zweizeilig. Buttonbreiten, Beschriftungen und Proportionen blieben unverändert.
+- Deutsche und englische Unfallgutachten-CTAs sowie die englischen und russischen Abschluss-CTAs von Fahrzeugbewertung und Schadendokumentation zeigen keine aufgabenbezogene Regression.
+- 17 gezielte CTA-Screenshots und der maschinenlesbare QA-Bericht liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-final-ru-cta-copy-width-review/2026-08-15T20-07-28-539Z/`. Alle Ansichten wurden über Kontaktblätter und eine lesbare russische Desktop-Einzelansicht tatsächlich visuell geprüft.
+- Alle geprüften Seiten lieferten HTTP 200 ohne horizontalen Overflow, Console-, Hydration-, Page-, Request- oder sichtbare Bildfehler.
+- `git diff --check`, ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden. Der Router-Check prüfte 33 UI-Routen und 16 datenladende Seiten ohne fehlende Pflichtgrenzen.
+- Accessibility-, Mobile-, Desktop-, Typografie- und Codequalitätsprüfung fanden keine Blocker oder aufgabenbezogenen Verstöße. Der unterschiedliche deutsche CTA-Überschriftenumbruch zwischen 1440 und 2048 Pixeln war bereits im vorherigen Referenzstand vorhanden und wurde durch diesen engen Beschreibungstext-Schritt nicht verändert.
+- `next-env.d.ts` blieb unverändert. `ROADMAP.md` bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
+- Der Produktionsserver läuft mit dem aktuellen Build auf Port 3000 für die persönliche Sichtprüfung weiter.
+
+Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit`.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;

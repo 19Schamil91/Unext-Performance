@@ -2,6 +2,27 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-15
+
+### Aufgabe 051 - Russischen Abschluss-CTA auf Desktop beruhigt
+
+- Die gemeinsame Abschluss-CTA-Beschreibung nutzt ab Desktop statt der bisherigen `66ch`-Begrenzung eine responsive maximale Textbreite von `72ch`.
+- Dadurch stehen die beiden bereits getrennten russischen Sätze beim Unfallgutachten bei 1440 und 2048 Pixeln jeweils vollständig in einer eigenen Zeile; die isolierte Restzeile `в форме.` entfällt.
+- Wortlaut, Satzzeichen, Schriftgröße, Überschrift, Buttons, zugängliche Namen und Spaltenaufteilung blieben unverändert. Mobile und Tablet dürfen weiterhin natürlich umbrechen.
+- 17 CTA-Ansichten in DE, EN und RU wurden bei 390, 768, 1440 und 2048 Pixeln technisch und visuell geprüft. Es traten keine HTTP-, Console-, Hydration-, Request-, Bild- oder Overflowfehler auf.
+- `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+
+## 2026-08-14
+
+### Aufgabe 051 - Hero-Höhen und große Desktop-Ausrichtung vereinheitlicht
+
+- Die gemeinsame Gutachtenseiten-Logik verwendet ab Desktop eine responsive Mindesthöhe. Dadurch sind alle neun DE/EN/RU-Heros bei 1440 und 2048 Pixeln exakt 912 Pixel hoch; Hintergrundbild und Folgeabschnitt schließen jeweils bündig an.
+- Der Startseiten-Hero nutzt ausschließlich ab großen Desktop-Breiten einen gemeinsamen responsiven horizontalen Gutter. Der Textblock beginnt bei 1440 Pixeln bei 115,2 Pixeln und bei 2048 Pixeln bei 160 Pixeln; Mobile, Tablet, vertikale Position, Hero-Höhe und Bildausschnitt bleiben unverändert.
+- Sichtbare Texte, Übersetzungen, Schriftgrößen, Zeilenumbrüche, CTAs, Navigation, Formulare, Routen, SEO-Technik und Assets wurden nicht verändert.
+- 48 Fullpage- und 24 gezielte Hero-Screenshots wurden bei 390 × 844, 768 × 1024, 1440 × 1100 und 2048 × 1100 Pixeln erzeugt und über Kontaktblätter tatsächlich visuell geprüft. Alle Seiten lieferten HTTP 200 ohne Overflow, Console-, Hydration-, Page- oder Requestfehler.
+- Alle 18 Sprachwechselrichtungen der drei Gutachtenarten bewahren weiterhin den fachlichen Kontext. Diff-Check, ESLint, TypeScript, Produktions-Build sowie Router-, Accessibility-, Mobile-, Desktop-, Typografie- und Codequalitätsprüfung bestanden.
+- ROADMAP.md bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+
 ## 2026-08-05
 
 ### Aufgabe 051 - Abschluss-CTA-Sätze in EN/RU typografisch getrennt

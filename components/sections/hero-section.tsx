@@ -541,7 +541,7 @@ const trustStatements = {
           <div className={locale === "de" ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.12)_0%,rgba(5,7,11,0)_38%,rgba(5,7,11,0.03)_100%)]" : "absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,11,0.18)_0%,rgba(5,7,11,0)_34%,rgba(5,7,11,0.36)_100%)]"} />
         </div>
 
-        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-10 pt-[clamp(7rem,13vh,10rem)] lg:pt-[clamp(9rem,18.5vh,12.5rem)]">
+        <div className="relative flex h-full w-full px-[clamp(2rem,5vw,6rem)] pb-10 pt-[clamp(7rem,13vh,10rem)] lg:pt-[clamp(9rem,18.5vh,12.5rem)] xl:px-[clamp(7rem,8vw,10rem)]">
           <HeroContent
             tone="overlay"
             title1={t.title1}

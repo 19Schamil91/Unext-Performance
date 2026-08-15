@@ -103,7 +103,7 @@ export function CtaSection({ locale, actions, title, description, note }: Props)
             <h2 className="max-w-[30rem] text-heading-fluid font-semibold text-primary-foreground lg:max-w-none lg:text-[clamp(2rem,2.25vw,2.65rem)] lg:leading-[1.08] lg:whitespace-nowrap">
               {title ?? t.questionsTitle}
             </h2>
-            <p className="mt-4 measure-intro text-body-fluid text-primary-foreground/86">
+            <p className="mt-4 measure-intro text-body-fluid text-primary-foreground/86 lg:!max-w-[72ch]">
               {renderDescriptionLines(description ?? t.questionsDescription)}
             </p>
           </div>
