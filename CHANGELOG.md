@@ -4,6 +4,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-16
 
+### Aufgabe 051 - Letzte englische Textkorrekturen und akzeptierte Abweichungen dokumentiert
+
+- Drei bestätigte englische Formulierungen zu Unterlagen, vorab übermittelten Fotos und Schadendokumentation wurden ohne weitere Text- oder Layoutänderungen korrigiert.
+- Der Nutzer akzeptiert die aktuellen EN-/RU-Texte und fachlichen Aussagen für diesen Projektstand ausdrücklich ohne zusätzliche professionelle Sprach- und Fachprüfung; spätere sprachliche oder fachliche Korrekturen bleiben möglich.
+- Diese akzeptierte Abweichung ersetzt keine externe Rechtsprüfung. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig; IONOS-AVV, Resend-DPA, echter Formularversand, Deployment, SEO, Legacy-Cleanup und finale Launch-QA verbleiben in den vorgesehenen Folgeaufgaben.
+- Aufgabe 051 bleibt aktiv und `in Arbeit`. `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+
 ### Aufgabe 051 - Abschluss-CTAs in DE, EN und RU vereinheitlicht
 
 - Die Abschlussbereiche von Unfallgutachten, Fahrzeugbewertung und Schadendokumentation verwenden in allen drei Sprachen freigegebene, leistungsspezifische Überschriften und jeweils zwei getrennte Beschreibungssätze.

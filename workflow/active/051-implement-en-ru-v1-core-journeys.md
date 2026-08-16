@@ -709,6 +709,14 @@ Prüfergebnis:
 
 Die bestätigten CTA-Texte ersetzen keine allgemeine menschliche EN-/RU-Sprach-, Fach- oder Rechtsfreigabe. Aufgabe 051 bleibt für die persönliche Sichtprüfung in `workflow/active/` mit `Status: in Arbeit`. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
 
+## Letzte englische Textkorrekturen und akzeptierte Abweichungen
+
+Drei in der abschließenden Textprüfung bestätigte englische Formulierungen wurden eng begrenzt korrigiert: zweimal wurde der Übermittlungsweg für Unterlagen beziehungsweise Fotos natürlich formuliert, und im Schadendokumentationsbereich beschreibt `recorded` jetzt eindeutig das Festhalten eines Fahrzeugzustands. Weitere sichtbare Texte, Überschriften, CTAs, Formulare, zugängliche Namen, Layouts, Routen, SEO-, Metadata-, Structured-Data-, Legal- oder Assetbereiche bleiben unverändert.
+
+Der Nutzer akzeptiert die aktuellen englischen und russischen Texte für Aufgabe 051 ausdrücklich, obwohl keine zusätzliche professionelle EN-/RU-Sprachprüfung durchgeführt wurde. Später entdeckte sprachliche Fehler dürfen nachträglich korrigiert werden. Ebenso bestätigt der Nutzer die aktuell sichtbaren fachlichen Aussagen für diesen Projektstand vorläufig; später entdeckte fachliche Fehler oder ungenaue Aussagen dürfen nachträglich korrigiert werden. Die fehlende zusätzliche professionelle Sprach- und Fachprüfung ist damit als ausdrücklich akzeptierte Abweichung dokumentiert.
+
+Diese Nutzerentscheidung ersetzt keine geeignete externe Rechtsprüfung. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig und müssen vor dem Launch extern geprüft werden. IONOS-AVV, Resend-DPA, echter Formularversand, Deployment, SEO, Legacy-Cleanup und finale Launch-QA bleiben den bereits vorgesehenen Folgeaufgaben zugeordnet. Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit` und wird mit diesem Korrekturschritt noch nicht abgeschlossen.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;

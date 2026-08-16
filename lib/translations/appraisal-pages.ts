@@ -114,7 +114,7 @@ const englishAccident = {
     {
       title: "Which documents are helpful?",
       description:
-        "If available, a few details can help with the initial assessment. We will agree the appropriate way to send them with you directly.",
+        "If available, a few details can help with the initial assessment. We will arrange with you how best to send them.",
       items: [
         { title: "Vehicle registration document", description: "Registration certificate Part I or the main vehicle details." },
         { title: "Damage photos", description: "Existing photographs that may help with the initial assessment." },
@@ -132,7 +132,7 @@ const englishAccident = {
   faqs: [
     { question: "Who pays for the accident damage appraisal?", answer: "If you were not at fault, the other party's liability insurer will generally cover the appraisal costs. For very minor damage, unclear liability or special circumstances, an initial assessment may be useful. We discuss your case before you commission us." },
     { question: "Is a repair estimate enough?", answer: "A repair estimate may be sufficient for minor damage. An independent accident damage appraisal can be useful if the extent of the damage, diminution in value, hidden damage or the claims process is unclear." },
-    { question: "Can I send photos in advance?", answer: "Yes. Existing damage photos help with the initial assessment. We will agree the appropriate way to send them with you personally." },
+    { question: "Can I send photos in advance?", answer: "Yes. Existing damage photos help with the initial assessment. We will arrange with you how best to send them." },
     { question: "Does the vehicle have to be roadworthy?", answer: "Not necessarily. Tell us whether the vehicle can still be driven and where it is located. We will then agree the appropriate process." },
     { question: "How quickly will I receive a response?", answer: "We will contact you promptly after your enquiry to discuss the next steps personally." },
   ],
@@ -249,7 +249,7 @@ const englishDamageDocumentation = {
     { title: "Prepare for a professional review", description: "Photos, vehicle details and available records should be organised for further review." },
   ],
   servicesDescription:
-    "A structured record can be useful when damage or a specific vehicle condition should be retained for further coordination.",
+    "A structured record can be useful when damage or a specific vehicle condition should be recorded for further coordination.",
   detailSections: [
     {
       title: "What can be included in the documentation?",
