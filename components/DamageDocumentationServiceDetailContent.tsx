@@ -20,6 +20,21 @@ const heroActions = [
   { label: "Dokumentation anfragen", href: "#schadendokumentation-anfrage" },
 ] as const
 
+const bottomActions = [
+  { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
+  {
+    label: "WhatsApp schreiben",
+    href: "https://wa.me/4917664365185",
+    icon: "message" as const,
+    external: true,
+  },
+  {
+    label: "Anfrage stellen",
+    ariaLabel: "Anfrage stellen – Schadendokumentation",
+    href: "#schadendokumentation-anfrage",
+  },
+] as const
+
 const benefits = [
   "Schäden geordnet dokumentieren",
   "Fahrzeugzustand festhalten",
@@ -193,7 +208,7 @@ export function DamageDocumentationServiceDetailContent({
           imageAlt={page.imageAlt}
           imageClassName="object-cover object-center"
           heroActions={page.heroActions}
-          bottomActions={page.heroActions}
+          bottomActions={page.bottomActions}
           heroNotice={page.heroNotice}
           backLinkHref={getLocalizedPagePath("home", locale)}
           servicePath={getLocalizedPagePath("damageDocumentation", locale)}
@@ -232,7 +247,7 @@ export function DamageDocumentationServiceDetailContent({
         imageAlt="Schadendokumentation an einem beschädigten Fahrzeug mit Tablet, Fotos und Unterlagen"
         imageClassName="object-cover object-center"
         heroActions={heroActions}
-        bottomActions={heroActions}
+        bottomActions={bottomActions}
         heroNotice="Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
         backLinkHref="/"
         servicePath="/gutachtenarten/schadendokumentation"
@@ -244,8 +259,11 @@ export function DamageDocumentationServiceDetailContent({
         whyChoose={documentationProcess}
         faqs={faqs}
         formTitle="Schadendokumentation anfragen"
-        ctaTitle="Sie möchten einen Schaden oder den Zustand Ihres Fahrzeugs dokumentieren lassen?"
-        ctaDescription="Schildern Sie uns kurz, was festgehalten werden soll. Wir besprechen mit Ihnen, welches Vorgehen zu Ihrem Anliegen passt."
+        ctaTitle="Schadendokumentation anfragen"
+        ctaDescription={[
+          "Beschreiben Sie kurz, was dokumentiert werden soll.",
+          "Wir stimmen das weitere Vorgehen mit Ihnen ab.",
+        ]}
         serviceName="schadendokumentation"
         formFields={formFields}
         formTextOverrides={formTextOverrides}

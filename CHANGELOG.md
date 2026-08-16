@@ -2,6 +2,17 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-16
+
+### Aufgabe 051 - Abschluss-CTAs in DE, EN und RU vereinheitlicht
+
+- Die Abschlussbereiche von Unfallgutachten, Fahrzeugbewertung und Schadendokumentation verwenden in allen drei Sprachen freigegebene, leistungsspezifische Überschriften und jeweils zwei getrennte Beschreibungssätze.
+- Die sichtbaren Aktionen sind sprachweit einheitlich benannt. Der Anfrage-Link besitzt je Seite einen vollständigen zugänglichen Namen mit Leistungsbezug; Hero-Aktionen und Formular-Submit-Buttons blieben unverändert.
+- Die gemeinsame CTA-Komponente rendert mehrteilige Beschreibungen semantisch als einzelne Absätze und balanciert deren responsive Umbrüche. Eine ausschließlich auf sehr großen Bildschirmen erweiterte Containerbreite verhindert unnötige Restzeilen langer Überschriften.
+- Alle 45 Kombinationen aus drei Leistungen, drei Sprachen und fünf Viewports lieferten HTTP 200 ohne Laufzeit-, Overflow-, Überlappungs- oder Buttonfehler. 45 Fullpage-Aufnahmen, 45 CTA-Ausschnitte und 15 Sprachvergleiche wurden tatsächlich visuell geprüft; alle 18 Sprachwechsel bewahren den Seitenkontext.
+- Accessibility-, Mobile-, Desktop-, Content- und Codequalitätsprüfung fanden keine durch den Arbeitsschritt eingeführten Verstöße oder Blocker. Aufgabe 051 bleibt bis zur persönlichen Sichtprüfung aktiv und `in Arbeit`.
+- `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektplanung nicht geändert haben.
+
 ## 2026-08-15
 
 ### Aufgabe 051 - Russischen Abschluss-CTA auf Desktop beruhigt

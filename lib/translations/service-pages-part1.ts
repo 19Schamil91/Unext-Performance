@@ -62,9 +62,11 @@ export const servicePagesPart1 = {
 
       heroNotice:
         "Bei unverschuldetem Unfall werden die Gutachterkosten in der Regel von der gegnerischen Haftpflichtversicherung übernommen.",
-      ctaTitle: "Unfallgutachten in Berlin anfragen",
-      ctaDescription:
-        "Rufen Sie an, schreiben Sie per WhatsApp oder schildern Sie den Schaden kurz über das Formular. Wir melden uns zeitnah zur weiteren Abstimmung.",
+      ctaTitle: "Unfallgutachten anfragen",
+      ctaDescription: [
+        "Schildern Sie kurz den Schaden.",
+        "Wir stimmen die nächsten Schritte mit Ihnen ab.",
+      ],
       layoutLabels: {
         backToServices: "Zurück zur Startseite",
         servicesTitle: "Wann ist ein Unfallgutachten sinnvoll?",

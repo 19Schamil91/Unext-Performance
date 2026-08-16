@@ -18,6 +18,7 @@ export type LocalizedAppraisalPage = {
   imageAlt: string
   heroNotice: string
   heroActions: readonly Action[]
+  bottomActions: readonly Action[]
   benefits: readonly string[]
   services: readonly Card[]
   servicesDescription?: string
@@ -32,7 +33,7 @@ export type LocalizedAppraisalPage = {
   faqs: readonly { question: string; answer: string }[]
   formTitle: string
   ctaTitle: string
-  ctaDescription: string
+  ctaDescription: readonly [string, string]
   formTextOverrides: ServiceInquiryTextOverrides
   formHelperText?: string
   layoutLabels: {
@@ -73,6 +74,7 @@ const englishAccident = {
   heroNotice:
     "If you were not at fault, the other party's liability insurer will generally cover the appraisal costs.",
   heroActions: actions("en", "Make an enquiry about an accident damage appraisal", "#unfallgutachten-anfrage"),
+  bottomActions: actions("en", "Make an enquiry about an accident appraisal", "#unfallgutachten-anfrage"),
   benefits: ["Assessed by DESAG for vehicle damage and valuation", "Independent damage assessment in Berlin"],
   services: [
     {
@@ -135,9 +137,11 @@ const englishAccident = {
     { question: "How quickly will I receive a response?", answer: "We will contact you promptly after your enquiry to discuss the next steps personally." },
   ],
   formTitle: "Briefly describe the damage and request a call back",
-  ctaTitle: "Request an accident damage appraisal in Berlin",
-  ctaDescription:
-    "Call us, write via WhatsApp or briefly describe the damage in the form.\nWe will contact you promptly to discuss the next steps.",
+  ctaTitle: "Request an accident appraisal",
+  ctaDescription: [
+    "Briefly describe the damage.",
+    "We will discuss the next steps with you.",
+  ],
   formTextOverrides: {
     description: "Briefly describe the damage. We will contact you promptly and discuss the next steps.",
     vehiclePlaceholder: "e.g. BMW 320d, model year 2021",
@@ -164,6 +168,7 @@ const englishVehicleValuation = {
   imageAlt: "Vehicle, documents and camera prepared for a vehicle valuation",
   heroNotice: "Assessed and recognised by DESAG as an expert in motor vehicle damage and valuation.",
   heroActions: actions("en", "Make an enquiry about a vehicle valuation", "#fahrzeugbewertung-anfrage"),
+  bottomActions: actions("en", "Make an enquiry about a vehicle valuation", "#fahrzeugbewertung-anfrage"),
   benefits: ["Check condition and equipment", "Consider special features", "Clarify the purpose of the valuation", "Explain the result to you personally"],
   services: [
     { title: "Before selling", description: "You want a realistic professional assessment before entering sales discussions." },
@@ -202,9 +207,11 @@ const englishVehicleValuation = {
     { question: "What happens after my enquiry?", answer: "We discuss the purpose, available information and appropriate scope." },
   ],
   formTitle: "Request a vehicle valuation",
-  ctaTitle: "Would you like to have your vehicle's value assessed?",
-  ctaDescription:
-    "Briefly tell us about the vehicle and why you need the valuation.\nWe will discuss which information is needed for the next step.",
+  ctaTitle: "Request a vehicle valuation",
+  ctaDescription: [
+    "Tell us about the vehicle and the reason for the valuation.",
+    "We will clarify which details are required.",
+  ],
   formTextOverrides: {
     description: "Briefly describe the vehicle and the purpose of the valuation. We will contact you to discuss the next steps.",
     vehicle: "Vehicle model",
@@ -233,6 +240,7 @@ const englishDamageDocumentation = {
   imageAlt: "Vehicle damage documentation with vehicle photographs and available records",
   heroNotice: "Assessed and recognised by DESAG as an expert in motor vehicle damage and valuation.",
   heroActions: actions("en", "Make an enquiry about vehicle damage documentation", "#schadendokumentation-anfrage"),
+  bottomActions: actions("en", "Make an enquiry about damage documentation", "#schadendokumentation-anfrage"),
   benefits: ["Record damage systematically", "Document the vehicle's condition", "Include photos and available records", "Discuss the process in advance"],
   services: [
     { title: "Record damage promptly", description: "Visible damage should be documented promptly and systematically." },
@@ -280,8 +288,11 @@ const englishDamageDocumentation = {
     { question: "What happens after my enquiry?", answer: "We discuss your request, agree the appropriate process and explain which details or documents are useful for the next step." },
   ],
   formTitle: "Request vehicle damage documentation",
-  ctaTitle: "Would you like to document damage or your vehicle's condition?",
-  ctaDescription: "Briefly tell us what should be recorded.\nWe will discuss which process is appropriate for your situation.",
+  ctaTitle: "Request damage documentation",
+  ctaDescription: [
+    "Briefly describe what should be documented.",
+    "We will discuss the next steps with you.",
+  ],
   formTextOverrides: {
     description: "Briefly describe what is damaged or which vehicle condition you would like documented. We will contact you to discuss the next steps.",
     vehicle: "Vehicle model",
@@ -311,6 +322,7 @@ const russianAccident = {
   heroNotice:
     "Если вы не виноваты в ДТП, расходы на оценку ущерба, как правило, оплачивает страховая компания гражданской ответственности виновной стороны.",
   heroActions: actions("ru", "Оставить заявку на оценку ущерба после ДТП", "#unfallgutachten-anfrage"),
+  bottomActions: actions("ru", "Оставить заявку на оценку ущерба", "#unfallgutachten-anfrage"),
   benefits: ["Квалификация по повреждениям автомобилей и оценке стоимости проверена DESAG", "Независимая оценка ущерба в Берлине"],
   services: [
     { title: "Повреждение серьёзнее небольшой царапины", description: "Если стоимость ремонта, утрата товарной стоимости автомобиля или полный объём повреждений неясны, независимая оценка ущерба создаёт надёжную основу для дальнейших действий." },
@@ -359,8 +371,11 @@ const russianAccident = {
     { question: "Как быстро я получу ответ?", answer: "После запроса мы свяжемся с вами в ближайшее время и лично обсудим дальнейшие шаги." },
   ],
   formTitle: "Кратко опишите повреждение и закажите обратный звонок",
-  ctaTitle: "Запросить оценку ущерба после ДТП в Берлине",
-  ctaDescription: "Позвоните, напишите в WhatsApp или кратко опишите повреждение в форме.\nМы свяжемся с вами для дальнейшего согласования.",
+  ctaTitle: "Запросить оценку ущерба",
+  ctaDescription: [
+    "Кратко опишите повреждение.",
+    "Мы согласуем с вами дальнейшие шаги.",
+  ],
   formTextOverrides: {
     description: "Кратко опишите повреждение. Мы свяжемся с вами и согласуем дальнейшие шаги.",
     vehiclePlaceholder: "например, BMW 320d, 2021 года выпуска",
@@ -386,6 +401,7 @@ const russianVehicleValuation = {
   imageAlt: "Автомобиль, документы и камера для оценки стоимости",
   heroNotice: "Квалификация эксперта по повреждениям транспортных средств и оценке стоимости проверена и признана DESAG.",
   heroActions: actions("ru", "Оставить заявку на оценку стоимости автомобиля", "#fahrzeugbewertung-anfrage"),
+  bottomActions: actions("ru", "Оставить заявку на оценку стоимости автомобиля", "#fahrzeugbewertung-anfrage"),
   benefits: ["Проверить состояние и комплектацию", "Учесть особые характеристики", "Заранее определить цель оценки", "Понятно объяснить результат"],
   services: [
     { title: "Перед продажей", description: "Вы хотите начать переговоры с реалистичной профессиональной оценкой." },
@@ -423,8 +439,11 @@ const russianVehicleValuation = {
     { question: "Что произойдёт после запроса?", answer: "Мы обсудим цель оценки, имеющиеся сведения и подходящий объём работы." },
   ],
   formTitle: "Запросить оценку стоимости автомобиля",
-  ctaTitle: "Хотите узнать стоимость вашего автомобиля?",
-  ctaDescription: "Кратко сообщите данные автомобиля и цель оценки.\nМы объясним, какая информация нужна для следующего шага.",
+  ctaTitle: "Запросить оценку стоимости автомобиля",
+  ctaDescription: [
+    "Укажите автомобиль и цель оценки.",
+    "Мы уточним, какие данные понадобятся.",
+  ],
   formTextOverrides: {
     description: "Кратко опишите автомобиль и цель оценки. Мы свяжемся с вами для дальнейшего согласования.",
     vehicle: "Модель автомобиля",
@@ -452,6 +471,7 @@ const russianDamageDocumentation = {
   imageAlt: "Фиксация повреждений автомобиля с фотографиями и документами",
   heroNotice: "Квалификация эксперта по повреждениям транспортных средств и оценке стоимости проверена и признана DESAG.",
   heroActions: actions("ru", "Оставить заявку на фиксацию повреждений", "#schadendokumentation-anfrage"),
+  bottomActions: actions("ru", "Оставить заявку на фиксацию повреждений", "#schadendokumentation-anfrage"),
   benefits: ["Последовательно зафиксировать повреждения", "Зафиксировать состояние автомобиля", "Учесть фотографии и имеющиеся документы", "Заранее согласовать порядок действий"],
   services: [
     { title: "Оперативно зафиксировать повреждение", description: "Видимое повреждение необходимо своевременно и последовательно зафиксировать." },
@@ -499,8 +519,11 @@ const russianDamageDocumentation = {
     { question: "Что произойдёт после запроса?", answer: "Мы обсудим ситуацию, согласуем подходящий порядок и сообщим, какие сведения или документы нужны для следующего шага." },
   ],
   formTitle: "Запросить фиксацию повреждений",
-  ctaTitle: "Хотите зафиксировать повреждение или состояние автомобиля?",
-  ctaDescription: "Кратко сообщите, что необходимо зафиксировать.\nМы обсудим подходящий порядок действий.",
+  ctaTitle: "Запросить фиксацию повреждений",
+  ctaDescription: [
+    "Кратко опишите, что нужно зафиксировать.",
+    "Мы согласуем с вами дальнейшие шаги.",
+  ],
   formTextOverrides: {
     description: "Кратко опишите повреждение или состояние автомобиля, которое необходимо зафиксировать. Мы свяжемся с вами и согласуем дальнейшие шаги.",
     vehicle: "Модель автомобиля",

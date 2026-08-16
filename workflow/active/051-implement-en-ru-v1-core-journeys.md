@@ -686,6 +686,29 @@ Prüfergebnis:
 
 Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit`.
 
+## Abschließende Vereinheitlichung der DE/EN/RU-Abschluss-CTAs
+
+Die Abschlussbereiche von Unfallgutachten, Fahrzeugbewertung und Schadendokumentation verwenden jetzt in DE, EN und RU die bestätigten leistungsspezifischen Überschriften und jeweils zwei kurze Beschreibungssätze. Die sichtbaren Aktionsbeschriftungen sind innerhalb jeder Sprache einheitlich: `Jetzt anrufen`, `WhatsApp schreiben`, `Anfrage stellen`; `Call now`, `Message us on WhatsApp`, `Make an enquiry`; sowie `Позвонить`, `Написать в WhatsApp`, `Оставить заявку`.
+
+Der Anfrage-Link besitzt auf jeder Seite einen lokalisierten zugänglichen Namen mit eindeutigem Leistungsbezug. Telefon- und WhatsApp-Link verwenden ihren vollständigen sichtbaren Text als zugänglichen Namen. Hero-Aktionen, Formular-Submit-Buttons, Formulare, Routen, Navigation, Rechtstexte, technische SEO-Dateien und Assets blieben unverändert.
+
+Die gemeinsame CTA-Komponente akzeptiert einen einzelnen Beschreibungstext oder mehrere Sätze und rendert mehrere Sätze semantisch als getrennte Absätze. `text-balance` sorgt auf kleinen Viewports für ruhige Umbrüche, ohne manuelle Zeilenumbrüche, `nowrap`, feste Höhen oder kleinere Schriftgrößen. Ab `2xl` nutzt der CTA-Container mehr der verfügbaren Breite, damit lange Überschriften keine unnötigen Restzeilen erzeugen; der Inhalt bleibt vollständig responsiv und darf natürlich wachsen.
+
+Prüfergebnis:
+
+- Alle 45 Seiten-/Viewport-Kombinationen aus drei Leistungen, drei Sprachen und 390 × 844, 768 × 1024, 1366 × 900, 1440 × 1100 sowie 2048 × 996 Pixeln lieferten HTTP 200.
+- Es gab keine Console-, Hydration-, Page-, Request-, Bild-, Overflow-, Überlappungs-, semantischen oder Buttonfehler.
+- Auf den drei Desktop-Breiten steht jeder Beschreibungssatz vollständig in einer Zeile. Lange russische Überschriften dürfen kontrolliert zweizeilig bleiben.
+- Mobile und Tablet zeigen natürliche, balancierte Umbrüche ohne isolierte Wörter oder problematische Restzeilen; alle Aktionsbeschriftungen bleiben vollständig sichtbar.
+- Alle 18 Sprachwechselrichtungen der drei Gutachtenarten bewahren den fachlichen Seitenkontext.
+- 45 Fullpage-Screenshots, 45 gezielte CTA-Ausschnitte und 15 deterministische DE/EN/RU-Vergleichsbilder liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-unified-final-cta-review/2026-08-16T18-12-50-298Z/`. Alle 15 Vergleichsbilder wurden tatsächlich einzeln geöffnet und visuell geprüft.
+- Accessibility-, Mobile-, Desktop-, Content- und Codequalitätsprüfung fanden keine durch den Arbeitsschritt eingeführten Verstöße oder Blocker. Mobile und Desktop sind ohne Überläufe oder problematische Umbrüche launch-ready; die Content-Prüfung bestätigte die konsistente CTA-Tonalität und Premium-Wirkung.
+- Die bereits zuvor vorhandenen kebab-case-Dateinamen der gemeinsamen CTA- und Service-Layout-Komponenten sind kein durch diesen Diff eingeführter Naming-Verstoß und bleiben wegen der Scope-Regel unverändert. Die unterschiedliche englische Leistungsbezeichnung im bestehenden Hero (`accident damage appraisal`) und im bestätigten Abschluss-CTA (`accident appraisal`) ist ein nicht blockierender Bestandsbefund für einen möglichen späteren Text-Review; der Hero war ausdrücklich nicht Teil dieses Arbeitsschritts.
+- ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden. `next-env.d.ts` blieb unverändert.
+- `ROADMAP.md` bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
+
+Die bestätigten CTA-Texte ersetzen keine allgemeine menschliche EN-/RU-Sprach-, Fach- oder Rechtsfreigabe. Aufgabe 051 bleibt für die persönliche Sichtprüfung in `workflow/active/` mit `Status: in Arbeit`. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
+
 ## Zuordnung zu Folgeaufgaben
 
 - 029: technische SEO-Endarbeit für Metadata, Canonicals, Hreflang, Sitemap, Robots und Structured Data;

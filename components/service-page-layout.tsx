@@ -50,7 +50,7 @@ export type ServicePageLayoutProps = {
   faqs?: readonly { question: string; answer: string }[]
   formTitle: string
   ctaTitle?: string
-  ctaDescription?: string
+  ctaDescription?: string | readonly string[]
   serviceName: string
   badge?: string
   formFields?: ServiceInquiryFields

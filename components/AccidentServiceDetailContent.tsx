@@ -33,9 +33,17 @@ type AccidentServicePageExtras = {
     contactCta: string
   }>
   ctaTitle?: string
-  ctaDescription?: string
+  ctaDescription?: string | readonly string[]
   heroActions?: readonly {
     label: string
+    ariaLabel?: string
+    href: string
+    icon?: "phone" | "message"
+    external?: boolean
+  }[]
+  bottomActions?: readonly {
+    label: string
+    ariaLabel?: string
     href: string
     icon?: "phone" | "message"
     external?: boolean
@@ -104,14 +112,22 @@ const germanHeroActions = [
 ] as const
 
 const germanBottomActions = [
-  { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
+  {
+    label: "Jetzt anrufen",
+    href: "tel:+493023613927",
+    icon: "phone" as const,
+  },
   {
     label: "WhatsApp schreiben",
     href: "https://wa.me/4917664365185",
     icon: "message" as const,
     external: true,
   },
-  { label: "Anfrage senden", href: "#unfallgutachten-anfrage" },
+  {
+    label: "Anfrage stellen",
+    ariaLabel: "Anfrage stellen – Unfallgutachten",
+    href: "#unfallgutachten-anfrage",
+  },
 ] as const
 
 export function getAccidentServiceMetadata(locale: Locale): Metadata {
@@ -140,7 +156,7 @@ export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailCo
       imageAlt={page.imageAlt}
       imageClassName="object-cover object-[center_center]"
       heroActions={page.heroActions ?? germanHeroActions}
-      bottomActions={page.heroActions ?? germanBottomActions}
+      bottomActions={page.bottomActions ?? germanBottomActions}
       heroNotice={page.heroNotice}
       serviceNote={page.serviceNote}
       backLinkHref={getLocalizedPagePath("home", locale)}

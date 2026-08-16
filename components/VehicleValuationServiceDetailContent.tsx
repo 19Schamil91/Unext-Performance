@@ -20,6 +20,21 @@ const heroActions = [
   { label: "Bewertung anfragen", href: "#fahrzeugbewertung-anfrage" },
 ] as const
 
+const bottomActions = [
+  { label: "Jetzt anrufen", href: "tel:+493023613927", icon: "phone" as const },
+  {
+    label: "WhatsApp schreiben",
+    href: "https://wa.me/4917664365185",
+    icon: "message" as const,
+    external: true,
+  },
+  {
+    label: "Anfrage stellen",
+    ariaLabel: "Anfrage stellen – Fahrzeugbewertung",
+    href: "#fahrzeugbewertung-anfrage",
+  },
+] as const
+
 const benefits = [
   "Zustand und Ausstattung prüfen",
   "Besondere Merkmale berücksichtigen",
@@ -165,7 +180,7 @@ export function VehicleValuationServiceDetailContent({
           imageAlt={page.imageAlt}
           imageClassName="object-cover object-[center_60%] md:object-[center_58%]"
           heroActions={page.heroActions}
-          bottomActions={page.heroActions}
+          bottomActions={page.bottomActions}
           heroNotice={page.heroNotice}
           backLinkHref={getLocalizedPagePath("home", locale)}
           servicePath={getLocalizedPagePath("vehicleValuation", locale)}
@@ -204,7 +219,7 @@ export function VehicleValuationServiceDetailContent({
         imageAlt="Schwarzes Fahrzeug mit Unterlagen und Kamera für eine Fahrzeugbewertung"
         imageClassName="object-cover object-[center_60%] md:object-[center_58%]"
         heroActions={heroActions}
-        bottomActions={heroActions}
+        bottomActions={bottomActions}
         heroNotice="Geprüfter und anerkannter Sachverständiger für Schäden an Kraftfahrzeugen und Wertermittlung."
         backLinkHref="/"
         servicePath="/gutachtenarten/fahrzeugbewertung"
@@ -216,8 +231,11 @@ export function VehicleValuationServiceDetailContent({
         whyChoose={valuationProcess}
         faqs={faqs}
         formTitle="Fahrzeugbewertung anfragen"
-        ctaTitle="Sie möchten den Wert Ihres Fahrzeugs prüfen lassen?"
-        ctaDescription="Nennen Sie uns kurz das Fahrzeug und den Grund für die Bewertung. Wir besprechen mit Ihnen, welche Informationen für den nächsten Schritt benötigt werden."
+        ctaTitle="Fahrzeugbewertung anfragen"
+        ctaDescription={[
+          "Nennen Sie uns Fahrzeug und Bewertungsanlass.",
+          "Wir klären mit Ihnen die benötigten Angaben.",
+        ]}
         serviceName="fahrzeugbewertung"
         formFields={formFields}
         formTextOverrides={formTextOverrides}
