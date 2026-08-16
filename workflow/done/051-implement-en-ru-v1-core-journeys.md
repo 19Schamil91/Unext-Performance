@@ -2,13 +2,13 @@
 
 ## Status
 
-Status: in Arbeit
+Status: abgeschlossen
 
 ## Ziel
 
 Die bereits freigegebene deutsche V1-Webseite wird für den gemeinsamen Launch vollständig und qualitativ gleichwertig auf Englisch und Russisch umgesetzt. Deutsch bleibt die fachliche Referenz. EN und RU sollen natürlich, kompakt und zur jeweiligen Sprache passend formuliert werden, ohne stärkere Aussagen, neue Leistungen oder unbestätigte Versprechen einzuführen.
 
-Die Aufgabe ist weiterhin in Arbeit. Die EN/RU-Textentwürfe und menschlichen Prüfpakete liegen als vorläufige Dokumente vor. Der Nutzer hat ausdrücklich erlaubt, die Entwürfe nach Freigabe des konkreten Dateiplans vorläufig auf dem lokalen Aufgabenbranch umzusetzen und erst im sichtbaren Seitenkontext menschlich prüfen zu lassen. Diese lokale Umsetzung ist weder eine menschliche Sprachfreigabe noch eine Abschluss- oder Launchfreigabe.
+Die EN/RU-Textentwürfe und menschlichen Prüfpakete wurden während der Umsetzung zunächst als vorläufige Dokumente geführt. Der Nutzer erlaubte ausdrücklich, die Entwürfe nach Freigabe des konkreten Dateiplans vorläufig auf dem lokalen Aufgabenbranch umzusetzen und erst im sichtbaren Seitenkontext menschlich prüfen zu lassen. Die spätere ausdrückliche Nutzerakzeptanz der aktuellen Sprach- und Fachaussagen sowie die formale Abschlussfreigabe sind im Abschlussabschnitt dokumentiert; eine Launchfreigabe ergibt sich daraus nicht.
 
 ## Kontext
 
@@ -359,7 +359,7 @@ Technische Abschlusschecks nach Codeänderungen:
 8. Responsive, funktionale, barrierebezogene und technische Prüfungen werden vollständig bestanden.
 9. Abschluss, Push und Pull Request erfolgen erst danach und nur nach ausdrücklicher Nutzerfreigabe.
 
-Die lokale visuelle Prüfung ersetzt keine Sprach-, Fach- oder Rechtsfreigabe. Vorläufige Texte dürfen nicht unbemerkt als final oder launchfähig bezeichnet werden. Aufgabe 051 bleibt aktiv, solange ein erforderliches Gate offen ist.
+Historische Gate-Regel während der Umsetzung: Die lokale visuelle Prüfung ersetzte keine Sprach-, Fach- oder Rechtsfreigabe, und vorläufige Texte durften nicht unbemerkt als final oder launchfähig bezeichnet werden. Die spätere Nutzerakzeptanz der Sprach- und Fachabweichung sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert.
 
 ## Phase-B-Zwischenstand
 
@@ -409,7 +409,7 @@ Der konkrete technische Dateiplan wurde unter `specs/06-work-plans/task-051-impl
 
 Der Nutzer hat die neue Reihenfolge ausdrücklich festgelegt: Nach Freigabe dieses Dateiplans dürfen die vorhandenen EN/RU-Entwürfe vorläufig lokal umgesetzt und im echten Layout geprüft werden. Menschliche EN/RU-Prüfung, erforderliche Fachprüfung und geeignete Behandlung der Rechtstexte bleiben Abschluss- und Launch-Gates.
 
-Der Dateiplan wurde ausdrücklich freigegeben. Die vorläufige lokale Codeumsetzung darf beginnen. Die menschliche EN/RU-Prüfung bleibt vor Abschluss, Push, Pull Request und Launch verpflichtend; der technische Preview-Stand darf nicht als sprachlich final oder launchfähig bezeichnet werden. Status bleibt `in Arbeit`.
+Historischer Freigabestand: Der Dateiplan wurde ausdrücklich freigegeben und die vorläufige lokale Codeumsetzung durfte beginnen. Zu diesem Zeitpunkt war die menschliche EN/RU-Prüfung vor Abschluss, Push, Pull Request und Launch noch als verpflichtend eingeordnet; der technische Preview-Stand durfte nicht als sprachlich final oder launchfähig bezeichnet werden. Die spätere Nutzerentscheidung zu dieser Abweichung ist im Abschlussabschnitt dokumentiert.
 
 ## Codebase-Explorer vor der Umsetzung
 
@@ -497,7 +497,7 @@ Weiterhin offen und verpflichtend:
 - geeignete beziehungsweise qualifizierte Prüfung der Rechtstexte;
 - visuelle Nutzerfreigabe des lokalen Preview-Stands.
 
-Dieser Stand ist nicht launchfähig. Aufgabe 051 bleibt aktiv und hat weiterhin den Status `in Arbeit`.
+Dieser damalige Zwischenstand war nicht launchfähig. Die spätere formale Abschlussfreigabe der Aufgabe ist im Abschlussabschnitt dokumentiert und stellt weiterhin keine Launchfreigabe dar.
 
 ## Freigegebene Referenztext-Korrekturen
 
@@ -505,7 +505,7 @@ Die nach der vorläufigen Paritätsprüfung ausdrücklich freigegebenen kleinen 
 
 Unbekannte deutsche Pfade erhalten über eine locale-nahe Catch-all-Route nun die vorhandene deutsche 404-Seite. Die bestehenden lokalisierten EN/RU-404-Aktionen wurden auf die freigegebenen Beschriftungen angepasst. Es wurde keine allgemeine `/gutachtenarten`-Route angelegt oder verlinkt.
 
-Die englischen und russischen Fortbildungsformulierungen bleiben ausdrücklich vorläufig und benötigen weiterhin menschliche Sprachprüfung sowie eine geeignete fachliche Prüfung. Gutachterkosten, Legal-Texte, SEO, Legacy-Inhalte und die übrigen gesammelten Layoutbefunde wurden in diesem Korrekturschritt nicht verändert. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+Die englischen und russischen Fortbildungsformulierungen waren an diesem historischen Zwischenstand ausdrücklich vorläufig und benötigten noch menschliche Sprachprüfung sowie eine geeignete fachliche Prüfung. Gutachterkosten, Legal-Texte, SEO, Legacy-Inhalte und die übrigen gesammelten Layoutbefunde wurden in diesem Korrekturschritt nicht verändert. Die spätere Nutzerakzeptanz der Sprach- und Fachabweichung ist im Abschlussabschnitt dokumentiert.
 
 ## Kontrollierte Überarbeitung der Rechtstexte
 
@@ -593,7 +593,7 @@ Weiterhin offen und nicht als erledigt markiert:
 - geeignete beziehungsweise qualifizierte Rechtsprüfung der drei vorläufigen Rechtstextfassungen;
 - ausdrückliche Nutzerfreigabe des korrigierten Preview-Stands.
 
-Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit`.
+Historischer Zwischenstand: Aufgabe 051 war zu diesem Prüfzeitpunkt noch nicht formal abgeschlossen.
 
 ## Enger Korrekturschritt für bestätigte Sprach- und Accessibility-Befunde
 
@@ -603,7 +603,7 @@ Accessibility-Texte wurden pro Sprache ergänzt: Die drei Startseitenbilder besi
 
 Die deutsche FAQ-Antwort zu vorab gesendeten Fotos war bereits vollständig vorhanden und wurde nicht dupliziert. Der frühere Befund wird ausschließlich als Zuordnungsfehler der externen Inventur korrigiert. Rechtstexte, Routing, Redirects, Assets und technische SEO-Dateien blieben außerhalb dieses Schritts. Der `UNFALLX`-Metadata-Befund bleibt Aufgabe 029 zugeordnet.
 
-Weiterhin offen bleiben die menschlichen EN/RU-Sprachfreigaben, geeignete Fachprüfungen sensibler Gutachten-, Versicherungs-, Kosten- und DESAG-Aussagen sowie die geeignete Rechtsprüfung der vorläufigen Rechtstexte. Für `Wiederbeschaffungswert` wurde bewusst kein neuer russischer Fachbegriff festgelegt. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+An diesem historischen Zwischenstand waren die menschlichen EN/RU-Sprachfreigaben, geeignete Fachprüfungen sensibler Gutachten-, Versicherungs-, Kosten- und DESAG-Aussagen sowie die geeignete Rechtsprüfung der vorläufigen Rechtstexte noch offen. Für `Wiederbeschaffungswert` wurde bewusst kein neuer russischer Fachbegriff festgelegt. Die spätere Nutzerakzeptanz der Sprach- und Fachabweichung sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert.
 
 ## Enger visueller Paritätsabgleich
 
@@ -611,7 +611,7 @@ Die bestätigten Layoutabweichungen der lokalisierten Gutachtenseiten wurden mit
 
 Die drei englischen Detailseiten erhalten ab Tablet moderat mehr H1-Breite, ohne Texte, Schriftgröße oder Zeilenumbrüche manuell zu verändern. Ihre FAQ-Bereichsüberschrift lautet einheitlich `Frequently asked questions`. Der gemeinsame Startseiten-Hero nutzt ausschließlich auf Desktop einen größeren responsiven oberen Innenabstand, damit der Inhalt im vorhandenen Hero-Rahmen ausgewogener steht. Hero-Höhe, Bilder, Bildausschnitte, Texte und Tablet-/Mobile-Layout bleiben unverändert.
 
-Bewusst unverändert bleiben weitere sichtbare Texte, deutsche und russische Inhalte, Rechtstexte, Formulare, Routen, Redirects, technische SEO-Dateien, Navigation und Assets. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+In diesem historischen Korrekturschritt blieben weitere sichtbare Texte, deutsche und russische Inhalte, Rechtstexte, Formulare, Routen, Redirects, technische SEO-Dateien, Navigation und Assets bewusst unverändert. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen waren zu diesem Zeitpunkt noch offen. Die spätere Nutzerentscheidung zu Sprach- und Fachabweichungen sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert.
 
 ## Letzter CTA-, Überschriften- und Desktop-Hero-Feinschliff
 
@@ -619,7 +619,7 @@ Die vorbereitenden Formularlinks der englischen und russischen Gutachtenseiten v
 
 Für die längeren englischen und russischen Kontakt-H1 wurde ausschließlich die verfügbare responsive Textbreite moderat erweitert und eine ausgeglichene Umbruchregel genutzt. Sichtbare Überschriftentexte, deutsche Texte und die Überschriftenhierarchie blieben unverändert; es wurden keine kürzeren Überschriften vorgeschlagen oder eigenständig formuliert. Der gemeinsame Startseiten-Hero erhält ausschließlich auf Desktop etwas mehr responsiven oberen Innenabstand. Hero-Höhe, Bild, Bildausschnitt, Schriftgrößen sowie Mobile- und Tablet-Positionierung bleiben unverändert.
 
-Bewusst unverändert blieben akzeptierte Kartenraster und Detailbereiche, Rechtstexte, Formularvalidierung und Server Actions, Routing, Redirects, technische SEO-Dateien, Navigation und Assets. Menschliche EN-/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`. `ROADMAP.md` bleibt unverändert, weil sich weder Projektplanung noch Reihenfolge oder Prioritäten geändert haben.
+In diesem historischen Korrekturschritt blieben akzeptierte Kartenraster und Detailbereiche, Rechtstexte, Formularvalidierung und Server Actions, Routing, Redirects, technische SEO-Dateien, Navigation und Assets bewusst unverändert. Menschliche EN-/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen waren zu diesem Zeitpunkt noch offen. Die spätere Nutzerentscheidung zu Sprach- und Fachabweichungen sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert. `ROADMAP.md` blieb bei diesem Zwischenstand unverändert, weil sich weder Projektplanung noch Reihenfolge oder Prioritäten geändert hatten.
 
 Der Feinschliff wurde in 44 Seiten-/Viewport-Kombinationen bei 390, 768, 1440 × 900 und 1440 × 1100 Pixeln ohne HTTP-, Console-, Hydration-, Request-, Bild- oder Overflowfehler geprüft. Alle 18 Sprachwechselrichtungen der drei Gutachtenarten bewahren den fachlichen Seitenkontext. 36 Fullpage-Screenshots und 16 deterministische Vergleichsbilder wurden tatsächlich visuell geprüft und liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-051-final-cta-linebreak-review/20260805-223500/`. Die geänderten CTA-Texte sind sichtbar einzeilig und unbeschnitten. `next-router-check` prüfte 33 UI-Routen, davon 16 nach seiner Datenlade-Heuristik, ohne fehlende Pflichtgrenzen.
 
@@ -627,7 +627,7 @@ Der Feinschliff wurde in 44 Seiten-/Viewport-Kombinationen bei 390, 768, 1440 ×
 
 Die jeweils zwei bestehenden Beschreibungssätze der Abschluss-CTAs auf den sechs englischen und russischen Gutachtenseiten werden mit der vorhandenen gemeinsamen CTA-Logik als getrennte Textblöcke gerendert. Der zweite Satz beginnt dadurch bewusst in einem neuen Block, während beide Sätze innerhalb ihres Blocks weiterhin responsiv und ohne erzwungene Einzeiligkeit umbrechen dürfen.
 
-Der sichtbare Wortlaut, die Satzzeichen, CTA-Überschriften, Buttons und zugänglichen Namen blieben unverändert. Deutsche Texte und übrige Seitenbereiche wurden nicht angepasst. Die Untersuchung des roten Entwicklungsindikators, die Einordnung der Router-Check-Zählung und die responsive Sichtprüfung werden in diesem Korrekturschritt dokumentiert. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen bleiben offen. Aufgabe 051 bleibt aktiv und `in Arbeit`.
+Der sichtbare Wortlaut, die Satzzeichen, CTA-Überschriften, Buttons und zugänglichen Namen blieben unverändert. Deutsche Texte und übrige Seitenbereiche wurden nicht angepasst. Die Untersuchung des roten Entwicklungsindikators, die Einordnung der Router-Check-Zählung und die responsive Sichtprüfung wurden in diesem historischen Korrekturschritt dokumentiert. Menschliche EN/RU-Sprachfreigaben sowie geeignete Fach- und Rechtsprüfungen waren zu diesem Zeitpunkt noch offen. Die spätere Nutzerentscheidung zu Sprach- und Fachabweichungen sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert.
 
 Der technische Diff-Check, ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden. Der aktuelle `next-router-check` zählt gemäß seiner dokumentierten Async-/Fetch-Heuristik 16 datenladende lokalisierte Seiten. Die frühere Zahl 18 entstand durch eine breitere Einordnung, die zusätzlich die synchrone deutsche und lokalisierte Catch-all-404-Route mitzählte. Beide Catch-all-Routen rufen ausschließlich `notFound()` auf und werden durch die vorhandenen sprachbezogenen `not-found.tsx`-Grenzen abgedeckt; es fehlt keine Route oder Pflichtgrenze.
 
@@ -663,7 +663,7 @@ Prüfergebnis:
 - next-env.d.ts blieb unverändert. ROADMAP.md bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
 - Der Produktionsserver läuft mit dem aktuellen Build auf Port 3000 für die persönliche Sichtprüfung weiter.
 
-Aufgabe 051 bleibt in workflow/active/ mit Status: in Arbeit.
+Historischer Zwischenstand: Aufgabe 051 war zu diesem Prüfzeitpunkt noch nicht formal abgeschlossen.
 
 ## Letzter russischer CTA-Breitenabgleich
 
@@ -684,7 +684,7 @@ Prüfergebnis:
 - `next-env.d.ts` blieb unverändert. `ROADMAP.md` bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
 - Der Produktionsserver läuft mit dem aktuellen Build auf Port 3000 für die persönliche Sichtprüfung weiter.
 
-Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit`.
+Historischer Zwischenstand: Aufgabe 051 war zu diesem Prüfzeitpunkt noch nicht formal abgeschlossen.
 
 ## Abschließende Vereinheitlichung der DE/EN/RU-Abschluss-CTAs
 
@@ -707,7 +707,7 @@ Prüfergebnis:
 - ESLint, TypeScript und der Produktions-Build mit 49 Seiten bestanden. `next-env.d.ts` blieb unverändert.
 - `ROADMAP.md` bleibt unverändert, weil sich Projektplanung, Reihenfolge und Prioritäten nicht geändert haben.
 
-Die bestätigten CTA-Texte ersetzen keine allgemeine menschliche EN-/RU-Sprach-, Fach- oder Rechtsfreigabe. Aufgabe 051 bleibt für die persönliche Sichtprüfung in `workflow/active/` mit `Status: in Arbeit`. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
+Die bestätigten CTA-Texte ersetzten zu diesem Zeitpunkt keine allgemeine menschliche EN-/RU-Sprach-, Fach- oder Rechtsfreigabe. Die Aufgabe war für die persönliche Sichtprüfung noch nicht formal abgeschlossen. Die spätere Nutzerentscheidung zu Sprach- und Fachabweichungen sowie die weiterhin offene Rechtsprüfung sind im Abschlussabschnitt dokumentiert. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
 
 ## Letzte englische Textkorrekturen und akzeptierte Abweichungen
 
@@ -715,7 +715,19 @@ Drei in der abschließenden Textprüfung bestätigte englische Formulierungen wu
 
 Der Nutzer akzeptiert die aktuellen englischen und russischen Texte für Aufgabe 051 ausdrücklich, obwohl keine zusätzliche professionelle EN-/RU-Sprachprüfung durchgeführt wurde. Später entdeckte sprachliche Fehler dürfen nachträglich korrigiert werden. Ebenso bestätigt der Nutzer die aktuell sichtbaren fachlichen Aussagen für diesen Projektstand vorläufig; später entdeckte fachliche Fehler oder ungenaue Aussagen dürfen nachträglich korrigiert werden. Die fehlende zusätzliche professionelle Sprach- und Fachprüfung ist damit als ausdrücklich akzeptierte Abweichung dokumentiert.
 
-Diese Nutzerentscheidung ersetzt keine geeignete externe Rechtsprüfung. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig und müssen vor dem Launch extern geprüft werden. IONOS-AVV, Resend-DPA, echter Formularversand, Deployment, SEO, Legacy-Cleanup und finale Launch-QA bleiben den bereits vorgesehenen Folgeaufgaben zugeordnet. Aufgabe 051 bleibt in `workflow/active/` mit `Status: in Arbeit` und wird mit diesem Korrekturschritt noch nicht abgeschlossen.
+Diese Nutzerentscheidung ersetzt keine geeignete externe Rechtsprüfung. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig und müssen vor dem Launch extern geprüft werden. IONOS-AVV, Resend-DPA, echter Formularversand, Deployment, SEO, Legacy-Cleanup und finale Launch-QA bleiben den bereits vorgesehenen Folgeaufgaben zugeordnet. Historischer Zwischenstand dieses Korrekturschritts: Aufgabe 051 war zu diesem Zeitpunkt noch nicht formal abgeschlossen.
+
+## Abschluss
+
+Abschlussdatum: 16.08.2026
+
+Aufgabe 051 ist nach ausdrücklicher Nutzerfreigabe formal abgeschlossen. Die englischen und russischen V1-Kernwege wurden auf Grundlage der deutschen Referenz umgesetzt. Sechs neue EN/RU-Gutachtenartenrouten, alle neun DE/EN/RU-Gutachtenseiten, direkte permanente Redirects der alten EN/RU-Unfallgutachtenrouten, kontexttreue Sprachwechsel, lokalisierte Navigation, Formulare, Validierung, Servermeldungen, Error- und 404-Zustände sowie die gemeinsamen responsiven Hero-, Karten-, Formular- und CTA-Bereiche sind enthalten.
+
+`git diff --check`, ESLint, TypeScript und der Produktions-Build mit 49 Seiten wurden im Abschlusslauf bestanden. Der vollständig wiederholte `next-router-check` prüfte 33 UI-Routen und 16 datenladende Seiten ohne fehlende Loading-, Error- oder erforderliche Not-found-Grenzen. Die dokumentierten Browser-, Responsive-, Accessibility-, Sprachwechsel- und visuellen Prüfungen bleiben gültig. Der letzte Textkorrekturstand wurde zusätzlich auf den betroffenen englischen Seiten bei 390, 768 und 1440 Pixeln ohne Overflow, abgeschnittene Inhalte oder Laufzeitfehler geprüft. Es wurden keine Formulare versendet und keine Resend-Anfragen ausgelöst.
+
+Der Nutzer akzeptiert die aktuellen EN-/RU-Texte und fachlichen Aussagen für diesen Projektstand ausdrücklich ohne zusätzliche professionelle Sprach- und Fachprüfung. Diese akzeptierte Abweichung bleibt dokumentiert; spätere sprachliche und fachliche Korrekturen sind möglich. Sie ersetzt keine geeignete externe Rechtsprüfung. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig und vor dem Launch extern zu prüfen.
+
+SEO und Metadata bleiben Aufgabe 029, Legacy-Cleanup bleibt Aufgabe 026, finale Launch-, Accessibility-, Routing- und Performance-QA bleibt Aufgabe 033, IONOS-AVV, Resend-DPA, Deployment und echter Formularversand bleiben Aufgabe 034, und Monitoring bleibt Aufgabe 035. Der Abschluss von Aufgabe 051 bedeutet ausdrücklich nicht, dass die Website launchbereit ist. Es wurde keine Folgeaufgabe gestartet.
 
 ## Zuordnung zu Folgeaufgaben
 
@@ -766,4 +778,4 @@ Diese Nutzerentscheidung ersetzt keine geeignete externe Rechtsprüfung. Impress
 - Aufgabe 029, 026, 033, 034 und 035 wurden nicht ungeplant vorgezogen oder vermischt.
 - Es wurden keine Leistungen, Qualifikationen, Mitgliedschaften oder Versprechen erfunden.
 - CHANGELOG.md ist aktualisiert; ROADMAP.md ist nur bei veränderter Projektplanung angepasst.
-- Aufgabe 051 bleibt bis zur ausdrücklichen Abschlussfreigabe in workflow/active/.
+- Nach der ausdrücklichen Abschlussfreigabe ist Aufgabe 051 mit Status `abgeschlossen` in `workflow/done/` dokumentiert.

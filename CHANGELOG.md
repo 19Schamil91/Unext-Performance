@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-16
 
+### Aufgabe 051 - EN/RU-V1-Kernwege formal abgeschlossen
+
+- Die englischen und russischen V1-Kernwege sind auf Grundlage der deutschen Referenz vollständig umgesetzt. Dazu gehören sechs lokalisierte Gutachtenartenrouten, kontexttreue Sprachwechsel, Navigation, Formulare, Validierung, Error-/404-Zustände und responsive Hero-, Karten-, Formular- und CTA-Bereiche.
+- Alle neun DE/EN/RU-Gutachtenseiten, die direkten permanenten Redirects und die relevanten Nutzerwege wurden technisch, visuell, typografisch und barrierebezogen geprüft. Diff-Check, ESLint, TypeScript, Produktions-Build und Router-Check sind bestanden.
+- Der Nutzer akzeptiert die aktuellen EN-/RU-Texte und fachlichen Aussagen für diesen Projektstand ausdrücklich ohne zusätzliche professionelle Sprach- und Fachprüfung; spätere Korrekturen bleiben möglich.
+- Die externe Rechtsprüfung wird dadurch nicht ersetzt. Impressum, Datenschutz und AGB bleiben rechtlich vorläufig; SEO, Legacy-Cleanup, finale Launch-QA, AVV/DPA, Deployment, echter Formularversand und Monitoring bleiben den Aufgaben 029, 026, 033, 034 und 035 zugeordnet.
+- Aufgabe 051 wurde formal abgeschlossen. Die Website ist dadurch noch nicht launchbereit; der nächste vorgesehene Projektabschnitt ist Aufgabe 029.
+
 ### Aufgabe 051 - Letzte englische Textkorrekturen und akzeptierte Abweichungen dokumentiert
 
 - Drei bestätigte englische Formulierungen zu Unterlagen, vorab übermittelten Fotos und Schadendokumentation wurden ohne weitere Text- oder Layoutänderungen korrigiert.
