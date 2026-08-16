@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { ChevronRight, Menu, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { getLocalizedPath, removeLocalePrefix, type Locale } from "@/lib/i18n"
+import { getLocalizedCounterpartPath, type Locale } from "@/lib/i18n"
 
 type HeaderMobileMenuProps = {
   locale: Locale
@@ -23,9 +23,9 @@ type HeaderMobileMenuProps = {
   pageNavigation: readonly { name: string; href: string }[]
   serviceNavigation: { name: string; children: readonly { name: string; href: string }[] } | null
   languages: readonly { code: Locale; name: string }[]
-  localizedPagePaths: readonly string[]
   labels: {
     openMenu: string
+    closeMenu: string
     quickContact: string
     callNow: string
     inquiry: string
@@ -44,7 +44,6 @@ export function HeaderMobileMenu({
   pageNavigation,
   serviceNavigation,
   languages,
-  localizedPagePaths,
   labels,
 }: HeaderMobileMenuProps) {
   // Diese Werte steuern das mobile Menue und sperren Spracheingaben kurz waehrend der Navigation.
@@ -58,19 +57,18 @@ export function HeaderMobileMenu({
     setMobileMenuOpen(false)
   }
 
-  // Diese Funktion wechselt mobil auf migrierten Seiten pfadtreu und sonst zur Sprach-Startseite.
+  // Diese Funktion wechselt mobil nur zu derselben Fachseite in einer anderen Sprache.
   const handleLocaleChange = (nextLocale: Locale) => {
     if (nextLocale === locale) {
       closeMobileMenu()
       return
     }
 
-    const currentPath = removeLocalePrefix(pathname)
-    const isLocalizedPagePath = localizedPagePaths.includes(currentPath)
-    const nextPath = getLocalizedPath(
-      nextLocale,
-      currentPath === "/" || isLocalizedPagePath ? currentPath : "/"
-    )
+    const nextPath = getLocalizedCounterpartPath(pathname, nextLocale)
+
+    if (!nextPath) {
+      return
+    }
 
     setIsPending(true)
     closeMobileMenu()
@@ -91,6 +89,7 @@ export function HeaderMobileMenu({
       </SheetTrigger>
       <SheetContent
         side="right"
+        closeLabel={labels.closeMenu}
         className="w-[88vw] max-w-[20rem] overflow-y-auto border-l border-border/70 bg-card/98 px-3.5 pb-5 pt-4 shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur"
       >
         <SheetTitle className="sr-only">{labels.openMenu}</SheetTitle>
@@ -115,18 +114,22 @@ export function HeaderMobileMenu({
               {labels.languageTitle}
             </p>
             <div className="grid grid-cols-3 gap-2">
-              {languages.map((lang) => (
-                <Button
-                  key={lang.code}
-                  variant={locale === lang.code ? "secondary" : "ghost"}
-                  size="sm"
-                  className="h-11 rounded-full px-3"
-                  disabled={isPending}
-                  onClick={() => handleLocaleChange(lang.code)}
-                >
-                  {lang.code.toUpperCase()}
-                </Button>
-              ))}
+              {languages.map((lang) => {
+                const isAvailable = Boolean(getLocalizedCounterpartPath(pathname, lang.code))
+
+                return (
+                  <Button
+                    key={lang.code}
+                    variant={locale === lang.code ? "secondary" : "ghost"}
+                    size="sm"
+                    className="h-11 rounded-full px-3"
+                    disabled={isPending || !isAvailable}
+                    onClick={() => handleLocaleChange(lang.code)}
+                  >
+                    {lang.code.toUpperCase()}
+                  </Button>
+                )
+              })}
             </div>
           </div>
 

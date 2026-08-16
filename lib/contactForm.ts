@@ -1,4 +1,5 @@
 import { z } from "zod"
+import type { Locale } from "@/lib/i18n"
 
 export type ContactActionStatus = "idle" | "success" | "error"
 
@@ -33,27 +34,70 @@ export type ServiceInquiryValues = {
   message: string
 }
 
-const requiredText = z.string().trim().min(1)
-const optionalText = z.string().trim()
+const validationMessages = {
+  de: {
+    required: "Dieses Feld ist erforderlich.",
+    email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    tooLong: "Die Eingabe ist zu lang. Bitte kürzen Sie den Text.",
+    datePast: "Bitte wählen Sie ein heutiges oder zukünftiges Datum.",
+    invalid: "Bitte prüfen Sie die markierten Felder.",
+  },
+  en: {
+    required: "This field is required.",
+    email: "Please enter a valid email address.",
+    tooLong: "The entry is too long. Please shorten it.",
+    datePast: "Please choose today or a future date.",
+    invalid: "Please check the highlighted fields.",
+  },
+  ru: {
+    required: "Заполните это поле.",
+    email: "Введите корректный адрес электронной почты.",
+    tooLong: "Текст слишком длинный. Сократите его.",
+    datePast: "Выберите сегодняшнюю или будущую дату.",
+    invalid: "Проверьте отмеченные поля.",
+  },
+} as const satisfies Record<Locale, Record<string, string>>
+function buildSchemas(locale: Locale) {
+  const messages = validationMessages[locale]
+  const requiredText = z.string().trim().min(1, messages.required)
+  const optionalText = z.string().trim()
 
-const contactFormSchema = z.object({
-  name: requiredText.max(120),
-  phone: optionalText.max(60),
-  email: requiredText.email().max(180),
-  subject: requiredText.max(160),
-  message: requiredText.max(4000),
-})
+  return {
+    contact: z.object({
+      name: requiredText.max(120, messages.tooLong),
+      phone: optionalText.max(60, messages.tooLong),
+      email: requiredText.email(messages.email).max(180, messages.tooLong),
+      subject: requiredText.max(160, messages.tooLong),
+      message: requiredText.max(4000, messages.tooLong),
+    }),
+    service: z.object({
+      service: requiredText.max(160, messages.tooLong),
+      name: requiredText.max(120, messages.tooLong),
+      phone: requiredText.max(60, messages.tooLong),
+      email: requiredText.email(messages.email).max(180, messages.tooLong),
+      vehicle: optionalText.max(160, messages.tooLong),
+      subject: optionalText.max(160, messages.tooLong),
+      date: optionalText
+        .max(40, messages.tooLong)
+        .refine(
+          (value) => !value || (/^\d{4}-\d{2}-\d{2}$/.test(value) && value >= getCurrentDateInputValue()),
+          messages.datePast,
+        ),
+      message: optionalText.max(4000, messages.tooLong),
+    }),
+  }
+}
 
-const serviceInquirySchema = z.object({
-  service: requiredText.max(160),
-  name: requiredText.max(120),
-  phone: requiredText.max(60),
-  email: requiredText.email().max(180),
-  vehicle: optionalText.max(160),
-  subject: optionalText.max(160),
-  date: optionalText.max(40),
-  message: optionalText.max(4000),
-})
+export function getCurrentDateInputValue() {
+  const now = new Date()
+  const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60_000)
+
+  return localDate.toISOString().slice(0, 10)
+}
+
+export function getValidationSummary(locale: Locale) {
+  return validationMessages[locale].invalid
+}
 
 export function readFormText(formData: FormData, key: string) {
   const value = formData.get(key)
@@ -61,8 +105,8 @@ export function readFormText(formData: FormData, key: string) {
   return typeof value === "string" ? value : ""
 }
 
-export function validateContactForm(formData: FormData) {
-  return contactFormSchema.safeParse({
+export function validateContactForm(formData: FormData, locale: Locale) {
+  return buildSchemas(locale).contact.safeParse({
     name: readFormText(formData, "name"),
     phone: readFormText(formData, "phone"),
     email: readFormText(formData, "email"),
@@ -71,8 +115,8 @@ export function validateContactForm(formData: FormData) {
   })
 }
 
-export function validateServiceInquiry(formData: FormData) {
-  return serviceInquirySchema.safeParse({
+export function validateServiceInquiry(formData: FormData, locale: Locale) {
+  return buildSchemas(locale).service.safeParse({
     service: readFormText(formData, "service"),
     name: readFormText(formData, "name"),
     phone: readFormText(formData, "phone"),
@@ -165,11 +209,20 @@ function renderEmailHtml(input: { eyebrow: string; title: string; rows: string[]
   `
 }
 
-export function buildContactEmail(values: ContactFormValues) {
+const localeNames: Record<Locale, string> = {
+  de: "Deutsch",
+  en: "Englisch",
+  ru: "Russisch",
+}
+
+export function buildContactEmail(values: ContactFormValues, locale: Locale) {
+  const localeName = localeNames[locale]
+
   return {
-    subject: `Kontaktformular: ${values.subject}`,
+    subject: `[${locale.toUpperCase()}] Kontaktformular: ${values.subject}`,
     text: [
       "Neue Nachricht über das Kontaktformular.",
+      `Formularsprache: ${localeName}`,
       "",
       `Name: ${values.name}`,
       `Telefon: ${values.phone || "Nicht angegeben"}`,
@@ -183,6 +236,7 @@ export function buildContactEmail(values: ContactFormValues) {
       eyebrow: "Kontaktformular",
       title: "Neue Nachricht über das Kontaktformular",
       rows: [
+        renderEmailParagraph("Formularsprache", localeName),
         renderEmailParagraph("Name", values.name),
         renderEmailParagraph("Telefon", values.phone || "Nicht angegeben"),
         renderEmailParagraph("E-Mail", values.email),
@@ -193,11 +247,14 @@ export function buildContactEmail(values: ContactFormValues) {
   }
 }
 
-export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
+export function buildServiceInquiryEmail(values: ServiceInquiryValues, locale: Locale) {
+  const localeName = localeNames[locale]
+
   return {
-    subject: `Gutachten-Anfrage: ${values.service}`,
+    subject: `[${locale.toUpperCase()}] Gutachten-Anfrage: ${values.service}`,
     text: [
       "Neue Gutachten-Anfrage über die UNEXT Website.",
+      `Formularsprache: ${localeName}`,
       "",
       `Anfragebereich: ${values.service}`,
       `Name: ${values.name}`,
@@ -214,6 +271,7 @@ export function buildServiceInquiryEmail(values: ServiceInquiryValues) {
       eyebrow: "Gutachten-Anfrage",
       title: `Neue Gutachten-Anfrage: ${values.service}`,
       rows: [
+        renderEmailParagraph("Formularsprache", localeName),
         renderEmailParagraph("Anfragebereich", values.service),
         renderEmailParagraph("Name", values.name),
         renderEmailParagraph("Telefon", values.phone),

@@ -6,5 +6,5 @@
 import { DamageDocumentationServiceDetailContent } from "@/components/DamageDocumentationServiceDetailContent"
 
 export default function SchadendokumentationPage() {
-  return <DamageDocumentationServiceDetailContent />
+  return <DamageDocumentationServiceDetailContent locale="de" />
 }

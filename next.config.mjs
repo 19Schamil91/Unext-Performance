@@ -17,6 +17,16 @@ const nextConfig = {
         destination: "/gutachtenarten/schadendokumentation",
         permanent: true,
       },
+      {
+        source: "/en/leistungen/unfallgutachten",
+        destination: "/en/gutachtenarten/unfallgutachten",
+        permanent: true,
+      },
+      {
+        source: "/ru/leistungen/unfallgutachten",
+        destination: "/ru/gutachtenarten/unfallgutachten",
+        permanent: true,
+      },
     ]
   },
   typescript: {

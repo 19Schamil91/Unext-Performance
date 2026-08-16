@@ -16,9 +16,10 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendServiceInquiry } from "@/lib/contactActions"
-import { initialContactActionState } from "@/lib/contactForm"
+import { getCurrentDateInputValue, initialContactActionState, validateServiceInquiry } from "@/lib/contactForm"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
 import { getTranslations } from "@/lib/translations"
+import { useLocalizedFormValidation } from "@/lib/use-localized-form-validation"
 
 type ServiceInquiryFormProps = {
   locale: Locale
@@ -44,6 +45,7 @@ export type ServiceInquiryTextOverrides = Partial<{
   message: string
   messagePlaceholder: string
   submit: string
+  submitAriaLabel: string
 }>
 
 export function ServiceInquiryForm({
@@ -53,14 +55,21 @@ export function ServiceInquiryForm({
   fields = { vehicle: true, date: true, subject: false },
   textOverrides,
 }: ServiceInquiryFormProps) {
-  // Dieser Wert enthaelt die Server-Antwort nach dem Absenden der Anfrage.
-  const [formState, formAction] = useActionState(sendServiceInquiry, initialContactActionState)
+  // Die Servervalidierung bleibt verbindlich; die gemeinsame Clientprüfung verhindert nur ungültige Requests.
+  const [formState, formAction, isPending] = useActionState(sendServiceInquiry, initialContactActionState)
+  const validation = useLocalizedFormValidation({
+    locale,
+    serverState: formState,
+    submitAction: formAction,
+    validate: validateServiceInquiry,
+  })
   const pathname = usePathname()
   const t = { ...getTranslations(locale).serviceDetail.form, ...textOverrides }
   const privacyHref = getLocalizedPath(locale, "/datenschutz")
 
-  // Diese Kurzfunktion holt die passende Fehlermeldung zu einem Formularfeld.
-  const getFieldError = (field: string) => formState.fieldErrors[field]
+  const { fieldErrors, getFieldError, handleChange, handleSubmit, message: validationMessage } = validation
+  const errorMessage = validationMessage || (formState.status === "error" ? formState.message : "")
+  const hasFieldErrors = Object.keys(fieldErrors).length > 0
 
   if (formState.status === "success") {
     return (
@@ -90,17 +99,18 @@ export function ServiceInquiryForm({
         </CardDescription>
       </CardHeader>
       <CardContent className="px-7 pb-7 pt-0 sm:px-8 sm:pb-8">
-        {/* Dieses Formular sendet die Service-Anfrage an den Server, damit daraus eine E-Mail entsteht. */}
-        <form action={formAction}>
+        {/* Native Browserblasen sind deaktiviert, damit alle Sprachen dieselbe zugängliche Rückmeldung erhalten. */}
+        <form noValidate onSubmit={handleSubmit} onChange={handleChange}>
           <FieldGroup className="space-y-4">
             <input type="hidden" name="locale" value={locale} />
             <input type="hidden" name="service" value={serviceName} />
-            {formState.status === "error" ? (
+            {errorMessage ? (
               <div
-                role="alert"
+                role={hasFieldErrors ? undefined : "alert"}
+                aria-hidden={hasFieldErrors || undefined}
                 className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
               >
-                {formState.message}
+                {errorMessage}
               </div>
             ) : null}
             <div className="grid gap-4 sm:grid-cols-2">
@@ -180,7 +190,7 @@ export function ServiceInquiryForm({
                   id="date"
                   name="date"
                   type="date"
-                  min={new Date().toISOString().split("T")[0]}
+                  min={getCurrentDateInputValue()}
                   aria-invalid={Boolean(getFieldError("date"))}
                   aria-describedby={getFieldError("date") ? "date-error" : undefined}
                 />
@@ -201,7 +211,12 @@ export function ServiceInquiryForm({
               <FieldError id="message-error">{getFieldError("message")}</FieldError>
             </Field>
 
-            <FormSubmitButton submitLabel={t.submit} pendingLabel={t.submitting} />
+            <FormSubmitButton
+              submitLabel={t.submit}
+              ariaLabel={t.submitAriaLabel}
+              pendingLabel={t.submitting}
+              pending={isPending}
+            />
 
             <p className="mx-auto max-w-[42ch] text-center text-xs leading-6 text-muted-foreground">
               {t.privacyPrefix}{" "}

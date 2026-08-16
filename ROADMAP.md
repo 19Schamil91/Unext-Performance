@@ -96,7 +96,7 @@ Aktueller Stand nach den abgeschlossenen Aufgaben 047 bis 050:
 - 050 hat die drei deutschen Detailseiten nach `/gutachtenarten/unfallgutachten`, `/gutachtenarten/fahrzeugbewertung` und `/gutachtenarten/schadendokumentation` migriert. Die bisherigen deutschen `/leistungen/...`-Detailrouten leiten permanent und direkt weiter.
 - `/leistungen` bleibt als eigenständige Übersichtsroute technisch bestehen und wurde in 050 nicht gelöscht, umgebaut oder umgeleitet.
 - Aufgabe 032 ist abgeschlossen und hat das Übersetzungs-, Routing-, Qualitäts- und Responsive-Vorgehen für den verbindlichen gemeinsamen V1-Launch auf Deutsch, Englisch und Russisch festgelegt.
-- Die spätere EN/RU-Codeumsetzung benötigt eine eigene ausdrückliche Freigabe; dafür wurde noch keine neue Aufgabe angelegt.
+- Aufgabe 051 ist abgeschlossen. Die englischen und russischen V1-Kernwege, sechs lokalisierte Gutachtenartenrouten, kontexttreue Sprachwechsel sowie lokalisierte Navigation, Formulare und Fehlerzustände sind umgesetzt und geprüft. Die aktuellen Sprach- und Fachaussagen sind für diesen Projektstand mit den dokumentierten Nutzerakzeptanzen eingeordnet; die externe Rechtsprüfung bleibt offen.
 
 Die Next-Image-Quality-Warnungen zu den Werten `88` und `74` blockieren Aufgabe 044 nicht. Sie bleiben als Performance-/Launch-QA-Punkt für Aufgabe 033 beziehungsweise einen passenden Config-/Cleanup-Schritt dokumentiert. In 044 wurde keine `next.config`-Änderung vorgenommen.
 
@@ -108,7 +108,7 @@ Die aktuelle Folge-Reihenfolge lautet:
 050: Gutachtenarten-URLs und bestehende Leistungsrouten migrieren (abgeschlossen)
 049: V1-User-Stories und Nutzerwege vollständig prüfen (abgeschlossen)
 032: DE/EN/RU-Übersetzungs-, Routing-, Qualitäts- und Layoutvorgehen konkretisieren (abgeschlossen)
-Spätere EN/RU-Umsetzung: eigene Aufgabe erst nach ausdrücklicher Freigabe anlegen
+051: EN/RU-V1-Kernseiten, Routen und Nutzerwege umsetzen (abgeschlossen)
 029: SEO / Metadata / Structured Data
 026: Cleanup alter Legacy-Seiten
 033: Launch Quality Check einschließlich zentraler Formularsemantik und Autocomplete-Korrektur
@@ -128,15 +128,15 @@ Spätere Ausbaustufen bleiben:
 
 Status: geplant
 
-Aufgabe 029 bleibt nach der späteren EN/RU-Umsetzung eingeordnet. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die in Aufgabe 032 abgeschlossene i18n-Umsetzungs- und Qualitätsplanung beachten.
+Aufgabe 029 ist nach der abgeschlossenen EN/RU-Umsetzung der nächste vorgesehene Projektabschnitt. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die in Aufgabe 032 abgeschlossene i18n-Umsetzungs- und Qualitätsplanung beachten.
 
-Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch müssen gemeinsam launchfähig sein. Deutsch bildet die fachliche Referenz. Aufgabe 049 hat die vorhandenen Sprach- und Nutzerweglücken inventarisiert; Aufgabe 032 hat die spätere Umsetzung und Prüfung vollständig geplant. Die geplanten EN/RU-Gutachtenartenrouten sind noch nicht umgesetzt. Eine spätere EN/RU-Umsetzungsaufgabe wird erst nach eigener Nutzerfreigabe angelegt.
+Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch müssen gemeinsam launchfähig sein. Deutsch bildet die fachliche Referenz. Aufgabe 049 hat die früheren Sprach- und Nutzerweglücken inventarisiert, Aufgabe 032 hat die Umsetzung und Prüfung geplant, und Aufgabe 051 hat die EN/RU-Kernwege sowie die lokalisierten Gutachtenartenrouten umgesetzt und abgeschlossen. Die externe Rechtsprüfung und die nachfolgenden Launch-Gates bleiben offen.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Die Aufgaben 032 sowie 047 bis 050 sind abgeschlossen. Als nächster notwendiger fachlicher Schritt folgt eine noch nicht angelegte, gesondert freizugebende EN/RU-Umsetzungsaufgabe. Danach bleiben 029, 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet. Bis diese Arbeiten abgeschlossen und geprüft sind, ist die Website nicht launchbereit.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Die Aufgaben 032 sowie 047 bis 051 sind abgeschlossen. Nach dem dreisprachigen Meilenstein aus Aufgabe 051 ist Aufgabe 029 der nächste vorgesehene Projektabschnitt; danach bleiben 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung und die weiteren Launch-Gates abgeschlossen und geprüft sind, ist die Website nicht launchbereit.
 
 Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 prüft ihre endgültige SEO-, Indexierungs- und Canonical-Behandlung; Aufgabe 026 bleibt für den späteren, verwendungsgeprüften Cleanup zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 

@@ -22,12 +22,12 @@ const actionMessages: Record<Locale, { invalid: string; config: string; failed: 
     invalid: "Please check the highlighted fields.",
     config: "Email delivery is not configured yet. Please call us directly or contact us via WhatsApp.",
     failed: "The message could not be sent right now. Please try again or call us.",
-    sent: "Your inquiry has been sent successfully.",
+    sent: "Your enquiry has been sent successfully.",
   },
   ru: {
     invalid: "Проверьте отмеченные поля.",
     config: "Отправка писем еще не настроена. Пожалуйста, позвоните нам напрямую или напишите в WhatsApp.",
-    failed: "Сообщение сейчас не удалось отправить. Попробуйте еще раз или позвоните нам.",
+    failed: "Не удалось отправить сообщение. Попробуйте ещё раз или позвоните нам.",
     sent: "Ваш запрос успешно отправлен.",
   },
 }
@@ -70,7 +70,7 @@ export async function sendContactMessage(
 ): Promise<ContactActionState> {
   const locale = normalizeLocale(formData.get("locale")?.toString())
   const messages = actionMessages[locale]
-  const result = validateContactForm(formData)
+  const result = validateContactForm(formData, locale)
 
   if (!result.success) {
     return {
@@ -80,7 +80,7 @@ export async function sendContactMessage(
     }
   }
 
-  const email = buildContactEmail(result.data)
+  const email = buildContactEmail(result.data, locale)
   const sendResult = await sendEmail({
     replyTo: result.data.email,
     subject: email.subject,
@@ -109,7 +109,7 @@ export async function sendServiceInquiry(
 ): Promise<ContactActionState> {
   const locale = normalizeLocale(formData.get("locale")?.toString())
   const messages = actionMessages[locale]
-  const result = validateServiceInquiry(formData)
+  const result = validateServiceInquiry(formData, locale)
 
   if (!result.success) {
     return {
@@ -119,7 +119,7 @@ export async function sendServiceInquiry(
     }
   }
 
-  const email = buildServiceInquiryEmail(result.data)
+  const email = buildServiceInquiryEmail(result.data, locale)
   const sendResult = await sendEmail({
     replyTo: result.data.email,
     subject: email.subject,

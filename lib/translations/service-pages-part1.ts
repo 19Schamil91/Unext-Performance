@@ -29,7 +29,7 @@ export const servicePagesPart1 = {
             { title: "Reparaturkosten", description: "Erforderliche Arbeiten, Ersatzteile, Lackierung und weitere erkennbare Reparaturpositionen." },
             { title: "Schadenumfang", description: "Sichtbare Schäden, mögliche verdeckte Schäden, Vorschäden und fahrzeugbezogene Besonderheiten." },
             { title: "Wertminderung", description: "Möglicher merkantiler Minderwert trotz fachgerechter Reparatur." },
-            { title: "Wiederbeschaffungs- und Restwert", description: "Wichtige Werte zur Einschätzung, ob eine Reparatur wirtschaftlich sinnvoll ist." },
+            { title: "Wiederbeschaffungswert und Restwert", description: "Wichtige Werte zur Einschätzung, ob eine Reparatur wirtschaftlich sinnvoll ist." },
             { title: "Fotodokumentation", description: "Nachvollziehbare Bilder und Beschreibung des Schadenbildes als Grundlage für die weitere Abstimmung." },
           ],
         },
@@ -39,7 +39,7 @@ export const servicePagesPart1 = {
           items: [
             { title: "Fahrzeugschein", description: "Zulassungsbescheinigung Teil I oder die wichtigsten Fahrzeugdaten." },
             { title: "Schadenfotos", description: "Vorhandene Fotos vom Fahrzeugschaden, die bei der ersten Einordnung helfen können." },
-            { title: "Unfall- und Versicherungsdaten", description: "Daten des Unfallgegners, Versicherung oder Aktenzeichen, falls bereits vorhanden." },
+            { title: "Unfall- und Versicherungsdaten", description: "Daten des Unfallgegners, Angaben zur Versicherung oder ein Aktenzeichen, falls bereits vorhanden." },
             { title: "Kurze Schadenschilderung", description: "Was ist passiert, welche Bereiche sind betroffen und ob das Fahrzeug noch fahrbereit ist." },
           ],
         },
@@ -62,9 +62,11 @@ export const servicePagesPart1 = {
 
       heroNotice:
         "Bei unverschuldetem Unfall werden die Gutachterkosten in der Regel von der gegnerischen Haftpflichtversicherung übernommen.",
-      ctaTitle: "Unfallgutachten in Berlin anfragen",
-      ctaDescription:
-        "Rufen Sie an, schreiben Sie per WhatsApp oder schildern Sie den Schaden kurz über das Formular. Wir melden uns zeitnah zur weiteren Abstimmung.",
+      ctaTitle: "Unfallgutachten anfragen",
+      ctaDescription: [
+        "Schildern Sie kurz den Schaden.",
+        "Wir stimmen die nächsten Schritte mit Ihnen ab.",
+      ],
       layoutLabels: {
         backToServices: "Zurück zur Startseite",
         servicesTitle: "Wann ist ein Unfallgutachten sinnvoll?",

@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n"
 import { contactTranslations } from "@/lib/translations/contact"
 import { aboutTranslationOverrides } from "@/lib/translations/about-overrides"
+import { appraisalPageTranslations } from "@/lib/translations/appraisal-pages"
 import { headerFooterTranslations } from "@/lib/translations/header-footer"
 import { homeTranslationOverrides } from "@/lib/translations/home-overrides"
 import { homeTranslations } from "@/lib/translations/home"
@@ -78,6 +79,7 @@ const dictionaries = {
       pages: {
         ...servicePagesPart1.en,
         ...servicePagesPart2.en,
+        ...appraisalPageTranslations.en,
       },
     },
     contactPage: contactTranslations.en,
@@ -124,6 +126,7 @@ const dictionaries = {
       pages: {
         ...servicePagesPart1.ru,
         ...servicePagesPart2.ru,
+        ...appraisalPageTranslations.ru,
       },
     },
     contactPage: contactTranslations.ru,

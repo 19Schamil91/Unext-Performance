@@ -1,7 +1,7 @@
 /*
-  Diese Datei definiert den gemeinsamen abschliessenden Kontaktbereich.
+  Diese Datei definiert den gemeinsamen abschließenden Kontaktbereich.
   Sie zeigt eine kurze Frage, einen Beratungshinweis und direkte Kontaktaktionen.
-  Nutzer koennen direkt anrufen, WhatsApp oeffnen oder zur Kontaktseite wechseln.
+  Nutzer können direkt anrufen, WhatsApp öffnen oder zur Kontaktseite wechseln.
 */
 import Link from "next/link"
 import { MessageCircle, Phone } from "lucide-react"
@@ -11,31 +11,27 @@ import { getTranslations } from "@/lib/translations"
 
 export type CtaAction = {
   label: string
+  ariaLabel?: string
   href: string
   icon?: "phone" | "message"
   external?: boolean
-}
-
-function renderDescriptionLines(text: string) {
-  return text.split("\n").map((line, index) => (
-    <span key={`${line}-${index}`} className="block">
-      {line}
-    </span>
-  ))
 }
 
 type Props = {
   locale: Locale
   actions?: readonly CtaAction[]
   title?: string
-  description?: string
+  description?: string | readonly string[]
   note?: string
 }
 
 export function CtaSection({ locale, actions, title, description, note }: Props) {
-  // Dieser Bereich nutzt auf allen Seiten denselben Abschluss und laesst nur die Kontaktziele austauschbar.
+  // Dieser Bereich nutzt auf allen Seiten denselben Abschluss und lässt nur die Kontaktziele austauschbar.
   const t = getTranslations(locale).serviceDetail.layout
   const contactHref = getLocalizedPath(locale, "/kontakt")
+  const resolvedDescription = description ?? t.questionsDescription
+  const descriptionLines =
+    typeof resolvedDescription === "string" ? [resolvedDescription] : resolvedDescription
 
   const defaultActions = [
     { label: "030 23613927", href: "tel:+493023613927", icon: "phone" as const },
@@ -79,13 +75,13 @@ export function CtaSection({ locale, actions, title, description, note }: Props)
         className={className}
       >
         {action.external ? (
-          <a href={action.href} target="_blank" rel="noopener noreferrer">
+          <a href={action.href} target="_blank" rel="noopener noreferrer" aria-label={action.ariaLabel}>
             {content}
           </a>
         ) : action.href.startsWith("/") ? (
-          <Link href={action.href}>{content}</Link>
+          <Link href={action.href} aria-label={action.ariaLabel}>{content}</Link>
         ) : (
-          <a href={action.href}>{content}</a>
+          <a href={action.href} aria-label={action.ariaLabel}>{content}</a>
         )}
       </Button>
     )
@@ -96,15 +92,19 @@ export function CtaSection({ locale, actions, title, description, note }: Props)
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(82,8,16,0.82),rgba(32,8,12,0.72)_42%,rgba(9,11,14,0.96)_78%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8 2xl:max-w-[96rem]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="max-w-[30rem] text-heading-fluid font-semibold text-primary-foreground lg:max-w-none lg:text-[clamp(2rem,2.25vw,2.65rem)] lg:leading-[1.08] lg:whitespace-nowrap">
+            <h2 className="max-w-[30rem] text-heading-fluid font-semibold text-primary-foreground lg:max-w-none lg:text-[clamp(2rem,2.25vw,2.65rem)] lg:leading-[1.08]">
               {title ?? t.questionsTitle}
             </h2>
-            <p className="mt-4 measure-intro text-body-fluid text-primary-foreground/86">
-              {renderDescriptionLines(description ?? t.questionsDescription)}
-            </p>
+            <div className="mt-4 measure-intro text-body-fluid text-primary-foreground/86 lg:!max-w-[72ch]">
+              {descriptionLines.map((line, index) => (
+                <p key={`${line}-${index}`} className="text-balance">
+                  {line}
+                </p>
+              ))}
+            </div>
           </div>
 
           <div className="flex w-full max-w-[28rem] flex-col gap-3 lg:shrink-0">

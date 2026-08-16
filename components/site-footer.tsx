@@ -18,6 +18,12 @@ const compactFooterDescriptions = {
   ru: "UNEXT GmbH в Берлине.",
 } as const satisfies Record<Locale, string>
 
+const footerAriaLabels = {
+  de: "Fußzeile",
+  en: "Footer",
+  ru: "Нижняя часть сайта",
+} as const satisfies Record<Locale, string>
+
 type SiteFooterProps = {
   locale: Locale
   compactSummary?: boolean
@@ -90,7 +96,7 @@ export function SiteFooter({ locale, compactSummary = false }: SiteFooterProps) 
           </div>
         </div>
 
-        <nav className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-3" aria-label="Footer">
+        <nav className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-3" aria-label={footerAriaLabels[locale]}>
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t.footer.columns.services}</h3>
             <ul className="mt-2.5 flex flex-col gap-1.5">
