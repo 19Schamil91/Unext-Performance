@@ -2,6 +2,15 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-18
+
+### Aufgabe 029 - Dreisprachige SEO-Umsetzung gestartet und vollständig geplant
+
+- Aufgabe 029 wurde an den abgeschlossenen DE/EN/RU-V1-Stand angepasst, nach `workflow/active/` verschoben und auf `in Arbeit` gesetzt.
+- Der aktuelle Bestand zu Metadata, Canonicals, Hreflang, OpenGraph/Twitter, Structured Data, Sitemap, Robots, Indexierung, Redirects, lokalen Assets und Legacy-SEO-Signalen wurde für alle 30 V1-Sprachrouten inventarisiert.
+- Ein konkretes Sollmodell mit Routenmatrix, Title-/Description-Entwürfen, Produktions-Origin- und Indexierungs-Gates, zentralem Dateiplan, Abhängigkeiten, Risiken und prüfbaren Akzeptanzkriterien ist dokumentiert.
+- Es erfolgte noch keine technische SEO-, Website-, Routen-, Redirect-, Structured-Data-, Sitemap-, Robots-, Übersetzungs-, Layout- oder Assetänderung.
+
 ## 2026-08-16
 
 ### Aufgabe 051 - EN/RU-V1-Kernwege formal abgeschlossen

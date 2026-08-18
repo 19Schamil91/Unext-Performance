@@ -126,9 +126,9 @@ Spätere Ausbaustufen bleiben:
 
 ### 10. SEO, Metadata und Structured Data
 
-Status: geplant
+Status: in Arbeit
 
-Aufgabe 029 ist nach der abgeschlossenen EN/RU-Umsetzung der nächste vorgesehene Projektabschnitt. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die in Aufgabe 032 abgeschlossene i18n-Umsetzungs- und Qualitätsplanung beachten.
+Aufgabe 029 ist nach der abgeschlossenen EN/RU-Umsetzung der aktive Projektabschnitt. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die in Aufgabe 032 abgeschlossene i18n-Umsetzungs- und Qualitätsplanung beachten.
 
 Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch müssen gemeinsam launchfähig sein. Deutsch bildet die fachliche Referenz. Aufgabe 049 hat die früheren Sprach- und Nutzerweglücken inventarisiert, Aufgabe 032 hat die Umsetzung und Prüfung geplant, und Aufgabe 051 hat die EN/RU-Kernwege sowie die lokalisierten Gutachtenartenrouten umgesetzt und abgeschlossen. Die externe Rechtsprüfung und die nachfolgenden Launch-Gates bleiben offen.
 
@@ -136,7 +136,7 @@ Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch 
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Die Aufgaben 032 sowie 047 bis 051 sind abgeschlossen. Nach dem dreisprachigen Meilenstein aus Aufgabe 051 ist Aufgabe 029 der nächste vorgesehene Projektabschnitt; danach bleiben 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung und die weiteren Launch-Gates abgeschlossen und geprüft sind, ist die Website nicht launchbereit.
+Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Die Aufgaben 032 sowie 047 bis 051 sind abgeschlossen. Nach dem dreisprachigen Meilenstein aus Aufgabe 051 ist Aufgabe 029 aktiv; danach bleiben 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung und die weiteren Launch-Gates abgeschlossen und geprüft sind, ist die Website nicht launchbereit.
 
 Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 prüft ihre endgültige SEO-, Indexierungs- und Canonical-Behandlung; Aufgabe 026 bleibt für den späteren, verwendungsgeprüften Cleanup zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
