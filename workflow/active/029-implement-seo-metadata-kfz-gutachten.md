@@ -332,6 +332,14 @@ Die zwei weiteren deutschen Altquellen `/leistungen/fahrzeugbewertung` und `/lei
 - Externe Rechtsprüfung bleibt ein Launch-Gate, nicht Teil der SEO-Implementierung.
 - Aufgabe 033 prüft später den vollständigen Launchstand; 034 und 035 bleiben unverändert nachgelagert.
 
+## Verbindliches Vor-Launch-Indexierungs-Gate
+
+- Nach Abschluss von Aufgabe 026 müssen `/leistungen`, `/en/leistungen`, `/ru/leistungen`, `/ueber-uns`, `/en/ueber-uns` und `/ru/ueber-uns` erneut geprüft werden. Diese Seiten dürfen erst indexierbar werden, wenn ihre Legacy-Inhalte vollständig bereinigt und sie ausdrücklich für die Indexierung freigegeben wurden.
+- Impressum, Datenschutz und AGB müssen in DE, EN und RU nach der externen Rechtsprüfung erneut auf ihre Indexfreigabe geprüft werden. Die externe Rechts- und Indexfreigabe bleibt offen.
+- Vor dem Launch muss eine vollständige Prüfung aller V1-Routen bestätigen, dass keine wichtige freigegebene Seite versehentlich auf `noindex` geblieben ist und keine rechtlich ungeprüfte, nicht freigegebene oder Legacy-Inhalte enthaltende Seite versehentlich indexierbar ist. Sitemap, Canonicals, Hreflang, Robots und das finale Indexierungsmodell müssen vollständig übereinstimmen.
+- Diese Prüfung bleibt ein verbindliches Launch-Gate und gilt durch den formalen Abschluss von Aufgabe 029 ausdrücklich noch nicht als erledigt.
+- Die Zuständigkeiten bleiben getrennt: Legacy-Cleanup ist Aufgabe 026, finale Launch-QA ist Aufgabe 033, www-/Deployment-Konfiguration ist Aufgabe 034 und Monitoring ist Aufgabe 035.
+
 ## Risiken und Stopppunkte
 
 - Die Produktions-Origin und non-www-Hostvariante sind eindeutig bestätigt. Die tatsächliche www-Weiterleitung bleibt Aufgabe 034, weil sie erst in der Produktions-/Hostingkonfiguration zuverlässig erzwungen und geprüft werden kann.
