@@ -6,20 +6,13 @@
 import type { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 import type { Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 const locale: Locale = "de"
 
 export function generateMetadata(): Metadata {
-  const t = getTranslations(locale).legal.impressum
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    "Impressum der UNEXT GmbH gem\u00e4\u00df \u00a7 5 DDG.",
-    "/impressum"
-  )
+  return buildLocalizedPageMetadata(locale, "imprint")
 }
 
 export default function ImpressumPage() {

@@ -21,8 +21,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { buildBreadcrumbSchema, buildServiceSchema } from "@/lib/structuredData"
+import { getLocalizedPageId, getLocalizedPath, type Locale } from "@/lib/i18n"
+import { isAppraisalPageId } from "@/lib/metadata"
+import { buildServicePageSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
 export type ServicePageLayoutProps = {
@@ -176,6 +177,9 @@ export async function ServicePageLayout({
       ? "/leistungen/abschleppdienst-pannenhilfe"
       : `/leistungen/${serviceName}`
   const localizedServicePath = getLocalizedPath(locale, explicitServicePath ?? fallbackServicePath)
+  const localizedPageId = getLocalizedPageId(localizedServicePath)
+  const appraisalPageId =
+    localizedPageId && isAppraisalPageId(localizedPageId) ? localizedPageId : null
 
   const renderLines = (text: string, lines?: readonly string[]) => {
     if (!lines || lines.length === 0) {
@@ -246,20 +250,23 @@ export async function ServicePageLayout({
 
   return (
     <main>
-      <StructuredData
-        data={[
-          buildServiceSchema({
-            name: title,
-            description,
-            path: localizedServicePath,
-          }),
-          buildBreadcrumbSchema([
-            { name: translations.header.navigation[0].name, path: getLocalizedPath(locale, "/") },
-            { name: translations.servicesPage.title, path: servicesHref },
-            { name: title, path: localizedServicePath },
-          ]),
-        ]}
-      />
+      {appraisalPageId ? (
+        <StructuredData
+          data={buildServicePageSchema({
+            locale,
+            pageId: appraisalPageId,
+            serviceName: title,
+            faqs,
+            breadcrumbs: [
+              {
+                name: translations.header.navigation[0].name,
+                path: getLocalizedPath(locale, "/"),
+              },
+              { name: title, path: localizedServicePath },
+            ],
+          })}
+        />
+      ) : null}
 
       <section className="overflow-hidden bg-black md:relative md:py-20 lg:min-h-[clamp(52rem,64vw,57rem)] lg:py-28">
         <div className="relative h-[14.5rem] overflow-hidden bg-black min-[430px]:h-[15.5rem] md:absolute md:inset-0 md:h-auto">

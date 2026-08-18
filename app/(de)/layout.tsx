@@ -7,7 +7,7 @@ import type { Metadata, Viewport } from "next"
 import { StructuredData } from "@/components/StructuredData"
 import { ThemeProvider } from "@/components/theme-provider"
 import { buildSiteMetadata } from "@/lib/metadata"
-import { buildLocalBusinessSchema } from "@/lib/structuredData"
+import { buildSiteSchema } from "@/lib/structuredData"
 import "../globals.css"
 
 export function generateMetadata(): Metadata {
@@ -28,7 +28,7 @@ export default function GermanRootLayout({
   return (
     <html lang="de" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
-        <StructuredData data={buildLocalBusinessSchema()} />
+        <StructuredData data={buildSiteSchema()} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>

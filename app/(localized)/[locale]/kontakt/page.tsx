@@ -5,12 +5,13 @@
 */
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { StructuredData } from "@/components/StructuredData"
 import { ContactPageClient } from "@/components/contact-page-client"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
-import { getTranslations } from "@/lib/translations"
+import { isUrlLocale, type UrlLocale } from "@/lib/i18n"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
+import { buildWebPageSchema } from "@/lib/structuredData"
 
 type LocalizedContactPageProps = {
   params: Promise<{ locale: string }>
@@ -25,14 +26,7 @@ export async function generateMetadata({
     notFound()
   }
 
-  const t = getTranslations(locale).contactPage
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    t.description,
-    getLocalizedPath(locale, "/kontakt")
-  )
+  return buildLocalizedPageMetadata(locale, "contact")
 }
 
 export default async function LocalizedContactPage({
@@ -47,10 +41,13 @@ export default async function LocalizedContactPage({
   const currentLocale: UrlLocale = locale
 
   return (
-    <ContactPageClient
-      locale={currentLocale}
-      header={<SiteHeader locale={currentLocale} />}
-      footer={<SiteFooter locale={currentLocale} compactSummary />}
-    />
+    <>
+      <StructuredData data={buildWebPageSchema(currentLocale, "contact")} />
+      <ContactPageClient
+        locale={currentLocale}
+        header={<SiteHeader locale={currentLocale} />}
+        footer={<SiteFooter locale={currentLocale} compactSummary />}
+      />
+    </>
   )
 }

@@ -3,12 +3,10 @@
   Besucher sehen eine kompakte Orientierung nach einem Unfall, die Schadenaufnahme, hilfreiche Unterlagen, den Ablauf und das Anfrageformular.
   Sie können direkt per Telefon, WhatsApp oder Formular Kontakt aufnehmen.
 */
-import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
 import { getLocalizedPagePath, type Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 type AccidentServiceDetailContentProps = {
@@ -129,17 +127,6 @@ const germanBottomActions = [
     href: "#unfallgutachten-anfrage",
   },
 ] as const
-
-export function getAccidentServiceMetadata(locale: Locale): Metadata {
-  const t = getTranslations(locale).serviceDetail.pages.accident
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNFALLX | UNEXT GmbH Berlin`,
-    t.description,
-    getLocalizedPagePath("accidentAppraisal", locale)
-  )
-}
 
 export function AccidentServiceDetailContent({ locale }: AccidentServiceDetailContentProps) {
   const t = getTranslations(locale).serviceDetail.pages.accident

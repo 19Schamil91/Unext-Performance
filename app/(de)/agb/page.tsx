@@ -7,20 +7,13 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 const locale: Locale = "de"
 
 export function generateMetadata(): Metadata {
-  const t = getTranslations(locale).legal.terms
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    `${t.title} - UNEXT GmbH Berlin.`,
-    "/agb"
-  )
+  return buildLocalizedPageMetadata(locale, "terms")
 }
 
 export default function AGBPage() {

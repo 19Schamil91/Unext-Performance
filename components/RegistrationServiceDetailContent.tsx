@@ -7,8 +7,8 @@ import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
-import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import type { Locale } from "@/lib/i18n"
+import { buildLegacyPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 type RegistrationServiceDetailContentProps = {
@@ -56,14 +56,7 @@ const registrationWhyTitleLineBreaks = {
 } satisfies Record<Locale, Record<string, readonly string[]>>
 
 export function getRegistrationServiceMetadata(locale: Locale): Metadata {
-  const t = getTranslations(locale).serviceDetail.pages.registration
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    t.description,
-    getLocalizedPath(locale, "/leistungen/zulassungsservice")
-  )
+  return buildLegacyPageMetadata(locale)
 }
 
 export function RegistrationServiceDetailContent({ locale }: RegistrationServiceDetailContentProps) {

@@ -109,7 +109,7 @@ Die aktuelle Folge-Reihenfolge lautet:
 049: V1-User-Stories und Nutzerwege vollständig prüfen (abgeschlossen)
 032: DE/EN/RU-Übersetzungs-, Routing-, Qualitäts- und Layoutvorgehen konkretisieren (abgeschlossen)
 051: EN/RU-V1-Kernseiten, Routen und Nutzerwege umsetzen (abgeschlossen)
-029: SEO / Metadata / Structured Data
+029: SEO / Metadata / Structured Data (abgeschlossen)
 026: Cleanup alter Legacy-Seiten
 033: Launch Quality Check einschließlich zentraler Formularsemantik und Autocomplete-Korrektur
 034: Deployment Launch Gate
@@ -126,19 +126,19 @@ Spätere Ausbaustufen bleiben:
 
 ### 10. SEO, Metadata und Structured Data
 
-Status: geplant
+Status: abgeschlossen
 
-Aufgabe 029 ist nach der abgeschlossenen EN/RU-Umsetzung der nächste vorgesehene Projektabschnitt. Die SEO-/Metadata-/Structured-Data-Arbeit muss den abgeschlossenen Routing-Plan aus Aufgabe 030, die abgeschlossene Kontakt-/Legal-Prüfung aus Aufgabe 031, die Seitenstruktur-Entscheidungen aus Aufgabe 041, die abgeschlossene Gutachtenarten-Routenmigration aus Aufgabe 050 sowie die in Aufgabe 032 abgeschlossene i18n-Umsetzungs- und Qualitätsplanung beachten.
+Aufgabe 029 hat die dreisprachige SEO-/Metadata-/Structured-Data-Grundlage nach der abgeschlossenen EN/RU-Umsetzung vollständig umgesetzt und abgeschlossen. Canonicals, Hreflang, Social-Metadata, Sitemap, Robots, Indexierungsregeln und bestätigte strukturierte Daten sind für den freigegebenen V1-Stand geprüft.
 
-Der V1-Sprachumfang ist verbindlich entschieden: Deutsch, Englisch und Russisch müssen gemeinsam launchfähig sein. Deutsch bildet die fachliche Referenz. Aufgabe 049 hat die früheren Sprach- und Nutzerweglücken inventarisiert, Aufgabe 032 hat die Umsetzung und Prüfung geplant, und Aufgabe 051 hat die EN/RU-Kernwege sowie die lokalisierten Gutachtenartenrouten umgesetzt und abgeschlossen. Die externe Rechtsprüfung und die nachfolgenden Launch-Gates bleiben offen.
+Von den 30 V1-Routen sind 15 freigegebene kanonische Routen indexierbar und 15 Routen bis zu ihren dokumentierten Gates bewusst `noindex`. Die externe Rechts- und Indexfreigabe sowie die verpflichtende finale Vor-Launch-Prüfung des Indexierungsmodells bleiben offen und werden durch den Abschluss von Aufgabe 029 nicht vorweggenommen.
 
 ### 11. Cleanup und Launch-Schritte
 
 Status: geplant
 
-Aufgabe 026 Cleanup bleibt nach Aufgabe 029 beziehungsweise nach den geklärten Seiten-, Routen-, SEO- und i18n-Entscheidungen eingeordnet. Die Aufgaben 032 sowie 047 bis 051 sind abgeschlossen. Nach dem dreisprachigen Meilenstein aus Aufgabe 051 ist Aufgabe 029 der nächste vorgesehene Projektabschnitt; danach bleiben 026, 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, 034 und 035 eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung und die weiteren Launch-Gates abgeschlossen und geprüft sind, ist die Website nicht launchbereit.
+Aufgabe 029 ist abgeschlossen. Aufgabe 026 Cleanup ist der nächste vorgesehene Projektabschnitt; danach bleiben Aufgabe 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, Aufgabe 034 und Aufgabe 035 unverändert eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung, die erneuten Indexfreigaben und die finale noindex-Prüfung abgeschlossen sind, ist die Website nicht launchbereit.
 
-Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 prüft ihre endgültige SEO-, Indexierungs- und Canonical-Behandlung; Aufgabe 026 bleibt für den späteren, verwendungsgeprüften Cleanup zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
+Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 hat sie bis zum Cleanup bewusst `noindex` eingeordnet; Aufgabe 026 bleibt für den verwendungsgeprüften Cleanup und die anschließende erneute Indexprüfung zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 

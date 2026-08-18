@@ -9,7 +9,7 @@ import { StructuredData } from "@/components/StructuredData"
 import { ThemeProvider } from "@/components/theme-provider"
 import { buildSiteMetadata } from "@/lib/metadata"
 import { isUrlLocale, urlLocales, type UrlLocale } from "@/lib/i18n"
-import { buildLocalBusinessSchema } from "@/lib/structuredData"
+import { buildSiteSchema } from "@/lib/structuredData"
 import "../../globals.css"
 
 type LocalizedRootLayoutProps = Readonly<{
@@ -58,7 +58,7 @@ export default async function LocalizedRootLayout({
   return (
     <html lang={currentLocale} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
-        <StructuredData data={buildLocalBusinessSchema()} />
+        <StructuredData data={buildSiteSchema()} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>

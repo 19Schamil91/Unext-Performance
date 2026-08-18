@@ -6,8 +6,8 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { LegalPageLayout } from "@/components/legal-page-layout"
-import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import { isUrlLocale, type UrlLocale } from "@/lib/i18n"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 type LocalizedPrivacyPageProps = {
@@ -23,14 +23,7 @@ export async function generateMetadata({
     notFound()
   }
 
-  const t = getTranslations(locale).legal.privacy
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    `${t.title} - UNEXT GmbH Berlin.`,
-    getLocalizedPath(locale, "/datenschutz")
-  )
+  return buildLocalizedPageMetadata(locale, "privacy")
 }
 
 export default async function LocalizedPrivacyPage({

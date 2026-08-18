@@ -4,16 +4,14 @@
   Besucher koennen Informationen lesen und direkt Kontakt aufnehmen.
 */
 import type { Metadata } from "next"
-import {
-  AccidentServiceDetailContent,
-  getAccidentServiceMetadata,
-} from "@/components/AccidentServiceDetailContent"
+import { AccidentServiceDetailContent } from "@/components/AccidentServiceDetailContent"
 import type { Locale } from "@/lib/i18n"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 
 const locale: Locale = "de"
 
 export function generateMetadata(): Metadata {
-  return getAccidentServiceMetadata(locale)
+  return buildLocalizedPageMetadata(locale, "accidentAppraisal")
 }
 
 export default function UnfallgutachtenPage() {
