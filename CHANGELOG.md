@@ -2,6 +2,17 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-19
+
+### Aufgabe 026 - Erste technische Cleanup-Phase umgesetzt
+
+- Exakt 52 nachweislich unerreichbare Quellmodule wurden in acht kontrollierten Gruppen entfernt. Der Umfang besteht aus drei nicht mehr gerenderten Home-Sektionen, 46 ungenutzten UI-Modulen, zwei ungenutzten Hooks und dem nicht erreichbaren Browser-Storage-Utility.
+- Nach jeder Gruppe bestanden Diff-, Referenz-, ESLint- und TypeScript-Prüfung. Die Produktions-Builds nach A2, A4, A6 und A8 erzeugten jeweils erfolgreich 51 statische Seiten; der next-router-check fand bei 33 geprüften UI-Routen und 16 datenladenden Routen keine fehlende Pflichtdatei.
+- Die repräsentative Produktionsprüfung bestätigte 21 DE-/EN-/RU-Kernrouten bei 390 und 1440 Pixeln, 21 kontexttreue Sprachwechsel sowie fünf direkte permanente Gutachten-Redirects mit Query-Erhalt. Ergänzende Home-, Kontaktformular- und Navigations-Smokes bei 390, 430 und 1440 Pixeln bestanden ebenfalls, ohne Formulare abzusenden.
+- Codequalität, Accessibility, Mobile, Desktop, Content-Konsistenz und Performance wurden read-only ohne neuen Blocker geprüft. Es traten keine Console-, Hydration-, Request-, Bild- oder Overflowfehler auf.
+- Dependencies, `package.json`, Lockfiles, Assets, Übersetzungen, Datenquellen, Leistungsübersichten, Routen, Redirects, SEO-/Metadata-/Structured-Data-Dateien, Sitemap, Robots und `noindex` blieben unverändert. Aufgabe 026 bleibt aktiv und `in Arbeit`; die späteren Cleanup-Phasen sowie Rechts-, Index-, Deployment- und Launch-Gates bleiben offen.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen durch diesen technischen Zwischenstand nicht verändert wurden.
+
 ## 2026-08-18
 
 ### Aufgabe 026 - Cleanup-Plan nach unabhängiger Prüfung präzisiert

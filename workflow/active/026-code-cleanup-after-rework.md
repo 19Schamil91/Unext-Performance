@@ -8,7 +8,7 @@ Status: in Arbeit
 
 Den nach der fachlichen Neuausrichtung verbliebenen Legacy-Bestand in Code, sichtbaren Inhalten, Übersetzungen, Routen, Daten und Assets kontrolliert bereinigen, ohne die freigegebenen DE-/EN-/RU-V1-Nutzerwege, die neun Gutachtenartenrouten, direkte Redirects, Kontaktwege, Rechtstexte oder das in Aufgabe 029 umgesetzte SEO-Modell zu beschädigen.
 
-Dieser erste Arbeitsschritt umfasst ausschließlich die read-only Bestandsaufnahme und den Cleanup-Plan. Er erteilt noch keine Freigabe für Löschungen, Routen- oder Redirect-Änderungen, Textänderungen, Dependency-Änderungen oder die Aufhebung eines `noindex`-Zustands.
+Der Startschritt umfasste ausschließlich die read-only Bestandsaufnahme und den Cleanup-Plan. Die anschließend ausdrücklich freigegebene erste technische Cleanup-Phase entfernt ausschließlich die unten dokumentierten 52 unerreichbaren Quellmodule. Routen, Redirects, sichtbare Texte, Dependencies, Assets und die Aufhebung eines `noindex`-Zustands bleiben weiterhin außerhalb dieser Freigabe.
 
 ## Kontext und verbindliche Grenzen
 
@@ -406,6 +406,33 @@ Global Spec und Functional Map sind konsistent und blockieren die erste Modulpha
 - Öffentliche Routen und Assets können externe Referenzen besitzen, die das Repository nicht zeigt; Route-/Assetentscheidungen benötigen deshalb bei relevantem Risiko Analytics/Search Console beziehungsweise eine ausdrückliche Risikoakzeptanz.
 - Keine Dependency wird ohne separate Genehmigung entfernt.
 - Jeder Cleanup-Commit muss einzeln revertierbar sein; kein Force-Push, kein Umschreiben abgeschlossener Task-Commits.
+
+## Umsetzungsstand der ersten technischen Cleanup-Phase
+
+Die ausdrücklich freigegebene erste technische Phase wurde am 19. August 2026 vollständig umgesetzt. Exakt die 52 nummerierten, zuvor erneut referenzgeprüften Quellmodule wurden entfernt; zusätzliche Dateien wurden nicht gelöscht.
+
+| Gruppe | Entfernte Module | Ergebnis |
+|---|---:|---|
+| A1 | 3 | Diff-, Referenz-, ESLint- und TypeScript-Prüfung bestanden |
+| A2 | 10 | Diff-, Referenz-, ESLint-, TypeScript- und Produktions-Build-Prüfung bestanden |
+| A3 | 9 | Diff-, Referenz-, ESLint- und TypeScript-Prüfung bestanden |
+| A4 | 16 | Diff-, Referenz-, ESLint-, TypeScript- und Produktions-Build-Prüfung bestanden |
+| A5 | 3 | Diff-, Referenz-, ESLint- und TypeScript-Prüfung bestanden |
+| A6 | 5 | Diff-, Referenz-, ESLint-, TypeScript- und Produktions-Build-Prüfung bestanden |
+| A7 | 5 | Diff-, Referenz-, ESLint- und TypeScript-Prüfung bestanden |
+| A8 | 1 | Diff-, Referenz-, ESLint-, TypeScript- und abschließende Produktions-Build-Prüfung bestanden |
+
+- Vor der Löschung bestätigte die erneute Prüfung 52 eindeutige bestehende Pfade, acht Gruppen, null externe Laufzeit-Inbounds und neun ausschließlich gruppeninterne Importkanten. Das Kontrollmanifest liegt außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-a/module-removal-manifest.md`.
+- Nach jeder Gruppe wurden `git status --short`, `git diff --name-status`, `git diff --check`, die Suche nach direkten, dynamischen, Barrel- und Stringreferenzen, `npm run lint` sowie `npx tsc --noEmit` ausgeführt. Alle Zwischenprüfungen bestanden.
+- Die strengeren Produktions-Build-Gates nach A2, A4, A6 und A8 bestanden jeweils mit 51 statisch generierten Seiten. `next-env.d.ts` blieb unverändert.
+- Die gruppenspezifischen Home-, Kontakt-/Formular- und Navigations-Smokes für A1, A3 und A7 wurden vor dem Commit im vollständigen Phase-A-Stand nochmals gezielt bestätigt: DE/EN/RU bei 390 Pixeln, Navigation zusätzlich bei 430 und 1440 Pixeln, sichtbare Formulare ohne Absenden, jeweils ohne Fehler oder horizontalen Overflow.
+- Der abschließende Produktions-Smoke prüfte 21 DE-/EN-/RU-Kernrouten bei 390 und 1440 Pixeln mit HTTP 200, sichtbarer Hauptüberschrift, Header und Footer. Alle 21 Sprachwechsel über sieben fachliche Seitenkontexte blieben korrekt.
+- Die fünf bestehenden Gutachten-Redirects antworteten direkt mit 308, erhielten den Query-Parameter und führten ohne Kette zum erwarteten Ziel. Console-, Hydration-, interne Request-, Bild-, Error-State- und Overflowfehler: null.
+- Der next-router-check prüfte 33 UI-Routen, davon 16 datenladend; `loading.tsx`, `error.tsx` und erforderliche `not-found.tsx`-Grenzen fehlen auf keiner Route.
+- Read-only Reviewer für Codequalität, Accessibility, Mobile, Desktop, Content-Konsistenz und Performance meldeten jeweils null durch diesen Diff verursachte Blocker. Die abschließende Launch-Synthese bestätigt die technische Commitreife dieser Phase, nicht jedoch die Launchreife der gesamten Website.
+- Dependencies, `package.json`, Lockfiles, Assets, Übersetzungen, Datenquellen, Leistungsübersichten, Routen, Redirects, Metadata, Structured Data, Sitemap, Robots, `noindex`, Specs und Rechtstexte blieben unverändert. Leere Verzeichnisse, verwaiste Exporte und tote Importpfade wurden nicht gefunden.
+- Phase B bis E, der separate Dependency-Abgleich, Assetentscheidungen, die externe Rechts- und Indexfreigabe sowie die Aufgaben 033 bis 035 bleiben offen. Aufgabe 026 bleibt in `workflow/active/` und der Status bleibt `in Arbeit`.
+- `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektphasen nicht geändert haben.
 
 ## Akzeptanzkriterien
 
