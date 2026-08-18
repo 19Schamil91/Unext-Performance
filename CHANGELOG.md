@@ -4,6 +4,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-18
 
+### Aufgabe 029 - Dreisprachige SEO-Grundlage formal abgeschlossen
+
+- Die mehrsprachige SEO-/Metadata-Umsetzung für DE, EN und RU ist nach vollständiger Akzeptanzprüfung und ausdrücklicher Nutzerfreigabe abgeschlossen. Canonicals, gegenseitige Hreflang-Verknüpfungen, OpenGraph, Twitter, Sitemap und Robots verwenden die verbindliche Produktions-Origin `https://unext.de`.
+- Von den 30 V1-Routen sind 15 freigegebene kanonische Routen indexierbar; 15 Routen bleiben bis zu ihren dokumentierten Gates bewusst vorübergehend `noindex`. Das Structured-Data-Modell ist um bestätigte Seitentypen erweitert und von unpassenden Werkstatt- und Legacy-Service-Signalen bereinigt.
+- Nach Aufgabe 026 müssen Leistungsübersicht und Über-uns-Seiten erneut auf ihre Indexfreigabe geprüft werden. Die Legal-Routen bleiben bis zur externen Rechts- und Indexfreigabe `noindex`; vor dem Launch bleibt der vollständige Abgleich von Indexierungsmodell, Sitemap, Canonicals, Hreflang und Robots verpflichtend.
+- Aufgabe 029 ist formal abgeschlossen. Legacy-Cleanup, finale Launch-QA, www-/Deployment-Konfiguration und Monitoring bleiben den Aufgaben 026, 033, 034 und 035 zugeordnet; die Website ist weiterhin nicht launchbereit.
+
 ### Aufgabe 029 - Dreisprachige SEO-Grundlage technisch umgesetzt
 
 - `https://unext.de` ist als verbindliche Produktions-Origin zentral definiert. Metadata, Canonicals, Hreflang, OpenGraph, Twitter, Sitemap und strukturierte Daten verwenden ausschließlich die non-www-Origin.

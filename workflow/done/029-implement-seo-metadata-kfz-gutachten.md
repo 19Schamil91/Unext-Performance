@@ -395,8 +395,12 @@ Die zwei weiteren deutschen Altquellen `/leistungen/fahrzeugbewertung` und `/lei
 - [x] Der lokale `next-router-check` meldet keine fehlende Pflicht-Boundary.
 - [x] Local-SEO-, Content-Consistency- und Quality-Review sind vor Abschluss durchgeführt und Findings behoben oder ausdrücklich freigegeben.
 - [x] Aufgabe 026, 033, 034 und 035 bleiben getrennt; Aufgabe 029 macht die Website nicht automatisch launchbereit.
-- [ ] Aufgabe 029 wird nur nach Review, Zusammenfassung und ausdrücklicher Nutzerfreigabe nach `workflow/done/` verschoben.
+- [x] Aufgabe 029 wird nur nach Review, Zusammenfassung und ausdrücklicher Nutzerfreigabe nach `workflow/done/` verschoben.
+
+## Abschluss
+
+Aufgabe 029 wurde am 18.08.2026 nach vollständiger technischer und fachlicher Akzeptanzprüfung sowie ausdrücklicher Nutzerfreigabe formal abgeschlossen. Alle 25 Akzeptanzkriterien sind erfüllt. Die dokumentierten späteren Gates für Legacy-Cleanup und erneute Indexprüfung, externe Rechts- und Indexfreigabe, finale Launch-QA, www-/Deployment-Konfiguration und Monitoring gelten durch diesen Abschluss ausdrücklich nicht als erledigt; die Website bleibt nicht launchbereit.
 
 ## Status
 
-Status: wartet auf Review
+Status: abgeschlossen
