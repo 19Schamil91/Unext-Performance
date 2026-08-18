@@ -134,9 +134,9 @@ Von den 30 V1-Routen sind 15 freigegebene kanonische Routen indexierbar und 15 R
 
 ### 11. Cleanup und Launch-Schritte
 
-Status: geplant
+Status: in Arbeit
 
-Aufgabe 029 ist abgeschlossen. Aufgabe 026 Cleanup ist der nächste vorgesehene Projektabschnitt; danach bleiben Aufgabe 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, Aufgabe 034 und Aufgabe 035 unverändert eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung, die erneuten Indexfreigaben und die finale noindex-Prüfung abgeschlossen sind, ist die Website nicht launchbereit.
+Aufgabe 029 ist abgeschlossen. Aufgabe 026 wurde als aktueller Projektabschnitt gestartet. Der tatsächliche Legacy-Bestand in Routen, sichtbaren Inhalten, Komponenten, Übersetzungen, Daten, SEO-Verknüpfungen und Assets ist read-only inventarisiert; ein phasenweiser Cleanup-Plan wartet vor jeder technischen Löschung oder Änderung auf ausdrückliche Nutzerfreigabe. Danach bleiben Aufgabe 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, Aufgabe 034 und Aufgabe 035 unverändert eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung, die erneuten Indexfreigaben und die finale noindex-Prüfung abgeschlossen sind, ist die Website nicht launchbereit.
 
 Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 hat sie bis zum Cleanup bewusst `noindex` eingeordnet; Aufgabe 026 bleibt für den verwendungsgeprüften Cleanup und die anschließende erneute Indexprüfung zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 

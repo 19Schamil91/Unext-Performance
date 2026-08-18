@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-18
 
+### Aufgabe 026 - Legacy-Cleanup gestartet und vollständig inventarisiert
+
+- Aufgabe 026 wurde als reiner Inventur- und Planungsschritt gestartet und nach `workflow/active/` verschoben. Der Status ist `in Arbeit`; technische Löschungen oder Änderungen benötigen weiterhin eine ausdrückliche Planfreigabe.
+- Der tatsächliche Bestand an V1-, Legacy- und Redirect-Routen, sichtbaren Altinhalten, Komponenten, Importpfaden, Übersetzungs- und Datenquellen, Metadata/Structured Data sowie Assets wurde read-only geprüft und in 41 logisch gruppierte Kandidateneinheiten der Kategorien A bis F eingeordnet.
+- Eine Routenmatrix, ein fünfphasiger Cleanup-Plan, Verwendungsnachweise, Risiken, Rollback-Möglichkeiten und das erneute noindex-/Indexfreigabe-Handoff nach dem Cleanup sind in der aktiven Aufgabe dokumentiert.
+- Der next-router-check hat 33 Page-Dateien und 16 datenladende lokalisierte Routen geprüft; im jeweiligen Layout-Scope fehlen keine verpflichtenden Loading-, Error- oder Not-found-Grenzen.
+- Website, Code, Routen, Redirects, Übersetzungen, SEO-Ausgaben, Structured Data, Assets, Rechtstexte und Indexierungszustände wurden nicht verändert. Die Website bleibt nicht launchbereit; Aufgaben 033, 034 und 035 bleiben nachgelagert.
+
 ### Aufgabe 029 - Dreisprachige SEO-Grundlage formal abgeschlossen
 
 - Die mehrsprachige SEO-/Metadata-Umsetzung für DE, EN und RU ist nach vollständiger Akzeptanzprüfung und ausdrücklicher Nutzerfreigabe abgeschlossen. Canonicals, gegenseitige Hreflang-Verknüpfungen, OpenGraph, Twitter, Sitemap und Robots verwenden die verbindliche Produktions-Origin `https://unext.de`.
