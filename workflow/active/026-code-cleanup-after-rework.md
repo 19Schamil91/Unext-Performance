@@ -50,17 +50,17 @@ Diese Abweichungen werden in Aufgabe 026 nicht eigenständig in den Specs korrig
 
 ## Read-only Inventur – Zählweise
 
-Die Inventur umfasst **41 logisch gruppierte Kandidateneinheiten**. Eine Einheit kann mehrere eng gekoppelte Dateien oder drei sprachlich gespiegelte Routen enthalten; sie zählt unabhängig von der Anzahl ihrer Dateien einmal. Damit bleiben Kategorie-Summen nachvollziehbar, ohne 45 sprachlich identische Routen oder einen zusammenhängenden UI-Scaffold künstlich als voneinander unabhängige Entscheidungen darzustellen.
+Die unabhängige vollständige Read-only-Prüfung vom 18. August 2026 hat **42 logisch gruppierte Kandidateneinheiten** bestätigt. Eine Einheit kann mehrere eng gekoppelte Dateien oder drei sprachlich gespiegelte Routen enthalten; sie zählt unabhängig von der Anzahl ihrer Dateien einmal. Gegenüber der Startinventur wurde der frühere A5-Bildbestand wegen nicht ausschließbarer öffentlicher Direkt-URLs nach F7 verschoben. Zusätzlich wurde mit A10 ein zuvor nicht erfasster, vollständig überschriebener EN-/RU-Übersetzungsbestand aufgenommen.
 
 | Kategorie | Anzahl | Bedeutung |
 |---|---:|---|
 | A | 9 | Sicher nicht aus aktuellen Routen erreichbar oder ohne Laufzeitreferenz; voraussichtlich entfernbar, aber erst nach Planfreigabe und erneutem Diff-/Build-Nachweis |
 | B | 6 | Legacy-Inhalt, der noch sichtbar oder intern verlinkt ist |
-| C | 7 | Legacy-Route oder Übersichtsroute mit erforderlicher expliziter HTTP-/Redirect-Entscheidung |
+| C | 7 | Legacy- oder Übersichtsroute mit dokumentierter späterer Behandlung und technischem Freigabe-/HTTP-Gate |
 | D | 10 | Für V1 weiterhin erforderlich oder ein fachlich legitimer Treffer |
 | E | 3 | Historische Dokumentation, die erhalten bleiben muss |
-| F | 6 | Freigabe, externe Entscheidung oder zusätzliche Laufzeitprüfung erforderlich |
-| **Summe** | **41** | |
+| F | 7 | Freigabe, externe Entscheidung oder zusätzliche Laufzeitprüfung erforderlich |
+| **Summe** | **42** | |
 
 ## Verwendungsinventar A – voraussichtlich sicher entfernbar
 
@@ -70,33 +70,33 @@ Die Inventur umfasst **41 logisch gruppierte Kandidateneinheiten**. Eine Einheit
 | A2 | 46 nicht erreichbare `components/ui/*`-Module plus `hooks/use-mobile.ts` und `hooks/use-toast.ts` | 48 Module sind vom vollständigen App-Routen-Importgraph nicht erreichbar; interne Abhängigkeiten innerhalb des ungenutzten Clusters wurden mit erfasst | Keine Route, kein Test und keine Dokumentation bindet sie als Laufzeitbestand ein | Nur als zusammenhängenden Dependency-Graph bereinigen und danach Dependencies separat prüfen. Risiko: künftige, noch nicht eingecheckte Nutzung. Rollback: atomarer Commit. Zuständig: Phase A; Dependency-Entfernung bleibt F1 |
 | A3 | `lib/browser-storage.ts` | Vom App-Routen-Importgraph nicht erreichbar; keine direkte, dynamische oder stringbasierte Referenz gefunden | Keine Locale-, Metadata-, Schema- oder Asset-Abhängigkeit | Nach Freigabe entfernen. Risiko gering; Browser-Speicherverhalten im Regressionstest beobachten. Rollback: Datei aus Cleanup-Commit wiederherstellen |
 | A4 | `public/placeholder.jpg`, `placeholder.svg`, `placeholder-logo.png`, `placeholder-logo.svg`, `placeholder-user.jpg` | Keine Code-, CSS-, Metadata-, OpenGraph-, Test- oder Dokumentationsreferenz gefunden | Nicht sprachabhängig; nicht in Sitemap/Schema | Nach Freigabe gemeinsam entfernen. Risiko: externe direkte URL unbekannt, fachlich aber reine Platzhalter. Rollback: Asset-Commit revertieren |
-| A5 | `about-hero-team-cropped.jpg`, `about-hero-team-cropped.webp`, `hero-car.webp`, `home-hero-new.webp`, `home-hero-team-new.webp.png`, `home-service-accident-wide.webp`, `new hero.png`, `services/schadengutachten-detail.png` | Keine aktuelle Laufzeitreferenz; einzelne Dateien nur in historischen Workflow-Dokumenten erwähnt | Nicht in aktuellem `next/image`, Metadata, OpenGraph oder Schema; zusammen rund 24,4 MB, davon `home-hero-team-new.webp.png` rund 18,5 MB | Historische Dokumentverweise erhalten, Binärdateien nach Freigabe entfernen. Risiko: externe Direktlinks; vor Umsetzung optional Deployment-/Analytics-Abgleich. Rollback: Asset-Commit revertieren |
 | A6 | `public/images/service-express-courier.webp` | Nur durch die nicht erreichbare Express-Kurier-Sektion referenziert | Keine aktive Route/Metadata/Schema-Ausgabe | Zusammen mit A1 entfernen. Risiko/rollback wie A1 |
 | A7 | Nicht gerenderte Übersetzungszweige `home.expressCourier`, `home.testimonials` und `home.trust` in `lib/translations/home.ts`/`home-overrides.ts` | Ausschließlich von A1 referenziert; aktuelle Startseite importiert die drei Sektionen nicht | DE/EN/RU; keine aktive SEO-Ausgabe | Nach Entfernung von A1 typgesichert reduzieren. Risiko: Spread-/Override-Struktur; TypeScript und vollständige dreisprachige Regression erforderlich |
 | A8 | `aboutTranslationOverrides` und `aboutPage`-Daten in `about-overrides.ts`/`services-and-about.ts` sowie deren Zusammenführung in `translations.ts` | `AboutPageContent.tsx` verwendet eigenen aktuellen Inhalt und nur `home.cta`; kein Verbraucher liest `getTranslations(...).aboutPage` | DE/EN/RU; About-Metadata liegt separat in `metadata.ts` | Nach Freigabe daten- und importseitig entfernen. Risiko: unbeabsichtigte Typänderung; Rollback über separaten Daten-Commit |
 | A9 | Alte `serviceContacts*`-Felder in `lib/translations/contact.ts` | `contact-page-client.tsx` liest diese Felder nicht; keine sichtbare Ausgabe oder Formularauswahl | EN/RU-Altleistungen, keine SEO-/Schema-Nutzung | Feldweise entfernen, nicht die weiterhin benötigte Kontaktübersetzung. Risiko: Spread-Overrides; Regression aller Kontaktseiten/Formzustände |
+| A10 | `lib/translations/service-pages-part1.ts`: `servicePagesPart1.en.accident` und `servicePagesPart1.ru.accident` | Beide Objekte werden in `lib/translations.ts` durch den späteren Spread von `appraisalPageTranslations.en` beziehungsweise `.ru` vollständig überschrieben und nicht ausgegeben | EN/RU; keine eigene Route, Metadata-, Schema-, CSS- oder Assetreferenz; der DE-`accident`-Block bleibt erforderlich | Erst in Phase D eigenschaftsgenau entfernen. Risiko: versehentliche Entfernung des benötigten DE-Blocks oder der aktiven `appraisal-pages.ts`-Daten. Rollback: eigener Translation-Commit/Revert; DE/EN/RU-Type- und Renderprüfung |
 
 ## Verwendungsinventar B – sichtbar oder verlinkt
 
 | ID | Pfad/Bestand | Nutzung und Sichtbarkeit | Referenzen/Sprachen/SEO | Empfehlung, Risiko, Rollback, Zuständigkeit |
 |---|---|---|---|---|
-| B1 | `ServicesOverviewContent.tsx` und `servicesPage` in `services-and-about.ts` | Rendert auf `/leistungen`, `/en/leistungen`, `/ru/leistungen` weiterhin sechs alte Hauptleistungen und verlinkt fünf Legacy-Familien | DE/EN/RU; Übersichten sind `noindex`, nicht in Sitemap, ohne V1-Schema; über Sprachzuordnung und Backlinks erreichbar | Erst nach C1-Entscheidung ersetzen oder Route stilllegen. Hohes Inhalts-/Routingrisiko; Rollback pro eigenem Commit. Zuständig: Phase B/C |
-| B2 | `RentalServiceDetailContent.tsx`, `service-pages-part1.ts` (Rental), `home-service-rental.webp` | Auf drei Autovermietungsrouten sichtbar; enthält Anfrageformular und direkte Telefonnummer | DE/EN/RU, von B1 verlinkt; Route `noindex`, keine Canonicals/Hreflang/Service-Schema | Sichtbarkeit erst nach C2-Entscheidung entfernen. Risiko: öffentliche Alt-URL und Formulare. Rollback: Routen-/Content-Commit revertieren |
-| B3 | `WorkshopServiceDetailContent.tsx`, Workshop-Daten in `service-pages-part2.ts`, `home-service-workshop.webp` | Auf drei Autoservice-Routen sichtbar; Werkstatt-/Reparaturversprechen und Anfrageformular | DE/EN/RU, von B1 verlinkt; `noindex`, keine aktive Legacy-Schemaausgabe | Nach C3-Entscheidung entfernen. Hohes fachliches/Trust-Risiko bei Weiterbetrieb; kein Redirect auf unpassende Gutachtenroute |
-| B4 | `DetailingServiceDetailContent.tsx`, Detailing-Daten in `service-pages-part2.ts`, `home-service-detailing.webp` | Auf drei Detailing-Routen sichtbar und anfragbar | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | Nach C4-Entscheidung entfernen. Rollback wie B2 |
-| B5 | `RegistrationServiceDetailContent.tsx`, Registration-Daten in `service-pages-part2.ts`, `home-service-registration.webp` | Auf drei Zulassungsservice-Routen sichtbar und anfragbar | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | Nach C5-Entscheidung entfernen. Zulassungsbegriffe in echten Fahrzeugdokument-Kontexten nicht pauschal löschen |
-| B6 | `TowingServiceDetailContent.tsx`, Towing-Daten in `service-pages-part2.ts`, `service-towing.webp` | Auf drei Abschlepp-/Pannenhilferouten sichtbar; kann Soforthilfe-Erwartung erzeugen | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | Prioritär nach C6-Entscheidung aus sichtbaren Wegen nehmen. Kein semantisch falscher Redirect; Rollback separat |
+| B1 | `ServicesOverviewContent.tsx` und `servicesPage` in `services-and-about.ts` | Rendert auf `/leistungen`, `/en/leistungen`, `/ru/leistungen` weiterhin sechs bisherige Karten und verlinkt fünf Legacy-Familien | DE/EN/RU; Übersichten sind `noindex`, nicht in Sitemap, ohne V1-Schema; über Sprachzuordnung und Backlinks erreichbar | Freigegebene Planentscheidung: Routen erhalten und in Phase B ausschließlich auf die drei aktuellen Gutachtenarten ausrichten. Hohes Inhaltsrisiko; Rollback über eigenen Overview-Commit |
+| B2 | `RentalServiceDetailContent.tsx`, `service-pages-part1.ts` (Rental), `home-service-rental.webp` | Auf drei Autovermietungsrouten sichtbar; enthält Anfrageformular und direkte Telefonnummer | DE/EN/RU, von B1 verlinkt; Route `noindex`, keine Canonicals/Hreflang/Service-Schema | In Phase B aus der Übersicht entfernen; Detailseiten erst in freizugebender Phase C. Risiko: öffentliche Alt-URL und Formulare. Rollback getrennt nach Content und Route |
+| B3 | `WorkshopServiceDetailContent.tsx`, Workshop-Daten in `service-pages-part2.ts`, `home-service-workshop.webp` | Auf drei Autoservice-Routen sichtbar; Werkstatt-/Reparaturversprechen und Anfrageformular | DE/EN/RU, von B1 verlinkt; `noindex`, keine aktive Legacy-Schemaausgabe | Wie B2. Hohes fachliches/Trust-Risiko bei Weiterbetrieb; kein Redirect auf unpassende Gutachtenroute |
+| B4 | `DetailingServiceDetailContent.tsx`, Detailing-Daten in `service-pages-part2.ts`, `home-service-detailing.webp` | Auf drei Detailing-Routen sichtbar und anfragbar | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | Wie B2; Rollback getrennt nach Content und Route |
+| B5 | `RegistrationServiceDetailContent.tsx`, Registration-Daten in `service-pages-part2.ts`, `home-service-registration.webp` | Auf drei Zulassungsservice-Routen sichtbar und anfragbar | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | Wie B2; Zulassungsbegriffe in echten Fahrzeugdokument-Kontexten nicht pauschal löschen |
+| B6 | `TowingServiceDetailContent.tsx`, Towing-Daten in `service-pages-part2.ts`, `service-towing.webp` | Auf drei Abschlepp-/Pannenhilferouten sichtbar; kann Soforthilfe-Erwartung erzeugen | DE/EN/RU; `noindex`, nicht in Sitemap, kein Service-Schema | In Phase B aus der Übersicht entfernen; Detailseiten erst in Phase C. Kein semantisch falscher Redirect; Rollback separat |
 
-## Verwendungsinventar C – Routenentscheidung erforderlich
+## Verwendungsinventar C – dokumentierte Routenbehandlung
 
 | ID | Route/Dateien | Ist-Zustand | Verlinkung/SEO | Spätere Entscheidung und Risiko |
 |---|---|---|---|---|
-| C1 | `/leistungen`, `/en/leistungen`, `/ru/leistungen`; zwei Page-Dateien | HTTP 200, sichtbarer B1-Inhalt | Nicht im Header als Übersicht angeboten, aber Sprachmapping und Legacy-Backlinks; `noindex`, nicht in Sitemap | Nutzerentscheidung: durch fokussierte Übersicht ersetzen, 404/410 oder fachlich passenden direkten Redirect wählen. Nicht blind löschen/umleiten |
-| C2 | drei Routen Autovermietung; zwei Page-Dateien | HTTP 200, B2 sichtbar | Von B1 verlinkt; `noindex` | 404/410 oder belegbar semantischer Redirect nach externer URL-/Traffic-Prüfung; kein Gutachten-Pauschalredirect |
-| C3 | drei Routen Autoservice; zwei Page-Dateien | HTTP 200, B3 sichtbar | Von B1 verlinkt; `noindex` | Wie C2; Werkstatt-Suchintention besonders unpassend für Gutachtenredirect |
+| C1 | `/leistungen`, `/en/leistungen`, `/ru/leistungen`; zwei Page-Dateien | HTTP 200, sichtbarer B1-Inhalt | Nicht im Header als Übersicht angeboten, aber Sprachmapping und Legacy-Backlinks; `noindex`, nicht in Sitemap | Freigegebene Planentscheidung: alle drei Routen erhalten und in Phase B auf die drei sprachlich passenden Gutachtenarten ausrichten. `noindex` bleibt bis zum finalen SEO-/Launch-Gate bestehen |
+| C2 | drei Routen Autovermietung; zwei Page-Dateien | HTTP 200, B2 sichtbar | Von B1 verlinkt; `noindex` | In Phase C nach erneuter ausdrücklicher Freigabe entfernen; kein passendes Redirectziel, lokalisierte 404-Struktur und realen HTTP-Status danach prüfen |
+| C3 | drei Routen Autoservice; zwei Page-Dateien | HTTP 200, B3 sichtbar | Von B1 verlinkt; `noindex` | Wie C2; keine Weiterleitung auf Gutachten, Start, Kontakt oder Übersicht |
 | C4 | drei Routen Detailing; zwei Page-Dateien | HTTP 200, B4 sichtbar | Von B1 verlinkt; `noindex` | Wie C2 |
 | C5 | drei Routen Zulassungsservice; zwei Page-Dateien | HTTP 200, B5 sichtbar | Von B1 verlinkt; `noindex` | Wie C2; spätere Leistungspläne nicht erfinden |
-| C6 | drei Routen Abschleppdienst/Pannenhilfe; zwei Page-Dateien | HTTP 200, B6 sichtbar | Von B1 verlinkt; `noindex` | Wie C2; keine falsche Notfall-/Erreichbarkeitserwartung erzeugen |
+| C6 | drei Routen Abschleppdienst/Pannenhilfe; zwei Page-Dateien | HTTP 200, B6 sichtbar | Von B1 verlinkt; `noindex` | Wie C2; keine falsche Notfall-/Erreichbarkeitserwartung oder Umleitung erzeugen |
 | C7 | `app/(localized)/[locale]/leistungen/unfallgutachten/page.tsx` | Physische EN/RU-Inhaltsdatei liegt hinter zwei permanenten Redirects und wird bei normalem HTTP-Zugriff nicht als Zielseite benötigt | Redirects führen direkt zu den kanonischen EN/RU-Gutachtenarten; Datei erzeugt selbst Legacy-Metadata, falls sie je erreichbar würde | Nach Laufzeittest der Config-Priorität und Query-Erhaltung eventuell entfernen; Redirects müssen bestehen bleiben. Risiko: abweichendes Hosting-/Buildverhalten; Rollback atomar |
 
 ## Verwendungsinventar D – weiterhin erforderlich oder fachlich legitim
@@ -132,6 +132,7 @@ Die Inventur umfasst **41 logisch gruppierte Kandidateneinheiten**. Eine Einheit
 | F4 | Aufhebung von `noindex` für die drei Über-uns-Seiten | Erst nach erneuter Inhalts-/Trust-/SEO-Prüfung und ausdrücklicher Freigabe |
 | F5 | Legal-Indexierung | Externe Rechts- und separate Indexfreigabe bleibt Voraussetzung; kein Bestandteil der technischen Cleanup-Entscheidung |
 | F6 | Bereinigung überholter Spec-Ist-Aussagen | Separater Dokumentationsentscheid; historische Nachweise dürfen nicht stillschweigend umgeschrieben werden |
+| F7 | `public/images/about-hero-team-cropped.jpg`, `public/images/about-hero-team-cropped.webp`, `public/images/hero-car.webp`, `public/images/home-hero-new.webp`, `public/images/home-hero-team-new.webp.png`, `public/images/home-service-accident-wide.webp`, `public/images/new hero.png`, `public/images/services/schadengutachten-detail.png` | Keine Repository-Laufzeitreferenz, aber öffentliche Direkt-URLs können durch den Code-Scan nicht ausgeschlossen werden. Alle acht Dateien bleiben erhalten, bis Live-/Hosting-/Trafficdaten oder eine ausdrückliche Risikoakzeptanz vorliegen |
 
 ## Routenmatrix
 
@@ -144,16 +145,16 @@ Die Inventur umfasst **41 logisch gruppierte Kandidateneinheiten**. Eine Einheit
 | `/gutachtenarten/fahrzeugbewertung` plus EN/RU | DE/EN/RU | 200 | V1 Fahrzeugbewertung, aktiv | ja | index; Sitemap ja | schützen | Ziel eines DE-Redirects, keine Kette |
 | `/gutachtenarten/schadendokumentation` plus EN/RU | DE/EN/RU | 200 | V1 Schadendokumentation, aktiv | ja | index; Sitemap ja | schützen | Ziel eines DE-Redirects, keine Kette |
 | `/kontakt`, `/en/kontakt`, `/ru/kontakt` | DE/EN/RU | 200 | V1 Kontakt/Formular, aktiv | ja | index; Sitemap ja | erhalten | keines |
-| `/leistungen`, `/en/leistungen`, `/ru/leistungen` | DE/EN/RU | 200 | Legacy-Übersicht | indirekt/Backlinks | noindex; ausgeschlossen | C1 entscheiden | kein Redirect ohne passendes Ziel |
+| `/leistungen`, `/en/leistungen`, `/ru/leistungen` | DE/EN/RU | 200 | Legacy-Übersicht | indirekt/Backlinks | noindex; ausgeschlossen | erhalten und in Phase B auf drei Gutachtenarten bereinigen | kein Redirect; Indexfreigabe separat |
 | `/ueber-uns`, `/en/ueber-uns`, `/ru/ueber-uns` | DE/EN/RU | 200 | aktueller V1-Inhalt | ja | noindex; ausgeschlossen | nach Cleanup Indexprüfung | keines |
 | `/impressum` plus EN/RU | DE/EN/RU | 200 | Rechtstext | Footer | noindex; ausgeschlossen | externe Freigabe abwarten | keines |
 | `/datenschutz` plus EN/RU | DE/EN/RU | 200 | Rechtstext | Footer/Formulare | noindex; ausgeschlossen | externe Freigabe abwarten | keines |
 | `/agb` plus EN/RU | DE/EN/RU | 200 | Rechtstext | Footer | noindex; ausgeschlossen | externe Freigabe abwarten | keines |
-| `/leistungen/autovermietung` plus EN/RU | DE/EN/RU | 200 | Legacy B2 | B1 | noindex; ausgeschlossen | C2 | kein falscher Gutachtenredirect |
-| `/leistungen/autoservice` plus EN/RU | DE/EN/RU | 200 | Legacy B3 | B1 | noindex; ausgeschlossen | C3 | kein falscher Gutachtenredirect |
-| `/leistungen/detailing` plus EN/RU | DE/EN/RU | 200 | Legacy B4 | B1 | noindex; ausgeschlossen | C4 | kein falscher Gutachtenredirect |
-| `/leistungen/zulassungsservice` plus EN/RU | DE/EN/RU | 200 | Legacy B5 | B1 | noindex; ausgeschlossen | C5 | kein falscher Gutachtenredirect |
-| `/leistungen/abschleppdienst-pannenhilfe` plus EN/RU | DE/EN/RU | 200 | Legacy B6 | B1 | noindex; ausgeschlossen | C6 | kein falscher Gutachtenredirect |
+| `/leistungen/autovermietung` plus EN/RU | DE/EN/RU | 200 | Legacy B2 | B1 | noindex; ausgeschlossen | nach erneuter Freigabe entfernen und 404 prüfen | kein Redirect |
+| `/leistungen/autoservice` plus EN/RU | DE/EN/RU | 200 | Legacy B3 | B1 | noindex; ausgeschlossen | nach erneuter Freigabe entfernen und 404 prüfen | kein Redirect |
+| `/leistungen/detailing` plus EN/RU | DE/EN/RU | 200 | Legacy B4 | B1 | noindex; ausgeschlossen | nach erneuter Freigabe entfernen und 404 prüfen | kein Redirect |
+| `/leistungen/zulassungsservice` plus EN/RU | DE/EN/RU | 200 | Legacy B5 | B1 | noindex; ausgeschlossen | nach erneuter Freigabe entfernen und 404 prüfen | kein Redirect |
+| `/leistungen/abschleppdienst-pannenhilfe` plus EN/RU | DE/EN/RU | 200 | Legacy B6 | B1 | noindex; ausgeschlossen | nach erneuter Freigabe entfernen und 404 prüfen | kein Redirect |
 | `/leistungen/unfallgutachten` | DE | 308 | Redirect | alte/externe URLs möglich | nicht in Sitemap | Redirect erhalten | Ziel ist direkt und kanonisch |
 | `/leistungen/fahrzeugbewertung` | DE | 308 | Redirect | alte/externe URLs möglich | nicht in Sitemap | Redirect erhalten | Ziel ist direkt und kanonisch |
 | `/leistungen/schadendokumentation` | DE | 308 | Redirect | alte/externe URLs möglich | nicht in Sitemap | Redirect erhalten | Ziel ist direkt und kanonisch |
@@ -171,56 +172,223 @@ Der lokale Skill `.agents/skills/next-router-check/SKILL.md` wurde vollständig 
 - Die deutschen statischen Routen benötigen keine eigenen Loading-/Error-Grenzen; der deutsche Scope besitzt sie dennoch.
 - Ergebnis: **0 fehlende Pflichtdateien, 0 Router-Check-Blocker**.
 
-## Geplanter Ablauf nach ausdrücklicher Planfreigabe
+## Verbindliche Liste der 52 unerreichbaren Quellmodule
 
-### Phase A – sichere tote Imports, Komponenten, Daten und Assets
+Die unabhängige Prüfung hat 158 Quellmodule unter `app/`, `components/`, `hooks/` und `lib/` ausgewertet. 106 Module sind vom App-Routen-Graph erreichbar; die folgenden 52 sind nicht erreichbar. Für **jede** Datei wurden statische Imports, Side-Effect-Imports, dynamische `import()`-Aufrufe, `require()`, Barrel-Exports, Routen- und Komponentenregistrierungen, Stringreferenzen, Tests, Build-Nutzung, Übersetzungs-/Datenbezüge sowie CSS-/Assetbezüge geprüft.
 
-- Betroffen: A1 bis A9; zunächst keine C-/D-/F-Bestände.
-- Änderung: nachweislich nicht erreichbare Module, unreferenzierte Platzhalter/Altbilder und ausschließlich daran gebundene Übersetzungszweige in kleinen atomaren Commits entfernen.
-- Abhängigkeiten: Planfreigabe; bei A2 erneuter Importgraph; Dependencies aus `package.json` nur nach separater Genehmigung F1.
-- Risiken: versteckte externe Asset-URLs, gekoppelte TypeScript-Typen, Spread-Overrides.
-- Rollback: je Kandidatengruppe separater Commit/Revert; keine Misch-Commits.
-- Prüfungen: `rg`, Importgraph, `git diff --check`, ESLint, TypeScript, Build, Asset-/Image-Request-Prüfung.
-- Nicht ändern: Routen, Redirects, sichtbare Texte, SEO-Ausgaben, Rechtstexte, Indexierung.
+Gemeinsames Ergebnis für alle 52 Dateien:
 
-### Phase B – sichtbare Legacy-Inhalte auf aktuellen erreichbaren Seiten
+- keine statische, dynamische oder Barrel-basierte Einbindung aus einem erreichbaren Route-/Entry-Modul;
+- keine Routenreferenz und keine Test- oder Build-Sonderverwendung;
+- interne Imports innerhalb des unerreichbaren Clusters ändern die fehlende Erreichbarkeit nicht;
+- keine Datei wird in diesem Planungsschritt gelöscht;
+- npm-Dependencies, `package.json` und Lockfiles sind ausdrücklich ausgeschlossen;
+- Rollback erfolgt gruppenweise über den jeweiligen atomaren Cleanup-Commit.
 
-- Betroffen: B1 bis B6 und die zugehörigen Übersetzungsdaten/Bilder/Formularinstanzen.
-- Änderung: erst nach den C-Entscheidungen Legacy-Verlinkung und sichtbare fachfremde Angebote aus freigegebenen Nutzerwegen entfernen beziehungsweise durch ausdrücklich freigegebenen V1-Inhalt ersetzen.
-- Abhängigkeiten: Entscheidung zu `/leistungen` und allen fünf Legacy-Routen; keine neuen Leistungen erfinden.
-- Risiken: öffentliche Alt-URLs, falsche Kontakt-/Formularwege, unbeabsichtigtes Löschen gemeinsamer Layout-/Formularlogik.
-- Rollback: Content-/Linkänderungen getrennt von Routenentscheidungen committen.
-- Prüfungen: DE/EN/RU-Textvergleich, Formularzustände ohne Absenden, mobile/tablet/desktop, Accessibility, Typografie, Browserkonsole, Requests und Bilder.
-- Nicht ändern: aktuelle Gutachteninhalte, Rechtstexte, `noindex`-Gates.
+Abweichende interne Abhängigkeiten sind ausdrücklich dokumentiert: `express-courier-section.tsx`, `testimonials-section.tsx` und `trust-section.tsx` lesen ausschließlich ihre später separat zu prüfenden Home-Übersetzungszweige; die Express-Sektion referenziert zusätzlich `public/images/service-express-courier.webp`. `sidebar.tsx`, `toaster.tsx`, `toggle-group.tsx` und `command.tsx` besitzen nur Abhängigkeiten innerhalb der unten gemeinsam geplanten unerreichbaren Gruppen. Diese Daten und Assets werden in Phase A nicht entfernt.
 
-### Phase C – Legacy-Routen und direkte Redirects
+| Nr. | Repository-Pfad | Modulart | Frühere Funktion | Daten/CSS/Asset | Cleanup-Gruppe |
+|---:|---|---|---|---|---|
+| 1 | `components/sections/express-courier-section.tsx` | Home-Sektion | Express-Kurier-Angebot | `home.expressCourier`; Courier-Bild; kein externes CSS | A1 |
+| 2 | `components/sections/testimonials-section.tsx` | Home-Sektion | Kundenstimmen | `home.testimonials`; kein Asset/CSS | A1 |
+| 3 | `components/sections/trust-section.tsx` | Home-Sektion | Trust-Badges | `home.trust`; kein Asset/CSS | A1 |
+| 4 | `components/ui/alert-dialog.tsx` | UI-Overlay | Bestätigungsdialog | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 5 | `components/ui/aspect-ratio.tsx` | UI-Layout | Seitenverhältnis-Wrapper | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 6 | `components/ui/avatar.tsx` | UI-Anzeige | Avatar | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 7 | `components/ui/badge.tsx` | UI-Anzeige | Badge | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 8 | `components/ui/breadcrumb.tsx` | UI-Navigation | generische Breadcrumb-UI | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 9 | `components/ui/button-group.tsx` | UI-Layout | Button-Gruppe | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 10 | `components/ui/calendar.tsx` | UI-Formular | Kalenderauswahl | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 11 | `components/ui/carousel.tsx` | UI-Anzeige | Karussell | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 12 | `components/ui/chart.tsx` | UI-Anzeige | Diagramm-Wrapper | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 13 | `components/ui/checkbox.tsx` | UI-Formular | Checkbox | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 14 | `components/ui/collapsible.tsx` | UI-Disclosure | einklappbarer Bereich | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A5 |
+| 15 | `components/ui/command.tsx` | UI-Overlay | Command-Menü | interner Bezug zu `dialog.tsx`; keine Projektdaten/Assets | A2 |
+| 16 | `components/ui/context-menu.tsx` | UI-Overlay | Kontextmenü | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 17 | `components/ui/dialog.tsx` | UI-Overlay | Dialog | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 18 | `components/ui/drawer.tsx` | UI-Overlay | Drawer | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 19 | `components/ui/dropdown-menu.tsx` | UI-Overlay | Dropdown-Menü | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 20 | `components/ui/empty.tsx` | UI-Anzeige | Leerzustand | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 21 | `components/ui/form.tsx` | UI-Formular | React-Hook-Form-Adapter | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 22 | `components/ui/hover-card.tsx` | UI-Overlay | Hover-Karte | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 23 | `components/ui/input-group.tsx` | UI-Formular | Eingabegruppe | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 24 | `components/ui/input-otp.tsx` | UI-Formular | OTP-Eingabe | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 25 | `components/ui/item.tsx` | UI-Anzeige | generisches Listenelement | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 26 | `components/ui/kbd.tsx` | UI-Anzeige | Tastaturkürzel | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 27 | `components/ui/menubar.tsx` | UI-Overlay | Menüleiste | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 28 | `components/ui/navigation-menu.tsx` | UI-Overlay | generisches Navigationsmenü | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 29 | `components/ui/pagination.tsx` | UI-Navigation | Pagination | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 30 | `components/ui/popover.tsx` | UI-Overlay | Popover | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A2 |
+| 31 | `components/ui/progress.tsx` | UI-Anzeige | Fortschrittsanzeige | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 32 | `components/ui/radio-group.tsx` | UI-Formular | Radio-Gruppe | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 33 | `components/ui/resizable.tsx` | UI-Layout | veränderbare Panels | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 34 | `components/ui/scroll-area.tsx` | UI-Layout | Scrollbereich | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 35 | `components/ui/select.tsx` | UI-Formular | Auswahlfeld | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 36 | `components/ui/sidebar.tsx` | UI-Navigation | generische Sidebar | interne Bezüge zu Skeleton, Tooltip und Mobile-Hook; keine Projektdaten/Assets | A7 |
+| 37 | `components/ui/skeleton.tsx` | UI-Anzeige | Ladeplatzhalter | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A7 |
+| 38 | `components/ui/slider.tsx` | UI-Formular | Slider | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 39 | `components/ui/sonner.tsx` | UI-Feedback | Sonner-Toaster | keine Projektdaten/Übersetzungen/Assets; nur lokale Klassen | A6 |
+| 40 | `components/ui/switch.tsx` | UI-Formular | Schalter | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A3 |
+| 41 | `components/ui/table.tsx` | UI-Anzeige | Tabelle | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 42 | `components/ui/tabs.tsx` | UI-Navigation | Tabs | keine Daten/Übersetzungen/Assets; nur lokale Klassen | A4 |
+| 43 | `components/ui/toast.tsx` | UI-Feedback | Toast-Komponenten | interne Nutzung nur durch unerreichbaren Toaster/Hook; keine Assets | A6 |
+| 44 | `components/ui/toaster.tsx` | UI-Feedback | Toast-Renderer | interne Bezüge zu Toast und Hook; keine Assets | A6 |
+| 45 | `components/ui/toggle.tsx` | UI-Disclosure | Toggle | interne Nutzung nur durch unerreichbare Toggle-Gruppe | A5 |
+| 46 | `components/ui/toggle-group.tsx` | UI-Disclosure | Toggle-Gruppe | interner Bezug zu `toggle.tsx`; keine Assets | A5 |
+| 47 | `components/ui/tooltip.tsx` | UI-Feedback | Tooltip | interne Nutzung nur durch unerreichbare Sidebar; keine Assets | A7 |
+| 48 | `components/ui/use-mobile.tsx` | UI-Hook | lokale Mobile-Erkennung | keine Daten/Übersetzungen/Assets | A7 |
+| 49 | `components/ui/use-toast.ts` | UI-Hook | lokaler Toast-State | interne Nutzung nur im Toast-Cluster; keine Assets | A6 |
+| 50 | `hooks/use-mobile.ts` | Hook | Mobile-Erkennung | interne Nutzung nur durch unerreichbare Sidebar; keine Assets | A7 |
+| 51 | `hooks/use-toast.ts` | Hook | Toast-State | interne Nutzung nur durch unerreichbaren Toaster; keine Assets | A6 |
+| 52 | `lib/browser-storage.ts` | Datenutility | Browser-Storage-Helfer | keine Datenquelle, Übersetzung, CSS- oder Assetabhängigkeit | A8 |
 
-- Betroffen: C1 bis C7, `next.config.mjs` nur nach ausdrücklicher konkreter Redirect-Freigabe.
-- Änderung: routeweise 404, 410, Beibehaltung oder semantisch passendes Direktziel umsetzen; C7 nur entfernen, wenn Redirect-Priorität und Hostingverhalten bestätigt sind.
-- Abhängigkeiten: Nutzerentscheidung, optional Search-Console-/Analytics-/Hostingdaten; keine pauschalen Gutachtenredirects.
-- Risiken: verlorene externe Links, falsche Suchintention, Redirect-Kette/-Schleife, Locale- oder Query-Verlust.
-- Rollback: Redirect-/Route-Commit separat; vorherige Dateien und Config jederzeit wiederherstellbar.
-- Prüfungen: Statuscode, `Location`, Pfad-/Query-Erhalt, alle Sprachen, keine Kette/Schleife, 404/410-Erlebnis, next-router-check, Build.
-- Nicht ändern: neun Zielrouten und fünf bestehende Direkt-Redirects ohne ausdrückliche Ersatzentscheidung.
+### Kleine technische Gruppen für die spätere erste Modulphase
 
-### Phase D – Übersetzungs-, Metadata- und Structured-Data-Reste
+Die Gruppenbezeichnungen A1 bis A8 in diesem Abschnitt sind technische Löschgruppen und nicht mit den Inventar-IDs A1 bis A10 gleichzusetzen.
 
-- Betroffen: nach A–C belegbar verwaiste Translation-Unterbäume und Legacy-Hilfswege; das Aufgabe-029-Modell nur bei zwingender Folgeanpassung.
-- Änderung: nicht mehr erreichbare Legacy-Daten entfernen; aktive Ausgabe erneut auf alte Servicebegriffe und JSON-LD prüfen.
-- Abhängigkeiten: abgeschlossene Routen-/Contentbereinigung; Indexänderungen F3–F5 bleiben gesondert.
-- Risiken: deutsche Resttexte in EN/RU, beschädigte Typinferenz, falsche Canonicals/Hreflang/Sitemap-/Schemaausgabe.
-- Rollback: Daten- und SEO-Folgeänderungen getrennt committen.
-- Prüfungen: gerenderte Metadata/JSON-LD, Sitemap/Robots, 30 V1-Routen, Sprachcluster und Legacy-Statuscodes.
-- Nicht ändern: Rechtstexte und noindex ohne Freigabe.
+| Gruppe | Dateien | Gemeinsame frühere Funktion und Unabhängigkeit | Abhängigkeiten/Ausschlüsse | Rollback und unmittelbare Prüfungen |
+|---|---|---|---|---|
+| A1 | Nr. 1–3 | nicht mehr gerenderte Home-Sektionen; kein Route-Inbound | Übersetzungszweige und Courier-Asset bleiben bestehen | eigener Commit/Revert; `git diff --check`, Import-/Exportsuche, Lint, TypeScript; anschließend DE/EN/RU-Home-Smoke |
+| A2 | Nr. 4, 15–19, 22, 27–28, 30 | geschlossenes Overlay-/Menü-Cluster | keine Dependencies entfernen | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript |
+| A3 | Nr. 10, 13, 21, 23–24, 32, 35, 38, 40 | ungenutzte generische Form-/Input-Primitives | aktive Formularbausteine außerhalb der Liste schützen | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript; Kontakt-/Formular-Smoke ohne Absenden |
+| A4 | Nr. 5–9, 11–12, 20, 25–26, 29, 31, 33–34, 41–42 | reine Anzeige-/Layout-Primitives ohne erreichbaren Verbraucher | keine Assets oder Dependencies entfernen | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript |
+| A5 | Nr. 14, 45–46 | geschlossenes Disclosure-/Toggle-Cluster | keine Dependencies entfernen | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript |
+| A6 | Nr. 39, 43–44, 49, 51 | geschlossenes Toast-/Feedback-Cluster | keine Dependencies entfernen | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript |
+| A7 | Nr. 36–37, 47–48, 50 | geschlossenes Sidebar-/Mobile-Hook-Cluster | Header und `HeaderMobileMenu` sind nicht enthalten und bleiben geschützt | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript; 390-/430- und 1440-Smoke der Navigation |
+| A8 | Nr. 52 | eigenständiges ungenutztes Browser-Storage-Utility | keine weitere Datei ändern | eigener Commit/Revert; Diff-Check, Referenzsuche, Lint, TypeScript |
 
-### Phase E – vollständige technische und visuelle Regression
+Nach A2, A4, A6 und abschließend A8 ist zusätzlich `npm run build` vorgesehen. Der next-router-check wird ausgeführt, wenn eine erneute Referenzprüfung wider Erwarten eine Routen- oder datenladende Abhängigkeit zeigt, und verpflichtend im Endgate. Sichtbare DE-/EN-/RU-Browserprüfungen erfolgen nach A1, A3 und A7. Keine technische Gruppe darf beginnen, bevor dieser präzisierte Plan ausdrücklich freigegeben wurde.
 
-- Betroffen: alle 30 V1-Routen, entschiedene Legacy-URLs, fünf Redirects und globale Navigation/Formulare.
-- Änderung: keine neue Funktion; ausschließlich Prüfung und notwendige, scope-konforme Korrekturen nach gesonderter Bewertung.
-- Risiken: übersehene Link-, Bild-, Hydration-, Typografie-, Accessibility- oder SEO-Regression.
-- Rollback: fehlerhafte Phase zurücknehmen; keine nachträgliche Vermischung.
-- Prüfungen: 390, 768 und 1440 px in DE/EN/RU; Accessibility; Typografie/Zeilenumbrüche; Browserkonsole, Hydration, Requests und Bilder; `git diff --check`; `npm run lint`; `npx tsc --noEmit`; `npm run build`; next-router-check; passende Reviewer.
-- Nicht ändern: Launch-/Deployment-/Monitoring-Scope der Aufgaben 033–035.
+## Vollständiger Assetplan – 18 Kandidaten
+
+OpenGraph-, Twitter-, Metadata-, Structured-Data-, CSS-, `next/image`-, Manifest-, Favicon- und dynamische Stringreferenzen wurden in der Read-only-Prüfung berücksichtigt. Keine Assetdatei gehört zur ersten Modulphase; in diesem Planungsschritt wird nichts gelöscht.
+
+| Pfad | Typ | Referenzlage/Abhängigkeit | Risiko | Spätere Entscheidung |
+|---|---|---|---|---|
+| `public/placeholder.jpg` | JPG | keine Runtime-Referenz; nur Plan-Dokumentation | sehr geringes öffentliches Direkt-URL-Risiko | als einer von sechs sicheren Kandidaten erst in separater Assetphase erneut prüfen und freigeben |
+| `public/placeholder.svg` | SVG | keine Referenz | wie oben | separat prüfen/freigeben |
+| `public/placeholder-logo.png` | PNG | keine Referenz | wie oben | separat prüfen/freigeben |
+| `public/placeholder-logo.svg` | SVG | keine Referenz | wie oben | separat prüfen/freigeben |
+| `public/placeholder-user.jpg` | JPG | keine Referenz | wie oben | separat prüfen/freigeben |
+| `public/images/service-express-courier.webp` | WEBP | nur durch Modul Nr. 1 referenziert | Reihenfolge; bleibt in Phase A erhalten | erst nach Entfernung der Express-Sektion separat prüfen/freigeben |
+| `public/images/about-hero-team-cropped.jpg` | JPG | keine Runtime-, OG-, Metadata-, CSS- oder `next/image`-Referenz; historische Doku | unbekannte öffentliche Direkt-URL | erhalten; Live-/Hosting-/Trafficprüfung oder Risikoakzeptanz |
+| `public/images/about-hero-team-cropped.webp` | WEBP | wie oben | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/images/hero-car.webp` | WEBP | keine Repository-Laufzeitreferenz | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/images/home-hero-new.webp` | WEBP | keine Repository-Laufzeitreferenz | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/images/home-hero-team-new.webp.png` | PNG | keine Runtime-Referenz; historische Doku; größter Kandidat | unbekannte öffentliche Direkt-URL und große Datei | erhalten |
+| `public/images/home-service-accident-wide.webp` | WEBP | keine Runtime-Referenz; historische Doku | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/images/new hero.png` | PNG | keine Repository-Laufzeitreferenz | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/images/services/schadengutachten-detail.png` | PNG | keine Runtime-Referenz; historische Doku | unbekannte öffentliche Direkt-URL | erhalten |
+| `public/icon.svg` | SVG | keine Repository-Referenz; Browser-/Hostingkonvention möglich | Favicon-/Deployment-Risiko | erhalten; gerenderten Head und Hosting prüfen |
+| `public/icon-light-32x32.png` | PNG | wie oben | Favicon-/Deployment-Risiko | erhalten |
+| `public/icon-dark-32x32.png` | PNG | wie oben | Favicon-/Deployment-Risiko | erhalten |
+| `public/apple-icon.png` | PNG | keine Repository-Referenz; Apple-Touch-Konvention möglich | Browser-/Deployment-Risiko | erhalten |
+
+Ergebnis: sechs nach Repository-Nachweis sichere, aber erst separat freizugebende Assets; zwölf unklare und vollständig zu erhaltende Assets, davon acht öffentliche Altbilder und vier Icon-Dateien.
+
+## Verbindlicher Plan für die drei Leistungsübersichten
+
+Die Nutzerentscheidung ist dokumentiert: Alle drei Übersichtsrouten bleiben erhalten. Phase B ersetzt die sechs bisherigen Karten durch ausschließlich drei aktuelle Gutachtenarten. Die Routen bleiben während des Cleanups `noindex`, außerhalb der Sitemap und ohne Indexfreigabe.
+
+| Route | Sprache | aktueller Legacy-Inhalt | aktuelle Quelle/Komponente | zukünftiger Zielinhalt und interne Links | Prüf- und Schutzumfang |
+|---|---|---|---|---|---|
+| `/leistungen` | DE | sechs Karten einschließlich Mietwagen, Werkstatt, Detailing, Zulassung und Pannenhilfe/Abschleppen | `app/(de)/leistungen/page.tsx`, `components/ServicesOverviewContent.tsx`, `servicesAndAboutTranslations.de.servicesPage`, `serviceMeta` | Unfallgutachten → `/gutachtenarten/unfallgutachten`; Fahrzeugbewertung → `/gutachtenarten/fahrzeugbewertung`; Schadendokumentation → `/gutachtenarten/schadendokumentation` | alte Angebote/Links vollständig entfernen; Header, Mobile-Menü und Footer funktionsfähig halten; 390/768/1440; Accessibility, Typografie, DE-Contentprüfung |
+| `/en/leistungen` | EN | sechs englische Legacy-Karten | `app/(localized)/[locale]/leistungen/page.tsx`, gemeinsame Komponente, EN-`servicesPage` | Accident Damage Appraisal → `/en/gutachtenarten/unfallgutachten`; Vehicle Valuation → `/en/gutachtenarten/fahrzeugbewertung`; Vehicle Damage Documentation → `/en/gutachtenarten/schadendokumentation` | wie DE; EN-Content-Konsistenz und Sprachwechsel zusätzlich prüfen |
+| `/ru/leistungen` | RU | sechs russische Legacy-Karten | lokalisierte Page, gemeinsame Komponente, RU-`servicesPage` | Оценка ущерба после ДТП → `/ru/gutachtenarten/unfallgutachten`; Оценка стоимости автомобиля → `/ru/gutachtenarten/fahrzeugbewertung`; Фиксация повреждений → `/ru/gutachtenarten/schadendokumentation` | wie DE; RU-Content-Konsistenz und Sprachwechsel zusätzlich prüfen |
+
+Die spätere Indexfreigabe erfolgt erst nach vollständiger Bereinigung, visueller und inhaltlicher Prüfung, ausdrücklicher Nutzerfreigabe und dem finalen SEO-/Launch-Gate. Aufgabe 026 ändert `noindex` nicht automatisch.
+
+## Verbindliche Einzelplanung der 15 fachfremden Legacy-Routen
+
+Alle 15 Routen liefern im dokumentierten Ist-Stand HTTP 200, sind `noindex,follow`, nicht in der Sitemap und werden von der Legacy-Übersicht B1 intern verlinkt. Für keine Route existiert ein gleichwertiges neues Ziel. Nach erneuter ausdrücklicher Freigabe für Phase C werden die Page-Dateien entfernt und sämtliche internen Links beseitigt. Es wird **kein** Redirect auf Startseite, Kontakt, `/leistungen` oder eine fachlich andere Gutachtenart eingerichtet. Danach sind die sprachlich passenden vorhandenen DE-/EN-/RU-404-Zustände und der tatsächliche HTTP-Status per Request zu prüfen.
+
+| Route | Sprache | alte Leistung | Page/Quelle | geplante spätere Behandlung | Redirect | Prüfung/Risiko/Rollback |
+|---|---|---|---|---|---|---|
+| `/leistungen/autovermietung` | DE | Autovermietung | `app/(de)/leistungen/autovermietung/page.tsx`, Rental-Komponente/part1 | Page entfernen, B1-Link entfernen, DE-404 prüfen | keiner | HTTP/404, keine Kette/Schleife; eigener Routen-Commit revertierbar |
+| `/en/leistungen/autovermietung` | EN | Rental | lokalisierte Autovermietungs-Page, Rental/part1 | Page entfernen, EN-Link entfernen, EN-404 prüfen | keiner | wie DE; Locale-/Sprachprüfung; Revert |
+| `/ru/leistungen/autovermietung` | RU | Аренда | lokalisierte Autovermietungs-Page, Rental/part1 | Page entfernen, RU-Link entfernen, RU-404 prüfen | keiner | wie DE; Revert |
+| `/leistungen/autoservice` | DE | Autoservice/Werkstatt | `app/(de)/leistungen/autoservice/page.tsx`, Workshop/part2 | Page und Link entfernen, DE-404 prüfen | keiner | Werkstattintention nicht umleiten; Revert |
+| `/en/leistungen/autoservice` | EN | Workshop | lokalisierte Autoservice-Page, Workshop/part2 | Page und Link entfernen, EN-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/ru/leistungen/autoservice` | RU | Автосервис | lokalisierte Autoservice-Page, Workshop/part2 | Page und Link entfernen, RU-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/leistungen/detailing` | DE | Detailing | `app/(de)/leistungen/detailing/page.tsx`, Detailing/part2 | Page und Link entfernen, DE-404 prüfen | keiner | externe Altlinks möglich; Revert |
+| `/en/leistungen/detailing` | EN | Detailing | lokalisierte Detailing-Page, Detailing/part2 | Page und Link entfernen, EN-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/ru/leistungen/detailing` | RU | Детейлинг | lokalisierte Detailing-Page, Detailing/part2 | Page und Link entfernen, RU-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/leistungen/zulassungsservice` | DE | Zulassungsservice | `app/(de)/leistungen/zulassungsservice/page.tsx`, Registration/part2 | Page und Link entfernen, DE-404 prüfen | keiner | keine künftige Leistung erfinden; Revert |
+| `/en/leistungen/zulassungsservice` | EN | Registration | lokalisierte Zulassungs-Page, Registration/part2 | Page und Link entfernen, EN-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/ru/leistungen/zulassungsservice` | RU | Регистрация | lokalisierte Zulassungs-Page, Registration/part2 | Page und Link entfernen, RU-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/leistungen/abschleppdienst-pannenhilfe` | DE | Abschleppen/Pannenhilfe | `app/(de)/leistungen/abschleppdienst-pannenhilfe/page.tsx`, Towing/part2 | Page und Link entfernen, DE-404 prüfen | keiner | Notfall-/Erreichbarkeitserwartung nicht umlenken; Revert |
+| `/en/leistungen/abschleppdienst-pannenhilfe` | EN | Towing/Roadside Help | lokalisierte Towing-Page, Towing/part2 | Page und Link entfernen, EN-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+| `/ru/leistungen/abschleppdienst-pannenhilfe` | RU | Эвакуатор/помощь | lokalisierte Towing-Page, Towing/part2 | Page und Link entfernen, RU-404 prüfen | keiner | Locale-/HTTP-Prüfung; Revert |
+
+Die fünf vorhandenen permanenten Gutachten-Redirects in `next.config.mjs` bleiben unverändert geschützt. Nach Phase C werden alle fünf Quellen einzeln auf 308, direktes Ziel, Query-Erhalt sowie Ketten- und Schleifenfreiheit geprüft. Die technische Routenentfernung darf erst nach einer weiteren ausdrücklichen Nutzerfreigabe beginnen.
+
+## Präzisierter Nachweis überholter Spec-Ist-Aussagen
+
+Global Spec und Functional Map sind konsistent und blockieren die erste Modulphase nicht. Die folgenden untergeordneten Dokumente sind weiterhin verbindliche/historisch relevante Quellen, enthalten aber inzwischen überholte Ist-Stände. In diesem Task werden sie nicht geändert.
+
+| Datei | Abschnitt/Zeilen | überholte Aussage, kurz | Warum überholt / verbindlicher Nachweis | Einordnung | blockiert Modulphase | spätere Korrektur |
+|---|---|---|---|---|---|---|
+| `specs/02-feature-specs/mehrsprachigkeit.md` | 253–270 | EN/RU-Gutachtenziele fehlen beziehungsweise folgen später | Aufgabe 051 hat die sechs Ziele und Sprachwechsel umgesetzt; Aufgabe 029 hat SEO ergänzt | aktives Dokument mit historischem Ist-Stand | nein | separater Superseded-Hinweis, ohne Historie zu löschen |
+| `specs/02-feature-specs/seo.md` | 28, 120–133, 258 | EN/RU-Parität und technische SEO-Umsetzung stehen noch aus | Aufgaben 051 und 029 sind abgeschlossen | aktives Dokument mit überholtem Umsetzungsstatus | nein | Ist-Status in separater Dokumentationsfreigabe kennzeichnen |
+| `specs/03-technical-specs/routing.md` | 17, 28, 80–89, 153–155, 267–271 | EN/RU-Routen, Sprachwechsel, Canonical/Hreflang/Sitemap seien zukünftig | Aufgaben 050, 051 und 029 belegen den aktuellen Routen-/SEO-Stand | aktives Dokument mit historischem Ist-Stand | nein | technische Ist-Notiz ergänzen, Regeln erhalten |
+| `specs/06-work-plans/v1-launch-masterplan.md` | 62–75, 113, 127–164 | EN/RU-Parität und Aufgabe 029 seien offen | abgeschlossene Aufgaben 051 und 029 sowie aktuelle Roadmap | historischer Work-Plan mit überholtem Status | nein | als historischen Plan kennzeichnen; keine Entscheidungshistorie umschreiben |
+| `specs/06-work-plans/routing-redirects-old-service-routes.md` | 19, 46, 87, 178–185, 217, 268 | EN/RU-Ziele und Aufgabe 029 seien später umzusetzen | Aufgaben 051/029 abgeschlossen; Task 026 entscheidet nun Overview/Legacy-Routen | historischer Work-Plan mit teils aktivem Cleanup-Bezug | nein | spätere Statusnotiz/Superseded-Verweis |
+| `specs/07-open-questions/open-questions.md` | 424, 481 | Structured Data/029 und EN/RU-Ziele seien noch künftig | technische Umsetzung durch 051/029 dokumentiert | historisch beantwortete Einzelpunkte in aktivem Sammeldokument | nein | Antworten mit aktuellem Erledigungsnachweis verknüpfen |
+
+Übergeordnete verbindliche Quellen für den fachlichen Scope bleiben `global-spec.md` und `functional-map.md`; für den tatsächlich umgesetzten technischen Ist-Stand gelten zusätzlich `DECISIONS.md` sowie die abgeschlossenen Aufgaben 050, 051 und 029. Kein gefundener Dokumentationswiderspruch blockiert die ausschließlich aus unerreichbaren Quellmodulen bestehende erste technische Phase.
+
+## Präzisierter Ablauf nach ausdrücklicher Planfreigabe
+
+### Phasen A1 bis A8 – ausschließlich 52 unerreichbare Quellmodule
+
+- Exakter Scope/Dateien: die technischen Gruppen A1 bis A8 aus der verbindlichen 52er-Liste; jeweils nur die dort nummerierten Dateien.
+- Ausdrückliche Ausschlüsse: Dependencies, `package.json`, Lockfiles, Assets, Übersetzungen, Datenquellen, sichtbare Komponenten, Leistungsübersichten, Routen, Redirects, Metadata, Structured Data, Sitemap, Robots, `noindex`, Specs und Rechtstexte.
+- Abhängigkeit/Freigabe: erneuter Importgraph unmittelbar vor jeder Gruppe und ausdrückliche Nutzerfreigabe dieses präzisierten Plans vor A1.
+- Risiko: übersehener Shared-Import oder interne Clusterkante; bei A1/A3/A7 zusätzlich potenzielle sichtbare Regression trotz fehlender Erreichbarkeit.
+- Rollback: jede Gruppe erhält einen eigenen atomaren Commit und kann unabhängig revertiert werden.
+- Technische Checks je Gruppe: `git diff --check`, direkte/dynamische/Barrel-/String-Import- und Exportsuche, `npm run lint`, `npx tsc --noEmit`.
+- Zusätzliche Checks: Build nach A2, A4, A6 und A8; DE/EN/RU-Browser-Smoke nach A1, A3 und A7; next-router-check bei unerwartetem Routenbezug und im Endgate.
+
+### Phase B – drei Leistungsübersichten bereinigen, keine Route entfernen
+
+- Exakter Scope: zwei Overview-Page-Dateien, `components/ServicesOverviewContent.tsx` und die eigenschaftsgenau erforderlichen `servicesPage`-/Karten-Daten für DE/EN/RU; Dateiliste vor Beginn erneut fixieren.
+- Änderung: `/leistungen`, `/en/leistungen`, `/ru/leistungen` erhalten; sechs alte Angebote und Links durch die drei dokumentierten Gutachtenarten und sprachlich passenden Ziele ersetzen.
+- Ausschlüsse: keine der 15 Legacy-Page-Dateien löschen; keine bestehenden Redirects, Indexregeln, Legal-Texte oder Formulare ändern.
+- Abhängigkeit/Freigabe: konkrete DE-/EN-/RU-Texte und tatsächlicher Diff brauchen vor Umsetzung eigene Freigabe.
+- Risiken: falsche Locale-Ziele, alte Links, beschädigte Header-/Mobile-/Footer-Funktion, Text-/Layoutregression.
+- Rollback: eigener Overview-Content-Commit, getrennt von Route-/Datenlöschung.
+- Checks: Diff, Lint, TypeScript, Build; Links und Sprachwechsel; 390/768/1440 in DE/EN/RU; Accessibility, Linkzweck/Accessible Names, Typografie/Zeilenumbrüche, Konsole, Hydration, Requests und Bilder; Content-Konsistenzreview.
+
+### Phase C – 15 Legacy-Service-Routen entfernen
+
+- Exakter Scope: die 15 einzeln dokumentierten URLs und zehn zugehörigen Page-Dateien; interne B1-Links müssen bereits in Phase B entfernt sein.
+- Änderung: Page-Dateien nach erneuter ausdrücklicher Freigabe löschen; keinen neuen Redirect anlegen; vorhandene sprachlich passende 404-Struktur nutzen und tatsächlichen Status verifizieren.
+- Ausschlüsse: neun Gutachtenartenrouten, drei Overview-Routen, gemeinsame Layout-/Formularlogik, fünf bestehende Gutachten-Redirects und `noindex`-Modell nicht beschädigen.
+- Abhängigkeit/Freigabe: erneute ausdrückliche Nutzerfreigabe unmittelbar vor Phase C; Status-/Hostingverhalten read-only vor der Löschung prüfen.
+- Risiken: externe Altlinks, unerwarteter 200-/Soft-404-Zustand, Locale-/Recovery-Fehler, Redirectkette oder -schleife.
+- Rollback: eigener Routen-Commit; entfernte Pages vollständig wiederherstellbar.
+- Checks: Diff, Import-/Linksuche, Lint, TypeScript, Build, next-router-check; Requests auf alle 15 URLs; lokalisierte 404, Fokus, Rückkehrpfad und Sprache; fünf Redirects auf 308, direktes Ziel, Query-Erhalt, keine Kette/Schleife.
+
+### Phase D – Übersetzungs-, Daten-, Asset- und Dependency-Reste erneut prüfen
+
+- Exakter Scope: A7 bis A10 nur eigenschaftsgenau, sechs sichere Assetkandidaten nur nach separater Freigabe, verbliebene Legacy-Daten nach B/C; jede Untergruppe erhält vor Beginn eine Dateiliste.
+- Ausschlüsse: zwölf unklare Assets bleiben vollständig erhalten; aktive Gutachten-, Kontakt-, Legal- und Home-Daten schützen; keine automatische Metadata-/Structured-Data- oder `noindex`-Änderung.
+- Dependencies: erst nach neuem Nutzungsabgleich separat bewerten und gemäß AGENTS.md ausdrücklich genehmigen; keine gemeinsame Änderung mit Modulgruppen.
+- Abhängigkeit/Freigabe: A–C abgeschlossen; separate Nutzerfreigabe für Translation-, Asset- und Dependency-Untergruppen.
+- Risiken: Spread-Overrides, DE-Text in EN/RU, öffentliche Asset-URLs, aktive Paketnutzung.
+- Rollback: Translation, Daten, Assets und Dependencies in getrennten Commits.
+- Checks: Diff, Referenz-/Asset-/Importgraph, Lint, TypeScript, Build, Bildrequests, DE/EN/RU-Rendervergleich; Metadata/JSON-LD/Sitemap/Robots nur read-only verifizieren.
+
+### Phase E – vollständige technische, visuelle und inhaltliche Regression
+
+- Exakter Scope: alle 30 V1-Routen, drei bereinigte Übersichten, alle 15 entfernten Legacy-URLs, fünf bestehende Redirects, Navigation, Sprachwechsel, Formulare und globale Shell.
+- Ausschlüsse: keine neue Funktion, Indexfreigabe, Legal-, Deployment-, Formularversand- oder Monitoringarbeit der Aufgaben 033–035.
+- Abhängigkeit/Freigabe: alle technischen Cleanup-Phasen abgeschlossen; passende read-only Reviewer verfügbar.
+- Risiken: Link-, Bild-, Hydration-, Typografie-, Accessibility-, Content- oder SEO-Regression.
+- Rollback: fehlerverursachende Phase beziehungsweise deren atomaren Commit zurücknehmen.
+- Technische Checks: `git diff --check`, `npm run lint`, `npx tsc --noEmit`, `npm run build`, next-router-check, Status-/Redirectmatrix, Metadata/JSON-LD, Sitemap/Robots, Canonicals/Hreflang und `noindex`.
+- Browserprüfungen: DE/EN/RU bei mindestens 390, 768 und 1440 px; zusätzlich 430 und 2048 px bei erkennbaren Grenzfällen; Accessibility, Fokus/Recovery, Touchziele, Typografie/Zeilenumbrüche, Konsole, Hydration, Requests und Bilder.
+- Abschluss: Zusammenfassung und ausdrückliche Nutzerfreigabe; erst danach darf Aufgabe 026 nach `workflow/done/` verschoben werden.
 
 ## Noindex- und SEO-Handoff
 
@@ -241,34 +409,35 @@ Der lokale Skill `.agents/skills/next-router-check/SKILL.md` wurde vollständig 
 
 ## Akzeptanzkriterien
 
-- [ ] Keine Datei, Route, Übersetzung, Datenstruktur oder kein Asset wird ohne dokumentierte Verwendungsprüfung gelöscht.
-- [ ] Die DE-/EN-/RU-V1-Nutzerwege und alle neun Gutachtenartenrouten bleiben funktionsfähig.
-- [ ] Die fünf notwendigen direkten Redirects bleiben ohne Ketten und Schleifen erhalten; Pfad-/Query-Verhalten ist geprüft.
-- [ ] Keine EN-/RU-Sprachroute wird auf eine fachlich falsche Startseite umgeleitet.
-- [ ] `/leistungen` wird nicht ohne ausdrückliche Entscheidung gelöscht oder umgeleitet.
-- [ ] Auf freigegebenen V1-Seiten sind keine fachfremden alten Leistungen sichtbar oder verlinkt.
-- [ ] Aktive Metadata und Structured Data enthalten keine Legacy-Service-, Werkstatt- oder `AutoRepair`-Signale.
-- [ ] Nach dem Cleanup bleiben keine nachweislich ungenutzten Imports oder toten Daten im freigegebenen Scope.
-- [ ] Kein erforderliches Asset wird versehentlich gelöscht; alle Bilder laden fehlerfrei.
-- [ ] EN/RU enthalten keine unbeabsichtigten deutschen Resttexte.
-- [ ] Rechtstexte werden ohne gesonderte Freigabe nicht geändert.
-- [ ] Kein `noindex` wird vorzeitig aufgehoben.
-- [ ] Die erneute Indexprüfung der drei Leistungsübersichten und drei Über-uns-Seiten ist nach Cleanup dokumentiert.
-- [ ] Legal-Routen bleiben bis zur externen Rechts- und Indexfreigabe getrennt behandelt.
-- [ ] Mobile-, Tablet- und Desktopprüfung bei mindestens 390, 768 und 1440 px ist in allen drei Sprachen bestanden.
-- [ ] Accessibility- sowie Typografie-/Zeilenumbruchprüfung sind bestanden.
-- [ ] Browserkonsole, Hydration, Requests und Bilder sind auf den geprüften Wegen fehlerfrei.
-- [ ] `git diff --check` ist bestanden.
-- [ ] `npm run lint` ist nach technischen Änderungen bestanden.
-- [ ] `npx tsc --noEmit` ist nach technischen Änderungen bestanden.
-- [ ] `npm run build` ist nach technischen Änderungen bestanden.
-- [ ] Der next-router-check ist nach Routenänderungen bestanden.
-- [ ] Risiken, externe Abhängigkeiten und Rollback je Phase sind im Abschlussstand dokumentiert.
-- [ ] Aufgabe 026 wird erst nach vollständigem Review und ausdrücklicher Nutzerfreigabe abgeschlossen.
+- [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
+- [ ] Keine Datei, Route, Übersetzung, Datenstruktur oder kein Asset wird ohne belegte Prüfung statischer, dynamischer, Barrel-, String-, Daten-, CSS-, Asset-, Test- und Build-Referenzen gelöscht; Nachweis wird je Gruppe dokumentiert.
+- [ ] Phase A verändert ausschließlich die 52 nummerierten Quellmodule in den Gruppen A1 bis A8; Assets, Übersetzungen, Daten, Routen, Redirects und SEO-Dateien sind im Diff nicht enthalten.
+- [ ] Dependencies, `package.json` und Lockfiles bleiben in Phase A unverändert; eine spätere Dependency-Entfernung setzt erneuten Nutzungsnachweis und separate ausdrückliche Freigabe voraus.
+- [ ] Die sechs sicheren Assetkandidaten bleiben außerhalb der Modulphase und werden nur nach eigener Dateiliste/Freigabe behandelt; die zwölf unklaren Assets sind im gesamten Task-Diff unverändert, solange Live-Nutzung oder Risikoakzeptanz fehlt.
+- [ ] `/leistungen`, `/en/leistungen` und `/ru/leistungen` bleiben als Routen erhalten und zeigen nach Phase B ausschließlich die drei dokumentierten Gutachtenarten mit sprachlich passenden Direktlinks; Prüfung: Route-/Linkmatrix und DE/EN/RU-Browserausgabe.
+- [ ] Auf den drei Leistungsübersichten sind Mietwagen, Werkstatt, Detailing, Zulassungsservice, Pannenhilfe und Abschleppen nach Phase B weder sichtbar noch verlinkt; Prüfung: gerenderte Ausgabe plus Repository- und Linksuche.
+- [ ] Die 15 einzeln dokumentierten Legacy-Service-Routen werden erst nach erneuter ausdrücklicher Freigabe in Phase C entfernt; bis dahin bleiben ihre Page-Dateien unverändert.
+- [ ] Für die 15 Legacy-Routen wird kein fachlich falscher Redirect auf Start, Kontakt, `/leistungen` oder Gutachtenarten angelegt; nach Entfernung sind tatsächlicher HTTP-Status, lokalisierte 404-Ausgabe, Fokus und Recovery für jede URL geprüft.
+- [ ] Die fünf bestehenden Gutachten-Redirects bleiben unverändert, antworten direkt mit 308, erhalten Query-Parameter und besitzen keine Kette oder Schleife; Prüfung per Requestmatrix.
+- [ ] Alle DE-/EN-/RU-V1-Nutzerwege, neun Gutachtenartenrouten, drei Startseiten, drei Kontaktseiten, Navigation, Sprachwechsel und Formulare bleiben funktionsfähig; Formulare werden bei der Regression nicht abgesendet.
+- [ ] Aktive Metadata und Structured Data enthalten keine Legacy-Service-, Werkstatt- oder `AutoRepair`-Signale; Prüfung der gerenderten Metadata/JSON-LD auf allen betroffenen Routentypen.
+- [ ] `noindex` der Leistungsübersichten, Über-uns- und Legal-Routen bleibt bis zur jeweils gesonderten Index-/Rechtsfreigabe bestehen; Sitemap, Canonicals, Hreflang und Robots werden im finalen SEO-/Launch-Gate erneut abgeglichen.
+- [ ] Nach jeder technischen Gruppe bestehen `git diff --check`, Import-/Export-/Stringreferenzsuche, `npm run lint` und `npx tsc --noEmit`; Ergebnisse werden gruppenbezogen dokumentiert.
+- [ ] Nach A2, A4, A6 und A8 sowie nach den Phasen B bis D besteht `npm run build`; Build-Ausgabe und relevante Seitenanzahl werden dokumentiert.
+- [ ] Der next-router-check besteht nach Phase C und bei jeder früheren Gruppe, die wider Erwarten Routen oder datenladende Abhängigkeiten berührt.
+- [ ] Mobile-, Tablet- und Desktopprüfungen bei mindestens 390, 768 und 1440 px bestehen in DE, EN und RU nach jeder sichtbaren Phase; A1, A3 und A7 erhalten die dokumentierten gezielten Smoke-Checks.
+- [ ] Accessibility-Prüfungen decken Tastaturfokus, sichtbaren Fokus, Linkzweck, Accessible Names, Sprache, Touchziele und 404-/Error-Recovery ab; Typografieprüfungen decken Zeilenumbrüche, Overflow und CTA-Lesbarkeit ab.
+- [ ] Browserkonsole, Hydration, Requests, interne Links und Bilder sind auf den pro Phase benannten Wegen fehlerfrei; fehlende Bilder oder Soft-404-Zustände gelten als Fehler.
+- [ ] EN/RU enthalten keine unbeabsichtigten deutschen Resttexte und bleiben fachlich gleichwertig zu DE; Prüfung durch dreisprachigen Content-Vergleich nach B und D.
+- [ ] Rechtstexte, Legal-Routen, externe Rechtsfreigabe, echter Formularversand, Deployment und Monitoring bleiben unverändert und außerhalb von Aufgabe 026.
+- [ ] Für jede Phase sind exakter Scope, Ausschlüsse, Abhängigkeiten, Risiken, Prüfungen und atomarer Revert-Weg im tatsächlichen Abschlussstand dokumentiert.
+- [ ] ROADMAP wird nur geändert, wenn sich Reihenfolge, Priorität oder Projektphase tatsächlich ändert; reine Task-Planpräzisierungen werden im CHANGELOG nachvollziehbar dokumentiert.
+- [ ] Aufgabe 026 wird erst nach vollständiger technischer und visueller Regression, passender Reviewer-Prüfung, Ergebniszusammenfassung und ausdrücklicher Nutzerfreigabe abgeschlossen und nach `workflow/done/` verschoben.
 
 ## Ergebnis dieses Startschritts
 
-- Inventur und Plan wurden erstellt; es gab keine Website-, Code-, Routen-, Redirect-, Übersetzungs-, SEO-, Structured-Data-, Asset- oder Konfigurationsänderung.
+- Inventur und Plan wurden anhand des vollständigen unabhängigen Read-only-Reviews präzisiert; 42 Einheiten, die gruppierte 52er-Modulliste, der 18er-Assetplan, die Overview- und Legacy-Routenentscheidungen, Spec-Abweichungen, Phasengates und messbare Akzeptanzkriterien sind dokumentiert.
+- Es gab keine Website-, Code-, Routen-, Redirect-, Übersetzungs-, SEO-, Structured-Data-, Asset-, Dependency-, Indexierungs- oder Konfigurationsänderung.
 - Es wurde nichts gelöscht und kein Server gestartet.
 - ESLint, TypeScript und Produktions-Build sind für diesen reinen Dokumentations-/Planungsschritt nicht erforderlich; sie werden verpflichtend nach technischen Cleanup-Änderungen ausgeführt.
-- Nächster Schritt ist die Nutzerprüfung und ausdrückliche Freigabe dieses Plans vor jeder technischen Löschung oder Änderung.
+- Der präzisierte Plan ist aus Review-Sicht für eine ausdrückliche Freigabe der ersten, ausschließlich modulbezogenen technischen Phase geeignet. Diese technische Freigabe und Umsetzung erfolgt nicht durch den vorliegenden Planungsauftrag.

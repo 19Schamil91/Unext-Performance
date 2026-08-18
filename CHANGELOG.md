@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-18
 
+### Aufgabe 026 - Cleanup-Plan nach unabhängiger Prüfung präzisiert
+
+- Die vollständige Read-only-Prüfung hat die Inventur auf 42 logisch gruppierte Einheiten korrigiert: A 9, B 6, C 7, D 10, E 3 und F 7. Der frühere A5-Altbildbestand ist wegen möglicher öffentlicher Direkt-URLs nun als F7 geschützt; überschattete EN-/RU-Unfallgutachten-Daten sind als A10 ergänzt.
+- Die 52 nachweislich unerreichbaren Quellmodule sind vollständig und in acht kleine, einzeln prüf- und revertierbare technische Gruppen dokumentiert. Die erste spätere Cleanup-Phase ist ausschließlich auf diese Module begrenzt; Dependencies, Assets, Übersetzungen, Daten, Routen, Redirects und SEO-Dateien sind ausgeschlossen.
+- Die drei Leistungsübersichten bleiben erhalten und sollen später ausschließlich die drei aktuellen Gutachtenarten in DE, EN und RU zeigen. Die 15 fachfremden Detailrouten sollen erst nach erneuter ausdrücklicher Freigabe ohne unpassende Redirects entfernt und über die vorhandene lokalisierte 404-Struktur geprüft werden; die fünf bestehenden Gutachten-Redirects bleiben geschützt.
+- Der Assetplan unterscheidet sechs separat zu prüfende sichere Kandidaten und zwölf vollständig zu erhaltende unklare öffentliche Bilder/Icons. Spec-Ist-Abweichungen, phasenweise technische und responsive Zwischenprüfungen sowie messbare Akzeptanzkriterien sind präzisiert.
+- Dies ist ausschließlich ein Planungs- und Workflow-Zwischenstand. Es wurden keine Website-, Code-, Routen-, Redirect-, Übersetzungs-, SEO-, Structured-Data-, Asset-, Dependency- oder Indexierungsänderungen umgesetzt; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ### Aufgabe 026 - Legacy-Cleanup gestartet und vollständig inventarisiert
 
 - Aufgabe 026 wurde als reiner Inventur- und Planungsschritt gestartet und nach `workflow/active/` verschoben. Der Status ist `in Arbeit`; technische Löschungen oder Änderungen benötigen weiterhin eine ausdrückliche Planfreigabe.
