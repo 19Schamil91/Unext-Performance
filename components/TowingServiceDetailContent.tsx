@@ -7,8 +7,8 @@ import type { Metadata } from "next"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { ServicePageLayout } from "@/components/service-page-layout"
-import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import type { Locale } from "@/lib/i18n"
+import { buildLegacyPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 type TowingServiceDetailContentProps = {
@@ -44,14 +44,7 @@ const towingDescriptionLines = {
 } satisfies Record<Locale, readonly string[]>
 
 export function getTowingServiceMetadata(locale: Locale): Metadata {
-  const t = getTranslations(locale).serviceDetail.pages.towing
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    t.description,
-    getLocalizedPath(locale, "/leistungen/abschleppdienst-pannenhilfe")
-  )
+  return buildLegacyPageMetadata(locale)
 }
 
 export function TowingServiceDetailContent({ locale }: TowingServiceDetailContentProps) {

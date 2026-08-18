@@ -4,7 +4,7 @@
 
 Die technische und inhaltliche SEO-Grundlage für die gemeinsame deutsche, englische und russische V1-KFZ-Gutachter-Website umsetzen. Deutsch bleibt die fachliche Referenz. Metadata, Canonicals, Sprachalternativen, Social-Metadata, Structured Data, Sitemap, Robots und Indexierungsregeln sollen später zentral, widerspruchsfrei und ausschließlich für bestätigte Inhalte erzeugt werden.
 
-Dieser Startschritt dokumentiert den Ist-Bestand und den verbindlichen Umsetzungsplan. Er enthält noch keine technische SEO-Umsetzung.
+Der Ist-Bestand und der verbindliche Umsetzungsplan wurden vorab dokumentiert. Die freigegebene technische SEO-Grundlage ist inzwischen umgesetzt und wartet auf Nutzerreview.
 
 ## Kontext
 
@@ -71,7 +71,7 @@ Weitere Ist-Befunde:
 - Webmanifest: nicht vorhanden; für Aufgabe 029 nicht erforderlich, solange keine PWA-Anforderung entsteht.
 - Error-, 404- und Catch-all-Zustände: vorhandene sprachbezogene UI-Zustände besitzen keine ausdrückliche `noindex`-Metadata.
 - Lokale Bildbasis: passende Dateien liegen unter `public/images/`, insbesondere `hero-kfz-gutachten-berlin.webp`, `services/unfallgutachten-berlin.webp`, `services/wertgutachten-fahrzeugbewertung.webp` und `services/beweissicherung-dokumentation.webp`. Vor Social-Nutzung sind Seitenbezug, Zuschnitt, Rechte und Ausgabeformat zu prüfen; Platzhalter werden nicht verwendet.
-- Produktions-URL: `https://unext.de` ist im aktuellen Code hart codiert und die E-Mail-Domain lautet `unext.de`. In den verbindlichen Grundlagen ist die endgültige Produktions-Origin inklusive Hostvariante jedoch nicht ausdrücklich als Deployment-Fakt bestätigt. Die Origin bleibt deshalb ein Freigabe-Gate vor Code-Umsetzung; `https://unext.de` ist nur der aktuelle Kandidat.
+- Produktions-URL: Der Nutzer hat `https://unext.de` am 18.08.2026 ausdrücklich als verbindliche Produktions-Origin bestätigt. Canonicals, Hreflang, OpenGraph, Sitemap und Structured Data verwenden ausschließlich diese non-www-Origin. `https://www.unext.de/*` ist nicht kanonisch und muss beim Deployment dauerhaft mit erhaltenem Pfad und erhaltenen Query-Parametern auf `https://unext.de/*` weiterleiten.
 
 ### Structured-Data-Bestand
 
@@ -189,7 +189,7 @@ Technische Zustände außerhalb der Matrix: `app/(de)/not-found.tsx`, `app/(loca
 
 ## Title- und Description-Entwürfe
 
-Die folgenden Texte sind Planungsentwürfe, keine Codefreigabe. DE ist die fachliche Referenz; EN/RU sind sinngleich, natürlich formuliert und dürfen vor Umsetzung sprachlich geprüft werden. Seiten mit `TBD` werden trotz Textentwurf erst nach ihrem Gate indexiert.
+Die folgenden Texte wurden am 18.08.2026 ausdrücklich zur technischen Umsetzung freigegeben. DE ist die fachliche Referenz; EN/RU sind sinngleich und nicht stärker formuliert. Seiten mit `TBD` bleiben trotz vorhandenem Text bis zu ihrem Gate `noindex`.
 
 ### Deutsch
 
@@ -238,7 +238,7 @@ Die folgenden Texte sind Planungsentwürfe, keine Codefreigabe. DE ist die fachl
 
 ## Sitemap-, Robots- und Indexierungsmodell
 
-- Eine neue zentrale `app/sitemap.ts` wird erst nach Origin- und Index-Gates angelegt. Sie enthält ausschließlich kanonische, indexierbare 200-Ziele und deren vollständige freigegebene Sprachalternativen.
+- Die neue zentrale `app/sitemap.ts` enthält ausschließlich kanonische, indexierbare 200-Ziele und deren vollständige freigegebene Sprachalternativen.
 - Initial sicher indexierbar geplant sind Home, drei Gutachtenarten und Kontakt in DE/EN/RU. `/leistungen` und `/ueber-uns` bleiben bis zum sichtbaren Legacy-Cleanup aus Aufgabe 026 `noindex` und außerhalb der Sitemap. Legal-Routen bleiben bis zur ausdrücklichen Rechts-/Indexentscheidung `TBD` und außerhalb der Sitemap.
 - Redirect-Quellen, alte Leistungsdetailseiten, Error-, 404-, Catch-all-, API- und sonstige technische Zustände werden ausgeschlossen.
 - `app/robots.ts` erlaubt das Crawling der indexierbaren öffentlichen Website, verweist mit absoluter URL auf die Sitemap und sperrt keine URL, die zugleich indexierbar sein soll. `noindex` wird über Seiten-Metadata beziehungsweise den passenden Response-Mechanismus gesetzt, nicht allein über `Disallow`.
@@ -298,7 +298,7 @@ Die zwei weiteren deutschen Altquellen `/leistungen/fahrzeugbewertung` und `/lei
 - `app/(de)/layout.tsx` und `app/(localized)/[locale]/layout.tsx`: zentrale Site-Metadata/Unternehmensentität weiterverwenden; keine duplizierten Page-Metadaten im Layout.
 - Die 20 bestehenden V1-Route-Dateien, die zusammen die 30 Sprachrouten der Matrix erzeugen: eigene `generateMetadata` nur über den zentralen Builder anbinden beziehungsweise über ein gemeinsames, typisiertes Muster vereinheitlichen. Keine sichtbaren Texte ändern.
 - `components/service-page-layout.tsx` und `components/ServicesOverviewContent.tsx`: bestehende Structured-Data-Ausgabe auf V1-/Indexierungsstatus begrenzen und URL-/Breadcrumb-Quellen zentralisieren; sichtbares Layout unverändert lassen.
-- `next.config.mjs`: vorhandene Redirects nur read-only verifizieren; Änderung ausschließlich bei einem konkret nachgewiesenen Fehler und separater Freigabe.
+- `next.config.mjs`: vorhandene Redirects wurden read-only verifiziert und nicht geändert. Die Hostweiterleitung von www auf non-www wird zuverlässig in der späteren Produktions-/Hostingkonfiguration umgesetzt und bleibt deshalb ein verbindliches Gate für Aufgabe 034; Pfad und Query-Parameter sind zu erhalten.
 
 ### Mögliche neue Dateien
 
@@ -327,48 +327,68 @@ Die zwei weiteren deutschen Altquellen `/leistungen/fahrzeugbewertung` und `/lei
 ## Abhängigkeiten
 
 - Abgeschlossen: 021, 030, 032, 049, 050 und 051.
-- Vor technischer Umsetzung freizugeben: endgültige Produktions-Origin/Hostvariante, Metadata-Texte, Indexentscheidung für `/leistungen`, `/ueber-uns` und Legal-Routen sowie Social-Profil-/Bildverwendung.
+- Freigegeben: Produktions-Origin `https://unext.de`, Metadata-Texte, initiales Indexierungsmodell sowie Verwendung der vorhandenen lokalen Seitenbilder. `/leistungen`, `/ueber-uns` und Legal-Routen bleiben bis zu ihren dokumentierten Gates `noindex`; unbestätigte Social-Profile werden nicht strukturiert ausgegeben.
 - Aufgabe 026 bleibt verantwortlich für sichtbaren und physischen Legacy-Cleanup. Aufgabe 029 darf gated Routen bis dahin noindex halten, aber nicht nebenbei bereinigen.
 - Externe Rechtsprüfung bleibt ein Launch-Gate, nicht Teil der SEO-Implementierung.
 - Aufgabe 033 prüft später den vollständigen Launchstand; 034 und 035 bleiben unverändert nachgelagert.
 
 ## Risiken und Stopppunkte
 
-- Stoppen, wenn Produktions-Origin oder Hostvariante nicht eindeutig bestätigt ist.
+- Die Produktions-Origin und non-www-Hostvariante sind eindeutig bestätigt. Die tatsächliche www-Weiterleitung bleibt Aufgabe 034, weil sie erst in der Produktions-/Hostingkonfiguration zuverlässig erzwungen und geprüft werden kann.
 - Stoppen, wenn EN/RU-Metadata fachlich stärker als die deutsche Referenz wird oder eine professionelle Sprachfreigabe verlangt wird, die nicht vorliegt.
 - Stoppen, wenn die Indexierung von sichtbaren Legacy-Seiten aktive Nicht-Scope-Leistungen in Suchmaschinen bewerben würde.
 - Stoppen, wenn Structured Data eine nicht sichtbare Leistung, Qualifikation, Zertifizierung, Bewertung, Preisangabe oder Öffnungszeit behaupten würde.
 - Stoppen und Nutzerentscheidung einholen, wenn externe Rechtsprüfung und Indexierungswunsch für Legal-Routen kollidieren.
 - Keine Redirect-, Routing-, Dependency-, Environment- oder globale Layoutänderung ohne eigenen nachgewiesenen Bedarf und Freigabe.
 
+## Technischer Umsetzungsstand vom 18.08.2026
+
+- `lib/metadata.ts` ist die einzige fachliche SEO-Datenquelle. Dort sind `https://unext.de`, die freigegebenen DE/EN/RU-Texte, Indexierungsstatus, lokale Social-Bilder sowie Builder für Layout-, V1- und Legacy-Metadata zentralisiert.
+- Alle 20 V1-Route-Dateien erzeugen damit die Metadata der 30 Sprachrouten. Home, drei Gutachtenarten und Kontakt besitzen je Sprache genau einen selbstreferenziellen Canonical sowie gegenseitige `de`-, `en`- und `ru`-Alternativen. Nur der Home-Cluster besitzt zusätzlich `x-default` auf die deutsche Startseite.
+- `/leistungen`, `/ueber-uns`, die Legal-Routen und 15 weiterhin physisch vorhandene Legacy-Leistungsseiten bleiben `noindex, follow`, außerhalb von Sitemap und Hreflang. Die Legacy-Seiten besitzen keinen Canonical und kein leistungsbezogenes Structured Data.
+- `app/sitemap.ts` erzeugt 15 kanonische, indexierbare V1-URLs ohne erfundene Änderungsdaten, Prioritäten oder Frequenzen. `app/robots.ts` erlaubt öffentliches Crawling und verweist ausschließlich auf `https://unext.de/sitemap.xml`.
+- Das globale JSON-LD enthält eine identische `LocalBusiness`-Entität mit bestätigten Unternehmensdaten und eine verknüpfte `WebSite`-Entität. Indexierbare Home-/Kontaktseiten erhalten `WebPage`; die neun Gutachtenseiten zusätzlich `Service`, `BreadcrumbList` und die exakt sichtbaren FAQs als `FAQPage`.
+- `AutoRepair`, `ProfessionalService`, unbestätigte `sameAs`-Profile und aktive Structured-Data-Signale für Legacy-Leistungen sind nicht enthalten. Bewertungen, Preise, Geo-Koordinaten, Auszeichnungen, staatliche Anerkennungen oder Versicherungszusagen wurden nicht ergänzt.
+- Die fünf vorhandenen permanenten Redirects bleiben unverändert. Die www-Weiterleitung ist nicht durch eine ungeplante Next.js-Sonderlösung umgesetzt: Aufgabe 034 muss `https://www.unext.de/*` in der echten Produktions-/Hostingkonfiguration dauerhaft mit Pfad- und Query-Erhalt auf `https://unext.de/*` weiterleiten und prüfen.
+- Die Catch-all-Routen verwenden weiter `notFound()`. Next.js ergänzt dadurch gerendert `noindex`; bei gestreamten Catch-all-Antworten kann technisch HTTP 200 entstehen. Es gibt weder Canonical noch Hreflang auf diesen Zuständen. Die Client-Error-Boundaries sind keine adressierbaren Seiten; echte Serverfehler bleiben 5xx-Zustände und werden nicht als Sitemap-, Canonical- oder Hreflang-Ziel erzeugt.
+- Es wurden keine sichtbaren Texte, Routen, Redirects, Formulare, Legaltexte, Assets, Dependencies, Environment-Einstellungen oder globalen Layoutgrößen geändert. Die externe Rechtsprüfung und alle nachgelagerten Launch-Gates bleiben offen.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen durch die Umsetzung nicht verändert wurden.
+
+### Prüfprotokoll
+
+- `git diff --check`, ESLint und `npx tsc --noEmit` sind ohne Befund erfolgreich. Der finale Produktions-Build mit Next.js 16.2.6 ist erfolgreich; ein vorheriger Wiederholungslauf wurde nach erfolgreicher Kompilierung einmal durch lokales `spawn EPERM` blockiert und anschließend mit erlaubter Worker-Ausführung vollständig bestanden.
+- Die Produktions-Runtimeprüfung auf Port 3105 erfasste alle 30 V1-Routen mit HTTP-Status, `html lang`, Title, Description, Canonical, Hreflang, OpenGraph-URL, Robots, Structured-Data-Typen und Sitemap-Zuordnung. Ergebnis: 30/30 V1-Routen, 15 Sitemap-URLs, 48 Sitemap-Sprachlinks, sechs erreichbare lokale Social-Bilder, 15 isolierte Legacy-`noindex`-Routen, fünf direkte permanente Redirects mit Query-Erhalt und drei sprachbezogene Catch-all-`noindex`-Zustände ohne Fehler. Der Server wurde beendet; Port 3105 war danach frei.
+- Der lokale `next-router-check` prüfte 33 Page-Routen, davon 16 datenladend, und meldete keine fehlende Pflicht-Boundary.
+- Local-SEO-, Content-Consistency- und Quality-Review sind ohne verbleibenden In-Scope-Blocker bestanden. Das zusätzliche Legal-/Trust-Review bestätigt konsistente Unternehmensdaten und keine unbestätigten Structured-Data-Aussagen; die weiterhin offene externe Rechtsprüfung bleibt ausdrücklich ein Launch-Blocker außerhalb von Aufgabe 029.
+
 ## Akzeptanzkriterien
 
-- [ ] Die endgültige Produktions-Origin einschließlich HTTPS und Hostvariante ist ausdrücklich bestätigt und zentral definiert.
-- [ ] Alle freigegebenen V1-Seiten besitzen in DE/EN/RU eindeutige, natürliche und fachlich gleichwertige Titles und Descriptions.
-- [ ] Deutsch bleibt fachliche Referenz; EN/RU enthalten keine stärkeren Versprechen, erfundenen Leistungen oder zusätzlichen Qualifikationen.
-- [ ] Jede indexierbare Seite besitzt einen selbstreferenziellen absoluten Canonical.
-- [ ] Jede fachlich gleichwertige DE/EN/RU-Gruppe besitzt vollständige, gegenseitige und selbstreferenzielle `hreflang`-Links mit `de`, `en` und `ru`.
-- [ ] `x-default` wird nur für das freigegebene Home-Modell verwendet; es gibt keine Ersatzverlinkung auf fachlich andere Seiten.
-- [ ] Redirect-, noindex-, Error-, 404-, Catch-all- und Legacy-URLs sind weder Canonical- noch Hreflang-Ziel.
-- [ ] OpenGraph- und Twitter-Metadata nutzen pro Route dieselben Titel, Descriptions und kanonischen URLs sowie geprüfte lokale Assets ohne unnötige externe Abhängigkeit.
-- [ ] `app/sitemap.ts` enthält ausschließlich kanonische, indexierbare 200-Ziele und korrekte freigegebene Sprachalternativen.
-- [ ] `app/robots.ts` ist widerspruchsfrei, verweist auf die bestätigte Sitemap und blockiert keine zugleich indexierbare URL.
-- [ ] Error-, 404- und technische Catch-all-Zustände sind nachweisbar `noindex` und fehlen in Sitemap/Hreflang.
-- [ ] Das Unternehmens-JSON-LD ist sprachübergreifend identisch, verwendet bestätigte Firmendaten und eine stabile `@id`.
-- [ ] `AutoRepair` und jede Werkstatt-/Meisterbetrieb-/Reparaturdarstellung sind aus aktiver Metadata und Structured Data entfernt.
-- [ ] `ProfessionalService` wird nicht verwendet; `LocalBusiness`, `Service`, `WebSite`, `WebPage`, `BreadcrumbList` und optional `FAQPage` entsprechen der tatsächlichen sichtbaren Grundlage.
-- [ ] Die drei V1-Gutachtenarten besitzen lokalisierte, sichtbare und URL-konsistente `Service`-Daten; keine Legacy-Leistung erhält ein aktives V1-Service-Signal.
-- [ ] Es gibt keine erfundenen Bewertungen, Preise, Geo-Koordinaten, Qualifikationen, Zertifizierungen, Versicherungszusagen oder rechtlichen Freigaben.
-- [ ] Alte Begriffe zu Mietwagen, Werkstatt, Detailing, Aufbereitung, Zulassung, Pannenhilfe, Abschleppen, Express/Kurier und Automotive-Partner erscheinen nicht mehr in aktiver V1-Metadata oder Structured Data.
-- [ ] Keine Route wird gelöscht; vorhandene Redirects werden nur bei nachgewiesenem Bedarf und ausdrücklicher Freigabe geändert.
-- [ ] `/leistungen`, `/ueber-uns` und die Legal-Routen werden erst nach dokumentierter Gate-Entscheidung indexiert und in die Sitemap aufgenommen.
-- [ ] Die Umsetzung ist auf DE, EN und RU anhand der gerenderten Head-Tags, JSON-LD-Ausgabe, Sitemap, Robots, Redirects und Fehlerzustände geprüft.
-- [ ] `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` sind erfolgreich.
-- [ ] Der lokale `next-router-check` meldet keine fehlende Pflicht-Boundary.
-- [ ] Local-SEO-, Content-Consistency- und Quality-Review sind vor Abschluss durchgeführt und Findings behoben oder ausdrücklich freigegeben.
-- [ ] Aufgabe 026, 033, 034 und 035 bleiben getrennt; Aufgabe 029 macht die Website nicht automatisch launchbereit.
+- [x] Die endgültige Produktions-Origin einschließlich HTTPS und Hostvariante ist ausdrücklich bestätigt und zentral definiert.
+- [x] Alle freigegebenen V1-Seiten besitzen in DE/EN/RU eindeutige, natürliche und fachlich gleichwertige Titles und Descriptions.
+- [x] Deutsch bleibt fachliche Referenz; EN/RU enthalten keine stärkeren Versprechen, erfundenen Leistungen oder zusätzlichen Qualifikationen.
+- [x] Jede indexierbare Seite besitzt einen selbstreferenziellen absoluten Canonical.
+- [x] Jede fachlich gleichwertige DE/EN/RU-Gruppe besitzt vollständige, gegenseitige und selbstreferenzielle `hreflang`-Links mit `de`, `en` und `ru`.
+- [x] `x-default` wird nur für das freigegebene Home-Modell verwendet; es gibt keine Ersatzverlinkung auf fachlich andere Seiten.
+- [x] Redirect-, noindex-, Error-, 404-, Catch-all- und Legacy-URLs sind weder Canonical- noch Hreflang-Ziel.
+- [x] OpenGraph- und Twitter-Metadata nutzen pro Route dieselben Titel, Descriptions und kanonischen URLs sowie geprüfte lokale Assets ohne unnötige externe Abhängigkeit.
+- [x] `app/sitemap.ts` enthält ausschließlich kanonische, indexierbare 200-Ziele und korrekte freigegebene Sprachalternativen.
+- [x] `app/robots.ts` ist widerspruchsfrei, verweist auf die bestätigte Sitemap und blockiert keine zugleich indexierbare URL.
+- [x] Error-, 404- und technische Catch-all-Zustände sind nachweisbar `noindex` und fehlen in Sitemap/Hreflang.
+- [x] Das Unternehmens-JSON-LD ist sprachübergreifend identisch, verwendet bestätigte Firmendaten und eine stabile `@id`.
+- [x] `AutoRepair` und jede Werkstatt-/Meisterbetrieb-/Reparaturdarstellung sind aus aktiver Metadata und Structured Data entfernt.
+- [x] `ProfessionalService` wird nicht verwendet; `LocalBusiness`, `Service`, `WebSite`, `WebPage`, `BreadcrumbList` und optional `FAQPage` entsprechen der tatsächlichen sichtbaren Grundlage.
+- [x] Die drei V1-Gutachtenarten besitzen lokalisierte, sichtbare und URL-konsistente `Service`-Daten; keine Legacy-Leistung erhält ein aktives V1-Service-Signal.
+- [x] Es gibt keine erfundenen Bewertungen, Preise, Geo-Koordinaten, Qualifikationen, Zertifizierungen, Versicherungszusagen oder rechtlichen Freigaben.
+- [x] Alte Begriffe zu Mietwagen, Werkstatt, Detailing, Aufbereitung, Zulassung, Pannenhilfe, Abschleppen, Express/Kurier und Automotive-Partner erscheinen nicht mehr in aktiver V1-Metadata oder Structured Data.
+- [x] Keine Route wird gelöscht; vorhandene Redirects werden nur bei nachgewiesenem Bedarf und ausdrücklicher Freigabe geändert.
+- [x] `/leistungen`, `/ueber-uns` und die Legal-Routen werden erst nach dokumentierter Gate-Entscheidung indexiert und in die Sitemap aufgenommen.
+- [x] Die Umsetzung ist auf DE, EN und RU anhand der gerenderten Head-Tags, JSON-LD-Ausgabe, Sitemap, Robots, Redirects und Fehlerzustände geprüft.
+- [x] `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` sind erfolgreich.
+- [x] Der lokale `next-router-check` meldet keine fehlende Pflicht-Boundary.
+- [x] Local-SEO-, Content-Consistency- und Quality-Review sind vor Abschluss durchgeführt und Findings behoben oder ausdrücklich freigegeben.
+- [x] Aufgabe 026, 033, 034 und 035 bleiben getrennt; Aufgabe 029 macht die Website nicht automatisch launchbereit.
 - [ ] Aufgabe 029 wird nur nach Review, Zusammenfassung und ausdrücklicher Nutzerfreigabe nach `workflow/done/` verschoben.
 
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Review

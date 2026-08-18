@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-18
 
+### Aufgabe 029 - Dreisprachige SEO-Grundlage technisch umgesetzt
+
+- `https://unext.de` ist als verbindliche Produktions-Origin zentral definiert. Metadata, Canonicals, Hreflang, OpenGraph, Twitter, Sitemap und strukturierte Daten verwenden ausschließlich die non-www-Origin.
+- Alle 30 DE/EN/RU-V1-Routen besitzen die freigegebenen sprach- und seitenspezifischen Titles und Descriptions. Startseite, drei Gutachtenarten und Kontakt sind als 15 kanonische Sprach-URLs mit vollständigen Sprachclustern indexierbar; Leistungsübersicht, Über-uns und Legal-Routen bleiben bis zu ihren Folge-Gates `noindex`.
+- Die neue Sitemap enthält ausschließlich die 15 indexierbaren kanonischen URLs samt Sprachalternativen. Die Robots-Ausgabe erlaubt deren Crawling und verweist auf `https://unext.de/sitemap.xml`.
+- Das Structured-Data-Modell verwendet bestätigte `LocalBusiness`-, `WebSite`-, `WebPage`-, `Service`-, `BreadcrumbList`- und sichtbare `FAQPage`-Daten. `AutoRepair`, unbestätigte Social-Profile und Structured Data für Legacy-Leistungen wurden aus der aktiven Ausgabe entfernt.
+- Legacy-Leistungsseiten bleiben physisch bestehen, sind aber `noindex`, ohne Canonical/Hreflang und ohne leistungsbezogenes JSON-LD. Die vorhandenen fünf permanenten Direkt-Redirects bleiben unverändert.
+- Die dauerhafte Weiterleitung von `www.unext.de` auf `unext.de` wird nicht durch eine ungeplante App-Sonderlösung erzwungen, sondern bleibt mit Pfad- und Query-Erhalt ein verbindliches Deployment-Gate für Aufgabe 034. Aufgabe 029 macht die Website nicht launchbereit.
+
 ### Aufgabe 029 - Dreisprachige SEO-Umsetzung gestartet und vollständig geplant
 
 - Aufgabe 029 wurde an den abgeschlossenen DE/EN/RU-V1-Stand angepasst, nach `workflow/active/` verschoben und auf `in Arbeit` gesetzt.

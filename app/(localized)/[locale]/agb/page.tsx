@@ -8,7 +8,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { LegalPageLayout } from "@/components/legal-page-layout"
 import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 import { getTranslations } from "@/lib/translations"
 
 type LocalizedTermsPageProps = {
@@ -24,14 +24,7 @@ export async function generateMetadata({
     notFound()
   }
 
-  const t = getTranslations(locale).legal.terms
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    `${t.title} - UNEXT GmbH Berlin.`,
-    getLocalizedPath(locale, "/agb")
-  )
+  return buildLocalizedPageMetadata(locale, "terms")
 }
 
 export default async function LocalizedTermsPage({

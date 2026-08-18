@@ -6,15 +6,12 @@
 import type { Metadata } from "next"
 import { ServicesOverviewContent } from "@/components/ServicesOverviewContent"
 import type { Locale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
-import { getTranslations } from "@/lib/translations"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 
 const locale: Locale = "de"
 
 export function generateMetadata(): Metadata {
-  const t = getTranslations(locale).servicesPage
-
-  return buildPageMetadata(locale, `${t.title} | UNEXT GmbH Berlin`, t.description, "/leistungen")
+  return buildLocalizedPageMetadata(locale, "servicesOverview")
 }
 
 export default function LeistungenPage() {

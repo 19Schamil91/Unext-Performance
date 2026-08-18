@@ -5,11 +5,9 @@
 */
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import {
-  AccidentServiceDetailContent,
-  getAccidentServiceMetadata,
-} from "@/components/AccidentServiceDetailContent"
+import { AccidentServiceDetailContent } from "@/components/AccidentServiceDetailContent"
 import { isUrlLocale, type UrlLocale } from "@/lib/i18n"
+import { buildLegacyPageMetadata } from "@/lib/metadata"
 
 type LocalizedAccidentServicePageProps = {
   params: Promise<{ locale: string }>
@@ -24,7 +22,7 @@ export async function generateMetadata({
     notFound()
   }
 
-  return getAccidentServiceMetadata(locale)
+  return buildLegacyPageMetadata(locale)
 }
 
 export default async function LocalizedAccidentServicePage({

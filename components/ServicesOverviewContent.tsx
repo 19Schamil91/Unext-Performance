@@ -9,11 +9,9 @@ import { ArrowRight, Car, ClipboardCheck, FileCheck, Phone, Sparkles, Truck, Wre
 import { CtaSection } from "@/components/sections/cta-section"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { StructuredData } from "@/components/StructuredData"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getLocalizedPath, type Locale } from "@/lib/i18n"
-import { buildBreadcrumbSchema } from "@/lib/structuredData"
 import { getTranslations } from "@/lib/translations"
 
 type ServicesOverviewContentProps = {
@@ -97,8 +95,6 @@ const protectedDesktopPhrases = ["sicheren Transport"] as const
 export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps) {
   const t = getTranslations(locale).servicesPage
   const homeTranslations = getTranslations(locale).home
-  const headerTranslations = getTranslations(locale).header
-  const servicesHref = getLocalizedPath(locale, "/leistungen")
 
   const renderServiceTitle = (title: string, balanced: boolean) => {
     const lines = balanced ? serviceTitleLineBreaks[locale]?.[title] : null
@@ -238,12 +234,6 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
     <>
       <SiteHeader locale={locale} />
       <main>
-        <StructuredData
-            data={buildBreadcrumbSchema([
-              { name: headerTranslations.navigation[0].name, path: getLocalizedPath(locale, "/") },
-              { name: t.title, path: servicesHref },
-            ])}
-          />
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <div className="mx-auto max-w-5xl text-center">

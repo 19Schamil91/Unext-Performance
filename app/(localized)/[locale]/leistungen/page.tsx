@@ -6,9 +6,8 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { ServicesOverviewContent } from "@/components/ServicesOverviewContent"
-import { getLocalizedPath, isUrlLocale, type UrlLocale } from "@/lib/i18n"
-import { buildPageMetadata } from "@/lib/metadata"
-import { getTranslations } from "@/lib/translations"
+import { isUrlLocale, type UrlLocale } from "@/lib/i18n"
+import { buildLocalizedPageMetadata } from "@/lib/metadata"
 
 type LocalizedServicesPageProps = {
   params: Promise<{ locale: string }>
@@ -23,14 +22,7 @@ export async function generateMetadata({
     notFound()
   }
 
-  const t = getTranslations(locale).servicesPage
-
-  return buildPageMetadata(
-    locale,
-    `${t.title} | UNEXT GmbH Berlin`,
-    t.description,
-    getLocalizedPath(locale, "/leistungen")
-  )
+  return buildLocalizedPageMetadata(locale, "servicesOverview")
 }
 
 export default async function LocalizedServicesPage({
