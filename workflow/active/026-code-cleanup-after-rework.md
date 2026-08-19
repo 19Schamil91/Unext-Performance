@@ -489,6 +489,64 @@ Der am 19. August 2026 ausdrücklich freigegebene Feinschliff betrifft ausschlie
 - Sichtbare Texte, Karten, CTAs, zugängliche Linknamen, Linkziele, Navigation, Footer, Routen, Redirects, SEO, Metadata, Structured Data, `noindex`, Sitemap, Robots, Assets, Dependencies und die 15 Legacy-Service-Routen blieben unverändert. `ROADMAP.md` bleibt unverändert, weil sich Planung, Reihenfolge, Prioritäten und Projektphasen nicht geändert haben.
 - Aufgabe 026 bleibt in `workflow/active/`, der Status bleibt `in Arbeit`; dieser Feinschliff wird nicht committet, gepusht oder als Pull Request vorbereitet und schließt die Aufgabe nicht ab.
 
+## Umsetzungsstand Phase C – Legacy-Routen entfernt und deutsche Not-found-Ausgabe korrigiert
+
+Die am 19. August 2026 ausdrücklich freigegebene Phase C wurde exakt auf die 15 dokumentierten öffentlichen Legacy-URLs begrenzt. Diese URLs wurden von zehn physischen `page.tsx`-Dateien bereitgestellt, weil jede der fünf dynamischen `[locale]`-Dateien sowohl die englische als auch die russische URL abdeckte. Exakt diese zehn Dateien wurden gelöscht; keine zusätzliche Datei wurde entfernt und kein Redirect ergänzt.
+
+### Entfernte Quelldateien
+
+1. `app/(de)/leistungen/autovermietung/page.tsx`
+2. `app/(de)/leistungen/autoservice/page.tsx`
+3. `app/(de)/leistungen/detailing/page.tsx`
+4. `app/(de)/leistungen/zulassungsservice/page.tsx`
+5. `app/(de)/leistungen/abschleppdienst-pannenhilfe/page.tsx`
+6. `app/(localized)/[locale]/leistungen/autovermietung/page.tsx`
+7. `app/(localized)/[locale]/leistungen/autoservice/page.tsx`
+8. `app/(localized)/[locale]/leistungen/detailing/page.tsx`
+9. `app/(localized)/[locale]/leistungen/zulassungsservice/page.tsx`
+10. `app/(localized)/[locale]/leistungen/abschleppdienst-pannenhilfe/page.tsx`
+
+### Deutsche Catch-all-Korrektur
+
+Die erste Laufzeitprüfung nach den Löschungen zeigte für die fünf deutschen URLs zunächst die generische englische Next.js-Standardseite. Ursache war, dass `app/(de)/[...notFound]/page.tsx` unbekannte Unterpfade unter dem bereits vorhandenen statischen `/leistungen`-Segment nicht übernahm.
+
+Die ausdrücklich freigegebene Korrektur ergänzt ausschließlich `app/(de)/leistungen/[...notFound]/page.tsx`. Die Route verwendet das bestehende Projektmuster, ruft ausschließlich `notFound()` auf und dupliziert keine sichtbare Oberfläche. `/leistungen` bleibt eine eigenständige statische Seite; die fünf Redirects in `next.config.mjs` behalten Vorrang und wurden nicht verändert. Die generische englische Ausgabe auf den deutschen Legacy-Pfaden ist damit behoben.
+
+### Vollständige HTTP-, Not-found- und noindex-Matrix
+
+Alle 15 URLs zeigen jetzt den sichtbaren lokalisierten UNEXT-Zustand fehlerfrei. Durch die gestreamten Catch-all-Routen antworten DE, EN und RU technisch jeweils mit HTTP 200 und `noindex`; dieser Soft-404-Status wird nicht als HTTP 404 dargestellt. Console-, Hydration-, Page-, interne Request-, Bild- oder Overflowfehler traten nicht auf.
+
+| Sprache | Bisheriger Pfad | Entfernte Quelldatei | HTTP | Sichtbarer Not-found-Zustand | `noindex` | Kein Redirect | Browser-/Recovery-Ergebnis |
+|---|---|---|---:|---|---|---|---|
+| DE | `/leistungen/autovermietung` | `app/(de)/leistungen/autovermietung/page.tsx` | 200 | DE, `lang="de"` | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| EN | `/en/leistungen/autovermietung` | `app/(localized)/[locale]/leistungen/autovermietung/page.tsx` | 200 | EN | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| RU | `/ru/leistungen/autovermietung` | `app/(localized)/[locale]/leistungen/autovermietung/page.tsx` | 200 | RU | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| DE | `/leistungen/autoservice` | `app/(de)/leistungen/autoservice/page.tsx` | 200 | DE, `lang="de"` | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| EN | `/en/leistungen/autoservice` | `app/(localized)/[locale]/leistungen/autoservice/page.tsx` | 200 | EN | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| RU | `/ru/leistungen/autoservice` | `app/(localized)/[locale]/leistungen/autoservice/page.tsx` | 200 | RU | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| DE | `/leistungen/detailing` | `app/(de)/leistungen/detailing/page.tsx` | 200 | DE, `lang="de"` | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| EN | `/en/leistungen/detailing` | `app/(localized)/[locale]/leistungen/detailing/page.tsx` | 200 | EN | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| RU | `/ru/leistungen/detailing` | `app/(localized)/[locale]/leistungen/detailing/page.tsx` | 200 | RU | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| DE | `/leistungen/zulassungsservice` | `app/(de)/leistungen/zulassungsservice/page.tsx` | 200 | DE, `lang="de"` | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| EN | `/en/leistungen/zulassungsservice` | `app/(localized)/[locale]/leistungen/zulassungsservice/page.tsx` | 200 | EN | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| RU | `/ru/leistungen/zulassungsservice` | `app/(localized)/[locale]/leistungen/zulassungsservice/page.tsx` | 200 | RU | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| DE | `/leistungen/abschleppdienst-pannenhilfe` | `app/(de)/leistungen/abschleppdienst-pannenhilfe/page.tsx` | 200 | DE, `lang="de"` | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| EN | `/en/leistungen/abschleppdienst-pannenhilfe` | `app/(localized)/[locale]/leistungen/abschleppdienst-pannenhilfe/page.tsx` | 200 | EN | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+| RU | `/ru/leistungen/abschleppdienst-pannenhilfe` | `app/(localized)/[locale]/leistungen/abschleppdienst-pannenhilfe/page.tsx` | 200 | RU | ja | ja | Recovery korrekt; keine Laufzeitfehler |
+
+### Regression und Prüfergebnis
+
+- Die drei Leistungsübersichten liefern HTTP 200, korrektes `lang`, genau die drei aktuellen Gutachtenlinks und weiterhin `noindex, follow`. Es gibt dort keine Links zu den entfernten URLs.
+- Alle neun aktuellen Gutachtenarten-Zielseiten liefern HTTP 200. Canonicals, Hreflang und Structured Data enthalten keine Legacy-Leistung; die Sitemap enthält keine entfernte URL.
+- Die fünf geschützten Gutachten-Redirects bleiben unverändert, antworten direkt mit 308, erhalten die geprüften Query-Parameter und führen ohne Kette oder Schleife auf ein Ziel mit HTTP 200.
+- Die real ausgeführten Sprachwechsel der drei Leistungsübersichten erhalten den Seitenkontext. Header, Footer, aktuelle Karten und weitere interne V1-Links enthalten keine entfernte Route.
+- Zehn `page.tsx`-Dateien wurden entfernt und eine eng begrenzte Catch-all-Route ergänzt. Dadurch beträgt die Anzahl der UI-Page-Quelldateien 24; die Anzahl der fachlichen öffentlichen Sprachseiten sank weiterhin um 15. Der Produktions-Build sank von 51 auf 36 statische Seiten.
+- Der lokale `next-router-check` fand unter den 24 verbleibenden UI-Routen elf datenladende Routen und keine fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Grenze im jeweiligen Layout-Scope. Die neue `/leistungen/[...notFound]`-Route ist nicht datenladend und verwendet die deutsche Scope-Grenze.
+- `git diff --check`, ESLint, TypeScript und ein vollständig neu erzeugter Produktions-Build bestanden. Ein erster TypeScript-Lauf referenzierte ausschließlich veraltete ignorierte `.next/dev/types`; nach dem frischen Build und dem Entfernen dieses generierten Cachebestands bestand TypeScript ohne Quellcodekorrektur.
+- Alle 15 Legacy-URLs sowie `/leistungen/unbekannte-leistung` und `/leistungen/unbekannt/weiter` zeigen die korrekte Sprache, das passende HTML-`lang`, `noindex` und drei sprachgerechte Recovery-Links ohne Weiterleitung. Neun Tastaturprüfungen bestätigten sichtbaren Fokus und Enter-Navigation für alle drei Recovery-Ziele in DE, EN und RU.
+- Sechs Fullpage-Screenshots und je ein DE-/EN-/RU-Vergleich bei 390 × 844 und 1440 × 1100 Pixeln wurden unter `C:/tmp/unext-task-026-phase-c-german-not-found-fix/` erzeugt und tatsächlich geöffnet. Alle Sprachen sind vollständig sichtbar, ohne fremdsprachige Resttexte, Overflow, abgeschnittene Inhalte oder defekte Bilder.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen unverändert bleiben. Phase D wurde nicht begonnen. Aufgabe 026 bleibt aktiv und `in Arbeit`; die deutsche Lokalisierungsabweichung ist behoben, die tatsächlichen DE-/EN-/RU-HTTP-200-Soft-404s bleiben offen dokumentiert.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.

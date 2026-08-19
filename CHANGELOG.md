@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-19
 
+### Aufgabe 026 - Phase C entfernt Legacy-Routen und lokalisiert deutsche Not-found-Pfade
+
+- Die 15 ausdrücklich freigegebenen Legacy-Service-URLs wurden durch das Löschen ihrer zehn `page.tsx`-Quelldateien entfernt. Es wurden keine Ersatzredirects ergänzt und keine weitere Datei gelöscht.
+- Eine eng begrenzte deutsche Catch-all-Route unter `/leistungen` übergibt unbekannte Unterpfade jetzt an den vorhandenen deutschen UNEXT-Not-found-Zustand. Die zunächst ausgelieferte generische englische Next.js-404 ohne Recovery-Links ist damit behoben; vorhandene Not-found-Texte und Oberflächen wurden nicht verändert.
+- Alle 15 entfernten DE-/EN-/RU-URLs zeigen die sprachlich passenden UNEXT-Not-found-Zustände mit `lang`, `noindex` und funktionierenden Wiederherstellungslinks. Wegen der gestreamten Catch-alls antworten sie technisch mit HTTP 200; dieser Soft-404-Status wird ausdrücklich nicht als HTTP 404 dargestellt.
+- Die drei Leistungsübersichten bleiben mit HTTP 200 und `noindex, follow` erreichbar, die neun Gutachtenarten-Seiten liefern weiterhin HTTP 200. Die fünf geschützten Redirects antworten direkt mit 308, behalten Query-Parameter und führen ohne Kette zum erwarteten Ziel.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check bestanden. Alle 15 Legacy-Pfade, zwei zusätzliche unbekannte deutsche Pfade, neun Recovery-Link-Interaktionen sowie die visuellen Ansichten bei 390 und 1440 Pixeln sind fehlerfrei; Screenshots liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-c-german-not-found-fix/`.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden. Aufgabe 026 bleibt aktiv und `in Arbeit`; Phase D wurde nicht begonnen.
+
 ### Aufgabe 026 - Überschriften der Leistungsübersichten typografisch beruhigt
 
 - Die zuvor auf `22ch` begrenzte H1-Breite erzeugte besonders im Russischen unnötig hohe Überschriftenblöcke. Der gemeinsame Intro-Container wurde deshalb von `max-w-5xl` auf `max-w-6xl` und die gemeinsame H1-Breite auf `30ch` erweitert.
