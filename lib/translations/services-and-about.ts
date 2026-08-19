@@ -3,82 +3,43 @@ import type { Locale } from "@/lib/i18n"
 export const servicesAndAboutTranslations = {
   de: {
     servicesPage: {
-      title: "6 Hauptleistungen rund ums Fahrzeug",
+      title: "Gutachten bei Unfall, Schaden und Wertermittlung",
       description:
-        "Diese 6 Hauptleistungen bilden den Kern von UNEXT. Sie sehen sofort, wobei wir Sie direkt unterstützen können - klar, schnell und ohne Umwege.",
+        "Der Schwerpunkt liegt auf Unfallgutachten in Berlin. Ergänzend unterstützt UNEXT bei der Fahrzeugbewertung und der nachvollziehbaren Schadendokumentation.",
       directCall: "Direkt anrufen:",
-      onRequestContact: "Telefon auf Anfrage · @unext.performance",
+      onRequestContact: "Telefon, WhatsApp oder Kontaktformular",
       items: [
         {
-          title: "Unfallhilfe & Gutachten",
-          subtitle: "UNFALLX",
+          title: "Unfallgutachten",
+          subtitle: "Nach Unfall oder Schaden",
           description:
-            "Nach einem Unfall erhalten Sie schnelle Hilfe, ein unabhängiges Gutachten und klare Orientierung.",
+            "UNEXT ordnet den Fahrzeugschaden fachlich ein und klärt mit Ihnen die nächsten Schritte.",
           features: [
-            "Schnelle Ersteinschätzung",
-            "Unterstützung bei der Schadensabwicklung",
-            "Unabhängiges Gutachten",
-            "Weitere Schritte über UNEXT möglich",
+            "Schaden sachlich einordnen",
+            "Fotos und Fahrzeugdaten bereithalten",
+            "Direkt Kontakt aufnehmen",
           ],
         },
         {
-          title: "Autovermietung",
-          subtitle: "Ersatzfahrzeuge",
+          title: "Fahrzeugbewertung",
+          subtitle: "Fahrzeugwert einordnen",
           description:
-            "Ersatzfahrzeuge nach Unfall oder Werkstattaufenthalt. Geprüft, schnell verfügbar und unkompliziert.",
+            "Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.",
           features: [
-            "Ersatzfahrzeuge direkt verfügbar",
-            "Flexible Laufzeiten",
-            "Schnelle & unkomplizierte Abwicklung",
-            "Zuverlässiger & geprüfter Service",
+            "Fahrzeugdaten aufnehmen",
+            "Zustand und Ausstattung berücksichtigen",
+            "Fahrzeugwert fachlich bewerten",
           ],
         },
         {
-          title: "Werkstatt & Service",
-          subtitle: "Wartung & Reparatur",
+          title: "Schadendokumentation",
+          subtitle: "Unterlagen sichern",
           description:
-            "Von Inspektion bis Reparatur kümmern wir uns zuverlässig um die Technik Ihres Fahrzeugs - auch wenn es schnell gehen muss.",
+            "Wir halten Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen fest.",
           features: [
-            "Inspektion & Ölservice",
-            "Reifenservice",
-            "Diagnose & Reparatur",
-            "Auch für Fahrdienstfahrzeuge",
-          ],
-        },
-        {
-          title: "Aufbereitung & Pflege",
-          subtitle: "Detailing",
-          description:
-            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge, Werterhalt und einen sauberen Gesamteindruck.",
-          features: [
-            "Innen- & Außenreinigung",
-            "Lackaufbereitung & Politur",
-            "Werterhalt",
-            "Individuelle Pakete",
-          ],
-        },
-        {
-          title: "Kfz-Zulassung",
-          subtitle: "Anmeldung & Kennzeichen",
-          description:
-            "Wir übernehmen Anmeldung, Abmeldung und Kennzeichenservice. Ohne Termin, Behördengang oder Aufwand für Sie.",
-          features: [
-            "Kfz-Zulassung",
-            "Kurzzeit- & Exportkennzeichen",
-            "Versicherungsservice inkl. eVB",
-            "Wunschkennzeichen-Service",
-          ],
-        },
-        {
-          title: "Pannenhilfe & Abschleppen",
-          subtitle: "Soforthilfe & Transport",
-          description:
-            "Im Notfall sind wir schnell für Sie da und sorgen für eine sichere Lösung. Sie müssen sich um nichts kümmern - wir übernehmen die nächsten Schritte für Sie.",
-          features: [
-            "Schnelle Hilfe bei Unfall oder Panne",
-            "Abschleppdienst direkt vor Ort",
-            "Fahrzeugtransport zur Wunschadresse",
-            "Komplette Abwicklung auf Wunsch",
+            "Betroffene Bereiche festhalten",
+            "Fotos und Unterlagen erfassen",
+            "Fahrzeugzustand dokumentieren",
           ],
         },
       ],
@@ -144,62 +105,43 @@ export const servicesAndAboutTranslations = {
   },
   en: {
     servicesPage: {
-      title: "Our services",
+      title: "Vehicle appraisal services for accidents, damage and valuation",
       description:
-        "UNEXT GmbH offers a comprehensive range of vehicle-related services. Six strong business areas under one roof - professional, reliable and always there for you.",
+        "Accident damage appraisals in Berlin are our main focus. UNEXT also provides vehicle valuation and vehicle damage documentation.",
       directCall: "Call directly:",
-      onRequestContact: "Phone on request · @unext.performance",
+      onRequestContact: "Phone, WhatsApp or contact form",
       items: [
         {
-          title: "Accident Reports & Immediate Assistance",
-          subtitle: "UNFALLX",
+          title: "Accident Damage Appraisal",
+          subtitle: "After an accident or damage",
           description:
-            "After an accident, you need fast and competent support. Our certified experts prepare independent vehicle reports and assist\u00A0you\u00A0throughout the claims process.",
-          features: ["Fast appointments", "Support with claims handling", "Independent & professional reports", "Certified experts"],
-        },
-        {
-          title: "Car Rental",
-          subtitle: "Replacement vehicles",
-          description:
-            "Need a replacement vehicle quickly? Whether after an accident or while your car is in the workshop - we always have inspected vehicles ready for you.",
-          features: ["Replacement vehicles available immediately", "Flexible rental terms", "Fast & straightforward processing", "Reliable & inspected service"],
-        },
-        {
-          title: "Workshop & Service",
-          subtitle: "Repairs & maintenance",
-          description:
-            "Our professional workshop team takes care of every aspect of your vehicle. From inspections to repairs - everything from one source.",
-          features: ["Oil change & inspection", "Tire service & storage", "Dashcam installation", "General repairs & maintenance"],
-        },
-        {
-          title: "Detailing",
-          subtitle: "Premium vehicle care",
-          description:
-            "Give your vehicle professional care. Our detailing experts restore your car's shine inside and out.",
-          features: ["Paint correction & polish", "Interior & exterior cleaning", "Value retention & visual upgrade", "Professional & certified"],
-        },
-        {
-          title: "Vehicle Registration Service",
-          subtitle: "Registration & license plates",
-          description:
-            "We handle the entire process for you - from\u00A0deregistration\u00A0to\u00A0completed\u00A0registration. No appointments, no authority visits and no extra effort on your side.",
+            "UNEXT assesses the vehicle damage professionally and discusses the next steps with you.",
           features: [
-            "Vehicle registration",
-            "Temporary & export plates",
-            "Insurance service incl. eVB number",
-            "Custom plate service",
+            "Have the damage assessed professionally",
+            "Keep photos and vehicle details ready",
+            "Contact us directly",
           ],
         },
         {
-          title: "Towing & Roadside Help",
-          subtitle: "Immediate help & transport",
+          title: "Vehicle Valuation",
+          subtitle: "Understand the vehicle's value",
           description:
-            "In emergencies, we are there quickly and provide a safe solution. You do not have to take care of anything - we handle the next steps for you.",
+            "We assess the vehicle's value professionally, for example before a sale, purchase or another important decision.",
           features: [
-            "Fast help after accidents or breakdowns",
-            "On-site towing service",
-            "Vehicle transport to your destination",
-            "Complete follow-up handling on request",
+            "Record the vehicle details",
+            "Consider condition and equipment",
+            "Assess the vehicle's value professionally",
+          ],
+        },
+        {
+          title: "Vehicle Damage Documentation",
+          subtitle: "Record vehicle damage clearly",
+          description:
+            "We record vehicle damage and condition using photographs and available documents.",
+          features: [
+            "Record the affected areas",
+            "Capture photos and documents",
+            "Document the vehicle's condition",
           ],
         },
       ],
@@ -245,62 +187,43 @@ export const servicesAndAboutTranslations = {
   },
   ru: {
     servicesPage: {
-      title: "Наши услуги",
+      title: "Оценка ущерба после ДТП, фиксация повреждений и оценка стоимости",
       description:
-        "UNEXT GmbH предлагает полный спектр услуг вокруг автомобиля. Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
+        "Основное направление UNEXT — независимая оценка ущерба после ДТП в Берлине. Кроме того, UNEXT оказывает услуги по оценке стоимости автомобиля и структурированной фиксации повреждений.",
       directCall: "Позвонить напрямую:",
-      onRequestContact: "Телефон по запросу · @unext.performance",
+      onRequestContact: "Телефон, WhatsApp или контактная форма",
       items: [
         {
-          title: "Экспертиза ДТП и срочная помощь",
-          subtitle: "UNFALLX",
+          title: "Оценка ущерба после ДТП",
+          subtitle: "После ДТП или повреждения",
           description:
-            "После ДТП вам нужна быстрая и компетентная помощь. Наши сертифицированные эксперты готовят независимые автоэкспертизы и сопровождают вас на всем этапе урегулирования ущерба.",
-          features: ["Быстрая запись", "Поддержка по урегулированию ущерба", "Независимая и профессиональная экспертиза", "Сертифицированные эксперты"],
-        },
-        {
-          title: "Прокат авто",
-          subtitle: "Подменные автомобили",
-          description:
-            "Нужен автомобиль быстро? После ДТП или пока ваша машина в сервисе - у нас всегда есть проверенные автомобили для вас.",
-          features: ["Подменные автомобили доступны сразу", "Гибкие сроки аренды", "Быстрое и простое оформление", "Надежный и проверенный сервис"],
-        },
-        {
-          title: "Сервис и мастерская",
-          subtitle: "Ремонт и обслуживание",
-          description:
-            "Наша профессиональная команда мастерской позаботится обо всем, что касается вашего автомобиля. От инспекции до ремонта - все из одних рук.",
-          features: ["Замена масла и инспекция", "Шиномонтаж и хранение шин", "Установка видеорегистратора", "Общий ремонт и обслуживание"],
-        },
-        {
-          title: "Детейлинг",
-          subtitle: "Премиальный уход за автомобилем",
-          description:
-            "Подарите вашему автомобилю профессиональный уход. Наши специалисты по детейлингу вернут блеск вашему авто внутри и снаружи.",
-          features: ["Коррекция лака и полировка", "Чистка салона и кузова", "Сохранение стоимости и визуальное обновление", "Профессионально и сертифицированно"],
-        },
-        {
-          title: "Сервис регистрации авто",
-          subtitle: "Оформление и номера",
-          description:
-            "Мы берём на себя регистрацию, снятие с учёта и номера. Без записи и лишних визитов.",
+            "UNEXT профессионально оценивает повреждения автомобиля и согласовывает с вами дальнейшие шаги.",
           features: [
-            "Регистрация авто",
-            "Временные и экспортные номера",
-            "Страховой сервис с eVB",
-            "Сервис выбора номера",
+            "Профессионально оценить повреждения",
+            "Подготовить фотографии и данные автомобиля",
+            "Связаться напрямую",
           ],
         },
         {
-          title: "Эвакуатор и помощь на дороге",
-          subtitle: "Срочная помощь и транспортировка",
+          title: "Оценка стоимости автомобиля",
+          subtitle: "Определить стоимость автомобиля",
           description:
-            "В экстренной ситуации мы быстро приезжаем и обеспечиваем безопасное решение. Вам не нужно ни о чем заботиться - мы берем следующие шаги на себя.",
+            "Мы профессионально оцениваем стоимость автомобиля, например перед продажей, покупкой или другим важным решением.",
           features: [
-            "Быстрая помощь при ДТП или поломке",
-            "Эвакуатор прямо на место",
-            "Доставка авто по нужному адресу",
-            "Полное сопровождение по запросу",
+            "Зафиксировать данные автомобиля",
+            "Учесть состояние и комплектацию",
+            "Профессионально оценить стоимость",
+          ],
+        },
+        {
+          title: "Фиксация повреждений",
+          subtitle: "Зафиксировать повреждения",
+          description:
+            "Мы фиксируем повреждения и состояние автомобиля с помощью фотографий и имеющихся документов.",
+          features: [
+            "Зафиксировать повреждённые участки",
+            "Собрать фотографии и документы",
+            "Зафиксировать состояние автомобиля",
           ],
         },
       ],

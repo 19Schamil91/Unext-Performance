@@ -434,6 +434,48 @@ Die ausdrücklich freigegebene erste technische Phase wurde am 19. August 2026 v
 - Phase B bis E, der separate Dependency-Abgleich, Assetentscheidungen, die externe Rechts- und Indexfreigabe sowie die Aufgaben 033 bis 035 bleiben offen. Aufgabe 026 bleibt in `workflow/active/` und der Status bleibt `in Arbeit`.
 - `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektphasen nicht geändert haben.
 
+## Umsetzungsstand Phase B – dreisprachige Leistungsübersichten
+
+Die ausdrücklich freigegebene Phase B wurde am 19. August 2026 umgesetzt und vollständig geprüft. Die drei bestehenden Übersichtsrouten bleiben erhalten und zeigen ausschließlich die drei aktuellen Gutachtenarten.
+
+### Tatsächlich geänderte Dateien
+
+- `components/ServicesOverviewContent.tsx`
+- `lib/translations/services-and-about.ts`
+- `CHANGELOG.md`
+- `workflow/active/026-code-cleanup-after-rework.md`
+
+Route-, Redirect-, SEO-, Metadata-, Structured-Data-, Sitemap-, Robots-, Asset-, Dependency-, Lockfile- und Legal-Dateien wurden nicht geändert. `ROADMAP.md` und `next-env.d.ts` blieben unverändert.
+
+### Sichtbarer Zielstand und Links
+
+| Reihenfolge | Deutsch | Englisch | Russisch | Sprachlich passendes Ziel |
+|---:|---|---|---|---|
+| 1 | Unfallgutachten | Accident Damage Appraisal | Оценка ущерба после ДТП | `/gutachtenarten/unfallgutachten` mit optionalem `/en`- oder `/ru`-Präfix |
+| 2 | Fahrzeugbewertung | Vehicle Valuation | Оценка стоимости автомобиля | `/gutachtenarten/fahrzeugbewertung` mit optionalem `/en`- oder `/ru`-Präfix |
+| 3 | Schadendokumentation | Vehicle Damage Documentation | Фиксация повреждений | `/gutachtenarten/schadendokumentation` mit optionalem `/en`- oder `/ru`-Präfix |
+
+- Mietwagen, Autovermietung, Werkstatt, Reparatur, Aufbereitung, Detailing, Zulassungsservice, Pannenhilfe, Abschleppen sowie weitere fachfremde Vollserviceaussagen sind auf den drei Übersichten weder sichtbar noch verlinkt.
+- Bestehende aktuelle Bilder, Icons, Texte und Karten-/CTA-Muster wurden wiederverwendet. Jede Karte enthält drei tatsächlich sichtbare Merkmale; es bleibt kein zusätzlicher ausgeblendeter Feature-Text in der neuen Quelle.
+- Die Detail-CTAs und Telefonaktionen besitzen lokalisierte sichtbare Texte sowie zugängliche Namen mit sichtbarem Text und Leistungskontext. Die drei Übersichtssprachen wechseln kontexttreu zwischen `/leistungen`, `/en/leistungen` und `/ru/leistungen`.
+- Alle drei Routen bleiben `noindex, follow`. Metadata, Canonicals, Hreflang, Structured Data, Sitemap und Robots wurden read-only kontrolliert und nicht verändert.
+
+### Responsive, technische und read-only Prüfungen
+
+- DE, EN und RU wurden im Produktionsmodus bei 390 × 844, 768 × 1024 und 1440 × 1100 Pixeln geprüft. Mobile zeigt eine Spalte, Tablet zwei Karten plus kontrolliert zentrierte dritte Karte und Desktop drei gleichwertige Karten nebeneinander.
+- Alle neun Ansichten lieferten HTTP 200 mit genau einer H1, genau drei Karten in korrekter Reihenfolge, korrektem `lang`, Header, Footer und `noindex, follow`. Horizontaler Overflow, abgeschnittene Inhalte, defekte Bilder, fehlgeschlagene Requests, Console-, Page- oder Hydrationfehler: jeweils null.
+- Alle neun verlinkten Gutachtenziele wurden stichprobenartig im Produktionsmodus geöffnet und lieferten HTTP 200. Die drei real ausgeführten Sprachwechsel erhielten den Übersichtskontext. Formulare wurden nicht abgesendet und Resend wurde nicht aufgerufen.
+- `git diff --check`, ESLint, TypeScript, Produktions-Build und der lokale next-router-check bestanden. Der Build erzeugte 51 statische Seiten; 33 Page-Routen und 16 datenladende Routen besitzen die erforderlichen Layout-Grenzen.
+- Der lokale Skill `typography-line-break-check` bestätigte natürliche, lesbare Umbrüche ohne manuelle `<br>`-Elemente, feste Inhaltshöhen, `nowrap`-Regeln oder sprachspezifische Magic Numbers.
+- Read-only Accessibility-, Mobile-, Desktop- und Content-Konsistenz-Reviews fanden keine Blocker. Das Content-Review erkannte einen neu eingeführten unsichtbaren vierten Feature-Text je Karte; Quelle und Ausgabe wurden daraufhin auf exakt drei sichtbare Merkmale angeglichen.
+- Neun Fullpage-Screenshots und drei dreisprachige Vergleichsbilder liegen außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-b-overviews/`. Alle zwölf finalen Bilder wurden tatsächlich visuell geöffnet und ohne Layoutblocker geprüft.
+
+### Offener Scope
+
+- Die 15 Legacy-Service-Detailrouten bleiben vollständig bestehen und unangetastet. Ihre Entfernung erfordert unmittelbar vor Phase C eine erneute ausdrückliche Nutzerfreigabe; es wurde kein Ersatzredirect angelegt.
+- Die fünf bestehenden permanenten Gutachten-Redirects, sämtliche Assets und Dependencies bleiben unverändert.
+- Die Phasen C bis E, der separate Dependency- und Assetabgleich, die externe Rechts- und Indexfreigabe sowie die Aufgaben 033 bis 035 bleiben offen. Aufgabe 026 bleibt in `workflow/active/` und der Status bleibt `in Arbeit`; die Website bleibt nicht launchbereit.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.

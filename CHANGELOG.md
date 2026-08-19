@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-19
 
+### Aufgabe 026 - Dreisprachige Leistungsübersichten bereinigt
+
+- `/leistungen`, `/en/leistungen` und `/ru/leistungen` zeigen weiterhin als bestehende Routen ausschließlich Unfallgutachten, Fahrzeugbewertung und Schadendokumentation in der jeweiligen Sprache und verlinken direkt auf die neun passenden Gutachtenseiten.
+- Sichtbare Angebote und Links zu Mietwagen, Werkstatt, Aufbereitung, Zulassung, Pannenhilfe und Abschleppen wurden aus den Übersichten entfernt. Vorhandene Bilder, Icons, Karten-, CTA- und Kontaktmuster wurden weiterverwendet.
+- Die DE-/EN-/RU-Inhalte, Kartenreihenfolge, Linkziele und zugänglichen CTA-Namen sind sprachlich angeglichen. Die responsiven Ansichten bei 390, 768 und 1440 Pixeln sowie Accessibility, Typografie, Content-Konsistenz und Codequalität wurden ohne Blocker geprüft.
+- Diff-Check, ESLint, TypeScript, Produktions-Build und next-router-check bestanden. Alle neun Zielseiten und die kontexttreuen Sprachwechsel wurden im Produktionsmodus geprüft; Console-, Hydration-, Request-, Bild- und Overflowfehler traten nicht auf.
+- `noindex`, Metadata, Canonicals, Hreflang, Structured Data, Sitemap, Robots, Routen, Redirects, Assets, Dependencies und Rechtstexte blieben unverändert. Die 15 Legacy-Service-Routen bleiben bis zur gesondert freizugebenden Phase C bestehen; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+- `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektphasen durch diesen Phase-B-Zwischenstand nicht geändert haben.
+
 ### Aufgabe 026 - Erste technische Cleanup-Phase umgesetzt
 
 - Exakt 52 nachweislich unerreichbare Quellmodule wurden in acht kontrollierten Gruppen entfernt. Der Umfang besteht aus drei nicht mehr gerenderten Home-Sektionen, 46 ungenutzten UI-Modulen, zwei ungenutzten Hooks und dem nicht erreichbaren Browser-Storage-Utility.
