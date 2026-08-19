@@ -547,6 +547,38 @@ Alle 15 URLs zeigen jetzt den sichtbaren lokalisierten UNEXT-Zustand fehlerfrei.
 - Sechs Fullpage-Screenshots und je ein DE-/EN-/RU-Vergleich bei 390 × 844 und 1440 × 1100 Pixeln wurden unter `C:/tmp/unext-task-026-phase-c-german-not-found-fix/` erzeugt und tatsächlich geöffnet. Alle Sprachen sind vollständig sichtbar, ohne fremdsprachige Resttexte, Overflow, abgeschnittene Inhalte oder defekte Bilder.
 - `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen unverändert bleiben. Phase D wurde nicht begonnen. Aufgabe 026 bleibt aktiv und `in Arbeit`; die deutsche Lokalisierungsabweichung ist behoben, die tatsächlichen DE-/EN-/RU-HTTP-200-Soft-404s bleiben offen dokumentiert.
 
+## Umsetzungsstand Phase D1a – ungenutzte Übersetzungs- und Wörterbuchdaten entfernt
+
+Die am 19. August 2026 ausdrücklich freigegebene Untergruppe D1a wurde ausschließlich auf die zehn bestätigten logischen Kandidaten A7 bis A10 begrenzt. Es wurden keine sichtbaren Texte geändert und keine ähnlich wirkenden zusätzlichen Altwerte bereinigt.
+
+### Exakt entfernte Eigenschaften
+
+- A7.1: `homeTranslations.de/en/ru.expressCourier`
+- A7.2: `homeTranslations.de/en/ru.testimonials`
+- A7.3: `homeTranslations.de/en/ru.trust`, `legacyHomeTranslationOverrides.en/ru.trust` sowie ausschließlich die EN-/RU-Trust-Zusammenführungen in `lib/translations.ts`
+- A8.1: `aboutTranslationOverrides.de/en/ru`, ihr Import und ihre drei Spreads; die danach verbraucherlose Datei `lib/translations/about-overrides.ts` wurde vollständig gelöscht
+- A8.2 bis A8.4: `servicesAndAboutTranslations.de/en/ru.aboutPage` und ausschließlich die drei `aboutPage`-Zusammenführungen in `lib/translations.ts`
+- A9.1/A9.2: die über `contactTranslations.en/ru` ausgegebenen Quellfelder `legacyContactTranslations.en/ru.serviceContactsTitle`, `.serviceContactsDescription` und `.serviceContacts`
+- A10: ausschließlich `servicePagesPart1.en.accident` und `servicePagesPart1.ru.accident`
+
+Der benötigte `servicePagesPart1.de.accident`-Block, alle drei `rental`-Blöcke, `service-pages-part2.ts`, `appraisal-pages.ts` und sämtliche `appraisalPageTranslations` blieben unverändert. Ebenso unverändert blieben aktuelle Home-, About-, Kontakt-, Formular-, Legal-, Navigations- und Footertexte sowie Komponenten, Routen, Redirects, Metadata, Structured Data, Sitemap, Robots, `noindex`, Assets, Dependencies und Lockfiles.
+
+### Referenz-, Wörterbuch- und Ausgabevergleich
+
+- Vor jeder Änderung wurde unter `C:/tmp/unext-task-026-phase-d1a-baseline/` eine maschinenlesbare Baseline mit vollständigen resultierenden DE-/EN-/RU-Wörterbüchern, geschützten Wörterbuchbereichen, sichtbarer Ausgabe, Navigation, Sprachwechseln, Formulartexten, Metadata, Structured Data, Git-Dateiliste und Referenzsuchen angelegt.
+- Die erneute direkte, dynamische, Barrel-, Re-Export-, Property-, Spread-, String-, Key-, Typ-, Test-, Skript-, Server-, Client-, Metadata-, Structured-Data-, Sitemap- und Robots-Suche fand keinen verbliebenen Verbraucher der entfernten Eigenschaften. Die Override-Reihenfolge der aktiven Daten bleibt unverändert.
+- Der maschinenlesbare Vergleich meldet `protectedDictionariesIdentical: true` und `browserSnapshotsIdentical: true` ohne Differenz. Alle geschützten Schlüssel und Werte, sichtbaren Texte, Metadata und Structured Data sind vor und nach D1a identisch; EN und RU erhielten keine deutschen oder anderssprachigen Fallbacktexte.
+- Wegen der vollständig identischen sichtbaren Ausgabe waren weder neue Fullpage-Screenshots noch der `typography-line-break-check` erforderlich.
+
+### Technische und dreisprachige Regression
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Der Produktions-Build erzeugte weiterhin 36 statische Seiten.
+- Der lokale `next-router-check` prüfte 24 UI-Routen, stufte 14 als datenladend beziehungsweise `notFound()`-fähig ein und fand 0 fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Dateien im jeweiligen Scope.
+- Browsergestützt geprüft wurden Startseite, Über uns und Kontakt in DE, EN und RU sowie alle neun aktuellen Gutachtenartenseiten, insgesamt 18 Routen. Jede Route lieferte HTTP 200 und das erwartete `html lang`.
+- Sichtbare Haupttexte, Navigation, Sprachwechsel, Kontakt- und Formulartexte, Metadata, Structured Data und Bildpfade blieben identisch. Es gab 0 Console-, Hydration-, Page-, Request- oder HTTP-Fehler sowie nach vollständigem Scrollen 0 sichtbare defekte Bilder. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- `next-env.d.ts` blieb unverändert. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden.
+- D1b, D1c, D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.

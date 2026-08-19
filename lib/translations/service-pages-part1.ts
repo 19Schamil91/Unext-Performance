@@ -113,36 +113,6 @@ export const servicePagesPart1 = {
     },
   },
   en: {
-    accident: {
-      title: "Accident Reports & Immediate Assistance",
-      subtitle: "UNFALLX",
-      badge: "Certified experts",
-      description:
-        "An accident is always stressful. We take the burden off your shoulders: our certified experts prepare independent vehicle reports and support you throughout the claims process - fast, professional and fair.",
-      benefits: ["Fast appointments", "Independent reports", "Certified experts", "Claims handling included", "Free initial consultation", "On-site service available"],
-      services: [
-        { title: "Accident reports", description: "Professional and independent damage assessments after road accidents for insurers and courts." },
-        { title: "Immediate accident help", description: "Fast support right after the accident - we take care of everything necessary." },
-        { title: "Claims handling", description: "Complete support in communication with insurers and all parties involved." },
-        { title: "Value reports", description: "Vehicle valuation for purchase, sale or insurance purposes by our experts." },
-        { title: "Damage documentation", description: "Comprehensive photo and written documentation of all damage." },
-        { title: "Legal referral", description: "Referral to competent partners for legal support in damage cases." },
-      ],
-      whyChoose: [
-        { title: "Certified experts", description: "Our experts are tested and certified - for legally reliable reports." },
-        { title: "Fast appointments", description: "We know time matters. Short-notice appointments are standard with us." },
-        { title: "Independence", description: "We work independently from insurance companies - your interests come first." },
-        { title: "Full service", description: "From the initial consultation to the final settlement - everything from one source." },
-      ],
-      faqs: [
-        { question: "Who pays for the accident report?", answer: "In non-fault accidents, the opposing insurance company usually covers the cost of the report. We will gladly advise you on your specific case." },
-        { question: "How quickly can I get an appointment?", answer: "We offer short-notice appointments - often on the same day or the next day. Just give us a call." },
-        { question: "Do I need a report after every accident?", answer: "A report is recommended for damage above about EUR 750 so you can assert your claims in full. For minor damage, a cost estimate is often sufficient." },
-        { question: "Can you come to me?", answer: "Yes, we also offer on-site appointments on request. Just mention it when booking." },
-        { question: "How long does it take to prepare a report?", answer: "You usually receive your report within 24 to 48 hours after the vehicle inspection." },
-      ],
-      formTitle: "Request a report",
-    },
     rental: {
       title: "Car Rental",
       subtitle: "Replacement vehicles",
@@ -174,36 +144,6 @@ export const servicePagesPart1 = {
     },
   },
   ru: {
-    accident: {
-      title: "Экспертиза ДТП и срочная помощь",
-      subtitle: "UNFALLX",
-      badge: "Сертифицированные эксперты",
-      description:
-        "ДТП всегда связано со стрессом. Мы берем нагрузку на себя: наши сертифицированные эксперты готовят независимую автоэкспертизу и профессионально сопровождают вас в процессе урегулирования ущерба - быстро, честно и надежно.",
-      benefits: ["Быстрая запись", "Независимая экспертиза", "Сертифицированные эксперты", "Урегулирование ущерба включено", "Бесплатная первичная консультация", "Выезд на место возможен"],
-      services: [
-        { title: "Экспертиза ДТП", description: "Профессиональная и независимая оценка повреждений после ДТП для страховых компаний и суда." },
-        { title: "Срочная помощь после ДТП", description: "Быстрая поддержка сразу после аварии - мы берем на себя все необходимое." },
-        { title: "Урегулирование ущерба", description: "Полная поддержка в коммуникации со страховыми компаниями и всеми участниками процесса." },
-        { title: "Оценка стоимости", description: "Оценка автомобиля для покупки, продажи или страховых целей от наших специалистов." },
-        { title: "Документация повреждений", description: "Полная фото- и письменная фиксация всех повреждений." },
-        { title: "Направление к юристам", description: "Связь с компетентными партнерами для юридической поддержки по делам о возмещении ущерба." },
-      ],
-      whyChoose: [
-        { title: "Сертифицированные\u00A0эксперты", description: "Наши специалисты прошли проверку и сертификацию - для юридически надежных заключений." },
-        { title: "Быстрая запись", description: "Мы знаем, что время важно. Срочные записи для нас - стандарт." },
-        { title: "Независимость", description: "Мы работаем независимо от страховых компаний - ваши интересы на первом месте." },
-        { title: "Полный сервис", description: "От первой консультации до окончательного урегулирования - все из одних рук." },
-      ],
-      faqs: [
-        { question: "Кто оплачивает автоэкспертизу после ДТП?", answer: "При ДТП не по вашей вине расходы на экспертизу, как правило, оплачивает страховая компания виновной стороны. Мы с удовольствием проконсультируем вас по вашей ситуации." },
-        { question: "Как быстро можно получить запись?", answer: "Мы предлагаем срочные записи - часто в тот же день или на следующий. Просто позвоните нам." },
-        { question: "Нужна ли экспертиза после каждого ДТП?", answer: "Экспертиза рекомендуется при ущербе примерно от 750 EUR, чтобы полностью защитить ваши требования. При незначительном ущербе часто достаточно предварительной сметы." },
-        { question: "Вы можете приехать ко мне?", answer: "Да, по запросу мы также проводим выездные осмотры. Просто сообщите об этом при записи." },
-        { question: "Сколько времени занимает подготовка заключения?", answer: "Обычно вы получаете заключение в течение 24-48 часов после осмотра автомобиля." },
-      ],
-      formTitle: "Запросить экспертизу",
-    },
     rental: {
       title: "Прокат авто",
       subtitle: "Подменные автомобили",

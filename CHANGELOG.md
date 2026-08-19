@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-19
 
+### Aufgabe 026 - Ungenutzte Übersetzungs- und Wörterbuchdaten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1a entfernt ausschließlich die nicht mehr gerenderten Home-Zweige `expressCourier`, `testimonials` und `trust`, die nicht mehr gelesenen `aboutPage`- und About-Override-Daten, die alten EN-/RU-`serviceContacts*`-Felder sowie die vollständig überschriebenen EN-/RU-`accident`-Blöcke aus `service-pages-part1.ts`.
+- `lib/translations/about-overrides.ts` wurde nach dem Entfernen ihres einzigen Imports und aller zugehörigen Spreads vollständig gelöscht. Der deutsche `accident`-Block, alle `rental`-Daten, `service-pages-part2.ts`, `appraisal-pages.ts` und sämtliche aktiven Home-, About-, Kontakt-, Formular- und Legaltexte blieben unverändert.
+- Ein maschinenlesbarer Vorher-/Nachher-Vergleich der resultierenden DE-/EN-/RU-Wörterbücher und von 18 Kernrouten bestätigt identische geschützte Werte, sichtbare Texte, Metadata und Structured Data. Alle Routen lieferten HTTP 200 mit korrektem `lang`; Console-, Hydration-, Page-, Request- und sichtbare Bildfehler traten nicht auf. Es wurde kein Formular abgesendet.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check bestanden. Die Prüfdaten liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-d1a-baseline/`; neue Fullpage-Screenshots oder eine Typografieprüfung waren wegen vollständig identischer sichtbarer Ausgabe nicht erforderlich.
+- Routen, Redirects, SEO-/Indexierungsdateien, Assets, Dependencies und `next-env.d.ts` blieben unverändert. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden; D1b, D1c, D2, D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ### Aufgabe 026 - Phase C entfernt Legacy-Routen und lokalisiert deutsche Not-found-Pfade
 
 - Die 15 ausdrücklich freigegebenen Legacy-Service-URLs wurden durch das Löschen ihrer zehn `page.tsx`-Quelldateien entfernt. Es wurden keine Ersatzredirects ergänzt und keine weitere Datei gelöscht.

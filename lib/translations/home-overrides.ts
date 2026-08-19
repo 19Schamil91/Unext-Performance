@@ -220,16 +220,6 @@ const legacyHomeTranslationOverrides = {
         },
       ],
     },
-    trust: {
-      title: "For private customers, companies and ride services",
-      note: "",
-      badges: [
-        "Private customers",
-        "Business customers",
-        "Uber, Bolt & taxi drivers",
-        "6 core services from one source",
-      ],
-    },
     cta: {
       badge: "Fastest by phone",
       title: "Need help with your vehicle?",
@@ -313,16 +303,6 @@ const legacyHomeTranslationOverrides = {
           title: "Запись или срочная помощь",
           description: "Вы получите нужную поддержку\nбез лишних шагов.",
         },
-      ],
-    },
-    trust: {
-      title: "Для частных клиентов, компаний и сервисов такси",
-      note: "",
-      badges: [
-        "Частные клиенты",
-        "Бизнес-клиенты",
-        "Водители Uber, Bolt и такси",
-        "6 основных услуг из одних рук",
       ],
     },
     cta: {

@@ -1,6 +1,5 @@
 import type { Locale } from "@/lib/i18n"
 import { contactTranslations } from "@/lib/translations/contact"
-import { aboutTranslationOverrides } from "@/lib/translations/about-overrides"
 import { appraisalPageTranslations } from "@/lib/translations/appraisal-pages"
 import { headerFooterTranslations } from "@/lib/translations/header-footer"
 import { homeTranslationOverrides } from "@/lib/translations/home-overrides"
@@ -23,10 +22,6 @@ const dictionaries = {
       },
     },
     servicesPage: servicesAndAboutTranslations.de.servicesPage,
-    aboutPage: {
-      ...servicesAndAboutTranslations.de.aboutPage,
-      ...aboutTranslationOverrides.de,
-    },
     serviceDetail: {
       layout: serviceDetailTranslations.de.layout,
       form: serviceDetailTranslations.de.form,
@@ -59,20 +54,12 @@ const dictionaries = {
         ...homeTranslations.en.process,
         ...homeTranslationOverrides.en.process,
       },
-      trust: {
-        ...homeTranslations.en.trust,
-        ...homeTranslationOverrides.en.trust,
-      },
       cta: {
         ...homeTranslations.en.cta,
         ...homeTranslationOverrides.en.cta,
       },
     },
     servicesPage: servicesAndAboutTranslations.en.servicesPage,
-    aboutPage: {
-      ...servicesAndAboutTranslations.en.aboutPage,
-      ...aboutTranslationOverrides.en,
-    },
     serviceDetail: {
       layout: serviceDetailTranslations.en.layout,
       form: serviceDetailTranslations.en.form,
@@ -106,20 +93,12 @@ const dictionaries = {
         ...homeTranslations.ru.process,
         ...homeTranslationOverrides.ru.process,
       },
-      trust: {
-        ...homeTranslations.ru.trust,
-        ...homeTranslationOverrides.ru.trust,
-      },
       cta: {
         ...homeTranslations.ru.cta,
         ...homeTranslationOverrides.ru.cta,
       },
     },
     servicesPage: servicesAndAboutTranslations.ru.servicesPage,
-    aboutPage: {
-      ...servicesAndAboutTranslations.ru.aboutPage,
-      ...aboutTranslationOverrides.ru,
-    },
     serviceDetail: {
       layout: serviceDetailTranslations.ru.layout,
       form: serviceDetailTranslations.ru.form,
