@@ -579,6 +579,36 @@ Der benötigte `servicePagesPart1.de.accident`-Block, alle drei `rental`-Blöcke
 - `next-env.d.ts` blieb unverändert. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden.
 - D1b, D1c, D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
 
+## Umsetzungsstand Phase D1b – verwaiste Legacy-Service-Detailkomponenten entfernt
+
+Die am 19. August 2026 ausdrücklich freigegebene Untergruppe D1b wurde ausschließlich auf fünf nach Phase C verwaiste React-Komponenten begrenzt. Vor der Löschung bestätigten getrennte Suchen nach direkten und dynamischen Imports, Barrel-Exports, Re-Exports, Symbolen, Dateipfaden, Strings, Typen, Tests, Skripten, Server- und Clientverbrauchern, App-Routen, Metadata sowie Structured Data für jede Komponente null Verbraucher außerhalb ihrer eigenen Datei.
+
+### Exakt gelöschte Komponenten
+
+- `components/RentalServiceDetailContent.tsx`
+- `components/WorkshopServiceDetailContent.tsx`
+- `components/DetailingServiceDetailContent.tsx`
+- `components/RegistrationServiceDetailContent.tsx`
+- `components/TowingServiceDetailContent.tsx`
+
+`components/AccidentServiceDetailContent.tsx`, `components/DamageDocumentationServiceDetailContent.tsx`, `components/VehicleValuationServiceDetailContent.tsx`, `components/service-page-layout.tsx` und `components/service-inquiry-form.tsx` blieben unverändert. Es wurde keine ähnlich wirkende Komponente und keine weitere technische Datei gelöscht.
+
+### Referenz- und Vorher-/Nachher-Nachweis
+
+- Vor jeder Änderung wurde unter `C:/tmp/unext-task-026-phase-d1b-baseline/` eine maschinenlesbare Baseline mit Git-Dateiliste, App- und Build-Routenlisten, Import-, Export-, Symbol-, Pfad- und Stringreferenzen, Hashes aller geschützten Dateien sowie vollständiger Browserausgabe für 18 Kernrouten und 15 Legacy-URLs angelegt.
+- Nach der Löschung blieb außerhalb der historischen und aktiven Workflow-Dokumentation keine Referenz auf einen der fünf Komponentennamen oder Dateipfade bestehen. Direkte und dynamische Imports, Barrel- und Re-Exports, TypeScript-Verwendungen, Tests, Skripte, Metadata-, Structured-Data-, Server- und Clientverbraucher wurden nicht gefunden.
+- Der normalisierte maschinenlesbare Vergleich meldet `dictionariesIdentical: true`, `browserSnapshotsIdentical: true`, `protectedFilesIdentical: true`, `routeFilesIdentical: true` und `buildRoutesIdentical: true`, jeweils ohne Differenz. Normalisiert wurden ausschließlich die verschiedenen lokalen Prüfports, daraus abgeleitete absolute Bild-URLs, nicht semantische Build-Chunk-Namen und die nicht deterministische Reihenfolge der Dateiausgabe.
+- Sichtbare Haupttexte, Navigation, Kontakt- und Formulartexte, Metadata, Structured Data, Bildpfade und die lokalisierte Not-found-/Recovery-Ausgabe blieben identisch. Da keine sichtbare Abweichung vorlag, waren neue Fullpage-Screenshots sowie zusätzliche Accessibility-, Typografie- oder visuelle Reviewer nicht erforderlich.
+
+### Technische und dreisprachige Regression
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Der Produktions-Build erzeugte vor und nach D1b jeweils 36 statische Seiten; `next-env.d.ts` blieb unverändert.
+- Der lokale `next-router-check` prüfte 24 UI-Routen, davon elf datenladend, und fand null fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Dateien im jeweiligen Scope.
+- Browsergestützt wurden Startseite, Über uns und Kontakt in DE, EN und RU sowie alle neun Gutachtenartenseiten geprüft, insgesamt 18 Kernrouten. Zusätzlich wurden alle 15 in Phase C entfernten Legacy-URLs geprüft. Alle 33 URLs antworteten weiterhin mit HTTP 200 und korrektem `html lang`; die Legacy-URLs behielten exakt ihren lokalisierten `noindex`-Soft-404-/Recovery-Zustand.
+- Der vollständige Browser- und Bild-Smoke meldete null Console-, Hydration-, Page-, Request-, HTTP- oder sichtbare Bildfehler. Sechs Sprachwechsel bewahrten den Seitenkontext, drei Navigationstests führten zum korrekten Kontaktziel. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Alle Übersetzungs- und Wörterbuchdaten einschließlich `service-pages-part1.ts`, `service-pages-part2.ts` und `appraisal-pages.ts` blieben unverändert. Ebenso unverändert blieben die fünf zugehörigen Bilder, sämtliche Routen und Redirects, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang, `noindex`, Dependencies, Lockfiles und Konfigurationen.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D1c, D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.

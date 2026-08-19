@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-19
 
+### Aufgabe 026 - Verwaiste Legacy-Service-Detailkomponenten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1b entfernt ausschließlich `RentalServiceDetailContent.tsx`, `WorkshopServiceDetailContent.tsx`, `DetailingServiceDetailContent.tsx`, `RegistrationServiceDetailContent.tsx` und `TowingServiceDetailContent.tsx`, nachdem direkte, dynamische, Barrel-, Re-Export-, Symbol-, String-, Typ-, Test-, Skript-, Metadata- und Structured-Data-Suchen für jede Datei null Verbraucher außerhalb ihrer Eigendeklaration bestätigt hatten.
+- Der maschinenlesbare Vorher-/Nachher-Vergleich von 18 geschützten Kernrouten und 15 in Phase C entfernten Legacy-URLs bestätigt identische sichtbare Texte, Navigation, Formulare, Metadata, Structured Data, Bildpfade und Fehlerzustände. Alle 33 URLs lieferten weiterhin HTTP 200 mit korrektem `lang`; die Legacy-URLs behielten ihren dokumentierten lokalisierten `noindex`-Soft-404-Zustand.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Sechs kontexttreue Sprachwechsel, drei Navigationswege und der vollständige Bild-/Request-Smoke blieben fehlerfrei; kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Übersetzungs- und Datendateien, Assets, Routen, Redirects, Metadata, Structured Data, Sitemap, Robots, `noindex`, Dependencies, Lockfiles und `next-env.d.ts` blieben unverändert. Die Prüfdaten liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-d1b-baseline/`.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D1c, D2, D3 und Phase E wurden nicht begonnen; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ### Aufgabe 026 - Ungenutzte Übersetzungs- und Wörterbuchdaten entfernt
 
 - Die ausdrücklich freigegebene Phase-D-Untergruppe D1a entfernt ausschließlich die nicht mehr gerenderten Home-Zweige `expressCourier`, `testimonials` und `trust`, die nicht mehr gelesenen `aboutPage`- und About-Override-Daten, die alten EN-/RU-`serviceContacts*`-Felder sowie die vollständig überschriebenen EN-/RU-`accident`-Blöcke aus `service-pages-part1.ts`.
