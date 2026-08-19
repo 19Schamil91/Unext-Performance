@@ -4,6 +4,13 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-19
 
+### Aufgabe 026 - Überschriften der Leistungsübersichten typografisch beruhigt
+
+- Die zuvor auf `22ch` begrenzte H1-Breite erzeugte besonders im Russischen unnötig hohe Überschriftenblöcke. Der gemeinsame Intro-Container wurde deshalb von `max-w-5xl` auf `max-w-6xl` und die gemeinsame H1-Breite auf `30ch` erweitert.
+- Nachdem die reine Breitenkorrektur den russischen Titel bei 390 Pixeln noch auf fünf Zeilen beließ, wurde ausschließlich diese dreisprachig gemeinsame H1 auf `clamp(2.3rem, 1.66rem + 2.45vw, 4.7rem)` reduziert. Zeilenhöhe `0.97`, Laufweite `-0.032em`, Textbalance und der Abstand von 24 Pixeln zum Intro blieben erhalten.
+- DE und EN stehen bei 390 Pixeln auf drei, RU auf vier Zeilen; bei 768 und 1440 Pixeln stehen DE und EN auf zwei, RU auf drei Zeilen. Alle neun Ansichten besitzen null Pixel horizontalen Overflow.
+- Sichtbare Texte, Introbreite, Karten, CTAs, Links, Navigation, Footer, Routen, Redirects, SEO, Metadata, Structured Data, `noindex`, Assets und Dependencies blieben unverändert. `ROADMAP.md` bleibt unverändert, weil sich Planung, Reihenfolge und Prioritäten nicht geändert haben.
+
 ### Aufgabe 026 - Dreisprachige Leistungsübersichten bereinigt
 
 - `/leistungen`, `/en/leistungen` und `/ru/leistungen` zeigen weiterhin als bestehende Routen ausschließlich Unfallgutachten, Fahrzeugbewertung und Schadendokumentation in der jeweiligen Sprache und verlinken direkt auf die neun passenden Gutachtenseiten.

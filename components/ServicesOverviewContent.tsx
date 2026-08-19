@@ -166,8 +166,8 @@ export function ServicesOverviewContent({ locale }: ServicesOverviewContentProps
       <main>
         <section className="bg-card py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl text-center">
-              <h1 className="mx-auto measure-heading text-display-fluid font-semibold text-foreground [text-wrap:balance]">
+            <div className="mx-auto max-w-6xl text-center">
+              <h1 className="mx-auto max-w-[30ch] text-[clamp(2.3rem,1.66rem+2.45vw,4.7rem)] font-semibold leading-[0.97] tracking-[-0.032em] text-foreground [text-wrap:balance]">
                 {t.title}
               </h1>
               <p className="mx-auto mt-6 measure-intro-tight text-body-fluid text-muted-foreground">

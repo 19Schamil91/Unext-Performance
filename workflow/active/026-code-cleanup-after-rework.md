@@ -476,6 +476,19 @@ Route-, Redirect-, SEO-, Metadata-, Structured-Data-, Sitemap-, Robots-, Asset-,
 - Die fünf bestehenden permanenten Gutachten-Redirects, sämtliche Assets und Dependencies bleiben unverändert.
 - Die Phasen C bis E, der separate Dependency- und Assetabgleich, die externe Rechts- und Indexfreigabe sowie die Aufgaben 033 bis 035 bleiben offen. Aufgabe 026 bleibt in `workflow/active/` und der Status bleibt `in Arbeit`; die Website bleibt nicht launchbereit.
 
+## Typografie-Feinschliff der Leistungsübersichten
+
+Der am 19. August 2026 ausdrücklich freigegebene Feinschliff betrifft ausschließlich die große H1 und ihren Introbereich auf `/leistungen`, `/en/leistungen` und `/ru/leistungen`. Ursache war die für diese langen dreisprachigen Titel zu enge bisherige H1-Begrenzung von `22ch`, die vor allem den russischen Titel unnötig turmartig umbrechen ließ.
+
+- Zuerst wurde ausschließlich die verfügbare Breite erweitert: der gemeinsame Intro-Container von `max-w-5xl` auf `max-w-6xl` und die H1 auf `max-w-[30ch]`.
+- Da RU bei 390 Pixeln nach dieser reinen Breitenkorrektur weiterhin fünf Zeilen beanspruchte, wurde danach die kleinste gemeinsame Schriftanpassung vorgenommen: `clamp(2.3rem, 1.66rem + 2.45vw, 4.7rem)` statt der bisherigen globalen Display-Skalierung `clamp(2.45rem, 1.72rem + 2.75vw, 5rem)`.
+- Zeilenhöhe `0.97`, Laufweite `-0.032em`, `[text-wrap:balance]`, Introbreite `58ch`, der Abstand `mt-6` beziehungsweise 24 Pixel und das vorhandene Section-Padding blieben unverändert. Es wurden keine manuellen `<br>`-Elemente, `nowrap`-Regeln, festen Inhaltshöhen, sprachspezifischen Klassen oder Magic Numbers ergänzt.
+- Finale Messung bei 390 Pixeln: DE 3 Zeilen, EN 3 Zeilen, RU 4 Zeilen bei 36,8 Pixeln Schriftgröße. Bei 768 Pixeln: DE 2, EN 2, RU 3 Zeilen bei 45,376 Pixeln. Bei 1440 Pixeln: DE 2, EN 2, RU 3 Zeilen bei 61,84 Pixeln. Der Introabstand beträgt in allen neun Fällen 24 Pixel; horizontaler Overflow jeweils 0 Pixel.
+- Neun Fullpage-Screenshots und drei dreisprachige Vergleiche wurden im Produktionsmodus erzeugt, tatsächlich geöffnet und visuell geprüft. Sie liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-b-heading-refinement/`.
+- Die Browserprüfung bestätigte für alle neun Übersichtsansichten HTTP 200, korrektes `lang`, genau eine H1, genau drei korrekte Karten, alle neun richtigen Gutachtenlinks, `noindex, follow`, Header und Footer sowie null Console-, Page-, Request-, Bild-, Hydration- oder Overflowfehler. Alle neun verlinkten Gutachtenziele lieferten ebenfalls HTTP 200 ohne Laufzeit- oder Bildfehler.
+- Sichtbare Texte, Karten, CTAs, zugängliche Linknamen, Linkziele, Navigation, Footer, Routen, Redirects, SEO, Metadata, Structured Data, `noindex`, Sitemap, Robots, Assets, Dependencies und die 15 Legacy-Service-Routen blieben unverändert. `ROADMAP.md` bleibt unverändert, weil sich Planung, Reihenfolge, Prioritäten und Projektphasen nicht geändert haben.
+- Aufgabe 026 bleibt in `workflow/active/`, der Status bleibt `in Arbeit`; dieser Feinschliff wird nicht committet, gepusht oder als Pull Request vorbereitet und schließt die Aufgabe nicht ab.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
