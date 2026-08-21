@@ -7,7 +7,6 @@ import { homeTranslations } from "@/lib/translations/home"
 import { legalTranslations } from "@/lib/translations/legal"
 import { serviceDetailTranslations } from "@/lib/translations/service-details"
 import { servicePagesPart1 } from "@/lib/translations/service-pages-part1"
-import { servicePagesPart2 } from "@/lib/translations/service-pages-part2"
 import { servicesAndAboutTranslations } from "@/lib/translations/services-and-about"
 
 const dictionaries = {
@@ -27,7 +26,6 @@ const dictionaries = {
       form: serviceDetailTranslations.de.form,
       pages: {
         ...servicePagesPart1.de,
-        ...servicePagesPart2.de,
       },
     },
     contactPage: contactTranslations.de,
@@ -64,8 +62,6 @@ const dictionaries = {
       layout: serviceDetailTranslations.en.layout,
       form: serviceDetailTranslations.en.form,
       pages: {
-        ...servicePagesPart1.en,
-        ...servicePagesPart2.en,
         ...appraisalPageTranslations.en,
       },
     },
@@ -103,8 +99,6 @@ const dictionaries = {
       layout: serviceDetailTranslations.ru.layout,
       form: serviceDetailTranslations.ru.form,
       pages: {
-        ...servicePagesPart1.ru,
-        ...servicePagesPart2.ru,
         ...appraisalPageTranslations.ru,
       },
     },

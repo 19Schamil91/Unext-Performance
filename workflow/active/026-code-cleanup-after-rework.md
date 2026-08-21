@@ -609,6 +609,37 @@ Die am 19. August 2026 ausdrücklich freigegebene Untergruppe D1b wurde ausschli
 - Alle Übersetzungs- und Wörterbuchdaten einschließlich `service-pages-part1.ts`, `service-pages-part2.ts` und `appraisal-pages.ts` blieben unverändert. Ebenso unverändert blieben die fünf zugehörigen Bilder, sämtliche Routen und Redirects, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang, `noindex`, Dependencies, Lockfiles und Konfigurationen.
 - `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D1c, D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
 
+## Umsetzungsstand Phase D1c – verbliebene Legacy-Service-Wörterbuchdaten entfernt
+
+Die am 21. August 2026 ausdrücklich freigegebene Untergruppe D1c wurde eigenschaftsgenau auf die nicht mehr gelesenen Wörterbuchblöcke der fünf in Phase C entfernten und in D1b komponentenseitig bereinigten Legacy-Leistungsfamilien begrenzt. Vor der Änderung bestätigten direkte, dynamische, Barrel-, Re-Export-, Property-, Symbol-, String-, Key-, Spread-, Typ-, Test-, Skript-, Server-, Client-, Metadata-, Structured-Data-, Sitemap- und Robots-Suchen für jeden Zielblock null Verbraucher außerhalb seiner Definition und bisherigen Zusammenführung in `lib/translations.ts`.
+
+### Exakt entfernte Sprachblöcke und Zusammenführungen
+
+- `servicePagesPart1.de.rental`, `servicePagesPart1.en.rental`, `servicePagesPart1.ru.rental`
+- `servicePagesPart2.de/en/ru.workshop`
+- `servicePagesPart2.de/en/ru.detailing`
+- `servicePagesPart2.de/en/ru.registration`
+- `servicePagesPart2.de/en/ru.towing`
+
+Aus `lib/translations.ts` wurden ausschließlich der Import von `servicePagesPart2`, die Spreads `servicePagesPart2.de`, `servicePagesPart2.en` und `servicePagesPart2.ru` sowie die danach funktionslosen Spreads `servicePagesPart1.en` und `servicePagesPart1.ru` entfernt. Der Import von `servicePagesPart1`, der deutsche Spread `servicePagesPart1.de` und die EN-/RU-Spreads von `appraisalPageTranslations` blieben erhalten. `service-pages-part2.ts` enthielt nach der Entfernung der zwölf freigegebenen Part-2-Blöcke keine fachlichen Daten mehr und wurde vollständig gelöscht; die leeren Locale-Hüllen `servicePagesPart1.en` und `.ru` bleiben aus Typgründen erhalten.
+
+### Wörterbuch-, Referenz- und Schutzvergleich
+
+- Unter `C:/tmp/unext-task-026-phase-d1c-baseline/` liegt die maschinenlesbare Vorher-Baseline mit vollständigen Part-1-/Part-2-Quellobjekten, resultierenden DE-/EN-/RU-Wörterbüchern, Git-, App- und Build-Dateilisten, Referenzsuchen, geschützten Datei-Hashes sowie Browser-, Metadata- und Structured-Data-Ausgaben für 33 URLs.
+- Der vollständige Wörterbuchvergleich zeigt exakt die 15 freigegebenen Pfade `de/en/ru.serviceDetail.pages.rental/workshop/detailing/registration/towing` als entfernt. `protectedDictionariesIdentical: true` bestätigt null weitere Schlüssel- oder Wertänderung; alle fünf Legacy-Familien fehlen anschließend wie vorgesehen im resultierenden Wörterbuch.
+- `servicePagesPart1.de.accident` blieb vollständig wertgleich; sein stabiler Hash lautet vor und nach D1c `23faf7df9c541a34e55b82a5957ebf1b6d947debfae21f2e169f978d4d9498ee`. `appraisal-pages.ts`, sämtliche `appraisalPageTranslations`, aktuelle Gutachtenarten-, Layout-, Formular-, Services-, Home-, About-, Kontakt-, Legal-, Header- und Footerwerte blieben unverändert.
+- Die erneute Referenzprüfung fand keine verbliebene Definition, Zusammenführung oder Verwendung der 15 Zielblöcke beziehungsweise von `servicePagesPart2`. Ähnliche legitime Wörter in aktuellen Home-, Gutachten-, Schaden-, Dokumenten- oder Kontakttexten wurden nicht verändert; der bereits vorhandene Legacy-Routenstring in der geschützten gemeinsamen Layout-Komponente blieb außerhalb von D1c dokumentiert und unangetastet.
+
+### Technische und dreisprachige Regression
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Der Produktions-Build erzeugte vor und nach D1c jeweils 36 statische Seiten; `next-env.d.ts` blieb unverändert.
+- Der lokale `next-router-check` prüfte 24 UI-Routen, davon elf datenladend, und fand null fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Dateien im jeweiligen Scope.
+- Der normalisierte Browservergleich meldet `browserSnapshotsIdentical: true` für Startseite, Über uns und Kontakt in DE, EN und RU, alle neun Gutachtenartenseiten sowie alle 15 Legacy-URLs. Sichtbare Haupttexte, Navigation, Kontakt- und Formulartexte, Metadata, Structured Data, Bildpfade und Fehlerzustände blieben identisch; EN und RU erhielten keine fremdsprachigen Fallbacktexte.
+- Alle 18 Kernrouten und alle 15 Legacy-URLs antworteten mit HTTP 200 und korrektem `html lang`; die Legacy-URLs behielten exakt ihre lokalisierte `noindex`-Soft-404-/Recovery-Ausgabe. Sechs Sprachwechsel, drei Navigationstests und der vollständige Bild-Smoke bestanden ohne Console-, Hydration-, Page-, Request-, HTTP- oder sichtbare Bildfehler.
+- Die fünf geschützten Gutachten-Redirects antworteten unverändert direkt mit 308, erhielten die Query-Parameter und führten ohne Kette oder Schleife auf Ziele mit HTTP 200. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Komponenten, Routen, Catch-all-/Not-found-Dateien, Redirectkonfiguration, Assets, Dependencies, Lockfiles, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang und `noindex` blieben unverändert. Neue Fullpage-Screenshots sowie Accessibility-, Typografie- oder visuelle Reviewer waren wegen identischer sichtbarer Ausgabe nicht erforderlich.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.

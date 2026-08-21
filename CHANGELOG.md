@@ -2,6 +2,16 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-21
+
+### Aufgabe 026 - Verbliebene Legacy-Service-Wörterbuchdaten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1c entfernt ausschließlich die 15 nicht mehr gelesenen DE-/EN-/RU-Blöcke `rental`, `workshop`, `detailing`, `registration` und `towing` aus dem resultierenden `serviceDetail.pages`-Wörterbuch.
+- `lib/translations/service-pages-part2.ts` wurde nach Entfernung ihres gesamten fachlichen Inhalts, ihres einzigen Imports und der drei zugehörigen Spreads vollständig gelöscht. In Part 1 blieben neben dem unveränderten deutschen `accident`-Block nur leere EN-/RU-Hüllen erhalten; deren funktionslose Spreads wurden entfernt.
+- Der geschützte Wörterbuchvergleich bestätigt den deutschen Accident-Block, sämtliche `appraisalPageTranslations` und alle übrigen geschützten Schlüssel als wertgleich. Der Browservergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 lokalisierten Legacy-Soft-404-URLs.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt; Console-, Hydration-, Page-, Request-, HTTP- und Bildfehler traten nicht auf. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Komponenten, Routen, Redirectkonfiguration, Assets, Dependencies, Lockfiles, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang, `noindex` und `next-env.d.ts` blieben unverändert. `ROADMAP.md` bleibt unverändert; D2, D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ## 2026-08-19
 
 ### Aufgabe 026 - Verwaiste Legacy-Service-Detailkomponenten entfernt
