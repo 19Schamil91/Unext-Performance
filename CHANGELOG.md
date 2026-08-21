@@ -4,6 +4,14 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-21
 
+### Aufgabe 026 - Ungenutzte statische Assets entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D2 entfernt ausschließlich fünf ungenutzte Platzhalterdateien und das nach Entfernung der Express-Kurier-Sektion verwaiste Bild `public/images/service-express-courier.webp`.
+- Vor der Löschung bestand für keines der sechs Assets eine aktive Repository-, Build-, CSS-, Komponenten-, Metadata-, Structured-Data- oder Browserreferenz. Der Vorher-/Nachher-Vergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 lokalisierten Legacy-Soft-404-URLs.
+- Alle aktiven Bilder, die zwölf ausdrücklich geschützten unklaren Assets und die fünf ehemaligen Legacy-Service-Bilder blieben bytegleich erhalten. Die direkten URLs liefern weder den alten Binärinhalt noch einen Bild-Content-Type; fünf Root-URLs fallen auf HTML mit HTTP 200 zurück, die Courier-URL auf HTML mit HTTP 404. Es wurden keine Ersatzdateien oder Redirects angelegt.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Bild-, Request-, Console-, Hydration-, Page- und HTTP-Smokes blieben fehlerfrei; die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Komponenten, Routen, Redirects, Übersetzungen, Dependencies, Metadata, Structured Data und Indexierungsregeln blieben unverändert. `ROADMAP.md` bleibt unverändert; D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ### Aufgabe 026 - Verbliebene Legacy-Service-Wörterbuchdaten entfernt
 
 - Die ausdrücklich freigegebene Phase-D-Untergruppe D1c entfernt ausschließlich die 15 nicht mehr gelesenen DE-/EN-/RU-Blöcke `rental`, `workshop`, `detailing`, `registration` und `towing` aus dem resultierenden `serviceDetail.pages`-Wörterbuch.

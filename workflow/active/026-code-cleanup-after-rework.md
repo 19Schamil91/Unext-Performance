@@ -640,6 +640,42 @@ Aus `lib/translations.ts` wurden ausschließlich der Import von `servicePagesPar
 - Komponenten, Routen, Catch-all-/Not-found-Dateien, Redirectkonfiguration, Assets, Dependencies, Lockfiles, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang und `noindex` blieben unverändert. Neue Fullpage-Screenshots sowie Accessibility-, Typografie- oder visuelle Reviewer waren wegen identischer sichtbarer Ausgabe nicht erforderlich.
 - `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D2, D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
 
+## Umsetzungsstand Phase D2 – ungenutzte statische Assets entfernt
+
+Die am 21. August 2026 ausdrücklich freigegebene Untergruppe D2 wurde exakt auf fünf ungenutzte Platzhalterdateien und das nach Entfernung der Express-Kurier-Sektion verwaiste Courier-Bild begrenzt. Vor der Löschung bestätigten getrennte Suchen nach direkten, dynamischen und zusammengesetzten Pfaden, Imports, `require`-Aufrufen, CSS-/Style-, `next/image`-/`img`-, App-, Server-, Client-, Test-, Skript-, JSON-, Konfigurations-, Metadata-, OpenGraph-, Twitter-, Structured-Data-, Manifest-, Favicon-, Sitemap- und Robots-Verwendungen für jedes Asset null aktive Verbraucher. Auch die erzeugte Build-Ausgabe und die Browserbaseline enthielten keine Zielreferenz beziehungsweise keinen Request auf eines der sechs Assets.
+
+### Exakt gelöschte Assets und Baseline
+
+- `public/placeholder.jpg` – 1.064 Bytes, SHA-256 `14be0c7aa11cca1e78f0966176b286a6d36d00ec64be027775dfeb33d8e2dfdf`, `image/jpeg`
+- `public/placeholder.svg` – 3.253 Bytes, SHA-256 `64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b`, `image/svg+xml`
+- `public/placeholder-logo.png` – 568 Bytes, SHA-256 `d7c39d978af643ba9525de6fb8171e0f834882db4110c82ecad0df3f4f69551a`, `image/png`
+- `public/placeholder-logo.svg` – 3.208 Bytes, SHA-256 `19a9e968f4656d52a4c249b4056117ad109370ba9da51cdc630ddded74cec73b`, `image/svg+xml`
+- `public/placeholder-user.jpg` – 1.635 Bytes, SHA-256 `22be067d748175598a5e00123902f5c8332dd7f101de03dfb92ec08d85bb5e53`, `image/jpeg`
+- `public/images/service-express-courier.webp` – 74.528 Bytes, SHA-256 `6ec714b9bd01c80e54c6642b81611d2a822612703766d18fce2a00cb5713ccac`, `image/webp`
+
+Alle sechs Dateien waren Git-getrackt und ihre direkten öffentlichen URLs lieferten vor D2 jeweils HTTP 200 mit dem erwarteten Bild-Content-Type und exakt dem dokumentierten Binärinhalt. Die maschinenlesbare Vorher-Baseline und die Nachher-Ergebnisse liegen außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-d2-baseline/`.
+
+### Direkte URLs nach der Löschung
+
+- `/placeholder.jpg`, `/placeholder.svg`, `/placeholder-logo.png`, `/placeholder-logo.svg` und `/placeholder-user.jpg` antworten aufgrund des vorhandenen lokalisierten Root-Fallbacks mit HTTP 200 und `text/html; charset=utf-8`.
+- `/images/service-express-courier.webp` antwortet mit HTTP 404 und `text/html; charset=utf-8`.
+- Keine der sechs URLs liefert den früheren Binärinhalt oder einen Bild-Content-Type. Es besteht kein Redirect; es wurde weder eine Ersatzdatei noch ein neuer Placeholder angelegt.
+
+### Schutz-, Referenz- und Ausgabevergleich
+
+- Der normalisierte Vergleich meldet `dictionariesIdentical: true`, `browserSnapshotsIdentical: true`, `protectedFilesIdentical: true`, `routeFilesIdentical: true` und `buildRoutesIdentical: true`, jeweils ohne Differenz. Die sechs Zieldateien fehlen wie vorgesehen; Laufzeit- und Buildreferenzsuchen blieben ohne Treffer.
+- Die zwölf ausdrücklich geschützten unklaren Assets, die fünf ehemaligen Legacy-Service-Bilder und sämtliche aktiven Logo-, Marken-, Hero-, About-, Gutachtenarten-, OpenGraph-, Social-Media-, Favicon- und Icon-Assets blieben bytegleich erhalten.
+- Sichtbare Haupttexte, Navigation, Sprachwechsel, Kontakt- und Formulartexte, Metadata, Structured Data, Bildpfade und Fehlerzustände blieben auf allen geschützten DE-/EN-/RU-Ausgaben identisch. Wegen der vollständig identischen Ausgabe und null Bildfehler waren keine neuen Fullpage-Screenshots sowie keine zusätzlichen Accessibility-, Typografie-, Mobile- oder Desktop-Reviewer erforderlich.
+
+### Technische, Browser- und Reviewer-Prüfung
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Der Produktions-Build erzeugte vor und nach D2 jeweils 36 statische Seiten; `next-env.d.ts` blieb unverändert.
+- Der lokale `next-router-check` prüfte 24 UI-Routen, davon elf datenladend, und fand null fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Dateien im jeweiligen Scope.
+- Der Produktions-Browservergleich prüfte 18 Kernrouten und alle 15 in Phase C entfernten Legacy-URLs. Alle 33 URLs antworteten wie zuvor mit HTTP 200 und korrektem `html lang`; die Legacy-URLs behielten ihren lokalisierten `noindex`-Soft-404-/Recovery-Zustand. 48 Baseline-Bildrequests enthielten kein Zielasset; nach D2 traten null defekte Bilder oder Requestfehler auf.
+- Sechs kontexttreue Sprachwechsel und drei Navigationswege bestanden. Die fünf geschützten Gutachten-Redirects antworteten direkt mit 308, erhielten `?phase=d2&keep=1`, führten ohne Kette oder Schleife zum erwarteten Ziel und dieses antwortete mit HTTP 200. Es gab null Console-, Hydration-, Page-, Request- oder HTTP-Fehler. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Der verpflichtende `quality_reviewer` meldete null Verstöße und null Hinweise. Der `performance_budget_reviewer` meldete null Performance-Blocker und null Budget-Risiken; die Löschung reduziert ausschließlich tote statische Assets und führt nach den Messdaten zu keinem neuen LCP-, CLS- oder INP-Risiko.
+- Komponenten, Routen, Catch-all-/Not-found-Dateien, Redirects, Übersetzungen, Wörterbuchdaten, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang, `noindex`, Dependencies, Lockfiles, Next.js-Konfigurationen und Specs blieben unverändert. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D3 und Phase E wurden nicht begonnen. Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`.
+
 ## Akzeptanzkriterien
 
 - [ ] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
