@@ -2,6 +2,16 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-22
+
+### Aufgabe 026 - Ungenutzte direkte Dependencies entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D3 entfernt ausschließlich 35 nachweislich ungenutzte direkte Runtime-Dependencies. `package.json` und `package-lock.json` wurden gemeinsam durch den einmaligen freigegebenen `npm uninstall` aktualisiert; die Anzahl direkter Runtime-Dependencies sinkt von 49 auf 14.
+- Alle 14 geschützten Runtime-Dependencies und sämtliche elf Dev-Dependencies blieben mit unveränderten Versionsangaben erhalten. Im Lockfile wurden exakt die 35 Root-Einträge und 99 nicht mehr benötigte Paketeinträge entfernt; es wurde kein Eintrag ergänzt und keine Version, Auflösung oder Integritätsangabe eines verbleibenden Pakets geändert. `@radix-ui/react-collapsible` bleibt als transitive Abhängigkeit des geschützten Accordion-Systems erhalten.
+- Diff-Check, `npm ls --depth=0`, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Formulare, Mobile-Menü, Theme-Toggle, alle neun Akkordeonseiten, Navigation, Recovery-Links und Sprachwechsel blieben funktionsfähig; kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Der normalisierte Vorher-/Nachher-Vergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 Legacy-Soft-404-URLs. Die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt; null defekte Bilder oder Requestfehler traten auf.
+- Quellcode, Komponenten, Formulare, Routen, Konfigurationen, Styles, Assets, Übersetzungen, Metadata, Structured Data und Indexierungsregeln blieben unverändert. `ROADMAP.md` bleibt unverändert; Phase E wurde nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
 ## 2026-08-21
 
 ### Aufgabe 026 - Ungenutzte statische Assets entfernt
