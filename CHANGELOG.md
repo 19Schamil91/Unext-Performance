@@ -4,6 +4,15 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-22
 
+### Aufgabe 026 - Legacy-Service-URLs liefern echte 404-Antworten
+
+- Das ausdrücklich freigegebene Follow-up E1 behebt ausschließlich den dokumentierten Soft-404-P1 der 15 entfernten Legacy-Service-URLs. Eine neue Root-Datei `proxy.ts` besitzt exakt 15 statische, literal definierte Matcher und schreibt die Requests sprachabhängig auf vorhandene DE-/EN-/RU-Catch-all-Strukturen um; der äußere Status wird vor dem Streaming auf HTTP 404 gesetzt.
+- Alle 15 Legacy-URLs liefern bei GET, HEAD, Query und Reload HTTP 404 mit `text/html`, ohne `Location`-Header oder Redirect. Die ursprüngliche Browser-URL einschließlich Query bleibt sichtbar. Die vorhandene lokalisierte Recovery-Ausgabe, `html lang`, `noindex`, drei Rückwege und sechs repräsentative Mobile-/Desktop-Screenshots blieben gegenüber der HTTP-200-Baseline unverändert.
+- Die internen Rewrite-Ziele sind nicht Teil des Matchers, nicht verlinkt, nicht in Sitemap oder Hreflang enthalten, besitzen keinen Canonical und bleiben `noindex`. Trailing-Slash-Aufrufe behalten die vorhandene Next.js-Normalisierung per 308 zum slashlosen Pfad bei; das normalisierte Ziel liefert anschließend 404.
+- Die fünf geschützten Gutachten-Redirects bleiben direkte 308-Weiterleitungen mit Query-Erhalt. Alle 30 V1-Routen liefern weiter HTTP 200; sichtbare Ausgabe, Indexierungsmatrix, Metadata und Structured Data sind unverändert. Es wurden keine Legacy-/`AutoRepair`-Signale, internen Legacy-Links, Rewrite-Schleifen oder unerwarteten Browserfehler gefunden.
+- Diff-Check, `npm ls --depth=0`, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check mit 24 UI-Routen, elf datenladenden Routen und null fehlenden Pflichtgrenzen bestanden. Local-SEO- und Performance-Review melden keine Blocker; der verpflichtende Codequalitätsreview bestand mit null Verstößen. Der Soft-404-P1 ist geschlossen.
+- Komponenten, Catch-all-/Not-found-/Loading-/Error-Dateien, `next.config.mjs`, Dependencies, Lockfiles, SEO-Dateien, Assets, Specs und `ROADMAP.md` blieben unverändert. Der separate P1 zur fehlenden Fokus-Rückgabe des mobilen Menüs bleibt offen; Aufgabe 026 steht bei 22 von 24 Akzeptanzkriterien, bleibt aktiv und im Status `in Arbeit`.
+
 ### Aufgabe 026 - Finale Cleanup-Regression benötigt Follow-up
 
 - Die ausdrücklich freigegebene Phase E wurde als vollständige Read-only-Abschlussregression des kumulierten Task-026-Diffs ausgeführt. Der Prüfstart war sauber auf Branch `task-026-clean-up-legacy-code`; der kumulierte Stand umfasste 89 Dateien mit 1.193 Ergänzungen und 10.296 Löschungen. Website-Code, Routen, Assets, Dependencies, Specs und erledigte Tasks wurden in Phase E nicht verändert.

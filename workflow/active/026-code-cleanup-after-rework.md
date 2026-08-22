@@ -749,6 +749,98 @@ Die am 22. August 2026 ausdrücklich freigegebene Phase E wurde als vollständig
 - Phase E änderte keine technischen Dateien. Externe Rechtsfreigabe, echter Formularversand, Deployment, Monitoring sowie die Aufgaben 033 bis 035 bleiben unverändert und außerhalb des Scopes.
 - `ROADMAP.md` bleibt unverändert, weil sich weder Projektphasen noch Reihenfolge, Prioritäten oder Meilensteine geändert haben. Der atomare Revert dieses reinen Dokumentationsschritts besteht ausschließlich aus dem Rücksetzen des Phase-E-Abschnitts in dieser Task-Datei und des zugehörigen Changelog-Eintrags.
 
+## Follow-up E1 – echte 404-Antworten für entfernte Legacy-Service-URLs
+
+Das am 22. August 2026 ausdrücklich freigegebene Follow-up E1 behebt ausschließlich den in Phase E dokumentierten P1-Soft-404-Blocker. Der separate P1 zur fehlenden Fokus-Rückgabe nach Escape im mobilen Menü bleibt unverändert außerhalb dieses Schritts. Technisch wurde ausschließlich die neue Root-Datei `proxy.ts` ergänzt; zusätzlich werden nur diese Task-Datei und `CHANGELOG.md` dokumentiert.
+
+### Ursache und Vorher-Baseline
+
+- Die vorhandenen Catch-all-Seiten rufen `notFound()` auf und verwenden die bestehenden lokalisierten `not-found.tsx`-Komponenten. Durch die im jeweiligen Layout-Scope vorhandenen `loading.tsx`-/Suspense-Grenzen beginnt die Antwort jedoch als Stream; Next.js 16.2.4 kann den Status danach nicht mehr von HTTP 200 auf 404 ändern.
+- Die vollständige Produktions-Baseline unter `C:/tmp/unext-task-026-follow-up-e1-soft-404/` bestätigt deshalb für alle 15 Legacy-URLs bei GET, HEAD, Query und Reload HTTP 200, `text/html`, keinen `Location`-Header, korrekte Sprache, `noindex`, die jeweilige lokalisierte H1 und exakt drei Recovery-Links.
+- Der Ausgangszustand war sauber auf Branch `task-026-clean-up-legacy-code` bei Commit `0e979a5`; alle Task-026-Zwischencommits einschließlich D1a, D1b, D1c, D2 und D3 waren enthalten. Nichts war gestaged, `next-env.d.ts` war unverändert, und weder `proxy.ts` noch `middleware.ts` existierte. Für den Branch existierten weder Remote-Branch noch Pull Request.
+
+### Exakt implementierte Proxy-Strategie
+
+- `proxy.ts` importiert `NextRequest` und `NextResponse` aus `next/server` und exportiert die benannte Funktion `proxy`. Sie klont `request.nextUrl`, ändert ausschließlich dessen internen Pfad und gibt `NextResponse.rewrite(rewriteUrl, { status: 404 })` zurück. Dadurch wird der 404-Status vor dem Streaming gesetzt, während Browser-URL und Query erhalten bleiben und kein Redirect entsteht.
+- Die fünf deutschen Matcher schreiben intern auf `/leistungen/__entfernte-legacy-leistung`, die fünf englischen auf `/en/__removed-legacy-service` und die fünf russischen auf `/ru/__udalennaya-legacy-usluga` um. Diese absichtlich nicht existierenden Pfade verwenden die bereits vorhandenen Catch-all- und Not-found-Strukturen, sind selbst kein Matcher und erzeugen keine Schleife.
+- `config.matcher` enthält exakt die folgenden 15 literalen Pfade, ohne Präfix-, Wildcard- oder globale Regel:
+
+| Nr. | Statischer Matcher |
+|---:|---|
+| 1 | `/leistungen/autovermietung` |
+| 2 | `/leistungen/autoservice` |
+| 3 | `/leistungen/detailing` |
+| 4 | `/leistungen/zulassungsservice` |
+| 5 | `/leistungen/abschleppdienst-pannenhilfe` |
+| 6 | `/en/leistungen/autovermietung` |
+| 7 | `/en/leistungen/autoservice` |
+| 8 | `/en/leistungen/detailing` |
+| 9 | `/en/leistungen/zulassungsservice` |
+| 10 | `/en/leistungen/abschleppdienst-pannenhilfe` |
+| 11 | `/ru/leistungen/autovermietung` |
+| 12 | `/ru/leistungen/autoservice` |
+| 13 | `/ru/leistungen/detailing` |
+| 14 | `/ru/leistungen/zulassungsservice` |
+| 15 | `/ru/leistungen/abschleppdienst-pannenhilfe` |
+
+- Der Proxy enthält keine Datenbank-, Fetch-, Dependency-, Environment-, Cookie-, Tracking-, Canonical-, Hreflang- oder SEO-Header-Logik. Ähnlich benannte unbekannte Pfade, die drei internen Recovery-Ziele und die 30 V1-Routen werden nach realer Produktionsprüfung nicht vom Proxy erfasst.
+
+### Vollständige GET-, HEAD-, Query- und Reload-Matrix
+
+Alle Antworten besitzen `text/html; charset=utf-8`, keinen `Location`-Header und keinen 3xx-Status. Die jeweilige ursprüngliche Browser-URL bleibt sichtbar; Query-URLs behalten `?e1=1&keep=1`.
+
+| Nr. | Legacy-URL | GET | HEAD | Query | Reload | `lang` / H1 / Robots |
+|---:|---|---:|---:|---:|---:|---|
+| 1 | `/leistungen/autovermietung` | 404 | 404 | 404 | 404 | DE / `Seite nicht gefunden` / `noindex` |
+| 2 | `/leistungen/autoservice` | 404 | 404 | 404 | 404 | DE / `Seite nicht gefunden` / `noindex` |
+| 3 | `/leistungen/detailing` | 404 | 404 | 404 | 404 | DE / `Seite nicht gefunden` / `noindex` |
+| 4 | `/leistungen/zulassungsservice` | 404 | 404 | 404 | 404 | DE / `Seite nicht gefunden` / `noindex` |
+| 5 | `/leistungen/abschleppdienst-pannenhilfe` | 404 | 404 | 404 | 404 | DE / `Seite nicht gefunden` / `noindex` |
+| 6 | `/en/leistungen/autovermietung` | 404 | 404 | 404 | 404 | EN / `Page not found` / `noindex` |
+| 7 | `/en/leistungen/autoservice` | 404 | 404 | 404 | 404 | EN / `Page not found` / `noindex` |
+| 8 | `/en/leistungen/detailing` | 404 | 404 | 404 | 404 | EN / `Page not found` / `noindex` |
+| 9 | `/en/leistungen/zulassungsservice` | 404 | 404 | 404 | 404 | EN / `Page not found` / `noindex` |
+| 10 | `/en/leistungen/abschleppdienst-pannenhilfe` | 404 | 404 | 404 | 404 | EN / `Page not found` / `noindex` |
+| 11 | `/ru/leistungen/autovermietung` | 404 | 404 | 404 | 404 | RU / `Страница не найдена` / `noindex` |
+| 12 | `/ru/leistungen/autoservice` | 404 | 404 | 404 | 404 | RU / `Страница не найдена` / `noindex` |
+| 13 | `/ru/leistungen/detailing` | 404 | 404 | 404 | 404 | RU / `Страница не найдена` / `noindex` |
+| 14 | `/ru/leistungen/zulassungsservice` | 404 | 404 | 404 | 404 | RU / `Страница не найдена` / `noindex` |
+| 15 | `/ru/leistungen/abschleppdienst-pannenhilfe` | 404 | 404 | 404 | 404 | RU / `Страница не найдена` / `noindex` |
+
+- Trailing-Slash-Requests behalten unverändert die Next.js-Normalisierung: Der erste Request antwortet mit 308 auf den slashlosen Originalpfad, der anschließend HTTP 404 liefert. Es wurde keine globale Normalisierungskonfiguration geändert.
+- Der maschinenlesbare Vergleich meldet keine Abweichung bei Sprache, Title, Description, Robots, Canonical, Hreflang, sichtbarer H1, Erklärungstext, Recovery-Links, JSON-LD, Bildern oder Layout. Alle sechs repräsentativen DE-/EN-/RU-Screenshots bei 390 × 844 und 1440 × 1100 Pixeln sind bytegleich zur HTTP-200-Baseline.
+- Neun Tastaturprüfungen decken alle drei sichtbaren Recovery-Links je Sprache ab. Jeder Link wurde per Tab mit `:focus-visible` erreicht, per Enter zum erwarteten Ziel geöffnet und per Zurücknavigation auf die ursprüngliche Legacy-URL zurückgeführt.
+- Es gab null Hydration-, Page-, Request-, Subresource-, Modul-, Bild- oder Overflowfehler. Chromium protokolliert bei jeder absichtlich mit 404 antwortenden Hauptnavigation erwartungsgemäß die generische Meldung `Failed to load resource: the server responded with a status of 404 (Not Found)`; darüber hinaus trat kein Console- oder Anwendungsfehler auf.
+
+### Geschützte Redirects, V1-Routen und SEO
+
+| Redirect-Quelle | Direktes Ziel | Status | Query | Zielstatus |
+|---|---|---:|---|---:|
+| `/leistungen/unfallgutachten` | `/gutachtenarten/unfallgutachten` | 308 | erhalten | 200 |
+| `/leistungen/fahrzeugbewertung` | `/gutachtenarten/fahrzeugbewertung` | 308 | erhalten | 200 |
+| `/leistungen/schadendokumentation` | `/gutachtenarten/schadendokumentation` | 308 | erhalten | 200 |
+| `/en/leistungen/unfallgutachten` | `/en/gutachtenarten/unfallgutachten` | 308 | erhalten | 200 |
+| `/ru/leistungen/unfallgutachten` | `/ru/gutachtenarten/unfallgutachten` | 308 | erhalten | 200 |
+
+- Die Produktionsprüfung bestätigt damit die Next.js-Ausführungsreihenfolge: Alle fünf in `next.config.mjs` konfigurierten Redirects bleiben vor dem Proxy wirksam, direkt, ohne Kette oder Schleife. `next.config.mjs` blieb unverändert.
+- Alle 30 V1-Routen liefern weiterhin HTTP 200 mit korrektem `html lang`, unveränderter sichtbarer Ausgabe, Robots-Status, Canonical, Hreflang, Metadata und Structured Data. Die Indexierungsmatrix bleibt bei 15 indexierbaren und 15 `noindex`-Routen.
+- Die Sitemap enthält weiterhin exakt 15 freigegebene kanonische V1-URLs. Keine Legacy-URL und kein internes Rewrite-Ziel erscheint in Sitemap, Canonical, Hreflang, Navigation oder internen Links. Die internen Ziele sind bei direktem Aufruf `noindex`, besitzen keinen Canonical und kein Hreflang.
+- Der Structured-Data-Vergleich aller 30 V1-Routen ist ohne Abweichung. Es gibt keine neuen oder aktiven Legacy-Service-, Werkstatt- oder `AutoRepair`-Signale; die JSON-LD-Ausgabe der Recovery-Seiten blieb unverändert.
+
+### Technische Checks und Reviewer
+
+- `git diff --check`, `npm ls --depth=0`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Die fünf bereits dokumentierten lokalen `extraneous`-WASM-Verzeichnisse blieben unverändert; fehlende oder ungültige direkte Dependencies wurden nicht gemeldet.
+- Der Produktions-Build mit Next.js 16.2.4 erzeugte weiterhin 36 statische Seiten und weist den Proxy separat als Middleware aus. Der lokale `next-router-check` prüfte unverändert 24 UI-Routen, davon elf datenladend beziehungsweise `notFound()`-fähig, und fand null fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Grenzen.
+- Der read-only `local_seo_reviewer` bestätigt den behobenen Soft-404-P1, unveränderte SEO- und Structured-Data-Signale sowie keine SEO-Blocker. Der read-only `performance_budget_reviewer` bestätigt exakt 15 statische Matcher, keine globale Ausführung, keine Daten-/Fetch-/Client-/Dependency-Auswirkung und keine P0-, P1- oder P2-Performance-Risiken.
+- Der verpflichtende read-only `quality_reviewer` bestätigt den deutschen Dateikommentar, den benannten Proxy-Export, die exakt begrenzte 15er-Matcher-Liste, den fehlenden Redirect-/Loop-/Scope-Zuwachs, den Drei-Dateien-Scope sowie Status- und Akzeptanzkriterienführung mit null Verstößen.
+- Der atomare Revert besteht aus dem Entfernen von `proxy.ts` und dem Rücksetzen dieses E1-Abschnitts sowie des zugehörigen Changelog-Eintrags. Komponenten, Routen, Catch-all-, Not-found-, Loading-, Error-, Layout-, Header-, Mobile-Menü-, Style-, Übersetzungs-, Metadata-, Structured-Data-, Sitemap-, Robots-, Asset-, Dependency-, Spec- und Roadmap-Dateien blieben unverändert.
+
+### E1-Ergebnis und verbleibender Status
+
+- Das Soft-404-Akzeptanzkriterium ist mit 15 von 15 erfolgreichen GET- und HEAD-Antworten geschlossen. Aufgabe 026 erfüllt damit 22 von 24 Akzeptanzkriterien.
+- Der mobile Menüfokus nach Escape bleibt der einzige technische P1 dieses Tasks und wird in E1 weder geändert noch neu bewertet. Das finale Abschluss-/Freigabekriterium bleibt ebenfalls offen.
+- Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`. Die Website wird nicht als launchbereit bezeichnet; es erfolgt keine Verschiebung nach `workflow/done/`. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden.
+
 ## Akzeptanzkriterien
 
 - [x] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
@@ -770,8 +862,8 @@ Die am 22. August 2026 ausdrücklich freigegebene Phase E wurde als vollständig
 - [x] Mobile-, Tablet- und Desktopprüfungen bei mindestens 390, 768 und 1440 px bestehen in DE, EN und RU nach jeder sichtbaren Phase; A1, A3 und A7 erhalten die dokumentierten gezielten Smoke-Checks.
 - [ ] Accessibility-Prüfungen decken Tastaturfokus, sichtbaren Fokus, Linkzweck, Accessible Names, Sprache, Touchziele und 404-/Error-Recovery ab; Typografieprüfungen decken Zeilenumbrüche, Overflow und CTA-Lesbarkeit ab.
   - Phase E deckt alle Punkte ab, der Fokus kehrt nach Escape jedoch in DE, EN und RU nicht zum Auslöser des mobilen Menüs zurück. Das Kriterium bleibt bis zur Korrektur und erneuten Prüfung offen.
-- [ ] Browserkonsole, Hydration, Requests, interne Links und Bilder sind auf den pro Phase benannten Wegen fehlerfrei; fehlende Bilder oder Soft-404-Zustände gelten als Fehler.
-  - Console-, Hydration-, Request-, Link- und Bildprüfungen bestehen. Alle 15 entfernten Legacy-Service-URLs antworten jedoch mit HTTP 200 und bleiben damit Soft-404-Zustände; das ausdrücklich formulierte Fehlerkriterium ist nicht erfüllt.
+- [x] Browserkonsole, Hydration, Requests, interne Links und Bilder sind auf den pro Phase benannten Wegen fehlerfrei; fehlende Bilder oder Soft-404-Zustände gelten als Fehler.
+  - Follow-up E1 setzt den Status vor dem Streaming per eng begrenztem Rewrite auf 404. Alle 15 Legacy-URLs bestehen GET, HEAD, Query und Reload ohne Redirect; lokalisierte Recovery-Ausgabe, `noindex`, Links und Bilder bleiben unverändert. Die einzige Console-Meldung ist Chromiums erwartetes Statussignal der absichtlich geladenen 404-Hauptdokumente, kein Anwendungsfehler.
 - [x] EN/RU enthalten keine unbeabsichtigten deutschen Resttexte und bleiben fachlich gleichwertig zu DE; Prüfung durch dreisprachigen Content-Vergleich nach B und D.
 - [x] Rechtstexte, Legal-Routen, externe Rechtsfreigabe, echter Formularversand, Deployment und Monitoring bleiben unverändert und außerhalb von Aufgabe 026.
 - [x] Für jede Phase sind exakter Scope, Ausschlüsse, Abhängigkeiten, Risiken, Prüfungen und atomarer Revert-Weg im tatsächlichen Abschlussstand dokumentiert.
