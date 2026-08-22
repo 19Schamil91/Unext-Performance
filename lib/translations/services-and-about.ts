@@ -3,365 +3,134 @@ import type { Locale } from "@/lib/i18n"
 export const servicesAndAboutTranslations = {
   de: {
     servicesPage: {
-      title: "6 Hauptleistungen rund ums Fahrzeug",
+      title: "Gutachten bei Unfall, Schaden und Wertermittlung",
       description:
-        "Diese 6 Hauptleistungen bilden den Kern von UNEXT. Sie sehen sofort, wobei wir Sie direkt unterstützen können - klar, schnell und ohne Umwege.",
+        "Der Schwerpunkt liegt auf Unfallgutachten in Berlin. Ergänzend unterstützt UNEXT bei der Fahrzeugbewertung und der nachvollziehbaren Schadendokumentation.",
       directCall: "Direkt anrufen:",
-      onRequestContact: "Telefon auf Anfrage · @unext.performance",
+      onRequestContact: "Telefon, WhatsApp oder Kontaktformular",
       items: [
         {
-          title: "Unfallhilfe & Gutachten",
-          subtitle: "UNFALLX",
+          title: "Unfallgutachten",
+          subtitle: "Nach Unfall oder Schaden",
           description:
-            "Nach einem Unfall erhalten Sie schnelle Hilfe, ein unabhängiges Gutachten und klare Orientierung.",
+            "UNEXT ordnet den Fahrzeugschaden fachlich ein und klärt mit Ihnen die nächsten Schritte.",
           features: [
-            "Schnelle Ersteinschätzung",
-            "Unterstützung bei der Schadensabwicklung",
-            "Unabhängiges Gutachten",
-            "Weitere Schritte über UNEXT möglich",
+            "Schaden sachlich einordnen",
+            "Fotos und Fahrzeugdaten bereithalten",
+            "Direkt Kontakt aufnehmen",
           ],
         },
         {
-          title: "Autovermietung",
-          subtitle: "Ersatzfahrzeuge",
+          title: "Fahrzeugbewertung",
+          subtitle: "Fahrzeugwert einordnen",
           description:
-            "Ersatzfahrzeuge nach Unfall oder Werkstattaufenthalt. Geprüft, schnell verfügbar und unkompliziert.",
+            "Wir bewerten den Fahrzeugwert fachlich – etwa vor Verkauf, Kauf oder weiteren Entscheidungen.",
           features: [
-            "Ersatzfahrzeuge direkt verfügbar",
-            "Flexible Laufzeiten",
-            "Schnelle & unkomplizierte Abwicklung",
-            "Zuverlässiger & geprüfter Service",
+            "Fahrzeugdaten aufnehmen",
+            "Zustand und Ausstattung berücksichtigen",
+            "Fahrzeugwert fachlich bewerten",
           ],
         },
         {
-          title: "Werkstatt & Service",
-          subtitle: "Wartung & Reparatur",
+          title: "Schadendokumentation",
+          subtitle: "Unterlagen sichern",
           description:
-            "Von Inspektion bis Reparatur kümmern wir uns zuverlässig um die Technik Ihres Fahrzeugs - auch wenn es schnell gehen muss.",
+            "Wir halten Schäden und Fahrzeugzustand mit Fotos und vorhandenen Unterlagen fest.",
           features: [
-            "Inspektion & Ölservice",
-            "Reifenservice",
-            "Diagnose & Reparatur",
-            "Auch für Fahrdienstfahrzeuge",
-          ],
-        },
-        {
-          title: "Aufbereitung & Pflege",
-          subtitle: "Detailing",
-          description:
-            "Professionelle Innen- und Außenaufbereitung für gepflegte Fahrzeuge, Werterhalt und einen sauberen Gesamteindruck.",
-          features: [
-            "Innen- & Außenreinigung",
-            "Lackaufbereitung & Politur",
-            "Werterhalt",
-            "Individuelle Pakete",
-          ],
-        },
-        {
-          title: "Kfz-Zulassung",
-          subtitle: "Anmeldung & Kennzeichen",
-          description:
-            "Wir übernehmen Anmeldung, Abmeldung und Kennzeichenservice. Ohne Termin, Behördengang oder Aufwand für Sie.",
-          features: [
-            "Kfz-Zulassung",
-            "Kurzzeit- & Exportkennzeichen",
-            "Versicherungsservice inkl. eVB",
-            "Wunschkennzeichen-Service",
-          ],
-        },
-        {
-          title: "Pannenhilfe & Abschleppen",
-          subtitle: "Soforthilfe & Transport",
-          description:
-            "Im Notfall sind wir schnell für Sie da und sorgen für eine sichere Lösung. Sie müssen sich um nichts kümmern - wir übernehmen die nächsten Schritte für Sie.",
-          features: [
-            "Schnelle Hilfe bei Unfall oder Panne",
-            "Abschleppdienst direkt vor Ort",
-            "Fahrzeugtransport zur Wunschadresse",
-            "Komplette Abwicklung auf Wunsch",
+            "Betroffene Bereiche festhalten",
+            "Fotos und Unterlagen erfassen",
+            "Fahrzeugzustand dokumentieren",
           ],
         },
       ],
-    },
-    aboutPage: {
-      title: "Über UNEXT GmbH",
-      description:
-        "Vom spezialisierten Unfallgutachter zum vollständigen Automotive-Partner. Lernen Sie das Team hinter UNEXT kennen und erfahren Sie, was uns antreibt.",
-      storyEyebrow: "Unsere Geschichte",
-      storyTitle: "Von der Vision zur Realität",
-      storyParagraphs: [
-        "UNEXT GmbH wurde 2024 in Berlin gegründet, mit einer klaren Mission: professionelle Unfallgutachten und Soforthilfe für Menschen, die gerade einen stressigen Moment durchleben. Unter der Marke UNFALLX haben wir uns schnell als zuverlässiger und kompetenter Partner etabliert.",
-        "Doch wir haben erkannt, dass unsere Kunden mehr brauchen. Wer nach einem Unfall ein Gutachten benötigt, braucht oft auch ein Ersatzfahrzeug. Wer sein Auto zur Reparatur bringt, wünscht sich einen Ansprechpartner für alles. Und wer sein Fahrzeug liebt, möchte es in besten Händen wissen.",
-        "Deshalb haben wir unser Angebot erweitert: Autovermietung, Werkstatt\u00A0&\u00A0Service, Aufbereitung\u00A0&\u00A0Pflege, Kfz-Zulassung und Pannenhilfe\u00A0&\u00A0Abschleppen sind heute feste Bestandteile von UNEXT. Sechs starke Bereiche, ein kompetenter Partner - das ist unsere Vision, die wir jeden Tag leben.",
-      ],
-      valuesTitle: "Unsere Werte",
-      valuesDescription: "Diese Prinzipien leiten uns bei allem, was wir tun.",
-      values: [
-        {
-          title: "Qualität",
-          description:
-            "Hohe Standards,\nklare Prozesse und Sorgfalt\nsichern jedes Ergebnis.",
-        },
-        {
-          title: "Kundenorientierung",
-          description:
-            "Wir hören zu,\nfinden ohne Umwege\neine passende Lösung.",
-        },
-        {
-          title: "Zuverlässigkeit",
-          description:
-            "Wir halten Zusagen,\narbeiten pünktlich,\nehrlich und verlässlich.",
-        },
-        {
-          title: "Leidenschaft",
-          description:
-            "Wir lieben Autos\nund saubere Arbeit.\nDas zeigt sich in jedem Detail.",
-        },
-      ],
-      stats: [
-        { value: "2024", label: "Gegründet" },
-        { value: "6", label: "Servicebereiche" },
-        { value: "1", label: "Standort in Berlin" },
-        { value: "100%", label: "Engagement" },
-      ],
-      milestones: [
-        {
-          year: "2024",
-          title: "Gründung",
-          description: "UNEXT GmbH wird in Berlin gegründet mit Fokus auf Unfallgutachten (UNFALLX).",
-        },
-        { year: "2026", title: "Autovermietung", description: "Erweiterung des Angebots um professionelle Mietfahrzeuge." },
-        { year: "2026", title: "Werkstatt & Detailing", description: "Eröffnung des Werkstattbereichs und Start des Premium-Detailing-Service." },
-        { year: "Heute", title: "Vollständiger Service", description: "Sechs starke Bereiche unter einem Dach - Ihr Automotive-Partner in Berlin." },
-      ],
-      subBrandBadge: "Unsere Marke",
-      subBrandTitle: "UNFALLX - Unsere Wurzeln",
-      subBrandDescription:
-        "UNFALLX ist die Marke von UNEXT GmbH, mit der alles begann.\nAls spezialisierter Service für Unfallgutachten und Soforthilfe steht UNFALLX für kompetente, schnelle und unabhängige Unterstützung nach Verkehrsunfällen.",
-      subBrandHighlights: ["Zertifizierte Gutachter", "Schnelle Terminvergabe", "Unabhängige Gutachten", "Komplette Schadensabwicklung"],
-      subBrandCta: "Mehr über UNFALLX",
     },
   },
   en: {
     servicesPage: {
-      title: "Our services",
+      title: "Vehicle appraisal services for accidents, damage and valuation",
       description:
-        "UNEXT GmbH offers a comprehensive range of vehicle-related services. Six strong business areas under one roof - professional, reliable and always there for you.",
+        "Accident damage appraisals in Berlin are our main focus. UNEXT also provides vehicle valuation and vehicle damage documentation.",
       directCall: "Call directly:",
-      onRequestContact: "Phone on request · @unext.performance",
+      onRequestContact: "Phone, WhatsApp or contact form",
       items: [
         {
-          title: "Accident Reports & Immediate Assistance",
-          subtitle: "UNFALLX",
+          title: "Accident Damage Appraisal",
+          subtitle: "After an accident or damage",
           description:
-            "After an accident, you need fast and competent support. Our certified experts prepare independent vehicle reports and assist\u00A0you\u00A0throughout the claims process.",
-          features: ["Fast appointments", "Support with claims handling", "Independent & professional reports", "Certified experts"],
-        },
-        {
-          title: "Car Rental",
-          subtitle: "Replacement vehicles",
-          description:
-            "Need a replacement vehicle quickly? Whether after an accident or while your car is in the workshop - we always have inspected vehicles ready for you.",
-          features: ["Replacement vehicles available immediately", "Flexible rental terms", "Fast & straightforward processing", "Reliable & inspected service"],
-        },
-        {
-          title: "Workshop & Service",
-          subtitle: "Repairs & maintenance",
-          description:
-            "Our professional workshop team takes care of every aspect of your vehicle. From inspections to repairs - everything from one source.",
-          features: ["Oil change & inspection", "Tire service & storage", "Dashcam installation", "General repairs & maintenance"],
-        },
-        {
-          title: "Detailing",
-          subtitle: "Premium vehicle care",
-          description:
-            "Give your vehicle professional care. Our detailing experts restore your car's shine inside and out.",
-          features: ["Paint correction & polish", "Interior & exterior cleaning", "Value retention & visual upgrade", "Professional & certified"],
-        },
-        {
-          title: "Vehicle Registration Service",
-          subtitle: "Registration & license plates",
-          description:
-            "We handle the entire process for you - from\u00A0deregistration\u00A0to\u00A0completed\u00A0registration. No appointments, no authority visits and no extra effort on your side.",
+            "UNEXT assesses the vehicle damage professionally and discusses the next steps with you.",
           features: [
-            "Vehicle registration",
-            "Temporary & export plates",
-            "Insurance service incl. eVB number",
-            "Custom plate service",
+            "Have the damage assessed professionally",
+            "Keep photos and vehicle details ready",
+            "Contact us directly",
           ],
         },
         {
-          title: "Towing & Roadside Help",
-          subtitle: "Immediate help & transport",
+          title: "Vehicle Valuation",
+          subtitle: "Understand the vehicle's value",
           description:
-            "In emergencies, we are there quickly and provide a safe solution. You do not have to take care of anything - we handle the next steps for you.",
+            "We assess the vehicle's value professionally, for example before a sale, purchase or another important decision.",
           features: [
-            "Fast help after accidents or breakdowns",
-            "On-site towing service",
-            "Vehicle transport to your destination",
-            "Complete follow-up handling on request",
+            "Record the vehicle details",
+            "Consider condition and equipment",
+            "Assess the vehicle's value professionally",
+          ],
+        },
+        {
+          title: "Vehicle Damage Documentation",
+          subtitle: "Record vehicle damage clearly",
+          description:
+            "We record vehicle damage and condition using photographs and available documents.",
+          features: [
+            "Record the affected areas",
+            "Capture photos and documents",
+            "Document the vehicle's condition",
           ],
         },
       ],
-    },
-    aboutPage: {
-      title: "About UNEXT GmbH",
-      description:
-        "From a specialized accident expert to a full automotive partner. Get to know the team behind UNEXT and learn what drives us.",
-      storyEyebrow: "Our story",
-      storyTitle: "From vision to reality",
-      storyParagraphs: [
-        "UNEXT GmbH was founded in Berlin in 2024 with a clear mission: professional accident reports and immediate assistance for people going through a stressful moment. Under the UNFALLX brand, we quickly established ourselves as a reliable and competent partner.",
-        "But we realized our customers need more. Anyone needing an accident report often also needs a replacement vehicle. Anyone bringing a car in for repairs wants one point of contact for everything. And anyone who loves their vehicle wants it in the best hands.",
-        "That is why we expanded our services: car rental, professional workshop service, premium detailing, vehicle registration and towing are now integral parts of UNEXT. Six strong business areas, one competent partner - that is the vision we live every day.",
-      ],
-      valuesTitle: "Our values",
-      valuesDescription: "These principles guide everything we do.",
-      values: [
-        { title: "Quality", description: "High standards,\nclear processes and care\nshape every result." },
-        { title: "Customer focus", description: "We listen first,\nfind the right solution\nwithout detours." },
-        { title: "Reliability", description: "We keep our promises\nand work on time,\nhonestly and dependably." },
-        { title: "Passion", description: "We love cars\nand clean work.\nIt shows in every detail." },
-      ],
-      stats: [
-        { value: "2024", label: "Founded" },
-        { value: "6", label: "Service areas" },
-        { value: "1", label: "Berlin location" },
-        { value: "100%", label: "Commitment" },
-      ],
-      milestones: [
-        { year: "2024", title: "Founded", description: "UNEXT GmbH is founded in Berlin with a focus on accident reports (UNFALLX)." },
-        { year: "2026", title: "Car Rental", description: "Expansion of the portfolio with professional rental vehicles." },
-        { year: "2026", title: "Workshop & Detailing", description: "Opening of the workshop area and launch of the premium detailing service." },
-        { year: "Today", title: "Full Service", description: "Six strong business areas under one roof - your automotive partner in Berlin." },
-      ],
-      subBrandBadge: "Our brand",
-      subBrandTitle: "UNFALLX - Our roots",
-      subBrandDescription:
-        "UNFALLX is the UNEXT GmbH brand where it all began.\nAs a specialized service for accident reports and immediate assistance, UNFALLX stands for competent, fast and independent support after road accidents.",
-      subBrandHighlights: ["Certified experts", "Fast appointments", "Independent reports", "Complete claims handling"],
-      subBrandCta: "More about UNFALLX",
     },
   },
   ru: {
     servicesPage: {
-      title: "Наши услуги",
+      title: "Оценка ущерба после ДТП, фиксация повреждений и оценка стоимости",
       description:
-        "UNEXT GmbH предлагает полный спектр услуг вокруг автомобиля. Шесть сильных направлений под одной крышей - профессионально, надежно и всегда рядом.",
+        "Основное направление UNEXT — независимая оценка ущерба после ДТП в Берлине. Кроме того, UNEXT оказывает услуги по оценке стоимости автомобиля и структурированной фиксации повреждений.",
       directCall: "Позвонить напрямую:",
-      onRequestContact: "Телефон по запросу · @unext.performance",
+      onRequestContact: "Телефон, WhatsApp или контактная форма",
       items: [
         {
-          title: "Экспертиза ДТП и срочная помощь",
-          subtitle: "UNFALLX",
+          title: "Оценка ущерба после ДТП",
+          subtitle: "После ДТП или повреждения",
           description:
-            "После ДТП вам нужна быстрая и компетентная помощь. Наши сертифицированные эксперты готовят независимые автоэкспертизы и сопровождают вас на всем этапе урегулирования ущерба.",
-          features: ["Быстрая запись", "Поддержка по урегулированию ущерба", "Независимая и профессиональная экспертиза", "Сертифицированные эксперты"],
-        },
-        {
-          title: "Прокат авто",
-          subtitle: "Подменные автомобили",
-          description:
-            "Нужен автомобиль быстро? После ДТП или пока ваша машина в сервисе - у нас всегда есть проверенные автомобили для вас.",
-          features: ["Подменные автомобили доступны сразу", "Гибкие сроки аренды", "Быстрое и простое оформление", "Надежный и проверенный сервис"],
-        },
-        {
-          title: "Сервис и мастерская",
-          subtitle: "Ремонт и обслуживание",
-          description:
-            "Наша профессиональная команда мастерской позаботится обо всем, что касается вашего автомобиля. От инспекции до ремонта - все из одних рук.",
-          features: ["Замена масла и инспекция", "Шиномонтаж и хранение шин", "Установка видеорегистратора", "Общий ремонт и обслуживание"],
-        },
-        {
-          title: "Детейлинг",
-          subtitle: "Премиальный уход за автомобилем",
-          description:
-            "Подарите вашему автомобилю профессиональный уход. Наши специалисты по детейлингу вернут блеск вашему авто внутри и снаружи.",
-          features: ["Коррекция лака и полировка", "Чистка салона и кузова", "Сохранение стоимости и визуальное обновление", "Профессионально и сертифицированно"],
-        },
-        {
-          title: "Сервис регистрации авто",
-          subtitle: "Оформление и номера",
-          description:
-            "Мы берём на себя регистрацию, снятие с учёта и номера. Без записи и лишних визитов.",
+            "UNEXT профессионально оценивает повреждения автомобиля и согласовывает с вами дальнейшие шаги.",
           features: [
-            "Регистрация авто",
-            "Временные и экспортные номера",
-            "Страховой сервис с eVB",
-            "Сервис выбора номера",
+            "Профессионально оценить повреждения",
+            "Подготовить фотографии и данные автомобиля",
+            "Связаться напрямую",
           ],
         },
         {
-          title: "Эвакуатор и помощь на дороге",
-          subtitle: "Срочная помощь и транспортировка",
+          title: "Оценка стоимости автомобиля",
+          subtitle: "Определить стоимость автомобиля",
           description:
-            "В экстренной ситуации мы быстро приезжаем и обеспечиваем безопасное решение. Вам не нужно ни о чем заботиться - мы берем следующие шаги на себя.",
+            "Мы профессионально оцениваем стоимость автомобиля, например перед продажей, покупкой или другим важным решением.",
           features: [
-            "Быстрая помощь при ДТП или поломке",
-            "Эвакуатор прямо на место",
-            "Доставка авто по нужному адресу",
-            "Полное сопровождение по запросу",
+            "Зафиксировать данные автомобиля",
+            "Учесть состояние и комплектацию",
+            "Профессионально оценить стоимость",
+          ],
+        },
+        {
+          title: "Фиксация повреждений",
+          subtitle: "Зафиксировать повреждения",
+          description:
+            "Мы фиксируем повреждения и состояние автомобиля с помощью фотографий и имеющихся документов.",
+          features: [
+            "Зафиксировать повреждённые участки",
+            "Собрать фотографии и документы",
+            "Зафиксировать состояние автомобиля",
           ],
         },
       ],
-    },
-    aboutPage: {
-      title: "О UNEXT GmbH",
-      description:
-        "От специализированного эксперта по ДТП до полноценного автомобильного партнера. Познакомьтесь с командой UNEXT и узнайте, что нас вдохновляет.",
-      storyEyebrow: "Наша история",
-      storyTitle: "От идеи к реальности",
-      storyParagraphs: [
-        "UNEXT GmbH была основана в Берлине в 2024 году с четкой миссией: профессиональная экспертиза ДТП и срочная помощь людям в стрессовой ситуации. Под брендом UNFALLX мы быстро стали надежным и компетентным партнером.",
-        "Но мы поняли, что клиентам нужно больше. Тем, кому нужна экспертиза после ДТП, часто нужен и подменный автомобиль. Тем, кто отдает машину в ремонт, нужен единый контакт по всем вопросам. А те, кто любят свой автомобиль, хотят доверить его лучшим рукам.",
-        "Поэтому мы расширили спектр услуг: прокат авто, профессиональная мастерская, премиальный детейлинг, регистрация автомобилей и эвакуатор теперь являются частью UNEXT. Шесть сильных направлений, один компетентный партнер - именно так выглядит наша ежедневная работа.",
-      ],
-      valuesTitle: "Наши ценности",
-      valuesDescription: "Эти принципы направляют нашу работу каждый день.",
-      values: [
-        {
-          title: "Качество",
-          description:
-            "Высокие стандарты,\nчеткие процессы\nдают стабильный результат.",
-        },
-        {
-          title: "Ориентация на клиента",
-          description:
-            "Мы слушаем,\nнаходим решение\nбез лишних шагов.",
-        },
-        {
-          title: "Надежность",
-          description:
-            "Мы держим слово\nи работаем честно,\nпунктуально и надежно.",
-        },
-        {
-          title: "Увлеченность",
-          description:
-            "Мы любим авто\nи аккуратную работу.\nЭто видно в каждой детали.",
-        },
-      ],
-      stats: [
-        { value: "2024", label: "Основана" },
-        { value: "6", label: "Направлений" },
-        { value: "1", label: "Локация в Берлине" },
-        { value: "100%", label: "Вовлеченность" },
-      ],
-      milestones: [
-        {
-          year: "2024",
-          title: "Основание",
-          description: "UNEXT GmbH основана в Берлине с фокусом на экспертизе ДТП (UNFALLX).",
-        },
-        { year: "2026", title: "Прокат авто", description: "Расширение портфолио за счет профессиональных арендных автомобилей." },
-        { year: "2026", title: "Мастерская и детейлинг", description: "Открытие мастерской и запуск премиального детейлинга." },
-        { year: "Сегодня", title: "Полный сервис", description: "Шесть сильных направлений под одной крышей - ваш автомобильный партнер в Берлине." },
-      ],
-      subBrandBadge: "\u041d\u0430\u0448 \u0431\u0440\u0435\u043d\u0434",
-      subBrandTitle: "UNFALLX - наши корни",
-      subBrandDescription:
-        "UNFALLX - бренд UNEXT GmbH, с которого все началось.\nКак специализированный сервис по экспертизе ДТП и срочной помощи, UNFALLX означает компетентную, быструю и независимую поддержку после дорожных происшествий.",
-      subBrandHighlights: ["Сертифицированные эксперты", "Быстрая запись", "Независимые заключения", "Полное сопровождение по ущербу"],
-      subBrandCta: "Подробнее об UNFALLX",
     },
   },
 } as const satisfies Record<Locale, unknown>

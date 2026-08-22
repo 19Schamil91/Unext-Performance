@@ -2,7 +2,137 @@
 
 Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe und Bereich. Es ersetzt nicht die Detailhistorie in `workflow/`.
 
+## 2026-08-22
+
+### Aufgabe 026 - Cleanup-Aufgabe formal abgeschlossen
+
+- Nach ausdrücklicher Nutzerfreigabe wurde Aufgabe 026 von `workflow/active/` nach `workflow/done/` verschoben und der Status auf `abgeschlossen` gesetzt. Alle 24 Akzeptanzkriterien sind erfüllt; innerhalb der Aufgabe bestehen keine offenen technischen P0- oder P1-Findings mehr.
+- Dieser reine Workflow- und Dokumentationsschritt verändert keinen Website-Code, keine Komponenten, Routen, Styles, Übersetzungen, Specs, Assets, Dependencies oder Konfigurationen. Die vollständigen technischen, Browser- und Reviewer-Prüfungen waren unmittelbar zuvor mit Commit `ee65554` bestanden und wurden deshalb nicht erneut ausgeführt.
+- Die Roadmap wurde ausschließlich an den erreichten Meilenstein angepasst: Aufgabe 026 ist dort als abgeschlossen markiert, während die getrennten Aufgaben 033 bis 035 weiterhin offen und ungestartet bleiben. Der formale Abschluss ist keine Gesamt-Launch-Freigabe.
+
+### Aufgabe 026 - Fokus-Rückgabe des mobilen Menüs nach Escape
+
+- Das ausdrücklich freigegebene Follow-up E2 behebt ausschließlich den letzten technischen Task-026-P1: Nach Escape erhält der tatsächliche Auslöser des mobilen Menüs den Tastaturfokus bereits beim kontrollierten Schließen zurück. `HeaderMobileMenu.tsx` verwendet dafür eine stabile Button-Referenz, markiert nur den Escape-Schließweg und sichert das Fokusziel zusätzlich über Radix `onCloseAutoFocus`; `preventScroll` verhindert einen ungewollten Seitensprung.
+- Die ursprüngliche Phase-E-Messung erfolgte nach 150 Millisekunden, während das Radix-Sheet wegen seiner 300-ms-Schließanimation noch im DOM stand. E2 entfernt dieses Zwischenfenster: In DE, EN und RU gilt bei 390 und 430 Pixeln bereits 50 Millisekunden nach `open=false` nachweisbar `document.activeElement === Menü-Auslöser`, der Fokus ist sichtbar und die Seite bleibt an derselben Scrollposition.
+- Tab und Shift+Tab bleiben im geöffneten Dialog gefangen; Enter und Space öffnen das Menü und ermöglichen die unmittelbare Wiederöffnung nach Escape. X-Schaltfläche, Overlay, interne Navigation, Sprachwechsel und je ein zusätzlicher Leistungsweg pro Sprache funktionieren weiterhin ohne Fokus in einem geschlossenen Element.
+- Die visuellen und funktionalen Prüfungen bei 390, 430, 768 und 1440 Pixeln fanden keine Layout-, Text-, Stil-, Overflow- oder Header-Regression. Desktop-Navigation und Theme-Wechsel bestehen in allen drei Sprachen. Es wurde kein Formular abgesendet und kein Resend-Aufruf ausgelöst.
+- Die E1-Schutzregression besteht unverändert: 15 von 15 Legacy-Service-URLs liefern bei GET, HEAD, Query und Reload HTTP 404 ohne Redirect; fünf Gutachten-Redirects bleiben direkte 308-Antworten mit Query-Erhalt, und alle 30 V1-Routen liefern HTTP 200. Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang und `proxy.ts` sind unverändert.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check mit 24 UI-Routen, elf datenladenden Routen und null fehlenden Pflichtgrenzen bestanden. Accessibility-, Mobile-Visual- und Quality-Review melden keine P0-/P1-Verstöße; der Fokus-P1 ist geschlossen. Der gezielte Launch-Review bestätigt, dass innerhalb von Aufgabe 026 kein technischer P0/P1 mehr offen ist, erteilt aber ausdrücklich keine Gesamt-Launch-Freigabe.
+- Technisch wurde ausschließlich `components/HeaderMobileMenu.tsx` geändert; zusätzlich wurden diese Changelog-Datei und die aktive Task-Datei dokumentiert. Routen, Sheet-Basis, Texte, Styles, SEO, Assets, Dependencies, Specs und `ROADMAP.md` blieben unverändert. Aufgabe 026 erfüllt 23 von 24 Akzeptanzkriterien und wartet weiterhin auf die ausdrückliche Abschlussfreigabe.
+
+### Aufgabe 026 - Legacy-Service-URLs liefern echte 404-Antworten
+
+- Das ausdrücklich freigegebene Follow-up E1 behebt ausschließlich den dokumentierten Soft-404-P1 der 15 entfernten Legacy-Service-URLs. Eine neue Root-Datei `proxy.ts` besitzt exakt 15 statische, literal definierte Matcher und schreibt die Requests sprachabhängig auf vorhandene DE-/EN-/RU-Catch-all-Strukturen um; der äußere Status wird vor dem Streaming auf HTTP 404 gesetzt.
+- Alle 15 Legacy-URLs liefern bei GET, HEAD, Query und Reload HTTP 404 mit `text/html`, ohne `Location`-Header oder Redirect. Die ursprüngliche Browser-URL einschließlich Query bleibt sichtbar. Die vorhandene lokalisierte Recovery-Ausgabe, `html lang`, `noindex`, drei Rückwege und sechs repräsentative Mobile-/Desktop-Screenshots blieben gegenüber der HTTP-200-Baseline unverändert.
+- Die internen Rewrite-Ziele sind nicht Teil des Matchers, nicht verlinkt, nicht in Sitemap oder Hreflang enthalten, besitzen keinen Canonical und bleiben `noindex`. Trailing-Slash-Aufrufe behalten die vorhandene Next.js-Normalisierung per 308 zum slashlosen Pfad bei; das normalisierte Ziel liefert anschließend 404.
+- Die fünf geschützten Gutachten-Redirects bleiben direkte 308-Weiterleitungen mit Query-Erhalt. Alle 30 V1-Routen liefern weiter HTTP 200; sichtbare Ausgabe, Indexierungsmatrix, Metadata und Structured Data sind unverändert. Es wurden keine Legacy-/`AutoRepair`-Signale, internen Legacy-Links, Rewrite-Schleifen oder unerwarteten Browserfehler gefunden.
+- Diff-Check, `npm ls --depth=0`, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check mit 24 UI-Routen, elf datenladenden Routen und null fehlenden Pflichtgrenzen bestanden. Local-SEO- und Performance-Review melden keine Blocker; der verpflichtende Codequalitätsreview bestand mit null Verstößen. Der Soft-404-P1 ist geschlossen.
+- Komponenten, Catch-all-/Not-found-/Loading-/Error-Dateien, `next.config.mjs`, Dependencies, Lockfiles, SEO-Dateien, Assets, Specs und `ROADMAP.md` blieben unverändert. Der separate P1 zur fehlenden Fokus-Rückgabe des mobilen Menüs bleibt offen; Aufgabe 026 steht bei 22 von 24 Akzeptanzkriterien, bleibt aktiv und im Status `in Arbeit`.
+
+### Aufgabe 026 - Finale Cleanup-Regression benötigt Follow-up
+
+- Die ausdrücklich freigegebene Phase E wurde als vollständige Read-only-Abschlussregression des kumulierten Task-026-Diffs ausgeführt. Der Prüfstart war sauber auf Branch `task-026-clean-up-legacy-code`; der kumulierte Stand umfasste 89 Dateien mit 1.193 Ergänzungen und 10.296 Löschungen. Website-Code, Routen, Assets, Dependencies, Specs und erledigte Tasks wurden in Phase E nicht verändert.
+- Diff-Check, `npm ls --depth=0`, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check bestanden. Alle 30 freigegebenen V1-Routen wurden bei 390, 768 und 1440 Pixeln geprüft; 21 repräsentative Routen erhielten zusätzliche Grenzprüfungen bei 430, 768 und 2048 Pixeln. Insgesamt entstanden 123 externe Screenshots ohne horizontalen Overflow, defekte sichtbare Bilder, Console-, Hydration-, Page-, Request-, Modul- oder HTTP-Fehler.
+- Die 30 V1-Routen liefern HTTP 200, korrekte Sprach-, Canonical-, Hreflang-, Robots- und Metadata-Signale. Die Sitemap enthält exakt die 15 freigegebenen indexierbaren URLs; 27 interne Links sowie 60 kontexttreue Sprachwechsel bestanden. Die fünf geschützten Gutachten-Redirects bleiben direkte 308-Weiterleitungen mit Query-Erhalt und ohne Kette oder Schleife.
+- Zwei P1-Blocker verhindern den Abschluss: Alle 15 entfernten Legacy-Service-URLs liefern weiterhin echte HTTP-200-Antworten mit lokalisiertem `noindex`-Recovery-Inhalt und sind damit Soft-404-Zustände; außerdem schließt das mobile Menü in DE, EN und RU zwar per Escape, gibt den Tastaturfokus danach aber nicht an den Auslöser zurück. Aufgabe 026 erfüllt deshalb die Accessibility- und Soft-404-Akzeptanzkriterien noch nicht.
+- Alle zwölf Formulare wurden ohne Versand geprüft; 75 Controls besitzen zugängliche Namen und die Leerformular-Validierung funktioniert. Typografie, sichtbarer dreisprachiger Inhalt, Formulare, Navigation, Theme-Umschaltung, Akkordeons und Recovery-Links blieben bedienbar. Als nachrangige Hinweise wurden überwiegend 40 Pixel hohe Touchziele, großer Recovery-Weißraum bei 2048 Pixeln, Performance-Budgets für ein 19,4-MB-Schutzasset und den First-Load-JavaScript-Umfang sowie noch vorhandene, nicht gerenderte Legacy-Literale als spätere Cleanup-Kandidaten dokumentiert.
+- Die verpflichtenden Fachreviews für Mobile, Desktop, Accessibility, Typografie, Conversion, Local SEO, Legal/Trust, Performance, Content-Konsistenz und Premium-Qualität wurden zusammengeführt; der Codequalitätsreview bestand mit null Verstößen. Der abschließende Launch-Review bestätigte 21 von 24 erfüllten Akzeptanzkriterien, die beiden Task-026-P1-Blocker und keine weiteren Task-026-P0/P1-Findings. Externe Rechtsfreigabe, echter Formularversand, Deployment und Monitoring bleiben nachgelagerte Gates außerhalb von Aufgabe 026; die offene externe Rechtsprüfung blockiert unabhängig davon weiterhin den Gesamt-Launch. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden; Aufgabe 026 bleibt aktiv und im Status `in Arbeit`.
+
+### Aufgabe 026 - Ungenutzte direkte Dependencies entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D3 entfernt ausschließlich 35 nachweislich ungenutzte direkte Runtime-Dependencies. `package.json` und `package-lock.json` wurden gemeinsam durch den einmaligen freigegebenen `npm uninstall` aktualisiert; die Anzahl direkter Runtime-Dependencies sinkt von 49 auf 14.
+- Alle 14 geschützten Runtime-Dependencies und sämtliche elf Dev-Dependencies blieben mit unveränderten Versionsangaben erhalten. Im Lockfile wurden exakt die 35 Root-Einträge und 99 nicht mehr benötigte Paketeinträge entfernt; es wurde kein Eintrag ergänzt und keine Version, Auflösung oder Integritätsangabe eines verbleibenden Pakets geändert. `@radix-ui/react-collapsible` bleibt als transitive Abhängigkeit des geschützten Accordion-Systems erhalten.
+- Diff-Check, `npm ls --depth=0`, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Formulare, Mobile-Menü, Theme-Toggle, alle neun Akkordeonseiten, Navigation, Recovery-Links und Sprachwechsel blieben funktionsfähig; kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Der normalisierte Vorher-/Nachher-Vergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 Legacy-Soft-404-URLs. Die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt; null defekte Bilder oder Requestfehler traten auf.
+- Quellcode, Komponenten, Formulare, Routen, Konfigurationen, Styles, Assets, Übersetzungen, Metadata, Structured Data und Indexierungsregeln blieben unverändert. `ROADMAP.md` bleibt unverändert; Phase E wurde nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+## 2026-08-21
+
+### Aufgabe 026 - Ungenutzte statische Assets entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D2 entfernt ausschließlich fünf ungenutzte Platzhalterdateien und das nach Entfernung der Express-Kurier-Sektion verwaiste Bild `public/images/service-express-courier.webp`.
+- Vor der Löschung bestand für keines der sechs Assets eine aktive Repository-, Build-, CSS-, Komponenten-, Metadata-, Structured-Data- oder Browserreferenz. Der Vorher-/Nachher-Vergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 lokalisierten Legacy-Soft-404-URLs.
+- Alle aktiven Bilder, die zwölf ausdrücklich geschützten unklaren Assets und die fünf ehemaligen Legacy-Service-Bilder blieben bytegleich erhalten. Die direkten URLs liefern weder den alten Binärinhalt noch einen Bild-Content-Type; fünf Root-URLs fallen auf HTML mit HTTP 200 zurück, die Courier-URL auf HTML mit HTTP 404. Es wurden keine Ersatzdateien oder Redirects angelegt.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Bild-, Request-, Console-, Hydration-, Page- und HTTP-Smokes blieben fehlerfrei; die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Komponenten, Routen, Redirects, Übersetzungen, Dependencies, Metadata, Structured Data und Indexierungsregeln blieben unverändert. `ROADMAP.md` bleibt unverändert; D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+### Aufgabe 026 - Verbliebene Legacy-Service-Wörterbuchdaten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1c entfernt ausschließlich die 15 nicht mehr gelesenen DE-/EN-/RU-Blöcke `rental`, `workshop`, `detailing`, `registration` und `towing` aus dem resultierenden `serviceDetail.pages`-Wörterbuch.
+- `lib/translations/service-pages-part2.ts` wurde nach Entfernung ihres gesamten fachlichen Inhalts, ihres einzigen Imports und der drei zugehörigen Spreads vollständig gelöscht. In Part 1 blieben neben dem unveränderten deutschen `accident`-Block nur leere EN-/RU-Hüllen erhalten; deren funktionslose Spreads wurden entfernt.
+- Der geschützte Wörterbuchvergleich bestätigt den deutschen Accident-Block, sämtliche `appraisalPageTranslations` und alle übrigen geschützten Schlüssel als wertgleich. Der Browservergleich bestätigt identische sichtbare und SEO-relevante DE-/EN-/RU-Ausgaben auf 18 Kernrouten und 15 lokalisierten Legacy-Soft-404-URLs.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Die fünf geschützten Redirects blieben direkte 308-Weiterleitungen mit Query-Erhalt; Console-, Hydration-, Page-, Request-, HTTP- und Bildfehler traten nicht auf. Kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Komponenten, Routen, Redirectkonfiguration, Assets, Dependencies, Lockfiles, Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang, `noindex` und `next-env.d.ts` blieben unverändert. `ROADMAP.md` bleibt unverändert; D2, D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+## 2026-08-19
+
+### Aufgabe 026 - Verwaiste Legacy-Service-Detailkomponenten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1b entfernt ausschließlich `RentalServiceDetailContent.tsx`, `WorkshopServiceDetailContent.tsx`, `DetailingServiceDetailContent.tsx`, `RegistrationServiceDetailContent.tsx` und `TowingServiceDetailContent.tsx`, nachdem direkte, dynamische, Barrel-, Re-Export-, Symbol-, String-, Typ-, Test-, Skript-, Metadata- und Structured-Data-Suchen für jede Datei null Verbraucher außerhalb ihrer Eigendeklaration bestätigt hatten.
+- Der maschinenlesbare Vorher-/Nachher-Vergleich von 18 geschützten Kernrouten und 15 in Phase C entfernten Legacy-URLs bestätigt identische sichtbare Texte, Navigation, Formulare, Metadata, Structured Data, Bildpfade und Fehlerzustände. Alle 33 URLs lieferten weiterhin HTTP 200 mit korrektem `lang`; die Legacy-URLs behielten ihren dokumentierten lokalisierten `noindex`-Soft-404-Zustand.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit unverändert 36 statischen Seiten und next-router-check bestanden. Sechs kontexttreue Sprachwechsel, drei Navigationswege und der vollständige Bild-/Request-Smoke blieben fehlerfrei; kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst.
+- Übersetzungs- und Datendateien, Assets, Routen, Redirects, Metadata, Structured Data, Sitemap, Robots, `noindex`, Dependencies, Lockfiles und `next-env.d.ts` blieben unverändert. Die Prüfdaten liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-d1b-baseline/`.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. D1c, D2, D3 und Phase E wurden nicht begonnen; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+### Aufgabe 026 - Ungenutzte Übersetzungs- und Wörterbuchdaten entfernt
+
+- Die ausdrücklich freigegebene Phase-D-Untergruppe D1a entfernt ausschließlich die nicht mehr gerenderten Home-Zweige `expressCourier`, `testimonials` und `trust`, die nicht mehr gelesenen `aboutPage`- und About-Override-Daten, die alten EN-/RU-`serviceContacts*`-Felder sowie die vollständig überschriebenen EN-/RU-`accident`-Blöcke aus `service-pages-part1.ts`.
+- `lib/translations/about-overrides.ts` wurde nach dem Entfernen ihres einzigen Imports und aller zugehörigen Spreads vollständig gelöscht. Der deutsche `accident`-Block, alle `rental`-Daten, `service-pages-part2.ts`, `appraisal-pages.ts` und sämtliche aktiven Home-, About-, Kontakt-, Formular- und Legaltexte blieben unverändert.
+- Ein maschinenlesbarer Vorher-/Nachher-Vergleich der resultierenden DE-/EN-/RU-Wörterbücher und von 18 Kernrouten bestätigt identische geschützte Werte, sichtbare Texte, Metadata und Structured Data. Alle Routen lieferten HTTP 200 mit korrektem `lang`; Console-, Hydration-, Page-, Request- und sichtbare Bildfehler traten nicht auf. Es wurde kein Formular abgesendet.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check bestanden. Die Prüfdaten liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-d1a-baseline/`; neue Fullpage-Screenshots oder eine Typografieprüfung waren wegen vollständig identischer sichtbarer Ausgabe nicht erforderlich.
+- Routen, Redirects, SEO-/Indexierungsdateien, Assets, Dependencies und `next-env.d.ts` blieben unverändert. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden; D1b, D1c, D2, D3 und Phase E wurden nicht begonnen, Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+### Aufgabe 026 - Phase C entfernt Legacy-Routen und lokalisiert deutsche Not-found-Pfade
+
+- Die 15 ausdrücklich freigegebenen Legacy-Service-URLs wurden durch das Löschen ihrer zehn `page.tsx`-Quelldateien entfernt. Es wurden keine Ersatzredirects ergänzt und keine weitere Datei gelöscht.
+- Eine eng begrenzte deutsche Catch-all-Route unter `/leistungen` übergibt unbekannte Unterpfade jetzt an den vorhandenen deutschen UNEXT-Not-found-Zustand. Die zunächst ausgelieferte generische englische Next.js-404 ohne Recovery-Links ist damit behoben; vorhandene Not-found-Texte und Oberflächen wurden nicht verändert.
+- Alle 15 entfernten DE-/EN-/RU-URLs zeigen die sprachlich passenden UNEXT-Not-found-Zustände mit `lang`, `noindex` und funktionierenden Wiederherstellungslinks. Wegen der gestreamten Catch-alls antworten sie technisch mit HTTP 200; dieser Soft-404-Status wird ausdrücklich nicht als HTTP 404 dargestellt.
+- Die drei Leistungsübersichten bleiben mit HTTP 200 und `noindex, follow` erreichbar, die neun Gutachtenarten-Seiten liefern weiterhin HTTP 200. Die fünf geschützten Redirects antworten direkt mit 308, behalten Query-Parameter und führen ohne Kette zum erwarteten Ziel.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check bestanden. Alle 15 Legacy-Pfade, zwei zusätzliche unbekannte deutsche Pfade, neun Recovery-Link-Interaktionen sowie die visuellen Ansichten bei 390 und 1440 Pixeln sind fehlerfrei; Screenshots liegen ausschließlich außerhalb des Repositorys unter `C:/tmp/unext-task-026-phase-c-german-not-found-fix/`.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektplanung nicht geändert wurden. Aufgabe 026 bleibt aktiv und `in Arbeit`; Phase D wurde nicht begonnen.
+
+### Aufgabe 026 - Überschriften der Leistungsübersichten typografisch beruhigt
+
+- Die zuvor auf `22ch` begrenzte H1-Breite erzeugte besonders im Russischen unnötig hohe Überschriftenblöcke. Der gemeinsame Intro-Container wurde deshalb von `max-w-5xl` auf `max-w-6xl` und die gemeinsame H1-Breite auf `30ch` erweitert.
+- Nachdem die reine Breitenkorrektur den russischen Titel bei 390 Pixeln noch auf fünf Zeilen beließ, wurde ausschließlich diese dreisprachig gemeinsame H1 auf `clamp(2.3rem, 1.66rem + 2.45vw, 4.7rem)` reduziert. Zeilenhöhe `0.97`, Laufweite `-0.032em`, Textbalance und der Abstand von 24 Pixeln zum Intro blieben erhalten.
+- DE und EN stehen bei 390 Pixeln auf drei, RU auf vier Zeilen; bei 768 und 1440 Pixeln stehen DE und EN auf zwei, RU auf drei Zeilen. Alle neun Ansichten besitzen null Pixel horizontalen Overflow.
+- Sichtbare Texte, Introbreite, Karten, CTAs, Links, Navigation, Footer, Routen, Redirects, SEO, Metadata, Structured Data, `noindex`, Assets und Dependencies blieben unverändert. `ROADMAP.md` bleibt unverändert, weil sich Planung, Reihenfolge und Prioritäten nicht geändert haben.
+
+### Aufgabe 026 - Dreisprachige Leistungsübersichten bereinigt
+
+- `/leistungen`, `/en/leistungen` und `/ru/leistungen` zeigen weiterhin als bestehende Routen ausschließlich Unfallgutachten, Fahrzeugbewertung und Schadendokumentation in der jeweiligen Sprache und verlinken direkt auf die neun passenden Gutachtenseiten.
+- Sichtbare Angebote und Links zu Mietwagen, Werkstatt, Aufbereitung, Zulassung, Pannenhilfe und Abschleppen wurden aus den Übersichten entfernt. Vorhandene Bilder, Icons, Karten-, CTA- und Kontaktmuster wurden weiterverwendet.
+- Die DE-/EN-/RU-Inhalte, Kartenreihenfolge, Linkziele und zugänglichen CTA-Namen sind sprachlich angeglichen. Die responsiven Ansichten bei 390, 768 und 1440 Pixeln sowie Accessibility, Typografie, Content-Konsistenz und Codequalität wurden ohne Blocker geprüft.
+- Diff-Check, ESLint, TypeScript, Produktions-Build und next-router-check bestanden. Alle neun Zielseiten und die kontexttreuen Sprachwechsel wurden im Produktionsmodus geprüft; Console-, Hydration-, Request-, Bild- und Overflowfehler traten nicht auf.
+- `noindex`, Metadata, Canonicals, Hreflang, Structured Data, Sitemap, Robots, Routen, Redirects, Assets, Dependencies und Rechtstexte blieben unverändert. Die 15 Legacy-Service-Routen bleiben bis zur gesondert freizugebenden Phase C bestehen; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+- `ROADMAP.md` bleibt unverändert, weil sich Reihenfolge, Prioritäten und Projektphasen durch diesen Phase-B-Zwischenstand nicht geändert haben.
+
+### Aufgabe 026 - Erste technische Cleanup-Phase umgesetzt
+
+- Exakt 52 nachweislich unerreichbare Quellmodule wurden in acht kontrollierten Gruppen entfernt. Der Umfang besteht aus drei nicht mehr gerenderten Home-Sektionen, 46 ungenutzten UI-Modulen, zwei ungenutzten Hooks und dem nicht erreichbaren Browser-Storage-Utility.
+- Nach jeder Gruppe bestanden Diff-, Referenz-, ESLint- und TypeScript-Prüfung. Die Produktions-Builds nach A2, A4, A6 und A8 erzeugten jeweils erfolgreich 51 statische Seiten; der next-router-check fand bei 33 geprüften UI-Routen und 16 datenladenden Routen keine fehlende Pflichtdatei.
+- Die repräsentative Produktionsprüfung bestätigte 21 DE-/EN-/RU-Kernrouten bei 390 und 1440 Pixeln, 21 kontexttreue Sprachwechsel sowie fünf direkte permanente Gutachten-Redirects mit Query-Erhalt. Ergänzende Home-, Kontaktformular- und Navigations-Smokes bei 390, 430 und 1440 Pixeln bestanden ebenfalls, ohne Formulare abzusenden.
+- Codequalität, Accessibility, Mobile, Desktop, Content-Konsistenz und Performance wurden read-only ohne neuen Blocker geprüft. Es traten keine Console-, Hydration-, Request-, Bild- oder Overflowfehler auf.
+- Dependencies, `package.json`, Lockfiles, Assets, Übersetzungen, Datenquellen, Leistungsübersichten, Routen, Redirects, SEO-/Metadata-/Structured-Data-Dateien, Sitemap, Robots und `noindex` blieben unverändert. Aufgabe 026 bleibt aktiv und `in Arbeit`; die späteren Cleanup-Phasen sowie Rechts-, Index-, Deployment- und Launch-Gates bleiben offen.
+- `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen durch diesen technischen Zwischenstand nicht verändert wurden.
+
 ## 2026-08-18
+
+### Aufgabe 026 - Cleanup-Plan nach unabhängiger Prüfung präzisiert
+
+- Die vollständige Read-only-Prüfung hat die Inventur auf 42 logisch gruppierte Einheiten korrigiert: A 9, B 6, C 7, D 10, E 3 und F 7. Der frühere A5-Altbildbestand ist wegen möglicher öffentlicher Direkt-URLs nun als F7 geschützt; überschattete EN-/RU-Unfallgutachten-Daten sind als A10 ergänzt.
+- Die 52 nachweislich unerreichbaren Quellmodule sind vollständig und in acht kleine, einzeln prüf- und revertierbare technische Gruppen dokumentiert. Die erste spätere Cleanup-Phase ist ausschließlich auf diese Module begrenzt; Dependencies, Assets, Übersetzungen, Daten, Routen, Redirects und SEO-Dateien sind ausgeschlossen.
+- Die drei Leistungsübersichten bleiben erhalten und sollen später ausschließlich die drei aktuellen Gutachtenarten in DE, EN und RU zeigen. Die 15 fachfremden Detailrouten sollen erst nach erneuter ausdrücklicher Freigabe ohne unpassende Redirects entfernt und über die vorhandene lokalisierte 404-Struktur geprüft werden; die fünf bestehenden Gutachten-Redirects bleiben geschützt.
+- Der Assetplan unterscheidet sechs separat zu prüfende sichere Kandidaten und zwölf vollständig zu erhaltende unklare öffentliche Bilder/Icons. Spec-Ist-Abweichungen, phasenweise technische und responsive Zwischenprüfungen sowie messbare Akzeptanzkriterien sind präzisiert.
+- Dies ist ausschließlich ein Planungs- und Workflow-Zwischenstand. Es wurden keine Website-, Code-, Routen-, Redirect-, Übersetzungs-, SEO-, Structured-Data-, Asset-, Dependency- oder Indexierungsänderungen umgesetzt; Aufgabe 026 bleibt aktiv und `in Arbeit`.
+
+### Aufgabe 026 - Legacy-Cleanup gestartet und vollständig inventarisiert
+
+- Aufgabe 026 wurde als reiner Inventur- und Planungsschritt gestartet und nach `workflow/active/` verschoben. Der Status ist `in Arbeit`; technische Löschungen oder Änderungen benötigen weiterhin eine ausdrückliche Planfreigabe.
+- Der tatsächliche Bestand an V1-, Legacy- und Redirect-Routen, sichtbaren Altinhalten, Komponenten, Importpfaden, Übersetzungs- und Datenquellen, Metadata/Structured Data sowie Assets wurde read-only geprüft und in 41 logisch gruppierte Kandidateneinheiten der Kategorien A bis F eingeordnet.
+- Eine Routenmatrix, ein fünfphasiger Cleanup-Plan, Verwendungsnachweise, Risiken, Rollback-Möglichkeiten und das erneute noindex-/Indexfreigabe-Handoff nach dem Cleanup sind in der aktiven Aufgabe dokumentiert.
+- Der next-router-check hat 33 Page-Dateien und 16 datenladende lokalisierte Routen geprüft; im jeweiligen Layout-Scope fehlen keine verpflichtenden Loading-, Error- oder Not-found-Grenzen.
+- Website, Code, Routen, Redirects, Übersetzungen, SEO-Ausgaben, Structured Data, Assets, Rechtstexte und Indexierungszustände wurden nicht verändert. Die Website bleibt nicht launchbereit; Aufgaben 033, 034 und 035 bleiben nachgelagert.
 
 ### Aufgabe 029 - Dreisprachige SEO-Grundlage formal abgeschlossen
 

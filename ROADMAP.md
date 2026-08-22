@@ -110,7 +110,7 @@ Die aktuelle Folge-Reihenfolge lautet:
 032: DE/EN/RU-Übersetzungs-, Routing-, Qualitäts- und Layoutvorgehen konkretisieren (abgeschlossen)
 051: EN/RU-V1-Kernseiten, Routen und Nutzerwege umsetzen (abgeschlossen)
 029: SEO / Metadata / Structured Data (abgeschlossen)
-026: Cleanup alter Legacy-Seiten
+026: Cleanup alter Legacy-Seiten (abgeschlossen)
 033: Launch Quality Check einschließlich zentraler Formularsemantik und Autocomplete-Korrektur
 034: Deployment Launch Gate
 035: Post-Launch Monitoring
@@ -134,11 +134,11 @@ Von den 30 V1-Routen sind 15 freigegebene kanonische Routen indexierbar und 15 R
 
 ### 11. Cleanup und Launch-Schritte
 
-Status: geplant
+Status: Cleanup abgeschlossen, Launch-Schritte offen
 
-Aufgabe 029 ist abgeschlossen. Aufgabe 026 Cleanup ist der nächste vorgesehene Projektabschnitt; danach bleiben Aufgabe 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, Aufgabe 034 und Aufgabe 035 unverändert eingeordnet. Bis diese Arbeiten, die externe Rechtsprüfung, die erneuten Indexfreigaben und die finale noindex-Prüfung abgeschlossen sind, ist die Website nicht launchbereit.
+Aufgabe 029 und Aufgabe 026 sind abgeschlossen. Der tatsächliche Legacy-Bestand wurde inventarisiert und in ausdrücklich freigegebenen, verwendungsgeprüften Phasen bereinigt; die abschließenden Regressionen und Follow-ups schlossen die beiden technischen Task-026-P1-Findings. Aufgabe 033 einschließlich der zentralen Formularsemantik- und Autocomplete-Korrektur, Aufgabe 034 und Aufgabe 035 bleiben unverändert eingeordnet und wurden durch den Abschluss von Aufgabe 026 nicht begonnen. Bis diese Arbeiten, die externe Rechtsprüfung, die erneuten Indexfreigaben und die finale noindex-Prüfung abgeschlossen sind, ist die Website nicht launchbereit.
 
-Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 hat sie bis zum Cleanup bewusst `noindex` eingeordnet; Aufgabe 026 bleibt für den verwendungsgeprüften Cleanup und die anschließende erneute Indexprüfung zuständig. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
+Die Route `/leistungen` wurde in Aufgabe 050 bewusst nicht gelöscht, umgebaut oder umgeleitet und bleibt technisch als eigenständige Übersicht bestehen. Aufgabe 029 hat sie bis zu einer gesonderten Indexfreigabe bewusst `noindex` eingeordnet; Aufgabe 026 hat den verwendungsgeprüften Cleanup abgeschlossen, ohne diese Freigabe vorwegzunehmen. Aufgabe 022, Aufgabe 023 und Aufgabe 024 bleiben spätere Ausbaustufen.
 
 ### 12. Spätere Ausbaustufen
 

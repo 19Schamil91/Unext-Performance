@@ -61,16 +61,6 @@ const legacyContactTranslations = {
       email: { title: "Email", content: "info@unext.de", detail: "We reply within 24 hours" },
       hours: { title: "Opening hours", content: "Mon-Fri: 09:00 AM-06:00 PM", detail: "Sat: 10:00 AM-04:00 PM" },
     },
-    serviceContactsTitle: "Direct contacts by service",
-    serviceContactsDescription: "For fast support, you can also reach our departments directly:",
-    serviceContacts: [
-      { title: "Accident Reports", subtitle: "UNFALLX" },
-      { title: "Car Rental", subtitle: "Replacement vehicles" },
-      { title: "Workshop", subtitle: "Service" },
-      { title: "Detailing", subtitle: "Premium care" },
-      { title: "Vehicle Registration", subtitle: "Registration & plates" },
-      { title: "Towing", subtitle: "Roadside assistance" },
-    ],
     whatsapp: "WhatsApp",
     form: {
       title: "Write to us",
@@ -121,16 +111,6 @@ const legacyContactTranslations = {
       email: { title: "E-mail", content: "info@unext.de", detail: "Мы отвечаем в течение 24 часов" },
       hours: { title: "Часы работы", content: "Пн-Пт: 09:00-18:00", detail: "Сб: 10:00-16:00" },
     },
-    serviceContactsTitle: "Прямые контакты по направлениям",
-    serviceContactsDescription: "Для быстрой помощи вы можете связаться с нашими направлениями напрямую:",
-    serviceContacts: [
-      { title: "Экспертиза ДТП", subtitle: "UNFALLX" },
-      { title: "Прокат авто", subtitle: "Подменные автомобили" },
-      { title: "Сервис", subtitle: "Мастерская" },
-      { title: "Детейлинг", subtitle: "Премиальный уход" },
-      { title: "Регистрация авто", subtitle: "Номера и оформление" },
-      { title: "Эвакуатор", subtitle: "Помощь на дороге" },
-    ],
     whatsapp: "WhatsApp",
     form: {
       title: "Напишите нам",

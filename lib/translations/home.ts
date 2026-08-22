@@ -97,25 +97,6 @@ export const homeTranslations = {
         },
       ],
     },
-    expressCourier: {
-      eyebrow: "Zusatzservice",
-      title: "Expresslieferung & Kurierdienst",
-      description:
-        "Dieser Zusatzservice ergänzt unser Automotive-Angebot.\nWir übernehmen zeitkritische Fahrten und Zustellungen in Berlin\nschnell, direkt und zuverlässig.",
-      features: [
-        "Lieferungen in Berlin",
-        "Abholung und Zustellung",
-        "Dokumente, Pakete, Kfz-Teile",
-        "Express-Service für Eilaufträge",
-        "Lösungen für Privat & Gewerbe",
-      ],
-      cta: "Jetzt kontaktieren",
-      contactLabel: "Telefon:",
-      highlightTitle: "Schnell ans Ziel",
-      highlightDescription:
-        "Zeitkritische Fahrten in Berlin:\nDokumente, Pakete und Kfz-Teile.\nDirekt und zuverlässig.",
-      contactBoxLabel: "Direkter Kontakt",
-    },
     why: {
       title: "Warum Kunden UNEXT wählen",
       description:
@@ -194,44 +175,6 @@ export const homeTranslations = {
           title: "Termin oder Soforthilfe",
           description: "Sie erhalten passende Hilfe\nohne Umwege.",
         },
-      ],
-    },
-    testimonials: {
-      title: "Das sagen unsere Kunden",
-      description: "Kundenzufriedenheit steht bei uns an erster Stelle. Überzeugen Sie sich selbst.",
-      notice: "Weitere Kundenbewertungen folgen in Kürze.",
-      items: [
-        {
-          name: "Michael S.",
-          role: "Privatkunde",
-          content:
-            "Nach meinem Unfall hat UNFALLX mir schnell und unkompliziert geholfen. Das Gutachten war innerhalb von 48 Stunden fertig. Sehr professionell!",
-          service: "Unfallgutachten",
-        },
-        {
-          name: "Sandra K.",
-          role: "Geschäftskundin",
-          content:
-            "Die Autovermietung war eine Rettung, als mein Firmenwagen in der Werkstatt war. Schnelle Abwicklung und ein top gepflegtes Ersatzfahrzeug.",
-          service: "Autovermietung",
-        },
-        {
-          name: "Thomas M.",
-          role: "Privatkunde",
-          content:
-            "Das Detailing meines BMW war erstklassig. Der Lack sieht aus wie neu. Absolut empfehlenswert für alle, die Wert auf ihr Fahrzeug legen.",
-          service: "Detailing",
-        },
-      ],
-    },
-    trust: {
-      title: "Für Privatkunden, Unternehmen und Fahrdienste",
-      note: "",
-      badges: [
-        "Privatkunden",
-        "Geschäftskunden",
-        "Uber-, Bolt- & Taxi-Fahrer",
-        "6 Hauptleistungen aus einer Hand",
       ],
     },
     cta: {
@@ -339,25 +282,6 @@ export const homeTranslations = {
         },
       ],
     },
-    expressCourier: {
-      eyebrow: "Additional service",
-      title: "Express Delivery & Courier Service",
-      description:
-        "This additional service complements our automotive offering.\nWe handle time-sensitive trips and deliveries across Berlin\nquickly, directly and reliably.",
-      features: [
-        "Deliveries across Berlin",
-        "Pickup and delivery",
-        "Documents, parcels, car parts",
-        "Express service for urgent jobs",
-        "Private & business solutions",
-      ],
-      cta: "Contact now",
-      contactLabel: "Phone:",
-      highlightTitle: "Delivered fast",
-      highlightDescription:
-        "Time-sensitive trips in Berlin:\ndocuments, parcels and car parts.\nDirect and reliable.",
-      contactBoxLabel: "Direct contact",
-    },
     why: {
       title: "Why UNEXT GmbH?",
       description:
@@ -436,44 +360,6 @@ export const homeTranslations = {
           title: "Appointment & solution",
           description: "You receive a prompt appointment and a professional solution.",
         },
-      ],
-    },
-    testimonials: {
-      title: "What our customers say",
-      description: "Customer satisfaction is our top priority. See for yourself.",
-      notice: "More customer reviews will follow shortly.",
-      items: [
-        {
-          name: "Michael S.",
-          role: "Private customer",
-          content:
-            "After my accident, UNFALLX helped me quickly and without complications. The report was ready within 48 hours. Very professional.",
-          service: "Accident reports",
-        },
-        {
-          name: "Sandra K.",
-          role: "Business customer",
-          content:
-            "The car rental service was a lifesaver while my company car was in the workshop. Fast handling and a perfectly maintained replacement vehicle.",
-          service: "Car rental",
-        },
-        {
-          name: "Thomas M.",
-          role: "Private customer",
-          content:
-            "The detailing on my BMW was first class. The paint looks like new. Absolutely recommended for anyone who values their vehicle.",
-          service: "Detailing",
-        },
-      ],
-    },
-    trust: {
-      title: "Trust in quality",
-      note: "Placeholder for future certificates and partner logos",
-      badges: [
-        "Certified experts",
-        "Verified service",
-        "TÜV standard",
-        "Official reports",
       ],
     },
     cta: {
@@ -581,25 +467,6 @@ export const homeTranslations = {
         },
       ],
     },
-    expressCourier: {
-      eyebrow: "Дополнительный сервис",
-      title: "Экспресс-доставка и курьерская служба",
-      description:
-        "Дополнительный сервис для вашего авто.\nСрочные поездки и доставки по Берлину:\nбыстро, напрямую и надежно.",
-      features: [
-        "Доставка по Берлину",
-        "Забор и доставка",
-        "Документы, посылки, запчасти",
-        "Экспресс для срочных заказов",
-        "Решения для частных и бизнеса",
-      ],
-      cta: "Связаться сейчас",
-      contactLabel: "Телефон:",
-      highlightTitle: "Быстро до цели",
-      highlightDescription:
-        "Срочные поездки по Берлину:\nдокументы, посылки и запчасти.\nПрямо и надежно.",
-      contactBoxLabel: "Прямой контакт",
-    },
     why: {
       title: "Почему UNEXT GmbH?",
       description:
@@ -678,44 +545,6 @@ export const homeTranslations = {
           title: "Запись и решение",
           description: "Вы получите ближайший удобный термин и профессиональное решение.",
         },
-      ],
-    },
-    testimonials: {
-      title: "Что говорят наши клиенты",
-      description: "Удовлетворенность клиентов для нас на первом месте. Убедитесь сами.",
-      notice: "Новые отзывы клиентов появятся в ближайшее время.",
-      items: [
-        {
-          name: "Michael S.",
-          role: "Частный клиент",
-          content:
-            "После аварии UNFALLX помог мне быстро и без лишних сложностей. Заключение было готово в течение 48 часов. Очень профессионально.",
-          service: "Экспертиза ДТП",
-        },
-        {
-          name: "Sandra K.",
-          role: "Корпоративный клиент",
-          content:
-            "Прокат авто очень выручил, пока моя служебная машина была в мастерской. Быстрое оформление и отлично подготовленный подменный автомобиль.",
-          service: "Прокат авто",
-        },
-        {
-          name: "Thomas M.",
-          role: "Частный клиент",
-          content:
-            "Детейлинг моего BMW был на высшем уровне. Лак выглядит как новый. Однозначно рекомендую всем, кто ценит свой автомобиль.",
-          service: "Детейлинг",
-        },
-      ],
-    },
-    trust: {
-      title: "Доверьтесь качеству",
-      note: "Заглушка для будущих сертификатов и логотипов партнеров",
-      badges: [
-        "Сертифицированные эксперты",
-        "Проверенный сервис",
-        "Стандарт TÜV",
-        "Официальные заключения",
       ],
     },
     cta: {
