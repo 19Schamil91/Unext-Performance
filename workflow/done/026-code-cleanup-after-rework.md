@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: wartet auf Freigabe
+Status: abgeschlossen
 
 ## Ziel
 
@@ -898,6 +898,13 @@ Das am 22. August 2026 ausdrücklich freigegebene Follow-up E2 behebt ausschlie�
 - Aufgabe 026 erfüllt 23 von 24 Akzeptanzkriterien. Ausschließlich das finale Abschluss- und Nutzerfreigabekriterium bleibt offen.
 - Die Aufgabe bleibt in `workflow/active/`, trägt den Status `wartet auf Freigabe` und wird nicht automatisch nach `workflow/done/` verschoben. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. Diese Task-Bewertung ist keine Gesamt-Launch-Freigabe.
 
+## Formaler Abschluss
+
+- Der Nutzer hat Aufgabe 026 am 22. August 2026 ausdrücklich zum Abschluss und zur Verschiebung nach `workflow/done/` freigegeben.
+- Die Task-Datei wurde von `workflow/active/026-code-cleanup-after-rework.md` nach `workflow/done/026-code-cleanup-after-rework.md` verschoben und ihr Status auf `abgeschlossen` gesetzt.
+- Alle 24 Akzeptanzkriterien sind erfüllt. Innerhalb von Aufgabe 026 bestehen keine offenen technischen P0- oder P1-Findings mehr.
+- Dieser formale Done-Schritt verändert keinen Website-Code und erteilt keine Gesamt-Launch-Freigabe. Die getrennten Launch-, Deployment- und Monitoring-Schritte sowie die Aufgaben 033 bis 035 wurden nicht begonnen.
+
 ## Akzeptanzkriterien
 
 - [x] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
@@ -925,8 +932,8 @@ Das am 22. August 2026 ausdrücklich freigegebene Follow-up E2 behebt ausschlie�
 - [x] Rechtstexte, Legal-Routen, externe Rechtsfreigabe, echter Formularversand, Deployment und Monitoring bleiben unverändert und außerhalb von Aufgabe 026.
 - [x] Für jede Phase sind exakter Scope, Ausschlüsse, Abhängigkeiten, Risiken, Prüfungen und atomarer Revert-Weg im tatsächlichen Abschlussstand dokumentiert.
 - [x] ROADMAP wird nur geändert, wenn sich Reihenfolge, Priorität oder Projektphase tatsächlich ändert; reine Task-Planpräzisierungen werden im CHANGELOG nachvollziehbar dokumentiert.
-- [ ] Aufgabe 026 wird erst nach vollständiger technischer und visueller Regression, passender Reviewer-Prüfung, Ergebniszusammenfassung und ausdrücklicher Nutzerfreigabe abgeschlossen und nach `workflow/done/` verschoben.
-  - Die technische und visuelle Regression sowie die passenden Reviewer-Prüfungen sind mit E1 und E2 vollständig dokumentiert; die beiden Phase-E-P1-Blocker sind geschlossen. Das Kriterium bleibt ausschließlich bis zur ausdrücklichen Nutzerfreigabe und anschließenden Verschiebung nach `workflow/done/` offen.
+- [x] Aufgabe 026 wird erst nach vollständiger technischer und visueller Regression, passender Reviewer-Prüfung, Ergebniszusammenfassung und ausdrücklicher Nutzerfreigabe abgeschlossen und nach `workflow/done/` verschoben.
+  - Die technische und visuelle Regression sowie die passenden Reviewer-Prüfungen sind mit E1 und E2 vollständig dokumentiert; die beiden Phase-E-P1-Blocker sind geschlossen. Die ausdrückliche Nutzerfreigabe wurde am 22. August 2026 erteilt, die Aufgabe nach `workflow/done/` verschoben und damit der Stand von 24 aus 24 erfüllten Akzeptanzkriterien erreicht.
 
 ## Ergebnis dieses Startschritts
 

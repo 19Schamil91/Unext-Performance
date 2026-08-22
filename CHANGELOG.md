@@ -4,6 +4,12 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-22
 
+### Aufgabe 026 - Cleanup-Aufgabe formal abgeschlossen
+
+- Nach ausdrücklicher Nutzerfreigabe wurde Aufgabe 026 von `workflow/active/` nach `workflow/done/` verschoben und der Status auf `abgeschlossen` gesetzt. Alle 24 Akzeptanzkriterien sind erfüllt; innerhalb der Aufgabe bestehen keine offenen technischen P0- oder P1-Findings mehr.
+- Dieser reine Workflow- und Dokumentationsschritt verändert keinen Website-Code, keine Komponenten, Routen, Styles, Übersetzungen, Specs, Assets, Dependencies oder Konfigurationen. Die vollständigen technischen, Browser- und Reviewer-Prüfungen waren unmittelbar zuvor mit Commit `ee65554` bestanden und wurden deshalb nicht erneut ausgeführt.
+- Die Roadmap wurde ausschließlich an den erreichten Meilenstein angepasst: Aufgabe 026 ist dort als abgeschlossen markiert, während die getrennten Aufgaben 033 bis 035 weiterhin offen und ungestartet bleiben. Der formale Abschluss ist keine Gesamt-Launch-Freigabe.
+
 ### Aufgabe 026 - Fokus-Rückgabe des mobilen Menüs nach Escape
 
 - Das ausdrücklich freigegebene Follow-up E2 behebt ausschließlich den letzten technischen Task-026-P1: Nach Escape erhält der tatsächliche Auslöser des mobilen Menüs den Tastaturfokus bereits beim kontrollierten Schließen zurück. `HeaderMobileMenu.tsx` verwendet dafür eine stabile Button-Referenz, markiert nur den Escape-Schließweg und sichert das Fokusziel zusätzlich über Radix `onCloseAutoFocus`; `preventScroll` verhindert einen ungewollten Seitensprung.
