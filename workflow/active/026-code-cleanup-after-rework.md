@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: in Arbeit
+Status: wartet auf Freigabe
 
 ## Ziel
 
@@ -841,6 +841,63 @@ Alle Antworten besitzen `text/html; charset=utf-8`, keinen `Location`-Header und
 - Der mobile Menüfokus nach Escape bleibt der einzige technische P1 dieses Tasks und wird in E1 weder geändert noch neu bewertet. Das finale Abschluss-/Freigabekriterium bleibt ebenfalls offen.
 - Aufgabe 026 bleibt in `workflow/active/` und im Status `in Arbeit`. Die Website wird nicht als launchbereit bezeichnet; es erfolgt keine Verschiebung nach `workflow/done/`. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden.
 
+## Follow-up E2 – Fokus-Rückgabe des mobilen Menüs
+
+Das am 22. August 2026 ausdrücklich freigegebene Follow-up E2 behebt ausschließlich den nach E1 verbliebenen technischen P1: Nach dem Schließen des mobilen Menüs mit Escape kehrt der Tastaturfokus zuverlässig zum tatsächlichen Menü-Auslöser zurück. Technisch wurde ausschließlich `components/HeaderMobileMenu.tsx` geändert; diese Task-Datei und `CHANGELOG.md` dokumentieren den Schritt. `components/ui/sheet.tsx` und alle weiteren Komponenten bleiben unverändert.
+
+### Ursache und Produktions-Baseline
+
+- Die Phase-E-Prüfung maß den Fokus 150 Millisekunden nach Escape. Zu diesem Zeitpunkt war `aria-expanded` bereits `false`, das Radix-Sheet befand sich wegen seiner 300-ms-Schließanimation aber noch als `data-state="closed"` im DOM und hielt den Fokus auf einem internen Sprachbutton.
+- Die erneute Production-Baseline unter `C:/tmp/unext-task-026-follow-up-e2-mobile-focus/` reproduziert diesen Zwischenzustand in DE, EN und RU: Von 0 bis 200 beziehungsweise 250 Millisekunden blieb der Fokus im schließenden Dialog. Nach dessen tatsächlichem Unmount bei ungefähr 250 bis 300 Millisekunden führte Radix den Fokus bereits automatisch zum Trigger zurück.
+- Der P1 bestand damit im verzögerten Zwischenzustand eines bereits logisch geschlossenen Dialogs. Die Korrektur muss die vorhandene Radix-Integration beibehalten, darf aber die Fokus-Rückgabe nicht bis zum Animationsende verzögern.
+
+### Eng begrenzte technische Korrektur
+
+- Der echte `SheetTrigger`-Button besitzt nun eine stabile `useRef<HTMLButtonElement>`-Referenz. `onEscapeKeyDown` markiert ausschließlich den Escape-Schließweg; X-Schaltfläche, Overlay, Linknavigation und Sprachwechsel erhalten keine neue Sonderbehandlung.
+- Sobald der kontrollierte Zustand `mobileMenuOpen` nach Escape `false` ist, setzt ein eng begrenzter Effekt den Fokus mit `preventScroll: true` auf genau diesen Trigger. Dadurch liegt der Fokus bereits während der auslaufenden Schließanimation nicht mehr in einem logisch geschlossenen Dialogelement.
+- `onCloseAutoFocus` verhindert nur im markierten Escape-Fall die doppelte Radix-Standardbehandlung, fokussiert denselben Trigger als Unmount-Absicherung und setzt die Markierung anschließend zurück. Für alle anderen Schließwege bleibt Radix' bestehendes Auto-Focus-Verhalten unverändert.
+- Es wurden keine Timer, globalen Event-Listener, Dependencies, neuen Fokusmanager oder Sheet-Basisänderungen ergänzt. Sichtbare Texte, Klassen, Größen, Abstände, Animationen und das Design blieben unverändert.
+
+### Accessibility- und mobile Prüfmatrix
+
+| Sprache | Route | Viewport | Tab zum Trigger | Enter öffnet | Fokus im Dialog | Tab / Shift+Tab gefangen | Escape-Fokus nach 50 ms | sichtbar | Space öffnet erneut | Scroll stabil |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| DE | `/` | 390 × 844 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+| DE | `/` | 430 × 932 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+| EN | `/en` | 390 × 844 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+| EN | `/en` | 430 × 932 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+| RU | `/ru` | 390 × 844 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+| RU | `/ru` | 430 × 932 | ja | ja | ja | ja | Trigger | ja | ja | ja |
+
+- In allen sechs Fällen gilt nach Escape nachweisbar `document.activeElement === ursprünglicher Menü-Auslöser`, obwohl der Dialog während der auslaufenden Animation noch mit `data-state="closed"` vorhanden sein kann. Der Trigger besitzt `:focus-visible`, `aria-expanded="false"`, und `scrollY` bleibt unverändert.
+- Dialogrolle, `aria-labelledby`, `aria-describedby`, lokalisierter Triggername und `html lang` bleiben korrekt. Das Menü lässt sich unmittelbar mit Space und nach einem zweiten Escape erneut öffnen; kein Fokus verbleibt in einem geschlossenen oder ausgeblendeten Element.
+- Je ein zusätzlicher Leistungsweg über `/leistungen`, `/en/leistungen` und `/ru/leistungen` bestand Escape-Fokus und anschließende interne Navigation zur jeweiligen Kontaktseite. X-Schaltfläche, Overlay-Schließen und Sprachwechsel DE → EN, EN → RU sowie RU → DE bestanden ebenfalls ohne Fokus- oder Navigationsfehler.
+
+### Visuelle, funktionale und E1-Regression
+
+- Geschlossene und geöffnete Zustände wurden in DE, EN und RU bei 390, 430 und 768 Pixeln erfasst; die Desktop-Header wurden zusätzlich bei 1440 Pixeln geprüft. Es gibt keinen horizontalen Overflow, keine abgeschnittenen Inhalte, keine Header-Instabilität und keine sichtbare Änderung an Texten, Klassen oder Layout.
+- Zehn stabile Screenshot-Zustände sind bytegleich zur Baseline. Weitere während Fokus beziehungsweise Ein-/Ausblendanimation erfasste Zustände unterscheiden sich erwartungsgemäß im Interaktionszeitpunkt; der visuelle Review fand darin keine Layoutregression. Einzelne Open-PNGs zeigen das Sheet wegen des frühen Animationszeitpunkts nicht vollständig und werden deshalb nur gemeinsam mit der maschinenlesbaren Dialog- und Fokusmatrix gewertet.
+- Desktop-Navigation und Theme-Wechsel bestanden auf allen drei Startseiten bei 1440 Pixeln. Mobile Navigation, interne Links und Sprachwechsel bestanden; kein Formular wurde abgesendet und kein Resend-Aufruf ausgelöst. Es traten keine unerwarteten Console-, Hydration-, Page-, Request-, Modul-, Bild- oder HTTP-Fehler auf.
+- Alle 15 durch E1 geschützten Legacy-Service-URLs liefern weiterhin bei GET, HEAD, Query und Reload HTTP 404, behalten Original-URL, Sprache, `noindex` und drei Recovery-Links und erzeugen keinen Redirect. Die einzige Console-Meldung ist weiterhin Chromiums erwartetes Statussignal für das absichtlich mit 404 antwortende Hauptdokument.
+- Alle fünf geschützten Gutachten-Redirects antworten weiterhin direkt mit 308, erhalten Query-Parameter und führen ohne Kette auf HTTP-200-Ziele. Alle 30 V1-Routen liefern HTTP 200. Sichtbare Hauptausgabe, Robots, Canonicals, Hreflang, Metadata, Structured Data, Sitemap und interne Links sind semantisch exakt zur E1-Baseline; `proxy.ts` blieb bytegleich.
+
+### Technische Checks, Reviewer, Scope und Revert
+
+- `git diff --check`, `npm run lint`, `npx tsc --noEmit` und `npm run build` bestanden. Next.js 16.2.4 erzeugt weiterhin 36 statische Seiten und weist den unveränderten Proxy separat als Middleware aus.
+- Der lokale `next-router-check` prüfte unverändert 24 UI-Routen, davon elf datenladend beziehungsweise `notFound()`-fähig, und fand null fehlende erforderliche `loading.tsx`-, `error.tsx`- oder `not-found.tsx`-Grenzen. `next-env.d.ts` blieb unverändert.
+- Der read-only `a11y_checker` meldet null Verstöße und bestätigt den geschlossenen Task-026-Fokus-P1. Der read-only `mobile_visual_checker` meldet keine kritischen mobilen oder visuellen Probleme, keinen Overflow und keine Header-Instabilität; sein einziger nicht blockierender Hinweis betrifft die eingeschränkte Lesbarkeit einzelner während der Animation erfasster Open-Screenshots.
+- Der verpflichtende read-only `quality_reviewer` meldet nach Abgleich der React-19.2.4-Ref-Weitergabe mit den sechs realen Produktionsfällen null Verstöße und bestätigt die Commitreife. Die doppelte Absicherung über Effekt und `onCloseAutoFocus` bleibt ein nicht blockierender Residualhinweis; die Produktionsmatrix belegt sichtbaren Fokus und stabile Scrollposition ohne Nebenwirkung.
+- Der gezielte read-only `launch_reviewer` bestätigt innerhalb von Aufgabe 026 null offene technische P0/P1 sowie keine E2-P2-/P3-Findings. Er erteilt ausdrücklich keine Gesamt-Launch-Freigabe: finale Nutzerfreigabe und Done-Verschiebung dieses Tasks sowie Deployment, echter Formularversand, Monitoring und die getrennten Aufgaben 033 bis 035 bleiben außerhalb von E2 offen.
+- Typografie-, Content-, SEO-, Legal- und Performance-Reviewer wurden nicht erneut eingesetzt: E2 ändert weder sichtbare Texte oder Klassen noch Inhalte, SEO-/Rechtsdaten, Assets, Bundles oder Dependencies. Die umfassenden Phase-E- und E1-Ergebnisse bleiben durch den semantisch identischen 30-Routen-/SEO-Vergleich geschützt.
+- Der technische Scope umfasst ausschließlich `components/HeaderMobileMenu.tsx`. Zusätzlich sind nur `CHANGELOG.md` und diese aktive Task-Datei geändert. Routen, `components/ui/sheet.tsx`, Übersetzungen, Styles, Metadata, Structured Data, Sitemap, Robots, Assets, Dependencies, Specs, `ROADMAP.md`, `workflow/done/` und `next-env.d.ts` blieben unverändert.
+- Der atomare Revert besteht aus dem Rücksetzen der Trigger-Referenz, der Escape-Markierung, des fokussierenden Effekts und der beiden Radix-Ereignishandler in `components/HeaderMobileMenu.tsx` sowie dieses E2-Abschnitts und des zugehörigen Changelog-Eintrags.
+
+### E2-Ergebnis und Freigabestatus
+
+- Der mobile Escape-Fokus-P1 ist geschlossen. Innerhalb von Aufgabe 026 ist nach der vollständigen E2-Regression kein technischer P0/P1 mehr bekannt.
+- Aufgabe 026 erfüllt 23 von 24 Akzeptanzkriterien. Ausschließlich das finale Abschluss- und Nutzerfreigabekriterium bleibt offen.
+- Die Aufgabe bleibt in `workflow/active/`, trägt den Status `wartet auf Freigabe` und wird nicht automatisch nach `workflow/done/` verschoben. `ROADMAP.md` bleibt unverändert, weil Reihenfolge, Prioritäten und Projektphasen nicht geändert wurden. Diese Task-Bewertung ist keine Gesamt-Launch-Freigabe.
+
 ## Akzeptanzkriterien
 
 - [x] Vor jeder Löschgruppe stimmt die gestagte Dateiliste exakt mit der in dieser Task freigegebenen Gruppenliste überein; Nachweis: `git diff --cached --name-only` und erneuter Import-/Exportgraph.
@@ -860,8 +917,8 @@ Alle Antworten besitzen `text/html; charset=utf-8`, keinen `Location`-Header und
 - [x] Nach A2, A4, A6 und A8 sowie nach den Phasen B bis D besteht `npm run build`; Build-Ausgabe und relevante Seitenanzahl werden dokumentiert.
 - [x] Der next-router-check besteht nach Phase C und bei jeder früheren Gruppe, die wider Erwarten Routen oder datenladende Abhängigkeiten berührt.
 - [x] Mobile-, Tablet- und Desktopprüfungen bei mindestens 390, 768 und 1440 px bestehen in DE, EN und RU nach jeder sichtbaren Phase; A1, A3 und A7 erhalten die dokumentierten gezielten Smoke-Checks.
-- [ ] Accessibility-Prüfungen decken Tastaturfokus, sichtbaren Fokus, Linkzweck, Accessible Names, Sprache, Touchziele und 404-/Error-Recovery ab; Typografieprüfungen decken Zeilenumbrüche, Overflow und CTA-Lesbarkeit ab.
-  - Phase E deckt alle Punkte ab, der Fokus kehrt nach Escape jedoch in DE, EN und RU nicht zum Auslöser des mobilen Menüs zurück. Das Kriterium bleibt bis zur Korrektur und erneuten Prüfung offen.
+- [x] Accessibility-Prüfungen decken Tastaturfokus, sichtbaren Fokus, Linkzweck, Accessible Names, Sprache, Touchziele und 404-/Error-Recovery ab; Typografieprüfungen decken Zeilenumbrüche, Overflow und CTA-Lesbarkeit ab.
+  - Follow-up E2 gibt den Fokus nach Escape in DE, EN und RU bei 390 und 430 Pixeln bereits während der auslaufenden Schließanimation zuverlässig zum ursprünglichen Menü-Auslöser zurück. Enter, Space, Tab, Shift+Tab, sichtbarer Fokus, Dialogsemantik, X, Overlay, interne Navigation, Sprachwechsel und zusätzliche Leistungswege bestehen; der read-only Accessibility-Review meldet null Verstöße.
 - [x] Browserkonsole, Hydration, Requests, interne Links und Bilder sind auf den pro Phase benannten Wegen fehlerfrei; fehlende Bilder oder Soft-404-Zustände gelten als Fehler.
   - Follow-up E1 setzt den Status vor dem Streaming per eng begrenztem Rewrite auf 404. Alle 15 Legacy-URLs bestehen GET, HEAD, Query und Reload ohne Redirect; lokalisierte Recovery-Ausgabe, `noindex`, Links und Bilder bleiben unverändert. Die einzige Console-Meldung ist Chromiums erwartetes Statussignal der absichtlich geladenen 404-Hauptdokumente, kein Anwendungsfehler.
 - [x] EN/RU enthalten keine unbeabsichtigten deutschen Resttexte und bleiben fachlich gleichwertig zu DE; Prüfung durch dreisprachigen Content-Vergleich nach B und D.
@@ -869,7 +926,7 @@ Alle Antworten besitzen `text/html; charset=utf-8`, keinen `Location`-Header und
 - [x] Für jede Phase sind exakter Scope, Ausschlüsse, Abhängigkeiten, Risiken, Prüfungen und atomarer Revert-Weg im tatsächlichen Abschlussstand dokumentiert.
 - [x] ROADMAP wird nur geändert, wenn sich Reihenfolge, Priorität oder Projektphase tatsächlich ändert; reine Task-Planpräzisierungen werden im CHANGELOG nachvollziehbar dokumentiert.
 - [ ] Aufgabe 026 wird erst nach vollständiger technischer und visueller Regression, passender Reviewer-Prüfung, Ergebniszusammenfassung und ausdrücklicher Nutzerfreigabe abgeschlossen und nach `workflow/done/` verschoben.
-  - Die Regression und Reviewer-Prüfung sind dokumentiert; wegen der zwei P1-Blocker und fehlender Abschlussfreigabe bleibt das Kriterium offen.
+  - Die technische und visuelle Regression sowie die passenden Reviewer-Prüfungen sind mit E1 und E2 vollständig dokumentiert; die beiden Phase-E-P1-Blocker sind geschlossen. Das Kriterium bleibt ausschließlich bis zur ausdrücklichen Nutzerfreigabe und anschließenden Verschiebung nach `workflow/done/` offen.
 
 ## Ergebnis dieses Startschritts
 

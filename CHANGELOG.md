@@ -4,6 +4,16 @@ Dieses Changelog dokumentiert die Entwicklung des Projekts nach Datum, Aufgabe u
 
 ## 2026-08-22
 
+### Aufgabe 026 - Fokus-Rückgabe des mobilen Menüs nach Escape
+
+- Das ausdrücklich freigegebene Follow-up E2 behebt ausschließlich den letzten technischen Task-026-P1: Nach Escape erhält der tatsächliche Auslöser des mobilen Menüs den Tastaturfokus bereits beim kontrollierten Schließen zurück. `HeaderMobileMenu.tsx` verwendet dafür eine stabile Button-Referenz, markiert nur den Escape-Schließweg und sichert das Fokusziel zusätzlich über Radix `onCloseAutoFocus`; `preventScroll` verhindert einen ungewollten Seitensprung.
+- Die ursprüngliche Phase-E-Messung erfolgte nach 150 Millisekunden, während das Radix-Sheet wegen seiner 300-ms-Schließanimation noch im DOM stand. E2 entfernt dieses Zwischenfenster: In DE, EN und RU gilt bei 390 und 430 Pixeln bereits 50 Millisekunden nach `open=false` nachweisbar `document.activeElement === Menü-Auslöser`, der Fokus ist sichtbar und die Seite bleibt an derselben Scrollposition.
+- Tab und Shift+Tab bleiben im geöffneten Dialog gefangen; Enter und Space öffnen das Menü und ermöglichen die unmittelbare Wiederöffnung nach Escape. X-Schaltfläche, Overlay, interne Navigation, Sprachwechsel und je ein zusätzlicher Leistungsweg pro Sprache funktionieren weiterhin ohne Fokus in einem geschlossenen Element.
+- Die visuellen und funktionalen Prüfungen bei 390, 430, 768 und 1440 Pixeln fanden keine Layout-, Text-, Stil-, Overflow- oder Header-Regression. Desktop-Navigation und Theme-Wechsel bestehen in allen drei Sprachen. Es wurde kein Formular abgesendet und kein Resend-Aufruf ausgelöst.
+- Die E1-Schutzregression besteht unverändert: 15 von 15 Legacy-Service-URLs liefern bei GET, HEAD, Query und Reload HTTP 404 ohne Redirect; fünf Gutachten-Redirects bleiben direkte 308-Antworten mit Query-Erhalt, und alle 30 V1-Routen liefern HTTP 200. Metadata, Structured Data, Sitemap, Robots, Canonicals, Hreflang und `proxy.ts` sind unverändert.
+- Diff-Check, ESLint, TypeScript, Produktions-Build mit 36 statischen Seiten und next-router-check mit 24 UI-Routen, elf datenladenden Routen und null fehlenden Pflichtgrenzen bestanden. Accessibility-, Mobile-Visual- und Quality-Review melden keine P0-/P1-Verstöße; der Fokus-P1 ist geschlossen. Der gezielte Launch-Review bestätigt, dass innerhalb von Aufgabe 026 kein technischer P0/P1 mehr offen ist, erteilt aber ausdrücklich keine Gesamt-Launch-Freigabe.
+- Technisch wurde ausschließlich `components/HeaderMobileMenu.tsx` geändert; zusätzlich wurden diese Changelog-Datei und die aktive Task-Datei dokumentiert. Routen, Sheet-Basis, Texte, Styles, SEO, Assets, Dependencies, Specs und `ROADMAP.md` blieben unverändert. Aufgabe 026 erfüllt 23 von 24 Akzeptanzkriterien und wartet weiterhin auf die ausdrückliche Abschlussfreigabe.
+
 ### Aufgabe 026 - Legacy-Service-URLs liefern echte 404-Antworten
 
 - Das ausdrücklich freigegebene Follow-up E1 behebt ausschließlich den dokumentierten Soft-404-P1 der 15 entfernten Legacy-Service-URLs. Eine neue Root-Datei `proxy.ts` besitzt exakt 15 statische, literal definierte Matcher und schreibt die Requests sprachabhängig auf vorhandene DE-/EN-/RU-Catch-all-Strukturen um; der äußere Status wird vor dem Streaming auf HTTP 404 gesetzt.

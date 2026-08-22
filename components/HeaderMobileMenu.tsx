@@ -4,8 +4,9 @@
   Diese Datei zeigt das mobile Menue im Kopfbereich.
   Sie oeffnet ein Seitenmenue mit Kontaktwegen, Navigation, Leistungen und Sprache.
   Nutzer koennen auf kleinen Bildschirmen navigieren und die Sprache wechseln.
+  Nach Escape kehrt der Tastaturfokus zum ausloesenden Menue-Button zurueck.
 */
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
@@ -49,8 +50,17 @@ export function HeaderMobileMenu({
   // Diese Werte steuern das mobile Menue und sperren Spracheingaben kurz waehrend der Navigation.
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isPending, setIsPending] = useState(false)
+  const menuTriggerRef = useRef<HTMLButtonElement>(null)
+  const restoreFocusAfterEscapeRef = useRef(false)
   const pathname = usePathname()
   const router = useRouter()
+
+  // Nach Escape wird der Fokus bereits beim kontrollierten Schliessen zurueckgegeben, nicht erst nach der Animation.
+  useEffect(() => {
+    if (!mobileMenuOpen && restoreFocusAfterEscapeRef.current) {
+      menuTriggerRef.current?.focus({ preventScroll: true })
+    }
+  }, [mobileMenuOpen])
 
   // Diese Funktion schliesst das mobile Menue, wenn ein Link gewaehlt wurde.
   const closeMobileMenu = () => {
@@ -79,6 +89,7 @@ export function HeaderMobileMenu({
     <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
       <SheetTrigger asChild>
         <Button
+          ref={menuTriggerRef}
           variant="ghost"
           size="icon"
           className="h-10 w-10 rounded-full border border-border/80 bg-card text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-accent xl:hidden"
@@ -90,6 +101,18 @@ export function HeaderMobileMenu({
       <SheetContent
         side="right"
         closeLabel={labels.closeMenu}
+        onEscapeKeyDown={() => {
+          restoreFocusAfterEscapeRef.current = true
+        }}
+        onCloseAutoFocus={(event) => {
+          if (!restoreFocusAfterEscapeRef.current) {
+            return
+          }
+
+          event.preventDefault()
+          restoreFocusAfterEscapeRef.current = false
+          menuTriggerRef.current?.focus({ preventScroll: true })
+        }}
         className="w-[88vw] max-w-[20rem] overflow-y-auto border-l border-border/70 bg-card/98 px-3.5 pb-5 pt-4 shadow-[0_18px_44px_rgba(15,23,42,0.24)] backdrop-blur"
       >
         <SheetTitle className="sr-only">{labels.openMenu}</SheetTitle>
